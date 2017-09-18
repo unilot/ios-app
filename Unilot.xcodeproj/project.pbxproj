@@ -13,6 +13,8 @@
 		D69364CB1F5F254400FD0D37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69364C91F5F254400FD0D37 /* Main.storyboard */; };
 		D69364CD1F5F254400FD0D37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D69364CC1F5F254400FD0D37 /* Assets.xcassets */; };
 		D69364D01F5F254400FD0D37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69364CE1F5F254400FD0D37 /* LaunchScreen.storyboard */; };
+		D69364D91F5F328D00FD0D37 /* FlippingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364D71F5F328D00FD0D37 /* FlippingLabel.swift */; };
+		D69364DA1F5F328D00FD0D37 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364D81F5F328D00FD0D37 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		D69364CC1F5F254400FD0D37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D69364CF1F5F254400FD0D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D69364D11F5F254400FD0D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D69364D71F5F328D00FD0D37 /* FlippingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlippingLabel.swift; sourceTree = "<group>"; };
+		D69364D81F5F328D00FD0D37 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				D69364C31F5F254400FD0D37 /* AppDelegate.swift */,
 				D69364C51F5F254400FD0D37 /* FirstViewController.swift */,
 				D69364C71F5F254400FD0D37 /* SecondViewController.swift */,
+				D69364D71F5F328D00FD0D37 /* FlippingLabel.swift */,
+				D69364D81F5F328D00FD0D37 /* MainView.swift */,
 				D69364C91F5F254400FD0D37 /* Main.storyboard */,
 				D69364CC1F5F254400FD0D37 /* Assets.xcassets */,
 				D69364CE1F5F254400FD0D37 /* LaunchScreen.storyboard */,
@@ -143,6 +149,8 @@
 				D69364C81F5F254400FD0D37 /* SecondViewController.swift in Sources */,
 				D69364C41F5F254400FD0D37 /* AppDelegate.swift in Sources */,
 				D69364C61F5F254400FD0D37 /* FirstViewController.swift in Sources */,
+				D69364DA1F5F328D00FD0D37 /* MainView.swift in Sources */,
+				D69364D91F5F328D00FD0D37 /* FlippingLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

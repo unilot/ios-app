@@ -8,98 +8,143 @@
 
 import UIKit
 
-class MainView: UIViewController {
+class MainView: UIViewController, CountDownTabletDelegate {
+ 
 
-    @IBOutlet weak var hourTensLabel: FlippingLabel!
-    @IBOutlet weak var hourUnitsLabel: FlippingLabel!
-    @IBOutlet weak var minuteTensLabel: FlippingLabel!
-    @IBOutlet weak var minuteUnitsLabel: FlippingLabel!
-    @IBOutlet weak var secondTensLabel: FlippingLabel!
-    @IBOutlet weak var secondUnitsLabel: FlippingLabel!
+    @IBOutlet weak var bgView: UIImageView!
+
+
+    @IBOutlet weak var loadingSignFirst: UIImageView!
+    @IBOutlet weak var loadingSignProgress: UIImageView!
     
-    var timer: Timer!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        updateClock(animated: false)
-        startClockTimer()
+    @IBOutlet weak var takePart: UIButton!
+    
+    @IBOutlet weak var prizePlaces: UIButton!
+    
+    @IBOutlet weak var usSum: UILabel!
+    @IBOutlet weak var ethSum: UILabel!
+    
+    @IBOutlet weak var clockTablet: CountDownTablet!
+
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        clearNavBar()
+        
+        addParallaxToView(vw: bgView)
+        
+        
+        
+        setButtonView()
+        
+        setLoadingSign(toWidth: 0)
+        
+        setMenuButton()
+        
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        setClockTable()
     }
     
-    func updateClock(animated:Bool) {
+    func setClockTable(){
         
-        let date = Date()
-        
-        let dateFormatter: DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hh:mm:ss:SS"
-        let dateString: String = dateFormatter.string(from: date)
-        let units: [String] = dateString.components(separatedBy: ":")
-        dateFormatter.dateFormat = "hh:mm:ss"
-        
-        if animated == true {
-            
-            //HOURS
-            hourTensLabel.updateWithText(units[0].substring(to: units[0].index(units[0].startIndex, offsetBy: 1)))
-            hourUnitsLabel.updateWithText(units[0].substring(from: units[0].index(units[0].startIndex, offsetBy: 1)))
-            
-            //MINUTES
-            minuteTensLabel.updateWithText(units[1].substring(to: units[0].index(units[0].startIndex, offsetBy: 1)))
-            minuteUnitsLabel.updateWithText(units[1].substring(from: units[0].index(units[0].startIndex, offsetBy: 1)))
-            
-            //SECONDS
-            secondTensLabel.updateWithText(units[2].substring(to: units[0].index(units[0].startIndex, offsetBy: 1)))
-            secondUnitsLabel.updateWithText(units[2].substring(from: units[0].index(units[0].startIndex, offsetBy: 1)))
-            
-        } else {
-            
-            //HOURS
-            hourTensLabel.text = units[0].substring(to: units[0].index(units[0].startIndex, offsetBy: 1))
-            hourUnitsLabel.text = units[0].substring(from: units[0].index(units[0].startIndex, offsetBy: 1))
-            
-            //MINUTES
-            minuteTensLabel.text = units[1].substring(to: units[0].index(units[0].startIndex, offsetBy: 1))
-            minuteUnitsLabel.text = units[1].substring(from: units[0].index(units[0].startIndex, offsetBy: 1))
-            
-            //SECONDS
-            secondTensLabel.text = units[2].substring(to: units[0].index(units[0].startIndex, offsetBy: 1))
-            secondUnitsLabel.text = units[2].substring(from: units[0].index(units[0].startIndex, offsetBy: 1))
-            
+        if clockTablet.createBody() {
+            clockTablet.delegate = self
+            clockTablet.startTimer(1500)
+
         }
+
+    }
+
+
+    
+    
+    func setButtonView(){
+        prizePlaces.layer.borderWidth = 1
+        prizePlaces.layer.borderColor = UIColor.white.cgColor
+        prizePlaces.layer.cornerRadius = prizePlaces.frame.height/2
+        prizePlaces.backgroundColor = UIColor.clear
+    }
+    
+    
+    func setLoadingSign(toWidth: CGFloat){
+        
+        let rect = loadingSignProgress.frame
+        
+        loadingSignProgress.frame = CGRect(x: rect.origin.x,
+                                           y: rect.origin.y,
+                                           width: toWidth,
+                                           height: rect.size.height)
+    }
+    
+    //MARK: -  CountDownTabletDelegate
+    
+    func countDownDidFall( from: Int, left: Int){
+        
+        let newWidth =  CGFloat(loadingSignFirst.frame.width) * ( 1 - CGFloat(left) / CGFloat(from))
+        
+        setLoadingSign(toWidth: newWidth )
+        
+        print(newWidth)
+        
+    }
+    
+    func countDownFinished(){
+        
     }
 
     
     
-    /// Gives an Date object corresponding to the next exact second (000 ms)
-    /// - Returns: a Date Object
-    fileprivate func nextSecondDate() -> Date {
-        let date = Date()
-        let calendar = Calendar(identifier: .gregorian)
-        let currentComponents = calendar.dateComponents([.hour, .minute, .second], from: date)
-        return calendar.date(bySettingHour: currentComponents.hour!, minute: currentComponents.minute!, second: (currentComponents.second!+1) % 60, of: date)!
+    //MARK: Add effects
+    
+    func setMenuButton(){
+        
+        navigationItem.backBarButtonItem = nil
+        
+        let backItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self, action: #selector(MainView.onOpenMenu))
+        backItem.title = nil
+        navigationItem.leftBarButtonItem = backItem
+
+        
     }
     
+    func onOpenMenu(){
+        navigationController?.popViewController(animated: true)
+    }
     
+    func clearNavBar(){
+
+        let bar:UINavigationBar! =  self.navigationController?.navigationBar
+        self.title = "Whatever..."
+        bar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        bar.shadowImage = UIImage()
+        bar.alpha = 0.0
+        
+    }
     
+    func addParallaxToView(vw: UIView) {
+        let amount = 100
+        
+        let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+        horizontal.minimumRelativeValue = -amount
+        horizontal.maximumRelativeValue = amount
+        
+        let vertical = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+        vertical.minimumRelativeValue = -amount
+        vertical.maximumRelativeValue = amount
+        
+        let group = UIMotionEffectGroup()
+        group.motionEffects = [horizontal, vertical]
+        vw.addMotionEffect(group)
+    }
     
+
 }
 
 
-// MARK: - timer
-extension MainView {
-    
-    fileprivate func startClockTimer() {
-        
-        // We will start the timer half a second after the next 'exact second'
-        // to avoir precision problem for the next clock update (for example getting
-        // the text one millisecond too early could show a wrong clock time
-        
-        let fireDate = nextSecondDate()
-        var fireDateTimeInterval = fireDate.timeIntervalSince1970
-        fireDateTimeInterval += 0.5
-        
-        timer = Timer.scheduledTimer(timeInterval: 1.00, target: self, selector: #selector(self.handleTimerTick), userInfo: nil, repeats: true)
-    }
-    
-    @objc fileprivate func handleTimerTick() {
-        self.updateClock(animated: true)
-    }
-}

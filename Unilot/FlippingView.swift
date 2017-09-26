@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FlippingLabel: UILabel {
+class FlippingView: UILabel {
     
     //Constants
     fileprivate let topAnimationDuration: CFTimeInterval! = 0.5
@@ -20,6 +20,30 @@ class FlippingLabel: UILabel {
     fileprivate var previousTextTopView: UIView!
     fileprivate var previousTextBottomView: UIView!
     
+    var label : UILabel!
+ 
+    
+    func initViewWithLabel(_ rect : CGRect){
+        
+        self.frame = rect
+        
+        self.image = UIImage(named: "flipFull")
+        self.contentMode = .scaleToFill
+        self.clipsToBounds = true
+        
+        label = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
+        label.text = "0"
+        label.font = UIFont(name: "HelveticaNeue-UltraLight", size: 18)
+        label.textColor = UIColor.white
+
+//        layer.cornerRadius = 6
+
+        self.clipsToBounds = true
+        self.backgroundColor = UIColor.clear
+        
+        addSubview(label)
+    }
+
     
 //    //True if after the completion of the bottom tile animation we can remove
 //    //the views safely
@@ -34,23 +58,15 @@ class FlippingLabel: UILabel {
     /// added as subviews.
     /// - Parameter newText: the new text to be shown for the label
     func updateWithText(_ newText: String) {
+
         
-        if text != newText {
+        if label.text  != newText {
             
             let (previousTextTopView, previousTextBottomView): (UIView, UIView) = createSnapshotViews()
             
-            text = newText
+            label.text = newText
+            
             let (_, newTextBottomView): (UIView, UIView) = createSnapshotViews()
-            
-            
-            newTextBottomView.layer.cornerRadius = 6
-            newTextBottomView.clipsToBounds = true
-
-            previousTextTopView.layer.cornerRadius = 6
-            previousTextTopView.clipsToBounds = true
-
-            previousTextBottomView.layer.cornerRadius = 6
-            previousTextTopView.clipsToBounds = true
 
             self.newTextBottomView = newTextBottomView
             self.previousTextBottomView = previousTextBottomView
@@ -64,8 +80,7 @@ class FlippingLabel: UILabel {
             // shadown that we will draw, inside the bounds of the view
             previousTextBottomView.clipsToBounds = true;
             
-            
-            clipsToBounds = false;
+            clipsToBounds = true
             
             animateTiles()
         }
@@ -82,8 +97,8 @@ class FlippingLabel: UILabel {
         
         // Render the view into an image:
         
-        self.clipsToBounds  = true
-        self.layer.cornerRadius = 6
+//        self.clipsToBounds  = true
+//        self.layer.cornerRadius = 6
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0)
         layer.render(in: UIGraphicsGetCurrentContext()!)
         let renderedImage: UIImage  = UIGraphicsGetImageFromCurrentImageContext()!
@@ -140,7 +155,7 @@ class FlippingLabel: UILabel {
 
 
 //MARK: - Animations
-extension FlippingLabel {
+extension FlippingView {
     
     /// Start the flipping animation effect
     func animateTiles() {
@@ -297,7 +312,7 @@ extension FlippingLabel {
 
 
 //MARK: - CAAnimationDelegate
-extension FlippingLabel: CAAnimationDelegate {
+extension FlippingView: CAAnimationDelegate {
     
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {

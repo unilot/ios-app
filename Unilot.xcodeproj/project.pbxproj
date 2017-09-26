@@ -7,17 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		290FA72F1CDF40E19A0E8204 /* Pods_Unilot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBC0194290D8904822A4787C /* Pods_Unilot.framework */; };
+		D60884B51F74325A00611E35 /* CountDownTablet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60884B41F74325A00611E35 /* CountDownTablet.swift */; };
+		D62A31751F7AC10300275B86 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A31741F7AC10300275B86 /* SWRevealViewController.m */; };
+		D62A31771F7AC86900275B86 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62A31761F7AC86900275B86 /* TabBarController.swift */; };
 		D69364C41F5F254400FD0D37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364C31F5F254400FD0D37 /* AppDelegate.swift */; };
 		D69364C61F5F254400FD0D37 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364C51F5F254400FD0D37 /* FirstViewController.swift */; };
 		D69364C81F5F254400FD0D37 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364C71F5F254400FD0D37 /* SecondViewController.swift */; };
 		D69364CB1F5F254400FD0D37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69364C91F5F254400FD0D37 /* Main.storyboard */; };
 		D69364CD1F5F254400FD0D37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D69364CC1F5F254400FD0D37 /* Assets.xcassets */; };
 		D69364D01F5F254400FD0D37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69364CE1F5F254400FD0D37 /* LaunchScreen.storyboard */; };
-		D69364D91F5F328D00FD0D37 /* FlippingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364D71F5F328D00FD0D37 /* FlippingLabel.swift */; };
+		D69364D91F5F328D00FD0D37 /* FlippingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364D71F5F328D00FD0D37 /* FlippingView.swift */; };
 		D69364DA1F5F328D00FD0D37 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364D81F5F328D00FD0D37 /* MainView.swift */; };
+		D6BDD9031F7AD1DB00E91FD0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BDD9021F7AD1DB00E91FD0 /* Constants.swift */; };
+		D6BDD9051F7AD1F200E91FD0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BDD9041F7AD1F200E91FD0 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		61239D8B0908489D3E371489 /* Pods-Unilot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unilot.release.xcconfig"; path = "Pods/Target Support Files/Pods-Unilot/Pods-Unilot.release.xcconfig"; sourceTree = "<group>"; };
+		CBC0194290D8904822A4787C /* Pods_Unilot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unilot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D60884B41F74325A00611E35 /* CountDownTablet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountDownTablet.swift; sourceTree = "<group>"; };
+		D62A31701F7AC06E00275B86 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Settings/Bridging-Header.h"; sourceTree = "<group>"; };
+		D62A31731F7AC10300275B86 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		D62A31741F7AC10300275B86 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		D62A31761F7AC86900275B86 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D69364C01F5F254400FD0D37 /* Unilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unilot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D69364C31F5F254400FD0D37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D69364C51F5F254400FD0D37 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -26,8 +39,11 @@
 		D69364CC1F5F254400FD0D37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D69364CF1F5F254400FD0D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D69364D11F5F254400FD0D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D69364D71F5F328D00FD0D37 /* FlippingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlippingLabel.swift; sourceTree = "<group>"; };
+		D69364D71F5F328D00FD0D37 /* FlippingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlippingView.swift; sourceTree = "<group>"; };
 		D69364D81F5F328D00FD0D37 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D6BDD9021F7AD1DB00E91FD0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D6BDD9041F7AD1F200E91FD0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F775BF0A9782A06721E4E9B3 /* Pods-Unilot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unilot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Unilot/Pods-Unilot.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +51,88 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				290FA72F1CDF40E19A0E8204 /* Pods_Unilot.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		336C009D07D6695BEE800AA7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CBC0194290D8904822A4787C /* Pods_Unilot.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		618755CDCD35E9229FC443C6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F775BF0A9782A06721E4E9B3 /* Pods-Unilot.debug.xcconfig */,
+				61239D8B0908489D3E371489 /* Pods-Unilot.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D62A316D1F7AC01D00275B86 /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				D6BDD9021F7AD1DB00E91FD0 /* Constants.swift */,
+				D69364C31F5F254400FD0D37 /* AppDelegate.swift */,
+				D6BDD9041F7AD1F200E91FD0 /* Extensions.swift */,
+				D69364C51F5F254400FD0D37 /* FirstViewController.swift */,
+				D69364C71F5F254400FD0D37 /* SecondViewController.swift */,
+				D69364D71F5F328D00FD0D37 /* FlippingView.swift */,
+				D60884B41F74325A00611E35 /* CountDownTablet.swift */,
+				D69364D81F5F328D00FD0D37 /* MainView.swift */,
+				D62A31761F7AC86900275B86 /* TabBarController.swift */,
+			);
+			name = Code;
+			sourceTree = "<group>";
+		};
+		D62A316E1F7AC02800275B86 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				D69364C91F5F254400FD0D37 /* Main.storyboard */,
+				D69364CE1F5F254400FD0D37 /* LaunchScreen.storyboard */,
+			);
+			name = StoryBoard;
+			sourceTree = "<group>";
+		};
+		D62A316F1F7AC03D00275B86 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D62A31701F7AC06E00275B86 /* Bridging-Header.h */,
+				D69364D11F5F254400FD0D37 /* Info.plist */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		D62A31711F7AC10300275B86 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D62A31721F7AC10300275B86 /* SideBarMenu */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		D62A31721F7AC10300275B86 /* SideBarMenu */ = {
+			isa = PBXGroup;
+			children = (
+				D62A31731F7AC10300275B86 /* SWRevealViewController.h */,
+				D62A31741F7AC10300275B86 /* SWRevealViewController.m */,
+			);
+			path = SideBarMenu;
+			sourceTree = "<group>";
+		};
 		D69364B71F5F254400FD0D37 = {
 			isa = PBXGroup;
 			children = (
 				D69364C21F5F254400FD0D37 /* Unilot */,
 				D69364C11F5F254400FD0D37 /* Products */,
+				618755CDCD35E9229FC443C6 /* Pods */,
+				336C009D07D6695BEE800AA7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,15 +147,11 @@
 		D69364C21F5F254400FD0D37 /* Unilot */ = {
 			isa = PBXGroup;
 			children = (
-				D69364C31F5F254400FD0D37 /* AppDelegate.swift */,
-				D69364C51F5F254400FD0D37 /* FirstViewController.swift */,
-				D69364C71F5F254400FD0D37 /* SecondViewController.swift */,
-				D69364D71F5F328D00FD0D37 /* FlippingLabel.swift */,
-				D69364D81F5F328D00FD0D37 /* MainView.swift */,
-				D69364C91F5F254400FD0D37 /* Main.storyboard */,
+				D62A316E1F7AC02800275B86 /* StoryBoard */,
+				D62A316D1F7AC01D00275B86 /* Code */,
 				D69364CC1F5F254400FD0D37 /* Assets.xcassets */,
-				D69364CE1F5F254400FD0D37 /* LaunchScreen.storyboard */,
-				D69364D11F5F254400FD0D37 /* Info.plist */,
+				D62A31711F7AC10300275B86 /* Frameworks */,
+				D62A316F1F7AC03D00275B86 /* Settings */,
 			);
 			path = Unilot;
 			sourceTree = "<group>";
@@ -80,9 +163,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D69364D41F5F254400FD0D37 /* Build configuration list for PBXNativeTarget "Unilot" */;
 			buildPhases = (
+				97CA566C6EB24BE893947E72 /* [CP] Check Pods Manifest.lock */,
 				D69364BC1F5F254400FD0D37 /* Sources */,
 				D69364BD1F5F254400FD0D37 /* Frameworks */,
 				D69364BE1F5F254400FD0D37 /* Resources */,
+				D9DDEC89A3E92EDC3B8187DE /* [CP] Embed Pods Frameworks */,
+				2060048B3D440DCC4BB1BCAC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -141,16 +227,75 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2060048B3D440DCC4BB1BCAC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Unilot/Pods-Unilot-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97CA566C6EB24BE893947E72 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Unilot-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9DDEC89A3E92EDC3B8187DE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Unilot/Pods-Unilot-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Unilot/Pods-Unilot-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D69364BC1F5F254400FD0D37 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D62A31751F7AC10300275B86 /* SWRevealViewController.m in Sources */,
+				D62A31771F7AC86900275B86 /* TabBarController.swift in Sources */,
 				D69364C81F5F254400FD0D37 /* SecondViewController.swift in Sources */,
 				D69364C41F5F254400FD0D37 /* AppDelegate.swift in Sources */,
 				D69364C61F5F254400FD0D37 /* FirstViewController.swift in Sources */,
+				D6BDD9051F7AD1F200E91FD0 /* Extensions.swift in Sources */,
+				D60884B51F74325A00611E35 /* CountDownTablet.swift in Sources */,
 				D69364DA1F5F328D00FD0D37 /* MainView.swift in Sources */,
-				D69364D91F5F328D00FD0D37 /* FlippingLabel.swift in Sources */,
+				D69364D91F5F328D00FD0D37 /* FlippingView.swift in Sources */,
+				D6BDD9031F7AD1DB00E91FD0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,7 +362,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -262,7 +407,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -273,26 +418,30 @@
 		};
 		D69364D51F5F254400FD0D37 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F775BF0A9782A06721E4E9B3 /* Pods-Unilot.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VLZN2JPGN9;
 				INFOPLIST_FILE = Unilot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.vovasoft.-Unilot.Unilot";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vovasoft.Unilot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Unilot/Settings/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		D69364D61F5F254400FD0D37 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61239D8B0908489D3E371489 /* Pods-Unilot.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VLZN2JPGN9;
 				INFOPLIST_FILE = Unilot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.vovasoft.-Unilot.Unilot";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vovasoft.Unilot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Unilot/Settings/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -316,6 +465,7 @@
 				D69364D61F5F254400FD0D37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

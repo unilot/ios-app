@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainView: UIViewController, CountDownTabletDelegate {
+class MainView: UIViewController, CountDownTimeDelegate {
  
 
     @IBOutlet weak var bgView: UIImageView!
@@ -19,13 +19,18 @@ class MainView: UIViewController, CountDownTabletDelegate {
     
     
     @IBOutlet weak var takePart: UIButton!
+    @IBOutlet weak var takePartEth: UILabel!
+    @IBOutlet weak var takePartFon: UIImageView!
+
+    
     
     @IBOutlet weak var prizePlaces: UIButton!
     
     @IBOutlet weak var usSum: UILabel!
     @IBOutlet weak var ethSum: UILabel!
     
-    @IBOutlet weak var clockTablet: CountDownTablet!
+    @IBOutlet weak var moneyTablet: CountUppMoney!
+    @IBOutlet weak var clockTablet: CountDownSimpleTime!
 
 
     
@@ -37,39 +42,59 @@ class MainView: UIViewController, CountDownTabletDelegate {
         addParallaxToView(vw: bgView)
         
         
-        
         setButtonView()
         
         setLoadingSign(toWidth: 0)
         
         setMenuButton()
         
+        setTabBarItem()
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        setMoneyTable()
+
         setClockTable()
+
     }
     
-    func setClockTable(){
+    func setMoneyTable(){
         
-        if clockTablet.createBody() {
-            clockTablet.delegate = self
-            clockTablet.startTimer(1500)
-
+        if moneyTablet.createBody() {
+            moneyTablet.startTimer(0, 300)
         }
 
     }
 
+    func setClockTable(){
+        
+        if clockTablet.createBody() {
+            clockTablet.delegate = self
+            clockTablet.startTimer(1500, 2500)
+            
+        }
+        
+    }
 
     
     
     func setButtonView(){
-        prizePlaces.layer.borderWidth = 1
-        prizePlaces.layer.borderColor = UIColor.white.cgColor
+        
+        prizePlaces.layer.borderWidth = 0.5
+        prizePlaces.layer.borderColor = UIColor.gray.cgColor//UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 0.6).cgColor
         prizePlaces.layer.cornerRadius = prizePlaces.frame.height/2
         prizePlaces.backgroundColor = UIColor.clear
+        
+        
+        takePartFon.image = UIImage(named: "loadingSign")
+        takePartFon.layer.cornerRadius = takePartFon.frame.height/2
+        takePartFon.contentMode = .scaleAspectFill
+        takePartFon.clipsToBounds = true
+
+        takePartEth.text = "0,0005 Eth"
     }
     
     
@@ -83,19 +108,20 @@ class MainView: UIViewController, CountDownTabletDelegate {
                                            height: rect.size.height)
     }
     
-    //MARK: -  CountDownTabletDelegate
+    //MARK: -  CountDownTimeDelegate
     
-    func countDownDidFall( from: Int, left: Int){
+    func countDownDidFall(_ tag: Int, from: Int, left: Int){
         
-        let newWidth =  CGFloat(loadingSignFirst.frame.width) * ( 1 - CGFloat(left) / CGFloat(from))
-        
-        setLoadingSign(toWidth: newWidth )
-        
-        print(newWidth)
+        if tag == clockTablet.tag {
+            let newWidth =  CGFloat(loadingSignFirst.frame.width) * ( 1 - CGFloat(left) / CGFloat(from))
+            
+            setLoadingSign(toWidth: newWidth )
+            
+        }
         
     }
     
-    func countDownFinished(){
+    func countDownFinished(_ tag: Int){
         
     }
 
@@ -145,6 +171,14 @@ class MainView: UIViewController, CountDownTabletDelegate {
     }
     
 
+    
+    func setTabBarItem(){
+        
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for:.selected)
+
+        
+    }
 }
 
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FlippingView: UILabel {
+class FlippingLabel: UILabel {
     
     //Constants
     fileprivate let topAnimationDuration: CFTimeInterval! = 0.5
@@ -20,34 +20,28 @@ class FlippingView: UILabel {
     fileprivate var previousTextTopView: UIView!
     fileprivate var previousTextBottomView: UIView!
     
-    var label : UILabel!
- 
-    
-    func initViewWithLabel(_ rect : CGRect){
+    func initViewWithLabel(_ rect : CGRect, _ fonImage : UIImage){
         
         self.frame = rect
+        self.backgroundColor = UIColor(patternImage: fonImage)
+        self.textColor = UIColor.yellow
+        self.font = UIFont(name: "Helvetica-light", size: 50)
+        self.textAlignment = .center
+        self.text = " "
         
-        self.image = UIImage(named: "flipFull")
-        self.contentMode = .scaleToFill
-        self.clipsToBounds = true
         
-        label = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
-        label.text = "0"
-        label.font = UIFont(name: "HelveticaNeue-UltraLight", size: 18)
-        label.textColor = UIColor.white
-
-//        layer.cornerRadius = 6
-
-        self.clipsToBounds = true
-        self.backgroundColor = UIColor.clear
-        
-        addSubview(label)
+        let line = UIImageView(frame : CGRect(x : 0, y : self.frame.height / 2 - 1,
+            width : self.frame.width , height : 2))
+        line.backgroundColor = UIColor.black
+        addSubview(line)
+ 
     }
 
     
-//    //True if after the completion of the bottom tile animation we can remove
-//    //the views safely
-//    var canRemoveBottomView: Bool = false
+    
+    //    //True if after the completion of the bottom tile animation we can remove
+    //    //the views safely
+    //    var canRemoveBottomView: Bool = false
     
     
     
@@ -58,20 +52,19 @@ class FlippingView: UILabel {
     /// added as subviews.
     /// - Parameter newText: the new text to be shown for the label
     func updateWithText(_ newText: String) {
-
         
-        if label.text  != newText {
+        if self.text != newText {
             
             let (previousTextTopView, previousTextBottomView): (UIView, UIView) = createSnapshotViews()
             
-            label.text = newText
-            
+            self.text = newText
             let (_, newTextBottomView): (UIView, UIView) = createSnapshotViews()
-
+            
+            
             self.newTextBottomView = newTextBottomView
+            
             self.previousTextBottomView = previousTextBottomView
             self.previousTextTopView = previousTextTopView
-
             
             addSubview(previousTextTopView)
             addSubview(previousTextBottomView)
@@ -80,7 +73,7 @@ class FlippingView: UILabel {
             // shadown that we will draw, inside the bounds of the view
             previousTextBottomView.clipsToBounds = true;
             
-            clipsToBounds = true
+            clipsToBounds = false;
             
             animateTiles()
         }
@@ -96,13 +89,10 @@ class FlippingView: UILabel {
     fileprivate func createSnapshotViews()->(top:UIView, bottom:UIView) {
         
         // Render the view into an image:
-        
-//        self.clipsToBounds  = true
-//        self.layer.cornerRadius = 6
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0)
         layer.render(in: UIGraphicsGetCurrentContext()!)
         let renderedImage: UIImage  = UIGraphicsGetImageFromCurrentImageContext()!
-
+        
         UIGraphicsEndImageContext()
         
         
@@ -114,24 +104,20 @@ class FlippingView: UILabel {
         
         
         UIGraphicsBeginImageContextWithOptions(snapshotSize, false, 0);
- 
+        
         // Draw into context, with bottom half cropped off
         renderedImage.draw(at: CGPoint.zero);
         
         // Grab the current contents of the context as a UIImage
         topSnapshotImage = UIGraphicsGetImageFromCurrentImageContext()!;
-
+        
         UIGraphicsEndImageContext();
         
         UIGraphicsBeginImageContextWithOptions(snapshotSize, false, 0);
         
-        layer.cornerRadius = 6
-         // Now draw the image starting half way down, to get the bottom half
+        // Now draw the image starting half way down, to get the bottom half
         renderedImage.draw(at: CGPoint(x: CGPoint.zero.x, y: -renderedImage.size.height / 2));
         // Grab the current contents of the context as a UIImage
-        
-     
-//         Draw your image
         bottomSnapshotImage = UIGraphicsGetImageFromCurrentImageContext()!;
         
         UIGraphicsEndImageContext();
@@ -140,12 +126,9 @@ class FlippingView: UILabel {
         let topView: UIImageView = UIImageView(image: topSnapshotImage)
         let bottomView: UIImageView = UIImageView(image: bottomSnapshotImage)
         topView.layer.allowsEdgeAntialiasing = true
-
-        topView.layer.cornerRadius = 6
-        
         bottomView.layer.allowsEdgeAntialiasing = true
         bottomView.frame.origin.y = snapshotSize.height
-
+        
         return (topView, bottomView);
         
     }
@@ -155,7 +138,7 @@ class FlippingView: UILabel {
 
 
 //MARK: - Animations
-extension FlippingView {
+extension FlippingLabel {
     
     /// Start the flipping animation effect
     func animateTiles() {
@@ -187,12 +170,10 @@ extension FlippingView {
         
         previousTextTopView.layer.anchorPoint = CGPoint(x: 0.5, y: 1.0)
         previousTextTopView.center = CGPoint(x: previousTextTopView.frame.width/2.0, y: previousTextTopView.frame.height)
-        previousTextTopView.layer.cornerRadius = 6
-
         
         topAnimation.duration = topAnimationDuration
         topAnimation.fromValue = 0.0
-        topAnimation.toValue = CGFloat(Double.pi/2)
+        topAnimation.toValue =  Double.pi / 2
         topAnimation.delegate = self
         topAnimation.isRemovedOnCompletion = false;
         topAnimation.fillMode = kCAFillModeForwards
@@ -202,10 +183,8 @@ extension FlippingView {
         
         var perspectiveTransform: CATransform3D = CATransform3DIdentity;
         perspectiveTransform.m34 = 1.0 / 400;
-        perspectiveTransform = CATransform3DRotate(perspectiveTransform, CGFloat(Double.pi/2), 1.0, 0.0, 0.0);
+        perspectiveTransform = CATransform3DRotate(perspectiveTransform, CGFloat( Double.pi / 2), 1.0, 0.0, 0.0);
         previousTextTopView.layer.transform = perspectiveTransform;
-        previousTextTopView.layer.cornerRadius = 6
-
     }
     
     
@@ -229,8 +208,6 @@ extension FlippingView {
         bottomShadowLayer.opacity = 0.2
         bottomShadowLayer.fillColor = UIColor.black.cgColor
         bottomShadowLayer.frame = frame
-        bottomShadowLayer.cornerRadius = 6
-        
         
         let middlePath: UIBezierPath! = UIBezierPath()
         middlePath.move(to: CGPoint.zero)
@@ -265,12 +242,10 @@ extension FlippingView {
         self.addSubview(self.newTextBottomView)
         newTextBottomView.layer.anchorPoint = CGPoint(x: 0.5, y: 0.0)
         newTextBottomView.center = CGPoint(x: newTextBottomView.frame.width/2.0, y: newTextBottomView.frame.height)
-        newTextBottomView.layer.cornerRadius = 6
-
         let bottomAnimation = CABasicAnimation(keyPath:"transform.rotation.x")
         
         bottomAnimation.duration = bottomAnimationDuration
-        bottomAnimation.fromValue = CGFloat(Double.pi/2)
+        bottomAnimation.fromValue = Double.pi / 2
         bottomAnimation.toValue = 0.0
         bottomAnimation.isRemovedOnCompletion = false;
         bottomAnimation.fillMode = kCAFillModeForwards
@@ -281,14 +256,13 @@ extension FlippingView {
         
         var perspectiveTransform: CATransform3D = CATransform3DIdentity
         perspectiveTransform.m34 = 1.0 / -350;
-        perspectiveTransform = CATransform3DRotate(perspectiveTransform, CGFloat(Double.pi/2), 1.0, 0.0, 0.0);
+        perspectiveTransform = CATransform3DRotate(perspectiveTransform, CGFloat( Double.pi / 2), 1.0, 0.0, 0.0);
         newTextBottomView.layer.transform = perspectiveTransform;
         
     }
     
     
     /// Stops all the animations and remove the animated snapshotViews
-    
     func stopAnimations() {
         if self.newTextBottomView != nil {
             self.newTextBottomView.layer.removeAllAnimations()
@@ -312,7 +286,7 @@ extension FlippingView {
 
 
 //MARK: - CAAnimationDelegate
-extension FlippingView: CAAnimationDelegate {
+extension FlippingLabel: CAAnimationDelegate {
     
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
@@ -321,23 +295,23 @@ extension FlippingView: CAAnimationDelegate {
             //(the one that will cover the old text tile)
             if anim.value(forKey: "id") as! String == "topAnimation" {
                 self.addBottomTileAnimation()
-//                canRemoveBottomView = true
+                //                canRemoveBottomView = true
             }
             else if anim.value(forKey: "id") as! String == "bottomAnimation" {
-//                if canRemoveBottomView {
-//                    canRemoveBottomView = false
+                //                if canRemoveBottomView {
+                //                    canRemoveBottomView = false
                 
                 //clip to bounds back to yes if you have shadows
-                    clipsToBounds = true;
-                    newTextBottomView.removeFromSuperview()
-                    newTextBottomView = nil
-                    
-                    previousTextBottomView.removeFromSuperview()
-                    previousTextBottomView = nil
-                    
-                    previousTextTopView.removeFromSuperview()
-                    previousTextTopView = nil
-//                }
+                clipsToBounds = true;
+                newTextBottomView.removeFromSuperview()
+                newTextBottomView = nil
+                
+                previousTextBottomView.removeFromSuperview()
+                previousTextBottomView = nil
+                
+                previousTextTopView.removeFromSuperview()
+                previousTextTopView = nil
+                //                }
             }
         }
     }

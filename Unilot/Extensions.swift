@@ -6,4 +6,13 @@
 //  Copyright © 2017 Vovasoft. All rights reserved.
 //
 
- 
+import UIKit
+
+func imageScaledToSize(size: CGSize, image: UIImage) -> UIImage {
+    UIGraphicsBeginImageContextWithOptions(size, false, 0.0);
+    image.draw(in: CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height))
+    let imageR = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext();
+    return imageR!;
+}
+    

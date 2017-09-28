@@ -16,3 +16,18 @@ func imageScaledToSize(size: CGSize, image: UIImage) -> UIImage {
     return imageR!;
 }
     
+
+struct Number {
+    static let withSeparator: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.groupingSeparator = " " // or possibly "." / ","
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
+}
+
+extension Integer {
+    var stringWithSepator: String {
+        return Number.withSeparator.string(from: NSNumber(value: hashValue)) ?? ""
+    }
+}

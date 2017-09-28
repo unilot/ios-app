@@ -10,8 +10,8 @@
 import UIKit
 
 protocol CountDownTimeDelegate {
-    func countDownDidFall(_ tag: Int, from: Int, left: Int)
-    func countDownFinished(_ tag: Int)
+    func countDownDidFall(from: Int, left: Int)
+    func countDownFinished()
     
 }
 
@@ -58,11 +58,14 @@ class CountDownSimpleTime: UIImageView  {
     
     // MARK: - inits
     
-    func createBody() -> Bool {
+    func createBody(_ newDelegate : CountDownTimeDelegate) {
         
         if isFull {
-            return false
+            return
         }
+        
+        
+        delegate = newDelegate
         
         createLabelBody()
         
@@ -70,9 +73,7 @@ class CountDownSimpleTime: UIImageView  {
         
         updateLabels()
 
-        isFull = true
-        
-        return isFull
+        isFull = true 
     }
     
     
@@ -159,10 +160,10 @@ class CountDownSimpleTime: UIImageView  {
         updateLabels()
         
         if changeCounts() {
-            delegate?.countDownDidFall(self.tag, from: startCounts, left: totalCounts)
+            delegate?.countDownDidFall(from: startCounts, left: totalCounts)
         } else {
             endTimer()
-            delegate?.countDownFinished(self.tag)
+            delegate?.countDownFinished()
         }
     }
     

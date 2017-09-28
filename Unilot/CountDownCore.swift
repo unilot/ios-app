@@ -74,6 +74,7 @@ class CountDownCore: UIImageView  {
         let uiImage   = imageScaledToSize(size: frameRect.size, image:  UIImage(named:"flipFull")!)
         
         let flip = FlippingLabel()
+        flip.text = "0"
         flip.tag = (atPlace + 1 ) * 10000
         flip.initViewWithLabel(frameRect, uiImage)
         addSubview(flip)
@@ -91,12 +92,12 @@ class CountDownCore: UIImageView  {
     }
     
     
-    func createBody() -> Bool {
+    func createBody(){
         
         initConstants()
         
         if isFull {
-            return false
+            return
         }
         
         for i in 0..<flippersCount {
@@ -104,8 +105,6 @@ class CountDownCore: UIImageView  {
         }
         
         isFull = true
-        
-        return isFull
     }
     
     

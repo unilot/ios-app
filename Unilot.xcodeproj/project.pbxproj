@@ -12,8 +12,6 @@
 		D62A31751F7AC10300275B86 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A31741F7AC10300275B86 /* SWRevealViewController.m */; };
 		D62A31771F7AC86900275B86 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62A31761F7AC86900275B86 /* TabBarController.swift */; };
 		D69364C41F5F254400FD0D37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364C31F5F254400FD0D37 /* AppDelegate.swift */; };
-		D69364C61F5F254400FD0D37 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364C51F5F254400FD0D37 /* FirstViewController.swift */; };
-		D69364C81F5F254400FD0D37 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364C71F5F254400FD0D37 /* SecondViewController.swift */; };
 		D69364CB1F5F254400FD0D37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69364C91F5F254400FD0D37 /* Main.storyboard */; };
 		D69364CD1F5F254400FD0D37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D69364CC1F5F254400FD0D37 /* Assets.xcassets */; };
 		D69364D01F5F254400FD0D37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69364CE1F5F254400FD0D37 /* LaunchScreen.storyboard */; };
@@ -24,6 +22,24 @@
 		D6BDD9081F7AF23400E91FD0 /* CountDownCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BDD9071F7AF23400E91FD0 /* CountDownCore.swift */; };
 		D6BDD90A1F7AF56500E91FD0 /* CountUppMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BDD9091F7AF56500E91FD0 /* CountUppMoney.swift */; };
 		D6BDD90C1F7B07A700E91FD0 /* CountDownSimpleTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BDD90B1F7B07A700E91FD0 /* CountDownSimpleTime.swift */; };
+		D6BDD90E1F7B240600E91FD0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BDD90D1F7B240600E91FD0 /* ProfileView.swift */; };
+		D6F1E1321F7B9F3B0098B34C /* MainViewPositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1311F7B9F3B0098B34C /* MainViewPositions.swift */; };
+		D6F1E1361F7BA0E50098B34C /* AgreeToPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1351F7BA0E50098B34C /* AgreeToPlay.swift */; };
+		D6F1E1381F7BAA4E0098B34C /* ControllerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1371F7BAA4E0098B34C /* ControllerCore.swift */; };
+		D6F1E15A1F7BAC950098B34C /* NSError+JSHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E13C1F7BAC950098B34C /* NSError+JSHelper.m */; };
+		D6F1E15B1F7BAC950098B34C /* NSString+JSHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E13E1F7BAC950098B34C /* NSString+JSHelper.m */; };
+		D6F1E15C1F7BAC950098B34C /* UIView+JSLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1401F7BAC950098B34C /* UIView+JSLayout.m */; };
+		D6F1E15D1F7BAC950098B34C /* DropDownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1431F7BAC950098B34C /* DropDownListView.m */; };
+		D6F1E15E1F7BAC950098B34C /* JSDropdownField.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1451F7BAC950098B34C /* JSDropdownField.m */; };
+		D6F1E15F1F7BAC950098B34C /* JSInputField.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1471F7BAC950098B34C /* JSInputField.m */; };
+		D6F1E1601F7BAC950098B34C /* JSLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E14B1F7BAC950098B34C /* JSLogger.m */; };
+		D6F1E1611F7BAC950098B34C /* JSRuleApply.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E14F1F7BAC950098B34C /* JSRuleApply.m */; };
+		D6F1E1621F7BAC950098B34C /* JSRuleLength.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1511F7BAC950098B34C /* JSRuleLength.m */; };
+		D6F1E1631F7BAC950098B34C /* JSRuleNotNull.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1531F7BAC950098B34C /* JSRuleNotNull.m */; };
+		D6F1E1641F7BAC950098B34C /* JSRuleNumberRange.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1551F7BAC950098B34C /* JSRuleNumberRange.m */; };
+		D6F1E1651F7BAC950098B34C /* JSRuleNumeric.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1571F7BAC950098B34C /* JSRuleNumeric.m */; };
+		D6F1E1661F7BAC950098B34C /* JSRuleRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1591F7BAC950098B34C /* JSRuleRegex.m */; };
+		D6F1E1681F7CD3C50098B34C /* NetWorkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1671F7CD3C50098B34C /* NetWorkController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +52,6 @@
 		D62A31761F7AC86900275B86 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D69364C01F5F254400FD0D37 /* Unilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unilot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D69364C31F5F254400FD0D37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D69364C51F5F254400FD0D37 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		D69364C71F5F254400FD0D37 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		D69364CA1F5F254400FD0D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D69364CC1F5F254400FD0D37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D69364CF1F5F254400FD0D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +63,38 @@
 		D6BDD9071F7AF23400E91FD0 /* CountDownCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountDownCore.swift; sourceTree = "<group>"; };
 		D6BDD9091F7AF56500E91FD0 /* CountUppMoney.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountUppMoney.swift; sourceTree = "<group>"; };
 		D6BDD90B1F7B07A700E91FD0 /* CountDownSimpleTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountDownSimpleTime.swift; sourceTree = "<group>"; };
+		D6BDD90D1F7B240600E91FD0 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		D6F1E1311F7B9F3B0098B34C /* MainViewPositions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewPositions.swift; sourceTree = "<group>"; };
+		D6F1E1351F7BA0E50098B34C /* AgreeToPlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgreeToPlay.swift; sourceTree = "<group>"; };
+		D6F1E1371F7BAA4E0098B34C /* ControllerCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerCore.swift; sourceTree = "<group>"; };
+		D6F1E13B1F7BAC950098B34C /* NSError+JSHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+JSHelper.h"; sourceTree = "<group>"; };
+		D6F1E13C1F7BAC950098B34C /* NSError+JSHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+JSHelper.m"; sourceTree = "<group>"; };
+		D6F1E13D1F7BAC950098B34C /* NSString+JSHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSHelper.h"; sourceTree = "<group>"; };
+		D6F1E13E1F7BAC950098B34C /* NSString+JSHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSHelper.m"; sourceTree = "<group>"; };
+		D6F1E13F1F7BAC950098B34C /* UIView+JSLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JSLayout.h"; sourceTree = "<group>"; };
+		D6F1E1401F7BAC950098B34C /* UIView+JSLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JSLayout.m"; sourceTree = "<group>"; };
+		D6F1E1421F7BAC950098B34C /* DropDownListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownListView.h; sourceTree = "<group>"; };
+		D6F1E1431F7BAC950098B34C /* DropDownListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownListView.m; sourceTree = "<group>"; };
+		D6F1E1441F7BAC950098B34C /* JSDropdownField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDropdownField.h; sourceTree = "<group>"; };
+		D6F1E1451F7BAC950098B34C /* JSDropdownField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDropdownField.m; sourceTree = "<group>"; };
+		D6F1E1461F7BAC950098B34C /* JSInputField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSInputField.h; sourceTree = "<group>"; };
+		D6F1E1471F7BAC950098B34C /* JSInputField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSInputField.m; sourceTree = "<group>"; };
+		D6F1E14A1F7BAC950098B34C /* JSLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSLogger.h; sourceTree = "<group>"; };
+		D6F1E14B1F7BAC950098B34C /* JSLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSLogger.m; sourceTree = "<group>"; };
+		D6F1E14D1F7BAC950098B34C /* JSRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSRule.h; sourceTree = "<group>"; };
+		D6F1E14E1F7BAC950098B34C /* JSRuleApply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSRuleApply.h; sourceTree = "<group>"; };
+		D6F1E14F1F7BAC950098B34C /* JSRuleApply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSRuleApply.m; sourceTree = "<group>"; };
+		D6F1E1501F7BAC950098B34C /* JSRuleLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSRuleLength.h; sourceTree = "<group>"; };
+		D6F1E1511F7BAC950098B34C /* JSRuleLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSRuleLength.m; sourceTree = "<group>"; };
+		D6F1E1521F7BAC950098B34C /* JSRuleNotNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSRuleNotNull.h; sourceTree = "<group>"; };
+		D6F1E1531F7BAC950098B34C /* JSRuleNotNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSRuleNotNull.m; sourceTree = "<group>"; };
+		D6F1E1541F7BAC950098B34C /* JSRuleNumberRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSRuleNumberRange.h; sourceTree = "<group>"; };
+		D6F1E1551F7BAC950098B34C /* JSRuleNumberRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSRuleNumberRange.m; sourceTree = "<group>"; };
+		D6F1E1561F7BAC950098B34C /* JSRuleNumeric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSRuleNumeric.h; sourceTree = "<group>"; };
+		D6F1E1571F7BAC950098B34C /* JSRuleNumeric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSRuleNumeric.m; sourceTree = "<group>"; };
+		D6F1E1581F7BAC950098B34C /* JSRuleRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSRuleRegex.h; sourceTree = "<group>"; };
+		D6F1E1591F7BAC950098B34C /* JSRuleRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSRuleRegex.m; sourceTree = "<group>"; };
+		D6F1E1671F7CD3C50098B34C /* NetWorkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkController.swift; sourceTree = "<group>"; };
 		F775BF0A9782A06721E4E9B3 /* Pods-Unilot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unilot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Unilot/Pods-Unilot.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,12 +132,13 @@
 			children = (
 				D6BDD9021F7AD1DB00E91FD0 /* Constants.swift */,
 				D69364C31F5F254400FD0D37 /* AppDelegate.swift */,
+				D6F1E1671F7CD3C50098B34C /* NetWorkController.swift */,
 				D6BDD9041F7AD1F200E91FD0 /* Extensions.swift */,
-				D69364C51F5F254400FD0D37 /* FirstViewController.swift */,
-				D69364C71F5F254400FD0D37 /* SecondViewController.swift */,
-				D6BDD9061F7AF22300E91FD0 /* CountDown */,
-				D69364D81F5F328D00FD0D37 /* MainView.swift */,
+				D6F1E1371F7BAA4E0098B34C /* ControllerCore.swift */,
+				D6BDD90D1F7B240600E91FD0 /* ProfileView.swift */,
+				D6F1E1331F7BA0A00098B34C /* Main View */,
 				D62A31761F7AC86900275B86 /* TabBarController.swift */,
+				D6F1E1341F7BA0CA0098B34C /* Pop Up Views */,
 			);
 			name = Code;
 			sourceTree = "<group>";
@@ -117,6 +164,7 @@
 		D62A31711F7AC10300275B86 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D6F1E1391F7BAC950098B34C /* JSKit */,
 				D62A31721F7AC10300275B86 /* SideBarMenu */,
 			);
 			path = Frameworks;
@@ -152,9 +200,9 @@
 		D69364C21F5F254400FD0D37 /* Unilot */ = {
 			isa = PBXGroup;
 			children = (
+				D69364CC1F5F254400FD0D37 /* Assets.xcassets */,
 				D62A316E1F7AC02800275B86 /* StoryBoard */,
 				D62A316D1F7AC01D00275B86 /* Code */,
-				D69364CC1F5F254400FD0D37 /* Assets.xcassets */,
 				D62A31711F7AC10300275B86 /* Frameworks */,
 				D62A316F1F7AC03D00275B86 /* Settings */,
 			);
@@ -171,6 +219,98 @@
 				D6BDD90B1F7B07A700E91FD0 /* CountDownSimpleTime.swift */,
 			);
 			name = CountDown;
+			sourceTree = "<group>";
+		};
+		D6F1E1331F7BA0A00098B34C /* Main View */ = {
+			isa = PBXGroup;
+			children = (
+				D69364D81F5F328D00FD0D37 /* MainView.swift */,
+				D6F1E1311F7B9F3B0098B34C /* MainViewPositions.swift */,
+				D6BDD9061F7AF22300E91FD0 /* CountDown */,
+			);
+			name = "Main View";
+			sourceTree = "<group>";
+		};
+		D6F1E1341F7BA0CA0098B34C /* Pop Up Views */ = {
+			isa = PBXGroup;
+			children = (
+				D6F1E1351F7BA0E50098B34C /* AgreeToPlay.swift */,
+			);
+			name = "Pop Up Views";
+			sourceTree = "<group>";
+		};
+		D6F1E1391F7BAC950098B34C /* JSKit */ = {
+			isa = PBXGroup;
+			children = (
+				D6F1E13A1F7BAC950098B34C /* Category */,
+				D6F1E1411F7BAC950098B34C /* UIComponents */,
+				D6F1E1481F7BAC950098B34C /* Utilities */,
+			);
+			path = JSKit;
+			sourceTree = "<group>";
+		};
+		D6F1E13A1F7BAC950098B34C /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				D6F1E13B1F7BAC950098B34C /* NSError+JSHelper.h */,
+				D6F1E13C1F7BAC950098B34C /* NSError+JSHelper.m */,
+				D6F1E13D1F7BAC950098B34C /* NSString+JSHelper.h */,
+				D6F1E13E1F7BAC950098B34C /* NSString+JSHelper.m */,
+				D6F1E13F1F7BAC950098B34C /* UIView+JSLayout.h */,
+				D6F1E1401F7BAC950098B34C /* UIView+JSLayout.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		D6F1E1411F7BAC950098B34C /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				D6F1E1421F7BAC950098B34C /* DropDownListView.h */,
+				D6F1E1431F7BAC950098B34C /* DropDownListView.m */,
+				D6F1E1441F7BAC950098B34C /* JSDropdownField.h */,
+				D6F1E1451F7BAC950098B34C /* JSDropdownField.m */,
+				D6F1E1461F7BAC950098B34C /* JSInputField.h */,
+				D6F1E1471F7BAC950098B34C /* JSInputField.m */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		D6F1E1481F7BAC950098B34C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D6F1E1491F7BAC950098B34C /* FileLogger */,
+				D6F1E14C1F7BAC950098B34C /* ValidationRules */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D6F1E1491F7BAC950098B34C /* FileLogger */ = {
+			isa = PBXGroup;
+			children = (
+				D6F1E14A1F7BAC950098B34C /* JSLogger.h */,
+				D6F1E14B1F7BAC950098B34C /* JSLogger.m */,
+			);
+			path = FileLogger;
+			sourceTree = "<group>";
+		};
+		D6F1E14C1F7BAC950098B34C /* ValidationRules */ = {
+			isa = PBXGroup;
+			children = (
+				D6F1E14D1F7BAC950098B34C /* JSRule.h */,
+				D6F1E14E1F7BAC950098B34C /* JSRuleApply.h */,
+				D6F1E14F1F7BAC950098B34C /* JSRuleApply.m */,
+				D6F1E1501F7BAC950098B34C /* JSRuleLength.h */,
+				D6F1E1511F7BAC950098B34C /* JSRuleLength.m */,
+				D6F1E1521F7BAC950098B34C /* JSRuleNotNull.h */,
+				D6F1E1531F7BAC950098B34C /* JSRuleNotNull.m */,
+				D6F1E1541F7BAC950098B34C /* JSRuleNumberRange.h */,
+				D6F1E1551F7BAC950098B34C /* JSRuleNumberRange.m */,
+				D6F1E1561F7BAC950098B34C /* JSRuleNumeric.h */,
+				D6F1E1571F7BAC950098B34C /* JSRuleNumeric.m */,
+				D6F1E1581F7BAC950098B34C /* JSRuleRegex.h */,
+				D6F1E1591F7BAC950098B34C /* JSRuleRegex.m */,
+			);
+			path = ValidationRules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,10 +426,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Unilot/Pods-Unilot-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -303,19 +445,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6F1E15A1F7BAC950098B34C /* NSError+JSHelper.m in Sources */,
 				D62A31751F7AC10300275B86 /* SWRevealViewController.m in Sources */,
+				D6F1E1681F7CD3C50098B34C /* NetWorkController.swift in Sources */,
+				D6F1E1651F7BAC950098B34C /* JSRuleNumeric.m in Sources */,
+				D6F1E15E1F7BAC950098B34C /* JSDropdownField.m in Sources */,
+				D6F1E1661F7BAC950098B34C /* JSRuleRegex.m in Sources */,
 				D62A31771F7AC86900275B86 /* TabBarController.swift in Sources */,
+				D6F1E15C1F7BAC950098B34C /* UIView+JSLayout.m in Sources */,
 				D6BDD9081F7AF23400E91FD0 /* CountDownCore.swift in Sources */,
-				D69364C81F5F254400FD0D37 /* SecondViewController.swift in Sources */,
+				D6F1E1631F7BAC950098B34C /* JSRuleNotNull.m in Sources */,
+				D6F1E1601F7BAC950098B34C /* JSLogger.m in Sources */,
 				D69364C41F5F254400FD0D37 /* AppDelegate.swift in Sources */,
-				D69364C61F5F254400FD0D37 /* FirstViewController.swift in Sources */,
 				D6BDD9051F7AD1F200E91FD0 /* Extensions.swift in Sources */,
 				D6BDD90C1F7B07A700E91FD0 /* CountDownSimpleTime.swift in Sources */,
+				D6F1E15D1F7BAC950098B34C /* DropDownListView.m in Sources */,
+				D6F1E1611F7BAC950098B34C /* JSRuleApply.m in Sources */,
 				D60884B51F74325A00611E35 /* CountDownTime.swift in Sources */,
 				D6BDD90A1F7AF56500E91FD0 /* CountUppMoney.swift in Sources */,
 				D69364DA1F5F328D00FD0D37 /* MainView.swift in Sources */,
+				D6F1E1361F7BA0E50098B34C /* AgreeToPlay.swift in Sources */,
+				D6F1E1621F7BAC950098B34C /* JSRuleLength.m in Sources */,
 				D69364D91F5F328D00FD0D37 /* FlippingLabel.swift in Sources */,
+				D6F1E15F1F7BAC950098B34C /* JSInputField.m in Sources */,
+				D6BDD90E1F7B240600E91FD0 /* ProfileView.swift in Sources */,
+				D6F1E1641F7BAC950098B34C /* JSRuleNumberRange.m in Sources */,
+				D6F1E1381F7BAA4E0098B34C /* ControllerCore.swift in Sources */,
 				D6BDD9031F7AD1DB00E91FD0 /* Constants.swift in Sources */,
+				D6F1E15B1F7BAC950098B34C /* NSString+JSHelper.m in Sources */,
+				D6F1E1321F7B9F3B0098B34C /* MainViewPositions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

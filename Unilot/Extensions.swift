@@ -15,7 +15,20 @@ func imageScaledToSize(size: CGSize, image: UIImage) -> UIImage {
     UIGraphicsEndImageContext();
     return imageR!;
 }
+
+
+
+func TR(_ str: String?) -> String{
     
+    
+    if str == nil {
+        return kEmpty
+    }
+    return NSLocalizedString(str!,  comment: " ")
+    
+}
+
+
 
 struct Number {
     static let withSeparator: NumberFormatter = {

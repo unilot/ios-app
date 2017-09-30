@@ -41,8 +41,9 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
         setButtonView()
         
-        setLoadingSign()
+        moneyTablet.createBody()
         
+        clockTablet.createBody(self)
         
      }
  
@@ -51,9 +52,6 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
         super.viewDidAppear(animated)
         
-        moneyTablet.createBody()
-        
-        clockTablet.createBody(self)
         
         fillWithData()
         

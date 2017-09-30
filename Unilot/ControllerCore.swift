@@ -20,6 +20,8 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         
         super.viewDidLoad()
         
+        view.layoutIfNeeded()
+
         clearNavBar()
         
         addParallaxToView(vw: bgView)
@@ -46,17 +48,29 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         
         let frameForSize = tabBarController?.navigationItem.accessibilityFrame
         
-        let imageTitle = UIImageView(image: UIImage(named: "unilotmenu-item"))
-        imageTitle.frame = CGRect(x: frameForSize!.width / 2 - 100,
-                                  y: frameForSize!.height / 2 - 10,
-                                  width: 200, height: 20)
-        imageTitle.contentMode = .scaleAspectFit
+//        let imageTitle = UIImageView(image: UIImage(named: "unilotmenu-item"))
+        
+        let imageTitle = setColorForLabel(CGSize(width: 100, height: 30), "unilot")
+
+//        
+//        imageTitle.frame = CGRect(x: frameForSize!.width / 2 - 100,
+//                                  y: frameForSize!.height / 2 - 10,
+//                                  width: 200, height: 20)
+//        imageTitle.contentMode = .scaleAspectFit
+//      
+        
+        
         tabBarController?.navigationItem.titleView = imageTitle
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = UIColor.clear
+//        self.navigationController?.view.backgroundColor = UIColor.clear
         self.navigationController?.view.tintColor = UIColor.yellow
+        
+        
+        
+        
+        
     }
     
     
@@ -98,28 +112,34 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         
     }
     
-    func setColorForLabel(_ text : String){
+    func setColorForLabel(_ sizeOfView : CGSize, _ text : String) -> UIView{
         
-        let bgView = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
-        bgView.backgroundColor = UIColor.black
-        
+        let bgView = UIView(frame: CGRect(x: 0, y: 0, width:  sizeOfView.width,
+                                          height: sizeOfView.height))
+        bgView.backgroundColor = UIColor.clear
+
         let textLayer = CATextLayer()
         textLayer.frame = bgView.frame
         textLayer.string = text
-        textLayer.fontSize = 40
+        textLayer.fontSize = 28
+        textLayer.alignmentMode = kCAAlignmentCenter
         
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = bgView.frame
         gradientLayer.colors = [
-            UIColor(red: 1, green: 122.0/255.0, blue: 0, alpha: 1).cgColor,
-            UIColor(red: 249.0/255.0, green: 1, blue: 0, alpha: 1).cgColor
+//            R 255 G 152 B 140
+//            R 252 G 223 B 138
+            UIColor(red: 252.0/255.0, green: 223.0/255.0, blue: 138.0/255.0, alpha: 1).cgColor,
+            UIColor(red: 255.0/255.0, green: 152.0/255.0, blue: 140/255.0, alpha: 1).cgColor
         ]
         
         //Here you can adjust the filling
-        gradientLayer.locations = [0.5, 1]
+        gradientLayer.locations = [0.5, 1.0]
         
         gradientLayer.mask = textLayer
         bgView.layer.addSublayer(gradientLayer)
+        
+        return bgView
     }
     
     //MARK: - activityView

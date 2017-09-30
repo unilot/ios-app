@@ -83,7 +83,7 @@ class CountDownSimpleTime: UIImageView  {
             x: 0.0,
             y: 0,
             width: self.frame.width,
-            height: self.frame.height * 0.8)
+            height: self.frame.height * 0.4)
         
         
         let label = UILabel(frame: frameRect)
@@ -99,9 +99,9 @@ class CountDownSimpleTime: UIImageView  {
         
         let frameRect = CGRect(
             x: 0.0,
-            y:  self.frame.height * 0.8,
+            y:  self.frame.height * 0.35,
             width: self.frame.width,
-            height: self.frame.height * 0.2)
+            height: self.frame.height * 0.1)
         
         
         let label = UILabel(frame: frameRect)

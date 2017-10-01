@@ -50,7 +50,7 @@ class WebView : ControllerCore, UIWebViewDelegate {
         navigationController!.navigationBar.backgroundColor = UIColor.white
         
         let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
-        statusBar.backgroundColor = UIColor.white
+        statusBar.backgroundColor = UIColor.clear
         
         
         webView.delegate = self

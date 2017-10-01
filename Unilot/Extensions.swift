@@ -8,6 +8,15 @@
 
 import UIKit
 
+extension UINavigationBar {
+    
+    func transparentNavigationBar() {
+        self.setBackgroundImage(UIImage(), for: .default)
+        self.shadowImage = UIImage()
+        self.isTranslucent = true
+    }
+}
+
 func imageScaledToSize(size: CGSize, image: UIImage) -> UIImage {
     UIGraphicsBeginImageContextWithOptions(size, false, 0.0);
     image.draw(in: CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height))

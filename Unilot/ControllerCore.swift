@@ -46,7 +46,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
 //        
         
         
-        let frameForSize = tabBarController?.navigationItem.accessibilityFrame
+//        let frameForSize = tabBarController?.navigationItem.accessibilityFrame
         
 //        let imageTitle = UIImageView(image: UIImage(named: "unilotmenu-item"))
         
@@ -65,9 +65,6 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
 //        self.navigationController?.view.backgroundColor = UIColor.clear
-        self.navigationController?.view.tintColor = UIColor.yellow
-        
-        
         
         
         
@@ -78,12 +75,25 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         
         navigationItem.backBarButtonItem = nil
         
+//        let imageItem = setColorForImage(CGSize(width: 30, height: 30), "menu")
+
+
+//        let backItem = UIBarButtonItem(customView: imageItem)
+//        backItem.target = self
+//        backItem.action = #selector(ControllerCore.onOpenMenu)
+        
+        
         let backItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self, action: #selector(ControllerCore.onOpenMenu))
-        UIBarButtonItem.appearance().tintColor = UIColor.gray
+ 
+        
+        //UIColor.whiteColor()
+
+//        UIBarButtonItem.appearance().tintColor = newColor // UIColor.gray
         backItem.title = nil
         navigationItem.leftBarButtonItem = backItem
         
-        
+        self.navigationController?.navigationBar.tintColor = kColorLightOrange
+
     }
     
     
@@ -127,16 +137,43 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = bgView.frame
         gradientLayer.colors = [
-//            R 255 G 152 B 140
-//            R 252 G 223 B 138
-            UIColor(red: 252.0/255.0, green: 223.0/255.0, blue: 138.0/255.0, alpha: 1).cgColor,
-            UIColor(red: 255.0/255.0, green: 152.0/255.0, blue: 140/255.0, alpha: 1).cgColor
+            kColorLightYellow.cgColor,
+            kColorLightOrange.cgColor
         ]
         
         //Here you can adjust the filling
         gradientLayer.locations = [0.5, 1.0]
         
         gradientLayer.mask = textLayer
+        bgView.layer.addSublayer(gradientLayer)
+        
+        return bgView
+    }
+    
+    func setColorForImage(_ sizeOfView : CGSize, _ imageName : String) -> UIView{
+        
+        let bgView = UIView(frame: CGRect(x: 0, y: 0, width:  sizeOfView.width,
+                                          height: sizeOfView.height))
+        bgView.backgroundColor = UIColor.clear
+        
+        let myImage = UIImage(named: imageName)?.cgImage
+
+        let myLayer = CALayer()
+        myLayer.frame = bgView.frame
+        myLayer.contents = myImage
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bgView.frame
+        gradientLayer.colors = [
+            kColorLightYellow.cgColor,
+            kColorLightOrange.cgColor
+        ]
+
+        
+        //Here you can adjust the filling
+        gradientLayer.locations = [0.5, 1.0]
+        
+        gradientLayer.mask = myLayer
         bgView.layer.addSublayer(gradientLayer)
         
         return bgView

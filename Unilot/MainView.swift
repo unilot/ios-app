@@ -12,25 +12,44 @@ class MainView: MainViewPositions {
   
     
     override func fillWithData(){
-  
-        titleMain.text = "Дневная лотерея"
+
+        fillDataDay()
+        
         titlePrize.text = "Призовой фонд"
-        
-        moneyTablet.startTimer(0, 300)
-        
+
         peopleCount.text = Int(2442345).stringWithSepator
         usSum.text = Int(232345).stringWithSepator
-
+        
         
         titleUntilTheEnd.text = "До конца регистрации"
-
-        clockTablet.startTimer(1500, 2500)
-
+        
+        
         prizePlaces.setTitle("Призовые места", for: .normal)
         takePartEth.text = "0,0005 Eth"
-
+        
+        
+        NetWork.getTimeCountInfo()
+        
+        moneyTablet.initTimer(0, 300)
+        
+        clockTablet.initTimer(1500, 2500)
+        
+    }
+    
+    
+    func fillDataDay(){
+        
+//        titleMain.text = "Дневная лотерея"
+        
     }
 
+    
+    func fillDataMonth(){
+        
+//        titleMain.text = "Месячная лотерея"
+         
+        
+    }
  
 }
 

@@ -110,17 +110,23 @@ class CountDownCore: UIImageView  {
     
     
     //MARK: -  count down
-    
-    func startTimer(_ from : Int, _ all : Int){
-        
-        startCounts = all
-        totalCounts = from
-        
+    func doScheduledTimer(){
+
         countdownTimer  = Timer.scheduledTimer(timeInterval: timerUpdateDuration,
                                                target: self,
                                                selector: #selector(CountDownTime.doUpdate),
                                                userInfo: nil,
                                                repeats: true)
+
+    }
+    
+    
+    func initTimer(_ from : Int, _ all : Int){
+        
+        startCounts = all
+        totalCounts = from
+        
+//        doScheduledTimer()
         
     }
     
@@ -128,7 +134,7 @@ class CountDownCore: UIImageView  {
     func endTimer() {
         
         countdownTimer.invalidate()
-        
+        countdownTimer = nil
     }
 
     func changeDigit(forPlace: Int, _ units: String) {

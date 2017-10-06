@@ -33,6 +33,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     @IBOutlet weak var moneyTablet: CountUppMoney!
     @IBOutlet weak var clockTablet: CountDownSimpleTime!
     
+    
     //MARK: - Views Load override
     
     override func viewDidLoad() {
@@ -45,6 +46,10 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
         clockTablet.createBody(self)
         
+        fillWithData()
+
+
+        
      }
  
     
@@ -53,7 +58,20 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         super.viewDidAppear(animated)
         
         
-        fillWithData()
+        moneyTablet.doScheduledTimer()
+        
+        clockTablet.doScheduledTimer()
+        
+    }
+    
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        super.viewDidDisappear(animated)
+       
+        moneyTablet.endTimer()
+        
+        clockTablet.endTimer()
         
     }
     
@@ -97,6 +115,12 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
     }
 
+    //MARK: -  CountDownTimeControll
+    
+    func pauseCountings(){
+        
+    }
+
     
     
     //MARK: -  CountDownTimeDelegate
@@ -113,6 +137,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     func countDownFinished(){
         
+        clockTablet.endTimer()
     }
     
     
@@ -120,13 +145,59 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
 
          
     @IBAction func onPrizePlaces(){
+        let viewWithPlaces = TotalPrizeFond.createTotalPrizeFond()
+        viewWithPlaces.layoutIfNeeded()
+        viewWithPlaces.layer.opacity = 0.0
+        viewWithPlaces.frame = CGRect(x: 10,
+                                 y: view.frame.height,
+                                 width: view.frame.width - 20,
+                                 height: view.frame.height - 150)
         
+        viewWithPlaces.initView()
+        view.addSubview(viewWithPlaces)
+        
+        UIView.animate(withDuration: 0.4) {
+            viewWithPlaces.layer.opacity = 1.0
+            viewWithPlaces.frame = CGRect(x: 10,
+                                     y: 70,
+                                     width: viewWithPlaces.frame.width,
+                                     height: viewWithPlaces.frame.height)
+        }
+         
     }
     
     
     @IBAction func onTakePart(){
         
+        let viewAgree = AgreeToPlay.createAgreeToPlay()
+        viewAgree.layoutIfNeeded()
+        viewAgree.layer.opacity = 0.0
+        viewAgree.frame = CGRect(x: 10,
+                                 y: view.frame.height,
+                                 width: view.frame.width - 20,
+                                 height: view.frame.height - 150)
+
+        viewAgree.initView()
+        view.addSubview(viewAgree)
+        
+        UIView.animate(withDuration: 0.4) {
+            viewAgree.layer.opacity = 1.0
+            viewAgree.frame = CGRect(x: 10,
+                                     y: 70,
+                                     width: viewAgree.frame.width,
+                                     height: viewAgree.frame.height)
+        }
+        
+        
+        viewAgree.clockTablet.initTimer(1500, 2500)
+        viewAgree.clockTablet.doScheduledTimer()
+        
+        
+
     }
+    
+    
+    
 }
 
 

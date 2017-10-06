@@ -54,14 +54,14 @@ class ProfileView: ControllerCore, UITextFieldDelegate {
     }
     
     func fillWithData(){
-        titleMain.text = "Получите\nуникальный никнейм"
-        fieldPurse.placeholder = "Номер вашего кошелька"
-        checkMorePurses.setTitle("Добавить еще один кошелек", for: .normal)
+        titleMain.text = TR("Получите\nуникальный никнейм")
+        fieldPurse.placeholder = TR("Номер вашего кошелька")
+        checkMorePurses.setTitle(TR("Добавить еще один кошелек"), for: .normal)
     }
     
     func fillNewNick(){
         answerRect.isHidden = false
-        titleResult.text = "Отлично!\nКошельку присвоен никнейм"
+        titleResult.text = TR("Отлично!\nКошельку присвоен никнейм")
         nickName.text = "weifuybUYTR&^G"
         nickName.isEnabled = false
     }

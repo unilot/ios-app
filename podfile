@@ -5,4 +5,5 @@ use_frameworks!
 target 'Unilot' do
     pod 'Alamofire'
     pod 'NVActivityIndicatorView'
+    pod 'SCLAlertView'
 end

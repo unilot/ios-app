@@ -9,6 +9,7 @@
 
 import UIKit
 import NVActivityIndicatorView
+import SCLAlertView
 
 class ControllerCore: UIViewController, NVActivityIndicatorViewable {
 
@@ -24,7 +25,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
 
         clearNavBar()
         
-        addParallaxToView(vw: bgView)
+        addParallaxToView()
         
         setMenuButton()
         
@@ -64,10 +65,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
-//        self.navigationController?.view.backgroundColor = UIColor.clear
-        
-        
-        
+
     }
     
     
@@ -97,7 +95,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
     }
     
     
-    func addParallaxToView(vw: UIView) {
+    func addParallaxToView() {
         let amount = 100
         
         let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
@@ -110,7 +108,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         
         let group = UIMotionEffectGroup()
         group.motionEffects = [horizontal, vertical]
-        vw.addMotionEffect(group)
+        bgView.addMotionEffect(group)
     }
     
     

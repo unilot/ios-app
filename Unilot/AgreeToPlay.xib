@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AgreeToPlay" customModule="Unilot" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ежедневная лотерея UNILOT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nn-c6-pxt">
+                    <rect key="frame" x="10" y="313" width="355" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="SjH-0w-gXt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="mYr-XO-cWx">
+                    <rect key="frame" x="38.5" y="10" width="298" height="298"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="mYr-XO-cWx" secondAttribute="height" multiplier="1:1" id="UVQ-sU-wpM"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="g96-Y3-wb5"/>
+                    </constraints>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CJ3-Pv-o2C">
+                    <rect key="frame" x="10" y="351" width="355" height="90"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="90" id="Les-mV-tIm"/>
+                    </constraints>
+                    <string key="text">Что бы принять участие в ежедневной лотерее вам необходимо перечислить 0.005 Eth на кошелек, который вы получите нажав на кнопку ниже</string>
+                    <color key="textColor" red="0.49439453124999999" green="0.49439453124999999" blue="0.49439453124999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oaj-7G-tC4">
+                    <rect key="frame" x="147.5" y="446" width="80" height="1"/>
+                    <color key="backgroundColor" red="0.81382812500000001" green="0.81382812500000001" blue="0.81382812500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="AhV-zS-C18"/>
+                        <constraint firstAttribute="height" constant="1" id="Qb4-ic-ehh"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лотерея заканчивается через" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sd1-aD-ahN">
+                    <rect key="frame" x="20" y="452" width="335" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="vUU-fK-nKF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.1764705882" green="0.1529411765" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-vg-g4z" customClass="CountDownSimpleTime" customModule="Unilot" customModuleProvider="target">
+                    <rect key="frame" x="87" y="485" width="200" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="R19-U5-V5d"/>
+                        <constraint firstAttribute="width" constant="200" id="i8p-Ac-feJ"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Kd-e9-pKQ">
+                    <rect key="frame" x="62.5" y="535" width="250" height="42"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="250" id="cNc-qx-kjo"/>
+                        <constraint firstAttribute="height" constant="42" id="l5B-Sl-y7N"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="  Скопировать номер кошелька" image="copy-x3">
+                        <color key="titleColor" red="0.1764705882" green="0.1529411765" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onCopyNumber" destination="iN0-l3-epB" eventType="touchUpInside" id="4o4-cR-5SV"/>
+                    </connections>
+                </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="После оплаты вернитесь в приложение и зайдите в профиль что бы узнать свой уникальный никней участника" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DuD-nE-i1l">
+                    <rect key="frame" x="25" y="582" width="330" height="60"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="ZwJ-Iw-nG5"/>
+                    </constraints>
+                    <color key="textColor" red="0.39429687499999999" green="0.39429687499999999" blue="0.39429687499999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1j-k9-CUw">
+                    <rect key="frame" x="345" y="10" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="8i0-tx-Zgd"/>
+                        <constraint firstAttribute="width" secondItem="s1j-k9-CUw" secondAttribute="height" multiplier="1:1" id="T3J-9m-rmS"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="X-x3"/>
+                    <connections>
+                        <action selector="onX" destination="iN0-l3-epB" eventType="touchUpInside" id="Osf-2D-o8m"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="sZB-vg-g4z" firstAttribute="centerX" secondItem="mYr-XO-cWx" secondAttribute="centerX" id="256-s6-yDQ"/>
+                <constraint firstItem="DuD-nE-i1l" firstAttribute="top" secondItem="7Kd-e9-pKQ" secondAttribute="bottom" constant="5" id="3bd-o0-Wq7"/>
+                <constraint firstAttribute="trailing" secondItem="CJ3-Pv-o2C" secondAttribute="trailing" constant="10" id="Ess-Vw-9qc"/>
+                <constraint firstItem="Oaj-7G-tC4" firstAttribute="top" secondItem="CJ3-Pv-o2C" secondAttribute="bottom" constant="5" id="GeJ-3i-RZ0"/>
+                <constraint firstItem="7Kd-e9-pKQ" firstAttribute="top" secondItem="sZB-vg-g4z" secondAttribute="bottom" constant="10" id="Gr0-rc-0kb"/>
+                <constraint firstItem="sZB-vg-g4z" firstAttribute="top" secondItem="sd1-aD-ahN" secondAttribute="bottom" constant="5" id="IEV-7s-RVN"/>
+                <constraint firstItem="sd1-aD-ahN" firstAttribute="top" secondItem="Oaj-7G-tC4" secondAttribute="bottom" constant="5" id="Ita-3u-QKR"/>
+                <constraint firstAttribute="trailing" secondItem="sd1-aD-ahN" secondAttribute="trailing" constant="20" id="ObE-Nh-inZ"/>
+                <constraint firstAttribute="trailing" secondItem="DuD-nE-i1l" secondAttribute="trailing" constant="20" id="TXc-hG-3ZI"/>
+                <constraint firstItem="5nn-c6-pxt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="XCJ-ca-60b"/>
+                <constraint firstItem="DuD-nE-i1l" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="aS0-cG-vl1"/>
+                <constraint firstAttribute="trailing" secondItem="s1j-k9-CUw" secondAttribute="trailing" constant="10" id="btD-xb-KKd"/>
+                <constraint firstItem="mYr-XO-cWx" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="cc3-Pz-JXz"/>
+                <constraint firstItem="sd1-aD-ahN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="cuc-fG-BFO"/>
+                <constraint firstItem="s1j-k9-CUw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="d3j-ls-sIn"/>
+                <constraint firstItem="7Kd-e9-pKQ" firstAttribute="centerX" secondItem="mYr-XO-cWx" secondAttribute="centerX" id="dcv-BI-EbE"/>
+                <constraint firstItem="CJ3-Pv-o2C" firstAttribute="top" secondItem="5nn-c6-pxt" secondAttribute="bottom" constant="10" id="f5v-mH-1Ju"/>
+                <constraint firstItem="Oaj-7G-tC4" firstAttribute="centerX" secondItem="mYr-XO-cWx" secondAttribute="centerX" id="kXl-LQ-i3s"/>
+                <constraint firstAttribute="trailing" secondItem="5nn-c6-pxt" secondAttribute="trailing" constant="10" id="nQq-yH-FMb"/>
+                <constraint firstItem="5nn-c6-pxt" firstAttribute="top" secondItem="mYr-XO-cWx" secondAttribute="bottom" constant="5" id="nj2-HF-cbV"/>
+                <constraint firstItem="5nn-c6-pxt" firstAttribute="centerX" secondItem="mYr-XO-cWx" secondAttribute="centerX" id="o4E-qb-hBS"/>
+                <constraint firstAttribute="bottom" secondItem="DuD-nE-i1l" secondAttribute="bottom" constant="25" id="pxx-lj-Vgg"/>
+                <constraint firstItem="mYr-XO-cWx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="sJv-Ab-KT4"/>
+                <constraint firstItem="CJ3-Pv-o2C" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="sh9-wX-DxW"/>
+                <constraint firstItem="sd1-aD-ahN" firstAttribute="centerX" secondItem="mYr-XO-cWx" secondAttribute="centerX" id="yeo-CB-H0u"/>
+            </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="8"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="clockTablet" destination="sZB-vg-g4z" id="OKd-TU-pFD"/>
+                <outlet property="copyButton" destination="7Kd-e9-pKQ" id="ccj-bI-jxE"/>
+                <outlet property="endLabel" destination="sd1-aD-ahN" id="6nP-0f-FYZ"/>
+                <outlet property="textView1" destination="CJ3-Pv-o2C" id="d14-l9-lSc"/>
+                <outlet property="textView2" destination="DuD-nE-i1l" id="GgU-ds-omD"/>
+                <outlet property="titleView" destination="5nn-c6-pxt" id="G6Q-Jw-CnH"/>
+            </connections>
+            <point key="canvasLocation" x="57.5" y="99.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="X-x3" width="35" height="34"/>
+        <image name="copy-x3" width="16" height="16"/>
+        <image name="star" width="80" height="82"/>
+    </resources>
+</document>

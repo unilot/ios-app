@@ -19,6 +19,22 @@ class NetWork {
         
         
     }
+//    
+//    func getAlphabetList(_ params : [String:Any], FILL haveResult :((_ message: String?, _ answer:  [String:[CharityStruct]]?) -> Void)? = nil){
+//
+//    }
     
+    
+    static func getTimeCountInfo(){
+        
+        
+    
+    }
+    
+    
+    
+    static func getMoneyCountInfo(){
+        
+    }
     
 }

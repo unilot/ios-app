@@ -18,6 +18,11 @@ class WebView : ControllerCore, UIWebViewDelegate {
     
     var pageTabName : String? = nil
     
+ 
+    
+    
+    
+    
     func setPage(_ pageUrlStr : String, _ pageName : String) {
         
         pageTabName = pageName
@@ -40,18 +45,31 @@ class WebView : ControllerCore, UIWebViewDelegate {
         
     }
     
+    override func addParallaxToView() {
+
+        
+    }
     
+    override func clearNavBar(){
+    
+    }
+
+    override func setMenuButton() {
+        
+    }
     override func viewDidLoad() {
         
         super.viewDidLoad()
+         
         
         setPage("www.google.com", "unilot")
         
         navigationController!.navigationBar.backgroundColor = UIColor.white
-        
-        let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
-        statusBar.backgroundColor = UIColor.clear
-        
+        navigationItem.hidesBackButton = false
+//        
+//        let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
+//        statusBar.backgroundColor = UIColor.clear
+//        
         
         webView.delegate = self
         

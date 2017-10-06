@@ -17,6 +17,7 @@ protocol CountDownTimeDelegate {
 
 class CountDownSimpleTime: UIImageView  {
     
+    var labelMain = UILabel()
     
     var delegate : CountDownTimeDelegate?
     
@@ -58,50 +59,54 @@ class CountDownSimpleTime: UIImageView  {
     
     // MARK: - inits
     
-    func createBody(_ newDelegate : CountDownTimeDelegate) {
+    func createBody(_ newDelegate : CountDownTimeDelegate, _ withLabel: Bool = true) {
         
         if isFull {
             return
         }
         
-        
         delegate = newDelegate
-        
-        createLabelBody()
-        
-        createTextStatic()
-        
+
+        if withLabel {
+            createLabelBody(self.frame.height * 0.4)
+            createTextStatic( self.frame.height * 0.1)
+        } else {
+            createLabelBody(self.frame.height)
+        }
+
         updateLabels()
 
-        isFull = true 
+        isFull = true
     }
     
     
-    func createLabelBody(){
+    func createLabelBody(_ height: CGFloat){
+        
         
         let frameRect = CGRect(
             x: 0.0,
             y: 0,
             width: self.frame.width,
-            height: self.frame.height * 0.4)
+            height: height)
         
         
-        let label = UILabel(frame: frameRect)
-        label.textColor = UIColor.white
-        label.textAlignment = .center
-        label.font = UIFont(name: "Helvetica-light", size: 50)
-        label.tag = 100
-        addSubview(label)
+        labelMain = UILabel(frame: frameRect)
+        labelMain.textColor = UIColor.white
+        labelMain.textAlignment = .center
+        labelMain.font = UIFont(name: "Helvetica-light", size: 50)
+        labelMain.adjustsFontSizeToFitWidth = true
+        addSubview(labelMain)
     }
     
     
-    func createTextStatic(){
+    
+    func createTextStatic(_ height: CGFloat){
         
         let frameRect = CGRect(
             x: 0.0,
             y:  self.frame.height * 0.35,
             width: self.frame.width,
-            height: self.frame.height * 0.1)
+            height: height )
         
         
         let label = UILabel(frame: frameRect)
@@ -116,16 +121,24 @@ class CountDownSimpleTime: UIImageView  {
     
     //MARK: -  count down
     
-    func startTimer(_ from : Int, _ all : Int){
-        
-        startCounts = all
-        totalCounts = from
+    func doScheduledTimer(){
         
         countdownTimer  = Timer.scheduledTimer(timeInterval: 1.0,
                                                target: self,
                                                selector: #selector(CountDownTime.doUpdate),
                                                userInfo: nil,
                                                repeats: true)
+        
+    }
+    
+    
+    
+    func initTimer(_ from : Int, _ all : Int){
+        
+        startCounts = all
+        totalCounts = from
+        
+//        doScheduledTimer()
         
     }
     
@@ -139,10 +152,7 @@ class CountDownSimpleTime: UIImageView  {
     
     func updateFlippers(_ newText : String) {
         
-        let label = viewWithTag(100) as! UILabel
-        label.text = newText
-
-        
+        labelMain.text = newText
     }
     
     func timeFormatted(_ totalSeconds: Int) -> String {

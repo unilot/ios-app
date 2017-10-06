@@ -26,7 +26,8 @@ class MenuLeft: UITableViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
 
-        
+        UIApplication.shared.statusBarStyle = .lightContent
+   
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -38,17 +39,49 @@ class MenuLeft: UITableViewController {
             } else {
                 return  CGFloat(tableView.frame.height -  rowHeight * 5 - rowOneHeight)
             }
-            
-
         }
     
         return rowHeight
     }
+//    
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        <#code#>
+//    }
     
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("dsdfsdf")
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        
+//        
+//        
+//        switch indexPath.row {
+//        case 0:
+//            
+//            print("sigue_unilot")
+//
+//            self.performSegue(withIdentifier: "sigue_unilot", sender: self)
+//
+//            break
+//            
+//        case 3 :
+//            
+//            
+//            print("sigue_white")
+//
+//            self.performSegue(withIdentifier: "sigue_white", sender: self)
+//            
+//            break
+//
+//        case 2 :
+//            
+//            self.performSegue(withIdentifier: "sigue_white", sender: self)
+//
+//            break
+//            
+//            
+//        default:
+//            break
+//        }
+//    }
 
 }
         

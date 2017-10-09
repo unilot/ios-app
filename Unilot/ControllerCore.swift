@@ -24,6 +24,8 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         super.viewDidLoad()
         
         view.layoutIfNeeded()
+        
+        hideStatusBar()
 
         clearNavBar()
         

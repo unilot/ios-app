@@ -15,7 +15,7 @@ class HistoryTable: UITableViewController{
     
     
     var dataForTable = [87687,87687,987987,98798,98,98988,8,98,98,9,9,9]//[String]()
-    var viewWithPlaces : TotalPrizeFond?
+    var viewWithPlaces : TotalPrizeFond? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,9 +100,9 @@ class HistoryTable: UITableViewController{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
-        if (view.viewWithTag(1000) as? TotalPrizeFond) != nil {
+//        if (view.viewWithTag(1000) as? TotalPrizeFond) != nil {
             onPrizePlaces()
-        }
+//        }
         
     }
  
@@ -111,17 +111,17 @@ class HistoryTable: UITableViewController{
     func onPrizePlaces(){
         
         
-        if viewWithPlaces ==  nil {
+//        if viewWithPlaces ==  nil {
             viewWithPlaces = TotalPrizeFond.createTotalPrizeFond()
             viewWithPlaces!.tag = 1000
             viewWithPlaces!.layoutIfNeeded()
-        }
+//        }
         
         viewWithPlaces!.layer.opacity = 0.0
         viewWithPlaces!.frame = CGRect(x: 10,
                                       y: view.frame.height,
                                       width: view.frame.width - 20,
-                                      height: view.frame.height - 110)
+                                      height: view.frame.height - 100)
         
         viewWithPlaces!.initView()
         
@@ -131,7 +131,7 @@ class HistoryTable: UITableViewController{
         UIView.animate(withDuration: 0.4) {
             self.viewWithPlaces!.layer.opacity = 1.0
             self.viewWithPlaces!.frame = CGRect(x: 10,
-                                          y: 40,
+                                          y: 30,
                                           width: self.viewWithPlaces!.frame.width,
                                           height: self.viewWithPlaces!.frame.height)
         }

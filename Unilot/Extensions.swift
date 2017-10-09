@@ -8,6 +8,15 @@
 
 import UIKit
 
+extension UIViewController{
+    
+    func hideStatusBar(){
+        UIApplication.shared.statusBarStyle = .lightContent
+        setNeedsStatusBarAppearanceUpdate()
+    }
+
+}
+
 extension UINavigationBar {
     
     func transparentNavigationBar() {

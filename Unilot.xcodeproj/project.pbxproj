@@ -29,7 +29,6 @@
 		D6BDD90E1F7B240600E91FD0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BDD90D1F7B240600E91FD0 /* ProfileView.swift */; };
 		D6C57EF81F8AA9210082BCBB /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C57EF71F8AA9210082BCBB /* TextViewController.swift */; };
 		D6E42B791F8AFBE2005270A9 /* HistoryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E42B781F8AFBE2005270A9 /* HistoryTable.swift */; };
-		D6E42B7B1F8B0421005270A9 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E42B7A1F8B0421005270A9 /* LaunchScreen.swift */; };
 		D6F1E1321F7B9F3B0098B34C /* MainViewPositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1311F7B9F3B0098B34C /* MainViewPositions.swift */; };
 		D6F1E1361F7BA0E50098B34C /* AgreeToPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1351F7BA0E50098B34C /* AgreeToPlay.swift */; };
 		D6F1E1381F7BAA4E0098B34C /* ControllerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1371F7BAA4E0098B34C /* ControllerCore.swift */; };
@@ -78,7 +77,6 @@
 		D6BDD90D1F7B240600E91FD0 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D6C57EF71F8AA9210082BCBB /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		D6E42B781F8AFBE2005270A9 /* HistoryTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTable.swift; sourceTree = "<group>"; };
-		D6E42B7A1F8B0421005270A9 /* LaunchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		D6F1E1311F7B9F3B0098B34C /* MainViewPositions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewPositions.swift; sourceTree = "<group>"; };
 		D6F1E1351F7BA0E50098B34C /* AgreeToPlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgreeToPlay.swift; sourceTree = "<group>"; };
 		D6F1E1371F7BAA4E0098B34C /* ControllerCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerCore.swift; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 				D6F1E1671F7CD3C50098B34C /* NetWorkController.swift */,
 				D6BDD9041F7AD1F200E91FD0 /* Extensions.swift */,
 				D6F1E1371F7BAA4E0098B34C /* ControllerCore.swift */,
-				D6E42B7A1F8B0421005270A9 /* LaunchScreen.swift */,
 				D6C57EF71F8AA9210082BCBB /* TextViewController.swift */,
 				D6E42B781F8AFBE2005270A9 /* HistoryTable.swift */,
 				D6F1E1691F7D7B0C0098B34C /* MenuLeft.swift */,
@@ -509,7 +506,6 @@
 				D6BDD90E1F7B240600E91FD0 /* ProfileView.swift in Sources */,
 				D6F1E1381F7BAA4E0098B34C /* ControllerCore.swift in Sources */,
 				D6BDD9031F7AD1DB00E91FD0 /* Constants.swift in Sources */,
-				D6E42B7B1F8B0421005270A9 /* LaunchScreen.swift in Sources */,
 				D6F1E1321F7B9F3B0098B34C /* MainViewPositions.swift in Sources */,
 				D6F1E1971F7E55130098B34C /* JSRuleNotNull.m in Sources */,
 			);

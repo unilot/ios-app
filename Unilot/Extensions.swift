@@ -53,3 +53,63 @@ extension Integer {
         return Number.withSeparator.string(from: NSNumber(value: hashValue)) ?? ""
     }
 }
+
+
+
+func setColorForLabel(_ sizeOfView : CGSize, _ text : String) -> UIView{
+    
+    let bgView = UIView(frame: CGRect(x: 0, y: 0, width:  sizeOfView.width,
+                                      height: sizeOfView.height))
+    bgView.backgroundColor = UIColor.clear
+    
+    let textLayer = CATextLayer()
+    textLayer.frame = bgView.frame
+    textLayer.string = text
+    textLayer.fontSize = 28
+    textLayer.alignmentMode = kCAAlignmentCenter
+    
+    let gradientLayer = CAGradientLayer()
+    gradientLayer.frame = bgView.frame
+    gradientLayer.colors = [
+        kColorLightYellow.cgColor,
+        kColorLightOrange.cgColor
+    ]
+    
+    //Here you can adjust the filling
+    gradientLayer.locations = [0.5, 1.0]
+    
+    gradientLayer.mask = textLayer
+    bgView.layer.addSublayer(gradientLayer)
+    
+    return bgView
+}
+
+func setColorForImage(_ sizeOfView : CGSize, _ imageName : String) -> UIView{
+    
+    let bgView = UIView(frame: CGRect(x: 0, y: 0, width:  sizeOfView.width,
+                                      height: sizeOfView.height))
+    bgView.backgroundColor = UIColor.clear
+    
+    let myImage = UIImage(named: imageName)?.cgImage
+    
+    let myLayer = CALayer()
+    myLayer.frame = bgView.frame
+    myLayer.contents = myImage
+    
+    let gradientLayer = CAGradientLayer()
+    gradientLayer.frame = bgView.frame
+    gradientLayer.colors = [
+        kColorLightYellow.cgColor,
+        kColorLightOrange.cgColor
+    ]
+    
+    
+    //Here you can adjust the filling
+    gradientLayer.locations = [0.5, 1.0]
+    
+    gradientLayer.mask = myLayer
+    bgView.layer.addSublayer(gradientLayer)
+    
+    return bgView
+}
+

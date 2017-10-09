@@ -32,7 +32,9 @@ class TotalPrizeFond: UIView, UITableViewDelegate, UITableViewDataSource {
     
     func initView(){
         
-        
+        self.layer.borderWidth = 1
+        self.layer.borderColor = kColorLightGray.cgColor
+
     }
     
     
@@ -73,7 +75,7 @@ class TotalPrizeFond: UIView, UITableViewDelegate, UITableViewDataSource {
             
         }
         
-        setCellBody(cell!,["34","34eqrw","234tr"])
+        setCellBody(cell!,["3-567","67.463.536","345.544"])
         
         
         if indexPath.row % 2 == 0 {
@@ -91,14 +93,17 @@ class TotalPrizeFond: UIView, UITableViewDelegate, UITableViewDataSource {
     func createCellBody(_ cell : UITableViewCell) {
         let frame = cell.contentView.frame
 
-        let first = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width/3, height: frame.height))
+        let shiftUpp = CGFloat(-8)
+        let first = UILabel(frame: CGRect(x: 4, y: shiftUpp,
+                                          width: frame.width/3, height: frame.height))
         first.text = " "
         first.tag = 10
         first.font = UIFont(name: "Helvetica", size: 12)
         first.adjustsFontSizeToFitWidth = true
         cell.contentView.addSubview(first)
         
-        let second = UILabel(frame: CGRect(x: frame.width/3, y: 0, width: frame.width/3, height: frame.height))
+        let second = UILabel(frame: CGRect(x: frame.width/3, y: shiftUpp,
+                                           width: frame.width/3, height: frame.height))
         second.text = " "
         second.adjustsFontSizeToFitWidth = true
         second.tag = 20
@@ -106,7 +111,8 @@ class TotalPrizeFond: UIView, UITableViewDelegate, UITableViewDataSource {
         second.font = UIFont(name: "Helvetica", size: 12)
         cell.contentView.addSubview(second)
 
-        let third = UILabel(frame: CGRect(x: frame.width/3 * 2, y: 0, width: frame.width/3, height: frame.height))
+        let third = UILabel(frame: CGRect(x: frame.width/3 * 2, y: shiftUpp,
+                                          width: frame.width/3, height: frame.height))
         third.text = " "
         third.tag = 30
         third.textAlignment = .center

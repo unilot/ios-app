@@ -34,6 +34,9 @@ class AgreeToPlay: UIView, CountDownTimeDelegate {
     
     func initView(){
         
+        self.layer.borderWidth = 1
+        self.layer.borderColor = kColorLightGray.cgColor
+        
         copyButton.layer.borderWidth = 1
         copyButton.layer.borderColor = UIColor.lightGray.cgColor
         copyButton.layer.cornerRadius = 4

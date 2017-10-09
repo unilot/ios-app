@@ -19,7 +19,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>QRCodeReader.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SCLAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Splitflap.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,7 +37,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1182E1C993BCE9CAD24FB84CE9E37AA2</key>
+		<key>283EA86264A441D1D512F4BCF062C3ED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>28A9E23DF3EBDEF83EF6AFF243319554</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2CF33ACE251F33E27E353701E93D0598</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,7 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CDC93645E592E4086674FE217D118A0C</key>
+		<key>F123B4BFFD2A25865ABD4AF788E2B0D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

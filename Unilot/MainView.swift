@@ -1,10 +1,11 @@
 //
-//  ViewController.swift
-//  FlippingLabelExample
+//  MainView.swift
+//  Unilot
 //
-//  Created by Matthias Mellouli on 2017-02-03.
-//  Copyright © 2017 Matthias Mellouli. All rights reserved.
+//  Created by Alyona on 9/27/17.
+//  Copyright © 2017 Vovasoft. All rights reserved.
 //
+
 
 import UIKit
 

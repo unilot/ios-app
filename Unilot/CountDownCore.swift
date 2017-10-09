@@ -8,9 +8,10 @@
  
 
 import UIKit
+import Splitflap
 
 
-class CountDownCore: UIImageView  {
+class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
     
     
     var flippersCount = 5
@@ -71,23 +72,35 @@ class CountDownCore: UIImageView  {
             width: widthOfFlip -  distanceFromFlipps,
             height: self.frame.height)
         
-        let uiImage   = imageScaledToSize(size: frameRect.size, image:  UIImage(named:"flipFull")!)
+        //        let uiImage   = imageScaledToSize(size: frameRect.size, image:  UIImage(named:"flipFull")!)
         
-        let flip = FlippingLabel()
-        flip.text = "0"
-        flip.tag = (atPlace + 1 ) * 10000
-        flip.initViewWithLabel(frameRect, uiImage)
-        addSubview(flip)
+        let splitflapView = Splitflap(frame: frameRect)
+        splitflapView.datasource = self
+        splitflapView.delegate   = self
+        splitflapView.tag =  (atPlace + 1 ) * 10000
+        addSubview(splitflapView)
+
+//        let flip = FlippingLabel()
+//        flip.text = "0"
+//        flip.tag = (atPlace + 1 ) * 10000
+//        flip.initViewWithLabel(frameRect, uiImage)
+//        addSubview(flip)
         
     }
     
     
     func changeFlip(_ forPlace: Int, _ labelNewText: String) {
+//        
+//        if let flip = viewWithTag((forPlace + 1 ) * 10000) as? FlippingLabel {
+//            flip.updateWithText( labelNewText )
+//
+//        }
         
-        if let flip = viewWithTag((forPlace + 1 ) * 10000) as? FlippingLabel {
-            flip.updateWithText( labelNewText )
-
+        if let flip = viewWithTag((forPlace + 1 ) * 10000) as? Splitflap {
+            flip.setText(labelNewText, animated: true)
+            
         }
+        
         
     }
     
@@ -133,8 +146,10 @@ class CountDownCore: UIImageView  {
     
     func endTimer() {
         
-        countdownTimer.invalidate()
-        countdownTimer = nil
+        if countdownTimer != nil {
+            countdownTimer.invalidate()
+            countdownTimer = nil
+        }
     }
 
     func changeDigit(forPlace: Int, _ units: String) {
@@ -172,5 +187,42 @@ class CountDownCore: UIImageView  {
     }
 
 
+    //MARK: - SplitFlap delegates
     
+    
+    func numberOfFlapsInSplitflap(_ splitflap: Splitflap) -> Int{
+        return 1
+    }
+
+    func tokensInSplitflap(_ splitflap: Splitflap) -> [String] {
+        return "0123456789".characters.map { String($0) }
+    }
+    
+//    func splitflap(_ splitflap: Splitflap, rotationDurationForFlapAtIndex index: Int) -> Double
+//
+    // MARK: - Configuring the Label of Flaps
+    
+    /**
+     Called by the split-flap when it needs to create its flap subviews.
+     
+     - parameter splitflap: The split-flap view requesting the data.
+     - parameter index: A zero-indexed number identifying a flap. The index starts
+     at 0 for the leftmost flap.
+     - returns: A FlapView builder object to create custom flaps.
+     */
+ 
+    func splitflap(_ splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapViewBuilder {
+        return FlapViewBuilder { builder in
+            
+            let uiImage   = imageScaledToSize(size: splitflap.frame.size, image:  UIImage(named:"flipFull")!)
+
+            builder.backgroundColor = UIColor(patternImage: uiImage)
+//            builder.backgroundColor = UIColor(red: 251/255, green: 249/255, blue: 243/255, alpha: 1)
+            builder.cornerRadius    = 5
+//            builder.font            = UIFont(name: "Avenir-Black", size:45)
+            builder.textAlignment   = .center
+            builder.textColor       = UIColor.white
+            builder.lineColor       = UIColor.black//(red: 0, green: 0, blue: 0, alpha: 0.3)
+        }
+    }
 }

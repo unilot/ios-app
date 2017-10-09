@@ -37,6 +37,9 @@ class FlippingLabel: UILabel {
  
     }
 
+    func setLabelAfterFlip(){
+        
+    }
     
     
     //    //True if after the completion of the bottom tile animation we can remove
@@ -143,7 +146,9 @@ extension FlippingLabel {
     /// Start the flipping animation effect
     func animateTiles() {
         //Adding top tiles animations
+        
         addTopTileSadowAnimation()
+        
         addTopTileFlippingAnimation()
         
         addBottomShadowAnimation()

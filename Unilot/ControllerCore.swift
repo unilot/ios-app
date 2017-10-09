@@ -11,11 +11,13 @@ import UIKit
 import NVActivityIndicatorView
 import SCLAlertView
 
+
 class ControllerCore: UIViewController, NVActivityIndicatorViewable {
 
     @IBOutlet weak var bgView: UIImageView!
 
     var activityIndicatorView : NVActivityIndicatorView?
+ 
     
     override func viewDidLoad() {
         
@@ -26,9 +28,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         clearNavBar()
         
         addParallaxToView()
-        
-        setMenuButton()
-        
+                
         setTabBarItem()
         
     }
@@ -69,30 +69,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
     }
     
     
-    func setMenuButton(){
-        
-        navigationItem.backBarButtonItem = nil
-        
-//        let imageItem = setColorForImage(CGSize(width: 30, height: 30), "menu")
 
-
-//        let backItem = UIBarButtonItem(customView: imageItem)
-//        backItem.target = self
-//        backItem.action = #selector(ControllerCore.onOpenMenu)
-        
-        
-        let backItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self, action: #selector(ControllerCore.onOpenMenu))
- 
-        
-        //UIColor.whiteColor()
-
-//        UIBarButtonItem.appearance().tintColor = newColor // UIColor.gray
-        backItem.title = nil
-        navigationItem.leftBarButtonItem = backItem
-        
-        self.navigationController?.navigationBar.tintColor = kColorLightOrange
-
-    }
     
     
     func addParallaxToView() {
@@ -119,64 +96,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for:.selected)
         
     }
-    
-    func setColorForLabel(_ sizeOfView : CGSize, _ text : String) -> UIView{
-        
-        let bgView = UIView(frame: CGRect(x: 0, y: 0, width:  sizeOfView.width,
-                                          height: sizeOfView.height))
-        bgView.backgroundColor = UIColor.clear
 
-        let textLayer = CATextLayer()
-        textLayer.frame = bgView.frame
-        textLayer.string = text
-        textLayer.fontSize = 28
-        textLayer.alignmentMode = kCAAlignmentCenter
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = bgView.frame
-        gradientLayer.colors = [
-            kColorLightYellow.cgColor,
-            kColorLightOrange.cgColor
-        ]
-        
-        //Here you can adjust the filling
-        gradientLayer.locations = [0.5, 1.0]
-        
-        gradientLayer.mask = textLayer
-        bgView.layer.addSublayer(gradientLayer)
-        
-        return bgView
-    }
-    
-    func setColorForImage(_ sizeOfView : CGSize, _ imageName : String) -> UIView{
-        
-        let bgView = UIView(frame: CGRect(x: 0, y: 0, width:  sizeOfView.width,
-                                          height: sizeOfView.height))
-        bgView.backgroundColor = UIColor.clear
-        
-        let myImage = UIImage(named: imageName)?.cgImage
-
-        let myLayer = CALayer()
-        myLayer.frame = bgView.frame
-        myLayer.contents = myImage
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = bgView.frame
-        gradientLayer.colors = [
-            kColorLightYellow.cgColor,
-            kColorLightOrange.cgColor
-        ]
-
-        
-        //Here you can adjust the filling
-        gradientLayer.locations = [0.5, 1.0]
-        
-        gradientLayer.mask = myLayer
-        bgView.layer.addSublayer(gradientLayer)
-        
-        return bgView
-    }
-    
     //MARK: - activityView
 
     func showActivityViewIndicator(){
@@ -199,5 +119,6 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
     func onOpenMenu(){
         navigationController?.popViewController(animated: true)
     }
+ 
     
 }

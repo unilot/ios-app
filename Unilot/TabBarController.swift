@@ -8,28 +8,34 @@
 
 import UIKit
 
-class TabBarController: UITabBarController  {
 
-    @IBOutlet var menuButton:UIBarButtonItem!
 
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        initNavigationData()
-        
-        
-    
-    }
-    
-    
-    func initNavigationData(){
+
+class NavigationController: UINavigationController  {
+     
+ 
+    func initNavigationData(_ menuButton : UIBarButtonItem){
         
         if revealViewController() != nil {
-            //            revealViewController().rearViewRevealWidth = 62
-            menuButton.target = revealViewController()
+            menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            menuButton.style = .plain
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
+        }
+    }
+    
+}
+
+class TabBarController: UITabBarController  {
+  
+    func initNavigationData(_ menuButton : UIBarButtonItem){
+        
+        if revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            menuButton.style = .plain
+
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
         }

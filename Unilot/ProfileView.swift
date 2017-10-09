@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
+import QRCodeReader
+
 
 class ProfileView: ControllerCore, UITextFieldDelegate {
     
@@ -21,6 +24,16 @@ class ProfileView: ControllerCore, UITextFieldDelegate {
     @IBOutlet weak var checkMorePurses: UIButton!
 
     @IBOutlet weak var answerRect: UIView!
+    
+    
+    var readerVC: QRCodeReaderViewController = {
+        let builder = QRCodeReaderViewControllerBuilder {
+            $0.reader = QRCodeReader(metadataObjectTypes: [AVMetadataObjectTypeQRCode], captureDevicePosition: .back)
+        }
+        
+        return QRCodeReaderViewController(builder: builder)
+    }()
+    
     
     //MARK: - Views Load override
     
@@ -42,6 +55,12 @@ class ProfileView: ControllerCore, UITextFieldDelegate {
         fieldPurse.initialize()
         fieldPurse.floatingLabelTextColor = UIColor.gray
         fieldPurse.text = kEmpty
+        
+        let viewTapGestureRec = UITapGestureRecognizer(target: self, action: #selector(ProfileView.handleViewTap(recognizer:)))
+        //this line is important
+        viewTapGestureRec.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(viewTapGestureRec)
+        
     }
  
     func setBorders(){
@@ -59,6 +78,11 @@ class ProfileView: ControllerCore, UITextFieldDelegate {
         checkMorePurses.setTitle(TR("Добавить еще один кошелек"), for: .normal)
     }
     
+    func hideNewNick(){
+        answerRect.isHidden = true
+
+    }
+    
     func fillNewNick(){
         answerRect.isHidden = false
         titleResult.text = TR("Отлично!\nКошельку присвоен никнейм")
@@ -68,9 +92,30 @@ class ProfileView: ControllerCore, UITextFieldDelegate {
     
     
     @IBAction func onAddMorePurse(){
-                
-        fillNewNick()
+        
+        fieldPurse.text = ""
+        
+        fieldPurse.becomeFirstResponder()
 
+        hideNewNick()
+
+    }
+    
+    @IBAction func onQRScan(_ sender: Any) {
+        
+        readerVC.completionBlock = { (result: QRCodeReaderResult?) in
+          
+            self.fieldPurse.text = result?.value
+            self.dismiss(animated: true, completion: nil)
+
+        }
+        
+        
+        // Presents the readerVC as modal form sheet
+        readerVC.modalPresentationStyle = .formSheet
+        
+        present(readerVC, animated: true, completion: nil)
+        
     }
     
     //MARK: - UITextFieldDelegate
@@ -80,10 +125,17 @@ class ProfileView: ControllerCore, UITextFieldDelegate {
 
         textField.resignFirstResponder()
         
-        showActivityViewIndicator()
+        fillNewNick()
+
+//        showActivityViewIndicator()
 
 
         return true
     }
    
+    func handleViewTap(recognizer: UIGestureRecognizer) {
+        fieldPurse.resignFirstResponder()
+    }
+ 
+
 }

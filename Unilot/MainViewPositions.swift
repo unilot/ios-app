@@ -40,8 +40,11 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
         super.viewDidLoad()
         
-        setButtonView()
+        setMenuButton()
         
+        
+        setButtonView()
+
         moneyTablet.createBody()
         
         clockTablet.createBody(self)
@@ -65,9 +68,9 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     }
     
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         
-        super.viewDidDisappear(animated)
+        super.viewWillDisappear(animated)
        
         moneyTablet.endTimer()
         
@@ -81,6 +84,20 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     
     //MARK: - Set all views
+    
+    func setMenuButton(){
+        
+        let imageItem = setColorForImage(CGSize(width: 30, height: 30), "menu")
+        let backItem = UIBarButtonItem(customView: imageItem)
+        tabBarController?.navigationItem.backBarButtonItem = nil
+        tabBarController?.navigationItem.leftBarButtonItem = backItem
+        
+        if let nav = (tabBarController as? TabBarController ) {
+            nav.initNavigationData(backItem)
+        }
+    }
+    
+    
     
     func setButtonView(){
         

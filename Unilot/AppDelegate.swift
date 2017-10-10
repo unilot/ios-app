@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        statusBar.backgroundColor = UIColor.clear
 //
         
-        window?.backgroundColor = UIColor.green
-//        window?.addSubview(create_fon_view(window!.frame.size))
+//        window?.backgroundColor = UIColor.green
+        window?.addSubview(create_fon_view(window!.frame.size))
 
         return true
     }

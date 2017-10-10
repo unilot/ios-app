@@ -215,7 +215,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="IR5-Or-CvJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -261,7 +262,7 @@
                                                 <constraint firstItem="eT6-GB-rNn" firstAttribute="leading" secondItem="2qo-ao-YLh" secondAttribute="leading" constant="15" id="qJ3-wZ-qOp"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="llp-ny-UJv" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="EaA-QT-olk"/>
                                         </connections>
@@ -296,7 +297,7 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="EGP-WE-g5F" secondAttribute="bottom" constant="2" id="lpa-Nj-FGt"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="ftt-qn-V6P" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="2aP-bF-jhM"/>
                                         </connections>
@@ -331,7 +332,7 @@
                                                 <constraint firstItem="sk3-52-D43" firstAttribute="leading" secondItem="miD-f6-uz9" secondAttribute="leading" constant="10" id="d2l-62-E3R"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="enS-K8-ii6" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="ODn-PE-JOa"/>
                                         </connections>
@@ -366,7 +367,7 @@
                                                 <constraint firstItem="jza-fB-0Qm" firstAttribute="centerY" secondItem="huF-dh-YeN" secondAttribute="centerY" id="y3K-x8-UPz"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="ebv-aI-Wjb" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="UQc-Fj-2ns"/>
                                         </connections>
@@ -401,7 +402,7 @@
                                                 <constraint firstItem="XwV-mm-3uN" firstAttribute="top" secondItem="mAe-lD-vfV" secondAttribute="topMargin" constant="2" id="sta-hD-FmF"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -428,7 +429,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="8EJ-if-R7N" secondAttribute="trailing" constant="4" id="v4a-ZF-w28"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="id_socials_cell" rowHeight="213" id="zEW-U7-iek">
                                         <rect key="frame" x="0.0" y="310" width="375" height="213"/>
@@ -549,7 +550,7 @@
                                                 <constraint firstItem="Oo1-zt-lHv" firstAttribute="width" secondItem="Gcm-i5-MuZ" secondAttribute="width" id="yVB-yB-dOh"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1155,7 +1156,8 @@
                     <view key="view" contentMode="scaleToFill" id="oQo-SM-cyz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>

@@ -22,6 +22,7 @@ class MenuLeft: UITableViewController {
 
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor.black
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true

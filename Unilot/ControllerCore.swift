@@ -25,45 +25,21 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         
         view.layoutIfNeeded()
         
+        setMenuButton()
+
         hideStatusBar()
 
-        clearNavBar()
-        
-        addParallaxToView()
+        setTitle()
                 
-        setTabBarItem()
-        
     }
     
     
     
-    func clearNavBar(){
-        
-//        tabBarController?.navigationItem.leftBarButtonItem = settingsButton //This is the IBOutlet variable that you previously added
+    func setTitle(){
 
-//        
-//        let bar:UINavigationBar! =  self.navigationController?.navigationBar
-//        bar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//        bar.shadowImage = UIImage()
-//        bar.alpha = 0.0
-//        
-        
-        
-//        let frameForSize = tabBarController?.navigationItem.accessibilityFrame
-        
-//        let imageTitle = UIImageView(image: UIImage(named: "unilotmenu-item"))
-        
-        let imageTitle = setColorForLabel(CGSize(width: 100, height: 30), "unilot")
+        let image = setColorForImage(CGSize(width: 100, height: 20), "unilotmenu-item")
 
-//        
-//        imageTitle.frame = CGRect(x: frameForSize!.width / 2 - 100,
-//                                  y: frameForSize!.height / 2 - 10,
-//                                  width: 200, height: 20)
-//        imageTitle.contentMode = .scaleAspectFit
-//      
-        
-        
-        tabBarController?.navigationItem.titleView = imageTitle
+        tabBarController?.navigationItem.titleView = image
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
@@ -93,11 +69,14 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
     
     
     
-    func setTabBarItem(){
+    func setMenuButton(){
         
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for:.selected)
+        navigationController?.initNavigationData()
         
     }
+    
+    
+
 
     //MARK: - activityView
 

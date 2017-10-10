@@ -10,35 +10,13 @@ import UIKit
 
 
 
-
-class NavigationController: UINavigationController  {
-     
- 
-    func initNavigationData(_ menuButton : UIBarButtonItem){
-        
-        if revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            menuButton.style = .plain
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            
-        }
-    }
-    
-}
-
 class TabBarController: UITabBarController  {
   
-    func initNavigationData(_ menuButton : UIBarButtonItem){
-        
-        if revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            menuButton.style = .plain
 
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            
-        }
-    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+      
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for:.selected)
     
+    }
 }

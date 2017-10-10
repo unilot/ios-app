@@ -21,9 +21,9 @@ class CountDownSimpleTime: UIImageView  {
     
     var delegate : CountDownTimeDelegate?
     
-    var startCounts = 1500
+    var startCounts = 0
     
-    var totalCounts = 1500
+    var totalCounts = 0
 
     
     

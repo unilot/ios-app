@@ -33,48 +33,62 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     @IBOutlet weak var moneyTablet: CountUppMoney!
     @IBOutlet weak var clockTablet: CountDownSimpleTime!
     
-    
+    var widthProgress = CGFloat(-1)
+        
     //MARK: - Views Load override
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        setMenuButton()
-        
-        
         setButtonView()
-
-        moneyTablet.createBody()
         
-        clockTablet.createBody(self)
+        addTimersBody()
         
         fillWithData()
-
-
         
+        addParallaxToView()
+
+
      }
  
+    
     
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
         
+        if widthProgress == -1 {
+            
+            setLoadingSign(toWidth: 0)
+
+            moneyTablet.doScheduledTimer()
+            
+            clockTablet.doScheduledTimer()
+
+        }
         
-        moneyTablet.doScheduledTimer()
-        
-        clockTablet.doScheduledTimer()
         
     }
+    
+ 
     
     
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
        
-        moneyTablet.endTimer()
+//        moneyTablet.endTimer()
+//        
+//        clockTablet.endTimer()
         
-        clockTablet.endTimer()
+    }
+    
+    func addTimersBody(){
+        
+        moneyTablet.createBody()
+        
+        clockTablet.createBody(self)
         
     }
     
@@ -85,20 +99,13 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     //MARK: - Set all views
     
-    func setMenuButton(){
+    override func setMenuButton(){
         
-        let imageItem = setColorForImage(CGSize(width: 30, height: 30), "menu")
-        let backItem = UIBarButtonItem(customView: imageItem)
-        tabBarController?.navigationItem.backBarButtonItem = nil
-        tabBarController?.navigationItem.leftBarButtonItem = backItem
-        
-        if let nav = (tabBarController as? TabBarController ) {
-            nav.initNavigationData(backItem)
-        }
+        tabBarController?.initNavigationData()
+
     }
     
-    
-    
+     
     func setButtonView(){
         
         prizePlaces.layer.borderWidth = 0.5
@@ -114,14 +121,20 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     }
     
     
-    func setLoadingSign(toWidth: CGFloat = 0){
+    func setLoadingSign(toWidth: CGFloat ){
         
         let rect = loadingSignProgress.frame
         
-        loadingSignProgress.frame = CGRect(x: rect.origin.x,
-                                           y: rect.origin.y,
-                                           width: toWidth,
-                                           height: rect.size.height)
+        let _loadingSignProgress = loadingSignProgress
+        
+        widthProgress = toWidth
+        
+        UIView.animate(withDuration: 0.05) {
+            _loadingSignProgress?.frame = CGRect(x: rect.origin.x,
+                                               y: rect.origin.y,
+                                               width: toWidth,
+                                               height: rect.size.height)
+        }
     }
 
     func changeProgressLine(from: Int, left: Int){

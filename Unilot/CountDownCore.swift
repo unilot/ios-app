@@ -20,9 +20,9 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
 
     var timerUpdateDuration = 1.0
     
-    var startCounts = 1500
+    var startCounts = 0
     
-    var totalCounts = 1500
+    var totalCounts = 0
     
     
     

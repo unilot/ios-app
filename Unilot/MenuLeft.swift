@@ -83,5 +83,41 @@ class MenuLeft: UITableViewController {
 //        }
 //    }
 
-}
+    
+    
+    @IBAction func onSocial(_ sender : UIButton){
         
+        
+        var url = URL(string: "https://www.google.com")
+
+        
+        switch sender.tag {
+        case 100:
+            url = URL(string: "https://www.facebook.com")
+        case 200:
+            url = URL(string: "https://www.telegram.com")
+        case 300:
+            url = URL(string: "https://www.instagram.com")
+        case 400:
+            url = URL(string: "https://www.twitter.com")
+        default:
+            break
+        }
+        
+        
+        if UIApplication.shared.canOpenURL(url!) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+                UIApplication.shared.open(url!, options: [:], completionHandler: { (success) in
+                    print("Open url : \(success)")
+                })
+
+            } else {
+                // Fallback on earlier versions
+                UIApplication.shared.openURL(url!)
+            }
+        }
+        
+    }
+}
+

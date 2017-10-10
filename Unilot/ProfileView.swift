@@ -26,7 +26,7 @@ class ProfileView: ControllerCore, UITextFieldDelegate {
     @IBOutlet weak var answerRect: UIView!
     
     
-    var readerVC: QRCodeReaderViewController = {
+    lazy var readerVC: QRCodeReaderViewController = {
         let builder = QRCodeReaderViewControllerBuilder {
             $0.reader = QRCodeReader(metadataObjectTypes: [AVMetadataObjectTypeQRCode], captureDevicePosition: .back)
         }
@@ -35,29 +35,31 @@ class ProfileView: ControllerCore, UITextFieldDelegate {
     }()
     
     
+    
     //MARK: - Views Load override
     
     override func viewDidLoad() {
         
         super.viewDidLoad() 
-         
+        
         setBorders()
         
         setTextField()
         
+        hideNewNick()
+        
         fillWithData()
         
-        answerRect.isHidden = true
     }
- 
-    
+  
     func setTextField(){
+
         fieldPurse.initialize()
         fieldPurse.floatingLabelTextColor = UIColor.gray
         fieldPurse.text = kEmpty
         
         let viewTapGestureRec = UITapGestureRecognizer(target: self, action: #selector(ProfileView.handleViewTap(recognizer:)))
-        //this line is important
+
         viewTapGestureRec.cancelsTouchesInView = false
         self.view.addGestureRecognizer(viewTapGestureRec)
         
@@ -72,11 +74,7 @@ class ProfileView: ControllerCore, UITextFieldDelegate {
         answerRect.layer.borderColor = UIColor.green.cgColor
     }
     
-    func fillWithData(){
-        titleMain.text = TR("Получите\nуникальный никнейм")
-        fieldPurse.placeholder = TR("Номер вашего кошелька")
-        checkMorePurses.setTitle(TR("Добавить еще один кошелек"), for: .normal)
-    }
+
     
     func hideNewNick(){
         answerRect.isHidden = true
@@ -85,9 +83,15 @@ class ProfileView: ControllerCore, UITextFieldDelegate {
     
     func fillNewNick(){
         answerRect.isHidden = false
-        titleResult.text = TR("Отлично!\nКошельку присвоен никнейм")
         nickName.text = "weifuybUYTR&^G"
-        nickName.isEnabled = false
+    }
+    
+    func fillWithData(){
+        titleMain.text = TR("Получите\nуникальный никнейм")
+        fieldPurse.placeholder = TR("Номер вашего кошелька")
+        checkMorePurses.setTitle(TR("Добавить еще один кошелек"), for: .normal)
+        titleResult.text = TR("Отлично!\nКошельку присвоен никнейм")
+
     }
     
     
@@ -105,7 +109,11 @@ class ProfileView: ControllerCore, UITextFieldDelegate {
         
         readerVC.completionBlock = { (result: QRCodeReaderResult?) in
           
-            self.fieldPurse.text = result?.value
+            if let text = result?.value{
+                self.fieldPurse.text = text
+                self.fillNewNick()
+            }
+
             self.dismiss(animated: true, completion: nil)
 
         }

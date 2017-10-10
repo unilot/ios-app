@@ -11,20 +11,16 @@ import AVFoundation
 import QRCodeReader
 
 
-class ProfileView: ControllerCore, UITextFieldDelegate {
+class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var titleMain: UILabel!
 
-    @IBOutlet weak var titleResult: UILabel!
-
     @IBOutlet weak var fieldPurse: JSInputField!
-
-    @IBOutlet weak var nickName: UITextField!
 
     @IBOutlet weak var checkMorePurses: UIButton!
 
-    @IBOutlet weak var answerRect: UIView!
-    
+    @IBOutlet weak var table: UITableView!
+
     
     lazy var readerVC: QRCodeReaderViewController = {
         let builder = QRCodeReaderViewControllerBuilder {
@@ -45,8 +41,6 @@ class ProfileView: ControllerCore, UITextFieldDelegate {
         setBorders()
         
         setTextField()
-        
-        hideNewNick()
         
         fillWithData()
         
@@ -69,29 +63,14 @@ class ProfileView: ControllerCore, UITextFieldDelegate {
         checkMorePurses.layer.borderWidth = 1
         checkMorePurses.layer.borderColor = UIColor.white.cgColor
         checkMorePurses.layer.cornerRadius = checkMorePurses.frame.height/2
-        
-        answerRect.layer.borderWidth = 1
-        answerRect.layer.borderColor = UIColor.green.cgColor
-    }
-    
-
-    
-    func hideNewNick(){
-        answerRect.isHidden = true
 
     }
     
-    func fillNewNick(){
-        answerRect.isHidden = false
-        nickName.text = "weifuybUYTR&^G"
-    }
-    
+ 
     func fillWithData(){
         titleMain.text = TR("Получите\nуникальный никнейм")
         fieldPurse.placeholder = TR("Номер вашего кошелька")
         checkMorePurses.setTitle(TR("Добавить еще один кошелек"), for: .normal)
-        titleResult.text = TR("Отлично!\nКошельку присвоен никнейм")
-
     }
     
     
@@ -101,8 +80,6 @@ class ProfileView: ControllerCore, UITextFieldDelegate {
         
         fieldPurse.becomeFirstResponder()
 
-        hideNewNick()
-
     }
     
     @IBAction func onQRScan(_ sender: Any) {
@@ -111,7 +88,6 @@ class ProfileView: ControllerCore, UITextFieldDelegate {
           
             if let text = result?.value{
                 self.fieldPurse.text = text
-                self.fillNewNick()
             }
 
             self.dismiss(animated: true, completion: nil)
@@ -133,10 +109,14 @@ class ProfileView: ControllerCore, UITextFieldDelegate {
 
         textField.resignFirstResponder()
         
-        fillNewNick()
+        if textField.text != nil {
+            my_tokens.insert(textField.text!, at: 0)
+            
+            table.insertRows(at: [IndexPath(row: 0, section: 0)], with: .bottom)
+            
+            textField.text = nil
 
-//        showActivityViewIndicator()
-
+        }
 
         return true
     }
@@ -145,5 +125,47 @@ class ProfileView: ControllerCore, UITextFieldDelegate {
         fieldPurse.resignFirstResponder()
     }
  
+
+    
+    //MARK:-  UITableViewDelegate, UITableViewDataSource
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return my_tokens.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        cell.layoutIfNeeded()
+        
+        
+        labelFor(cell,10)?.text = my_tokens[indexPath.row]
+        
+        
+        if let button_x = cell.contentView.viewWithTag(20) as? MyButton{
+            button_x.subTag = indexPath
+            button_x.addTarget(self, action: #selector(ProfileView.onIks(_:)), for: .touchUpInside)
+            button_x.imageView?.contentMode = .scaleAspectFit
+            button_x.imageView?.backgroundColor = UIColor.clear
+            button_x.imageView?.tintColor = kColorLightGray
+            button_x.imageView?.clipsToBounds = true
+        }
+        return cell
+        
+    }
+    
+    
+    
+    func onIks(_ sender: MyButton){
+        
+        my_tokens.remove(at: sender.subTag!.row)
+        table.deleteRows(at: [sender.subTag!], with: .top)
+    
+    }
+    
 
 }

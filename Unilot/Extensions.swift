@@ -17,9 +17,9 @@ extension UIViewController{
  
     func initNavigationData(){
         
-        if revealViewController() != nil {
-            view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-        }
+//        if revealViewController() != nil {
+//            view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+//        }
     }
     
     
@@ -77,6 +77,11 @@ extension Integer {
     var stringWithSepator: String {
         return Number.withSeparator.string(from: NSNumber(value: hashValue)) ?? ""
     }
+}
+
+
+class MyButton : UIButton{
+    var subTag : IndexPath?
 }
 
 

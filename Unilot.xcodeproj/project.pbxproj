@@ -31,6 +31,12 @@
 		D6BDD90C1F7B07A700E91FD0 /* CountDownSimpleTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BDD90B1F7B07A700E91FD0 /* CountDownSimpleTime.swift */; };
 		D6BDD90E1F7B240600E91FD0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BDD90D1F7B240600E91FD0 /* ProfileView.swift */; };
 		D6C57EF81F8AA9210082BCBB /* WhitePapersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C57EF71F8AA9210082BCBB /* WhitePapersView.swift */; };
+		D6C6BAB31F8CD6C000EC7FE0 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6C6BAAE1F8CD6BF00EC7FE0 /* Roboto-Bold.ttf */; };
+		D6C6BAB41F8CD6C000EC7FE0 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6C6BAAF1F8CD6C000EC7FE0 /* Roboto-Light.ttf */; };
+		D6C6BAB51F8CD6C000EC7FE0 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6C6BAB01F8CD6C000EC7FE0 /* Roboto-Medium.ttf */; };
+		D6C6BAB61F8CD6C000EC7FE0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6C6BAB11F8CD6C000EC7FE0 /* Roboto-Regular.ttf */; };
+		D6C6BAB71F8CD6C000EC7FE0 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6C6BAB21F8CD6C000EC7FE0 /* Roboto-Thin.ttf */; };
+		D6D591BB1F8D19D20002451A /* LxTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D591BA1F8D19D20002451A /* LxTabBarController.swift */; };
 		D6E42B791F8AFBE2005270A9 /* HistoryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E42B781F8AFBE2005270A9 /* HistoryTable.swift */; };
 		D6F1E1321F7B9F3B0098B34C /* MainViewPositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1311F7B9F3B0098B34C /* MainViewPositions.swift */; };
 		D6F1E1361F7BA0E50098B34C /* AgreeToPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1351F7BA0E50098B34C /* AgreeToPlay.swift */; };
@@ -82,6 +88,12 @@
 		D6BDD90B1F7B07A700E91FD0 /* CountDownSimpleTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountDownSimpleTime.swift; sourceTree = "<group>"; };
 		D6BDD90D1F7B240600E91FD0 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D6C57EF71F8AA9210082BCBB /* WhitePapersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhitePapersView.swift; sourceTree = "<group>"; };
+		D6C6BAAE1F8CD6BF00EC7FE0 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		D6C6BAAF1F8CD6C000EC7FE0 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		D6C6BAB01F8CD6C000EC7FE0 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		D6C6BAB11F8CD6C000EC7FE0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		D6C6BAB21F8CD6C000EC7FE0 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		D6D591BA1F8D19D20002451A /* LxTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LxTabBarController.swift; sourceTree = "<group>"; };
 		D6E42B781F8AFBE2005270A9 /* HistoryTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTable.swift; sourceTree = "<group>"; };
 		D6F1E1311F7B9F3B0098B34C /* MainViewPositions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewPositions.swift; sourceTree = "<group>"; };
 		D6F1E1351F7BA0E50098B34C /* AgreeToPlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgreeToPlay.swift; sourceTree = "<group>"; };
@@ -177,6 +189,7 @@
 		D62A316F1F7AC03D00275B86 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				D6C6BAAD1F8CD6BF00EC7FE0 /* Roboto font */,
 				D62A31701F7AC06E00275B86 /* Bridging-Header.h */,
 				D63F45161F8AC1BE00F69E7F /* Terms.html */,
 				D69364D11F5F254400FD0D37 /* Info.plist */,
@@ -187,6 +200,7 @@
 		D62A31711F7AC10300275B86 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D6D591BA1F8D19D20002451A /* LxTabBarController.swift */,
 				D6F1E16D1F7E55130098B34C /* JSKit */,
 				D62A31721F7AC10300275B86 /* SideBarMenu */,
 			);
@@ -255,6 +269,19 @@
 				D6BDD90B1F7B07A700E91FD0 /* CountDownSimpleTime.swift */,
 			);
 			name = CountDown;
+			sourceTree = "<group>";
+		};
+		D6C6BAAD1F8CD6BF00EC7FE0 /* Roboto font */ = {
+			isa = PBXGroup;
+			children = (
+				D6C6BAAE1F8CD6BF00EC7FE0 /* Roboto-Bold.ttf */,
+				D6C6BAAF1F8CD6C000EC7FE0 /* Roboto-Light.ttf */,
+				D6C6BAB01F8CD6C000EC7FE0 /* Roboto-Medium.ttf */,
+				D6C6BAB11F8CD6C000EC7FE0 /* Roboto-Regular.ttf */,
+				D6C6BAB21F8CD6C000EC7FE0 /* Roboto-Thin.ttf */,
+			);
+			name = "Roboto font";
+			path = "Settings/Roboto font";
 			sourceTree = "<group>";
 		};
 		D6F1E1331F7BA0A00098B34C /* main cores */ = {
@@ -414,12 +441,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6C6BAB31F8CD6C000EC7FE0 /* Roboto-Bold.ttf in Resources */,
 				D63F45171F8AC1BE00F69E7F /* Terms.html in Resources */,
+				D6C6BAB61F8CD6C000EC7FE0 /* Roboto-Regular.ttf in Resources */,
 				D62E4C2C1F86C15B00C619EA /* TotalPrizeFond.xib in Resources */,
+				D6C6BAB71F8CD6C000EC7FE0 /* Roboto-Thin.ttf in Resources */,
 				D69364D01F5F254400FD0D37 /* LaunchScreen.storyboard in Resources */,
 				D66878B81F84D9CF0096FB3F /* AgreeToPlay.xib in Resources */,
 				D69364CD1F5F254400FD0D37 /* Assets.xcassets in Resources */,
+				D6C6BAB41F8CD6C000EC7FE0 /* Roboto-Light.ttf in Resources */,
 				D69364CB1F5F254400FD0D37 /* Main.storyboard in Resources */,
+				D6C6BAB51F8CD6C000EC7FE0 /* Roboto-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +558,7 @@
 				D6BDD90E1F7B240600E91FD0 /* ProfileView.swift in Sources */,
 				D6F1E1381F7BAA4E0098B34C /* ControllerCore.swift in Sources */,
 				D6BDD9031F7AD1DB00E91FD0 /* Constants.swift in Sources */,
+				D6D591BB1F8D19D20002451A /* LxTabBarController.swift in Sources */,
 				D6F1E1321F7B9F3B0098B34C /* MainViewPositions.swift in Sources */,
 				D6F1E1971F7E55130098B34C /* JSRuleNotNull.m in Sources */,
 			);

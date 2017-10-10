@@ -47,12 +47,19 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
         fillWithData()
         
-        addParallaxToView()
+        setSwipesGestures()
+        
+        bgView.isOpaque = true
+        view.backgroundColor = UIColor.clear
+        view.isOpaque = true
 
-
+        
      }
  
     
+    override func initNavigationData(){
+        
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         
@@ -96,6 +103,30 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
     }
     
+    
+    //MARK: - SetSwipes
+    
+    func setSwipesGestures(){
+        
+        let left = UISwipeGestureRecognizer(target: self, action: #selector(MainViewPositions.swipeLeft))
+        left.direction = .left
+        self.view.addGestureRecognizer(left)
+        
+        let right = UISwipeGestureRecognizer(target: self, action: #selector(MainViewPositions.swipeRight))
+        right.direction = .right
+        self.view.addGestureRecognizer(right)
+    }
+    
+    
+    func swipeLeft(){
+        let total = self.tabBarController!.viewControllers!.count - 1
+        tabBarController!.selectedIndex = min(total, tabBarController!.selectedIndex + 1)
+
+    }
+    
+    func swipeRight(){
+        tabBarController!.selectedIndex = max(0, tabBarController!.selectedIndex - 1)
+    }
     
     //MARK: - Set all views
     

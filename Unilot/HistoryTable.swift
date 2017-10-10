@@ -140,11 +140,5 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
     }
     
-    func labelFor(_ cell: UITableViewCell, _ index: Int) -> UILabel?{
-        
-        if let label = cell.contentView.viewWithTag(index) as? UILabel{
-            return label
-        }
-        return nil
-    }
+
 }

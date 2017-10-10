@@ -25,22 +25,19 @@ class MenuLeft: UITableViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
-
-        UIApplication.shared.statusBarStyle = .lightContent
    
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        
-        if indexPath.row == 0 {
-            if indexPath.section == 0 {
-                return rowOneHeight
-            } else {
-                return  CGFloat(tableView.frame.height -  rowHeight * 5 - rowOneHeight)
-            }
+        if indexPath.row == 1 && indexPath.section == 1 {
+            return  CGFloat(tableView.frame.height -  rowHeight * 6 - rowOneHeight)
         }
-    
+        
+        if indexPath.row == 0 && indexPath.section == 0 {
+            return rowOneHeight
+        }
+        
         return rowHeight
     }
 //    

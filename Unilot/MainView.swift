@@ -12,10 +12,7 @@ import UIKit
 class MainView: MainViewPositions {
   
     
-    
     override func fillWithData(){
-
-        fillDataDay()
         
         titlePrize.text = "Призовой фонд"
 
@@ -38,20 +35,7 @@ class MainView: MainViewPositions {
         
     }
     
-    
-    func fillDataDay(){
-        
-//        titleMain.text = "Дневная лотерея"
-        
-    }
-
-    
-    func fillDataMonth(){
-        
-//        titleMain.text = "Месячная лотерея"
-         
-        
-    }
+     
  
 }
 

@@ -25,7 +25,7 @@ class FlippingLabel: UILabel {
         self.frame = rect
         self.backgroundColor = UIColor(patternImage: fonImage)
         self.textColor = UIColor.yellow
-        self.font = UIFont(name: "Helvetica-light", size: 50)
+        self.font = UIFont(name: kFont_Regular, size: 50)
         self.textAlignment = .center
         self.text = " "
         

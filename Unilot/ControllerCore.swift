@@ -48,24 +48,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
     
     
 
-    
-    
-    func addParallaxToView() {
-        let amount = 100
-        
-        let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
-        horizontal.minimumRelativeValue = -amount
-        horizontal.maximumRelativeValue = amount
-        
-        let vertical = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
-        vertical.minimumRelativeValue = -amount
-        vertical.maximumRelativeValue = amount
-        
-        let group = UIMotionEffectGroup()
-        group.motionEffects = [horizontal, vertical]
-        bgView.addMotionEffect(group)
-    }
-    
+
     
     
     

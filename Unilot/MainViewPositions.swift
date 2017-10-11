@@ -31,34 +31,20 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     @IBOutlet weak var peopleCount: UILabel!
     
     @IBOutlet weak var moneyTablet: CountUppMoney!
-    @IBOutlet weak var clockTablet: CountDownSimpleTime!
     
     var widthProgress = CGFloat(-1)
         
     //MARK: - Views Load override
+
+//    viewWillLayoutSubviews
     
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
         setButtonView()
-        
-        addTimersBody()
-        
+                
         fillWithData()
-        
-        setSwipesGestures()
-        
-        bgView.isOpaque = true
-        view.backgroundColor = UIColor.clear
-        view.isOpaque = true
 
-        
-     }
- 
-    
-    override func initNavigationData(){
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -69,71 +55,60 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
             
             setLoadingSign(toWidth: 0)
 
-            moneyTablet.doScheduledTimer()
-            
-            clockTablet.doScheduledTimer()
-
+            startSchedule()
         }
         
         
     }
     
- 
-    
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        
-        super.viewWillDisappear(animated)
-       
-//        moneyTablet.endTimer()
-//        
-//        clockTablet.endTimer()
-        
-    }
-    
-    func addTimersBody(){
-        
-        moneyTablet.createBody()
-        
-        clockTablet.createBody(self)
-        
-    }
+  
     
     func fillWithData(){
         
     }
     
-    
-    //MARK: - SetSwipes
-    
-    func setSwipesGestures(){
-        
-        let left = UISwipeGestureRecognizer(target: self, action: #selector(MainViewPositions.swipeLeft))
-        left.direction = .left
-        self.view.addGestureRecognizer(left)
-        
-        let right = UISwipeGestureRecognizer(target: self, action: #selector(MainViewPositions.swipeRight))
-        right.direction = .right
-        self.view.addGestureRecognizer(right)
-    }
-    
-    
-    func swipeLeft(){
-        let total = self.tabBarController!.viewControllers!.count - 1
-        tabBarController!.selectedIndex = min(total, tabBarController!.selectedIndex + 1)
-
-    }
-    
-    func swipeRight(){
-        tabBarController!.selectedIndex = max(0, tabBarController!.selectedIndex - 1)
-    }
+//    
+//    //MARK: - SetSwipes
+//    
+//    func setSwipesGestures(){
+//        
+//        let left = UISwipeGestureRecognizer(target: self, action: #selector(MainViewPositions.swipeLeft))
+//        left.direction = .left
+//        self.view.addGestureRecognizer(left)
+//        
+//        let right = UISwipeGestureRecognizer(target: self, action: #selector(MainViewPositions.swipeRight))
+//        right.direction = .right
+//        self.view.addGestureRecognizer(right)
+//    }
+//    
+//    
+//    func swipeLeft(){
+//        let total = self.tabBarController!.viewControllers!.count - 1
+//        tabBarController!.selectedIndex = min(total, tabBarController!.selectedIndex + 1)
+//
+//    }
+//    
+//    func swipeRight(){
+//        tabBarController!.selectedIndex = max(0, tabBarController!.selectedIndex - 1)
+//    }
     
     //MARK: - Set all views
     
+    func setTakePartView(){
+        
+        takePartFon.image = UIImage(named: "loadingSign")
+        takePartFon.layer.cornerRadius = takePartFon.frame.height/2
+        takePartFon.contentMode = .scaleAspectFill
+        takePartFon.clipsToBounds = true
+        
+    }
+    
     override func setMenuButton(){
         
-        tabBarController?.initNavigationData()
-
+//        if myTabBarItem!.tag == 0 &&
+//            tabBarController?.revealViewController() != nil {
+//        view.addGestureRecognizer(tabBarController!.revealViewController().panGestureRecognizer())
+//        }
     }
     
      
@@ -144,13 +119,9 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         prizePlaces.layer.cornerRadius = prizePlaces.frame.height/2
         prizePlaces.backgroundColor = UIColor.clear
         
-        
-        takePartFon.image = UIImage(named: "loadingSign")
-        takePartFon.layer.cornerRadius = takePartFon.frame.height/2
-        takePartFon.contentMode = .scaleAspectFill
-        takePartFon.clipsToBounds = true
     }
-    
+    //MARK: -  LoadingSign
+
     
     func setLoadingSign(toWidth: CGFloat ){
         
@@ -195,16 +166,53 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     }
     
     
-    
     func countDownFinished(){
         
-        clockTablet.endTimer()
+
     }
+    
+    //MARK: - timers
+    
+    func addTimersBody(){
+        
+        
+        
+    }
+    
+    func startSchedule(){
+        
+    }
+    
     
     
     //MARK: - onButtons
 
          
+    @IBAction func onHowDoesItWork(){
+        
+        let viewWithPlaces = TotalPrizeFond.createTotalPrizeFond()
+        viewWithPlaces.layoutIfNeeded()
+        viewWithPlaces.layer.opacity = 0.0
+        viewWithPlaces.frame = CGRect(x: 10,
+                                      y: view.frame.height,
+                                      width: view.frame.width - 20,
+                                      height: view.frame.height - 150)
+        
+        viewWithPlaces.initView()
+        view.addSubview(viewWithPlaces)
+        
+        UIView.animate(withDuration: 0.4) {
+            viewWithPlaces.layer.opacity = 1.0
+            viewWithPlaces.frame = CGRect(x: 10,
+                                          y: 70,
+                                          width: viewWithPlaces.frame.width,
+                                          height: viewWithPlaces.frame.height)
+        }
+        
+    }
+    
+    
+    
     @IBAction func onPrizePlaces(){
         let viewWithPlaces = TotalPrizeFond.createTotalPrizeFond()
         viewWithPlaces.layoutIfNeeded()
@@ -249,9 +257,6 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
                                      height: viewAgree.frame.height)
         }
         
-        
-        viewAgree.clockTablet.initTimer(1500, 2500)
-        viewAgree.clockTablet.doScheduledTimer()
         
         
 

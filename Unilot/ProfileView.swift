@@ -43,7 +43,15 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         setTextField()
         
         fillWithData()
+                
+    }
+    
+    
+    
+    override func setMenuButton(){
         
+ 
+    
     }
   
     func setTextField(){

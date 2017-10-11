@@ -41,9 +41,11 @@ class AgreeToPlay: UIView, CountDownTimeDelegate {
         copyButton.layer.borderColor = UIColor.lightGray.cgColor
         copyButton.layer.cornerRadius = 4
         
-        clockTablet.createBody(self,false)
+        clockTablet.createBody(self)
         clockTablet.labelMain.textColor = UIColor.darkGray
-        
+        clockTablet.initTimer(1500, 2500)
+        clockTablet.doScheduledTimer()
+ 
     }
     
     func startClock(){

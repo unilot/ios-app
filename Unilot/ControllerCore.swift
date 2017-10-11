@@ -14,8 +14,6 @@ import SCLAlertView
 
 class ControllerCore: UIViewController, NVActivityIndicatorViewable {
 
-    @IBOutlet weak var bgView: UIImageView!
-
     var activityIndicatorView : NVActivityIndicatorView?
  
     
@@ -23,11 +21,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         
         super.viewDidLoad()
         
-        view.layoutIfNeeded()
-        
         setMenuButton()
-
-        hideStatusBar()
 
         setTitle()
                 
@@ -53,9 +47,10 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
     
     
     func setMenuButton(){
-        
-        navigationController?.initNavigationData()
-        
+
+        if navigationController?.revealViewController() != nil {
+            navigationController?.view.addGestureRecognizer(navigationController!.revealViewController().panGestureRecognizer())
+        }
     }
     
     

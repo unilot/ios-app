@@ -127,7 +127,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
 
         countdownTimer  = Timer.scheduledTimer(timeInterval: timerUpdateDuration,
                                                target: self,
-                                               selector: #selector(CountDownTime.doUpdate),
+                                               selector: #selector(CountDownLabel.doUpdate),
                                                userInfo: nil,
                                                repeats: true)
 

@@ -66,14 +66,20 @@ class TotalPrizeFond: UIView, UITableViewDelegate, UITableViewDataSource {
         
          var cell = tableView.dequeueReusableCell(withIdentifier: "id_cell")
         
+        
         if (cell == nil)
         {
             cell = UITableViewCell.init(style: .default, reuseIdentifier: "id_cell")
+            
+            cell?.updateConstraints()
+            
             cell?.contentView.layer.cornerRadius = 8
             cell?.contentView.layoutIfNeeded()
             createCellBody(cell!)
             
         }
+        
+        
         
         setCellBody(cell!,["3-567","67.463.536","345.544"])
         
@@ -91,10 +97,13 @@ class TotalPrizeFond: UIView, UITableViewDelegate, UITableViewDataSource {
 
     
     func createCellBody(_ cell : UITableViewCell) {
+        cell.setNeedsLayout()
+        cell.layoutIfNeeded()
+        
         let frame = cell.contentView.frame
 
         let shiftUpp = CGFloat(-8)
-        let first = UILabel(frame: CGRect(x: 4, y: shiftUpp,
+        let first = UILabel(frame: CGRect(x: 6, y: shiftUpp,
                                           width: frame.width/3, height: frame.height))
         first.text = " "
         first.tag = 10

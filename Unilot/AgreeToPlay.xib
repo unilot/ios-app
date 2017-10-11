@@ -25,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ежедневная лотерея UNILOT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nn-c6-pxt">
-                    <rect key="frame" x="10" y="347" width="355" height="28"/>
+                    <rect key="frame" x="10" y="336" width="355" height="28"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="SjH-0w-gXt"/>
                     </constraints>
@@ -34,14 +34,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="mYr-XO-cWx">
-                    <rect key="frame" x="21.5" y="10" width="332" height="332"/>
+                    <rect key="frame" x="27" y="10" width="321" height="321"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="mYr-XO-cWx" secondAttribute="height" multiplier="1:1" id="UVQ-sU-wpM"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="g96-Y3-wb5"/>
                     </constraints>
                 </imageView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CJ3-Pv-o2C">
-                    <rect key="frame" x="10" y="385" width="355" height="90"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CJ3-Pv-o2C">
+                    <rect key="frame" x="10" y="374" width="355" height="90"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="90" id="Les-mV-tIm"/>
@@ -52,7 +52,7 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oaj-7G-tC4">
-                    <rect key="frame" x="147.5" y="480" width="80" height="1"/>
+                    <rect key="frame" x="147.5" y="469" width="80" height="1"/>
                     <color key="backgroundColor" red="0.81382812500000001" green="0.81382812500000001" blue="0.81382812500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="AhV-zS-C18"/>
@@ -60,7 +60,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лотерея заканчивается через" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sd1-aD-ahN">
-                    <rect key="frame" x="20" y="486" width="335" height="28"/>
+                    <rect key="frame" x="20" y="475" width="335" height="28"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="vUU-fK-nKF"/>
                     </constraints>
@@ -69,7 +69,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-vg-g4z" customClass="CountDownSimpleTime" customModule="Unilot" customModuleProvider="target">
-                    <rect key="frame" x="87.5" y="519" width="200" height="40"/>
+                    <rect key="frame" x="87.5" y="508" width="200" height="40"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="R19-U5-V5d"/>
@@ -103,6 +103,7 @@
                         <constraint firstAttribute="width" constant="20" id="8i0-tx-Zgd"/>
                         <constraint firstAttribute="width" secondItem="s1j-k9-CUw" secondAttribute="height" multiplier="1:1" id="T3J-9m-rmS"/>
                     </constraints>
+                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="Button" image="X-x3"/>
                     <connections>
                         <action selector="onX" destination="iN0-l3-epB" eventType="touchUpInside" id="Osf-2D-o8m"/>
@@ -121,7 +122,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="sZB-vg-g4z" firstAttribute="centerX" secondItem="mYr-XO-cWx" secondAttribute="centerX" id="256-s6-yDQ"/>
-                <constraint firstItem="Nql-Z0-5DR" firstAttribute="top" secondItem="sZB-vg-g4z" secondAttribute="bottom" constant="4" id="EF9-l9-w9e"/>
+                <constraint firstItem="Nql-Z0-5DR" firstAttribute="top" secondItem="sZB-vg-g4z" secondAttribute="bottom" constant="15" id="EF9-l9-w9e"/>
                 <constraint firstAttribute="trailing" secondItem="CJ3-Pv-o2C" secondAttribute="trailing" constant="10" id="Ess-Vw-9qc"/>
                 <constraint firstItem="Oaj-7G-tC4" firstAttribute="top" secondItem="CJ3-Pv-o2C" secondAttribute="bottom" constant="5" id="GeJ-3i-RZ0"/>
                 <constraint firstItem="sZB-vg-g4z" firstAttribute="top" secondItem="sd1-aD-ahN" secondAttribute="bottom" constant="5" id="IEV-7s-RVN"/>

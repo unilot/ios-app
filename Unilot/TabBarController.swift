@@ -37,21 +37,13 @@ class TabBarController: LxTabBarController  {
         
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for:.selected)
         
-        
         self.view.backgroundColor = UIColor.clear
         self.view.isOpaque = true
+         
+//        createAllPages()
         
-//        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,320,480)];
-//        imageView.backgroundColor = [UIColor colorWithPatternImage:i];
-//        [[self view] addSubview:imageView];
-//        [[self view] sendSubviewToBack:imageView];
-//        [[self view] setOpaque:NO];
-//        [[self view] setBackgroundColor:[UIColor clearColor]];
-//        [imageView release];
-        
-        
-
         sendInitNetWork()
+        
     }
 
 
@@ -68,37 +60,53 @@ class TabBarController: LxTabBarController  {
     func createAllPages(){
         
         let view_controller_1 = getVCFromName("SB_Main_View") as! MainView
-        view_controller_1.titleMain.text = "Дневная лотерея"
         let nc1 = UINavigationController(rootViewController: view_controller_1)
-        
+
         let view_controller_2 = getVCFromName("SB_Main_View") as! MainView
-        view_controller_2.titleMain.text = "Месячная лотерея"
         let nc2 = UINavigationController(rootViewController: view_controller_2)
 
-        let view_controller_3 = getVCFromName("SB_Main_View") as! MainView
-        view_controller_3.titleMain.text = "Бонусная лотерея"
+        let view_controller_3 = getVCFromName("SB_Bonus") as! BonusView
         let nc3 = UINavigationController(rootViewController: view_controller_3)
-        
+
         
         let view_controller_4 = getVCFromName("SB_Profile") as! ProfileView
         let nc4 = UINavigationController(rootViewController: view_controller_4)
+
+        
+        let tb1 =  UITabBarItem(title: TR("Дневная"),
+                                image: UIImage(named:"`1day-x3"),
+                                tag: 0 )
+         
+
+        let tb2 =  UITabBarItem(title: TR("Недельная"),
+                                image: UIImage(named:"`7day-x3"),
+                                tag: 1)
+        
+
+        let tb3 =  UITabBarItem(title: TR("Бонусная"),
+                                image: UIImage(named:"`31day-x3"),
+                                tag: 2)
+
+        
+        
+        let tb4  =  UITabBarItem(title: TR("Профайл"),
+                                 image: UIImage(named:"`profile-x3"),
+                                 tag: 3)
         
         self.viewControllers = [nc1, nc2, nc3, nc4]
+        self.tabBar.items = [tb1,tb2,tb3,tb4]
     }
     
+
     
     func sendInitNetWork(){
-        NetWork.startSession { (error : String?) in
-            
-            if error != nil {
-                SCLAlertView().showError(" ", subTitle: error!)
-            }
-            
-        }
-        
+//        NetWork.startSession { (error : String?) in
+//            
+//            if error != nil {
+//                SCLAlertView().showError(" ", subTitle: error!)
+//            }
+//            
+//        }
     }
     
-    override func initNavigationData(){
-        
-    }
 }

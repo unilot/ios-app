@@ -18,12 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
-//
-//        let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
-//        statusBar.backgroundColor = UIColor.clear
-//
-        
-//        window?.backgroundColor = UIColor.green
         window?.addSubview(create_fon_view(window!.frame.size))
 
         return true

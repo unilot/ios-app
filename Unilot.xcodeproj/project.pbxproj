@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		290FA72F1CDF40E19A0E8204 /* Pods_Unilot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBC0194290D8904822A4787C /* Pods_Unilot.framework */; };
-		D60884B51F74325A00611E35 /* CountDownTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60884B41F74325A00611E35 /* CountDownTime.swift */; };
 		D62A31751F7AC10300275B86 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A31741F7AC10300275B86 /* SWRevealViewController.m */; };
 		D62A31771F7AC86900275B86 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62A31761F7AC86900275B86 /* TabBarController.swift */; };
 		D62E4C2C1F86C15B00C619EA /* TotalPrizeFond.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62E4C2B1F86C15B00C619EA /* TotalPrizeFond.xib */; };
@@ -18,6 +17,7 @@
 		D6632ED61F8C9C4100EC18C9 /* HowDoesItWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6632ED51F8C9C4100EC18C9 /* HowDoesItWork.swift */; };
 		D6632ED81F8C9C6800EC18C9 /* TextViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6632ED71F8C9C6800EC18C9 /* TextViewCore.swift */; };
 		D66878B81F84D9CF0096FB3F /* AgreeToPlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66878B71F84D9CF0096FB3F /* AgreeToPlay.xib */; };
+		D685E9A41F8D59500056C9C8 /* CountDownLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D685E9A31F8D59500056C9C8 /* CountDownLabel.swift */; };
 		D69364C41F5F254400FD0D37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364C31F5F254400FD0D37 /* AppDelegate.swift */; };
 		D69364CB1F5F254400FD0D37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69364C91F5F254400FD0D37 /* Main.storyboard */; };
 		D69364CD1F5F254400FD0D37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D69364CC1F5F254400FD0D37 /* Assets.xcassets */; };
@@ -61,7 +61,6 @@
 /* Begin PBXFileReference section */
 		61239D8B0908489D3E371489 /* Pods-Unilot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unilot.release.xcconfig"; path = "Pods/Target Support Files/Pods-Unilot/Pods-Unilot.release.xcconfig"; sourceTree = "<group>"; };
 		CBC0194290D8904822A4787C /* Pods_Unilot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unilot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D60884B41F74325A00611E35 /* CountDownTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountDownTime.swift; sourceTree = "<group>"; };
 		D62A31701F7AC06E00275B86 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Settings/Bridging-Header.h"; sourceTree = "<group>"; };
 		D62A31731F7AC10300275B86 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		D62A31741F7AC10300275B86 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -73,6 +72,7 @@
 		D6632ED51F8C9C4100EC18C9 /* HowDoesItWork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowDoesItWork.swift; sourceTree = "<group>"; };
 		D6632ED71F8C9C6800EC18C9 /* TextViewCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewCore.swift; sourceTree = "<group>"; };
 		D66878B71F84D9CF0096FB3F /* AgreeToPlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgreeToPlay.xib; sourceTree = "<group>"; };
+		D685E9A31F8D59500056C9C8 /* CountDownLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountDownLabel.swift; sourceTree = "<group>"; };
 		D69364C01F5F254400FD0D37 /* Unilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unilot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D69364C31F5F254400FD0D37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D69364CA1F5F254400FD0D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -263,10 +263,10 @@
 			isa = PBXGroup;
 			children = (
 				D69364D71F5F328D00FD0D37 /* FlippingLabel.swift */,
-				D60884B41F74325A00611E35 /* CountDownTime.swift */,
 				D6BDD9091F7AF56500E91FD0 /* CountUppMoney.swift */,
 				D6BDD9071F7AF23400E91FD0 /* CountDownCore.swift */,
 				D6BDD90B1F7B07A700E91FD0 /* CountDownSimpleTime.swift */,
+				D685E9A31F8D59500056C9C8 /* CountDownLabel.swift */,
 			);
 			name = CountDown;
 			sourceTree = "<group>";
@@ -542,12 +542,12 @@
 				D69364C41F5F254400FD0D37 /* AppDelegate.swift in Sources */,
 				D6BDD9051F7AD1F200E91FD0 /* Extensions.swift in Sources */,
 				D6BDD90C1F7B07A700E91FD0 /* CountDownSimpleTime.swift in Sources */,
-				D60884B51F74325A00611E35 /* CountDownTime.swift in Sources */,
 				D6BDD90A1F7AF56500E91FD0 /* CountUppMoney.swift in Sources */,
 				D6F1E1901F7E55130098B34C /* UIView+JSLayout.m in Sources */,
 				D69364DA1F5F328D00FD0D37 /* MainView.swift in Sources */,
 				D6F1E19A1F7E55130098B34C /* JSRuleRegex.m in Sources */,
 				D6F1E1361F7BA0E50098B34C /* AgreeToPlay.swift in Sources */,
+				D685E9A41F8D59500056C9C8 /* CountDownLabel.swift in Sources */,
 				D6F1E1921F7E55130098B34C /* JSDropdownField.m in Sources */,
 				D69364D91F5F328D00FD0D37 /* FlippingLabel.swift in Sources */,
 				D6F1E1931F7E55130098B34C /* JSInputField.m in Sources */,

@@ -9,23 +9,12 @@
 import UIKit
 
 extension UIViewController{
-    
-    func hideStatusBar(){
-//        UIApplication.shared.statusBarStyle = .lightContent
-//        setNeedsStatusBarAppearanceUpdate()
-    }
- 
-    func initNavigationData(){
-        
-//        if revealViewController() != nil {
-//            view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-//        }
-    }
-    
+     
     
     @IBAction func onLeftMenuBarButton(_ sender : UIBarButtonItem){
         
         if revealViewController() != nil {
+//            revealViewController().setFrontViewPosition(, animated: true)
             revealViewController().revealToggle(sender)
         }
         

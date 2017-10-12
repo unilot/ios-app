@@ -85,9 +85,11 @@ class CountDownLabel: UIImageView  {
             height: height)
         
         labelMain = UILabel(frame: frameRect)
+        labelMain.backgroundColor = UIColor.clear
         labelMain.textColor = UIColor.white
         labelMain.textAlignment = .center
-        labelMain.font = UIFont(name: "Helvetica-light", size: 50)
+        labelMain.baselineAdjustment = .alignCenters
+        labelMain.font = UIFont(name: "Helvetica-light", size: 500)
         labelMain.adjustsFontSizeToFitWidth = true
         addSubview(labelMain)
     }

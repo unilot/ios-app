@@ -39,20 +39,24 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
 //    viewWillLayoutSubviews
     
     override func viewDidLayoutSubviews() {
+        
         super.viewDidLayoutSubviews()
         
-        setButtonView()
-                
-        fillWithData()
+        view.backgroundColor = UIColor.clear
 
+        setButtonView()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
         
+        
         if widthProgress == -1 {
             
+            fillWithData()
+
             setLoadingSign(toWidth: 0)
 
             startSchedule()
@@ -120,6 +124,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         prizePlaces.backgroundColor = UIColor.clear
         
     }
+    
     //MARK: -  LoadingSign
 
     

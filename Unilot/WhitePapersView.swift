@@ -18,7 +18,7 @@ class WhitePapersView : TextViewCore {
         
         file_name = "Terms"
         
-        view_name = "White Paper"
+        view_name = "White Papers"
         
         super.viewDidLoad()
         

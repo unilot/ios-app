@@ -11,6 +11,7 @@
 var mdTextHtml = "Terms"
 
 
+
 func labelFor(_ cell: UITableViewCell, _ index: Int) -> UILabel?{
     
     if let label = cell.contentView.viewWithTag(index) as? UILabel{

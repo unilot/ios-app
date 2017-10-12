@@ -18,8 +18,8 @@ class CountDownFullTimer: CountDownLabel  {
     
     override func createBodyTimers(){
         
-        createLabelBody(self.frame.height * 0.4)
-        createTextStatic(self.frame.height * 0.1)
+        createLabelBody(self.frame.height * 0.8)
+        createTextStatic(self.frame.height * 0.2)
 
     }
  
@@ -28,7 +28,7 @@ class CountDownFullTimer: CountDownLabel  {
         
         let frameRect = CGRect(
             x: 0.0,
-            y:  self.frame.height * 0.35,
+            y:  self.frame.height  -  height,
             width: self.frame.width,
             height: height )
         
@@ -36,8 +36,9 @@ class CountDownFullTimer: CountDownLabel  {
         let label = UILabel(frame: frameRect)
         label.textAlignment = .center
         label.textColor = UIColor.gray
-        label.font = UIFont(name: "Helvetica", size: 12)
+        label.font = UIFont(name: kFont_Regular, size: 500)
         label.tag = 200
+        label.adjustsFontSizeToFitWidth = true
         label.text = "Часа                 Минут                 Сек"
         addSubview(label)
     }

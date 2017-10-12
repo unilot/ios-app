@@ -33,16 +33,21 @@ class TabBarController: LxTabBarController  {
 //    
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for:.selected)
         
-        self.view.backgroundColor = UIColor.clear
-        self.view.isOpaque = true
-         
+        
+        let fon  = create_fon_view(self.view.frame.size)
+        
+        self.view.insertSubview(fon, at: 0)
+
+//        self.view.isOpaque = true
+        
 //        createAllPages()
         
-        sendInitNetWork()
+//        sendInitNetWork()
         
     }
 

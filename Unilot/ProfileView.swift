@@ -150,6 +150,7 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         
         cell.layoutIfNeeded()
         
+        cell.contentView.backgroundColor = UIColor.black
         
         labelFor(cell,10)?.text = my_tokens[indexPath.row]
         
@@ -166,6 +167,10 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        saveToClipboard(my_tokens[indexPath.row])
+    }
     
     
     func onIks(_ sender: MyButton){

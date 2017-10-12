@@ -9,6 +9,7 @@
 
 import UIKit
 
+
 class MainView: MainViewPositions {
   
     @IBOutlet weak var clockTablet: CountDownFullTimer!
@@ -56,10 +57,6 @@ class MainView: MainViewPositions {
         moneyTablet.createBody()
         
         clockTablet.createBody(self)
-
-    print(clockTablet.frame.width , " = startSchedule width")
-    print(clockTablet.frame.height , " = startSchedule heighht")
-
     }
     
     override func startSchedule(){
@@ -67,11 +64,27 @@ class MainView: MainViewPositions {
         moneyTablet.doScheduledTimer()
         
         clockTablet.doScheduledTimer()
+        print(clockTablet.frame.height , " = startSchedule heighht")
+
     }
     
- 
+    
+    override func setMenuButton(){
+        
+        if revealViewController() != nil {
+            view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+        }
+    }
 }
 
+
+class MainWeekView: MainView {
+    
+    override func setMenuButton(){
+
+    }
+    
+}
 
 class BonusView: MainViewPositions {
 
@@ -104,9 +117,7 @@ class BonusView: MainViewPositions {
         
         howDoesItWork.setTitle("Как попасть в розыгрыш?", for: .normal)
         prizePlaces.setTitle("Призовые места", for: .normal)
-
-        
-        setTakePartView()
+ 
         
         addTimersBody()
         
@@ -123,8 +134,9 @@ class BonusView: MainViewPositions {
         
         moneyTablet.initTimer(0, 300)
         
-        clockTablet.initTimer(0, 30)
+        clockTablet.initTimer(30, 0)
 
+        clockTablet.backgroundColor = UIColor.clear
     }
     
     
@@ -139,6 +151,8 @@ class BonusView: MainViewPositions {
         howDoesItWork.backgroundColor = UIColor.clear
         
     }
+    
+    
     //MARK: - timers
     
     override  func addTimersBody(){

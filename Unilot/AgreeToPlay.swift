@@ -73,8 +73,8 @@ class AgreeToPlay: UIView, CountDownTimeDelegate {
     
     
     @IBAction func onCopyNumber(){
-        UIPasteboard.general.string = kNumberOfOurPursle
-        SCLAlertView().showInfo(" ", subTitle: "The number was saved to clipboard")
+
+        saveToClipboard(kNumberOfOurPursle)
 
      }
     

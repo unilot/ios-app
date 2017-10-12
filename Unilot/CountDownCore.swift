@@ -62,12 +62,15 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
     
     func createFlipWithLabel(_ atPlace: Int ){
         
-        let distanceFromFlipps = CGFloat(4.0)
+        let distanceFromFlipps = CGFloat(2.0)
         let shiftForCurrentFip = atPlace / flippersGaps
         let widthOfFlip = (frame.width) / CGFloat(flippersCount)
+        let comaWidth = widthOfFlip/3
+        
+        
         
         let frameRect = CGRect(
-            x: widthOfFlip * CGFloat(flippersCount - atPlace - 1) - CGFloat( shiftForCurrentFip)  * distanceFromFlipps,
+            x: 15 + widthOfFlip * CGFloat(flippersCount - atPlace - 1) - CGFloat( shiftForCurrentFip)  * comaWidth,
             y: 0,
             width: widthOfFlip -  distanceFromFlipps,
             height: self.frame.height)
@@ -80,6 +83,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
         splitflapView.tag =  (atPlace + 1 ) * 10000
         addSubview(splitflapView)
 
+        
 //        let flip = FlippingLabel()
 //        flip.text = "0"
 //        flip.tag = (atPlace + 1 ) * 10000
@@ -87,6 +91,27 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
 //        addSubview(flip)
         
     }
+    
+    
+    func adComa(){
+        
+        let widthOfFlipper = frame.width / CGFloat(flippersCount)
+        
+        let frameComa = CGRect(x: widthOfFlipper * 2 , y: 0,
+                      width: widthOfFlipper / 3, height: frame.height * 0.75)
+                
+        let labelMain = UILabel(frame: frameComa)
+        labelMain.textColor = kColorLightOrange
+        labelMain.text = ","
+        labelMain.backgroundColor = UIColor.clear
+        labelMain.textAlignment = .center
+        labelMain.baselineAdjustment = .alignCenters
+        labelMain.font = UIFont(name: "Helvetica-light", size: 50)
+        labelMain.adjustsFontSizeToFitWidth = true
+        addSubview(labelMain)
+    }
+    
+    
     
     
     func changeFlip(_ forPlace: Int, _ labelNewText: String) {
@@ -98,7 +123,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
         
         if let flip = viewWithTag((forPlace + 1 ) * 10000) as? Splitflap {
             flip.setText(labelNewText, animated: true)
-            
+             
         }
         
         
@@ -116,6 +141,8 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
         for i in 0..<flippersCount {
             createFlipWithLabel(i)
         }
+        
+        adComa()
         
         isFull = true
     }
@@ -219,10 +246,11 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
             builder.backgroundColor = UIColor(patternImage: uiImage)
 //            builder.backgroundColor = UIColor(red: 251/255, green: 249/255, blue: 243/255, alpha: 1)
             builder.cornerRadius    = 5
-//            builder.font            = UIFont(name: "Avenir-Black", size:45)
             builder.textAlignment   = .center
-            builder.textColor       = UIColor.white
+            builder.textColor       = kColorLightOrange
+            builder.font            = UIFont(name: kFont_Bold, size: 45)
             builder.lineColor       = UIColor.black//(red: 0, green: 0, blue: 0, alpha: 0.3)
+//            builder.
         }
     }
 }

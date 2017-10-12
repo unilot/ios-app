@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 var current_language = "English"
 var notifications_switch = [false,false,true]
 var users_account_number =  ["1231qewr4r124","Qwr34qwawerwt2345t4"]

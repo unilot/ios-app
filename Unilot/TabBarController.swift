@@ -38,16 +38,16 @@ class TabBarController: LxTabBarController  {
         
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for:.selected)
         
+        UITabBar.appearance().backgroundColor = UIColor.clear
+        tabBar.shadowImage = UIImage()
+        tabBar.backgroundImage = UIImage()
+        tabBar.backgroundColor = UIColor.clear
+        
         
         let fon  = create_fon_view(self.view.frame.size)
         
         self.view.insertSubview(fon, at: 0)
-
-//        self.view.isOpaque = true
-        
-//        createAllPages()
-        
-        sendInitNetWork()
+ 
 
     
     }
@@ -121,14 +121,5 @@ class TabBarController: LxTabBarController  {
     
 
     
-    func sendInitNetWork(){
-        NetWork.startSession { (error : String?) in
-            
-            if error != nil {
-                SCLAlertView().showError(" ", subTitle: error!)
-            }
-            
-        }
-    }
     
 }

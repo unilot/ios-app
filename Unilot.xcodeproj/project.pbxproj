@@ -38,6 +38,7 @@
 		D6C6BAB61F8CD6C000EC7FE0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6C6BAB11F8CD6C000EC7FE0 /* Roboto-Regular.ttf */; };
 		D6C6BAB71F8CD6C000EC7FE0 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6C6BAB21F8CD6C000EC7FE0 /* Roboto-Thin.ttf */; };
 		D6D591BB1F8D19D20002451A /* LxTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D591BA1F8D19D20002451A /* LxTabBarController.swift */; };
+		D6E2BF671F8FE804002D28F2 /* MemoryControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E2BF661F8FE804002D28F2 /* MemoryControll.swift */; };
 		D6E42B791F8AFBE2005270A9 /* HistoryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E42B781F8AFBE2005270A9 /* HistoryTable.swift */; };
 		D6ED6B361F8F90B200384672 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ED6B351F8F90B200384672 /* InfoView.swift */; };
 		D6ED6B381F8F90C100384672 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6ED6B371F8F90C100384672 /* InfoView.xib */; };
@@ -99,6 +100,7 @@
 		D6C6BAB11F8CD6C000EC7FE0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		D6C6BAB21F8CD6C000EC7FE0 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		D6D591BA1F8D19D20002451A /* LxTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LxTabBarController.swift; sourceTree = "<group>"; };
+		D6E2BF661F8FE804002D28F2 /* MemoryControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryControll.swift; sourceTree = "<group>"; };
 		D6E42B781F8AFBE2005270A9 /* HistoryTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTable.swift; sourceTree = "<group>"; };
 		D6ED6B351F8F90B200384672 /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		D6ED6B371F8F90C100384672 /* InfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				D69364C31F5F254400FD0D37 /* AppDelegate.swift */,
 				D6F1E1671F7CD3C50098B34C /* NetWorkController.swift */,
 				D6632ED31F8C9B7900EC18C9 /* MainData.swift */,
+				D6E2BF661F8FE804002D28F2 /* MemoryControll.swift */,
 				D6BDD9041F7AD1F200E91FD0 /* Extensions.swift */,
 				D6632ED21F8C7FE700EC18C9 /* main windows */,
 				D6F1E1341F7BA0CA0098B34C /* Pop Up Views */,
@@ -542,6 +545,7 @@
 				D6E42B791F8AFBE2005270A9 /* HistoryTable.swift in Sources */,
 				D6F1E1991F7E55130098B34C /* JSRuleNumeric.m in Sources */,
 				D6F1E18F1F7E55130098B34C /* NSString+JSHelper.m in Sources */,
+				D6E2BF671F8FE804002D28F2 /* MemoryControll.swift in Sources */,
 				D62E4C2E1F86C36300C619EA /* TotalPrizeFond.swift in Sources */,
 				D6ED6B361F8F90B200384672 /* InfoView.swift in Sources */,
 				D6F1E1911F7E55130098B34C /* DropDownListView.m in Sources */,

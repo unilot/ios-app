@@ -121,7 +121,7 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         textField.resignFirstResponder()
         
         if textField.text != nil {
-            my_tokens.insert(textField.text!, at: 0)
+            users_account_number.insert(textField.text!, at: 0)
             
             table.insertRows(at: [IndexPath(row: 0, section: 0)], with: .bottom)
             
@@ -142,7 +142,7 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return my_tokens.count
+        return users_account_number.count
     }
     
     
@@ -155,7 +155,7 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         
         cell.contentView.backgroundColor = UIColor.black
         
-        labelFor(cell,10)?.text = my_tokens[indexPath.row]
+        labelFor(cell,10)?.text = users_account_number[indexPath.row]
         
         
         if let button_x = cell.contentView.viewWithTag(20) as? MyButton{
@@ -172,16 +172,24 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        saveToClipboard(my_tokens[indexPath.row])
+        saveToClipboard(users_account_number[indexPath.row])
     }
     
     
     func onIks(_ sender: MyButton){
         
-        my_tokens.remove(at: sender.subTag!.row)
+        users_account_number.remove(at: sender.subTag!.row)
         table.deleteRows(at: [sender.subTag!], with: .top)
     
     }
     
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        
+        MemoryControll.saveObject(users_account_number, key: "users_account_number")
+        
+    }
 
 }

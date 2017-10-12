@@ -28,7 +28,10 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+
         
+
         
     }
     
@@ -49,7 +52,7 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        return 50
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -60,7 +63,7 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
         let headerView = UIView(frame: CGRect(x: 0, y: 0,
                                               width: tableView.frame.width,
-                                              height: 44))
+                                              height: 50))
         let headerCell = tableView.dequeueReusableCell(withIdentifier: "id_header")!
         headerView.addSubview(headerCell)
         
@@ -97,7 +100,7 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             
             if let switcher = cell.contentView.viewWithTag(30) as? MySwitch{
                 switcher.subTag = indexPath
-                switcher.isOn = notifications_switch[indexPath.row]
+                switcher.setOn( notifications_switch[indexPath.row], animated: false)
                 switcher.addTarget(self, action: #selector(SettingsView.onSwitcher(_:)), for: .valueChanged)
             }
             
@@ -141,8 +144,18 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     func onSwitcher(_ sender : MySwitch){
         
         notifications_switch[sender.subTag!.row] = !notifications_switch[sender.subTag!.row]
-        table.reloadRows(at: [sender.subTag!], with: .none)
+//        table.reloadRows(at: [sender.subTag!], with: .none)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        
+        MemoryControll.saveObject(current_language, key: "current_language")
+        MemoryControll.saveObject(notifications_switch, key: "notifications_switch")
+        
+    }
+
     
     
 }

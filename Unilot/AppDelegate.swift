@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-    
+         
+        MemoryControll.init_defaults_if_any()
+        
+        NetWork.startSession { (error : String?) in
+            
+            if error != nil {
+                SCLAlertView().showError(" ", subTitle: error!)
+            }
+            
+        }
+        
         return true
     }
 

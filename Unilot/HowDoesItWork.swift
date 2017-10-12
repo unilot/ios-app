@@ -20,7 +20,8 @@ class HowDoesItWork : TextViewCore {
 
         
         super.viewDidLoad()
-        
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+
     }
 }
 

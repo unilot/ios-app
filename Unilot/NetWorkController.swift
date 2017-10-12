@@ -27,9 +27,7 @@ var request_headers = [
 
 var session_data = [String: Any]()
 
-var my_tokens = ["1231qewr4r124","Qwr34qwawerwt2345t4"]
 
-var notifications_switch = [true,false,true]
 
 
 

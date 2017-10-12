@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SCLAlertView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,16 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
          
-        MemoryControll.init_defaults_if_any()
-        
-        NetWork.startSession { (error : String?) in
-            
-            if error != nil {
-                SCLAlertView().showError(" ", subTitle: error!)
-            }
-            
-        }
-        
+
         return true
     }
 

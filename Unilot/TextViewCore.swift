@@ -36,7 +36,7 @@ class TextViewCore : ControllerCore {
         
         addText()
         
-        //        hideActivityViewIndicator()
+//                hideActivityViewIndicator()
     }
     
     func addText() {

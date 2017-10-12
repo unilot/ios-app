@@ -16,6 +16,7 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var titleWithPrice: UILabel!
     @IBOutlet weak var tableMain: UITableView!
+    @IBOutlet weak var trophy: UIImageView!
     
     var dataForTable = [87687,87687,987987,98798,98,98988,8,98,98,9,9,9]//[String]()
     
@@ -26,8 +27,10 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         return myClassNib.instantiate(withOwner: nil, options: nil)[0] as! TotalPrizeFond
     }
     
-    
-    
+//    override func setInitBorders() {
+//        trophy = setColorForImage(trophy.frame.size, "trophy-x3") as! UIImageView
+//    }
+//    
     
     
     //MARK:-  UITableViewDelegate, UITableViewDataSource

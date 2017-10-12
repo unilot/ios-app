@@ -10,25 +10,15 @@
 import Alamofire
 
 
-
 let request_session_data : Parameters = [
     "client_id": "PccTjiTN7xXU9PCJRiAzYA2frgKUSEl0scJMTzFb",
     "client_secret": "2HIDVZRBWIDWUVMnlgH76K6pA3g5vPuAygnTm5P4IbvTkQMymFVCejMRoOkiZkadenWUsiM5OPP8mhREYytAxtzym9ejKj5LVG37z3mgbtrlJ1nMuv3s14sx60AuwwO1",
     "grant_type" : "client_credentials"
 ]
 
-var request_headers = [
-//    "Accept": "application/json"
-    "Content-Type": "application/json"
-//    "Content-Type": "application/x-www-form-urlencoded"
-//    "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
-
-]
+var request_headers = [ "Content-Type": "application/json"]
 
 var session_data = [String: Any]()
-
-
-
 
 
 class NetWork {
@@ -41,12 +31,10 @@ class NetWork {
                       encoding: JSONEncoding.default,
                       headers: request_headers)
         .responseJSON { (response) -> Void in
-                        
+            
             guard response.result.isSuccess else {
                 let error_line = response.result.error!.localizedDescription
-//                print(response.result.error!.localizedDescription)
                 completion(error_line)
-                
                 return
             }
             
@@ -55,12 +43,12 @@ class NetWork {
                 return
             }
             
-//            print(responseJSON)
-
             session_data = responseJSON
             let new_header_item = String(format: (responseJSON["token_type"] as! String) + "  " + (responseJSON["access_token"] as! String))
             request_headers["Authorization"] = new_header_item
- 
+            
+//            print("session_data = " ,responseJSON)
+
             completion(nil)
     }
     
@@ -68,20 +56,17 @@ class NetWork {
     
     static func getGamesList(completion: @escaping (String?) -> Void) {
     
-        Alamofire.request("https://dev.unilot.io/o2/token/",
-                          method : .post,
-                          parameters: request_session_data,
+//        request_headers["Authorization"] = "Bearer rGkj2wLQNYUkIIj71ohO4AGXarwejY"
+        
+        Alamofire.request("https://dev.unilot.io/api/v1/games",
+                          method : .get,
                           encoding: JSONEncoding.default,
-                          headers: request_headers)
+                          headers:request_headers)
             .responseJSON { (response) -> Void in
                 
                 guard response.result.isSuccess else {
                     let error_line = response.result.error!.localizedDescription
-                    
-                    
-                    print(response.result.error!.localizedDescription)
                     completion(error_line)
-                    
                     return
                 }
                 
@@ -90,12 +75,9 @@ class NetWork {
                     return
                 }
                 
-                print(responseJSON)
-                
-                session_data = responseJSON
-                let new_header_item = String(format: (responseJSON["token_type"] as! String) + "  " + (responseJSON["access_token"] as! String))
-                request_headers["Authorization"] = new_header_item
-                print(request_headers)
+//                print("allHTTPHeaderFields = " , response.request!.allHTTPHeaderFields)
+
+                print("getGamesList = " ,responseJSON)
                 
                 completion(nil)
         }

@@ -44,10 +44,12 @@ class TabBarController: LxTabBarController  {
         tabBar.backgroundColor = UIColor.clear
         
         
-        let fon  = create_fon_view(self.view.frame.size)
         
+        
+        let fon  = create_fon_view(self.view.frame.size)
         self.view.insertSubview(fon, at: 0)
  
+
 
     
     }

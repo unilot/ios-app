@@ -38,6 +38,8 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         
         super.viewDidLoad() 
         
+        view.backgroundColor = UIColor.clear
+        
         setBorders()
         
         setTextField()
@@ -45,11 +47,11 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         fillWithData()
                 
     }
-    
-    override func addMenuButton() {
-        
-        tabBarController?.navigationItem.leftBarButtonItem = createMenuButton()
-    }
+//    
+//    override func addMenuButton() {
+//        
+//        tabBarController?.navigationItem.leftBarButtonItem = createMenuButton()
+//    }
     
     override func addSwipeForMenuOpen(){
         
@@ -79,7 +81,7 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
     
  
     func fillWithData(){
-        titleMain.text = TR("Получите\nуникальный никнейм")
+        titleMain.text = TR("Ваши кошельки")
         fieldPurse.placeholder = TR("Номер вашего кошелька")
         checkMorePurses.setTitle(TR("Добавить еще один кошелек"), for: .normal)
     }
@@ -94,6 +96,10 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
     }
     
     @IBAction func onQRScan(_ sender: Any) {
+        
+        
+        
+        
         
         readerVC.completionBlock = { (result: QRCodeReaderResult?) in
           
@@ -145,6 +151,10 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         return users_account_number.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -152,8 +162,6 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         cell.layoutIfNeeded()
-        
-        cell.contentView.backgroundColor = UIColor.black
         
         labelFor(cell,10)?.text = users_account_number[indexPath.row]
         
@@ -178,8 +186,9 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
     
     func onIks(_ sender: MyButton){
         
-        users_account_number.remove(at: sender.subTag!.row)
-        table.deleteRows(at: [sender.subTag!], with: .top)
+        let tag = sender.subTag!
+        users_account_number.remove(at: tag.row)
+        table.deleteRows(at: [tag], with: .top)
     
     }
     

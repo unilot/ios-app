@@ -58,10 +58,11 @@ class NetWork {
     
 //        request_headers["Authorization"] = "Bearer rGkj2wLQNYUkIIj71ohO4AGXarwejY"
         
-        Alamofire.request("https://dev.unilot.io/api/v1/games",
+        Alamofire.request("https://dev.unilot.io/api/v1/games/",
                           method : .get,
-                          encoding: JSONEncoding.default,
-                          headers:request_headers)
+                          parameters: Parameters(),
+                          encoding: URLEncoding.httpBody,
+                          headers: request_headers)
             .responseJSON { (response) -> Void in
                 
                 guard response.result.isSuccess else {
@@ -75,9 +76,9 @@ class NetWork {
                     return
                 }
                 
-//                print("allHTTPHeaderFields = " , response.request!.allHTTPHeaderFields)
+//                print("allHTTPHeaderFields = " , response.request!.urlRequest)
 
-                print("getGamesList = " ,responseJSON)
+//                print("getGamesList = " ,responseJSON)
                 
                 completion(nil)
         }

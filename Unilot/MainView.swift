@@ -144,8 +144,6 @@ class BonusView: MainViewPositions {
     override  func setButtonView(){
         super.setButtonView()
         
-        howDoesItWork.layer.borderWidth = 0.5
-        howDoesItWork.layer.borderColor = UIColor.gray.cgColor
         howDoesItWork.layer.cornerRadius = howDoesItWork.frame.height/2
         howDoesItWork.backgroundColor = UIColor.clear
         

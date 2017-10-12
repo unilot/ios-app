@@ -69,10 +69,10 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     }
     
   
-    override func addMenuButton() {
-        
-        tabBarController?.navigationItem.leftBarButtonItem = createMenuButton()
-    }
+//    override func addMenuButton() {
+//        
+//        tabBarController?.navigationItem.leftBarButtonItem = createMenuButton()
+//    }
     
     func fillWithData(){
         
@@ -124,9 +124,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
      
     func setButtonView(){
-        
-        prizePlaces.layer.borderWidth = 0.5
-        prizePlaces.layer.borderColor = UIColor.gray.cgColor
+
         prizePlaces.layer.cornerRadius = prizePlaces.frame.height/2
         prizePlaces.backgroundColor = UIColor.clear
         

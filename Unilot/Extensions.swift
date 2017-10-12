@@ -8,6 +8,28 @@
 
 import UIKit
 
+extension UIColor {
+    @nonobjc class var uuDarkTwo: UIColor {
+        return UIColor(red: 14.0 / 255.0, green: 14.0 / 255.0, blue: 33.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var uuLipstick: UIColor {
+        return UIColor(red: 203.0 / 255.0, green: 38.0 / 255.0, blue: 77.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var uuLightPeach: UIColor {
+        return UIColor(red: 1.0, green: 206.0 / 255.0, blue: 171.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var uuDark: UIColor {
+        return UIColor(red: 39.0 / 255.0, green: 39.0 / 255.0, blue: 56.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var uuLightSalmon: UIColor {
+        return UIColor(red: 254.0 / 255.0, green: 173.0 / 255.0, blue: 139.0 / 255.0, alpha: 1.0)
+    }
+}
+
 extension UIViewController{
      
     

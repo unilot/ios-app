@@ -25,13 +25,13 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
 
         setTitle()
         
-        addMenuButton()
+//        addMenuButton()
     }
     
-    func addMenuButton() {
-        
-        self.navigationItem.leftBarButtonItem = createMenuButton()
-    }
+//    func addMenuButton() {
+//        
+//        self.navigationItem.leftBarButtonItem = createMenuButton()
+//    }
     
     func setTitle(){
 

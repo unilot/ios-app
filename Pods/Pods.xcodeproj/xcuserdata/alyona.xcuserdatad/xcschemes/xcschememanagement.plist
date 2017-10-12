@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AlamofireNetworkActivityLogger.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>NVActivityIndicatorView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,17 +42,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>283EA86264A441D1D512F4BCF062C3ED</key>
+		<key>0C507C82B332BA025F51E7BDB6126D8B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>28A9E23DF3EBDEF83EF6AFF243319554</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2CF33ACE251F33E27E353701E93D0598</key>
+		<key>3A9694A47B197A14AB62110C84867A40</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +57,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>825220F53115B74623EFC3274BE216E5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>827A7275644EDA9301CB6AA05C1F6008</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F123B4BFFD2A25865ABD4AF788E2B0D0</key>
+		<key>95F4B82E212AF463C15D0BB064F88486</key>
 		<dict>
 			<key>primary</key>
 			<true/>

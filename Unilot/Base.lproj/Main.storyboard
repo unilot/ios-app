@@ -207,6 +207,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="8lx-Uf-0eR">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="e1e-9G-WaX">
+                            <color key="tintColor" red="1" green="0.59607843140000005" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="onLeftMenuBarButton:" destination="LcI-e2-8Ci" id="a1Z-nC-FDr"/>
                             </connections>
@@ -654,6 +655,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="igb-SG-8hZ">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="Nxz-LT-sOf">
+                            <color key="tintColor" red="1" green="0.59607843140000005" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="onLeftMenuBarButton:" destination="mWX-FP-fKF" id="aoW-gQ-MiW"/>
                             </connections>
@@ -674,6 +676,7 @@
                 <tabBarController id="49e-Tb-3d3" customClass="TabBarController" customModule="Unilot" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="TPJ-nN-MmD">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="H6v-fN-gNX">
+                            <color key="tintColor" red="1" green="0.59607843140000005" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="onLeftMenuBarButton:" destination="HuB-VB-40B" id="7mP-yz-lOB"/>
                             </connections>
@@ -686,7 +689,7 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" opaque="NO" contentMode="scaleAspectFit" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -791,9 +794,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9WW-YT-2eK">
                                         <rect key="frame" x="15" y="226" width="334" height="50"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KGy-tf-AO5">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fat button" translatesAutoresizingMaskIntoConstraints="NO" id="KGy-tf-AO5">
                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
-                                                <color key="backgroundColor" red="0.94901960780000005" green="0.32156862749999998" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="11G-JQ-Nx1" userLabel="thin line">
                                                 <rect key="frame" x="262.33333333333331" y="0.0" width="1" height="50"/>
@@ -904,8 +907,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="8pe-Di-3hY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                                <color key="textColor" red="0.91372549020000005" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                <color key="textColor" red="1" green="0.83529411760000005" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 546" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYU-M2-tqv">
@@ -914,8 +917,8 @@
                                     <constraint firstAttribute="height" constant="20" id="CGr-Q7-pmp"/>
                                     <constraint firstAttribute="width" constant="130" id="n1D-dN-gbP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                                <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                <color key="textColor" red="1" green="0.83529411760000005" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UCS-ok-TAg">
@@ -923,6 +926,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="hIS-iK-Kgn"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
                                 <state key="normal" title="Призовые места">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -933,8 +937,11 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.43137254899999999" green="0.4039215686" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -1044,8 +1051,17 @@
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tdy-qw-MzN">
+                                <rect key="frame" x="8" y="60" width="398" height="136"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Med-SJ-zoo" customClass="JSInputField">
-                                <rect key="frame" x="35" y="86" width="315" height="35"/>
+                                <rect key="frame" x="35" y="80" width="315" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="WFY-Wc-2cI"/>
@@ -1058,14 +1074,89 @@
                                 </connections>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KVX-Dp-rtt" userLabel="line under field">
-                                <rect key="frame" x="35" y="121" width="315" height="1"/>
+                                <rect key="frame" x="35" y="115" width="315" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="n5C-ty-L5Q"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KnS-4g-kMF">
+                                <rect key="frame" x="355" y="80" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KnS-4g-kMF" secondAttribute="height" multiplier="1:1" id="6aB-qD-U4v"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="barcode"/>
+                                <connections>
+                                    <action selector="onQRScan:" destination="gBi-I1-ONO" eventType="touchUpInside" id="YBg-97-trM"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="s4W-28-ifw">
+                                <rect key="frame" x="20" y="211" width="374" height="397"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="88" id="FV6-0b-GBY">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="88"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FV6-0b-GBY" id="0yg-El-DhI">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="88"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aQq-jl-ZoU">
+                                                    <rect key="frame" x="0.0" y="2" width="374" height="84"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <button opaque="NO" clipsSubviews="YES" tag="20" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PAp-Cs-iVD" customClass="MyButton" customModule="Unilot" customModuleProvider="target">
+                                                    <rect key="frame" x="294.33333333333326" y="12" width="63.666666666666686" height="63.666666666666671"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="PAp-Cs-iVD" secondAttribute="height" multiplier="1:1" id="D3f-Kh-obP"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                                    <state key="normal" image="X-x3"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="234567890" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="qOP-rG-Upq">
+                                                    <rect key="frame" x="23" y="12" width="267.33333333333331" height="63.666666666666671"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="qOP-rG-Upq" firstAttribute="top" secondItem="0yg-El-DhI" secondAttribute="topMargin" constant="4" id="2Ef-Y3-2zt"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="qOP-rG-Upq" secondAttribute="bottom" constant="4" id="DcP-5f-Jct"/>
+                                                <constraint firstItem="qOP-rG-Upq" firstAttribute="leading" secondItem="0yg-El-DhI" secondAttribute="leadingMargin" constant="15" id="H8q-Zi-ScH"/>
+                                                <constraint firstItem="qOP-rG-Upq" firstAttribute="centerY" secondItem="0yg-El-DhI" secondAttribute="centerY" id="JDv-Yj-nyt"/>
+                                                <constraint firstItem="aQq-jl-ZoU" firstAttribute="leading" secondItem="0yg-El-DhI" secondAttribute="leading" id="Nec-7x-yc4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="PAp-Cs-iVD" secondAttribute="trailing" constant="8" id="PjB-ST-b40"/>
+                                                <constraint firstItem="aQq-jl-ZoU" firstAttribute="top" secondItem="0yg-El-DhI" secondAttribute="top" constant="2" id="V9i-d9-TGB"/>
+                                                <constraint firstItem="PAp-Cs-iVD" firstAttribute="top" secondItem="0yg-El-DhI" secondAttribute="topMargin" constant="4" id="Wss-aT-jnW"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="PAp-Cs-iVD" secondAttribute="bottom" constant="4" id="ddR-Ha-Yts"/>
+                                                <constraint firstItem="PAp-Cs-iVD" firstAttribute="leading" secondItem="qOP-rG-Upq" secondAttribute="trailing" constant="4" id="ljb-1u-idZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="aQq-jl-ZoU" secondAttribute="bottom" constant="2" id="smd-gl-6RH"/>
+                                                <constraint firstAttribute="trailing" secondItem="aQq-jl-ZoU" secondAttribute="trailing" id="yvw-lm-M6m"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="gBi-I1-ONO" id="5fq-28-Js3"/>
+                                    <outlet property="delegate" destination="gBi-I1-ONO" id="XHy-0h-3Y9"/>
+                                </connections>
+                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99G-P1-Xrf">
-                                <rect key="frame" x="35" y="558" width="344" height="40"/>
+                                <rect key="frame" x="35" y="136" width="344" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="6GK-5j-5A2"/>
@@ -1087,92 +1178,54 @@
                                     <action selector="onAddMorePurse" destination="gBi-I1-ONO" eventType="touchUpInside" id="KkA-YT-6TF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KnS-4g-kMF">
-                                <rect key="frame" x="355" y="86" width="35" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="KnS-4g-kMF" secondAttribute="height" multiplier="1:1" id="6aB-qD-U4v"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="barcode"/>
-                                <connections>
-                                    <action selector="onQRScan:" destination="gBi-I1-ONO" eventType="touchUpInside" id="YBg-97-trM"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="s4W-28-ifw">
-                                <rect key="frame" x="35" y="137" width="344" height="406"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="FV6-0b-GBY">
-                                        <rect key="frame" x="0.0" y="28" width="344" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FV6-0b-GBY" id="0yg-El-DhI">
-                                            <rect key="frame" x="0.0" y="0.0" width="344" height="43.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" clipsSubviews="YES" tag="20" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PAp-Cs-iVD" customClass="MyButton" customModule="Unilot" customModuleProvider="target">
-                                                    <rect key="frame" x="309" y="12" width="19" height="19"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="PAp-Cs-iVD" secondAttribute="height" multiplier="1:1" id="D3f-Kh-obP"/>
-                                                    </constraints>
-                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                                    <state key="normal" image="X-x3"/>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="qOP-rG-Upq">
-                                                    <rect key="frame" x="23" y="12" width="282" height="19"/>
-                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstItem="qOP-rG-Upq" firstAttribute="top" secondItem="0yg-El-DhI" secondAttribute="topMargin" constant="4" id="2Ef-Y3-2zt"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="qOP-rG-Upq" secondAttribute="bottom" constant="4" id="DcP-5f-Jct"/>
-                                                <constraint firstItem="qOP-rG-Upq" firstAttribute="leading" secondItem="0yg-El-DhI" secondAttribute="leadingMargin" constant="15" id="H8q-Zi-ScH"/>
-                                                <constraint firstItem="qOP-rG-Upq" firstAttribute="centerY" secondItem="0yg-El-DhI" secondAttribute="centerY" id="JDv-Yj-nyt"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="PAp-Cs-iVD" secondAttribute="trailing" constant="8" id="PjB-ST-b40"/>
-                                                <constraint firstItem="PAp-Cs-iVD" firstAttribute="top" secondItem="0yg-El-DhI" secondAttribute="topMargin" constant="4" id="Wss-aT-jnW"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="PAp-Cs-iVD" secondAttribute="bottom" constant="4" id="ddR-Ha-Yts"/>
-                                                <constraint firstItem="PAp-Cs-iVD" firstAttribute="leading" secondItem="qOP-rG-Upq" secondAttribute="trailing" constant="4" id="ljb-1u-idZ"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="gBi-I1-ONO" id="5fq-28-Js3"/>
-                                    <outlet property="delegate" destination="gBi-I1-ONO" id="XHy-0h-3Y9"/>
-                                </connections>
-                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.99607843139999996" green="0.67843137249999996" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="s4W-28-ifw" firstAttribute="top" secondItem="Tdy-qw-MzN" secondAttribute="bottom" constant="15" id="983-vN-KNH"/>
                             <constraint firstItem="99G-P1-Xrf" firstAttribute="leading" secondItem="g2c-Cs-7PH" secondAttribute="leadingMargin" constant="15" id="GDI-eJ-NZw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4B1-ZQ-G5H" secondAttribute="trailing" constant="15" id="H32-LM-Mu3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KnS-4g-kMF" secondAttribute="trailing" constant="4" id="H8c-9n-HBl"/>
                             <constraint firstItem="KnS-4g-kMF" firstAttribute="top" secondItem="Med-SJ-zoo" secondAttribute="top" id="LBA-Sd-Ms5"/>
-                            <constraint firstItem="eZ7-QL-Wng" firstAttribute="top" secondItem="99G-P1-Xrf" secondAttribute="bottom" constant="25" id="LEa-mn-bRh"/>
-                            <constraint firstItem="s4W-28-ifw" firstAttribute="leading" secondItem="g2c-Cs-7PH" secondAttribute="leadingMargin" constant="15" id="MEr-op-kaK"/>
+                            <constraint firstItem="s4W-28-ifw" firstAttribute="leading" secondItem="g2c-Cs-7PH" secondAttribute="leadingMargin" id="MEr-op-kaK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="99G-P1-Xrf" secondAttribute="trailing" constant="15" id="TQE-RF-fUT"/>
-                            <constraint firstItem="Med-SJ-zoo" firstAttribute="top" secondItem="4B1-ZQ-G5H" secondAttribute="bottom" constant="30" id="Vyg-MW-dI2"/>
+                            <constraint firstAttribute="trailing" secondItem="Tdy-qw-MzN" secondAttribute="trailing" constant="8" id="XQD-LS-4M0"/>
+                            <constraint firstItem="eZ7-QL-Wng" firstAttribute="top" secondItem="s4W-28-ifw" secondAttribute="bottom" constant="15" id="Y4V-1Q-8nF"/>
+                            <constraint firstItem="Med-SJ-zoo" firstAttribute="top" secondItem="Tdy-qw-MzN" secondAttribute="top" constant="20" id="Zhm-ug-8V2"/>
+                            <constraint firstItem="99G-P1-Xrf" firstAttribute="bottom" secondItem="Tdy-qw-MzN" secondAttribute="bottom" constant="-20" id="aZm-mz-USu"/>
+                            <constraint firstItem="Tdy-qw-MzN" firstAttribute="leading" secondItem="g2c-Cs-7PH" secondAttribute="leading" constant="8" id="bZf-dd-wEo"/>
+                            <constraint firstItem="Tdy-qw-MzN" firstAttribute="top" secondItem="4B1-ZQ-G5H" secondAttribute="bottom" constant="4" id="cNu-R3-BFL"/>
                             <constraint firstItem="Med-SJ-zoo" firstAttribute="leading" secondItem="g2c-Cs-7PH" secondAttribute="leadingMargin" constant="15" id="dh0-Gc-DjL"/>
+                            <constraint firstItem="99G-P1-Xrf" firstAttribute="top" secondItem="KVX-Dp-rtt" secondAttribute="bottom" constant="20" id="hF0-gS-MUd"/>
                             <constraint firstItem="KnS-4g-kMF" firstAttribute="bottom" secondItem="Med-SJ-zoo" secondAttribute="bottom" id="iIV-nO-0Hj"/>
                             <constraint firstItem="KVX-Dp-rtt" firstAttribute="leading" secondItem="Med-SJ-zoo" secondAttribute="leading" id="ovr-Sw-gTi"/>
-                            <constraint firstItem="99G-P1-Xrf" firstAttribute="top" secondItem="s4W-28-ifw" secondAttribute="bottom" constant="15" id="prB-1Z-wsO"/>
-                            <constraint firstItem="s4W-28-ifw" firstAttribute="top" secondItem="KVX-Dp-rtt" secondAttribute="bottom" constant="15" id="qxD-Cj-7n3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="s4W-28-ifw" secondAttribute="trailing" constant="15" id="sXA-eY-Udh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="s4W-28-ifw" secondAttribute="trailing" id="sXA-eY-Udh"/>
                             <constraint firstItem="KVX-Dp-rtt" firstAttribute="top" secondItem="Med-SJ-zoo" secondAttribute="bottom" id="scQ-6M-biI"/>
                             <constraint firstItem="KVX-Dp-rtt" firstAttribute="trailing" secondItem="Med-SJ-zoo" secondAttribute="trailing" id="u2c-Ej-jKf"/>
                             <constraint firstItem="4B1-ZQ-G5H" firstAttribute="top" secondItem="NM5-8j-XGw" secondAttribute="bottom" constant="15" id="vqq-7X-3bj"/>
                             <constraint firstItem="4B1-ZQ-G5H" firstAttribute="leading" secondItem="g2c-Cs-7PH" secondAttribute="leadingMargin" constant="15" id="y6U-Pc-IBu"/>
                             <constraint firstItem="KnS-4g-kMF" firstAttribute="leading" secondItem="Med-SJ-zoo" secondAttribute="trailing" constant="5" id="z6i-aI-Clo"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.058823529409999999" green="0.058823529409999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.80000000000000004"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="2" height="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <tabBarItem key="tabBarItem" tag="3" title="Profile" image="`profile-x3" id="71D-Sz-eoW"/>
                     <connections>
@@ -1184,7 +1237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVl-0G-uXL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1136.8" y="3209.1454272863571"/>
+            <point key="canvasLocation" x="1134.7826086956522" y="3208.6956521739135"/>
         </scene>
         <!--Loading View-->
         <scene sceneID="kCK-ud-ZW3">
@@ -1277,8 +1330,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="Wwm-aP-sXC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                                <color key="textColor" red="0.91372549020000005" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                <color key="textColor" red="1" green="0.83529411764705885" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 546" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkd-6B-FJe">
@@ -1287,8 +1340,8 @@
                                     <constraint firstAttribute="height" constant="20" id="54g-SQ-ZSR"/>
                                     <constraint firstAttribute="width" constant="130" id="SeX-QF-qLL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                                <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                <color key="textColor" red="1" green="0.83529411760000005" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XyL-GH-ggE">
@@ -1296,7 +1349,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="FZJ-lh-6jO"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
                                 <state key="normal" title="Призовые места">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1307,8 +1360,11 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.43137254899999999" green="0.4039215686" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -1317,7 +1373,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibd-nZ-FOp">
                                 <rect key="frame" x="25" y="493" width="364" height="50"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
                                 <state key="normal" title="Как попасть в розыгрыш?">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1328,8 +1384,11 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.43137254899999999" green="0.4039215686" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -1380,7 +1439,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="До обьявления победителя:" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="9Vf-fw-shV">
                                 <rect key="frame" x="10" y="252.66666666666669" width="165.66666666666666" height="217.66666666666669"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="55"/>
-                                <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="0.80784313725490198" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnG-ZC-Jhn" customClass="CountDownLabel" customModule="Unilot" customModuleProvider="target">
@@ -1392,9 +1451,9 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="дней" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Rbx-T0-BfG">
-                                <rect key="frame" x="339" y="335.66666666666669" width="50" height="53"/>
+                                <rect key="frame" x="339" y="336" width="50" height="53"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="40"/>
-                                <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="0.80784313725490198" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info2-x3" translatesAutoresizingMaskIntoConstraints="NO" id="K5X-E0-AJ4">
@@ -1465,7 +1524,9 @@
                             <constraint firstItem="9Vf-fw-shV" firstAttribute="width" secondItem="Ro3-QA-SEU" secondAttribute="width" multiplier="0.4" id="zzL-dZ-RYn"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="Бонусная" image="`31days-x3" id="qEU-MP-gvX"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Бонусная" image="`31days-x3" id="qEU-MP-gvX">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-2"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="clockTablet" destination="fnG-ZC-Jhn" id="XHd-to-5Gh"/>
                         <outlet property="howDoesItWork" destination="ibd-nZ-FOp" id="J8U-7l-cID"/>
@@ -1530,6 +1591,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="c8n-Q4-gD6">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="0lC-dh-1d6">
+                            <color key="tintColor" red="1" green="0.59607843140000005" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="onLeftMenuBarButton:" destination="J6C-M6-dYg" id="OZI-xH-TxW"/>
                             </connections>
@@ -1630,9 +1692,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ajz-gJ-zp3">
                                         <rect key="frame" x="15" y="236" width="334" height="40"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xdQ-Ko-h8F">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fat button" translatesAutoresizingMaskIntoConstraints="NO" id="xdQ-Ko-h8F">
                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
-                                                <color key="backgroundColor" red="0.94901960780000005" green="0.32156862749999998" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lvt-cU-smi" userLabel="thin line">
                                                 <rect key="frame" x="262.33333333333331" y="0.0" width="1" height="40"/>
@@ -1743,8 +1805,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="x0A-jn-F9h"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                                <color key="textColor" red="0.91372549020000005" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                <color key="textColor" red="1" green="0.83529411760000005" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 546" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fN-dz-XwN">
@@ -1753,8 +1815,8 @@
                                     <constraint firstAttribute="width" constant="130" id="Hn7-Y2-3NV"/>
                                     <constraint firstAttribute="height" constant="20" id="hHn-gt-8q4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                                <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                <color key="textColor" red="1" green="0.83529411760000005" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNm-Qg-Za1">
@@ -1762,6 +1824,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="6XV-BU-feJ"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
                                 <state key="normal" title="Призовые места">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1772,8 +1835,11 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.43137254901960786" green="0.40392156862745099" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -1844,7 +1910,9 @@
                             <constraint firstItem="yos-y3-I2X" firstAttribute="leading" secondItem="9Qk-z9-btP" secondAttribute="leadingMargin" constant="20" id="x1w-YB-oFN"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="Недельная" image="`7days-x3" id="DUN-Yn-q5F"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Недельная" image="`7days-x3" id="DUN-Yn-q5F">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="clockTablet" destination="tfE-rU-gJC" id="AVh-jx-UiD"/>
                         <outlet property="loadingSignFirst" destination="otZ-jJ-E76" id="dsu-yd-Dgq"/>
@@ -2021,6 +2089,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="TaL-mU-M6V">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="8Wc-RK-0zS">
+                            <color key="tintColor" red="1" green="0.59607843137254901" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="onLeftMenuBarButton:" destination="Q6h-US-ROi" id="w2e-QD-WvA"/>
                             </connections>
@@ -2047,9 +2116,10 @@
         <image name="bg_1" width="428" height="444"/>
         <image name="ethereum-x3" width="70" height="114"/>
         <image name="facebook-x3" width="20" height="44"/>
+        <image name="fat button" width="629" height="10.434782981872559"/>
         <image name="history-x3" width="50" height="44"/>
         <image name="info2-x3" width="23" height="23"/>
-        <image name="loadingSign" width="202" height="17"/>
+        <image name="loadingSign" width="459" height="14.823529243469238"/>
         <image name="man-x3" width="27" height="30"/>
         <image name="menu" width="22" height="19"/>
         <image name="settings-x3" width="50" height="50"/>

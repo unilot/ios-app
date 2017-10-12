@@ -13,9 +13,7 @@ import NVActivityIndicatorView
 class MenuLeft: UITableViewController {
     
     
-    let rowHeight = CGFloat(40)
-    
-    let rowOneHeight = CGFloat(80)
+    let rowOneHeight = CGFloat(30)
 
     
     override func viewDidLoad() {
@@ -31,16 +29,23 @@ class MenuLeft: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.row == 1 && indexPath.section == 1 {
-            return  CGFloat(tableView.frame.height -  rowHeight * 6 - rowOneHeight)
-        }
         
-        if indexPath.row == 0 && indexPath.section == 0 {
+        switch indexPath.section {
+        case 0: // header
+            return rowOneHeight * 2
+
+        case 1: // 3 main buttons
             return rowOneHeight
+            
+        case 2: // settings
+            return rowOneHeight * 2
+
+        default: // socials
+            return CGFloat(tableView.frame.height - rowHeight * 7)
         }
         
-        return rowHeight
     }
+    
 //    
 //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        <#code#>

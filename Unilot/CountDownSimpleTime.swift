@@ -18,8 +18,8 @@ class CountDownFullTimer: CountDownLabel  {
     
     override func createBodyTimers(){
         
-        createLabelBody(self.frame.height * 0.8)
-        createTextStatic(self.frame.height * 0.2)
+        createLabelBody(self.frame.height * 0.7)
+        createTextStatic(self.frame.height * 0.3)
 
     }
  
@@ -35,7 +35,8 @@ class CountDownFullTimer: CountDownLabel  {
         
         let label = UILabel(frame: frameRect)
         label.textAlignment = .center
-        label.textColor = UIColor.gray
+        label.baselineAdjustment = .alignCenters
+        label.textColor = UIColor.lightGray
         label.font = UIFont(name: kFont_Regular, size: 500)
         label.tag = 200
         label.adjustsFontSizeToFitWidth = true

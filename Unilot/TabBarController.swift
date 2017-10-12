@@ -49,13 +49,33 @@ class TabBarController: LxTabBarController  {
         
 //        sendInitNetWork()
         
+        
+        
+        
+        let frameBarButton = CGSize(width: 20, height: 20)
+        
+//        let tapRecognizer = UITapGestureRecognizer(target: revealViewController(),
+//                                                   action: #selector(SWRevealViewController.revealToggle(_:)) )
+        let tapRecognizer = UITapGestureRecognizer(target: self,
+                                                   action: #selector(TabBarController.textTap) )
+
+        
+        let viewCustom = setColorForImage(frameBarButton, "menu")
+        viewCustom.addGestureRecognizer(tapRecognizer)
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: viewCustom)
+ 
+    
     }
 
+    func textTap(){
+        revealViewController().revealToggle(animated: true)
+    }
 
     
     @IBAction func onInfoBarButton(_ sender: UIBarButtonItem){
         
-        let viewWithPlaces = TotalPrizeFond.createTotalPrizeFond()
+        let viewWithPlaces = InfoView.createInfoView()
         viewWithPlaces.layoutIfNeeded()
         viewWithPlaces.layer.opacity = 0.0
         viewWithPlaces.frame = CGRect(x: 10,
@@ -106,8 +126,8 @@ class TabBarController: LxTabBarController  {
         let tb1 =  UITabBarItem(title: TR("Дневная"),
                                 image: UIImage(named:"`1day-x3"),
                                 tag: 0 )
-         
-
+        
+        
         let tb2 =  UITabBarItem(title: TR("Недельная"),
                                 image: UIImage(named:"`7day-x3"),
                                 tag: 1)

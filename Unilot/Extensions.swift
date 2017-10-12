@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SCLAlertView
 
 extension UIViewController{
      
@@ -145,8 +144,3 @@ func setColorForImage(_ sizeOfView : CGSize, _ imageName : String) -> UIView{
 }
 
 
-
-func saveToClipboard(_ text : String){
-    UIPasteboard.general.string = text
-    SCLAlertView().showInfo(" ", subTitle: "The number was saved to clipboard")    
-}

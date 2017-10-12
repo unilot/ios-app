@@ -6,10 +6,17 @@
 //  Copyright © 2017 Vovasoft. All rights reserved.
 //
 
+import SCLAlertView
 
 
 var mdTextHtml = "Terms"
 
+
+
+func saveToClipboard(_ text : String){
+    UIPasteboard.general.string = text
+    SCLAlertView().showInfo(" ", subTitle: "The number was saved to clipboard")
+}
 
 
 func labelFor(_ cell: UITableViewCell, _ index: Int) -> UILabel?{

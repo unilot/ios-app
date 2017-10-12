@@ -202,73 +202,39 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     @IBAction func onHowDoesItWork(){
         
         let viewWithPlaces = TotalPrizeFond.createTotalPrizeFond()
-        viewWithPlaces.layoutIfNeeded()
-        viewWithPlaces.layer.opacity = 0.0
-        viewWithPlaces.frame = CGRect(x: 10,
-                                      y: view.frame.height,
-                                      width: view.frame.width - 20,
-                                      height: view.frame.height - 150)
+        let frameForView = CGRect(x: 10,
+                                  y: 70,
+                                  width: view.frame.width - 20,
+                                  height: view.frame.height - 150)
         
-        viewWithPlaces.initView()
-        view.addSubview(viewWithPlaces)
-        
-        UIView.animate(withDuration: 0.4) {
-            viewWithPlaces.layer.opacity = 1.0
-            viewWithPlaces.frame = CGRect(x: 10,
-                                          y: 70,
-                                          width: viewWithPlaces.frame.width,
-                                          height: viewWithPlaces.frame.height)
-        }
+        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: 1)
         
     }
     
     
     
     @IBAction func onPrizePlaces(){
+        
         let viewWithPlaces = TotalPrizeFond.createTotalPrizeFond()
-        viewWithPlaces.layoutIfNeeded()
-        viewWithPlaces.layer.opacity = 0.0
-        viewWithPlaces.frame = CGRect(x: 10,
-                                 y: view.frame.height,
-                                 width: view.frame.width - 20,
-                                 height: view.frame.height - 150)
+        let frameForView = CGRect(x: 10,
+                                  y: 70,
+                                  width: view.frame.width - 20,
+                                  height: view.frame.height - 150)
         
-        viewWithPlaces.initView()
-        view.addSubview(viewWithPlaces)
+        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: 1)
         
-        UIView.animate(withDuration: 0.4) {
-            viewWithPlaces.layer.opacity = 1.0
-            viewWithPlaces.frame = CGRect(x: 10,
-                                     y: 70,
-                                     width: viewWithPlaces.frame.width,
-                                     height: viewWithPlaces.frame.height)
-        }
-         
     }
     
     
     @IBAction func onTakePart(){
         
-        let viewAgree = AgreeToPlay.createAgreeToPlay()
-        viewAgree.layoutIfNeeded()
-        viewAgree.layer.opacity = 0.0
-        viewAgree.frame = CGRect(x: 10,
-                                 y: view.frame.height,
-                                 width: view.frame.width - 20,
-                                 height: view.frame.height - 150)
-
-        viewAgree.initView()
-        view.addSubview(viewAgree)
+        let viewWithPlaces = AgreeToPlay.createAgreeToPlay()
+        let frameForView = CGRect(x: 10,
+                                  y: 70,
+                                  width: view.frame.width - 20,
+                                  height: view.frame.height - 150)
         
-        UIView.animate(withDuration: 0.4) {
-            viewAgree.layer.opacity = 1.0
-            viewAgree.frame = CGRect(x: 10,
-                                     y: 70,
-                                     width: viewAgree.frame.width,
-                                     height: viewAgree.frame.height)
-        }
-        
-        
+        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: 1)
         
 
     }

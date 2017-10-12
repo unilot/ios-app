@@ -11,12 +11,9 @@ import SCLAlertView
 
 
 
-class AgreeToPlay: UIView, CountDownTimeDelegate {
+class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
     
     @IBOutlet weak var clockTablet: CountDownSimpleTime!
-
-    
-    @IBOutlet weak var titleView: UILabel!
     
     @IBOutlet weak var textView1: UITextView!
     @IBOutlet weak var textView2: UITextView!
@@ -32,10 +29,9 @@ class AgreeToPlay: UIView, CountDownTimeDelegate {
     
     
     
-    func initView(){
+    override func setInitBorders(){
         
-        self.layer.borderWidth = 1
-        self.layer.borderColor = kColorLightGray.cgColor
+        super.setInitBorders()
         
         copyButton.layer.borderWidth = 1
         copyButton.layer.borderColor = UIColor.lightGray.cgColor
@@ -52,22 +48,6 @@ class AgreeToPlay: UIView, CountDownTimeDelegate {
     
         clockTablet.doScheduledTimer()
 
-    }
-    
-    
-    
-    
-    @IBAction func onX(){
-        UIView.animate(withDuration: 0.4, animations: {
-            self.frame = CGRect(x: 10,
-                                y: -self.frame.height,
-                                width: self.frame.width,
-                                height: self.frame.height)
-            self.layer.opacity = 0.0
-        }) { (animate : Bool) in
-            self.removeFromSuperview()
-        }
-        
     }
     
     

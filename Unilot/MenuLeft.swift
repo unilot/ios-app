@@ -13,14 +13,14 @@ import NVActivityIndicatorView
 class MenuLeft: UITableViewController {
     
     
-    let rowOneHeight = CGFloat(30)
+    let rowOneHeight = CGFloat(50)
 
     
     override func viewDidLoad() {
 
         super.viewDidLoad()
-        
-        self.view.backgroundColor = UIColor.black
+         
+        self.view.backgroundColor = kColorMenuFon
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
@@ -41,7 +41,7 @@ class MenuLeft: UITableViewController {
             return rowOneHeight * 2
 
         default: // socials
-            return CGFloat(tableView.frame.height - rowHeight * 7)
+            return CGFloat(tableView.frame.height - rowOneHeight * 7)
         }
         
     }

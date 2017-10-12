@@ -143,7 +143,7 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="tableMain" destination="o7g-LZ-Rkc" id="Ali-Sc-MX5"/>
-                <outlet property="titleMain" destination="Dn4-WK-7ss" id="fCa-Dj-zhG"/>
+                <outlet property="titleMain" destination="Dn4-WK-7ss" id="8fl-V2-Md9"/>
                 <outlet property="titleWithPrice" destination="6I7-ZU-qVs" id="ClG-7d-BCv"/>
             </connections>
             <point key="canvasLocation" x="56.5" y="111.5"/>

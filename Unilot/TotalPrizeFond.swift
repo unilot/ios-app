@@ -11,10 +11,9 @@ import UIKit
 
 
 
-class TotalPrizeFond: UIView, UITableViewDelegate, UITableViewDataSource {
+class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
 
-    
-    @IBOutlet weak var titleMain: UILabel!
+
     @IBOutlet weak var titleWithPrice: UILabel!
     @IBOutlet weak var tableMain: UITableView!
     
@@ -29,27 +28,6 @@ class TotalPrizeFond: UIView, UITableViewDelegate, UITableViewDataSource {
     
     
     
-    
-    func initView(){
-        
-        self.layer.borderWidth = 1
-        self.layer.borderColor = kColorLightGray.cgColor
-
-    }
-    
-    
-    @IBAction func onX(){
-        UIView.animate(withDuration: 0.4, animations: {
-            self.frame = CGRect(x: 10,
-                                y: -self.frame.height,
-                                width: self.frame.width,
-                                height: self.frame.height)
-            self.layer.opacity = 0.0
-        }) { (animate : Bool) in
-            self.removeFromSuperview()
-        }
-        
-    }
     
     
     //MARK:-  UITableViewDelegate, UITableViewDataSource

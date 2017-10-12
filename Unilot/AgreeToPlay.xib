@@ -158,7 +158,7 @@
                 <outlet property="copyButton" destination="7Kd-e9-pKQ" id="ccj-bI-jxE"/>
                 <outlet property="endLabel" destination="sd1-aD-ahN" id="6nP-0f-FYZ"/>
                 <outlet property="textView1" destination="CJ3-Pv-o2C" id="d14-l9-lSc"/>
-                <outlet property="titleView" destination="5nn-c6-pxt" id="G6Q-Jw-CnH"/>
+                <outlet property="titleMain" destination="5nn-c6-pxt" id="49G-nM-UPN"/>
             </connections>
             <point key="canvasLocation" x="57.5" y="99.5"/>
         </view>

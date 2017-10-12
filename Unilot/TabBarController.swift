@@ -74,25 +74,15 @@ class TabBarController: LxTabBarController  {
 
     
     @IBAction func onInfoBarButton(_ sender: UIBarButtonItem){
-        
+         
         let viewWithPlaces = InfoView.createInfoView()
-        viewWithPlaces.layoutIfNeeded()
-        viewWithPlaces.layer.opacity = 0.0
-        viewWithPlaces.frame = CGRect(x: 10,
-                                      y: view.frame.height,
-                                      width: view.frame.width - 20,
-                                      height: view.frame.height - 150)
+        let frameForView = CGRect(x: 10,
+                                  y: 70,
+                                  width: view.frame.width - 20,
+                                  height: view.frame.height - 150)
         
-        viewWithPlaces.initView()
-        view.addSubview(viewWithPlaces)
+        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: -1)
         
-        UIView.animate(withDuration: 0.4) {
-            viewWithPlaces.layer.opacity = 1.0
-            viewWithPlaces.frame = CGRect(x: 10,
-                                          y: 70,
-                                          width: viewWithPlaces.frame.width,
-                                          height: viewWithPlaces.frame.height)
-        }
         
     }
     

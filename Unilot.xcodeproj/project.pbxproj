@@ -40,6 +40,7 @@
 		D6E42B791F8AFBE2005270A9 /* HistoryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E42B781F8AFBE2005270A9 /* HistoryTable.swift */; };
 		D6ED6B361F8F90B200384672 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ED6B351F8F90B200384672 /* InfoView.swift */; };
 		D6ED6B381F8F90C100384672 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6ED6B371F8F90C100384672 /* InfoView.xib */; };
+		D6ED6B3C1F8FA6DC00384672 /* PopUpCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ED6B3B1F8FA6DC00384672 /* PopUpCore.swift */; };
 		D6F1E1321F7B9F3B0098B34C /* MainViewPositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1311F7B9F3B0098B34C /* MainViewPositions.swift */; };
 		D6F1E1361F7BA0E50098B34C /* AgreeToPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1351F7BA0E50098B34C /* AgreeToPlay.swift */; };
 		D6F1E1381F7BAA4E0098B34C /* ControllerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1371F7BAA4E0098B34C /* ControllerCore.swift */; };
@@ -99,6 +100,7 @@
 		D6E42B781F8AFBE2005270A9 /* HistoryTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTable.swift; sourceTree = "<group>"; };
 		D6ED6B351F8F90B200384672 /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		D6ED6B371F8F90C100384672 /* InfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
+		D6ED6B3B1F8FA6DC00384672 /* PopUpCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpCore.swift; sourceTree = "<group>"; };
 		D6F1E1311F7B9F3B0098B34C /* MainViewPositions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewPositions.swift; sourceTree = "<group>"; };
 		D6F1E1351F7BA0E50098B34C /* AgreeToPlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgreeToPlay.swift; sourceTree = "<group>"; };
 		D6F1E1371F7BAA4E0098B34C /* ControllerCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerCore.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				D62A31761F7AC86900275B86 /* TabBarController.swift */,
+				D6ED6B3B1F8FA6DC00384672 /* PopUpCore.swift */,
 				D6F1E1371F7BAA4E0098B34C /* ControllerCore.swift */,
 				D6632ED71F8C9C6800EC18C9 /* TextViewCore.swift */,
 				D6F1E1311F7B9F3B0098B34C /* MainViewPositions.swift */,
@@ -543,6 +546,7 @@
 				D6F1E18E1F7E55130098B34C /* NSError+JSHelper.m in Sources */,
 				D6632ED61F8C9C4100EC18C9 /* HowDoesItWork.swift in Sources */,
 				D6F1E1941F7E55130098B34C /* JSLogger.m in Sources */,
+				D6ED6B3C1F8FA6DC00384672 /* PopUpCore.swift in Sources */,
 				D62A31771F7AC86900275B86 /* TabBarController.swift in Sources */,
 				D6C57EF81F8AA9210082BCBB /* WhitePapersView.swift in Sources */,
 				D6632ED41F8C9B7900EC18C9 /* MainData.swift in Sources */,

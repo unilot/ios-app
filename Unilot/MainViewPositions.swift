@@ -107,9 +107,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     func setTakePartView(){
         
-        takePartFon.image = UIImage(named: "loadingSign")
         takePartFon.layer.cornerRadius = takePartFon.frame.height/2
-        takePartFon.contentMode = .scaleAspectFill
         takePartFon.clipsToBounds = true
         
     }

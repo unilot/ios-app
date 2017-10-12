@@ -87,37 +87,7 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
     }
     
     
-    @IBAction func onAddMorePurse(){
-        
-        fieldPurse.text = ""
-        
-        fieldPurse.becomeFirstResponder()
 
-    }
-    
-    @IBAction func onQRScan(_ sender: Any) {
-        
-        
-        
-        
-        
-        readerVC.completionBlock = { (result: QRCodeReaderResult?) in
-          
-            if let text = result?.value{
-                self.fieldPurse.text = text
-            }
-
-            self.dismiss(animated: true, completion: nil)
-
-        }
-        
-        
-        // Presents the readerVC as modal form sheet
-        readerVC.modalPresentationStyle = .formSheet
-        
-        present(readerVC, animated: true, completion: nil)
-        
-    }
     
     //MARK: - UITextFieldDelegate
     
@@ -126,20 +96,15 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
 
         textField.resignFirstResponder()
         
-        if textField.text != nil {
-            users_account_number.insert(textField.text!, at: 0)
-            
-            table.insertRows(at: [IndexPath(row: 0, section: 0)], with: .bottom)
-            
-            textField.text = nil
-
-        }
-
+        onAddnewLine()
+        
         return true
     }
    
     func handleViewTap(recognizer: UIGestureRecognizer) {
+     
         fieldPurse.resignFirstResponder()
+    
     }
  
 
@@ -183,22 +148,73 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         saveToClipboard(users_account_number[indexPath.row])
     }
     
+
+
+
+    //MARK: - On Buttons
     
     func onIks(_ sender: MyButton){
         
-        let tag = sender.subTag!
-        users_account_number.remove(at: tag.row)
-        table.deleteRows(at: [tag], with: .top)
-    
+        if let cell = sender.superview?.superview as? UITableViewCell{
+            let indexPath = table.indexPath(for: cell)!
+            
+            users_account_number.remove(at: indexPath.row)
+            table.deleteRows(at: [indexPath], with: .top)
+        }
+        
+        
     }
     
+    func onAddnewLine(){
+       
+        if fieldPurse.text != nil {
+            users_account_number.insert(fieldPurse.text!, at: 0)
+            
+            table.insertRows(at: [IndexPath(row: 0, section: 0)], with: .bottom)
+            
+            fieldPurse.text = nil
+        }
+
+    }
     
+    @IBAction func onAddMorePurse(){
+        
+        onAddnewLine()
+        
+        fieldPurse.becomeFirstResponder()
+        
+    }
+    
+    @IBAction func onQRScan(_ sender: Any) {
+        
+        readerVC.completionBlock = { (result: QRCodeReaderResult?) in
+            
+            if let text = result?.value{
+                self.fieldPurse.text = text
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+            
+        }
+        
+        
+        // Presents the readerVC as modal form sheet
+        readerVC.modalPresentationStyle = .formSheet
+        
+        present(readerVC, animated: true, completion: nil)
+        
+    }
+    
+
+    //MARK: - exit
+
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
         
+        fieldPurse.resignFirstResponder()
+        
         MemoryControll.saveObject(users_account_number, key: "users_account_number")
         
     }
-
 }

@@ -107,7 +107,7 @@ class TotalPrizeFond: UIView, UITableViewDelegate, UITableViewDataSource {
                                           width: frame.width/3, height: frame.height))
         first.text = " "
         first.tag = 10
-        first.font = UIFont(name: "Helvetica", size: 12)
+        first.font = UIFont(name: kFont_Light, size: 12)
         first.adjustsFontSizeToFitWidth = true
         cell.contentView.addSubview(first)
         
@@ -117,7 +117,7 @@ class TotalPrizeFond: UIView, UITableViewDelegate, UITableViewDataSource {
         second.adjustsFontSizeToFitWidth = true
         second.tag = 20
         second.textAlignment = .center
-        second.font = UIFont(name: "Helvetica", size: 12)
+        second.font = UIFont(name: kFont_Light, size: 12)
         cell.contentView.addSubview(second)
 
         let third = UILabel(frame: CGRect(x: frame.width/3 * 2, y: shiftUpp,
@@ -125,7 +125,7 @@ class TotalPrizeFond: UIView, UITableViewDelegate, UITableViewDataSource {
         third.text = " "
         third.tag = 30
         third.textAlignment = .center
-        third.font = UIFont(name: "Helvetica", size: 12)
+        third.font = UIFont(name: kFont_Light, size: 12)
         third.adjustsFontSizeToFitWidth = true
         cell.contentView.addSubview(third)
         

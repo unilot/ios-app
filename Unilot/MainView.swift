@@ -64,7 +64,6 @@ class MainView: MainViewPositions {
         moneyTablet.doScheduledTimer()
         
         clockTablet.doScheduledTimer()
-        print(clockTablet.frame.height , " = startSchedule heighht")
 
     }
     

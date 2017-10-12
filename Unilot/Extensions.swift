@@ -104,6 +104,17 @@ func setColorForLabel(_ sizeOfView : CGSize, _ text : String) -> UIView{
     return bgView
 }
 
+func setImageForTitle(_ sizeOfView : CGSize, _ imageName : String) -> UIView{
+    
+    let bgView = UIImageView(frame: CGRect(x: 0, y: 0, width:  sizeOfView.width,
+                                      height: sizeOfView.height))
+    bgView.backgroundColor = UIColor.clear
+    
+    bgView.image = UIImage(named: imageName)
+    
+    return bgView
+}
+
 func setColorForImage(_ sizeOfView : CGSize, _ imageName : String) -> UIView{
     
     let bgView = UIView(frame: CGRect(x: 0, y: 0, width:  sizeOfView.width,

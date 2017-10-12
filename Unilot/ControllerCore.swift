@@ -31,7 +31,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
     
     func setTitle(){
 
-        let image = setColorForImage(CGSize(width: 100, height: 20), "unilotmenu-item")
+        let image = setImageForTitle(CGSize(width: 100, height: 40), "unilotmenu-item")
 
         tabBarController?.navigationItem.titleView = image
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -39,11 +39,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         self.navigationController?.navigationBar.isTranslucent = true
 
     }
-    
-    
-
-
-    
+     
     
     
     func setMenuButton(){
@@ -80,4 +76,5 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
     }
  
     
+
 }

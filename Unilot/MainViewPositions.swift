@@ -45,8 +45,11 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         view.backgroundColor = UIColor.clear
 
         setButtonView()
-        
+
     }
+    
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         
@@ -130,17 +133,20 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     func setLoadingSign(toWidth: CGFloat ){
         
-        let rect = loadingSignProgress.frame
+        let rect = loadingSignFirst.frame
         
         let _loadingSignProgress = loadingSignProgress
         
         widthProgress = toWidth
         
+
+        let widthOfFire = rect.size.width - 2  - toWidth
+        
         UIView.animate(withDuration: 0.05) {
-            _loadingSignProgress?.frame = CGRect(x: rect.origin.x,
-                                               y: rect.origin.y,
-                                               width: toWidth,
-                                               height: rect.size.height)
+            _loadingSignProgress?.frame = CGRect(x: rect.origin.x + 1 + toWidth,
+                                               y: rect.origin.y + 1,
+                                               width: widthOfFire,
+                                               height: rect.size.height - 2)
         }
     }
 

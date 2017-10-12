@@ -22,7 +22,7 @@ let kColorLightYellow =  UIColor(red: 252.0/255.0, green: 223.0/255.0, blue: 138
 
 
 let kFont_Bold = "Roboto-Bold.ttf"
-let kFont_Light = "Roboto-Light.ttf"
+let kFont_Light = "Roboto-Light"
 let kFont_Medium = "Roboto-Medium.ttf"
 let kFont_Regular = "Roboto-Regular.ttf"
 let kFont_Thin = "Roboto-Thin.ttf"

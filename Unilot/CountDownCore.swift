@@ -98,7 +98,8 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
         let widthOfFlipper = frame.width / CGFloat(flippersCount)
         
         let frameComa = CGRect(x: widthOfFlipper * 2 , y: 0,
-                      width: widthOfFlipper / 3, height: frame.height * 0.75)
+                      width: widthOfFlipper / 3,
+                      height: frame.height)
                 
         let labelMain = UILabel(frame: frameComa)
         labelMain.textColor = kColorLightOrange
@@ -106,7 +107,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
         labelMain.backgroundColor = UIColor.clear
         labelMain.textAlignment = .center
         labelMain.baselineAdjustment = .alignCenters
-        labelMain.font = UIFont(name: "Helvetica-light", size: 50)
+        labelMain.font = UIFont(name: kFont_Light, size: 50)
         labelMain.adjustsFontSizeToFitWidth = true
         addSubview(labelMain)
     }
@@ -248,7 +249,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
             builder.cornerRadius    = 5
             builder.textAlignment   = .center
             builder.textColor       = kColorLightOrange
-            builder.font            = UIFont(name: kFont_Bold, size: 45)
+            builder.font            = UIFont(name: kFont_Light, size: 45)
             builder.lineColor       = UIColor.black//(red: 0, green: 0, blue: 0, alpha: 0.3)
 //            builder.
         }

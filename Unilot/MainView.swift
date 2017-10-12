@@ -68,7 +68,7 @@ class MainView: MainViewPositions {
     }
     
     
-    override func setMenuButton(){
+    override func addSwipeForMenuOpen(){
         
         if revealViewController() != nil {
             view.addGestureRecognizer(revealViewController().panGestureRecognizer())
@@ -79,7 +79,7 @@ class MainView: MainViewPositions {
 
 class MainWeekView: MainView {
     
-    override func setMenuButton(){
+    override func addSwipeForMenuOpen(){
 
     }
     

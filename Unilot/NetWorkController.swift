@@ -19,7 +19,7 @@ let request_session_data : Parameters = [
 
 var request_headers = [
 //    "Accept": "application/json"
-    "Content-Type": "application/json",
+    "Content-Type": "application/json"
 //    "Content-Type": "application/x-www-form-urlencoded"
 //    "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
 
@@ -28,6 +28,10 @@ var request_headers = [
 var session_data = [String: Any]()
 
 var my_tokens = ["1231qewr4r124","Qwr34qwawerwt2345t4"]
+
+var notifications_switch = [true,false,true]
+
+
 
 class NetWork {
     
@@ -42,9 +46,7 @@ class NetWork {
                         
             guard response.result.isSuccess else {
                 let error_line = response.result.error!.localizedDescription
-                
-                
-                print(response.result.error!.localizedDescription)
+//                print(response.result.error!.localizedDescription)
                 completion(error_line)
                 
                 return
@@ -55,13 +57,12 @@ class NetWork {
                 return
             }
             
-            print(responseJSON)
+//            print(responseJSON)
 
             session_data = responseJSON
             let new_header_item = String(format: (responseJSON["token_type"] as! String) + "  " + (responseJSON["access_token"] as! String))
             request_headers["Authorization"] = new_header_item
-            print(request_headers)
-
+ 
             completion(nil)
     }
     

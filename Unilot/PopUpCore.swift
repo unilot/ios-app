@@ -35,8 +35,8 @@ class PopUpCore: UIView  {
         bigButtonFade!.backgroundColor = UIColor.black
         bigButtonFade!.addTarget(self, action: #selector(PopUpCore.onX), for: .touchUpInside)
         bigButtonFade!.layer.opacity = 0.0
-        mainView.addSubview(bigButtonFade!)
-        
+        UIApplication.shared.keyWindow?.addSubview(bigButtonFade!)
+
         
         self.layoutIfNeeded()
         self.layer.opacity = 0.0
@@ -47,12 +47,13 @@ class PopUpCore: UIView  {
         
         setInitBorders()
         
-        mainView.addSubview(self)
+        UIApplication.shared.keyWindow?.addSubview(self)
+ 
         
         UIView.animate(withDuration: 0.4) {
             self.layer.opacity = 1.0
             self.frame = frameView
-            self.bigButtonFade?.layer.opacity = 1.0
+            self.bigButtonFade?.layer.opacity = 0.6
         }
         
     }

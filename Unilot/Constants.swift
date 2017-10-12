@@ -13,6 +13,8 @@
 let kNumberOfOurPursle = "TMP_341239r8uyweho8fiucynbuy4onreiadlneh78ynhoqxid"
 
 
+var lottery_images = ["`1day-x3","`7days-x3","`31days-x3"]
+
 let kEmpty = ""
 
 let kColorLightGray   =  UIColor(red: 243.0/255.0, green: 243.0/255.0, blue: 243.0/255.0, alpha: 1)

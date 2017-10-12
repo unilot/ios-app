@@ -21,13 +21,17 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         
         super.viewDidLoad()
         
-        setMenuButton()
+        addSwipeForMenuOpen()
 
         setTitle()
-                
+        
+        addMenuButton()
     }
     
-    
+    func addMenuButton() {
+        
+        self.navigationItem.leftBarButtonItem = createMenuButton()
+    }
     
     func setTitle(){
 
@@ -42,14 +46,14 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
      
     
     
-    func setMenuButton(){
+    func addSwipeForMenuOpen(){
 
         if navigationController?.revealViewController() != nil {
             navigationController?.view.addGestureRecognizer(navigationController!.revealViewController().panGestureRecognizer())
         }
     }
     
-    
+
 
 
     //MARK: - activityView

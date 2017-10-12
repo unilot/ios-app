@@ -9,6 +9,10 @@
 import SCLAlertView
 
 
+var current_language = "English"
+
+
+
 var mdTextHtml = "Terms"
 
 

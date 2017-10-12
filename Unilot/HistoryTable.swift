@@ -110,33 +110,15 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     
     
     func onPrizePlaces(){
+ 
+        let viewWithPlaces = TotalPrizeFond.createTotalPrizeFond()
+        let frameForView = CGRect(x: 10,
+                                  y: 70,
+                                  width: view.frame.width - 20,
+                                  height: view.frame.height - 100)
         
-        
-//        if viewWithPlaces ==  nil {
-            viewWithPlaces = TotalPrizeFond.createTotalPrizeFond()
-            viewWithPlaces!.tag = 1000
-            viewWithPlaces!.layoutIfNeeded()
-//        }
-        
-        viewWithPlaces!.layer.opacity = 0.0
-        viewWithPlaces?.layer.borderWidth = 2
-        viewWithPlaces!.frame = CGRect(x: 10,
-                                      y: view.frame.height,
-                                      width: view.frame.width - 20,
-                                      height: view.frame.height - 100)
-        
-        viewWithPlaces!.initView()
-        
-
-        view.addSubview(viewWithPlaces!)
-        
-        UIView.animate(withDuration: 0.4) {
-            self.viewWithPlaces!.layer.opacity = 1.0
-            self.viewWithPlaces!.frame = CGRect(x: 10,
-                                          y: 70,
-                                          width: self.viewWithPlaces!.frame.width,
-                                          height: self.viewWithPlaces!.frame.height)
-        }
+        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: 1)
+         
         
     }
     

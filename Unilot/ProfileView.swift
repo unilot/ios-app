@@ -46,9 +46,12 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
                 
     }
     
+    override func addMenuButton() {
+        
+        tabBarController?.navigationItem.leftBarButtonItem = createMenuButton()
+    }
     
-    
-    override func setMenuButton(){
+    override func addSwipeForMenuOpen(){
         
  
     

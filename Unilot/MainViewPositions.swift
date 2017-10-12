@@ -69,6 +69,10 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     }
     
   
+    override func addMenuButton() {
+        
+        tabBarController?.navigationItem.leftBarButtonItem = createMenuButton()
+    }
     
     func fillWithData(){
         
@@ -110,7 +114,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
     }
     
-    override func setMenuButton(){
+    override func addSwipeForMenuOpen(){
         
 //        if myTabBarItem!.tag == 0 &&
 //            tabBarController?.revealViewController() != nil {

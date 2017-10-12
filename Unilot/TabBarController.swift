@@ -47,31 +47,13 @@ class TabBarController: LxTabBarController  {
         
 //        createAllPages()
         
-//        sendInitNetWork()
-        
-        
-        
-        
-        let frameBarButton = CGSize(width: 20, height: 20)
-        
-//        let tapRecognizer = UITapGestureRecognizer(target: revealViewController(),
-//                                                   action: #selector(SWRevealViewController.revealToggle(_:)) )
-        let tapRecognizer = UITapGestureRecognizer(target: self,
-                                                   action: #selector(TabBarController.textTap) )
+        sendInitNetWork()
 
-        
-        let viewCustom = setColorForImage(frameBarButton, "menu")
-        viewCustom.addGestureRecognizer(tapRecognizer)
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: viewCustom)
- 
     
     }
+    
 
-    func textTap(){
-        revealViewController().revealToggle(animated: true)
-    }
-
+ 
     
     @IBAction func onInfoBarButton(_ sender: UIBarButtonItem){
          
@@ -140,13 +122,13 @@ class TabBarController: LxTabBarController  {
 
     
     func sendInitNetWork(){
-//        NetWork.startSession { (error : String?) in
-//            
-//            if error != nil {
-//                SCLAlertView().showError(" ", subTitle: error!)
-//            }
-//            
-//        }
+        NetWork.startSession { (error : String?) in
+            
+            if error != nil {
+                SCLAlertView().showError(" ", subTitle: error!)
+            }
+            
+        }
     }
     
 }

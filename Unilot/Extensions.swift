@@ -13,11 +13,28 @@ extension UIViewController{
     
     @IBAction func onLeftMenuBarButton(_ sender : UIBarButtonItem){
         
+       openMenu(sender)
+    }
+    
+    func createMenuButton() -> UIBarButtonItem{
+        
+        let frameBarButton = CGSize(width: 20, height: 20)
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self,
+                                                   action: #selector(TabBarController.openMenu(_:)) )
+        
+        
+        let viewCustom = setColorForImage(frameBarButton, "menu")
+        viewCustom.addGestureRecognizer(tapRecognizer)
+        
+        return  UIBarButtonItem(customView: viewCustom)
+    }
+    
+    
+    func openMenu(_ sender : Any){
         if revealViewController() != nil {
-//            revealViewController().setFrontViewPosition(, animated: true)
             revealViewController().revealToggle(sender)
         }
-        
     }
     
 }
@@ -110,6 +127,9 @@ class MyButton : UIButton{
 }
 
 
+class MySwitch : UISwitch{
+    var subTag : IndexPath?
+}
 
 func setColorForLabel(_ sizeOfView : CGSize, _ text : String) -> UIView{
     

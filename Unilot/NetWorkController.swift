@@ -23,9 +23,23 @@ var session_data = [String: Any]()
 
 class NetWork {
     
+    static let serverTrustPolicies: [String: ServerTrustPolicy] = [
+//        "dev.unilot.io": .pinCertificates(
+//            certificates: ServerTrustPolicy.certificates(),
+//            validateCertificateChain: true,
+//            validateHost: true
+//        ),
+//        "https://dev.unilot.io": .disableEvaluation
+    ]
+    
+    static let sessionManager = SessionManager(
+        serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
+    )
+    
+    
    static func startSession(completion: @escaping (String?) -> Void) {
- 
-    Alamofire.request("https://dev.unilot.io/o2/token/",
+
+    sessionManager.request("https://dev.unilot.io/o2/token/",
                       method : .post,
                       parameters: request_session_data,
                       encoding: JSONEncoding.default,
@@ -54,15 +68,14 @@ class NetWork {
     
     }
     
-    static func getGamesList(completion: @escaping (String?) -> Void) {
     
-//        request_headers["Authorization"] = "Bearer rGkj2wLQNYUkIIj71ohO4AGXarwejY"
+    static func getGamesList(completion: @escaping (String?) -> Void) {
         
-        Alamofire.request("https://dev.unilot.io/api/v1/games/",
+            
+        sessionManager.request("https://dev.unilot.io/api/v1/games/",
                           method : .get,
-                          parameters: Parameters(),
-                          encoding: URLEncoding.httpBody,
                           headers: request_headers)
+
             .responseJSON { (response) -> Void in
                 
                 guard response.result.isSuccess else {

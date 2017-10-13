@@ -17,7 +17,20 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var table: UITableView!
 
     
-    var dataForTable = [87687,87687,987987,9,87,98,09,98,98,9,8,8,8,98,98,9,9,9]//[String]()
+    var dataForTable =
+    [
+    ["0","0","10.10.17","в процессе","перейти"],
+    ["0","1","10.10.17","в процессе","перейти"],
+    ["0","2","10.10.17","в процессе","перейти"],
+    ["1","1","10.10.17","завершена","список победителей"],
+    ["1","2","10.10.17","завершена","список победителей"],
+    ["1","0","10.10.17","завершена","список победителей"],
+    ["1","1","10.10.17","завершена","список победителей"],
+    
+    ]
+    
+    
+//    var dataForTable = [87687,87687,987987,9,87,98,09,98,98,9,8,8,8,98,98,9,9,9]//[String]()
     var viewWithPlaces : TotalPrizeFond? = nil
     
     override func viewDidLoad() {
@@ -29,7 +42,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
  
     
     override func setTitle() {
-        navigationItem.title = "History"
+        navigationItem.title = "История ваших розыгрышей"
     }
     
     //MARK:-  UITableViewDelegate, UITableViewDataSource
@@ -42,7 +55,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 38
+        return 28
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -57,10 +70,9 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         let headerCell = tableView.dequeueReusableCell(withIdentifier: "id_header")!        
         headerView.addSubview(headerCell)
        
-        labelFor(headerCell, 10)?.text = TR("Дата")
-        labelFor(headerCell, 30)?.text = TR("Лотерея")
-        labelFor(headerCell, 30)?.text = TR("Статус")
-        labelFor(headerCell, 40)?.text = TR("Выйгрыш")
+        labelFor(headerCell, 10)?.text = TR("ДАТА И ЛОТЕРЕЯ")
+        labelFor(headerCell, 20)?.text = TR("СТАТУС")
+        labelFor(headerCell, 30)?.text = TR("ВЫЙГРЫШ")
 
         return headerView
         
@@ -74,23 +86,35 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
         cell.layoutIfNeeded()
         
-        labelFor(cell, 10)?.text = "10.10.17"
-        labelFor(cell, 30)?.text = "завершена"
-        labelFor(cell, 40)?.text = "список победителей"
+        let item = dataForTable[indexPath.row]
+        
+        labelFor(cell, 20)?.text = item[2]
+        labelFor(cell, 30)?.text = item[3]
 
-        if let img = cell.contentView.viewWithTag(20) as? UIImageView{
-            
-            img.image = UIImage(named: "`1day-x3")
+        if let img = cell.contentView.viewWithTag(10) as? UIImageView{
+            img.image = UIImage(named: lottery_images[Int(item[1])!])
+        }
+        
+        let label  =   labelFor(cell, 40)!
+
+        label.text = item[4]
+        
+        if item[0] == "1" {
+            label.textColor = kColorSelectedBlue
+        } else {
+            label.textColor = UIColor.green
         }
         
         
         if let fon = cell.contentView.viewWithTag(5) as? UIImageView{
+            
             if indexPath.row % 2 == 0 {
                 fon.backgroundColor = kColorLightGray
             } else {
                 fon.backgroundColor = UIColor.white
             }
 
+            fon.layer.cornerRadius = fon.frame.height/2
         }
         
         return cell
@@ -101,10 +125,13 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
-//        if (view.viewWithTag(1000) as? TotalPrizeFond) != nil {
+        let item = dataForTable[indexPath.row]
+
+        if item[0] == "1" {
             onPrizePlaces()
- //        }
+        } else{
+            item[1]
+        }
         
     }
  

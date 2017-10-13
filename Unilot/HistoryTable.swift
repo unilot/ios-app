@@ -26,8 +26,15 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     ["1","2","10.10.17","завершена","список победителей"],
     ["1","0","10.10.17","завершена","список победителей"],
     ["1","1","10.10.17","завершена","список победителей"],
+    ["1","1","10.10.17","завершена","список победителей"],
+    ["1","2","10.10.17","завершена","список победителей"],
+    ["1","0","10.10.17","завершена","список победителей"],
+    ["1","2","10.10.17","завершена","список победителей"],
+    ["1","1","10.10.17","завершена","список победителей"],
     
     ]
+    
+    
     
     
 //    var dataForTable = [87687,87687,987987,9,87,98,09,98,98,9,8,8,8,98,98,9,9,9]//[String]()
@@ -35,11 +42,20 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.tintColor = UIColor.black
-
         
-    }
+        navigationController?.navigationBar.tintColor = UIColor.black
  
+        
+        navigationController?.navigationBar.backgroundColor = UIColor.clear
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        
+        
+        navigationController?.updateFocusIfNeeded()
+    }
+    
+    
     
     override func setTitle() {
         navigationItem.title = "История ваших розыгрышей"
@@ -55,7 +71,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 28
+        return 32
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -130,7 +146,12 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         if item[0] == "1" {
             onPrizePlaces()
         } else{
-            item[1]
+            
+            let view_controller_1 = getVCFromName("SB_TabBarController") as! TabBarController
+            view_controller_1.selectedIndex = Int(item[1])!
+            
+            navigationController?.setViewControllers([view_controller_1], animated:true)
+                        
         }
         
     }
@@ -145,7 +166,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
                                   width: view.frame.width - 20,
                                   height: view.frame.height - 100)
         
-        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: 1)
+        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: -1)
          
         
     }

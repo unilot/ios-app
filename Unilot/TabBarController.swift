@@ -13,28 +13,27 @@ import SCLAlertView
 class TabBarController: LxTabBarController  {
 
     
-    
-    
-    
-//    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-//        
-//        if let fromView = tabBarController.selectedViewController?.view, let toView = viewController.view {
-//            
-//            if fromView == toView {
-//                return false
-//            }
-//            
-//            UIView.transition(from: fromView, to: toView, duration: 0.2, options: .transitionCrossDissolve) { (finished) in
-//            }
-//        }
-//        
-//        return true
-//    }
-//    
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
+ 
+        setNavBar()
+
+        setFon()
+
+        setTabBar()
+    }
+    
+    
+    func setFon(){
+        
+        let fon  = create_fon_view(self.view.frame.size)
+        self.view.insertSubview(fon, at: 0)
+        
+    }
+    
+    
+    func setTabBar(){
         
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for:.selected)
         
@@ -44,18 +43,24 @@ class TabBarController: LxTabBarController  {
         tabBar.backgroundColor = UIColor.clear
         
         
-        
-        
-        let fon  = create_fon_view(self.view.frame.size)
-        self.view.insertSubview(fon, at: 0)
- 
+    }
 
-
-    
+    func setNavBar(){
+//        
+//        let image = setImageForTitle(CGSize(width: 100, height: 40), "unilotmenu-item")
+//        
+//        tabBarController?.navigationItem.titleView = image
+// 
+//        
+//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//        navigationController?.navigationBar.shadowImage = UIImage()
+//        navigationController?.navigationBar.isTranslucent = true
+//        navigationController?.navigationItem.titleView = image
+//        
     }
     
-
- 
+    
+    //MARK: - button
     
     @IBAction func onInfoBarButton(_ sender: UIBarButtonItem){
          
@@ -71,15 +76,7 @@ class TabBarController: LxTabBarController  {
     }
     
     
-    
-    func getVCFromName(_ name: String) -> UIViewController{
-        
-        let storyBoard = UIStoryboard(name: "Main", bundle : nil )
-        let contrller = storyBoard.instantiateViewController(withIdentifier: name)
-        
-        return contrller
-    }
-  
+    //MARK: - left
     
     func createAllPages(){
         

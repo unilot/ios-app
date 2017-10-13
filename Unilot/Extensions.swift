@@ -59,6 +59,15 @@ extension UIViewController{
         }
     }
     
+    
+    func getVCFromName(_ name: String) -> UIViewController{
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle : nil )
+        let contrller = storyBoard.instantiateViewController(withIdentifier: name)
+        
+        return contrller
+    }
+    
 }
 
 

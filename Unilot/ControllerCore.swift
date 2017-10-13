@@ -24,27 +24,25 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         addSwipeForMenuOpen()
 
         setTitle()
+    }
+    
+    
+    func setTitle() {
         
-//        addMenuButton()
-    }
-    
-//    func addMenuButton() {
-//        
-//        self.navigationItem.leftBarButtonItem = createMenuButton()
-//    }
-    
-    func setTitle(){
-
         let image = setImageForTitle(CGSize(width: 100, height: 40), "unilotmenu-item")
-
+        
         tabBarController?.navigationItem.titleView = image
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
+        
+        
+        UINavigationBar.appearance().backgroundColor = UIColor.clear
+        navigationController?.navigationBar.backgroundColor = UIColor.clear
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        
 
+        navigationController?.updateFocusIfNeeded()
     }
-     
-    
     
     func addSwipeForMenuOpen(){
 

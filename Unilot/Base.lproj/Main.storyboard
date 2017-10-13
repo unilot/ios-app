@@ -66,19 +66,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" verticalHuggingPriority="251" text="ТИП И ДАТА" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cR-bc-fe3">
-                                                    <rect key="frame" x="10" y="14" width="115" height="16"/>
+                                                    <rect key="frame" x="18" y="14" width="112.5" height="16"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="30" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выйгрыш" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvt-XM-z6L">
-                                                    <rect key="frame" x="247.5" y="14" width="114.5" height="16"/>
+                                                    <rect key="frame" x="250" y="14" width="112" height="16"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="СТАТУС" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCm-8P-j0I">
-                                                    <rect key="frame" x="129" y="14" width="114.5" height="16"/>
+                                                    <rect key="frame" x="134.5" y="14" width="111.5" height="16"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
@@ -91,7 +91,7 @@
                                                 <constraint firstItem="OCm-8P-j0I" firstAttribute="width" secondItem="6cR-bc-fe3" secondAttribute="width" id="EEh-0H-NCc"/>
                                                 <constraint firstItem="6cR-bc-fe3" firstAttribute="centerY" secondItem="3ma-tO-KGo" secondAttribute="centerY" id="He8-eD-fR3"/>
                                                 <constraint firstItem="fvt-XM-z6L" firstAttribute="width" secondItem="OCm-8P-j0I" secondAttribute="width" id="POD-FZ-cbt"/>
-                                                <constraint firstItem="6cR-bc-fe3" firstAttribute="leading" secondItem="3ma-tO-KGo" secondAttribute="leadingMargin" constant="2" id="alF-Qq-K1b"/>
+                                                <constraint firstItem="6cR-bc-fe3" firstAttribute="leading" secondItem="3ma-tO-KGo" secondAttribute="leadingMargin" constant="10" id="alF-Qq-K1b"/>
                                                 <constraint firstItem="fvt-XM-z6L" firstAttribute="centerY" secondItem="3ma-tO-KGo" secondAttribute="centerY" id="dfr-CX-cYV"/>
                                                 <constraint firstItem="fvt-XM-z6L" firstAttribute="leading" secondItem="OCm-8P-j0I" secondAttribute="trailing" constant="4" id="hyC-To-VUj"/>
                                                 <constraint firstItem="OCm-8P-j0I" firstAttribute="centerY" secondItem="3ma-tO-KGo" secondAttribute="centerY" id="pNx-ix-f2f"/>
@@ -117,26 +117,26 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="`7days-x3" translatesAutoresizingMaskIntoConstraints="NO" id="dQU-nW-yEY">
-                                                    <rect key="frame" x="13" y="12" width="20" height="20"/>
+                                                    <rect key="frame" x="18" y="8" width="28" height="28"/>
                                                     <color key="tintColor" red="0.91372549020000005" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="dQU-nW-yEY" secondAttribute="height" multiplier="1:1" id="cPU-AO-LgR"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="30" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Завершена" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Pjy-Yv-WG3">
-                                                    <rect key="frame" x="128" y="8" width="115.5" height="28"/>
+                                                    <rect key="frame" x="135.5" y="8" width="108.5" height="28"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="40" contentMode="left" verticalHuggingPriority="251" text="показать результат" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="2Yq-70-Ntm">
-                                                    <rect key="frame" x="247.5" y="8" width="115.5" height="28"/>
+                                                    <rect key="frame" x="248" y="8" width="109" height="28"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.23.10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="a21-FW-yFZ">
-                                                    <rect key="frame" x="37" y="12.5" width="89" height="20"/>
+                                                    <rect key="frame" x="50" y="12.5" width="83.5" height="20"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -149,13 +149,13 @@
                                                 <constraint firstAttribute="trailing" secondItem="atK-TI-8bH" secondAttribute="trailing" constant="8" id="9Ex-NE-bAO"/>
                                                 <constraint firstItem="2Yq-70-Ntm" firstAttribute="centerY" secondItem="djT-M0-UaX" secondAttribute="centerY" id="Blc-Cx-2pK"/>
                                                 <constraint firstItem="atK-TI-8bH" firstAttribute="leading" secondItem="djT-M0-UaX" secondAttribute="leading" constant="8" id="DXM-UH-W4p"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="dQU-nW-yEY" secondAttribute="bottom" constant="4" id="GlD-pO-i77"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="dQU-nW-yEY" secondAttribute="bottom" id="GlD-pO-i77"/>
                                                 <constraint firstItem="2Yq-70-Ntm" firstAttribute="width" secondItem="Pjy-Yv-WG3" secondAttribute="width" id="TpP-QN-Ize"/>
                                                 <constraint firstAttribute="bottom" secondItem="atK-TI-8bH" secondAttribute="bottom" id="U7s-7q-0No"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="2Yq-70-Ntm" secondAttribute="trailing" constant="4" id="WpM-D7-y8R"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="2Yq-70-Ntm" secondAttribute="trailing" constant="10" id="WpM-D7-y8R"/>
                                                 <constraint firstItem="Pjy-Yv-WG3" firstAttribute="top" secondItem="djT-M0-UaX" secondAttribute="topMargin" id="Ypm-rD-5Mv"/>
-                                                <constraint firstItem="dQU-nW-yEY" firstAttribute="leading" secondItem="djT-M0-UaX" secondAttribute="leadingMargin" constant="5" id="bUg-TL-4mr"/>
-                                                <constraint firstItem="dQU-nW-yEY" firstAttribute="top" secondItem="djT-M0-UaX" secondAttribute="topMargin" constant="4" id="bu3-vs-1nl"/>
+                                                <constraint firstItem="dQU-nW-yEY" firstAttribute="leading" secondItem="djT-M0-UaX" secondAttribute="leadingMargin" constant="10" id="bUg-TL-4mr"/>
+                                                <constraint firstItem="dQU-nW-yEY" firstAttribute="top" secondItem="djT-M0-UaX" secondAttribute="topMargin" id="bu3-vs-1nl"/>
                                                 <constraint firstItem="a21-FW-yFZ" firstAttribute="leading" secondItem="dQU-nW-yEY" secondAttribute="trailing" constant="4" id="l84-AM-tnM"/>
                                                 <constraint firstItem="Pjy-Yv-WG3" firstAttribute="width" secondItem="a21-FW-yFZ" secondAttribute="width" multiplier="1.3" id="nu0-26-hub"/>
                                                 <constraint firstItem="dQU-nW-yEY" firstAttribute="centerY" secondItem="djT-M0-UaX" secondAttribute="centerY" id="pcE-WQ-dTi"/>
@@ -650,7 +650,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" customClass="TabBarController" customModule="Unilot" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="SB_TabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="49e-Tb-3d3" customClass="TabBarController" customModule="Unilot" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="TPJ-nN-MmD">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="H6v-fN-gNX">
                             <color key="tintColor" red="1" green="0.59607843140000005" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1255,7 +1255,7 @@
         <!--Reveal View Controller-->
         <scene sceneID="IGU-Kb-2G1">
             <objects>
-                <viewController id="9h4-nD-pzd" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SB_SWRevealViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9h4-nD-pzd" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oX9-lQ-Kb9"/>
                         <viewControllerLayoutGuide type="bottom" id="5VJ-PT-3d3"/>

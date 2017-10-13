@@ -42,7 +42,10 @@ class LoadingView : UIViewController, NVActivityIndicatorViewable{
     func enterTheApp(){
         
         stopAnimating()
-        performSegue(withIdentifier: "start", sender: nil)
+        
+        let view_controller_1 = getVCFromName("SB_SWRevealViewController")
+        present(view_controller_1, animated: false, completion: nil)
+//        performSegue(withIdentifier: "start", sender: nil)
         
     }
     func getSessionToken(){

@@ -29,9 +29,6 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
-
-        
-
         
     }
     

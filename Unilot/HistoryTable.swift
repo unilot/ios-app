@@ -147,11 +147,10 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             onPrizePlaces()
         } else{
             
-            let view_controller_1 = getVCFromName("SB_TabBarController") as! TabBarController
-            view_controller_1.selectedIndex = Int(item[1])!
+            currentTabBarLottery  =  Int(item[1])!
             
-            navigationController?.setViewControllers([view_controller_1], animated:true)
-                        
+            goToMainView()
+        
         }
         
     }

@@ -56,6 +56,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
         super.viewDidAppear(animated)
         
+        currentTabBarLottery = tabBarItem.tag
         
         if widthProgress == -1 {
             

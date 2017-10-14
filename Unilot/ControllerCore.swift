@@ -51,7 +51,31 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         }
     }
     
+    
+    
+    func goToMainView(){
+        
+        let navController = self.navigationController!
+        
+        
+        let rootViewController = getVCFromName("SB_TabBarController") as! TabBarController
+        rootViewController.selectedIndex = currentTabBarLottery
 
+        
+        var cntrllrs =   navController.viewControllers
+        cntrllrs.insert(rootViewController, at: 0)
+        
+        navController.setViewControllers(cntrllrs, animated: false)
+        navigationController?.popViewController(animated: true)
+
+        
+        
+    }
+    
+    @IBAction func onBackMenuArrow(){
+     
+        goToMainView()
+    }
 
 
     //MARK: - activityView

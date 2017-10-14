@@ -49,7 +49,14 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         fillWithData()
                 
     }
-//    
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        currentTabBarLottery = tabBarItem.tag
+    }
+//
 //    override func addMenuButton() {
 //        
 //        tabBarController?.navigationItem.leftBarButtonItem = createMenuButton()

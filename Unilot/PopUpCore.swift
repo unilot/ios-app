@@ -56,6 +56,37 @@ class PopUpCore: UIView  {
             self.bigButtonFade?.layer.opacity = 0.6
         }
         
+        addSwipeGesture()
+        
+    }
+    
+    
+    func addSwipeGesture(){
+        
+        let swipeUppGesture = UISwipeGestureRecognizer(target: self, action: #selector(PopUpCore.onSwipeUpp))
+        
+        swipeUppGesture.direction = .up
+        addGestureRecognizer(swipeUppGesture)
+        
+        let swipeDownGesture = UISwipeGestureRecognizer(target: self, action: #selector(PopUpCore.onSwipeDown))
+        
+        swipeDownGesture.direction = .down
+        addGestureRecognizer(swipeDownGesture)
+        
+        
+    }
+    
+    
+    func onSwipeUpp(){
+     
+        directionInSign = 1
+        onX()
+    }
+    
+    func onSwipeDown(){
+    
+        directionInSign = -1
+        onX()
     }
     
     

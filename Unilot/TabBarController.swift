@@ -20,6 +20,7 @@ class TabBarController: LxTabBarController  {
         tabFrame.origin.y = self.view.frame.height - tabFrame.height - 5
         self.tabBar.frame = tabFrame
         
+//        setNavBar()
     }
     
     override func viewDidLoad() {
@@ -31,9 +32,9 @@ class TabBarController: LxTabBarController  {
         UITabBarItem.appearance().setTitleTextAttributes(attributes, for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes(attributes1, for: .selected)
 
-        
+
         super.viewDidLoad()
- 
+        
         setNavBar()
 
         setFon()
@@ -63,17 +64,15 @@ class TabBarController: LxTabBarController  {
     }
 
     func setNavBar(){
-//        
-//        let image = setImageForTitle(CGSize(width: 100, height: 40), "unilotmenu-item")
-//        
-//        tabBarController?.navigationItem.titleView = image
-// 
-//        
-//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//        navigationController?.navigationBar.shadowImage = UIImage()
-//        navigationController?.navigationBar.isTranslucent = true
-//        navigationController?.navigationItem.titleView = image
-//        
+        
+        UINavigationBar.appearance().backgroundColor = UIColor.clear
+        navigationController?.navigationBar.backgroundColor = UIColor.clear
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        
+        
+        navigationController?.updateFocusIfNeeded()
     }
     
     

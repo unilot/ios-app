@@ -23,23 +23,39 @@ var session_data = [String: Any]()
 
 class NetWork {
     
-    static let serverTrustPolicies: [String: ServerTrustPolicy] = [
-//        "dev.unilot.io": .pinCertificates(
-//            certificates: ServerTrustPolicy.certificates(),
-//            validateCertificateChain: true,
-//            validateHost: true
-//        ),
-//        "https://dev.unilot.io": .disableEvaluation
-    ]
+//    static let serverTrustPolicies: [String: ServerTrustPolicy] = [
+////        "dev.unilot.io": .pinCertificates(
+////            certificates: ServerTrustPolicy.certificates(),
+////            validateCertificateChain: true,
+////            validateHost: true
+////        ),
+////        "https://dev.unilot.io": .disableEvaluation
+////    ]
+//    
+//    static let sessionManager = SessionManager(
+//        serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
+//    )
     
-    static let sessionManager = SessionManager(
-        serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
-    )
     
+    static func test(){
+        Alamofire.request("https://httpbin.org/get").responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            
+            if let json = response.result.value {
+                print("JSON: \(json)") // serialized json response
+            }
+            
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("Data: \(utf8Text)") // original server data as UTF8 string
+            }
+        }
+    }
     
    static func startSession(completion: @escaping (String?) -> Void) {
 
-    sessionManager.request("https://dev.unilot.io/o2/token/",
+    Alamofire.request("https://dev.unilot.io/o2/token/",
                       method : .post,
                       parameters: request_session_data,
                       encoding: JSONEncoding.default,
@@ -59,7 +75,7 @@ class NetWork {
             
             session_data = responseJSON
             let new_header_item = String(format: (responseJSON["token_type"] as! String) + "  " + (responseJSON["access_token"] as! String))
-            request_headers["Authorization"] = new_header_item
+            request_headers["authorization"] = new_header_item
             
 //            print("session_data = " ,responseJSON)
 
@@ -68,33 +84,57 @@ class NetWork {
     
     }
     
-    
-    static func getGamesList(completion: @escaping (String?) -> Void) {
+    static func sendDevice(completion: @escaping (String?) -> Void){
         
-            
-        sessionManager.request("https://dev.unilot.io/api/v1/games/",
-                          method : .get,
+        Alamofire.request("https://dev.unilot.io/api/v1/device/",
+                          method : .post,
+                          parameters: nil,
+                          encoding: JSONEncoding.default,
                           headers: request_headers)
-
+            
             .responseJSON { (response) -> Void in
-                
-                guard response.result.isSuccess else {
-                    let error_line = response.result.error!.localizedDescription
-                    completion(error_line)
-                    return
-                }
-                
-                guard let responseJSON = response.result.value as? [String: Any] else {
-                    completion("empty responseJSON")
-                    return
-                }
-                
-//                print("allHTTPHeaderFields = " , response.request!.urlRequest)
-
-//                print("getGamesList = " ,responseJSON)
                 
                 completion(nil)
         }
+    }
+    
+    static func getGamesList(completion: @escaping (String?) -> Void) {
+        
+        let urlString = "https://dev.unilot.io/api/v1/games"
+//        let urlString = "https://httpbin.org/get"
+        let headers = ["Authorization": "Bearer SR6XJOlJu6sIgD5lN6q7BLq1heoDGJ"]
+        
+        // When
+        
+        Alamofire.request(urlString, method: .get, headers: headers)
+
+        
+        
+//        Alamofire.request("https://dev.unilot.io/api/v1/games",
+//                          method : .get,
+//                          parameters: nil,
+//                          encoding: URLEncoding.default,
+//                          headers: request_headers)
+//
+//            .responseJSON { (response) -> Void in
+//                
+//                guard response.result.isSuccess else {
+//                    let error_line = response.result.error!.localizedDescription
+//                    completion(error_line)
+//                    return
+//                }
+//                
+////                guard let responseJSON = response.result.value as? [String: Any] else {
+////                    completion("empty responseJSON")
+////                    return
+////                }
+//                
+////                print("allHTTPHeaderFields = " , response.request!.urlRequest)
+//
+////                print("getGamesList = " ,responseJSON)
+//                
+//                completion(nil)
+//        }
     
     }
     

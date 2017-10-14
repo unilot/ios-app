@@ -25,6 +25,7 @@ class LoadingView : UIViewController, NVActivityIndicatorViewable{
         
         MemoryControll.init_defaults_if_any()
         
+//        NetWork.test()
         getSessionToken()
 
 //        getGamesList()

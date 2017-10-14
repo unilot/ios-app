@@ -30,3 +30,9 @@ let kFont_Light = "Roboto-Light"
 let kFont_Medium = "Roboto-Medium"
 let kFont_Regular = "Roboto-Regular"
 let kFont_Thin = "Roboto-Thin"
+
+
+let kLink_FB = "https://www.facebook.com/unilot.io/"
+let kLink_LinkedIn = "https://www.linkedin.com/company/unilot"
+let kLink_Reddit = "https://www.reddit.com/user/unilot_lottery/"
+let kLink_Twitter = "https://twitter.com/unilot_lottery"

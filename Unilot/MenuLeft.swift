@@ -93,16 +93,16 @@ class MenuLeft: UITableViewController {
         
         var url = URL(string: "https://www.google.com")
 
-        
+
         switch sender.tag {
         case 100:
-            url = URL(string: "https://www.facebook.com")
+            url = URL(string: kLink_FB)
         case 200:
             url = URL(string: "https://www.telegram.com")
         case 300:
             url = URL(string: "https://www.instagram.com")
         case 400:
-            url = URL(string: "https://www.twitter.com")
+            url = URL(string: kLink_Twitter)
         default:
             break
         }

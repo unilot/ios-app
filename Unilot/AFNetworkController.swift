@@ -8,24 +8,22 @@
 
 import UIKit
 
-let kPOST   =  "POST"
-let kGET    =  "GET"
-let kPATCH  =  "PATCH"
-let kDELETE  =  "DELETE"
-let kUPLOAD =  "UPLOAD"
- 
 var token_session: String?
-
-var session_data = [String: Any]()
-
-
+ 
 class AFNetworkController {
+    
+    let kPOST   =  "POST"
+    let kGET    =  "GET"
+    let kPATCH  =  "PATCH"
+    let kDELETE  =  "DELETE"
+    let kUPLOAD =  "UPLOAD"
+    
+    var updateRequest = false
     
     var session_manager  = AFHTTPSessionManager()
     
     var array_of_tasks =  NSMutableArray()
     
-    static var updateRequest = false
     
     
     func setHeaders(_ manager : AFHTTPSessionManager) -> AFHTTPSessionManager {
@@ -219,8 +217,6 @@ class AFNetworkController {
         }
         
         let _manager = setHeaders(updateRequest ? session_manager : AFHTTPSessionManager())
-       
-        updateRequest = false
         
         let PARAMS = VARS == nil ? NSDictionary() : NSDictionary(dictionary: VARS!)
         let CLASSN = "doNetStuff"
@@ -260,7 +256,7 @@ class AFNetworkController {
         case kPATCH:
             
             
-            task = _manager.patch( web_path, parameters: PARAMS, progress: nil,
+            task = _manager.patch( web_path, parameters: PARAMS,
                                  
                                  success: { (operation: URLSessionDataTask, responseObject:  Any? ) -> Void in
                                     self.ifSuccessResult(CLASSN, responseObject: responseObject, haveResult: haveResult, haveNoResult: haveNoResult)
@@ -274,7 +270,7 @@ class AFNetworkController {
             
             
         case kDELETE:
-            task = _manager.delete( web_path, parameters: PARAMS, progress: nil,
+            task = _manager.delete( web_path, parameters: PARAMS, 
                                    
                                    success: { (operation: URLSessionDataTask, responseObject:  Any? ) -> Void in
                                     self.ifSuccessResult(CLASSN, responseObject: responseObject, haveResult: haveResult, haveNoResult: haveNoResult)
@@ -305,10 +301,12 @@ class AFNetworkController {
         }
         
         
-        if (task != nil) && (newManager){
+        if (task != nil) && (updateRequest){
             array_of_tasks.add(task!)
         }
         
+        updateRequest = false
+
     }
     
     

@@ -6,7 +6,7 @@
 //  Copyright © 2017 Vovasoft. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 let kServerApi = "https://dev.unilot.io/"
 
@@ -28,27 +28,28 @@ var request_headers = [
 ]
 
 class NetWork : AFNetworkController{
+
+    static var shared = NetWork()
     
-    
-    static func startSession(_ completion : @escaping  (String?) -> Void){
-        
+    func startSession(_ completion :  @escaping (String?) -> Void){
         
         doNetStuff(PATH:    kAPI_get_list_games,
                    TYPE:    kPOST,
                    VARS:    request_session_data,
-                   ERROR:   completion)
-        { (responseDict:  [String : Any]!) in
-                    
+                   ERROR:   completion,
+                   FILL: { (responseDict:  [String : Any]!) in
+            
                     token_session = responseDict["access_token"] as? String
                     
                     completion(token_session == nil ? "no access_token!" : nil)
 
-        }
+        })
         
     }
     
     
-    static func getGamesList(_ completion: @escaping (String?) -> Void) {
+    
+    func getGamesList(_ completion: @escaping  (String?) -> Void) {
         
         doNetStuff(PATH:    kAPI_get_list_games,
                    TYPE:    kGET,
@@ -66,7 +67,8 @@ class NetWork : AFNetworkController{
     
     
     
-    static func sendDevice(_ completion: @escaping (String?) -> Void){
+    
+    func sendDevice(_ completion: @escaping (String?) -> Void){
         
         doNetStuff(PATH:   kAPI_set_device,
                    TYPE:   kPOST,
@@ -88,7 +90,8 @@ class NetWork : AFNetworkController{
     }
     
     
-    static func getTimeCountInfo(){
+    
+    func getTimeCountInfo(){
         
         
     
@@ -96,7 +99,8 @@ class NetWork : AFNetworkController{
     
     
     
-    static func getMoneyCountInfo(){
+    
+    func getMoneyCountInfo(){
         
     }
     

@@ -8,10 +8,22 @@
 
  
 
+//MARK: -  keys
 
 
 let kNumberOfOurPursle = "TMP_341239r8uyweho8fiucynbuy4onreiadlneh78ynhoqxid"
 
+
+//MARK: -  links
+
+
+
+let kLink_FB = "https://www.facebook.com/unilot.io/"
+let kLink_LinkedIn = "https://www.linkedin.com/company/unilot"
+let kLink_Reddit = "https://www.reddit.com/user/unilot_lottery/"
+let kLink_Twitter = "https://twitter.com/unilot_lottery"
+
+//MARK: -  local data
 
 var lottery_images = ["`1day-x3","`7days-x3","`31days-x3"]
 
@@ -24,15 +36,8 @@ let kColorMenuFon =  UIColor(red: 39.0/255.0, green: 39.0/255.0, blue: 56.0/255.
 let kColorSelectedBlue =  UIColor(red: 54.0/255.0, green: 102.0/255.0, blue: 241.0/255.0, alpha: 1)
 
 
-
 let kFont_Bold = "Roboto-Bold"
 let kFont_Light = "Roboto-Light"
 let kFont_Medium = "Roboto-Medium"
 let kFont_Regular = "Roboto-Regular"
 let kFont_Thin = "Roboto-Thin"
-
-
-let kLink_FB = "https://www.facebook.com/unilot.io/"
-let kLink_LinkedIn = "https://www.linkedin.com/company/unilot"
-let kLink_Reddit = "https://www.reddit.com/user/unilot_lottery/"
-let kLink_Twitter = "https://twitter.com/unilot_lottery"

@@ -3,10 +3,8 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'Unilot' do
-    pod 'Alamofire'
     pod 'NVActivityIndicatorView'
     pod 'SCLAlertView'
     pod 'Splitflap'
     pod 'QRCodeReader.swift'
-    pod 'AlamofireNetworkActivityLogger'
 end

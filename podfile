@@ -7,4 +7,5 @@ target 'Unilot' do
     pod 'SCLAlertView'
     pod 'Splitflap'
     pod 'QRCodeReader.swift'
+    pod 'Alamofire'
 end

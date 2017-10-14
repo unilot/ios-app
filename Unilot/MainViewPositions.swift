@@ -44,6 +44,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
         view.backgroundColor = UIColor.clear
 
+        
         setButtonView()
 
     }

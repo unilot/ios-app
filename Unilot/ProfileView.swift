@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import QRCodeReader
+import SCLAlertView
 
 
 class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UITableViewDataSource {
@@ -40,6 +41,7 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         
         view.backgroundColor = UIColor.clear
         
+        
         setBorders()
         
         setTextField()
@@ -62,7 +64,7 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
     func setTextField(){
 
         fieldPurse.initialize()
-        fieldPurse.floatingLabelTextColor = UIColor.gray
+        fieldPurse.floatingLabelTextColor = UIColor.uuLightPeach
         fieldPurse.text = kEmpty
         
         let viewTapGestureRec = UITapGestureRecognizer(target: self, action: #selector(ProfileView.handleViewTap(recognizer:)))
@@ -73,9 +75,9 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
     }
  
     func setBorders(){
-        checkMorePurses.layer.borderWidth = 1
-        checkMorePurses.layer.borderColor = UIColor.white.cgColor
-        checkMorePurses.layer.cornerRadius = checkMorePurses.frame.height/2
+//        checkMorePurses.layer.borderWidth = 1
+//        checkMorePurses.layer.borderColor = UIColor.white.cgColor
+//        checkMorePurses.layer.cornerRadius = checkMorePurses.frame.height/2
 
     }
     
@@ -83,7 +85,7 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
     func fillWithData(){
         titleMain.text = TR("Ваши кошельки")
         fieldPurse.placeholder = TR("Номер вашего кошелька")
-        checkMorePurses.setTitle(TR("Добавить еще один кошелек"), for: .normal)
+        checkMorePurses.setTitle(TR("Добавить"), for: .normal)
     }
     
     
@@ -153,16 +155,48 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
 
     //MARK: - On Buttons
     
+    var currentTagForRemove : Int = -1
+    
     func onIks(_ sender: MyButton){
         
         if let cell = sender.superview?.superview as? UITableViewCell{
-            let indexPath = table.indexPath(for: cell)!
+            currentTagForRemove = table.indexPath(for: cell)!.row
             
-            users_account_number.remove(at: indexPath.row)
-            table.deleteRows(at: [indexPath], with: .top)
+            
+            let appearance = SCLAlertView.SCLAppearance(
+                kTitleFont: UIFont(name: kFont_Regular, size: 20)!,
+                kTextFont: UIFont(name: kFont_Light, size: 14)!,
+                kButtonFont: UIFont(name: kFont_Bold, size: 14)!,
+                showCloseButton: false
+            )
+            
+            let alertView = SCLAlertView(appearance: appearance)
+
+            alertView.addButton("Да", target:self, selector: #selector(ProfileView.onDelete))
+            alertView.addButton("Нет") {
+                self.currentTagForRemove = -1
+            }
+            
+            let keyCurrent = users_account_number[currentTagForRemove]
+
+            alertView.showWarning("", subTitle: TR("Вы уверены что хотите удалить ключ ") + keyCurrent + "?")
+            
         }
         
         
+    }
+    
+    
+    func onDelete(){
+        
+        if currentTagForRemove >= 0 {
+            
+            users_account_number.remove(at: currentTagForRemove)
+            table.deleteRows(at: [IndexPath(row: currentTagForRemove, section: 0)],
+                             with: .top)
+         
+            currentTagForRemove = -1
+        }
     }
     
     func onAddnewLine(){

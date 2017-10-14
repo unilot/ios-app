@@ -30,6 +30,13 @@ extension UIColor {
     }
 }
 
+extension UITabBar {
+    override open func sizeThatFits(_ size: CGSize) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: 80)
+    }
+}
+
+
 extension UIViewController{
      
     

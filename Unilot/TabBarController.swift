@@ -13,7 +13,24 @@ import SCLAlertView
 class TabBarController: LxTabBarController  {
 
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+         
+        var tabFrame: CGRect = self.tabBar.frame
+        tabFrame.origin.y = self.view.frame.height - tabFrame.height - 5
+        self.tabBar.frame = tabFrame
+        
+    }
+    
     override func viewDidLoad() {
+        
+        //UITabBar.appearance().tintColor = UIColor.white
+        let attributes = [NSFontAttributeName:UIFont(name: kFont_Light, size: 14)!,NSForegroundColorAttributeName:UIColor.white]
+        let attributes1 = [NSFontAttributeName:UIFont(name: kFont_Regular, size: 14)!,NSForegroundColorAttributeName: kColorLightYellow]
+        
+        UITabBarItem.appearance().setTitleTextAttributes(attributes, for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes(attributes1, for: .selected)
+
         
         super.viewDidLoad()
  

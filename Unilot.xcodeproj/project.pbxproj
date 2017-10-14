@@ -62,7 +62,6 @@
 		D6F1E1981F7E55130098B34C /* JSRuleNumberRange.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1891F7E55130098B34C /* JSRuleNumberRange.m */; };
 		D6F1E1991F7E55130098B34C /* JSRuleNumeric.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E18B1F7E55130098B34C /* JSRuleNumeric.m */; };
 		D6F1E19A1F7E55130098B34C /* JSRuleRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E18D1F7E55130098B34C /* JSRuleRegex.m */; };
-		D6F3A0701F91F77B001EDA29 /* AFNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F3A06F1F91F77B001EDA29 /* AFNetworkController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,7 +139,6 @@
 		D6F1E18B1F7E55130098B34C /* JSRuleNumeric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSRuleNumeric.m; sourceTree = "<group>"; };
 		D6F1E18C1F7E55130098B34C /* JSRuleRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSRuleRegex.h; sourceTree = "<group>"; };
 		D6F1E18D1F7E55130098B34C /* JSRuleRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSRuleRegex.m; sourceTree = "<group>"; };
-		D6F3A06F1F91F77B001EDA29 /* AFNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFNetworkController.swift; sourceTree = "<group>"; };
 		F775BF0A9782A06721E4E9B3 /* Pods-Unilot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unilot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Unilot/Pods-Unilot.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,7 +177,6 @@
 				D6BDD9021F7AD1DB00E91FD0 /* Constants.swift */,
 				D69364C31F5F254400FD0D37 /* AppDelegate.swift */,
 				D6F1E1671F7CD3C50098B34C /* NetWorkController.swift */,
-				D6F3A06F1F91F77B001EDA29 /* AFNetworkController.swift */,
 				D6632ED31F8C9B7900EC18C9 /* Functionals.swift */,
 				D6BDD9041F7AD1F200E91FD0 /* Extensions.swift */,
 				D6E2BF661F8FE804002D28F2 /* MemoryControll.swift */,
@@ -520,6 +517,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Unilot/Pods-Unilot-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
@@ -527,6 +525,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
@@ -563,7 +562,6 @@
 				D6C57EF81F8AA9210082BCBB /* WhitePapersView.swift in Sources */,
 				D6632ED41F8C9B7900EC18C9 /* Functionals.swift in Sources */,
 				D6BDD9081F7AF23400E91FD0 /* CountDownCore.swift in Sources */,
-				D6F3A0701F91F77B001EDA29 /* AFNetworkController.swift in Sources */,
 				D69364C41F5F254400FD0D37 /* AppDelegate.swift in Sources */,
 				D6BDD9051F7AD1F200E91FD0 /* Extensions.swift in Sources */,
 				D6BDD90C1F7B07A700E91FD0 /* CountDownSimpleTime.swift in Sources */,

@@ -22,7 +22,7 @@ class MainView: MainViewPositions {
             titleMain.text = "Недельная лотерея"
         }
         
-        titlePrize.text = "Призовой фонд"
+        titlePrize.text = "Джекпот"
 
         titleUntilTheEnd.text = "До конца регистрации"
         
@@ -109,7 +109,7 @@ class BonusView: MainViewPositions {
         
         titleMain.text = "Бонусная лотерея"
         
-        titlePrize.text = "Призовой фонд"
+        titlePrize.text = "Джекпот"
         
         label1.text = "До обьявления\nпобедителей:"
         label2.text = "дней"

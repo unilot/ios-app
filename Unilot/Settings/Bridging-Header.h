@@ -8,5 +8,3 @@
 
 #import "JSInputField.h"
 
-
-#import "AFNetworking.h"

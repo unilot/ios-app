@@ -49,7 +49,7 @@ class LoadingView : UIViewController, NVActivityIndicatorViewable{
     }
     func getSessionToken(){
         
-        NetWork.shared.startSession { (error : String?) in
+        NetWork.startSession { (error : String?) in
             
             if error != nil {
                 
@@ -66,7 +66,7 @@ class LoadingView : UIViewController, NVActivityIndicatorViewable{
     
     func getGamesList(){
         
-         NetWork.shared.getGamesList { (error : String?) in
+         NetWork.getGamesList { (error : String?) in
             
             if error != nil {
 

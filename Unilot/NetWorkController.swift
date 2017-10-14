@@ -33,7 +33,7 @@ class NetWork : AFNetworkController{
     
     func startSession(_ completion :  @escaping (String?) -> Void){
         
-        doNetStuff(PATH:    kAPI_get_list_games,
+        doNetStuff(PATH:    kAPI_get_token,
                    TYPE:    kPOST,
                    VARS:    request_session_data,
                    ERROR:   completion,
@@ -41,6 +41,8 @@ class NetWork : AFNetworkController{
             
                     token_session = responseDict["access_token"] as? String
                     
+                    print("\n\nstartSession = " ,responseDict,"\n\n")
+
                     completion(token_session == nil ? "no access_token!" : nil)
 
         })

@@ -32,9 +32,10 @@ class AFNetworkController {
         
         manager.requestSerializer.setValue("application/json", forHTTPHeaderField: "Accept")
         
-        manager.requestSerializer.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+//        manager.requestSerializer.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        manager.requestSerializer.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        manager.securityPolicy.allowInvalidCertificates = false
+//        manager.securityPolicy.allowInvalidCertificates = false
         
         if token_session != nil {
             manager.requestSerializer.setValue("Bearer " + token_session!,
@@ -217,9 +218,9 @@ class AFNetworkController {
         }
         
         let _manager = setHeaders(updateRequest ? session_manager : AFHTTPSessionManager())
+
+        let CLASSN = PATH
         
-        let PARAMS = VARS == nil ? NSDictionary() : NSDictionary(dictionary: VARS!)
-        let CLASSN = "doNetStuff"
         let web_path = kServerApi + PATH
         
 
@@ -227,14 +228,21 @@ class AFNetworkController {
         
         switch TYPE {
         case kPOST:
-            
-            task = _manager.post( web_path, parameters: PARAMS, progress: nil,
+                                  
+            task = _manager.post( web_path, parameters: VARS, progress: nil,
                                   success: { (operation: URLSessionDataTask, responseObject:  Any? ) -> Void in
+                                    
                                     
                                     self.ifSuccessResult(CLASSN, responseObject: responseObject, haveResult: haveResult, haveNoResult: haveNoResult)
             },
                                   
                                   failure: { (operation : URLSessionDataTask? , error: Error ) -> Void in
+                                    
+                                    let item = operation!.originalRequest!.allHTTPHeaderFields
+                                    let itemSent = operation!.currentRequest!.str
+                                    
+                                    print(item ?? "allHTTPHeaderFields")
+                                    print(itemSent ?? "allHTTPHeaderFields")
                                     
                                     self.ifFailResult(CLASSN, error: error, haveNoResult: haveNoResult)
             })
@@ -242,7 +250,7 @@ class AFNetworkController {
             
         case kGET:
             
-            task = _manager.get( web_path, parameters: PARAMS, progress: nil,
+            task = _manager.get( web_path, parameters: VARS, progress: nil,
                                  
                                  success: { (operation: URLSessionDataTask, responseObject:  Any? ) -> Void in
                                     self.ifSuccessResult(CLASSN, responseObject: responseObject, haveResult: haveResult, haveNoResult: haveNoResult)
@@ -256,7 +264,7 @@ class AFNetworkController {
         case kPATCH:
             
             
-            task = _manager.patch( web_path, parameters: PARAMS,
+            task = _manager.patch( web_path, parameters: VARS,
                                  
                                  success: { (operation: URLSessionDataTask, responseObject:  Any? ) -> Void in
                                     self.ifSuccessResult(CLASSN, responseObject: responseObject, haveResult: haveResult, haveNoResult: haveNoResult)
@@ -270,7 +278,7 @@ class AFNetworkController {
             
             
         case kDELETE:
-            task = _manager.delete( web_path, parameters: PARAMS, 
+            task = _manager.delete( web_path, parameters: VARS,
                                    
                                    success: { (operation: URLSessionDataTask, responseObject:  Any? ) -> Void in
                                     self.ifSuccessResult(CLASSN, responseObject: responseObject, haveResult: haveResult, haveNoResult: haveNoResult)
@@ -283,7 +291,7 @@ class AFNetworkController {
             
         case kUPLOAD:
             
-            task = _manager.post( web_path,  parameters: PARAMS,
+            task = _manager.post( web_path,  parameters: VARS,
                                   
                                   constructingBodyWith : uploadsD, progress: nil,
                                   

@@ -25,10 +25,8 @@ class LoadingView : UIViewController, NVActivityIndicatorViewable{
         
         MemoryControll.init_defaults_if_any()
         
-//        NetWork.test()
         getSessionToken()
 
-//        getGamesList()
         
     }
     
@@ -47,12 +45,11 @@ class LoadingView : UIViewController, NVActivityIndicatorViewable{
         
         let view_controller_1 = getVCFromName("SB_SWRevealViewController")
         present(view_controller_1, animated: false, completion: nil)
-//        performSegue(withIdentifier: "start", sender: nil)
         
     }
     func getSessionToken(){
         
-        NetWork.startSession { (error : String?) in
+        NetWork.shared.startSession { (error : String?) in
             
             if error != nil {
                 
@@ -69,7 +66,7 @@ class LoadingView : UIViewController, NVActivityIndicatorViewable{
     
     func getGamesList(){
         
-        NetWork.getGamesList { (error : String?) in
+         NetWork.shared.getGamesList { (error : String?) in
             
             if error != nil {
 

@@ -144,7 +144,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         let item = dataForTable[indexPath.row]
 
         if item[0] == "1" {
-            onPrizePlaces()
+            onDetails()
         } else{
             
             currentTabBarLottery  =  Int(item[1])!
@@ -156,19 +156,12 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     }
  
     
-    
-    func onPrizePlaces(){
- 
-        let viewWithPlaces = TotalPrizeFond.createTotalPrizeFond()
-        let frameForView = CGRect(x: 10,
-                                  y: 70,
-                                  width: view.frame.width - 20,
-                                  height: view.frame.height - 100)
-        
-        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: -1)
-         
+    func onDetails(){
+        performSegue(withIdentifier: "sigue_details", sender: self)
         
     }
+    
+ 
     
 
 }

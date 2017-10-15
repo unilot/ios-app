@@ -62,6 +62,7 @@
 		D6F1E1981F7E55130098B34C /* JSRuleNumberRange.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E1891F7E55130098B34C /* JSRuleNumberRange.m */; };
 		D6F1E1991F7E55130098B34C /* JSRuleNumeric.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E18B1F7E55130098B34C /* JSRuleNumeric.m */; };
 		D6F1E19A1F7E55130098B34C /* JSRuleRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E18D1F7E55130098B34C /* JSRuleRegex.m */; };
+		D6F3A0AB1F92DC72001EDA29 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F3A0AA1F92DC72001EDA29 /* Details.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +140,7 @@
 		D6F1E18B1F7E55130098B34C /* JSRuleNumeric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSRuleNumeric.m; sourceTree = "<group>"; };
 		D6F1E18C1F7E55130098B34C /* JSRuleRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSRuleRegex.h; sourceTree = "<group>"; };
 		D6F1E18D1F7E55130098B34C /* JSRuleRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSRuleRegex.m; sourceTree = "<group>"; };
+		D6F3A0AA1F92DC72001EDA29 /* Details.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
 		F775BF0A9782A06721E4E9B3 /* Pods-Unilot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unilot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Unilot/Pods-Unilot.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -238,6 +240,7 @@
 				D69364D81F5F328D00FD0D37 /* MainView.swift */,
 				D6BDD90D1F7B240600E91FD0 /* ProfileView.swift */,
 				D6E42B781F8AFBE2005270A9 /* HistoryTable.swift */,
+				D6F3A0AA1F92DC72001EDA29 /* Details.swift */,
 				D62CA43C1F8FB73E00D67C0A /* SettingsView.swift */,
 				D6C57EF71F8AA9210082BCBB /* WhitePapersView.swift */,
 				D6632ED51F8C9C4100EC18C9 /* HowDoesItWork.swift */,
@@ -557,6 +560,7 @@
 				D6F1E18E1F7E55130098B34C /* NSError+JSHelper.m in Sources */,
 				D6632ED61F8C9C4100EC18C9 /* HowDoesItWork.swift in Sources */,
 				D6F1E1941F7E55130098B34C /* JSLogger.m in Sources */,
+				D6F3A0AB1F92DC72001EDA29 /* Details.swift in Sources */,
 				D6ED6B3C1F8FA6DC00384672 /* PopUpCore.swift in Sources */,
 				D62A31771F7AC86900275B86 /* TabBarController.swift in Sources */,
 				D6C57EF81F8AA9210082BCBB /* WhitePapersView.swift in Sources */,

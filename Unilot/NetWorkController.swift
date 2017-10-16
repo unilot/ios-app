@@ -145,15 +145,24 @@ class NetWork {
                                   _ fail_request: @escaping (String?) -> Void) {
 
         
-        let tmp_item : [String:String] = [
-            "place":"345",
-            "key" : "widruy3o4b7rt283nylri348y58234tv235t",
-            "eth" : "234,456",
-            "usd" : "4.598"
-        ]
         
-        let dataForTable = [tmp_item,tmp_item,tmp_item,tmp_item,tmp_item,tmp_item,tmp_item,tmp_item,tmp_item,tmp_item,tmp_item,tmp_item,tmp_item,tmp_item,tmp_item]
-    
+        var dataForTable = [[String:String]]()
+     
+        // debug
+        
+        for i in 0..<234{
+            
+            var item = [String:String]()
+            
+            item["place"] = "\(i + 1)"
+            item["key"] = "\(i * 32349545)".base64Encoded()
+            item["eth"] = "\(Float(234 - i) * 1.2)"
+            item["usd"] = "\(Float(234 - i) * 0.0008)"
+            
+            dataForTable.append(item)
+
+        }
+        
         completion(dataForTable)
         
     }

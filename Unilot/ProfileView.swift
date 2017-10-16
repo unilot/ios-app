@@ -37,6 +37,8 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         
         setTextField()
         
+        addTouchForKeyBoard()
+        
         fillWithData()
                 
     }
@@ -65,12 +67,8 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         fieldPurse.floatingLabelTextColor = UIColor.uuLightPeach
         fieldPurse.text = kEmpty
         
-        let viewTapGestureRec = UITapGestureRecognizer(target: self, action: #selector(ProfileView.handleViewTap(recognizer:)))
-
-        viewTapGestureRec.cancelsTouchesInView = false
-        self.view.addGestureRecognizer(viewTapGestureRec)
-        
     }
+
  
     func setBorders(){
 //        checkMorePurses.layer.borderWidth = 1
@@ -85,8 +83,7 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         fieldPurse.placeholder = TR("Номер вашего кошелька")
         checkMorePurses.setTitle(TR("Добавить"), for: .normal)
     }
-    
-    
+     
 
     
     //MARK: - UITextFieldDelegate
@@ -101,10 +98,9 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         return true
     }
    
-    func handleViewTap(recognizer: UIGestureRecognizer) {
-     
+    override  func answerFromKeyBoardClosed(){
         fieldPurse.resignFirstResponder()
-    
+
     }
  
 

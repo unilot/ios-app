@@ -8,7 +8,7 @@
 
 
 import UIKit
-
+import Foundation
 
 
 class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
@@ -34,6 +34,9 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         
         tableMain.layer.opacity = 0.0
 
+        
+        addTouchForKeyBoard()
+        
         NetWork.getLotteryDetails(onAnswerSuccess, onAnswerError)
         
     }
@@ -163,20 +166,15 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         let cell = tableView.dequeueReusableCell(withIdentifier: "id_cell", for: indexPath)
         
         cell.layoutIfNeeded()
-        
-//        let item = dataForTable[indexPath.row]
-    
+
         
         let item = dataForTable[indexPath.row]
 
-        
         labelFor(cell, 10)?.text = item["place"]
         labelFor(cell, 20)?.text = item["key"]
         labelFor(cell, 30)?.text = item["eth"]
         labelFor(cell, 40)?.text = item["usd"]
         
-
- 
         
         if indexPath.row % 2 == 0 {
             cell.contentView.backgroundColor = kColorLightGray
@@ -223,6 +221,23 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         
     }
 
+    
+    func containsText(_ item : [String : String], _ searchtext : String) -> Bool {
+     
+        let search_text = searchtext.lowercased()
+
+        let text1 = item["place"]!.lowercased()
+        let text2 = item["key"]!.lowercased()
+        let text3 = item["eth"]!.lowercased()
+        let text4 = item["usd"]!.lowercased()
+        
+        return  text1.contains(search_text) ||
+                text2.contains(search_text) ||
+                text3.contains(search_text) ||
+                text4.contains(search_text)
+        
+    }
+    
     func reloadTableWithText(){
         
         let searchtext = searchMain.text
@@ -231,7 +246,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
             
             dataForTable = origin_dataForTable.filter({ (item : [String : String]) -> Bool in
               
-                return item["key"]?.contains(searchtext!) ?? false
+                return containsText(item, searchtext!)
                 
             })
             
@@ -248,4 +263,12 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
     @IBAction func onBackAction(){
         navigationController?.popViewController(animated: true)
     }
+    
+    
+    override  func answerFromKeyBoardClosed(){
+     
+        searchMain.resignFirstResponder()
+        
+    }
+    
 }

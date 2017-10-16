@@ -8,6 +8,7 @@
 
 
 import UIKit
+import AVFoundation
 import NVActivityIndicatorView
 import SCLAlertView
 import QRCodeReader
@@ -115,8 +116,27 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         
     }
     
+    //MARK: - keyboard
+
     
+    func addTouchForKeyBoard(){
+        
+        let viewTapGestureRec = UITapGestureRecognizer(target: self, action: #selector(ControllerCore.handleViewTap(recognizer:)))
+        
+        viewTapGestureRec.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(viewTapGestureRec)
+        
+    }
     
+    func handleViewTap(recognizer: UIGestureRecognizer) {
+        
+            answerFromKeyBoardClosed()
+        
+    }
+    
+    func answerFromKeyBoardClosed(){
+        
+    }
     //MARK: - activityView
 
     func showActivityViewIndicator(){

@@ -136,8 +136,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         
         tableView.setNeedsLayout()
         tableView.layoutIfNeeded()
-
-        
+         
         let headerView = UIView(frame: CGRect(x: 0, y: 0,
                                               width: tableView.frame.width,
                                               height: 44))
@@ -216,7 +215,9 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
     
     
     override func onQRAnswer(_ haveText : String?){
+        
         searchMain.text = haveText
+        
         reloadTableWithText()
         
     }
@@ -231,10 +232,8 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         let text3 = item["eth"]!.lowercased()
         let text4 = item["usd"]!.lowercased()
         
-        return  text1.contains(search_text) ||
-                text2.contains(search_text) ||
-                text3.contains(search_text) ||
-                text4.contains(search_text)
+        return  text1.contains(search_text) || text2.contains(search_text) ||
+                text3.contains(search_text) || text4.contains(search_text)
         
     }
     

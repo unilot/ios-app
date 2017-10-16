@@ -140,6 +140,25 @@ class NetWork {
         
     }
     
+    
+    static func getLotteryDetails(_ completion: ([[String:String]]) -> Void,
+                                  _ fail_request: @escaping (String?) -> Void) {
+
+        
+        let tmp_item : [String:String] = [
+            "place":"345",
+            "key" : "widruy3o4b7rt283nylri348y58234tv235t",
+            "eth" : "234,456",
+            "usd" : "4.598"
+        ]
+        
+        let dataForTable = [tmp_item,tmp_item,tmp_item,tmp_item,tmp_item,tmp_item,tmp_item,tmp_item,tmp_item,tmp_item,tmp_item,tmp_item,tmp_item,tmp_item,tmp_item]
+    
+        completion(dataForTable)
+        
+    }
+    
+    
     func setInits(){
         
         

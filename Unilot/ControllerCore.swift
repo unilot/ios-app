@@ -10,6 +10,7 @@
 import UIKit
 import NVActivityIndicatorView
 import SCLAlertView
+import QRCodeReader
 
 
 class ControllerCore: UIViewController, NVActivityIndicatorViewable {
@@ -17,11 +18,22 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
     var activityIndicatorView : NVActivityIndicatorView?
  
     
+    lazy var readerVC: QRCodeReaderViewController = {
+        let builder = QRCodeReaderViewControllerBuilder {
+            $0.reader = QRCodeReader(metadataObjectTypes: [AVMetadataObjectTypeQRCode], captureDevicePosition: .back)
+        }
+        
+        return QRCodeReaderViewController(builder: builder)
+    }()
+    
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         addSwipeForMenuOpen()
+
+        setNavControllerClear()
 
         setTitle()
     }
@@ -33,16 +45,8 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         
         tabBarController?.navigationItem.titleView = image
         
-        
-        UINavigationBar.appearance().backgroundColor = UIColor.clear
-        navigationController?.navigationBar.backgroundColor = UIColor.clear
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-        
-
-        navigationController?.updateFocusIfNeeded()
     }
+
     
     func addSwipeForMenuOpen(){
 
@@ -77,7 +81,42 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         goToMainView()
     }
 
+    @IBAction func onQRScan(_ sender: Any) {
+         
+        readerVC.completionBlock = { (result: QRCodeReaderResult?) in
+            
+            self.onQRAnswer( result?.value)
+           
+            self.dismiss(animated: true, completion: nil)
+            
+        }
+        
+        
+        readerVC.modalPresentationStyle = .formSheet
+        present(readerVC, animated: true, completion: nil)
+    }
+    
+    func onQRAnswer(_ haveText : String?){
+   
+        
+        
+        
+    }
 
+    //MARK: -  NetWork
+    
+    func onAnswerSuccess(_ dataRecieved : [[String: String]]){
+ 
+    }
+    
+    func onAnswerError(_ error_line : String?){
+        
+        
+        
+    }
+    
+    
+    
     //MARK: - activityView
 
     func showActivityViewIndicator(){

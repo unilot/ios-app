@@ -39,23 +39,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     
 //    var dataForTable = [87687,87687,987987,9,87,98,09,98,98,9,8,8,8,98,98,9,9,9]//[String]()
     var viewWithPlaces : TotalPrizeFond? = nil
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        navigationController?.navigationBar.tintColor = UIColor.black
- 
-        
-        navigationController?.navigationBar.backgroundColor = UIColor.clear
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-        
-        
-        navigationController?.updateFocusIfNeeded()
-    }
-    
-    
+  
     
     override func setTitle() {
         navigationItem.title = "История ваших розыгрышей"
@@ -118,7 +102,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         if item[0] == "1" {
             label.textColor = kColorSelectedBlue
         } else {
-            label.textColor = UIColor.green
+            label.textColor = kColorNormalGreen
         }
         
         

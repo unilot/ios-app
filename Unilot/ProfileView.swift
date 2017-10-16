@@ -22,16 +22,7 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
 
     @IBOutlet weak var table: UITableView!
 
-    
-    lazy var readerVC: QRCodeReaderViewController = {
-        let builder = QRCodeReaderViewControllerBuilder {
-            $0.reader = QRCodeReader(metadataObjectTypes: [AVMetadataObjectTypeQRCode], captureDevicePosition: .back)
-        }
-        
-        return QRCodeReaderViewController(builder: builder)
-    }()
-    
-    
+
     
     //MARK: - Views Load override
     
@@ -226,26 +217,14 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         
     }
     
-    @IBAction func onQRScan(_ sender: Any) {
-        
-        readerVC.completionBlock = { (result: QRCodeReaderResult?) in
-            
-            if let text = result?.value{
-                self.fieldPurse.text = text
-            }
-            
-            self.dismiss(animated: true, completion: nil)
-            
+
+    
+    override func onQRAnswer(_ haveText : String?){
+        if let text = haveText{
+             fieldPurse.text = text
         }
         
-        
-        // Presents the readerVC as modal form sheet
-        readerVC.modalPresentationStyle = .formSheet
-        
-        present(readerVC, animated: true, completion: nil)
-        
     }
-    
 
     //MARK: - exit
 

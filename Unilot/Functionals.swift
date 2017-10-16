@@ -7,6 +7,8 @@
 //
 
 import SCLAlertView
+import QRCodeReader
+
 
 
 
@@ -17,7 +19,7 @@ import SCLAlertView
 
 func saveToClipboard(_ text : String){
     UIPasteboard.general.string = text
-    SCLAlertView().showInfo(" ", subTitle: "The number was saved to clipboard")
+    SCLAlertView().showInfo(" ", subTitle: "The number\n\n\(text)\n\nwas saved to clipboard")
 }
 
 

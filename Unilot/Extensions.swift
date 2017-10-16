@@ -75,6 +75,21 @@ extension UIViewController{
         return contrller
     }
     
+    
+    
+    func setNavControllerClear(){
+        
+        UINavigationBar.appearance().backgroundColor = UIColor.clear
+        
+        navigationController?.navigationBar.backgroundColor = UIColor.clear
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        
+        
+        navigationController?.updateFocusIfNeeded()
+    }
+    
 }
 
 

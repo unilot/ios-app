@@ -22,16 +22,7 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     
     var viewWithPlaces : TotalPrizeFond? = nil
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
-        
-    }
-    
+ 
     
     override func setTitle() {
         navigationItem.title = TR("Настройки")

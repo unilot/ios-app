@@ -26,24 +26,42 @@ class CountDownFullTimer: CountDownLabel  {
     
     func createTextStatic(_ height: CGFloat){
         
-        let frameRect = CGRect(
-            x: 0.0,
-            y:  self.frame.height  -  height ,
-            width: self.frame.width,
-            height: height )
+        let widthShift = self.frame.width / 3 
         
+        var frameRect = CGRect(
+            x: 0 ,
+            y: self.frame.height - height,
+            width: widthShift,
+            height: height)
         
-        let label = UILabel(frame: frameRect)
+        createOneLabelStatic(frame: frameRect,
+                             text: TR("Часа  "),200)
+
+        frameRect.origin.x = widthShift
+        createOneLabelStatic(frame: frameRect,
+                             text: TR("Минут"),300)
+
+        frameRect.origin.x = widthShift * 2
+        createOneLabelStatic(frame: frameRect,
+                             text: TR("  Сек"),400)
+    }
+    
+ 
+ 
+    func createOneLabelStatic(frame: CGRect, text : String,_ tag : Int){
+        
+        let label = UILabel(frame: frame)
         label.textAlignment = .center
         label.baselineAdjustment = .alignCenters
         label.textColor = UIColor.lightGray
-        label.font = UIFont(name: kFont_Light, size: 500)
-        label.tag = 200
-        label.adjustsFontSizeToFitWidth = true
-        label.text = " Часа             Минут             Сек   "
+        label.font = UIFont(name: kFont_Light, size: frame.height * 0.8)
+        label.clipsToBounds = false
+        label.tag = tag
+        label.text = text
+        
         addSubview(label)
+        
     }
- 
     
     override func labelFormatted(_ totalUnits: Int) -> String {
         

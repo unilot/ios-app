@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		290FA72F1CDF40E19A0E8204 /* Pods_Unilot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBC0194290D8904822A4787C /* Pods_Unilot.framework */; };
+		D612BBF71F9536AA002C4647 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D612BBF61F9536AA002C4647 /* Assets.xcassets */; };
+		D612BBF91F96B450002C4647 /* LotteryResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D612BBF81F96B450002C4647 /* LotteryResults.swift */; };
+		D612BBFB1F96B48F002C4647 /* LotteryResults.xib in Resources */ = {isa = PBXBuildFile; fileRef = D612BBFA1F96B48F002C4647 /* LotteryResults.xib */; };
 		D62A31751F7AC10300275B86 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A31741F7AC10300275B86 /* SWRevealViewController.m */; };
 		D62A31771F7AC86900275B86 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62A31761F7AC86900275B86 /* TabBarController.swift */; };
 		D62CA43D1F8FB73E00D67C0A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62CA43C1F8FB73E00D67C0A /* SettingsView.swift */; };
@@ -21,7 +24,6 @@
 		D685E9A41F8D59500056C9C8 /* CountDownLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D685E9A31F8D59500056C9C8 /* CountDownLabel.swift */; };
 		D69364C41F5F254400FD0D37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364C31F5F254400FD0D37 /* AppDelegate.swift */; };
 		D69364CB1F5F254400FD0D37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69364C91F5F254400FD0D37 /* Main.storyboard */; };
-		D69364CD1F5F254400FD0D37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D69364CC1F5F254400FD0D37 /* Assets.xcassets */; };
 		D69364D01F5F254400FD0D37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69364CE1F5F254400FD0D37 /* LaunchScreen.storyboard */; };
 		D69364D91F5F328D00FD0D37 /* FlippingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364D71F5F328D00FD0D37 /* FlippingLabel.swift */; };
 		D69364DA1F5F328D00FD0D37 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364D81F5F328D00FD0D37 /* MainView.swift */; };
@@ -68,6 +70,9 @@
 /* Begin PBXFileReference section */
 		61239D8B0908489D3E371489 /* Pods-Unilot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unilot.release.xcconfig"; path = "Pods/Target Support Files/Pods-Unilot/Pods-Unilot.release.xcconfig"; sourceTree = "<group>"; };
 		CBC0194290D8904822A4787C /* Pods_Unilot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unilot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D612BBF61F9536AA002C4647 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D612BBF81F96B450002C4647 /* LotteryResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotteryResults.swift; sourceTree = "<group>"; };
+		D612BBFA1F96B48F002C4647 /* LotteryResults.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LotteryResults.xib; sourceTree = "<group>"; };
 		D62A31701F7AC06E00275B86 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Settings/Bridging-Header.h"; sourceTree = "<group>"; };
 		D62A31731F7AC10300275B86 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		D62A31741F7AC10300275B86 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -84,7 +89,6 @@
 		D69364C01F5F254400FD0D37 /* Unilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unilot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D69364C31F5F254400FD0D37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D69364CA1F5F254400FD0D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D69364CC1F5F254400FD0D37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D69364CF1F5F254400FD0D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D69364D11F5F254400FD0D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D69364D71F5F328D00FD0D37 /* FlippingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlippingLabel.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 				D69364C91F5F254400FD0D37 /* Main.storyboard */,
 				D69364CE1F5F254400FD0D37 /* LaunchScreen.storyboard */,
 				D66878B71F84D9CF0096FB3F /* AgreeToPlay.xib */,
+				D612BBFA1F96B48F002C4647 /* LotteryResults.xib */,
 				D6ED6B371F8F90C100384672 /* InfoView.xib */,
 				D62E4C2B1F86C15B00C619EA /* TotalPrizeFond.xib */,
 			);
@@ -269,7 +274,7 @@
 		D69364C21F5F254400FD0D37 /* Unilot */ = {
 			isa = PBXGroup;
 			children = (
-				D69364CC1F5F254400FD0D37 /* Assets.xcassets */,
+				D612BBF61F9536AA002C4647 /* Assets.xcassets */,
 				D62A316E1F7AC02800275B86 /* StoryBoard */,
 				D62A316D1F7AC01D00275B86 /* Code */,
 				D62A31711F7AC10300275B86 /* Frameworks */,
@@ -318,6 +323,7 @@
 		D6F1E1341F7BA0CA0098B34C /* Pop Up Views */ = {
 			isa = PBXGroup;
 			children = (
+				D612BBF81F96B450002C4647 /* LotteryResults.swift */,
 				D6F1E1351F7BA0E50098B34C /* AgreeToPlay.swift */,
 				D6ED6B351F8F90B200384672 /* InfoView.swift */,
 				D62E4C2D1F86C36300C619EA /* TotalPrizeFond.swift */,
@@ -470,9 +476,10 @@
 				D6C6BAB71F8CD6C000EC7FE0 /* Roboto-Thin.ttf in Resources */,
 				D69364D01F5F254400FD0D37 /* LaunchScreen.storyboard in Resources */,
 				D66878B81F84D9CF0096FB3F /* AgreeToPlay.xib in Resources */,
-				D69364CD1F5F254400FD0D37 /* Assets.xcassets in Resources */,
 				D6C6BAB41F8CD6C000EC7FE0 /* Roboto-Light.ttf in Resources */,
 				D69364CB1F5F254400FD0D37 /* Main.storyboard in Resources */,
+				D612BBF71F9536AA002C4647 /* Assets.xcassets in Resources */,
+				D612BBFB1F96B48F002C4647 /* LotteryResults.xib in Resources */,
 				D6C6BAB51F8CD6C000EC7FE0 /* Roboto-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -558,6 +565,7 @@
 				D6F1E1911F7E55130098B34C /* DropDownListView.m in Sources */,
 				D6F1E1961F7E55130098B34C /* JSRuleLength.m in Sources */,
 				D6F1E18E1F7E55130098B34C /* NSError+JSHelper.m in Sources */,
+				D612BBF91F96B450002C4647 /* LotteryResults.swift in Sources */,
 				D6632ED61F8C9C4100EC18C9 /* HowDoesItWork.swift in Sources */,
 				D6F1E1941F7E55130098B34C /* JSLogger.m in Sources */,
 				D6F3A0AB1F92DC72001EDA29 /* Details.swift in Sources */,

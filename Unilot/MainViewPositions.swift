@@ -230,7 +230,8 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     @IBAction func onTakePart(){
         
-        let viewWithPlaces = AgreeToPlay.createAgreeToPlay()
+        let viewWithPlaces = LotteryResults.createLotteryResults()
+//        let viewWithPlaces = AgreeToPlay.createAgreeToPlay()
         let frameForView = CGRect(x: 10,
                                   y: 70,
                                   width: view.frame.width - 20,

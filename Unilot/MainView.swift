@@ -88,7 +88,7 @@ class MainWeekView: MainView {
 class BonusView: MainViewPositions {
 
     
-    @IBOutlet weak var clockTablet: CountDownLabel!
+    @IBOutlet weak var clockTablet : CountDownTimeMonth!
 
     @IBOutlet weak var howDoesItWork: UIButton!
     
@@ -133,7 +133,7 @@ class BonusView: MainViewPositions {
         
         moneyTablet.initTimer(0, 300)
         
-        clockTablet.initTimer(30, 0)
+        clockTablet.initTimer(30, 30)
 
         clockTablet.backgroundColor = UIColor.clear
     }
@@ -156,9 +156,8 @@ class BonusView: MainViewPositions {
         
         moneyTablet.createBody()
         
-        clockTablet.createBody(self)
+        clockTablet.createBody()
         
-        clockTablet.labelMain.textColor = UIColor.white
     }
     
     

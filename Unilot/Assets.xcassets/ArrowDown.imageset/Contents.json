@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icons8-Expand Arrow-small.png",
+      "filename" : "icons-arrow 25.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icons8-Expand Arrow-50.png",
       "scale" : "2x"
     },
     {

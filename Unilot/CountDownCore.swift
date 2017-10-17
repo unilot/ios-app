@@ -70,7 +70,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
         
         
         let frameRect = CGRect(
-            x: 15 + widthOfFlip * CGFloat(flippersCount - atPlace - 1) - CGFloat( shiftForCurrentFip)  * comaWidth,
+            x: widthOfFlip * CGFloat(flippersCount - atPlace - 1) - CGFloat( shiftForCurrentFip)  * comaWidth,
             y: 0,
             width: widthOfFlip -  distanceFromFlipps,
             height: self.frame.height)
@@ -97,7 +97,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
         
         let widthOfFlipper = frame.width / CGFloat(flippersCount)
         
-        let frameComa = CGRect(x: widthOfFlipper * 1.85 , y: 0,
+        let frameComa = CGRect(x: widthOfFlipper * 1.55 , y: 0,
                       width: widthOfFlipper * 0.5,
                       height: frame.height)
                 
@@ -143,7 +143,9 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
             createFlipWithLabel(i)
         }
         
-        adComa()
+        if flippersCount > 4 {
+            adComa()
+        }
         
         isFull = true
     }
@@ -245,13 +247,11 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
             let uiImage   = imageScaledToSize(size: splitflap.frame.size, image:  UIImage(named:"flipFull")!)
 
             builder.backgroundColor = UIColor(patternImage: uiImage)
-//            builder.backgroundColor = UIColor(red: 251/255, green: 249/255, blue: 243/255, alpha: 1)
             builder.cornerRadius    = 5
             builder.textAlignment   = .center
             builder.textColor       = kColorLightOrange
             builder.font            = UIFont(name: kFont_Light, size: 60)
-            builder.lineColor       = UIColor.black//(red: 0, green: 0, blue: 0, alpha: 0.3)
-//            builder.
+            builder.lineColor       = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
         }
     }
 }

@@ -155,7 +155,7 @@ class NetWork {
             var item = [String:String]()
             
             item["place"] = "\(i + 1)"
-            item["key"] = "\(i * 32349545)".base64Encoded()
+            item["key"] = "\(i * 3234955)".base64Encoded()
             item["eth"] = "\(Float(234 - i) * 1.2)"
             item["usd"] = "\(Float(234 - i) * 0.0008)"
             

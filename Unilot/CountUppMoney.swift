@@ -8,6 +8,7 @@
 
 
 import UIKit
+import Splitflap
 
 
 class CountUppMoney: CountDownCore  {
@@ -52,7 +53,7 @@ class CountDownTimeMonth: CountDownCore  {
         
         flippersGaps  = 3
         
-        timerUpdateDuration = 6.0
+        timerUpdateDuration = 6.0 // tmp
         
     }
     
@@ -65,14 +66,28 @@ class CountDownTimeMonth: CountDownCore  {
     
     override func changeCounts() -> Bool {
         
-        if totalCounts < startCounts {
+        if totalCounts > 0 {
             
-            totalCounts += 1
+            totalCounts -= 1
             return true
         }
         
         return false
     }
     
+    
+    override  func splitflap(_ splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapViewBuilder {
+        return FlapViewBuilder { builder in
+            
+            let uiImage   = imageScaledToSize(size: splitflap.frame.size, image:  UIImage(named:"fullWhiteFlipper")!)
+            
+            builder.backgroundColor = UIColor(patternImage: uiImage)
+            builder.cornerRadius    = 5
+            builder.textAlignment   = .center
+            builder.textColor       = UIColor.black
+            builder.font            = UIFont(name: kFont_Light, size: 80)
+            builder.lineColor       = UIColor.black
+        }
+    }
     
 }

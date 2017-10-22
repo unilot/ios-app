@@ -28,6 +28,8 @@ class PopUpCore: UIView  {
 
     func initView(mainView: UIView, frameView: CGRect, directionSign: CGFloat){
         
+        self.layoutIfNeeded()
+        
         directionInSign = directionSign
         
         

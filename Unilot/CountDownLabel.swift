@@ -84,6 +84,8 @@ class CountDownLabel: UIImageView  {
             width: self.frame.width,
             height: height)
         
+//        print("createLabelBody" ,frameRect.height) 
+
         labelMain = UILabel(frame: frameRect)
         labelMain.backgroundColor = UIColor.clear
         labelMain.textColor = UIColor.white

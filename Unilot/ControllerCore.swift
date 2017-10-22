@@ -28,6 +28,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         return QRCodeReaderViewController(builder: builder)
     }()
     
+    //MARK: override
     
     override func viewDidLoad() {
         
@@ -42,6 +43,23 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         setTitle()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.view.isUserInteractionEnabled = true
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        
+        self.view.isUserInteractionEnabled = false
+        
+    }
+    
+    
+    //MARK: - Buttons
     
     
     func addMenuButton() {

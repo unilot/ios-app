@@ -40,8 +40,8 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
         clockTablet.createBody(self)
         clockTablet.labelMain.textColor = UIColor.darkGray
         clockTablet.initTimer(1500, 2500)
-        clockTablet.doScheduledTimer()
- 
+
+        startClock()
     }
     
     func startClock(){

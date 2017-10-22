@@ -248,7 +248,8 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     @IBAction func onTakePart(){
         
-        let viewWithPlaces = LotteryResults.createLotteryResults()
+        let viewWithPlaces = YouWin.createYouWin()
+//        let viewWithPlaces = LotteryResults.createLotteryResults()
 //        let viewWithPlaces = AgreeToPlay.createAgreeToPlay()
         let frameForView = CGRect(x: 10,
                                   y: 70,

@@ -16,7 +16,7 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var titleWithPrice: UILabel!
     @IBOutlet weak var tableMain: UITableView!
-    @IBOutlet weak var trophy: UIImageView!
+    @IBOutlet weak var trophy: SpecialItem!
     
     var dataForTable = [87687,87687,987987,98798,98,98988,8,98,98,9,9,9]//[String]()
     
@@ -27,10 +27,11 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         return myClassNib.instantiate(withOwner: nil, options: nil)[0] as! TotalPrizeFond
     }
     
-//    override func setInitBorders() {
-//        trophy = setColorForImage(trophy.frame.size, "trophy-x3") as! UIImageView
-//    }
-//    
+    override func setInitBorders() {
+        let ptophyUpper = setColorForImage(trophy.frame.size, "trophy-x3")
+        trophy.addSubview(ptophyUpper)
+    }
+    
     
     
     //MARK:-  UITableViewDelegate, UITableViewDataSource
@@ -54,7 +55,7 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
             
             cell?.updateConstraints()
             
-            cell?.contentView.layer.cornerRadius = 8
+            cell?.contentView.layer.cornerRadius = 13
             cell?.contentView.layoutIfNeeded()
             createCellBody(cell!)
             
@@ -66,9 +67,9 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         
         
         if indexPath.row % 2 == 0 {
-            cell?.contentView.backgroundColor = kColorLightGray
-        } else {
             cell?.contentView.backgroundColor = UIColor.white
+        } else {
+            cell?.contentView.backgroundColor = kColorLightGray
         }
         return cell!
         
@@ -88,6 +89,7 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
                                           width: frame.width/3, height: frame.height))
         first.text = " "
         first.tag = 10
+        first.textColor = UIColor.black
         first.font = UIFont(name: kFont_Light, size: 12)
         first.adjustsFontSizeToFitWidth = true
         cell.contentView.addSubview(first)
@@ -98,6 +100,7 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         second.adjustsFontSizeToFitWidth = true
         second.tag = 20
         second.textAlignment = .center
+        second.textColor = UIColor.black
         second.font = UIFont(name: kFont_Light, size: 12)
         cell.contentView.addSubview(second)
 
@@ -105,6 +108,7 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
                                           width: frame.width/3, height: frame.height))
         third.text = " "
         third.tag = 30
+        third.textColor = UIColor.black
         third.textAlignment = .center
         third.font = UIFont(name: kFont_Light, size: 12)
         third.adjustsFontSizeToFitWidth = true

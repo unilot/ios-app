@@ -65,6 +65,8 @@
 		D6F1E1991F7E55130098B34C /* JSRuleNumeric.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E18B1F7E55130098B34C /* JSRuleNumeric.m */; };
 		D6F1E19A1F7E55130098B34C /* JSRuleRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F1E18D1F7E55130098B34C /* JSRuleRegex.m */; };
 		D6F3A0AB1F92DC72001EDA29 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F3A0AA1F92DC72001EDA29 /* Details.swift */; };
+		D6F460AB1F9D21340006FA08 /* YouWin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F460AA1F9D21340006FA08 /* YouWin.swift */; };
+		D6F460AD1F9D215F0006FA08 /* YouWin.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6F460AC1F9D215F0006FA08 /* YouWin.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,6 +147,8 @@
 		D6F1E18C1F7E55130098B34C /* JSRuleRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSRuleRegex.h; sourceTree = "<group>"; };
 		D6F1E18D1F7E55130098B34C /* JSRuleRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSRuleRegex.m; sourceTree = "<group>"; };
 		D6F3A0AA1F92DC72001EDA29 /* Details.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
+		D6F460AA1F9D21340006FA08 /* YouWin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouWin.swift; sourceTree = "<group>"; };
+		D6F460AC1F9D215F0006FA08 /* YouWin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YouWin.xib; sourceTree = "<group>"; };
 		F775BF0A9782A06721E4E9B3 /* Pods-Unilot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unilot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Unilot/Pods-Unilot.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -202,6 +206,7 @@
 				D66878B71F84D9CF0096FB3F /* AgreeToPlay.xib */,
 				D612BBFA1F96B48F002C4647 /* LotteryResults.xib */,
 				D6ED6B371F8F90C100384672 /* InfoView.xib */,
+				D6F460AC1F9D215F0006FA08 /* YouWin.xib */,
 				D62E4C2B1F86C15B00C619EA /* TotalPrizeFond.xib */,
 			);
 			name = StoryBoard;
@@ -324,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				D612BBF81F96B450002C4647 /* LotteryResults.swift */,
+				D6F460AA1F9D21340006FA08 /* YouWin.swift */,
 				D6F1E1351F7BA0E50098B34C /* AgreeToPlay.swift */,
 				D6ED6B351F8F90B200384672 /* InfoView.swift */,
 				D62E4C2D1F86C36300C619EA /* TotalPrizeFond.swift */,
@@ -472,6 +478,7 @@
 				D6C6BAB31F8CD6C000EC7FE0 /* Roboto-Bold.ttf in Resources */,
 				D63F45171F8AC1BE00F69E7F /* Terms.html in Resources */,
 				D6C6BAB61F8CD6C000EC7FE0 /* Roboto-Regular.ttf in Resources */,
+				D6F460AD1F9D215F0006FA08 /* YouWin.xib in Resources */,
 				D62E4C2C1F86C15B00C619EA /* TotalPrizeFond.xib in Resources */,
 				D6C6BAB71F8CD6C000EC7FE0 /* Roboto-Thin.ttf in Resources */,
 				D69364D01F5F254400FD0D37 /* LaunchScreen.storyboard in Resources */,
@@ -594,6 +601,7 @@
 				D6BDD90E1F7B240600E91FD0 /* ProfileView.swift in Sources */,
 				D6F1E1381F7BAA4E0098B34C /* ControllerCore.swift in Sources */,
 				D6BDD9031F7AD1DB00E91FD0 /* Constants.swift in Sources */,
+				D6F460AB1F9D21340006FA08 /* YouWin.swift in Sources */,
 				D6D591BB1F8D19D20002451A /* LxTabBarController.swift in Sources */,
 				D6F1E1321F7B9F3B0098B34C /* MainViewPositions.swift in Sources */,
 				D6F1E1971F7E55130098B34C /* JSRuleNotNull.m in Sources */,

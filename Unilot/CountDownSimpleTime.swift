@@ -85,5 +85,11 @@ class CountDownSimpleTime: CountDownFullTimer  {
         
     }
     
+    override func labelFormatted(_ totalUnits: Int) -> String {
+        
+        
+        return String(format:"%02i", totalUnits)
+    }
+    
 }
 

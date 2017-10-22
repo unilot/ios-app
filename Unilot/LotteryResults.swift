@@ -35,16 +35,25 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         
         super.setInitBorders()
         
+        clockTablet.layoutIfNeeded()
+        
         clockTablet.createBody(self)
-        clockTablet.labelMain.textColor = UIColor.darkGray
-        clockTablet.initTimer(1500, 2500)
-        clockTablet.doScheduledTimer()
+        clockTablet.initTimer(30, 30)
+        clockTablet.labelMain.frame.origin = CGPoint(x: 0,
+                                                     y: -clockTablet.labelMain.frame.height * 0.35)
+        
+        clockTablet.labelMain.font = UIFont(name: kFont_Regular, size: 500)
+        clockTablet.labelMain.textColor = UIColor.black
+        clockTablet.labelMain.backgroundColor = UIColor.clear
+        clockTablet.isHidden = true
         
         startClock()
     }
     
     func startClock(){
         
+        clockTablet.isHidden = false
+
         clockTablet.doScheduledTimer()
         
     }

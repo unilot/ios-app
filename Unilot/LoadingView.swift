@@ -33,7 +33,7 @@ class LoadingView : UIViewController, NVActivityIndicatorViewable{
     func failComplete(_ error: String){
         
         stopAnimating()
-//        SCLAlertView().showError(" ", subTitle: error)
+        SCLAlertView().showError(" ", subTitle: error)
         enterTheApp()
 
     }

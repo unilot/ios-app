@@ -42,6 +42,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
   
     
     override func setTitle() {
+        notifications_data =  ["badge" : 0]
         navigationItem.title = "История ваших розыгрышей"
     }
     

@@ -23,6 +23,7 @@ class YouWin: PopUpCore {
     @IBOutlet weak var priceUSD: UILabel!
 
     @IBOutlet weak var showButton: UIButton!
+ 
     
     class func createYouWin() -> YouWin {
         let myClassNib = UINib(nibName: "YouWin", bundle: nil)
@@ -41,8 +42,24 @@ class YouWin: PopUpCore {
     
  
     @IBAction func onShow(){
-        onX()
+        delegate?.openHistory(self)
     }
     
+    
+    @IBAction override func onX(){
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            
+            self.layer.opacity = 0.0
+            self.bigButtonFade?.layer.opacity = 0.0
+            
+        }) { (_ animate : Bool) in
+            
+            self.bigButtonFade?.removeFromSuperview()
+            self.bigButtonFade = nil
+            self.removeFromSuperview()
+        }
+    }
+
     
 }

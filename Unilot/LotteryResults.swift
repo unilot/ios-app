@@ -15,7 +15,7 @@ import SCLAlertView
 
 class LotteryResults: PopUpCore, CountDownTimeDelegate {
 
-    @IBOutlet weak var clockTablet: CountDownSimpleTime!
+    @IBOutlet weak var clockTablet: CountDownSimpleDays!
     
     @IBOutlet weak var textView1: UITextView!
     @IBOutlet weak var textView2: UITextView!
@@ -62,7 +62,7 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
     
     @IBAction func onCopyNumber(){
         
-        saveToClipboard(kNumberOfOurPursle)
+        delegate?.openHistory(self)
         
     }
     

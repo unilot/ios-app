@@ -78,7 +78,7 @@ class NetWork {
         dataTask.resume()
     }
     static func startSession(completion: @escaping (String?) -> Void) {
-        
+    
 //        test()
         
         Alamofire.request(kServer + kAPI_get_token,
@@ -112,12 +112,9 @@ class NetWork {
     
     
     static func getGamesList(completion: @escaping (String?) -> Void) {
-        
-        
-        let urlPath = URL(string:  kServer + kAPI_get_list_games)!
-        let rightURL = urlPath.appendingPathComponent("?token=uMoRQBh051A6pbmmNMj88nMyWAXRkM")
 
-        Alamofire.request(rightURL,
+        
+        Alamofire.request( kServer + kAPI_get_list_games,
                                method : .get,
                                headers: request_headers)
             

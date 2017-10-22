@@ -58,7 +58,7 @@
                     <color key="textColor" red="0.1764705882" green="0.1529411765" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-vg-g4z" customClass="CountDownSimpleTime" customModule="Unilot" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-vg-g4z" customClass="CountDownSimpleDays" customModule="Unilot" customModuleProvider="target">
                     <rect key="frame" x="138" y="346" width="100" height="236"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -73,10 +73,9 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Kd-e9-pKQ">
-                    <rect key="frame" x="62.5" y="597" width="250" height="40"/>
+                    <rect key="frame" x="15" y="597" width="345" height="40"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="250" id="cNc-qx-kjo"/>
                         <constraint firstAttribute="height" constant="40" id="l5B-Sl-y7N"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
@@ -141,6 +140,7 @@
             <constraints>
                 <constraint firstItem="7Kd-e9-pKQ" firstAttribute="centerX" secondItem="CJ3-Pv-o2C" secondAttribute="centerX" id="06e-gs-h7g"/>
                 <constraint firstItem="X2Q-RD-GCp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="3zy-4g-4SH"/>
+                <constraint firstItem="7Kd-e9-pKQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="6Gj-rf-JAI"/>
                 <constraint firstItem="gRR-pu-1BI" firstAttribute="top" secondItem="5nn-c6-pxt" secondAttribute="bottom" constant="5" id="9GU-Zd-oP5"/>
                 <constraint firstAttribute="trailing" secondItem="CJ3-Pv-o2C" secondAttribute="trailing" constant="10" id="Ess-Vw-9qc"/>
                 <constraint firstItem="sZB-vg-g4z" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sd1-aD-ahN" secondAttribute="bottom" constant="5" id="FeQ-xk-cyu"/>
@@ -153,6 +153,7 @@
                 <constraint firstAttribute="trailing" secondItem="gRR-pu-1BI" secondAttribute="trailing" constant="5" id="RI6-mg-t34"/>
                 <constraint firstItem="gRR-pu-1BI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="SgF-1R-BQi"/>
                 <constraint firstItem="X2Q-RD-GCp" firstAttribute="top" secondItem="gRR-pu-1BI" secondAttribute="bottom" priority="999" constant="20" id="UZL-9Y-vV3"/>
+                <constraint firstAttribute="trailing" secondItem="7Kd-e9-pKQ" secondAttribute="trailing" constant="15" id="VuV-dd-YeV"/>
                 <constraint firstItem="5nn-c6-pxt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="XCJ-ca-60b"/>
                 <constraint firstItem="sZB-vg-g4z" firstAttribute="top" secondItem="sd1-aD-ahN" secondAttribute="bottom" priority="999" constant="15" id="XtA-BK-HMD"/>
                 <constraint firstItem="7Kd-e9-pKQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sZB-vg-g4z" secondAttribute="bottom" constant="5" id="bhY-sq-Cku"/>

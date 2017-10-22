@@ -44,7 +44,7 @@ func labelFor(_ cell: UITableViewCell, _ index: Int) -> UILabel?{
 
 func create_fon_view(_ size: CGSize) -> UIImageView {
 
-    let amount = CGFloat(100)
+    let amount = CGFloat(10)
 
     let bg_view = UIImageView(frame : CGRect(x: -amount, y: -amount,
                                              width: size.width + 2*amount,

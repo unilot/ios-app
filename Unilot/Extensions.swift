@@ -218,11 +218,11 @@ class SpecialItem : UIImageView {
         
         numberInCircle.layer.cornerRadius = sizeDiag/2
         numberInCircle.clipsToBounds = true
-        numberInCircle.backgroundColor = UIColor.red
+        numberInCircle.backgroundColor = kColorBadge
         numberInCircle.textColor = UIColor.white
         numberInCircle.frame =  CGRect(x:  self.frame.size.width - sizeDiag * 0.25,
                                        y: -sizeDiag * 0.25, width: sizeDiag , height: sizeDiag)
-        numberInCircle.font = UIFont(name: kFont_Light, size: sizeDiag)
+        numberInCircle.font = UIFont(name: kFont_Light, size: 12)
         numberInCircle.textAlignment = .center
         numberInCircle.adjustsFontSizeToFitWidth = true
         numberInCircle.isHidden = true

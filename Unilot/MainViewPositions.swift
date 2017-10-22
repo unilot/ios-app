@@ -130,14 +130,14 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
     }
     
-    override func addSwipeForMenuOpen(){
-        
-//        if myTabBarItem!.tag == 0 &&
+//    override func addSwipeForMenuOpen(){
+//        
+//        if tabBarItem!.tag == 0 &&
 //            tabBarController?.revealViewController() != nil {
-//        view.addGestureRecognizer(tabBarController!.revealViewController().panGestureRecognizer())
+//            view.addGestureRecognizer(tabBarController!.revealViewController().panGestureRecognizer())
 //        }
-    }
-    
+//    }
+//    
      
     func setButtonView(){
 
@@ -220,8 +220,22 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
 
          
     @IBAction func onHowDoesItWork(){
+       
+        let viewWithPlaces = LotteryResults.createLotteryResults()
+        viewWithPlaces.delegate = self
+        let frameForView = CGRect(x: 10,
+                                  y: 70,
+                                  width: view.frame.width - 20,
+                                  height: view.frame.height - 150)
         
-        let viewWithPlaces = TotalPrizeFond.createTotalPrizeFond()
+        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: 1)
+        
+    }
+    
+    @IBAction func showYouWin(){
+        
+        let viewWithPlaces = YouWin.createYouWin()
+        viewWithPlaces.delegate = self
         let frameForView = CGRect(x: 10,
                                   y: 70,
                                   width: view.frame.width - 20,
@@ -236,6 +250,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     @IBAction func onPrizePlaces(){
         
         let viewWithPlaces = TotalPrizeFond.createTotalPrizeFond()
+        viewWithPlaces.delegate = self
         let frameForView = CGRect(x: 10,
                                   y: 70,
                                   width: view.frame.width - 20,
@@ -248,9 +263,8 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     @IBAction func onTakePart(){
         
-        let viewWithPlaces = YouWin.createYouWin()
-//        let viewWithPlaces = LotteryResults.createLotteryResults()
-//        let viewWithPlaces = AgreeToPlay.createAgreeToPlay()
+        let viewWithPlaces = AgreeToPlay.createAgreeToPlay()
+        viewWithPlaces.delegate = self
         let frameForView = CGRect(x: 10,
                                   y: 70,
                                   width: view.frame.width - 20,

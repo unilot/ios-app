@@ -22,14 +22,15 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
 
     @IBOutlet weak var copyButton: UIButton!
 
+    @IBOutlet weak var trophy: UIImageView!
+
+    
     class func createAgreeToPlay() -> AgreeToPlay {
         let myClassNib = UINib(nibName: "AgreeToPlay", bundle: nil)
          return myClassNib.instantiate(withOwner: nil, options: nil)[0] as! AgreeToPlay
     }
     
-    
-    
-    override func setInitBorders(){
+     override func setInitBorders(){
         
         super.setInitBorders()
         
@@ -38,9 +39,15 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
         copyButton.layer.cornerRadius = 4
         
         clockTablet.createBody(self)
-        clockTablet.labelMain.textColor = UIColor.darkGray
+        clockTablet.labelMain.textColor = UIColor.black
         clockTablet.initTimer(1500, 2500)
-
+        clockTablet.labelMain.font = UIFont(name: kFont_Regular, size: 500)
+        clockTablet.labelMain.frame.origin = CGPoint(x: 0,
+                                                     y: -clockTablet.labelMain.frame.height * 0.4)
+        
+        let ptophyUpper = setColorForImage(trophy.frame.size, "trophy-x3")
+        trophy.addSubview(ptophyUpper)
+ 
         startClock()
     }
     

@@ -80,6 +80,9 @@
                             <real key="value" value="4"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="onShow" destination="iN0-l3-epB" eventType="touchUpInside" id="3ae-iL-k4H"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztg-Bv-Ycn">
                     <rect key="frame" x="345" y="10" width="20" height="20"/>

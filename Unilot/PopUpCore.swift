@@ -8,12 +8,17 @@
 
 import UIKit
 
+protocol PopUpCoreDelegate {
 
+    func openHistory(_ sender : PopUpCore);
+
+}
 
 class PopUpCore: UIView  {
     
     @IBOutlet weak var titleMain: UILabel!
     
+    var delegate : PopUpCoreDelegate?
     var bigButtonFade : UIButton?
     var directionInSign = CGFloat(1)
     

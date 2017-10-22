@@ -76,8 +76,19 @@ class CountDownFullTimer: CountDownLabel  {
 }
 
 
-
 class CountDownSimpleTime: CountDownFullTimer  {
+    
+    override func createBodyTimers(){
+        
+        createLabelBody(self.frame.height)
+        
+    }
+    
+}
+
+
+
+class CountDownSimpleDays: CountDownFullTimer  {
     
     override func createBodyTimers(){
         
@@ -90,6 +101,8 @@ class CountDownSimpleTime: CountDownFullTimer  {
         
         return String(format:"%02i", totalUnits)
     }
+    
+     
     
 }
 

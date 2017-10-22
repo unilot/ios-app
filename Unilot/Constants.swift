@@ -36,6 +36,7 @@ let kColorLightYellow =  UIColor(red: 252.0/255.0, green: 223.0/255.0, blue: 138
 let kColorMenuFon =  UIColor(red: 39.0/255.0, green: 39.0/255.0, blue: 56.0/255.0, alpha: 1)
 let kColorSelectedBlue =  UIColor(red: 54.0/255.0, green: 102.0/255.0, blue: 241.0/255.0, alpha: 1)
 let kColorMenuPeach    =  UIColor(red: 255.0/255.0, green: 213.0/255.0, blue: 167.0/255.0, alpha: 1)
+let kColorBadge =  UIColor(red: 172.0/255.0, green: 41.0/255.0, blue: 74.0/255.0, alpha: 1)
 
 
 let kFont_Bold = "Roboto-Bold"

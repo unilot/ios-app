@@ -14,7 +14,7 @@ import SCLAlertView
 import QRCodeReader
 
 
-class ControllerCore: UIViewController, NVActivityIndicatorViewable {
+class ControllerCore: UIViewController, NVActivityIndicatorViewable,PopUpCoreDelegate {
 
     var activityIndicatorView : NVActivityIndicatorView?
     var itemBadge: SpecialItem?
@@ -105,6 +105,17 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         }
     }
     
+    
+    
+    func openHistory(_ sender : PopUpCore){
+        
+        sender.onX()
+        
+        let rootViewController = getVCFromName("SB_Details")
+
+        navigationController?.pushViewController(rootViewController, animated: true)
+        
+    }
     
     
     func goToMainView(){

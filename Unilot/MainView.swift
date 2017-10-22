@@ -67,6 +67,12 @@ class MainView: MainViewPositions {
 
     }
     
+    override func stopSchedule() {
+        
+        moneyTablet.endTimer()
+        
+        clockTablet.endTimer()
+    }
     
     override func addSwipeForMenuOpen(){
         
@@ -168,6 +174,15 @@ class BonusView: MainViewPositions {
         clockTablet.doScheduledTimer()
         
     }
+    
+    
+    override func stopSchedule() {
+        
+        moneyTablet.endTimer()
+        
+        clockTablet.endTimer()
+    }
+    
 }
 
 

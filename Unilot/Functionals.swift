@@ -129,9 +129,9 @@ func setImageForTitle(_ sizeOfView : CGSize, _ imageName : String) -> UIView{
     return bgView
 }
 
-func setColorForImage(_ sizeOfView : CGSize, _ imageName : String) -> UIView{
+func setColorForImage(_ sizeOfView : CGSize, _ imageName : String) -> SpecialItem{
     
-    let bgView = UIView(frame: CGRect(x: 0, y: 0, width:  sizeOfView.width,
+    let bgView = SpecialItem(frame: CGRect(x: 0, y: 0, width:  sizeOfView.width,
                                       height: sizeOfView.height))
     bgView.backgroundColor = UIColor.clear
     
@@ -155,7 +155,8 @@ func setColorForImage(_ sizeOfView : CGSize, _ imageName : String) -> UIView{
     gradientLayer.mask = myLayer
     bgView.layer.addSublayer(gradientLayer)
     
+    bgView.bringSubview(toFront: bgView.numberInCircle)
+    
     return bgView
 }
-
 

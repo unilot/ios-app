@@ -32,6 +32,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     @IBOutlet weak var moneyTablet: CountUppMoney!
     
+    
     var widthProgress = CGFloat(-1)
         
     //MARK: - Views Load override
@@ -44,7 +45,8 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
         view.backgroundColor = UIColor.clear
 
-        
+        itemBadge?.setNumberLabel(notifications_data["badge"]!)
+
         setButtonView()
 
     }
@@ -64,17 +66,31 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
 
             setLoadingSign(toWidth: 0)
 
-            startSchedule()
         }
         
-        
+
     }
     
   
-//    override func addMenuButton() {
-//        
-//        tabBarController?.navigationItem.leftBarButtonItem = createMenuButton()
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        startSchedule()
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        
+        stopSchedule()
+        
+    }
+    override func setBackButton(){
+        
+        addMenuButton()
+        
+    }
     
     func fillWithData(){
         
@@ -196,7 +212,9 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
     }
     
-    
+    func stopSchedule(){
+        
+    }
     
     //MARK: - onButtons
 

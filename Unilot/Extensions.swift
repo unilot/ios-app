@@ -38,34 +38,7 @@ extension UITabBar {
 
 
 extension UIViewController{
-     
-    
-    @IBAction func onLeftMenuBarButton(_ sender : UIBarButtonItem){
-        
-       openMenu(sender)
-    }
-    
-    func createMenuButton() -> UIBarButtonItem{
-        
-        let frameBarButton = CGSize(width: 20, height: 20)
-        
-        let tapRecognizer = UITapGestureRecognizer(target: self,
-                                                   action: #selector(TabBarController.openMenu(_:)) )
-        
-        
-        let viewCustom = setColorForImage(frameBarButton, "menu")
-        viewCustom.addGestureRecognizer(tapRecognizer)
-        
-        return  UIBarButtonItem(customView: viewCustom)
-    }
-    
-    
-    func openMenu(_ sender : Any){
-        if revealViewController() != nil {
-            revealViewController().revealToggle(sender)
-        }
-    }
-    
+      
     
     func getVCFromName(_ name: String) -> UIViewController{
         
@@ -220,5 +193,54 @@ extension String {
         }
         return nil
     }
+}
+
+
+
+class SpecialItem : UIImageView {
+    
+    var sizeDiag = CGFloat(20)
+    var numberInCircle = UILabel(frame : CGRect(x: 0, y: 0, width: 5 , height: 5))
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addBadge()
+    }
+    
+    required init?(coder: NSCoder) {
+        
+        super.init(coder: coder)
+        
+        addBadge()
+    }
+    
+    func addBadge(){
+        
+        numberInCircle.layer.cornerRadius = sizeDiag/2
+        numberInCircle.clipsToBounds = true
+        numberInCircle.backgroundColor = UIColor.red
+        numberInCircle.textColor = UIColor.white
+        numberInCircle.frame =  CGRect(x:  self.frame.size.width - sizeDiag * 0.25,
+                                       y: -sizeDiag * 0.25, width: sizeDiag , height: sizeDiag)
+        numberInCircle.font = UIFont(name: kFont_Light, size: sizeDiag)
+        numberInCircle.textAlignment = .center
+        numberInCircle.adjustsFontSizeToFitWidth = true
+        numberInCircle.isHidden = true
+        
+        
+        addSubview(numberInCircle)
+    }
+    
+    func setNumberLabel(_ number: Int){
+        
+        
+        if number == 0 {
+            numberInCircle.isHidden = true
+        } else {
+            numberInCircle.isHidden = false
+            numberInCircle.text = "\(number)"
+        }
+    }
+    
 }
 

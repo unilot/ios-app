@@ -40,7 +40,10 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         addTouchForKeyBoard()
         
         fillWithData()
-                
+
+        itemBadge?.setNumberLabel(notifications_data["badge"]!)
+
+        
     }
     
     
@@ -48,12 +51,15 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         super.viewDidAppear(animated)
         
         currentTabBarLottery = tabBarItem.tag
+    } 
+    
+    
+    override func setBackButton(){
+     
+        addMenuButton()
+
+        
     }
-//
-//    override func addMenuButton() {
-//        
-//        tabBarController?.navigationItem.leftBarButtonItem = createMenuButton()
-//    }
     
     override func addSwipeForMenuOpen(){
         

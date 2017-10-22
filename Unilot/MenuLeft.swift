@@ -10,10 +10,12 @@
 import UIKit
 import NVActivityIndicatorView
 
+
+
 class MenuLeft: UITableViewController {
     
-    
     let rowOneHeight = CGFloat(50)
+    @IBOutlet weak var itemBadge: SpecialItem!
 
     
     override func viewDidLoad() {
@@ -24,8 +26,17 @@ class MenuLeft: UITableViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
-   
+    
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        itemBadge.setNumberLabel(notifications_data["badge"]!)
+    }
+    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -48,43 +59,33 @@ class MenuLeft: UITableViewController {
     
 //    
 //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
+//        
+//
 //    }
     
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        
-//        
-//        
-//        switch indexPath.row {
-//        case 0:
-//            
-//            print("sigue_unilot")
-//
-//            self.performSegue(withIdentifier: "sigue_unilot", sender: self)
-//
-//            break
-//            
-//        case 3 :
-//            
-//            
-//            print("sigue_white")
-//
-//            self.performSegue(withIdentifier: "sigue_white", sender: self)
-//            
-//            break
-//
-//        case 2 :
-//            
-//            self.performSegue(withIdentifier: "sigue_white", sender: self)
-//
-//            break
-//            
-//            
-//        default:
-//            break
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        var viewsNames = [
+        
+        ["SB_TabBarController"],
+        
+        ["SB_HistoryTable",
+         "SB_HowDoesItWork",
+         "SB_WhitePapersView"],
+        
+        ["SB_SettingsView"],
+        
+        [nil]
+
+        ]
+     
+            
+        if let nameOfView = viewsNames[indexPath.section][indexPath.row]{
+            goToViewController(nameOfView)
+        }
+    }
 
     
     
@@ -123,6 +124,19 @@ class MenuLeft: UITableViewController {
         
     }
     
+ 
     
+    func goToViewController(_ nameOfView : String){
+        
+        let navController = UINavigationController()
+        let rootViewController = getVCFromName(nameOfView)
+        
+        
+        var cntrllrs =   navController.viewControllers
+        cntrllrs.insert(rootViewController, at: 0)
+        
+        navController.setViewControllers(cntrllrs, animated: false)
+        revealViewController().pushFrontViewController(navController, animated: true)
+     }
 }
 

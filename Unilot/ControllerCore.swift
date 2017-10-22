@@ -17,7 +17,8 @@ import QRCodeReader
 class ControllerCore: UIViewController, NVActivityIndicatorViewable {
 
     var activityIndicatorView : NVActivityIndicatorView?
- 
+    var itemBadge: SpecialItem?
+
     
     lazy var readerVC: QRCodeReaderViewController = {
         let builder = QRCodeReaderViewControllerBuilder {
@@ -36,9 +37,39 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
 
         setNavControllerClear()
 
+        setBackButton()
+        
         setTitle()
     }
     
+    
+    
+    func addMenuButton() {
+        
+        let frameBarButton = CGSize(width: 20, height: 20)
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self,
+                                                   action: #selector(ControllerCore.onRevealMenu) )
+         
+        itemBadge = setColorForImage(frameBarButton, "menu")
+        itemBadge!.addGestureRecognizer(tapRecognizer)
+        
+        tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: itemBadge!)
+ 
+    }
+    
+    
+    
+    func setBackButton(){
+        
+        let backItem = UIBarButtonItem(image: UIImage(named:"arrow_back"), style: .plain,
+                                       target: self,
+                                       action: #selector(ControllerCore.onBackMenuArrow) )
+        backItem.tintColor =  kColorLightOrange
+        navigationItem.backBarButtonItem = backItem
+        
+        
+    }
     
     func setTitle() {
         
@@ -72,9 +103,13 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable {
         
         navController.setViewControllers(cntrllrs, animated: false)
         navigationController?.popViewController(animated: true)
-
-        
-        
+    }
+ 
+    
+    func onRevealMenu(){
+        if revealViewController() != nil {
+            revealViewController().revealToggle(nil)
+        }
     }
     
     @IBAction func onBackMenuArrow(){

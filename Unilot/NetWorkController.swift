@@ -28,6 +28,9 @@ var request_headers = [
 
 ]
 
+
+var notifications_data = ["badge" : 3]
+
 var session_data = [String: Any]()
 
 

@@ -15,8 +15,7 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
     
     @IBOutlet weak var clockTablet: CountDownSimpleTime!
     
-    @IBOutlet weak var textView1: UITextView!
-    @IBOutlet weak var textView2: UITextView!
+    @IBOutlet weak var textBig: UILabel!
     
     @IBOutlet weak var endLabel: UILabel!
 

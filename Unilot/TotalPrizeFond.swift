@@ -34,6 +34,8 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
     
     
     
+    
+    
     //MARK:-  UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,10 +55,11 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         {
             cell = UITableViewCell.init(style: .default, reuseIdentifier: "id_cell")
             
-            cell?.updateConstraints()
+            cell?.setNeedsLayout()
+            cell?.layoutIfNeeded()
             
             cell?.contentView.layer.cornerRadius = 13
-            cell?.contentView.layoutIfNeeded()
+
             createCellBody(cell!)
             
         }
@@ -79,8 +82,6 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
 
     
     func createCellBody(_ cell : UITableViewCell) {
-        cell.setNeedsLayout()
-        cell.layoutIfNeeded()
         
         let frame = cell.contentView.frame
 

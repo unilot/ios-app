@@ -204,10 +204,10 @@
 				D69364C91F5F254400FD0D37 /* Main.storyboard */,
 				D69364CE1F5F254400FD0D37 /* LaunchScreen.storyboard */,
 				D66878B71F84D9CF0096FB3F /* AgreeToPlay.xib */,
+				D62E4C2B1F86C15B00C619EA /* TotalPrizeFond.xib */,
 				D612BBFA1F96B48F002C4647 /* LotteryResults.xib */,
 				D6ED6B371F8F90C100384672 /* InfoView.xib */,
 				D6F460AC1F9D215F0006FA08 /* YouWin.xib */,
-				D62E4C2B1F86C15B00C619EA /* TotalPrizeFond.xib */,
 			);
 			name = StoryBoard;
 			sourceTree = "<group>";
@@ -329,10 +329,10 @@
 			isa = PBXGroup;
 			children = (
 				D612BBF81F96B450002C4647 /* LotteryResults.swift */,
+				D62E4C2D1F86C36300C619EA /* TotalPrizeFond.swift */,
 				D6F460AA1F9D21340006FA08 /* YouWin.swift */,
 				D6F1E1351F7BA0E50098B34C /* AgreeToPlay.swift */,
 				D6ED6B351F8F90B200384672 /* InfoView.swift */,
-				D62E4C2D1F86C36300C619EA /* TotalPrizeFond.swift */,
 			);
 			name = "Pop Up Views";
 			sourceTree = "<group>";

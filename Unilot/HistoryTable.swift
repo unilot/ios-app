@@ -66,15 +66,22 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView = UIView(frame: CGRect(x: 0, y: 0,
-                                              width: tableView.frame.width,
+                                              width: view.frame.width * 0.9,
                                               height: 44))
         let headerCell = tableView.dequeueReusableCell(withIdentifier: "id_header")!        
+      
+
+        headerCell.contentView.frame  = headerView.frame
+        
         headerView.addSubview(headerCell)
        
         labelFor(headerCell, 10)?.text = TR("ДАТА И ЛОТЕРЕЯ")
         labelFor(headerCell, 20)?.text = TR("СТАТУС")
-        labelFor(headerCell, 30)?.text = TR("ВЫЙГРЫШ")
+        labelFor(headerCell, 30)?.text = TR("ВЫИГРЫШ")
+        
 
+        headerView.layoutIfNeeded()
+        
         return headerView
         
     }

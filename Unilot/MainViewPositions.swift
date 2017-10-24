@@ -67,8 +67,6 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
             setLoadingSign(toWidth: 0)
 
         }
-        
-
     }
     
   
@@ -95,31 +93,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     func fillWithData(){
         
     }
-    
-//    
-//    //MARK: - SetSwipes
-//    
-//    func setSwipesGestures(){
-//        
-//        let left = UISwipeGestureRecognizer(target: self, action: #selector(MainViewPositions.swipeLeft))
-//        left.direction = .left
-//        self.view.addGestureRecognizer(left)
-//        
-//        let right = UISwipeGestureRecognizer(target: self, action: #selector(MainViewPositions.swipeRight))
-//        right.direction = .right
-//        self.view.addGestureRecognizer(right)
-//    }
-//    
-//    
-//    func swipeLeft(){
-//        let total = self.tabBarController!.viewControllers!.count - 1
-//        tabBarController!.selectedIndex = min(total, tabBarController!.selectedIndex + 1)
-//
-//    }
-//    
-//    func swipeRight(){
-//        tabBarController!.selectedIndex = max(0, tabBarController!.selectedIndex - 1)
-//    }
+     
     
     //MARK: - Set all views
     
@@ -241,7 +215,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
                                   width: view.frame.width - 20,
                                   height: view.frame.height - 150)
         
-        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: 1)
+        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: 0)
         
     }
     

@@ -36,6 +36,7 @@ class YouWin: PopUpCore {
         
         super.setInitBorders()
         
+//        priceETH.adjustsFontSizeToFitWidth = true
         self.layer.borderWidth = 0
  
     }

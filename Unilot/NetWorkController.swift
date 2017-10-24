@@ -130,8 +130,8 @@ class NetWork {
                     completion("empty responseJSON")
                     return
                 }
-                
-                                print("allHTTPHeaderFields = " , response.request!.urlRequest)
+                print("urlRequest = " , response.request!.urlRequest)
+                print("allHTTPHeaderFields = " , response.request!.allHTTPHeaderFields)
                 
                                 print("getGamesList = " ,responseJSON)
                 

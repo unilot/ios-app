@@ -43,15 +43,14 @@ class PopUpCore: UIView  {
         bigButtonFade!.addTarget(self, action: #selector(PopUpCore.onX), for: .touchUpInside)
         bigButtonFade!.layer.opacity = 0.0
         UIApplication.shared.keyWindow?.addSubview(bigButtonFade!)
-
         
-        self.layoutIfNeeded()
         self.layer.opacity = 0.0
         self.frame = CGRect(x: 10,
                             y: directionSign * mainView.frame.height,
                             width:  frameView.width,
                             height: frameView.height)
-        
+
+
         setInitBorders()
         
         UIApplication.shared.keyWindow?.addSubview(self)

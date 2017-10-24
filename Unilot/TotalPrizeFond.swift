@@ -18,9 +18,8 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableMain: UITableView!
     @IBOutlet weak var trophy: SpecialItem!
     
-    var dataForTable = [87687,87687,987987,98798,98,98988,8,98,98,9,9,9]//[String]()
-    
-    
+    var dataForTable = [Int]()
+    var widthOfCell = CGFloat(0)
     
     class func createTotalPrizeFond() -> TotalPrizeFond {
         let myClassNib = UINib(nibName: "TotalPrizeFond", bundle: nil)
@@ -28,8 +27,16 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
     }
     
     override func setInitBorders() {
+ 
         let ptophyUpper = setColorForImage(trophy.frame.size, "trophy-x3")
+        
         trophy.addSubview(ptophyUpper)
+        
+        widthOfCell = frame.width * 0.9
+        
+        dataForTable = [87687,87687,987987,98798,98,98988,8,98,98,9,9,9]
+        tableMain.reloadData()
+        
     }
     
     
@@ -47,25 +54,17 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-         var cell = tableView.dequeueReusableCell(withIdentifier: "id_cell")
-        
+       
+        var cell = tableView.dequeueReusableCell(withIdentifier: "id_cell")
         
         if (cell == nil)
         {
             cell = UITableViewCell.init(style: .default, reuseIdentifier: "id_cell")
-            
-            cell?.setNeedsLayout()
-            cell?.layoutIfNeeded()
-            
             cell?.contentView.layer.cornerRadius = 13
-
+            
             createCellBody(cell!)
             
         }
-        
-        
-        
         setCellBody(cell!,["3-567","67.463.536","345.544"])
         
         
@@ -83,8 +82,9 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
     
     func createCellBody(_ cell : UITableViewCell) {
         
-        let frame = cell.contentView.frame
+        var frame = cell.contentView.frame
 
+        frame.size = CGSize(width: widthOfCell , height: frame.size.height)
         let shiftUpp = CGFloat(-8)
         let first = UILabel(frame: CGRect(x: 6, y: shiftUpp,
                                           width: frame.width/3, height: frame.height))
@@ -115,6 +115,7 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         third.adjustsFontSizeToFitWidth = true
         cell.contentView.addSubview(third)
         
+         
     }
     
     func setCellBody(_ cell : UITableViewCell, _ withData : [String] ) {
@@ -133,6 +134,6 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         }
 
     }
-    
 
+    
 }

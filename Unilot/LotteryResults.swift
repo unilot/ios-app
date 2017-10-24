@@ -39,10 +39,11 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         
         clockTablet.createBody(self)
         clockTablet.initTimer(30, 30)
-        clockTablet.labelMain.frame.origin = CGPoint(x: 0,
-                                                     y: -clockTablet.labelMain.frame.height * 0.35)
+       // clockTablet.labelMain.frame.origin = CGPoint(x: 0,
+         //                                            y: -clockTablet.labelMain.frame.height * 0.35)
         
         clockTablet.labelMain.font = UIFont(name: kFont_Regular, size: 500)
+        clockTablet.labelMain.adjustsFontSizeToFitWidth = true
         clockTablet.labelMain.textColor = UIColor.black
         clockTablet.labelMain.backgroundColor = UIColor.clear
         clockTablet.isHidden = true

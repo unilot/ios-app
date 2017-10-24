@@ -27,6 +27,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="win" translatesAutoresizingMaskIntoConstraints="NO" id="FWY-cU-RLt">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23,098" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjB-8w-58i">
                     <rect key="frame" x="15" y="294" width="345" height="80"/>
                     <constraints>
@@ -36,12 +39,12 @@
                     <color key="textColor" red="0.88627450980392153" green="0.5607843137254902" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Поздравляем" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xT4-K4-K6l">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Поздравляем" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="xT4-K4-K6l">
                     <rect key="frame" x="25" y="126.5" width="325" height="26.5"/>
                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="20"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы победили!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ne9-ou-Ffi">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы победили!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="21" translatesAutoresizingMaskIntoConstraints="NO" id="ne9-ou-Ffi">
                     <rect key="frame" x="25" y="153" width="325" height="55.5"/>
                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="42"/>
                     <nil key="highlightedColor"/>
@@ -53,13 +56,13 @@
                         <constraint firstAttribute="height" constant="50" id="Ku2-rL-hDV"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="US $ 15,700" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zn7-BZ-7tO">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="US $ 15,700" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="zn7-BZ-7tO">
                     <rect key="frame" x="20" y="374" width="335" height="33"/>
                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="25"/>
                     <color key="textColor" red="0.8862745098" green="0.56078431370000004" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmf-0u-MKU">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zmf-0u-MKU">
                     <rect key="frame" x="102.5" y="228.5" width="170.5" height="50.5"/>
                     <string key="text">Вы заняли 7 место 
 и выиграли:</string>
@@ -96,9 +99,6 @@
                         <action selector="onX" destination="iN0-l3-epB" eventType="touchUpInside" id="bpX-ae-pRR"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="win" translatesAutoresizingMaskIntoConstraints="NO" id="FWY-cU-RLt">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -118,7 +118,7 @@
                 <constraint firstItem="RjB-8w-58i" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="UKM-cf-4vC"/>
                 <constraint firstAttribute="trailing" secondItem="bbz-M7-qbC" secondAttribute="trailing" constant="25" id="URy-tm-AXt"/>
                 <constraint firstAttribute="trailing" secondItem="zn7-BZ-7tO" secondAttribute="trailing" constant="20" id="V8K-YL-wFY"/>
-                <constraint firstItem="xT4-K4-K6l" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="WFL-g6-bSL"/>
+                <constraint firstItem="xT4-K4-K6l" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="WFL-g6-bSL"/>
                 <constraint firstItem="zn7-BZ-7tO" firstAttribute="top" secondItem="RjB-8w-58i" secondAttribute="bottom" id="WHe-Lv-LGj"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bbz-M7-qbC" secondAttribute="bottom" constant="5" id="WSo-o9-C6N"/>
                 <constraint firstAttribute="trailing" secondItem="xT4-K4-K6l" secondAttribute="trailing" constant="25" id="ZtF-ZW-AHi"/>

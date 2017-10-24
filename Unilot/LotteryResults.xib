@@ -31,7 +31,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Итоги дневной лотереи" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nn-c6-pxt">
-                    <rect key="frame" x="10" y="50" width="355" height="28"/>
+                    <rect key="frame" x="10" y="35" width="355" height="28"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="SjH-0w-gXt"/>
                     </constraints>
@@ -39,18 +39,8 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Вы автоматически становитесь участником бонусного розыгрыша который состоится через:" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CJ3-Pv-o2C">
-                    <rect key="frame" x="10" y="193" width="355" height="90"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" priority="999" constant="90" id="Les-mV-tIm"/>
-                    </constraints>
-                    <color key="textColor" red="0.49439453124999999" green="0.49439453124999999" blue="0.49439453124999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="До обьявления победителя:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sd1-aD-ahN">
-                    <rect key="frame" x="20" y="303" width="335" height="28"/>
+                    <rect key="frame" x="20" y="256.5" width="335" height="28"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="vUU-fK-nKF"/>
                     </constraints>
@@ -59,12 +49,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-vg-g4z" customClass="CountDownSimpleDays" customModule="Unilot" customModuleProvider="target">
-                    <rect key="frame" x="138" y="346" width="100" height="236"/>
+                    <rect key="frame" x="143" y="294.5" width="90" height="90"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="998" constant="100" id="4J5-Lg-Wn9"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="PXe-Rr-FJb"/>
-                        <constraint firstAttribute="width" constant="100" id="i8p-Ac-feJ"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="90" id="Rcf-56-Hq4"/>
+                        <constraint firstAttribute="width" secondItem="sZB-vg-g4z" secondAttribute="height" multiplier="1:1" id="eiW-fo-aAK"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -110,24 +99,24 @@
                         <action selector="onX" destination="iN0-l3-epB" eventType="touchUpInside" id="Osf-2D-o8m"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дней" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsj-9o-2RY">
-                    <rect key="frame" x="258.5" y="341" width="42" height="241"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дней" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="qsj-9o-2RY">
+                    <rect key="frame" x="243" y="294.5" width="48" height="90"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                     <color key="textColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="К сожалению, вас нет в                 списке победителей" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="X2Q-RD-GCp">
-                    <rect key="frame" x="25" y="123" width="325" height="70"/>
+                    <rect key="frame" x="25" y="98" width="325" height="70"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" priority="999" constant="70" id="O0X-pB-clK"/>
+                        <constraint firstAttribute="height" priority="888" constant="70" id="zrN-c7-OVF"/>
                     </constraints>
                     <color key="textColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Воскресенье, 6 декабря 2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRR-pu-1BI">
-                    <rect key="frame" x="5" y="83" width="365" height="20"/>
+                    <rect key="frame" x="5" y="68" width="365" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="pdF-0U-Df9"/>
                     </constraints>
@@ -135,40 +124,42 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы автоматически становитесь участником бонусного розыгрыша который состоится через:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysa-bV-fTx">
+                    <rect key="frame" x="25" y="178" width="325" height="63.5"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                    <color key="textColor" red="0.49439453119999999" green="0.49439453119999999" blue="0.49439453119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="7Kd-e9-pKQ" firstAttribute="centerX" secondItem="CJ3-Pv-o2C" secondAttribute="centerX" id="06e-gs-h7g"/>
+                <constraint firstItem="ysa-bV-fTx" firstAttribute="top" secondItem="X2Q-RD-GCp" secondAttribute="bottom" constant="10" id="2nb-Oz-pjf"/>
                 <constraint firstItem="X2Q-RD-GCp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="3zy-4g-4SH"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qsj-9o-2RY" secondAttribute="trailing" constant="15" id="4Nz-vx-eem"/>
                 <constraint firstItem="7Kd-e9-pKQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="6Gj-rf-JAI"/>
                 <constraint firstItem="gRR-pu-1BI" firstAttribute="top" secondItem="5nn-c6-pxt" secondAttribute="bottom" constant="5" id="9GU-Zd-oP5"/>
-                <constraint firstAttribute="trailing" secondItem="CJ3-Pv-o2C" secondAttribute="trailing" constant="10" id="Ess-Vw-9qc"/>
-                <constraint firstItem="sZB-vg-g4z" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sd1-aD-ahN" secondAttribute="bottom" constant="5" id="FeQ-xk-cyu"/>
-                <constraint firstItem="sZB-vg-g4z" firstAttribute="centerX" secondItem="CJ3-Pv-o2C" secondAttribute="centerX" id="GrR-mm-h9f"/>
-                <constraint firstItem="CJ3-Pv-o2C" firstAttribute="top" secondItem="X2Q-RD-GCp" secondAttribute="bottom" id="IHm-Od-WMJ"/>
+                <constraint firstItem="sZB-vg-g4z" firstAttribute="top" secondItem="sd1-aD-ahN" secondAttribute="bottom" constant="10" id="FeQ-xk-cyu"/>
                 <constraint firstItem="qsj-9o-2RY" firstAttribute="bottom" secondItem="sZB-vg-g4z" secondAttribute="bottom" id="JtQ-UJ-EE2"/>
                 <constraint firstAttribute="trailing" secondItem="sd1-aD-ahN" secondAttribute="trailing" constant="20" id="ObE-Nh-inZ"/>
-                <constraint firstItem="7Kd-e9-pKQ" firstAttribute="top" secondItem="sZB-vg-g4z" secondAttribute="bottom" priority="999" constant="15" id="Pw7-3f-Zy6"/>
-                <constraint firstItem="sd1-aD-ahN" firstAttribute="top" secondItem="CJ3-Pv-o2C" secondAttribute="bottom" priority="999" constant="20" id="QMO-MI-Z02"/>
+                <constraint firstItem="sd1-aD-ahN" firstAttribute="top" secondItem="ysa-bV-fTx" secondAttribute="bottom" constant="15" id="QdR-7S-dAV"/>
                 <constraint firstAttribute="trailing" secondItem="gRR-pu-1BI" secondAttribute="trailing" constant="5" id="RI6-mg-t34"/>
                 <constraint firstItem="gRR-pu-1BI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="SgF-1R-BQi"/>
-                <constraint firstItem="X2Q-RD-GCp" firstAttribute="top" secondItem="gRR-pu-1BI" secondAttribute="bottom" priority="999" constant="20" id="UZL-9Y-vV3"/>
                 <constraint firstAttribute="trailing" secondItem="7Kd-e9-pKQ" secondAttribute="trailing" constant="15" id="VuV-dd-YeV"/>
                 <constraint firstItem="5nn-c6-pxt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="XCJ-ca-60b"/>
-                <constraint firstItem="sZB-vg-g4z" firstAttribute="top" secondItem="sd1-aD-ahN" secondAttribute="bottom" priority="999" constant="15" id="XtA-BK-HMD"/>
-                <constraint firstItem="7Kd-e9-pKQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sZB-vg-g4z" secondAttribute="bottom" constant="5" id="bhY-sq-Cku"/>
+                <constraint firstAttribute="trailing" secondItem="ysa-bV-fTx" secondAttribute="trailing" constant="25" id="Xcb-tb-6rs"/>
+                <constraint firstItem="qsj-9o-2RY" firstAttribute="top" secondItem="sZB-vg-g4z" secondAttribute="top" id="b6w-AX-cjS"/>
+                <constraint firstItem="7Kd-e9-pKQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sZB-vg-g4z" secondAttribute="bottom" constant="10" id="bhY-sq-Cku"/>
                 <constraint firstAttribute="trailing" secondItem="s1j-k9-CUw" secondAttribute="trailing" constant="10" id="btD-xb-KKd"/>
                 <constraint firstAttribute="trailing" secondItem="X2Q-RD-GCp" secondAttribute="trailing" constant="25" id="bvO-ex-K8n"/>
                 <constraint firstItem="sd1-aD-ahN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="cuc-fG-BFO"/>
                 <constraint firstItem="s1j-k9-CUw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="d3j-ls-sIn"/>
-                <constraint firstItem="5nn-c6-pxt" firstAttribute="top" secondItem="s1j-k9-CUw" secondAttribute="bottom" priority="999" constant="20" id="d9O-pQ-DZs"/>
-                <constraint firstItem="qsj-9o-2RY" firstAttribute="leading" secondItem="sZB-vg-g4z" secondAttribute="trailing" constant="21" id="fC3-Vy-VNx"/>
+                <constraint firstItem="qsj-9o-2RY" firstAttribute="leading" secondItem="sZB-vg-g4z" secondAttribute="trailing" constant="10" id="fC3-Vy-VNx"/>
                 <constraint firstAttribute="bottom" secondItem="7Kd-e9-pKQ" secondAttribute="bottom" constant="30" id="ggN-cf-yr6"/>
-                <constraint firstItem="qsj-9o-2RY" firstAttribute="top" secondItem="sd1-aD-ahN" secondAttribute="bottom" constant="10" id="gvN-Tb-Gyf"/>
-                <constraint firstItem="5nn-c6-pxt" firstAttribute="top" relation="greaterThanOrEqual" secondItem="s1j-k9-CUw" secondAttribute="bottom" constant="5" id="lkg-CZ-9sX"/>
+                <constraint firstItem="sZB-vg-g4z" firstAttribute="centerX" secondItem="ysa-bV-fTx" secondAttribute="centerX" id="hV6-ME-0O6"/>
+                <constraint firstItem="5nn-c6-pxt" firstAttribute="top" secondItem="s1j-k9-CUw" secondAttribute="bottom" priority="999" constant="5" id="lkg-CZ-9sX"/>
                 <constraint firstAttribute="trailing" secondItem="5nn-c6-pxt" secondAttribute="trailing" constant="10" id="nQq-yH-FMb"/>
-                <constraint firstItem="X2Q-RD-GCp" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gRR-pu-1BI" secondAttribute="bottom" constant="10" id="q1P-oO-0TW"/>
-                <constraint firstItem="CJ3-Pv-o2C" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="sh9-wX-DxW"/>
+                <constraint firstItem="X2Q-RD-GCp" firstAttribute="top" secondItem="gRR-pu-1BI" secondAttribute="bottom" constant="10" id="q1P-oO-0TW"/>
+                <constraint firstItem="ysa-bV-fTx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="zeh-Y4-s23"/>
             </constraints>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -179,7 +170,6 @@
                 <outlet property="clockTablet" destination="sZB-vg-g4z" id="OKd-TU-pFD"/>
                 <outlet property="copyButton" destination="7Kd-e9-pKQ" id="ccj-bI-jxE"/>
                 <outlet property="endLabel" destination="sd1-aD-ahN" id="6nP-0f-FYZ"/>
-                <outlet property="textView1" destination="CJ3-Pv-o2C" id="d14-l9-lSc"/>
                 <outlet property="titleMain" destination="5nn-c6-pxt" id="49G-nM-UPN"/>
             </connections>
             <point key="canvasLocation" x="57.5" y="99.5"/>

@@ -52,24 +52,22 @@ func create_fon_view(_ size: CGSize) -> UIImageView {
     
     bg_view.image =  UIImage(named: "bg_1")
     bg_view.contentMode = .scaleToFill
-    addParallaxToView(bg_view)
+    addParallaxToView(bg_view, Int(amount))
     
     return bg_view
 }
 
 
 
-func addParallaxToView(_ forView: UIView) {
-    
-    let amount = 100
+func addParallaxToView(_ forView: UIView, _ bounce : Int) {
     
     let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
-    horizontal.minimumRelativeValue = -amount
-    horizontal.maximumRelativeValue = amount
+    horizontal.minimumRelativeValue = -bounce
+    horizontal.maximumRelativeValue = bounce
     
     let vertical = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
-    vertical.minimumRelativeValue = -amount
-    vertical.maximumRelativeValue = amount
+    vertical.minimumRelativeValue = -bounce
+    vertical.maximumRelativeValue = bounce
     
     let group = UIMotionEffectGroup()
     group.motionEffects = [horizontal, vertical]

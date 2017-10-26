@@ -27,7 +27,7 @@
 		D69364CB1F5F254400FD0D37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69364C91F5F254400FD0D37 /* Main.storyboard */; };
 		D69364D01F5F254400FD0D37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69364CE1F5F254400FD0D37 /* LaunchScreen.storyboard */; };
 		D69364D91F5F328D00FD0D37 /* FlippingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364D71F5F328D00FD0D37 /* FlippingLabel.swift */; };
-		D69364DA1F5F328D00FD0D37 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364D81F5F328D00FD0D37 /* MainView.swift */; };
+		D69364DA1F5F328D00FD0D37 /* MainViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364D81F5F328D00FD0D37 /* MainViews.swift */; };
 		D6BDD9031F7AD1DB00E91FD0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BDD9021F7AD1DB00E91FD0 /* Constants.swift */; };
 		D6BDD9051F7AD1F200E91FD0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BDD9041F7AD1F200E91FD0 /* Extensions.swift */; };
 		D6BDD9081F7AF23400E91FD0 /* CountDownCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BDD9071F7AF23400E91FD0 /* CountDownCore.swift */; };
@@ -40,6 +40,8 @@
 		D6C6BAB51F8CD6C000EC7FE0 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6C6BAB01F8CD6C000EC7FE0 /* Roboto-Medium.ttf */; };
 		D6C6BAB61F8CD6C000EC7FE0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6C6BAB11F8CD6C000EC7FE0 /* Roboto-Regular.ttf */; };
 		D6C6BAB71F8CD6C000EC7FE0 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6C6BAB21F8CD6C000EC7FE0 /* Roboto-Thin.ttf */; };
+		D6D1D0E21FA24D8200909551 /* MainBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D1D0E11FA24D8200909551 /* MainBonus.swift */; };
+		D6D1D0E61FA2551D00909551 /* blockClock.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D1D0E51FA2551D00909551 /* blockClock.xib */; };
 		D6D591BB1F8D19D20002451A /* LxTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D591BA1F8D19D20002451A /* LxTabBarController.swift */; };
 		D6E2BF671F8FE804002D28F2 /* MemoryControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E2BF661F8FE804002D28F2 /* MemoryControll.swift */; };
 		D6E2BF691F8FF4BE002D28F2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E2BF681F8FF4BE002D28F2 /* LoadingView.swift */; };
@@ -96,7 +98,7 @@
 		D69364CF1F5F254400FD0D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D69364D11F5F254400FD0D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D69364D71F5F328D00FD0D37 /* FlippingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlippingLabel.swift; sourceTree = "<group>"; };
-		D69364D81F5F328D00FD0D37 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D69364D81F5F328D00FD0D37 /* MainViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViews.swift; sourceTree = "<group>"; };
 		D6BDD9021F7AD1DB00E91FD0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D6BDD9041F7AD1F200E91FD0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D6BDD9071F7AF23400E91FD0 /* CountDownCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountDownCore.swift; sourceTree = "<group>"; };
@@ -109,6 +111,8 @@
 		D6C6BAB01F8CD6C000EC7FE0 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		D6C6BAB11F8CD6C000EC7FE0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		D6C6BAB21F8CD6C000EC7FE0 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		D6D1D0E11FA24D8200909551 /* MainBonus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainBonus.swift; sourceTree = "<group>"; };
+		D6D1D0E51FA2551D00909551 /* blockClock.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = blockClock.xib; sourceTree = "<group>"; };
 		D6D591BA1F8D19D20002451A /* LxTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LxTabBarController.swift; sourceTree = "<group>"; };
 		D6E2BF661F8FE804002D28F2 /* MemoryControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryControll.swift; sourceTree = "<group>"; };
 		D6E2BF681F8FF4BE002D28F2 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				D612BBFA1F96B48F002C4647 /* LotteryResults.xib */,
 				D6ED6B371F8F90C100384672 /* InfoView.xib */,
 				D6F460AC1F9D215F0006FA08 /* YouWin.xib */,
+				D6D1D0E51FA2551D00909551 /* blockClock.xib */,
 			);
 			name = StoryBoard;
 			sourceTree = "<group>";
@@ -250,7 +255,8 @@
 			children = (
 				D6E2BF681F8FF4BE002D28F2 /* LoadingView.swift */,
 				D6F1E1691F7D7B0C0098B34C /* MenuLeft.swift */,
-				D69364D81F5F328D00FD0D37 /* MainView.swift */,
+				D69364D81F5F328D00FD0D37 /* MainViews.swift */,
+				D6D1D0E11FA24D8200909551 /* MainBonus.swift */,
 				D6BDD90D1F7B240600E91FD0 /* ProfileView.swift */,
 				D6E42B781F8AFBE2005270A9 /* HistoryTable.swift */,
 				D6F3A0AA1F92DC72001EDA29 /* Details.swift */,
@@ -491,6 +497,7 @@
 				D612BBF71F9536AA002C4647 /* Assets.xcassets in Resources */,
 				D612BBFB1F96B48F002C4647 /* LotteryResults.xib in Resources */,
 				D6C6BAB51F8CD6C000EC7FE0 /* Roboto-Medium.ttf in Resources */,
+				D6D1D0E61FA2551D00909551 /* blockClock.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,7 +597,7 @@
 				D6BDD90C1F7B07A700E91FD0 /* CountDownSimpleTime.swift in Sources */,
 				D6BDD90A1F7AF56500E91FD0 /* CountUppMoney.swift in Sources */,
 				D6F1E1901F7E55130098B34C /* UIView+JSLayout.m in Sources */,
-				D69364DA1F5F328D00FD0D37 /* MainView.swift in Sources */,
+				D69364DA1F5F328D00FD0D37 /* MainViews.swift in Sources */,
 				D6F1E19A1F7E55130098B34C /* JSRuleRegex.m in Sources */,
 				D6F1E1361F7BA0E50098B34C /* AgreeToPlay.swift in Sources */,
 				D62CA43D1F8FB73E00D67C0A /* SettingsView.swift in Sources */,
@@ -608,6 +615,7 @@
 				D6F460AB1F9D21340006FA08 /* YouWin.swift in Sources */,
 				D6D591BB1F8D19D20002451A /* LxTabBarController.swift in Sources */,
 				D6F1E1321F7B9F3B0098B34C /* MainViewPositions.swift in Sources */,
+				D6D1D0E21FA24D8200909551 /* MainBonus.swift in Sources */,
 				D6F1E1971F7E55130098B34C /* JSRuleNotNull.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

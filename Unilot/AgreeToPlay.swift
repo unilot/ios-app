@@ -23,6 +23,8 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
 
     @IBOutlet weak var trophy: UIImageView!
 
+    @IBOutlet weak var copy_line: UILabel!
+
     
     class func createAgreeToPlay() -> AgreeToPlay {
         let myClassNib = UINib(nibName: "AgreeToPlay", bundle: nil)
@@ -32,7 +34,9 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
      override func setInitBorders(){
         
         super.setInitBorders()
-        
+         
+        copy_line.text = games_list[local_current_game_type]!.smart_contract_id
+            
         copyButton.layer.borderWidth = 1
         copyButton.layer.borderColor = UIColor.lightGray.cgColor
         copyButton.layer.cornerRadius = 4
@@ -60,7 +64,7 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
     
     @IBAction func onCopyNumber(){
 
-        saveToClipboard(kNumberOfOurPursle)
+        saveToClipboard(copy_line.text!)
 
      }
     

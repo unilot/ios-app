@@ -32,7 +32,11 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     @IBOutlet weak var moneyTablet: CountUppMoney!
     
+    @IBOutlet weak var clockTablet: CountDownFullTimer?
+
     
+    var gameInfo = GameInfo.empty()
+
     var widthProgress = CGFloat(-1)
         
     //MARK: - Views Load override
@@ -49,6 +53,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
 
         setButtonView()
 
+        
     }
     
     
@@ -93,7 +98,32 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     func fillWithData(){
         
     }
-     
+    
+    
+    func answerOnInitData(){
+        
+        gameInfo = games_list[local_current_game_type]!
+        
+        peopleCount.text = Int(gameInfo.prize_amount).stringWithSepator
+        usSum.text = "$ \(gameInfo.prize_amount)"
+        
+        moneyTablet.initTimer(Int(gameInfo.prize_amount_local * 100),
+                              Int(gameInfo.prize_amount_fiat * 100))
+        
+        let timerNow = gameInfo.ending_at - Int(Date().timeIntervalSince1970)
+        
+        if timerNow > 0 {
+            setTimersNumbers(timerNow,gameInfo.ending_at - gameInfo.started_at)
+        } else {
+            showCompleteView()
+        }
+    }
+    
+    func setTimersNumbers(_ from : Int, _ all : Int) {
+        
+        clockTablet?.initTimer(from,all)
+
+    }
     
     //MARK: - Set all views
     
@@ -189,6 +219,13 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     func stopSchedule(){
         
     }
+    
+    
+    
+    func showCompleteView(){
+        
+    }
+    
     
     //MARK: - onButtons
 

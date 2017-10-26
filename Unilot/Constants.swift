@@ -8,10 +8,6 @@
 
  
 
-//MARK: -  keys
-
-
-let kNumberOfOurPursle = "TMP_341239r8uyweho8fiucynbuy4onreiadlneh78ynhoqxid"
 
 
 //MARK: -  games info

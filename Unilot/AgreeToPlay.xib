@@ -172,6 +172,7 @@
             <connections>
                 <outlet property="clockTablet" destination="sZB-vg-g4z" id="OKd-TU-pFD"/>
                 <outlet property="copyButton" destination="7Kd-e9-pKQ" id="ccj-bI-jxE"/>
+                <outlet property="copy_line" destination="Nql-Z0-5DR" id="vj1-Xm-oNL"/>
                 <outlet property="endLabel" destination="sd1-aD-ahN" id="6nP-0f-FYZ"/>
                 <outlet property="textBig" destination="Ltz-Tj-gjO" id="QWg-NQ-rVt"/>
                 <outlet property="titleMain" destination="5nn-c6-pxt" id="49G-nM-UPN"/>

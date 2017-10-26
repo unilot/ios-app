@@ -12,6 +12,15 @@ import QRCodeReader
 
 
 
+
+//MARK: - Local Vars
+
+var local_current_game_type = kTypeDay
+
+
+
+//MARK: - Structures
+
 struct GameInfo {
     
     var id                  : Int
@@ -19,8 +28,9 @@ struct GameInfo {
     var num_players         : Int
     var prize_amount        : Float
     var prize_amount_fiat   : Float
-    var started_at          : Date
-    var ending_at           : Date
+    var prize_amount_local  : Float
+    var started_at          : Int
+    var ending_at           : Int
     var status              : Int
     var type                : Int
     
@@ -31,44 +41,11 @@ struct GameInfo {
                               num_players: 0,
                               prize_amount: 0,
                               prize_amount_fiat: 0,
-                              started_at: Date(),
-                              ending_at: Date(),
+                              prize_amount_local: 0,
+                              started_at: 0,
+                              ending_at: 0,
                               status: 0,
                               type: 0)
-    }
-    
-    static func fill(_ data :[String : Any]) -> GameInfo{
- 
-        var item =  GameInfo.empty()
-        
-        item.id                 = data["id"] as! Int,
-        item.smart_contract_id  = data["smart_contract_id"] as! String,
-        item.num_players        = data["num_players"] as! Int,
-        item.prize_amount       = data["prize_amount"] as! Float,
-        item.prize_amount_fiat  = data["prize_amount_fiat"] as! Float,
-        item.started_at         = Date(),
-        item.ending_at          = Date(),
-        item.status             = data["status"] as! Int,
-        item.type               = data["type"] as! Int
-        
-        
-        
-        guard let data = try?  GameInfo(id: data["id"] as! Int,
-                                        smart_contract_id: data["smart_contract_id"] as! String,
-                                        num_players: data["num_players"] as! Int,
-                                        prize_amount: data["prize_amount"] as! Float,
-                                        prize_amount_fiat: data["prize_amount_fiat"] as! Float,
-                                        started_at: Date(),
-                                        ending_at: Date(),
-                                        status: data["status"] as! Int,
-                                        type: data["type"] as! Int) else {
-                                            
-            print("There was an error!")
-                                            return item
-        }
-        
-        return item
-    
     }
     
     
@@ -76,6 +53,8 @@ struct GameInfo {
 
 
 
+
+//MARK: - Functions
 
 func saveToClipboard(_ text : String){
     UIPasteboard.general.string = text
@@ -164,7 +143,20 @@ func setColorForLabel(_ sizeOfView : CGSize, _ text : String) -> UIView{
     return bgView
 }
 
-
+func convertDate(from isoDate : String) -> Int {
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    let date = dateFormatter.date(from:isoDate)!
+    let calendar = Calendar.current
+    let components = calendar.dateComponents([.year, .month, .day, .hour], from: date)
+    let finalDate: Date = calendar.date(from:components) ?? Date()
+    
+    
+    
+    return Int(finalDate.timeIntervalSince1970)
+    
+}
 func imageScaledToSize(size: CGSize, image: UIImage) -> UIImage {
     UIGraphicsBeginImageContextWithOptions(size, false, 0.0);
     image.draw(in: CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height))

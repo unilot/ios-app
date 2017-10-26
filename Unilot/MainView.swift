@@ -130,9 +130,16 @@ class BonusView: MainViewPositions {
         
     }
     
+    func getGameInfo(_ type : Int) -> [String: Any]{
+        
+    }
     
     func answerOnInitData(){
         
+        let game_info = games_list.map { (item : [String : Any]) -> [String:Any] in
+            
+            if item["type"] == kTypeDay
+        }
         peopleCount.text = Int(2442345).stringWithSepator
         usSum.text = "$ " + Int(232345).stringWithSepator
         

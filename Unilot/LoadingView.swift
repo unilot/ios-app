@@ -66,6 +66,9 @@ class LoadingView : UIViewController, NVActivityIndicatorViewable{
     
     func getGamesList(){
         
+//        NetWork.test()
+        
+        
          NetWork.getGamesList { (error : String?) in
             
             if error != nil {

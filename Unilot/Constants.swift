@@ -14,6 +14,19 @@
 let kNumberOfOurPursle = "TMP_341239r8uyweho8fiucynbuy4onreiadlneh78ynhoqxid"
 
 
+//MARK: -  games info
+
+let kTypeHour = 5
+let kTypeDay = 10
+let kTypeWeek = 30
+let kTypeMonth = 50
+
+let kStatusPublished = 10
+let kStatusCancele  = 20
+let kStatusComplete = 30
+ 
+
+
 //MARK: -  links
 
 

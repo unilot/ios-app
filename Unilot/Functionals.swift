@@ -12,7 +12,67 @@ import QRCodeReader
 
 
 
-
+struct GameInfo {
+    
+    var id                  : Int
+    var smart_contract_id   : String
+    var num_players         : Int
+    var prize_amount        : Float
+    var prize_amount_fiat   : Float
+    var started_at          : Date
+    var ending_at           : Date
+    var status              : Int
+    var type                : Int
+    
+    
+    static func empty() -> GameInfo{
+        return GameInfo(id: 0,
+                              smart_contract_id: kEmpty,
+                              num_players: 0,
+                              prize_amount: 0,
+                              prize_amount_fiat: 0,
+                              started_at: Date(),
+                              ending_at: Date(),
+                              status: 0,
+                              type: 0)
+    }
+    
+    static func fill(_ data :[String : Any]) -> GameInfo{
+ 
+        var item =  GameInfo.empty()
+        
+        item.id                 = data["id"] as! Int,
+        item.smart_contract_id  = data["smart_contract_id"] as! String,
+        item.num_players        = data["num_players"] as! Int,
+        item.prize_amount       = data["prize_amount"] as! Float,
+        item.prize_amount_fiat  = data["prize_amount_fiat"] as! Float,
+        item.started_at         = Date(),
+        item.ending_at          = Date(),
+        item.status             = data["status"] as! Int,
+        item.type               = data["type"] as! Int
+        
+        
+        
+        guard let data = try?  GameInfo(id: data["id"] as! Int,
+                                        smart_contract_id: data["smart_contract_id"] as! String,
+                                        num_players: data["num_players"] as! Int,
+                                        prize_amount: data["prize_amount"] as! Float,
+                                        prize_amount_fiat: data["prize_amount_fiat"] as! Float,
+                                        started_at: Date(),
+                                        ending_at: Date(),
+                                        status: data["status"] as! Int,
+                                        type: data["type"] as! Int) else {
+                                            
+            print("There was an error!")
+                                            return item
+        }
+        
+        return item
+    
+    }
+    
+    
+}
 
 
 

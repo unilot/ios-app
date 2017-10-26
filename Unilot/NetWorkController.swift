@@ -22,120 +22,38 @@ let request_session_data : Parameters = [
     "grant_type" : "client_credentials"
 ]
 
-var request_headers = [
-    "Content-Type": "application/json",
-    "Accept": "application/json"
-
+var request_headers : HTTPHeaders  = [
+    "Content-Type" : "application/json"
 ]
 
 
-var notifications_data = ["badge" : 3]
 
-var session_data = [String: Any]()
-
-
-class NetWork {
-    
-//    static let serverTrustPolicies: [String: ServerTrustPolicy] = [
-//        //        "dev.unilot.io": .pinCertificates(
-//        //            certificates: ServerTrustPolicy.certificates(),
-//        //            validateCertificateChain: true,
-//        //            validateHost: true
-//        //        ),
-//        //        "https://dev.unilot.io": .disableEvaluation
-//    ]
-//    
-//    static let sessionManager = SessionManager(
-//        serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
-//    )
-//    
-    
-    
-    static func test(){
-        let headers = [
-            "Authorization": "Bearer Zk7vI5Ur9LTRKdXpTELWiUwr2zFzxE",
-            "Authenticate": "Bearer Zk7vI5Ur9LTRKdXpTELWiUwr2zFzxE",
-            "accept"       :  "application/json",
-            "Content-Type" :"application/json"
-        ]
-        
-        let request = NSMutableURLRequest(url: NSURL(string: "https://dev.unilot.io/api/v1/games")! as URL,
-                                          cachePolicy: .useProtocolCachePolicy,
-                                          timeoutInterval: 10.0)
-        request.httpMethod = "GET"
-        request.allHTTPHeaderFields = headers
-        
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-            if (error != nil) {
-                print("test error\n", error?.localizedDescription ?? "fghjk")
-            } else {
-                let httpResponse = response as? HTTPURLResponse
-                print("test httpResponse\n",httpResponse ?? "poiuytre")
-            }
-        })
-        
-        dataTask.resume()
-    }
+class NetWork : NetWorkParse {
+ 
     static func startSession(completion: @escaping (String?) -> Void) {
-    
-//        test()
-        
+         
         Alamofire.request(kServer + kAPI_get_token,
-                               method : .post,
-                               parameters: request_session_data,
-                               encoding: JSONEncoding.default,
-                               headers: request_headers)
+                          method: HTTPMethod.post,
+                          parameters: request_session_data,
+                          encoding: JSONEncoding.default,
+                          headers: request_headers)
             .responseJSON { (response) -> Void in
                 
-                guard response.result.isSuccess else {
-                    let error_line = response.result.error!.localizedDescription
-                    completion(error_line)
-                    return
-                }
-                
-                guard let responseJSON = response.result.value as? [String: Any] else {
-                    completion("empty responseJSON")
-                    return
-                }
-                
-                session_data = responseJSON
-                let new_header_item = String(format: (responseJSON["token_type"] as! String) + "  " + (responseJSON["access_token"] as! String))
-                request_headers["Authorization"] = new_header_item
-                
-                print("session_data = " ,responseJSON)
-                
-                completion(nil)
+                completion(sendToErrorParsAndDataParse(response, parseAuthorisation))
         }
-        
     }
     
     
     static func getGamesList(completion: @escaping (String?) -> Void) {
-
         
         Alamofire.request( kServer + kAPI_get_list_games,
                                method : .get,
+                               encoding: JSONEncoding.default,
                                headers: request_headers)
             
             .responseJSON { (response) -> Void in
                 
-                guard response.result.isSuccess else {
-                    let error_line = response.result.error!.localizedDescription
-                    completion(error_line)
-                    return
-                }
-                
-                guard let responseJSON = response.result.value as? [String: Any] else {
-                    completion("empty responseJSON")
-                    return
-                }
-                print("urlRequest = " , response.request!.urlRequest)
-                print("allHTTPHeaderFields = " , response.request!.allHTTPHeaderFields)
-                
-                                print("getGamesList = " ,responseJSON)
-                
-                completion(nil)
+                completion(sendToErrorParsAndDataParse(response, parseGamesList))
         }
         
     }
@@ -190,5 +108,29 @@ class NetWork {
     static func getMoneyCountInfo(){
         
     }
+    
+    //MARK: - ERRORS
+    
+    static func sendToErrorParsAndDataParse(
+                            _ response      : DataResponse<Any>,
+                            _ dataParse     : (Any?) -> String? ) -> String? {
+        
+        guard response.result.isSuccess else {
+            return  response.result.error!.localizedDescription
+        }
+        
+        // some othe error check
+        
+        if  response.result.value == nil  {
+            return  "response.result.value is NULL"
+        }
+        
+        // parse usefull data
+        
+        return dataParse( response.result.value)
+        
+    }
+    
+    
     
 }

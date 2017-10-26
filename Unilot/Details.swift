@@ -142,15 +142,8 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
                                               height: 44))
       
         let headerCell = tableView.dequeueReusableCell(withIdentifier: "id_header")!
-       
-        headerCell.setNeedsLayout()
-        headerCell.layoutIfNeeded()
-       
-        headerView.addSubview(headerCell)
-
-        headerView.setNeedsLayout()
-        headerView.layoutIfNeeded()
         
+        headerView.addSubview(headerCell)
         
         labelFor(headerCell, 10)?.text = TR("МЕСТО")
         labelFor(headerCell, 20)?.text = TR("КОШЕЛЕК")

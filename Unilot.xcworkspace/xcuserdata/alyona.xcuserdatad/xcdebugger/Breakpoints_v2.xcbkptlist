@@ -27,13 +27,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Unilot/MainViewPositions.swift"
-            timestampString = "530748423.689492"
+            filePath = "Unilot/CountUppMoney.swift"
+            timestampString = "530834490.113519"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "answerOnInitData()"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "initConstants()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Unilot/CountUppMoney.swift"
+            timestampString = "530834492.153359"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "initConstants()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

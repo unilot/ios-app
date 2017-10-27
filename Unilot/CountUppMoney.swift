@@ -15,12 +15,20 @@ class CountUppMoney: CountDownCore  {
     
     override func initConstants(){
         
-        flippersCount = 5
+        countFlipersCountAndStep()
         
-        flippersGaps  = 3
-                
-        timerUpdateDuration = 2.0
+        timerUpdateDuration = 0.5
 
+    }
+    
+    func countFlipersCountAndStep(){
+        let current_game = games_list[local_current_game_type]!
+
+        let money2 = current_game.prize_amount_fiat
+ 
+        
+        flippersCount = 1 + Int(log10(money2)) + flippersGaps
+        
     }
     
     
@@ -33,7 +41,6 @@ class CountUppMoney: CountDownCore  {
     override func changeCounts() -> Bool {
         
         if totalCounts < startCounts {
-            
             totalCounts += 1
             return true
         }
@@ -50,9 +57,7 @@ class CountDownTimeMonth: CountDownCore  {
     override func initConstants(){
         
         flippersCount = 2
-        
-        flippersGaps  = 3
-        
+                
         timerUpdateDuration = 6.0 // tmp
         
     }

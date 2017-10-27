@@ -43,15 +43,15 @@ class NetWorkParse {
 
         games_list = [:]
         
-        let old_data = MemoryControll.getObject("GameInfo") as? [GameInfo]
+//        let old_data = MemoryControll.getObject("GameInfo") as? [Int : GameInfo]
 
         for item in responseJSON {
             let game = createGameItem(from: item)
             games_list[game.type] = game
             
-            if old_data != nil {
-                games_list[game.type]?.prize_amount_local = old_data![game.type].prize_amount_fiat
-            }
+//            if old_data != nil {
+//                games_list[game.type]?.prize_amount_local = (old_data![game.type]?.prize_amount_fiat)!
+//            }
         }
         
         

@@ -14,6 +14,8 @@ class MainView: MainViewPositions {
   
     override func fillWithData(){
         
+        setGameNumbers()
+
         if tabBarItem.tag == 0 {
             titleMain.text = "Дневная лотерея"
         } else {
@@ -29,8 +31,6 @@ class MainView: MainViewPositions {
         setTakePartView()
         
         addTimersBody()
-        
-        setGameNumbers()
         
         answerOnInitData()
 

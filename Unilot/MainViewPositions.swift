@@ -104,11 +104,11 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
         gameInfo = games_list[local_current_game_type]!
         
-        peopleCount.text = Int(gameInfo.prize_amount).stringWithSepator
+        peopleCount.text = Int(gameInfo.num_players).stringWithSepator
         usSum.text = "$ \(gameInfo.prize_amount)"
         
-        moneyTablet.initTimer(Int(gameInfo.prize_amount_local * 100),
-                              Int(gameInfo.prize_amount_fiat * 100))
+        moneyTablet.initTimer(Int(gameInfo.prize_amount_local * 1000),
+                              Int(gameInfo.prize_amount_fiat * 1000))
         
         let timerNow = gameInfo.ending_at - Int(Date().timeIntervalSince1970)
         

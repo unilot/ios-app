@@ -14,6 +14,10 @@ import Splitflap
 class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
     
     
+    var stepCount = 1
+
+    var comaPlace = Float(1.55)
+
     var flippersCount = 5
     
     var flippersGaps  = 3
@@ -94,13 +98,14 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
 
     
     func adComa(){
-        
+       
         let widthOfFlipper = frame.width / CGFloat(flippersCount)
         
-        let frameComa = CGRect(x: widthOfFlipper * 1.55 , y: 0,
-                      width: widthOfFlipper * 0.5,
+        let frameComa = CGRect(x: widthOfFlipper * CGFloat(flippersCount - flippersGaps) - widthOfFlipper / 3,
+                               y: 0,
+                      width: widthOfFlipper / 3 ,
                       height: frame.height)
-                
+        
         let labelMain = UILabel(frame: frameComa)
         labelMain.textColor = kColorLightOrange
         labelMain.text = ","
@@ -143,10 +148,8 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
             createFlipWithLabel(i)
         }
         
-        if flippersCount > 4 {
-            adComa()
-        }
-        
+        adComa()
+         
         isFull = true
     }
     

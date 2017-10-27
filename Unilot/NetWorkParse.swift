@@ -42,6 +42,7 @@ class NetWorkParse {
         print(resultValue)
 
         games_list = [:]
+        
         let old_data = MemoryControll.getObject("GameInfo") as? [GameInfo]
 
         for item in responseJSON {
@@ -53,6 +54,9 @@ class NetWorkParse {
             }
         }
         
+        
+        MemoryControll.saveObject(games_list, key: "GameInfo")
+        
         return nil
         
     }
@@ -61,9 +65,9 @@ class NetWorkParse {
     
     static func createGameItem(from data :[String : Any]) -> GameInfo{
             
-        var item = GameInfo.empty()
+        let item = GameInfo()
         
-        item.id                 = data["id"] as! Int
+        item.game_id            = data["id"] as! Int
         item.smart_contract_id  = data["smart_contract_id"] as! String
         item.num_players        = data["num_players"] as! Int
         item.prize_amount       = data["prize_amount"] as! Float

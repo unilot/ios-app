@@ -1470,7 +1470,7 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <connections>
-                        <outlet property="clockTablet" destination="fnG-ZC-Jhn" id="XHd-to-5Gh"/>
+                        <outlet property="daysCount" destination="fnG-ZC-Jhn" id="OXq-el-qv3"/>
                         <outlet property="howDoesItWork" destination="ibd-nZ-FOp" id="J8U-7l-cID"/>
                         <outlet property="label1" destination="9Vf-fw-shV" id="htv-88-e1p"/>
                         <outlet property="label2" destination="Rbx-T0-BfG" id="8KF-QG-eBv"/>
@@ -1951,10 +1951,10 @@
             </objects>
             <point key="canvasLocation" x="-88" y="1595"/>
         </scene>
-        <!--Дневная-->
+        <!--Недельная-->
         <scene sceneID="wJS-jE-2O5">
             <objects>
-                <viewController storyboardIdentifier="SB_MainWeek" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wgG-he-XiK" customClass="MainView" customModule="Unilot" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SB_MainWeek" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wgG-he-XiK" customClass="MainWeekView" customModule="Unilot" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hmL-s1-i9O"/>
                         <viewControllerLayoutGuide type="bottom" id="kUt-fX-9IW"/>
@@ -2255,7 +2255,7 @@
                             <constraint firstItem="bgr-ad-zym" firstAttribute="leading" secondItem="zan-Qe-GZb" secondAttribute="leadingMargin" constant="20" id="zhi-u0-zXo"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="Дневная" image="`7days-x3" id="sXT-1e-TAz">
+                    <tabBarItem key="tabBarItem" tag="1" title="Недельная" image="`7days-x3" id="sXT-1e-TAz">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <connections>

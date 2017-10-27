@@ -35,7 +35,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     @IBOutlet weak var clockTablet: CountDownFullTimer?
 
     
-    var gameInfo = GameInfo.empty()
+    var gameInfo = GameInfo()
 
     var widthProgress = CGFloat(-1)
         

@@ -21,36 +21,60 @@ var local_current_game_type = kTypeDay
 
 //MARK: - Structures
 
-struct GameInfo {
-    
-    var id                  : Int
-    var smart_contract_id   : String
-    var num_players         : Int
-    var prize_amount        : Float
-    var prize_amount_fiat   : Float
-    var prize_amount_local  : Float
-    var started_at          : Int
-    var ending_at           : Int
-    var status              : Int
-    var type                : Int
+let cReviews    = 6
+
+
+
+class GameInfo : NSObject, NSCoding{
     
     
-    static func empty() -> GameInfo{
-        return GameInfo(id: 0,
-                              smart_contract_id: kEmpty,
-                              num_players: 0,
-                              prize_amount: 0,
-                              prize_amount_fiat: 0,
-                              prize_amount_local: 0,
-                              started_at: 0,
-                              ending_at: 0,
-                              status: 0,
-                              type: 0)
+    var game_id             : Int = 0
+    var smart_contract_id   : String = kEmpty
+    var num_players         : Int = 0
+    var prize_amount        : Float = 0
+    var prize_amount_fiat   : Float = 0
+    var prize_amount_local  : Float = 0
+    var started_at          : Int = 0
+    var ending_at           : Int = 0
+    var status              : Int = 0
+    var type                : Int = 0
+    
+ 
+ 
+    func encode(with aCoder: NSCoder){
+        
+        aCoder.encode(self.game_id, forKey: "game_id")
+        aCoder.encode(self.smart_contract_id, forKey: "smart_contract_id")
+        aCoder.encode(self.num_players, forKey: "num_players")
+        aCoder.encode(self.prize_amount, forKey: "prize_amount")
+        aCoder.encode(self.prize_amount_fiat, forKey: "prize_amount_fiat")
+        aCoder.encode(self.prize_amount_local, forKey: "prize_amount_local")
+        aCoder.encode(self.started_at, forKey: "started_at")
+        aCoder.encode(self.ending_at, forKey: "ending_at")
+        aCoder.encode(self.status, forKey: "status")
+        aCoder.encode(self.type, forKey: "type")
+        
     }
     
     
+    required init (coder aDecoder: NSCoder) {
+        self.game_id = aDecoder.decodeObject(forKey: "game_id") as! Int
+        self.smart_contract_id = aDecoder.decodeObject(forKey: "smart_contract_id") as! String
+        self.num_players = aDecoder.decodeObject(forKey: "num_players") as! Int
+        self.prize_amount = aDecoder.decodeObject(forKey: "prize_amount") as! Float
+        self.prize_amount_fiat = aDecoder.decodeObject(forKey: "prize_amount_fiat") as! Float
+        self.prize_amount_local = aDecoder.decodeObject(forKey: "prize_amount_local") as! Float
+        self.started_at = aDecoder.decodeObject(forKey: "started_at") as! Int
+        self.ending_at = aDecoder.decodeObject(forKey: "ending_at") as! Int
+        self.status = aDecoder.decodeObject(forKey: "status") as! Int
+        self.type = aDecoder.decodeObject(forKey: "type") as! Int
+    }
+    
+    
+    override init() {
+        super.init()
+    }
 }
-
 
 
 

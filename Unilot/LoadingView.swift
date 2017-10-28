@@ -13,20 +13,31 @@ import SCLAlertView
 class LoadingView : UIViewController, NVActivityIndicatorViewable{
     
     
-    
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
-
         
         startAnimating(CGSize(width: 40 , height: 40),
                        type : NVActivityIndicatorType.lineScalePulseOut)
-     
+        
+        if startWas {
+            
+            enterApp()
+            
+        } else {
+            NotificationCenter.default.addObserver(self,
+                                                   selector: #selector(LoadingView.enterApp),
+                                                   name: NSNotification.Name(rawValue: "NOTIFICATION_START"),
+                                                   object: nil)
+        }
+        
+    }
+    
+    
+    func enterApp() {
         
         MemoryControll.init_defaults_if_any()
-        
+         
         getSessionToken()
-
         
     }
     

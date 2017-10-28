@@ -22,7 +22,16 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
     
     var flippersGaps  = 3
 
-    var timerUpdateDuration = 1.0
+    
+
+    
+    var timerStep = 0.0
+
+    var timerCoeff  = 0.0
+
+    var timerPrevious  = 0.0
+    
+    
     
     var startCounts = 0
     
@@ -47,12 +56,17 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
     }
     
     
-    func updateLabels() {
+    func updateLabels() -> Double{        
         
-        //        let units = timeFormatted(totalTime)
+        let newTimerPrevious =  timerStep * timerStep * timerCoeff
         
-        //        changeDigit(forPlace: 0,  units)
+        let delay = newTimerPrevious  - timerPrevious
         
+        timerPrevious = newTimerPrevious
+        
+        timerStep = timerStep + 1
+        
+        return delay
         
     }
     
@@ -160,19 +174,27 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
 
         doUpdate()
 
-        countdownTimer  = Timer.scheduledTimer(timeInterval: timerUpdateDuration,
-                                               target: self,
-                                               selector: #selector(CountDownCore.doUpdate),
-                                               userInfo: nil,
-                                               repeats: true)
 
     }
+    
+    
     
     
     func initTimer(_ from : Int, _ all : Int){
         
         startCounts = all
         totalCounts = from
+        
+        let diff = Double(abs(all - from))
+        
+        if diff > 0 {
+            timerCoeff = timeOfFlipperAnimation / (diff * diff)
+            
+            print("diff = ",diff,"timerCoeff = ",timerCoeff)
+        }
+        
+        
+        
         
 //        doScheduledTimer()
         
@@ -212,10 +234,15 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
     
     func doUpdate(){
         
-        updateLabels()
+        let delay = updateLabels()
         
         if changeCounts() {
-
+            
+            countdownTimer  = Timer.scheduledTimer(timeInterval: delay,
+                                                   target: self,
+                                                   selector: #selector(CountDownCore.doUpdate),
+                                                   userInfo: nil,
+                                                   repeats: false)
         } else {
             endTimer()
         }

@@ -14,7 +14,9 @@ import QRCodeReader
 
 
 //MARK: - Local Vars
-  
+
+var startWas : Bool = false
+
 var local_current_game = GameInfo()
 
 

@@ -36,6 +36,8 @@ let kLink_Twitter = "https://twitter.com/unilot_lottery"
 
 //MARK: -  local data
 
+var timeOfFlipperAnimation = 30.0
+
 var lottery_images   = ["`1day-x3","`7days-x3","`31days-x3"]
 var kTypeImage       = [kTypeDay : "`1day-x3", kTypeWeek : "`7days-x3", kTypeMonth : "`31days-x3"]
 var kTypeTabBarOrder = [kTypeDay, kTypeWeek, kTypeMonth]

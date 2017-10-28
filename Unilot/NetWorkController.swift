@@ -15,7 +15,7 @@ let kAPI_get_token          = "o2/token/"
 let kAPI_set_device         = "api/v1/device/"
 let kAPI_get_list_games     = "api/v1/games"
 let kAPI_get_list_winners   = "api/v1/games/%@/winners"
-let kAPI_get_history        = "api/v1/games/history"
+let kAPI_get_history        = "api/v1/games/archived"
 
 let request_session_data : Parameters = [
     "client_id": "PccTjiTN7xXU9PCJRiAzYA2frgKUSEl0scJMTzFb",
@@ -59,8 +59,6 @@ class NetWork : NetWorkParse {
         
     }
     
-    
-
     
     static func getListWinners(completion: @escaping (String?) -> Void) {
         

@@ -34,7 +34,7 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         
         widthOfCell = frame.width * 0.9
         
-        titleWithPrice.text = "\(local_current_game.prize_amount_fiat) ETh = $\(local_current_game.prize_amount)"
+        titleWithPrice.text = "\(local_current_game.prize_amount_fiat) ETh = $ \(local_current_game.prize_amount)"
 
         NetWork.getListWinners(completion: onAnswer)
         
@@ -119,6 +119,7 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         first.tag = 10
         first.textColor = UIColor.black
         first.numberOfLines = 2
+        first.textAlignment = .center
         first.font = UIFont(name: kFont_Light, size: 12)
         cell.contentView.addSubview(first)
         

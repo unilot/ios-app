@@ -31,8 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let aps = notification["extra"] as! [String: Any]
             parseNotification(aps, isOpened: false)
             // 3
-            
         }
+
         return true
         
     }
@@ -136,9 +136,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //MARK: -
     
-    var startWas : Bool = false
-    
-    
+     
     func registerForPushNotifications(_ application: UIApplication) {
         
         let viewAction = UIMutableUserNotificationAction()
@@ -162,13 +160,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print(notificationDictionary)
         
-        if let forID = notificationDictionary["foo"] as? String {
- 
-            print(forID)
+        if let types = notificationDictionary["foo"] as? String {
+  
+            print(types)
         }
         
     }
-    
     
     
     func startAfterAnswerFromRemoteNotifications(){

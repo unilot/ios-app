@@ -18,16 +18,15 @@ class CountUppMoney: CountDownCore  {
         let money2 = local_current_game.prize_amount_fiat
         
         flippersCount = 1 + Int(log10(money2)) + flippersGaps
-        
-        timerUpdateDuration = 1.0
-        
-
+         
     }
     
     
-    override func updateLabels() {
+    override func updateLabels() -> Double{
         
         updateFlippers("\(totalCounts)")
+        
+        return super.updateLabels()
         
     }
     

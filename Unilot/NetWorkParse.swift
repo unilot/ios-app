@@ -115,7 +115,6 @@ class NetWorkParse {
         item.status             = data["status"] as! Int
         item.type               = data["type"] as! Int
         
-        item.prize_amount_local = item.prize_amount_fiat
 
         return item
     }

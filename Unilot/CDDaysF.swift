@@ -17,9 +17,7 @@ class CountDownTimeMonth: CountDownCore  {
     override func initConstants(){
         
         flippersCount = 2
-        
-        timerUpdateDuration = 3600 * 24
-        
+                
     }
     
     
@@ -28,10 +26,11 @@ class CountDownTimeMonth: CountDownCore  {
         
     }
     
-    override func updateLabels() {
+    override func updateLabels() -> Double{
         
         updateFlippers("\(totalCounts)")
         
+        return super.updateLabels()
     }
     
     override func changeCounts() -> Bool {

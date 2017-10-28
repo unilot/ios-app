@@ -59,6 +59,9 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
             dataForTable =  winners_list.sorted(by: {  return $0.position < $1.position})
             
             origin_dataForTable = dataForTable
+        
+            winners.text = "\(local_current_game.num_players - dataForTable.count)"
+        
         }
         
         tableMain.reloadData()
@@ -80,9 +83,6 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         
         eth.text = "\(local_current_game.prize_amount_fiat)"
         users.text = "\(local_current_game.num_players)"
-        winners.text = "\(local_current_game.num_players - dataForTable.count)"
-        
-        
         
         let height = navigationController!.navigationBar.frame.height
         let width =  CGFloat(300)//navigationController!.navigationBar.frame.width

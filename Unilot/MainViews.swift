@@ -28,9 +28,7 @@ class MainView: MainViewPositions {
          
         setTakePartView()
         
-        addTimersBody()
-        
-        answerOnInitData()
+        addTimersBody() 
 
     }
     

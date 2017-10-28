@@ -136,6 +136,24 @@ class CDTimerPopUp: CountDownFullTimer  {
         
     }
     
+    override func createTextStatic(_ height: CGFloat){
+        
+        let widthShift = self.frame.width / 3
+        
+        var frameRect = CGRect(
+            x: 0 ,
+            y: self.frame.height - height*3,
+            width: widthShift,
+            height: height)
+        
+        createOneLabelStatic(frame: frameRect,200)
+        
+        frameRect.origin.x = widthShift
+        createOneLabelStatic(frame: frameRect,300)
+        
+        frameRect.origin.x = widthShift * 2
+        createOneLabelStatic(frame: frameRect,400)
+    }
     
     
 }

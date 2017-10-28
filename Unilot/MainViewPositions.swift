@@ -34,7 +34,11 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     @IBOutlet weak var clockTablet: CountDownFullTimer?
 
+    @IBOutlet weak var firstOverlay: UIView!
+    
+    var secondOverlay: UIImageView!
 
+    
     var widthProgress = CGFloat(-1)
         
     //MARK: - Views Load override
@@ -344,6 +348,60 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: 1)
         
 
+    }
+    
+    
+    func createOverLayWithWait(){
+        
+        firstOverlay.isHidden = true
+        secondOverlay = UIImageView(frame: firstOverlay.frame)
+        view.addSubview(secondOverlay)
+        
+        secondOverlay.clipsToBounds = true
+        secondOverlay.layer.cornerRadius = firstOverlay.layer.cornerRadius
+        secondOverlay.backgroundColor = firstOverlay.backgroundColor
+        secondOverlay.layer.backgroundColor = firstOverlay.layer.backgroundColor
+        
+        
+        
+        let title = UILabel(frame: CGRect(x: 5, y: 5, width: secondOverlay.frame.width - 10, height: 90))
+        title.text =  TR("Система \nвыбирает победителя")
+        title.textColor = UIColor.white
+        title.numberOfLines = 3
+        title.font = UIFont(name: kFont_Regular, size: 30)
+        title.textAlignment = .center
+        secondOverlay.addSubview(title)
+        
+        
+        let timerThin =  CDHourL(frame: CGRect(x: 15, y: 15 + title.frame.height,
+                                               width: secondOverlay.frame.width - 30, height: 90))
+        timerThin.createBodyTimers()
+        timerThin.initTimer(0, 60)
+        timerThin.doScheduledTimer()
+        secondOverlay.addSubview(timerThin)
+        
+        
+        let tranzaction_string = UILabel(frame: CGRect(x: 5, y: 220,
+                                                       width: secondOverlay.frame.width - 10, height: 28))
+        
+        tranzaction_string.text = local_current_game.game_id
+        tranzaction_string.textColor = UIColor.white
+        tranzaction_string.numberOfLines = 1
+        tranzaction_string.font = UIFont(name: kFont_Regular, size: 14)
+        tranzaction_string.textAlignment = .center
+        secondOverlay.addSubview(tranzaction_string)
+    
+    
+        let copyButton = UIButton(frame : CGRect(x: 5, y: secondOverlay.frame.height - 60,
+                                                width:  secondOverlay.frame.width - 10, height: 60))
+        copyButton.setImage(UIImage(named: "copy-x3"), for: .normal)
+        copyButton.setTitle(TR("Скопировать номер транзакции"), for: .normal)
+        copyButton.titleLabel?.font = UIFont(name: kFont_Regular, size: 14)
+        copyButton.layer.backgroundColor = UIColor.clear.cgColor
+        copyButton.layer.cornerRadius = 6
+        
+        secondOverlay.addSubview(copyButton)
+    
     }
     
     

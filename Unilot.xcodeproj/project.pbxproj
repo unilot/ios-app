@@ -42,6 +42,7 @@
 		D6C6BAB51F8CD6C000EC7FE0 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6C6BAB01F8CD6C000EC7FE0 /* Roboto-Medium.ttf */; };
 		D6C6BAB61F8CD6C000EC7FE0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6C6BAB11F8CD6C000EC7FE0 /* Roboto-Regular.ttf */; };
 		D6C6BAB71F8CD6C000EC7FE0 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6C6BAB21F8CD6C000EC7FE0 /* Roboto-Thin.ttf */; };
+		D6D17FC51FA53F6700A74235 /* CDHourL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D17FC41FA53F6700A74235 /* CDHourL.swift */; };
 		D6D1D0E21FA24D8200909551 /* MainBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D1D0E11FA24D8200909551 /* MainBonus.swift */; };
 		D6D1D0E61FA2551D00909551 /* blockClock.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D1D0E51FA2551D00909551 /* blockClock.xib */; };
 		D6D591BB1F8D19D20002451A /* LxTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D591BA1F8D19D20002451A /* LxTabBarController.swift */; };
@@ -119,6 +120,7 @@
 		D6C6BAB01F8CD6C000EC7FE0 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		D6C6BAB11F8CD6C000EC7FE0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		D6C6BAB21F8CD6C000EC7FE0 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		D6D17FC41FA53F6700A74235 /* CDHourL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDHourL.swift; sourceTree = "<group>"; };
 		D6D1D0E11FA24D8200909551 /* MainBonus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainBonus.swift; sourceTree = "<group>"; };
 		D6D1D0E51FA2551D00909551 /* blockClock.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = blockClock.xib; sourceTree = "<group>"; };
 		D6D591BA1F8D19D20002451A /* LxTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LxTabBarController.swift; sourceTree = "<group>"; };
@@ -321,9 +323,10 @@
 			isa = PBXGroup;
 			children = (
 				D6477F121FA43AC5008677D3 /* CDDaysF.swift */,
-				D6477F101FA3E72D008677D3 /* CDDaysL.swift */,
 				D6BDD9091F7AF56500E91FD0 /* CUMoneyF.swift */,
 				D6BDD90B1F7B07A700E91FD0 /* CDTimeL.swift */,
+				D6477F101FA3E72D008677D3 /* CDDaysL.swift */,
+				D6D17FC41FA53F6700A74235 /* CDHourL.swift */,
 				D685E9A31F8D59500056C9C8 /* CountDownLabel.swift */,
 				D6BDD9071F7AF23400E91FD0 /* CountDownFlipper.swift */,
 				D69364D71F5F328D00FD0D37 /* FlippingLabel.swift */,
@@ -646,6 +649,7 @@
 				D6F1E1361F7BA0E50098B34C /* AgreeToPlay.swift in Sources */,
 				D62CA43D1F8FB73E00D67C0A /* SettingsView.swift in Sources */,
 				D6DCCD131FA4BCA1009BD20E /* BundleNew.m in Sources */,
+				D6D17FC51FA53F6700A74235 /* CDHourL.swift in Sources */,
 				D685E9A41F8D59500056C9C8 /* CountDownLabel.swift in Sources */,
 				D6F1E1921F7E55130098B34C /* JSDropdownField.m in Sources */,
 				D69364D91F5F328D00FD0D37 /* FlippingLabel.swift in Sources */,

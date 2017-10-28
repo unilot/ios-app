@@ -1,16 +1,16 @@
-/* 
-  Localizable.strings
-  Unilot
+/*
+ Localizable.strings
+ Unilot
+ 
+ Created by Alyona on 10/28/17.
+ Copyright © 2017 Vovasoft. All rights reserved.
+ */
 
-  Created by Alyona on 10/28/17.
-  Copyright © 2017 Vovasoft. All rights reserved.
-*/
 
-
-"Розыгрыш от" = "Game from";
+"Розыгрыш от" = "Drawing from";
 "МЕСТО" = "PLACE";
 "КОШЕЛЕК" = "Wallet";
-"ДАТА И ЛОТЕРЕЯ" = "DATE AND GAME";
+"ДАТА И ЛОТЕРЕЯ" = "DATE AND DRAWING ";
 "СТАТУС" = "STATUS";
 "ВЫИГРЫШ" = "PRIZE";
 "Ваши кошельки" = "Your wallets";
@@ -20,37 +20,37 @@
 "Вы уверены что хотите удалить ключ " = "Are you sure, you want to delete the wallet ";
 "Настройки" = "Settings";
 "Получать уведомления о" = "Get notifications for";
-"Выбор языка" = "Choose languge";
-"Дневная" = "Dialy";
+"Выбор языка" = "Choose language";
+"Дневная" = "Daily";
 "Недельная" = "Weekly";
 "Бонусная" = "Bonus";
 "Профайл" = "Profile";
-"Как это работает" = "How does it work";
-"История ваших розыгрышей" = "History of games";
+"Как это работает" = "How it works";
+"История ваших розыгрышей" = "History of drawings";
 "Дней" = "Days";
 "Недель" = "Weeks";
 "Часа" = "Hours";
 "Минут" = "Min";
 "Сек" = "Sec";
 
-"Дневной лотерее" = "Daily games";
-"Недельной лотерее"  = "Weekly games";
-"Бонусной лотерее"  = "Bonus games";
+"Дневной лотерее" = "Daily drawing";
+"Недельной лотерее"  = "Weekly drawing";
+"Бонусной лотерее"  = "Bonus drawing";
 
-"Дневная лотерея" = "Daily game";
-"Недельная лотерея" = "Weekly game";
-"Бонусная лотерея" = "Bonus game";
+"Дневная лотерея" = "Daily drawing";
+"Недельная лотерея" = "Weekly drawing";
+"Бонусная лотерея" = "Bonus drawing";
 
 "лотерея" = "lottery";
 "Джекпот" = "Jackpot";
-"До конца регистрации" = "Until the end of the registration";
-"Призовые места" = "Winner places";
+"До конца регистрации" = "Before the end of the registration";
+"Призовые места" = "Prize-winning places";
 "Да"= "Yes";
 "Нет" = "No";
 "Принять участие" = "Take part in ";
-"До обьявления\nпобедителей:" = "Before declaring\nof winners";
+"До обьявления\nпобедителей:" = "Before the winners\n announcement";
 "дней" = "days";
-"Как попасть в розыгрыш?" = "How can I join the game?";
+"Как попасть в розыгрыш?" = "How can I join the drawing?";
 "История розыгрышей" = "History";
 "Настройки" = "Settings";
 "Оставайтесь в курсе" = "Stay up to date.";
@@ -62,12 +62,12 @@
 "Номер" = "The number";
 "был сохранен в буфер" = "was saved to clipboard";
 "HDIW" = "HDIW_en";
-"Что бы принять участие в %@ вам необходимо перечислить %@ Eth на кошелек, который вы получите нажав на кнопку ниже" =
-"For taking part in %@, you need to pay %@ Eth to the wallet , you get by pressing the button";
-"Лотерея заканчивается через" = "The lottery will be completed in";
-"После оплаты вернитесь в приложение\nи зарегистрируйте свой кошелек" = "After payment, return to the app\nand register your wallet";
+"Чтобы принять участие в %@, вам необходимо перечислить %@ Eth на кошелек, который вы получите нажав на кнопку ниже" =
+"To participate in %@, you need to pay %@ Eth to the wallet, that you can get by pressing the button";
+"Лотерея заканчивается через" = "The drawing will be over in";
+"После оплаты вернитесь в приложение\nи зарегистрируйте свой кошелек" = "Return to the app and register\nyour wallet after payment";
 "Скопировать номер кошелька" = "Copy the number of your wallet";
-"Общий призовой фонд" = "Total prize fund";
+"Общий призовой фонд" = "Total jackpot";
 "Призовые\nместа" = "Prize\nplaces";
 "Закрыть" = "Close";
 
@@ -79,9 +79,11 @@
 "Вы заняли %d место и выиграли" = "You are on the %d place and won";
 "История розыгрыша" = "Details";
 
-"К сожалению, вас нет в списке победителей" = "Unfortunatelly, you are not in the list of winners";
+"К сожалению, вас нет в списке победителей" = "Unfortunately, you are not in the list of winners";
 "Итоги" = "Results of";
 "Вы автоматически становитесь участником бонусного розыгрыша который состоится через:" =
-"You automatically become a participant in the Bonus Lottery which will take place in:";
-"До объявления победителя" = "Until the announcement\nof the winner left";
+"You automatically become a participant of the Bonus drawing that is to take place in:";
+"До объявления победителя" = "Before the winner announcement\no";
 
+
+"Система \nвыбирает победителя" = "The system is \ncalculating the winner";

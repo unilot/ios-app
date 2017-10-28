@@ -58,9 +58,9 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
     
     func updateLabels() -> Double{        
         
-        let newTimerPrevious =  timerStep * timerStep * timerCoeff
+        let newTimerPrevious =  timerStep * timerStep
         
-        let delay = newTimerPrevious  - timerPrevious
+        let delay = (newTimerPrevious  - timerPrevious)  * timerCoeff
         
         timerPrevious = newTimerPrevious
         
@@ -188,6 +188,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
         let diff = Double(abs(all - from))
         
         if diff > 0 {
+            
             timerCoeff = timeOfFlipperAnimation / (diff * diff)
             
             print("diff = ",diff,"timerCoeff = ",timerCoeff)

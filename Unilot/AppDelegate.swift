@@ -28,8 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 1
         if let notification = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [String: Any] {
             // 2
-            let aps = notification["extra"] as! [String: Any]
-            parseNotification(aps, isOpened: false)
+
+            parseNotification(notification, isOpened: false)
+            
             // 3
         }
 
@@ -68,7 +69,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         
-        
         print("url recieved:", url);
         print(url.pathComponents);
         
@@ -86,7 +86,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
-        let aps = userInfo["extra"] as! [String: Any]
+        
+        let aps = userInfo as! [String: Any]
         
         parseNotification(aps, isOpened: true)
         completionHandler(.newData)
@@ -96,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [AnyHashable: Any], completionHandler: @escaping () -> Void) {
         // 1
         
-        let aps = userInfo["extra"] as! [String: Any]
+        let aps = userInfo as! [String: Any]
         
         // 2
         
@@ -160,10 +161,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print(notificationDictionary)
         
-        if let types = notificationDictionary["foo"] as? String {
-  
-            print(types)
-        }
+        notification_data = notificationDictionary
         
     }
     

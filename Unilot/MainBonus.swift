@@ -48,15 +48,15 @@ class BonusView: MainViewPositions {
         
         widthProgress = 0
         
-        titleMain.text = "Бонусная лотерея"
+        titleMain.text = TR("Бонусная лотерея")
         
-        titlePrize.text = "Джекпот"
+        titlePrize.text = TR("Джекпот")
         
-        label1.text = "До обьявления\nпобедителей:"
-        label2.text = "дней"
+        label1.text = TR("До обьявления\nпобедителей:")
+        label2.text = TR("дней")
         
-        howDoesItWork.setTitle("Как попасть в розыгрыш?", for: .normal)
-        prizePlaces.setTitle("Призовые места", for: .normal)
+        howDoesItWork.setTitle(TR("Как попасть в розыгрыш?"), for: .normal)
+        prizePlaces.setTitle(TR("Призовые места"), for: .normal)
 
         
         addTimersBody()

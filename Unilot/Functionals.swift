@@ -61,8 +61,7 @@ func saveToClipboard(_ text : String){
 
 
 func TR(_ str: String?) -> String{
-    
-    
+     
     if str == nil {
         return kEmpty
     }

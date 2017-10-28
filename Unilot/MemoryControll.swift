@@ -15,7 +15,10 @@ var users_account_number =  ["1231qewr4r124","Qwr34qwawerwt2345t4"]
 
 var currentTabBarLottery = 0
 
-var tokenForNotifications = kEmpty
+var tokenForNotifications = kEmpty //"0xf49ebf9ac72767cf83a8969fe76acceb44855745"
+
+var notification_data = [String : Any]()
+
 
 class MemoryControll {
     
@@ -28,11 +31,17 @@ class MemoryControll {
     
     static func init_defaults_if_any(){
         
-        
-        if let lang = getObject("current_language") as? String {
-            current_language = lang
+        if let lang = getObject("current_language") as? Int {
+            
+            current_language = setting_strings[1][lang]
+            Bundle.setLanguage(langCodes[lang])
+            
         } else {
-            saveObject(current_language, key: "current_language")
+
+            current_language = setting_strings[1][0]
+            Bundle.setLanguage(langCodes[0])
+
+            saveObject(0, key: "current_language")
         }
         
         
@@ -127,9 +136,7 @@ class MemoryControll {
         return  keyFormsTMP + ".Forms." + nameOfVIew
     }
     
-    
-    
-    
+ 
     
 }
 

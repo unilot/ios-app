@@ -61,6 +61,12 @@ class TabBarController: LxTabBarController  {
         tabBar.backgroundColor = UIColor.clear
         
         
+        self.tabBar
+//        
+//        for item in tabBar.items {
+//            item.tit
+//        }
+//        
     }
  
     

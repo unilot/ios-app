@@ -16,6 +16,8 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
     
     @IBOutlet weak var titleMain: UILabel!
 
+    @IBOutlet weak var titleAddMore: UILabel!
+
     @IBOutlet weak var fieldPurse: JSInputField!
 
     @IBOutlet weak var checkMorePurses: UIButton!
@@ -85,9 +87,10 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
     
  
     func fillWithData(){
+        titleAddMore.text = TR("Добавить кошелёк")
         titleMain.text = TR("Ваши кошельки")
         fieldPurse.placeholder = TR("Номер вашего кошелька")
-        checkMorePurses.setTitle(TR("Добавить"), for: .normal)
+        checkMorePurses.setTitle(TR("Добавить") + " +", for: .normal)
     }
      
 
@@ -172,8 +175,8 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
             
             let alertView = SCLAlertView(appearance: appearance)
 
-            alertView.addButton("Да", target:self, selector: #selector(ProfileView.onDelete))
-            alertView.addButton("Нет") {
+            alertView.addButton(TR("Да"), target:self, selector: #selector(ProfileView.onDelete))
+            alertView.addButton(TR("Нет")) {
                 self.currentTagForRemove = -1
             }
             

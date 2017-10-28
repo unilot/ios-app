@@ -18,6 +18,14 @@ class MenuLeft: UITableViewController {
     @IBOutlet weak var itemBadge: SpecialItem!
 
     
+    @IBOutlet weak var history: UILabel!
+    @IBOutlet weak var how: UILabel!
+    @IBOutlet weak var wp: UILabel!
+
+    @IBOutlet weak var settings: UILabel!
+
+    @IBOutlet weak var socials: UILabel!
+
     override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -35,8 +43,14 @@ class MenuLeft: UITableViewController {
         super.viewWillAppear(animated)
         
         itemBadge.setNumberLabel(notifications_data["badge"]!)
+        
+        history.text = TR("История розыгрышей")
+        how.text = TR("Как это работает")
+        wp.text = TR("White paper")
+        settings.text = TR("Настройки")
+        socials.text = TR("Оставайтесь в курсе")
     }
-    
+     
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -56,12 +70,6 @@ class MenuLeft: UITableViewController {
         }
         
     }
-    
-//    
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        
-//
-//    }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -99,9 +107,9 @@ class MenuLeft: UITableViewController {
         case 100:
             url = URL(string: kLink_FB)
         case 200:
-            url = URL(string: "https://www.telegram.com")
+            url = URL(string: kLink_Telegram)
         case 300:
-            url = URL(string: "https://www.instagram.com")
+            url = URL(string: kLink_Reddit)
         case 400:
             url = URL(string: kLink_Twitter)
         default:

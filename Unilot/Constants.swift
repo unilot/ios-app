@@ -33,10 +33,11 @@ let kLink_FB = "https://www.facebook.com/unilot.io/"
 let kLink_LinkedIn = "https://www.linkedin.com/company/unilot"
 let kLink_Reddit = "https://www.reddit.com/user/unilot_lottery/"
 let kLink_Twitter = "https://twitter.com/unilot_lottery"
+let kLink_Telegram = "https://t.me/unilot_channel"
 
 //MARK: -  local data
 
-var timeOfFlipperAnimation = 30.0
+var timeOfFlipperAnimation = 15.0
 
 var lottery_images   = ["`1day-x3","`7days-x3","`31days-x3"]
 var kTypeImage       = [kTypeDay : "`1day-x3", kTypeWeek : "`7days-x3", kTypeMonth : "`31days-x3"]
@@ -47,11 +48,17 @@ let staticClockSecondsStep = [1,60,3600]
 
 let staticClockNames =
     [
-        ["Часа  ","Минут","  Сек"],
-        ["Дней  ","Часа","  Минут",],
-        ["Недель ", "Дней  ","Часа",]
+        ["Часа","Минут","Сек"],
+        ["Дней","Часа","Минут",],
+        ["Недель", "Дней","Часа",]
 ]
 
+
+var setting_strings = [
+    ["Дневной лотерее","Недельной лотерее","Бонусной лотерее"],
+    ["English","Русский"]]
+
+var langCodes = ["en","ru"]
 
 let kEmpty = ""
 

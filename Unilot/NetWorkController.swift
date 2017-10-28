@@ -16,6 +16,9 @@ let kAPI_set_device         = "api/v1/device/"
 let kAPI_get_list_games     = "api/v1/games"
 let kAPI_get_list_winners   = "api/v1/games/%@/winners"
 let kAPI_get_history        = "api/v1/games/archived"
+let kAPI_post_notif_token   = "api/v1/device/"
+let kAPI_get_game_details   = "api/v1/games/"
+
 
 let request_session_data : Parameters = [
     "client_id": "PccTjiTN7xXU9PCJRiAzYA2frgKUSEl0scJMTzFb",
@@ -42,6 +45,31 @@ class NetWork : NetWorkParse {
                 
                 completion(sendToErrorParsAndDataParse(response, parseAuthorisation))
         }
+    }
+    
+    static func postNotifToken(completion: @escaping (String?) -> Void) {
+        
+        if tokenForNotifications == kEmpty{
+            
+            completion(nil)
+            
+        } else {
+            
+            let params : Parameters = ["os" : 10, "token" :  tokenForNotifications]
+            
+            Alamofire.request(kServer + kAPI_post_notif_token,
+                              method: HTTPMethod.post,
+                              parameters: params,
+                              encoding: JSONEncoding.default,
+                              headers: request_headers)
+                .responseJSON { (response) -> Void in
+                    
+                    completion(sendToErrorParsAndDataParse(response, parseNotificationToken))
+            }
+            
+        }
+        
+
     }
     
     
@@ -77,7 +105,6 @@ class NetWork : NetWorkParse {
     }
     
     
-    //MARK: -  in process
     
     static func getHistoryPage(completion: @escaping (String?) -> Void) {
         
@@ -93,6 +120,21 @@ class NetWork : NetWorkParse {
         
     }
     
+    
+    
+    static func getGameDetails(_ gameNumber : String, completion: @escaping (String?) -> Void) {
+        
+        Alamofire.request( kServer + kAPI_get_game_details + gameNumber,
+                           method : .get,
+                           encoding: JSONEncoding.default,
+                           headers: request_headers)
+            
+            .responseJSON { (response) -> Void in
+                
+                completion(sendToErrorParsAndDataParse(response, parseGameDetails))
+        }
+        
+    }
     
     
     //MARK: - ERRORS

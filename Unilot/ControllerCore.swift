@@ -34,6 +34,8 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         
         super.viewDidLoad()
         
+        UINavigationBar.appearance().tintColor = kColorMenuPeach
+        
         addSwipeForMenuOpen()
 
         setNavControllerClear()

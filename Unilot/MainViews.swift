@@ -15,21 +15,22 @@ class MainView: MainViewPositions {
     override func fillWithData(){
 
         if tabBarItem.tag == 0 {
-            titleMain.text = "Дневная лотерея"
+            titleMain.text = TR("Дневная лотерея")
         } else {
-            titleMain.text = "Недельная лотерея"
+            titleMain.text = TR("Недельная лотерея")
         }
         
-        titlePrize.text = "Джекпот"
+        titlePrize.text = TR("Джекпот")
 
-        titleUntilTheEnd.text = "До конца регистрации"
+        titleUntilTheEnd.text = TR("До конца регистрации")
         
-        prizePlaces.setTitle("Призовые места", for: .normal)
+        prizePlaces.setTitle(TR("Призовые места"), for: .normal)
          
         setTakePartView()
         
         addTimersBody() 
 
+        tabBarItem.title = TR("Дневная")
     }
     
     

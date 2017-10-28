@@ -56,12 +56,18 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
 
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        prizePlaces.isHidden = true
+
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
  
         currentTabBarLottery = tabBarItem.tag
+        
         
         setGameNumbers()
         
@@ -150,6 +156,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     func setTakePartView(){
         
+        takePart.setTitle(TR("Принять участие"), for: .normal)
         takePartFon.layer.cornerRadius = takePartFon.frame.height/2
         takePartFon.clipsToBounds = true
         
@@ -168,6 +175,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
 
         prizePlaces.layer.cornerRadius = prizePlaces.frame.height/2
         prizePlaces.backgroundColor = UIColor.clear
+        prizePlaces.isHidden = false
         
     }
     

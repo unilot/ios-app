@@ -58,9 +58,27 @@ class LoadingView : UIViewController, NVActivityIndicatorViewable{
         present(view_controller_1, animated: false, completion: nil)
         
     }
+    
+    
     func getSessionToken(){
         
         NetWork.startSession { (error : String?) in
+            
+            if error != nil {
+                
+                self.failComplete(error!)
+                
+            } else {
+                
+                self.postNotifToken()
+            }
+            
+        }
+    }
+    
+    func postNotifToken(){
+         
+        NetWork.postNotifToken { (error : String?) in
             
             if error != nil {
                 
@@ -73,6 +91,7 @@ class LoadingView : UIViewController, NVActivityIndicatorViewable{
             
         }
     }
+    
     
     
     func getGamesList(){

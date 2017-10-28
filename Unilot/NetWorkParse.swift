@@ -37,6 +37,16 @@ class NetWorkParse {
         return nil
     }
 
+    static func parseNotificationToken(_ resultValue : Any) -> String? {
+        
+        guard let responseJSON = resultValue as? [String: Any] else {
+            return "Wrong json format for parseNotificationToken"
+        }
+        
+        return nil
+    }
+    
+    
     static func parseGamesList(_ resultValue : Any) -> String? {
 
         guard let responseJSON = resultValue as? [[String:Any]] else {
@@ -99,6 +109,20 @@ class NetWorkParse {
     }
     
     
+    static func parseGameDetails(_ resultValue : Any) -> String?{
+        
+        guard let responseJSON = resultValue as? [String:Any] else {
+            return "Wrong json format for parseGameDetails"
+        }
+        
+        
+        local_current_game = createGameItem(from: responseJSON)
+        
+        return nil
+        
+    }
+    
+    
     //MARK: - fill items
     
     static func createGameItem(from data :[String : Any]) -> GameInfo{
@@ -134,5 +158,43 @@ class NetWorkParse {
     }
 
     
+    
+    //MARK: - NOTIFICATIO PARSE
+    
+    static func parseNotification(){
+        
+        let action = notification_data["action"] as! String
+        
+        switch action {
+            
+        //Начало игры:
+        case "game_started":
+            
+            break
+            
+        //Завершение приёма заявок и начало определения победител
+        case "game_unpublished":
+            
+            
+            break
+            
+        //Завершение определения победителей:
+        case "game_finished":
+            
+            
+            break
+            
+        //Отчёт об игре:
+        case "game_updated":
+            
+            
+            
+            break
+            
+        default:
+            
+            break
+        }
+    }
     
 }

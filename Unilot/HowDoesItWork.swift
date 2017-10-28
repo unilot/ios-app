@@ -16,11 +16,12 @@ class HowDoesItWork : TextViewCore {
         
         file_name = "Terms"
         
-        view_name = "How does it work"
+        view_name = TR("Как это работает")
 
         
         super.viewDidLoad()
-        self.navigationController?.navigationBar.tintColor = UIColor.black
+//        self.navigationController?.navigationItem.titleView = title
+        UINavigationBar.appearance().tintColor = kColorMenuPeach
 
     }
 }

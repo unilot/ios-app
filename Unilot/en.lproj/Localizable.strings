@@ -1,0 +1,57 @@
+/* 
+  Localizable.strings
+  Unilot
+
+  Created by Alyona on 10/28/17.
+  Copyright © 2017 Vovasoft. All rights reserved.
+*/
+
+
+"Розыгрыш от" = "Game from";
+"МЕСТО" = "PLACE";
+"КОШЕЛЕК" = "Wallet";
+"ДАТА И ЛОТЕРЕЯ" = "DATE AND GAME";
+"СТАТУС" = "STATUS";
+"ВЫИГРЫШ" = "PRIZE";
+"Ваши кошельки" = "Your wallets";
+"Добавить кошелёк" = "Add the number of your wallet";
+"Номер вашего кошелька" = "Number of your wallet";
+"Добавить" = "Add";
+"Вы уверены что хотите удалить ключ " = "Are you sure, you want to delete the wallet ";
+"Настройки" = "Settings";
+"Получать уведомления о" = "Get notifications for";
+"Выбор языка" = "Choose languge";
+"Дневная" = "Dialy";
+"Недельная" = "Weekly";
+"Бонусная" = "Bonus";
+"Профайл" = "Profile";
+"Как это работает" = "How does it work";
+"История ваших розыгрышей" = "History of games";
+"Дней" = "Days";
+"Недель" = "Weeks";
+"Часа" = "Hours";
+"Минут" = "Min";
+"Сек" = "Sec";
+"Дневной лотерее" = "Daily games";
+"Недельной лотерее"  = "Weekly games";
+"Бонусной лотерее"  = "Bonus games";
+"Дневная лотерея" = "Daily game";
+"Недельная лотерея" = "Weekly game";
+"Бонусная лотерея" = "Bonus game";
+"Джекпот" = "Jackpot";
+"До конца регистрации" = "Until the end of the registration";
+"Призовые места" = "Winner places";
+"Да"= "Yes";
+"Нет" = "No";
+"Принять участие" = "Take part in ";
+"До обьявления\nпобедителей:" = "Before declaring\nof winners";
+"дней" = "days";
+"Как попасть в розыгрыш?" = "How can I join the game?";
+"История розыгрышей" = "History";
+"Настройки" = "Settings";
+"Оставайтесь в курсе" = "Stay up to date.";
+"завершена" = "finished";
+"список победителей" = "winners list";
+"в процессе" = "in process";
+"перейти" = "open";
+"отменена" = "canceled";

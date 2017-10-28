@@ -75,7 +75,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     
     override func setTitle() {
         notifications_data =  ["badge" : 0]
-        navigationItem.title = "История ваших розыгрышей"
+        navigationItem.title = TR("История ваших розыгрышей")
     }
     
     //MARK:-  UITableViewDelegate, UITableViewDataSource
@@ -140,17 +140,17 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         switch item.status {
             
         case kStatusComplete:
-            actionLabel.text = "завершена"
-            statusLabel.text = "список победителей"
+            actionLabel.text = TR("завершена")
+            statusLabel.text = TR("список победителей")
             statusLabel.textColor = kColorSelectedBlue
             
         case kStatusPublished:
-            actionLabel.text = "в процессе"
-            statusLabel.text = "перейти"
+            actionLabel.text = TR("в процессе")
+            statusLabel.text = TR("перейти")
             statusLabel.textColor = kColorNormalGreen
             
         default: //kStatusCancele
-            actionLabel.text = "отменена"
+            actionLabel.text = TR("отменена")
             statusLabel.text = " "
             statusLabel.textColor = kColorLightOrange
             break
@@ -187,13 +187,10 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             
         case kStatusPublished:
             
-            onDetails()
-
+            currentTabBarLottery  =  kTypeTabBarOrder.index(of: local_current_game.type)!
             
-//            currentTabBarLottery  =  kTypeTabBarOrder.index(of: item.type)!
-//            
-//            goToMainView()
-//            
+            goToMainView()
+
         default: //kStatusCancele
             
             break

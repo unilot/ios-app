@@ -51,13 +51,13 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="US $ 15,700" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="zn7-BZ-7tO">
-                    <rect key="frame" x="20" y="374" width="335" height="33"/>
+                    <rect key="frame" x="20" y="374" width="335" height="29.5"/>
                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="25"/>
                     <color key="textColor" red="0.8862745098" green="0.56078431370000004" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zmf-0u-MKU">
-                    <rect key="frame" x="102.5" y="228.5" width="170.5" height="50.5"/>
+                    <rect key="frame" x="101" y="228.5" width="173.5" height="50.5"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50.5" id="YFl-2i-gJ1"/>
                     </constraints>

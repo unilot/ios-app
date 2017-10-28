@@ -1,0 +1,204 @@
+
+/* Class = "UILabel"; text = "66,876"; ObjectID = "1Oq-aD-iQS"; */
+"1Oq-aD-iQS.text" = "66,876";
+
+/* Class = "UILabel"; text = "показать результат"; ObjectID = "2Yq-70-Ntm"; */
+"2Yq-70-Ntm.text" = "показать результат";
+
+/* Class = "UILabel"; text = "Как это работает"; ObjectID = "2h3-X4-oPi"; */
+"2h3-X4-oPi.text" = "Как это работает";
+
+/* Class = "UILabel"; text = "Ваши кошельки"; ObjectID = "4B1-ZQ-G5H"; */
+"4B1-ZQ-G5H.text" = "Ваши кошельки";
+
+/* Class = "UILabel"; text = "414,235 ETH"; ObjectID = "4uH-PX-Awc"; */
+"4uH-PX-Awc.text" = "414,235 ETH";
+
+/* Class = "UILabel"; text = "До конца регистрации"; ObjectID = "5xT-K3-eFN"; */
+"5xT-K3-eFN.text" = "До конца регистрации";
+
+/* Class = "UILabel"; text = "Призовой фонд"; ObjectID = "6F9-Na-5m4"; */
+"6F9-Na-5m4.text" = "Призовой фонд";
+
+/* Class = "UILabel"; text = "Добавить кошелек"; ObjectID = "6cC-Ys-hSN"; */
+"6cC-Ys-hSN.text" = "Добавить кошелек";
+
+/* Class = "UILabel"; text = "ТИП И ДАТА"; ObjectID = "6cR-bc-fe3"; */
+"6cR-bc-fe3.text" = "ТИП И ДАТА";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "71D-Sz-eoW"; */
+"71D-Sz-eoW.title" = "Profile";
+
+/* Class = "UILabel"; text = "Оставайтесь в курсе"; ObjectID = "8EJ-if-R7N"; */
+"8EJ-if-R7N.text" = "Оставайтесь в курсе";
+
+/* Class = "UILabel"; text = "УЧАСТНИКОВ"; ObjectID = "8TR-sY-cXt"; */
+"8TR-sY-cXt.text" = "УЧАСТНИКОВ";
+
+/* Class = "UILabel"; text = "Призовой фонд"; ObjectID = "8iF-Lp-K75"; */
+"8iF-Lp-K75.text" = "Призовой фонд";
+
+/* Class = "UIButton"; normalTitle = "________"; ObjectID = "99G-P1-Xrf"; */
+"99G-P1-Xrf.normalTitle" = "________";
+
+/* Class = "UILabel"; text = "$ 3 567 890"; ObjectID = "99q-JD-xQv"; */
+"99q-JD-xQv.text" = "$ 3 567 890";
+
+/* Class = "UILabel"; text = "До обьявления победителя:"; ObjectID = "9Vf-fw-shV"; */
+"9Vf-fw-shV.text" = "До обьявления победителя:";
+
+/* Class = "UILabel"; text = "ДЖЕКПОТ"; ObjectID = "ACZ-3R-PLp"; */
+"ACZ-3R-PLp.text" = "ДЖЕКПОТ";
+
+/* Class = "UILabel"; text = "Blockchain based lottery"; ObjectID = "AjI-NS-q1B"; */
+"AjI-NS-q1B.text" = "Blockchain based lottery";
+
+/* Class = "UILabel"; text = "ПОБЕДИТЕЛЕЙ"; ObjectID = "Ct0-2l-WdB"; */
+"Ct0-2l-WdB.text" = "ПОБЕДИТЕЛЕЙ";
+
+/* Class = "UILabel"; text = "КОШЕЛЕК"; ObjectID = "DVz-zi-ZXI"; */
+"DVz-zi-ZXI.text" = "КОШЕЛЕК";
+
+/* Class = "UILabel"; text = "Дневная лотерея"; ObjectID = "Dpt-Kx-AC5"; */
+"Dpt-Kx-AC5.text" = "Дневная лотерея";
+
+/* Class = "UILabel"; text = "Настройки"; ObjectID = "EDH-Ic-a6G"; */
+"EDH-Ic-a6G.text" = "Настройки";
+
+/* Class = "UILabel"; text = "10.287"; ObjectID = "EWh-gb-QPq"; */
+"EWh-gb-QPq.text" = "10.287";
+
+/* Class = "UILabel"; text = "Eth"; ObjectID = "Hdu-Kt-XSV"; */
+"Hdu-Kt-XSV.text" = "Eth";
+
+/* Class = "UILabel"; text = "Eth"; ObjectID = "JWs-m7-7T3"; */
+"JWs-m7-7T3.text" = "Eth";
+
+/* Class = "UILabel"; text = "$ 3 567 890"; ObjectID = "L77-qg-OGO"; */
+"L77-qg-OGO.text" = "$ 3 567 890";
+
+/* Class = "UILabel"; text = "Eth"; ObjectID = "Lhg-7E-sHn"; */
+"Lhg-7E-sHn.text" = "Eth";
+
+/* Class = "UILabel"; text = "23.439"; ObjectID = "MS3-dQ-W5e"; */
+"MS3-dQ-W5e.text" = "23.439";
+
+/* Class = "UILabel"; text = "СТАТУС"; ObjectID = "OCm-8P-j0I"; */
+"OCm-8P-j0I.text" = "СТАТУС";
+
+/* Class = "UILabel"; text = "Завершена"; ObjectID = "Pjy-Yv-WG3"; */
+"Pjy-Yv-WG3.text" = "Завершена";
+
+/* Class = "UIButton"; normalTitle = "Принять участие"; ObjectID = "Q3F-R0-CP8"; */
+"Q3F-R0-CP8.normalTitle" = "Принять участие";
+
+/* Class = "UILabel"; text = "Дней"; ObjectID = "Rbx-T0-BfG"; */
+"Rbx-T0-BfG.text" = "Дней";
+
+/* Class = "UILabel"; text = "0,005 Eth"; ObjectID = "Rx4-DH-Bnf"; */
+"Rx4-DH-Bnf.text" = "0,005 Eth";
+
+/* Class = "UISearchBar"; placeholder = "Номер вашего кошелька"; ObjectID = "STZ-qs-8Zh"; */
+"STZ-qs-8Zh.placeholder" = "Номер вашего кошелька";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "TUd-JC-eKn"; */
+"TUd-JC-eKn.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UIButton"; normalTitle = "Призовые места"; ObjectID = "UCS-ok-TAg"; */
+"UCS-ok-TAg.normalTitle" = "Призовые места";
+
+/* Class = "UILabel"; text = "Eth"; ObjectID = "V8L-Cb-Kaf"; */
+"V8L-Cb-Kaf.text" = "Eth";
+
+/* Class = "UILabel"; text = "МЕСТО"; ObjectID = "XQh-fT-KZF"; */
+"XQh-fT-KZF.text" = "МЕСТО";
+
+/* Class = "UIButton"; normalTitle = "Призовые места"; ObjectID = "XyL-GH-ggE"; */
+"XyL-GH-ggE.normalTitle" = "Призовые места";
+
+/* Class = "UILabel"; text = "$ 3 567 890"; ObjectID = "Y0i-kf-fkE"; */
+"Y0i-kf-fkE.text" = "$ 3 567 890";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "Y8z-9c-Y9U"; */
+"Y8z-9c-Y9U.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UITabBarItem"; title = "Дневная"; ObjectID = "YUi-m9-JnI"; */
+"YUi-m9-JnI.title" = "Дневная";
+
+/* Class = "UILabel"; text = "White paper"; ObjectID = "Yew-lf-ZkH"; */
+"Yew-lf-ZkH.text" = "White paper";
+
+/* Class = "UILabel"; text = "Бонусная лотерея"; ObjectID = "Z4C-gQ-qBj"; */
+"Z4C-gQ-qBj.text" = "Бонусная лотерея";
+
+/* Class = "UILabel"; text = "12.23.10"; ObjectID = "a21-FW-yFZ"; */
+"a21-FW-yFZ.text" = "12.23.10";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "a64-6T-EBn"; */
+"a64-6T-EBn.text" = "Label";
+
+/* Class = "UILabel"; text = "300"; ObjectID = "baG-as-iQt"; */
+"baG-as-iQt.text" = "300";
+
+/* Class = "UIButton"; normalTitle = "Призовые места"; ObjectID = "bgr-ad-zym"; */
+"bgr-ad-zym.normalTitle" = "Призовые места";
+
+/* Class = "UILabel"; text = "0,005 Eth"; ObjectID = "byF-5c-jdf"; */
+"byF-5c-jdf.text" = "0,005 Eth";
+
+/* Class = "UILabel"; text = "1 546"; ObjectID = "cYU-M2-tqv"; */
+"cYU-M2-tqv.text" = "1 546";
+
+/* Class = "UILabel"; text = "Призовой фонд"; ObjectID = "etg-S1-OpV"; */
+"etg-S1-OpV.text" = "Призовой фонд";
+
+/* Class = "UILabel"; text = "Выйгрыш"; ObjectID = "fvt-XM-z6L"; */
+"fvt-XM-z6L.text" = "Выйгрыш";
+
+/* Class = "UILabel"; text = "1 546"; ObjectID = "gkd-6B-FJe"; */
+"gkd-6B-FJe.text" = "1 546";
+
+/* Class = "UIButton"; normalTitle = "Как попасть в розыгрыш?"; ObjectID = "ibd-nZ-FOp"; */
+"ibd-nZ-FOp.normalTitle" = "Как попасть в розыгрыш?";
+
+/* Class = "UIButton"; normalTitle = "Принять участие"; ObjectID = "jUt-lX-dtH"; */
+"jUt-lX-dtH.normalTitle" = "Принять участие";
+
+/* Class = "UILabel"; text = "Дневная лотерея"; ObjectID = "kjA-2F-K99"; */
+"kjA-2F-K99.text" = "Дневная лотерея";
+
+/* Class = "UIButton"; normalTitle = "+"; ObjectID = "kxm-sP-alw"; */
+"kxm-sP-alw.normalTitle" = "+";
+
+/* Class = "UILabel"; text = "До конца регистрации"; ObjectID = "lgi-ve-JP4"; */
+"lgi-ve-JP4.text" = "До конца регистрации";
+
+/* Class = "UITabBarItem"; title = "Бонусная"; ObjectID = "qEU-MP-gvX"; */
+"qEU-MP-gvX.title" = "Бонусная";
+
+/* Class = "UILabel"; text = "24c31bf40a5866feee797d09879827093482345"; ObjectID = "qN7-CZ-PCh"; */
+"qN7-CZ-PCh.text" = "24c31bf40a5866feee797d09879827093482345";
+
+/* Class = "UILabel"; text = "234567890"; ObjectID = "qOP-rG-Upq"; */
+"qOP-rG-Upq.text" = "234567890";
+
+/* Class = "UILabel"; text = "234"; ObjectID = "rSj-1v-s11"; */
+"rSj-1v-s11.text" = "234";
+
+/* Class = "UILabel"; text = "Дневная лотерея"; ObjectID = "rYK-qt-th0"; */
+"rYK-qt-th0.text" = "Дневная лотерея";
+
+/* Class = "UITabBarItem"; title = "Недельная"; ObjectID = "sXT-1e-TAz"; */
+"sXT-1e-TAz.title" = "Недельная";
+
+/* Class = "UILabel"; text = "$"; ObjectID = "tEb-Us-oAC"; */
+"tEb-Us-oAC.text" = "$";
+
+/* Class = "UILabel"; text = "Недельная лотерея"; ObjectID = "zG1-bb-jfX"; */
+"zG1-bb-jfX.text" = "Недельная лотерея";
+
+/* Class = "UILabel"; text = "1 546"; ObjectID = "zKG-RR-R1l"; */
+"zKG-RR-R1l.text" = "1 546";
+
+/* Class = "UILabel"; text = "История розыгрышей"; ObjectID = "zWw-B5-x5Q"; */
+"zWw-B5-x5Q.text" = "История розыгрышей";

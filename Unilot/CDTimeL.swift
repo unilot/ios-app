@@ -65,13 +65,13 @@ class CountDownFullTimer: CountDownLabel  {
         let names = staticClockNames[type]
         
         if let item = viewWithTag(200) as? UILabel{
-            item.text = names[0]
+            item.text = TR(names[0]) + "  "
         }
         if let item = viewWithTag(300) as? UILabel{
-            item.text = names[1]
+            item.text = TR(names[1])
         }
         if let item = viewWithTag(400) as? UILabel{
-            item.text = names[2]
+            item.text = "  " + TR(names[2])
         }
     }
  

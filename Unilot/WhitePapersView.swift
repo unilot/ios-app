@@ -21,7 +21,7 @@ class WhitePapersView : TextViewCore {
         view_name = "White Papers"
         
         super.viewDidLoad()
-        self.navigationController?.navigationBar.tintColor = UIColor.black
+        self.navigationController?.navigationBar.tintColor = kColorMenuPeach
 
         
     }

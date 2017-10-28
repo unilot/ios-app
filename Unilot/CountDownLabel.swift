@@ -122,9 +122,11 @@ class CountDownLabel: UIImageView  {
     
     
     func endTimer() {
-        
-        countdownTimer.invalidate()
-        
+         
+        if countdownTimer != nil {
+            countdownTimer.invalidate()
+            countdownTimer = nil
+        }
     }
     
     

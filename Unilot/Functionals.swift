@@ -38,7 +38,6 @@ class GameInfo {
     var game_id             : String = kEmpty
     var smart_contract_id   : String = kEmpty
     var num_players         : Int = 0
-    var num_winners         : Int = 0
     var prize_amount        : Float = 0
     var prize_amount_fiat   : Float = 0
     var prize_amount_local  : Float = 0

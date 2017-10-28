@@ -60,11 +60,13 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
-        
+ 
         currentTabBarLottery = tabBarItem.tag
         
+        setGameNumbers()
+        
         if widthProgress == -1 {
-            
+        
             fillWithData()
 
             setLoadingSign(toWidth: 0)
@@ -77,7 +79,10 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
     }
     
-  
+    func  setGameNumbers() {
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

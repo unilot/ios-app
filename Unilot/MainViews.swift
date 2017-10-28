@@ -13,8 +13,6 @@ import UIKit
 class MainView: MainViewPositions {
   
     override func fillWithData(){
-        
-        setGameNumbers()
 
         if tabBarItem.tag == 0 {
             titleMain.text = "Дневная лотерея"
@@ -37,7 +35,7 @@ class MainView: MainViewPositions {
     }
     
     
-    func setGameNumbers(){
+    override func setGameNumbers(){
         
         local_current_game = games_list[kTypeDay]!
  

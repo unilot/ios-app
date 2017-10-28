@@ -217,6 +217,11 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         stopAnimating()
     }
     
+    
+    func showError(_ error : String) {
+        SCLAlertView().showError(" ", subTitle: error)
+
+    }
     //MARK: - onButtons
     
     

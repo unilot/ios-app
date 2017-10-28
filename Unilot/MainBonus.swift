@@ -38,8 +38,15 @@ class BonusView: MainViewPositions {
         
     }
     
+    
+    override func setGameNumbers(){
+        
+        local_current_game = games_list[kTypeMonth]!
+        
+    }
     override func fillWithData(){
         
+        widthProgress = 0
         
         titleMain.text = "Бонусная лотерея"
         
@@ -51,7 +58,6 @@ class BonusView: MainViewPositions {
         howDoesItWork.setTitle("Как попасть в розыгрыш?", for: .normal)
         prizePlaces.setTitle("Призовые места", for: .normal)
 
-        local_current_game = games_list[kTypeMonth]!
         
         addTimersBody()
         

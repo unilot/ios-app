@@ -8,15 +8,20 @@
 
 import UIKit
 
+
 protocol PopUpCoreDelegate {
 
-    func openHistory(_ sender : PopUpCore);
+    func openHistory(_ sender : PopUpCore)
+    func showActivityViewIndicator()
+    func hideActivityViewIndicator()
+    func showError(_ error : String)
 
 }
 
 class PopUpCore: UIView  {
     
     @IBOutlet weak var titleMain: UILabel!
+
     
     var delegate : PopUpCoreDelegate?
     var bigButtonFade : UIButton?

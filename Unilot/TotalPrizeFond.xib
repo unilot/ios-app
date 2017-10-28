@@ -57,7 +57,7 @@
                     </constraints>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o7g-LZ-Rkc">
-                    <rect key="frame" x="15" y="116" width="345" height="446"/>
+                    <rect key="frame" x="15" y="123" width="345" height="439"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <connections>
@@ -65,28 +65,29 @@
                         <outlet property="delegate" destination="iN0-l3-epB" id="CFY-dA-bMZ"/>
                     </connections>
                 </tableView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Призовые места" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZMI-Pu-qh4">
-                    <rect key="frame" x="23" y="95" width="110.5" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Призовые места" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMI-Pu-qh4">
+                    <rect key="frame" x="23" y="95" width="60" height="28"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="21" id="Dgc-fi-3CA"/>
+                        <constraint firstAttribute="height" constant="28" id="Dgc-fi-3CA"/>
+                        <constraint firstAttribute="width" constant="60" id="q0C-mq-eoh"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                     <color key="textColor" red="0.49439453119999999" green="0.49439453119999999" blue="0.49439453119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="udz-iS-YE4">
-                    <rect key="frame" x="136.5" y="95.5" width="111" height="21"/>
+                    <rect key="frame" x="86" y="95.5" width="136" height="28"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="21" id="NZ0-F4-rVy"/>
+                        <constraint firstAttribute="height" constant="28" id="NZ0-F4-rVy"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                     <color key="textColor" red="0.49439453119999999" green="0.49439453119999999" blue="0.49439453119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="hEt-9z-8zh">
-                    <rect key="frame" x="249.5" y="95.5" width="110.5" height="21"/>
+                    <rect key="frame" x="224" y="95.5" width="136" height="28"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="21" id="U51-k8-CvI"/>
+                        <constraint firstAttribute="height" constant="28" id="U51-k8-CvI"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                     <color key="textColor" red="0.49439453119999999" green="0.49439453119999999" blue="0.49439453119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -131,6 +132,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="hEt-9z-8zh" firstAttribute="width" secondItem="udz-iS-YE4" secondAttribute="width" id="4Wd-hb-2NZ"/>
                 <constraint firstAttribute="trailing" secondItem="3yi-FL-sqd" secondAttribute="trailing" constant="12" id="7Sv-bU-LjC"/>
                 <constraint firstItem="nsq-kj-dZX" firstAttribute="top" secondItem="6I7-ZU-qVs" secondAttribute="bottom" constant="20" id="8VI-rr-aFz"/>
                 <constraint firstItem="ZMI-Pu-qh4" firstAttribute="top" secondItem="nsq-kj-dZX" secondAttribute="bottom" constant="4" id="9CP-JM-Nsl"/>
@@ -148,13 +150,11 @@
                 <constraint firstItem="6I7-ZU-qVs" firstAttribute="top" secondItem="Dn4-WK-7ss" secondAttribute="bottom" constant="5" id="RbB-ty-410"/>
                 <constraint firstItem="hEt-9z-8zh" firstAttribute="height" secondItem="ZMI-Pu-qh4" secondAttribute="height" id="SA1-SR-KBr"/>
                 <constraint firstItem="udz-iS-YE4" firstAttribute="height" secondItem="ZMI-Pu-qh4" secondAttribute="height" id="SxY-lN-4LB"/>
-                <constraint firstItem="hEt-9z-8zh" firstAttribute="width" secondItem="ZMI-Pu-qh4" secondAttribute="width" id="aBw-X2-5OC"/>
                 <constraint firstItem="3yi-FL-sqd" firstAttribute="top" secondItem="o7g-LZ-Rkc" secondAttribute="bottom" constant="25" id="aSb-tr-3uG"/>
                 <constraint firstAttribute="bottom" secondItem="3yi-FL-sqd" secondAttribute="bottom" constant="25" id="and-xv-sSo"/>
                 <constraint firstItem="udz-iS-YE4" firstAttribute="centerY" secondItem="ZMI-Pu-qh4" secondAttribute="centerY" id="dI3-SU-WlE"/>
                 <constraint firstItem="3yi-FL-sqd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="gqP-jE-exW"/>
                 <constraint firstItem="lvb-9V-iow" firstAttribute="trailing" secondItem="3yi-FL-sqd" secondAttribute="trailing" constant="-22" id="hjp-fm-y4T"/>
-                <constraint firstItem="udz-iS-YE4" firstAttribute="width" secondItem="ZMI-Pu-qh4" secondAttribute="width" id="hwW-Ot-JKD"/>
                 <constraint firstItem="hEt-9z-8zh" firstAttribute="leading" secondItem="udz-iS-YE4" secondAttribute="trailing" constant="2" id="i5j-Lj-psZ"/>
                 <constraint firstItem="hEt-9z-8zh" firstAttribute="trailing" secondItem="o7g-LZ-Rkc" secondAttribute="trailing" id="lCB-wd-wOo"/>
                 <constraint firstItem="ZMI-Pu-qh4" firstAttribute="leading" secondItem="o7g-LZ-Rkc" secondAttribute="leading" constant="8" id="lH5-xl-XG1"/>

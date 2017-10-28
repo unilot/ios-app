@@ -64,6 +64,8 @@ class NetWork : NetWorkParse {
     
     static func getListWinners(completion: @escaping (String?) -> Void) {
         
+        
+        print("local_current_game.game_id ", local_current_game.game_id)
         Alamofire.request( String(format:kServer + kAPI_get_list_winners, local_current_game.game_id),
                            method : .get,
                            encoding: JSONEncoding.default,

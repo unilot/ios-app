@@ -34,6 +34,8 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         
         widthOfCell = frame.width * 0.9
         
+        titleWithPrice.text = "\(local_current_game.prize_amount_fiat) ETh = $\(local_current_game.prize_amount)"
+
         NetWork.getListWinners(completion: onAnswer)
         
     }
@@ -42,11 +44,11 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
     func onAnswer(_ error :String?) {
         
         if error != nil {
-            
-            SCLAlertView().showError(" ", subTitle: error!)
-
+  
+            delegate?.showError(error!)
             
         } else {
+            
             
             dataForTable =  winners_list.sorted(by: {  return $0.position < $1.position})
 
@@ -84,7 +86,7 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         }
         
     
-        setCellBody(cell!,dataForTable[indexPath.row]!)
+        setCellBody(cell!,dataForTable[indexPath.row])
         
         
         if indexPath.row % 2 == 0 {
@@ -103,19 +105,27 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         
         var frame = cell.contentView.frame
 
+        let little_shift = CGFloat(8)
+        
+        let first_field = CGFloat(60)
+        let money_field = (frame.width - (little_shift + first_field)) / 2
+
+        
         frame.size = CGSize(width: widthOfCell , height: frame.size.height)
         let shiftUpp = CGFloat(-8)
-        let first = UILabel(frame: CGRect(x: 6, y: shiftUpp,
-                                          width: frame.width/3, height: frame.height))
+        let first = UILabel(frame: CGRect(x: little_shift, y: shiftUpp,
+                                          width: first_field, height: frame.height))
         first.text = " "
         first.tag = 10
         first.textColor = UIColor.black
+        first.numberOfLines = 2
         first.font = UIFont(name: kFont_Light, size: 12)
-        first.adjustsFontSizeToFitWidth = true
         cell.contentView.addSubview(first)
         
-        let second = UILabel(frame: CGRect(x: frame.width/3, y: shiftUpp,
-                                           width: frame.width/3, height: frame.height))
+        let second = UILabel(frame: CGRect(x: little_shift + first_field,
+                                           y: shiftUpp,
+                                           width: money_field,
+                                           height: frame.height))
         second.text = " "
         second.adjustsFontSizeToFitWidth = true
         second.tag = 20
@@ -124,8 +134,10 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         second.font = UIFont(name: kFont_Light, size: 12)
         cell.contentView.addSubview(second)
 
-        let third = UILabel(frame: CGRect(x: frame.width/3 * 2, y: shiftUpp,
-                                          width: frame.width/3, height: frame.height))
+        let third = UILabel(frame: CGRect(x: little_shift + first_field + money_field,
+                                          y: shiftUpp,
+                                          width: money_field,
+                                          height: frame.height))
         third.text = " "
         third.tag = 30
         third.textColor = UIColor.black
@@ -138,7 +150,6 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
     }
     
     func setCellBody(_ cell : UITableViewCell, _ item : UserForGame) {
-      
         
         labelFor(cell, 10)?.text = "\(item.position)"
         labelFor(cell, 20)?.text = "\(item.prize_amount_fiat)"

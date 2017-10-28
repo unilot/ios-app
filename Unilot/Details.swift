@@ -80,7 +80,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         
         eth.text = "\(local_current_game.prize_amount_fiat)"
         users.text = "\(local_current_game.num_players)"
-        winners.text = "\(local_current_game.num_winners)"
+        winners.text = "\(local_current_game.num_players - dataForTable.count)"
         
         
         

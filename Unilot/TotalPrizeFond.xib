@@ -169,6 +169,8 @@
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
+                <outlet property="close" destination="3yi-FL-sqd" id="mMJ-SI-s8m"/>
+                <outlet property="firstLabel" destination="ZMI-Pu-qh4" id="1Po-En-3TU"/>
                 <outlet property="tableMain" destination="o7g-LZ-Rkc" id="Ali-Sc-MX5"/>
                 <outlet property="titleMain" destination="Dn4-WK-7ss" id="8fl-V2-Md9"/>
                 <outlet property="titleWithPrice" destination="6I7-ZU-qVs" id="ClG-7d-BCv"/>

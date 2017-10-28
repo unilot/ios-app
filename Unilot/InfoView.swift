@@ -28,10 +28,8 @@ class InfoView: PopUpCore {
         
         titleMain.text = TR("Как это работает")
         
-        let myFileUrl = Bundle.main.url(forResource: TR("HDIW"), withExtension: "txt")
-        let text = try! String(contentsOf: myFileUrl!, encoding: String.Encoding.utf8)
-        
-        textView.text = text
+        textView.text = getTextFromFileInfo()
     }
     
+
 }

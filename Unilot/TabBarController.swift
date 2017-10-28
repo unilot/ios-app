@@ -21,7 +21,7 @@ class TabBarController: UITabBarController  {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        super.viewWillAppear(animated)
         
         for i in 0..<tabBar.items!.count {
             

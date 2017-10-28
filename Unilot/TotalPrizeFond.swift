@@ -17,6 +17,11 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var titleWithPrice: UILabel!
     @IBOutlet weak var tableMain: UITableView!
     @IBOutlet weak var trophy: SpecialItem!
+
+    @IBOutlet weak var close: UIButton!
+
+    @IBOutlet weak var firstLabel: UILabel!
+
     
     var dataForTable = [UserForGame]()
     var widthOfCell = CGFloat(0)
@@ -36,6 +41,9 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         
         titleWithPrice.text = "\(local_current_game.prize_amount_fiat) ETh = $ \(local_current_game.prize_amount)"
 
+        titleMain.text = TR("Общий призовой фонд")
+        close.setTitle(TR("Закрыть"), for: .normal)
+        firstLabel.text = TR("Призовые\nместа")
         NetWork.getListWinners(completion: onAnswer)
         
     }

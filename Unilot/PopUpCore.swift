@@ -112,7 +112,7 @@ class PopUpCore: UIView  {
         UIView.animate(withDuration: 0.4, animations: {
             
             self.frame =  newFarme
-            self.layer.opacity = 1.0
+            self.layer.opacity = 0.0
             self.bigButtonFade?.layer.opacity = 0.0
             
         }) { (_ animate : Bool) in

@@ -14,14 +14,12 @@ class HowDoesItWork : TextViewCore {
     
     override func viewDidLoad() {
         
-        file_name = "Terms"
         
         view_name = TR("Как это работает")
-
-        
+         
         super.viewDidLoad()
-//        self.navigationController?.navigationItem.titleView = title
-        UINavigationBar.appearance().tintColor = kColorMenuPeach
+        
+        textView.text = getTextFromFileInfo()
 
     }
 }

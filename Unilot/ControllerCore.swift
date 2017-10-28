@@ -130,7 +130,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         var cntrllrs =   navController.viewControllers
         cntrllrs.insert(rootViewController, at: 0)
         
-        navController.setViewControllers(cntrllrs, animated: false)
+        navController.setViewControllers(cntrllrs, animated: true)
         navigationController?.popViewController(animated: true)
     }
  

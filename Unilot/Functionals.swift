@@ -87,6 +87,15 @@ func recountTimersData(_ game : GameInfo) -> (Int, Int, Int) { //now/all/stepTyp
     }
 }
 
+
+func getTextFromFileInfo() -> String? {
+    let myFileUrl = Bundle.main.url(forResource: TR("HDIW"), withExtension: "txt")
+    let text = try! String(contentsOf: myFileUrl!, encoding: String.Encoding.utf8)
+    
+    return text
+}
+
+
 func getNiceDateFormatString(from timeSec : Int) -> String {
 
     let currentDate = Date(timeIntervalSince1970: TimeInterval(timeSec))

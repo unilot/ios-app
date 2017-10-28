@@ -68,8 +68,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        super.viewDidAppear(animated)
-        
+         
         if widthProgress == -1 {
         
             fillWithData()
@@ -116,7 +115,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
 
         stopSchedule()
         
-        animateDisAppearance()
+//        animateDisAppearance()
         
     }
     override func setBackButton(){
@@ -271,6 +270,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
          
     @IBAction func onHowDoesItWork(){
        
+        
         let viewWithPlaces = LotteryResults.createLotteryResults()
         viewWithPlaces.delegate = self
         let frameForView = CGRect(x: 10,

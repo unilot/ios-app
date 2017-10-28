@@ -43,6 +43,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
 
 //    viewWillLayoutSubviews
     
+    
     override func viewDidLayoutSubviews() {
         
         super.viewDidLayoutSubviews()
@@ -53,10 +54,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
 
         setButtonView()
 
-        
     }
-    
-    
     
     
     override func viewDidAppear(_ animated: Bool) {
@@ -71,15 +69,25 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
 
             setLoadingSign(toWidth: 0)
 
+            answerOnInitData()
+
+            startSchedule()
+
         }
+        
     }
     
   
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        startSchedule()
-
+        
+        if widthProgress > -1 {
+            
+            reCountTimers()
+            startSchedule()
+    
+        }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -101,8 +109,8 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     
     func answerOnInitData(){
-        
-        gameInfo = games_list[local_current_game_type]!
+
+        gameInfo = local_current_game
         
         peopleCount.text = Int(gameInfo.num_players).stringWithSepator
         usSum.text = "$ \(gameInfo.prize_amount)"
@@ -110,18 +118,26 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         moneyTablet.initTimer(Int(gameInfo.prize_amount_local * 1000),
                               Int(gameInfo.prize_amount_fiat * 1000))
         
-        let timerNow = gameInfo.ending_at - Int(Date().timeIntervalSince1970)
+        reCountTimers()
         
-        if timerNow > 0 {
-            setTimersNumbers(timerNow,gameInfo.ending_at - gameInfo.started_at)
-        } else {
+    }
+
+    func reCountTimers(){
+        
+        let data = recountTimersData(gameInfo)
+        
+        if data.0 == -1 {
             showCompleteView()
+        } else {
+            setTimersNumbers(data.0, data.1, data.2)
         }
+        
     }
     
-    func setTimersNumbers(_ from : Int, _ all : Int) {
+    func setTimersNumbers(_ from : Int, _ all : Int, _ type: Int) {
         
         clockTablet?.initTimer(from,all)
+        clockTablet?.changeTextOnStaticLabels(type)
 
     }
     

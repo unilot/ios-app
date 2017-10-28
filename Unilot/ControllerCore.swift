@@ -14,7 +14,7 @@ import SCLAlertView
 import QRCodeReader
 
 
-class ControllerCore: UIViewController, NVActivityIndicatorViewable,PopUpCoreDelegate {
+class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDelegate {
 
     var activityIndicatorView : NVActivityIndicatorView?
     var itemBadge: SpecialItem?

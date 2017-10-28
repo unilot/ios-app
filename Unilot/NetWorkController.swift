@@ -9,12 +9,13 @@
 
 import Alamofire
 
-let kServer = "https://dev.unilot.io/"
+let kServer                 = "https://dev.unilot.io/"
 
-let kAPI_get_token      = "o2/token/"
-let kAPI_set_device     = "api/v1/device/"
-let kAPI_get_list_games = "api/v1/games"
-
+let kAPI_get_token          = "o2/token/"
+let kAPI_set_device         = "api/v1/device/"
+let kAPI_get_list_games     = "api/v1/games"
+let kAPI_get_list_winners   = "api/v1/games/%@/winners"
+let kAPI_get_history        = "api/v1/games/history"
 
 let request_session_data : Parameters = [
     "client_id": "PccTjiTN7xXU9PCJRiAzYA2frgKUSEl0scJMTzFb",
@@ -59,61 +60,49 @@ class NetWork : NetWorkParse {
     }
     
     
-    static func getLotteryDetails(_ completion: ([[String:String]]) -> Void,
-                                  _ fail_request: @escaping (String?) -> Void) {
 
+    
+    static func getListWinners(completion: @escaping (String?) -> Void) {
         
-        
-        var dataForTable = [[String:String]]()
-     
-        // debug
-        
-        for i in 0..<234{
+        Alamofire.request( String(format:kServer + kAPI_get_list_winners, local_current_game.game_id),
+                           method : .get,
+                           encoding: JSONEncoding.default,
+                           headers: request_headers)
             
-            var item = [String:String]()
-            
-            item["place"] = "\(i + 1)"
-            item["key"] = "\(i * 3234955)".base64Encoded()
-            item["eth"] = "\(Float(234 - i) * 1.2)"
-            item["usd"] = "\(Float(234 - i) * 0.0008)"
-            
-            dataForTable.append(item)
-
+            .responseJSON { (response) -> Void in
+                
+                completion(sendToErrorParsAndDataParse(response, parseWinnersList))
         }
         
-        completion(dataForTable)
+    }
+    
+    
+    //MARK: -  in process
+    
+    static func getHistoryPage(completion: @escaping (String?) -> Void) {
+        
+        Alamofire.request( kServer + kAPI_get_history,
+                           method : .get,
+                           encoding: JSONEncoding.default,
+                           headers: request_headers)
+            
+            .responseJSON { (response) -> Void in
+                
+                completion(sendToErrorParsAndDataParse(response, parseHistoryPage))
+        }
         
     }
     
     
-    func setInits(){
-        
-        
-        
-    }
-    //
-    //    func getAlphabetList(_ params : [String:Any], FILL haveResult :((_ message: String?, _ answer:  [String:[CharityStruct]]?) -> Void)? = nil){
-    //
-    //    }
-    
-    
-    static func getTimeCountInfo(){
-        
-        
-        
-    }
-    
-    
-    
-    static func getMoneyCountInfo(){
-        
-    }
     
     //MARK: - ERRORS
     
     static func sendToErrorParsAndDataParse(
                             _ response      : DataResponse<Any>,
                             _ dataParse     : (Any?) -> String? ) -> String? {
+        
+        
+        print(response)
         
         guard response.result.isSuccess else {
             return  response.result.error!.localizedDescription

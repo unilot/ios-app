@@ -39,8 +39,8 @@ class MainView: MainViewPositions {
     
     func setGameNumbers(){
         
-        local_current_game_type = kTypeDay
-        
+        local_current_game = games_list[kTypeDay]!
+ 
     }
     
     //MARK: - timers
@@ -80,7 +80,7 @@ class MainWeekView: MainView {
     
     override func setGameNumbers(){
         
-        local_current_game_type = kTypeWeek
+        local_current_game = games_list[kTypeWeek]!
         
     }
     

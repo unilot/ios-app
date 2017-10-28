@@ -20,12 +20,13 @@ class CountDownLabel: UIImageView  {
     var labelMain = UILabel()
     
     var delegate : CountDownTimeDelegate?
-
+    
     var startCounts = 0
     
     var totalCounts = 0
     
-    
+    var timerUpdateDuration = 1.0
+
     var countdownTimer: Timer!
     
     var isFull = false
@@ -100,7 +101,9 @@ class CountDownLabel: UIImageView  {
     
     func doScheduledTimer(){
         
-        countdownTimer  = Timer.scheduledTimer(timeInterval: 1.0,
+        doUpdate()
+ 
+        countdownTimer  = Timer.scheduledTimer(timeInterval: timerUpdateDuration,
                                                target: self,
                                                selector: #selector(CountDownLabel.doUpdate),
                                                userInfo: nil,
@@ -113,9 +116,7 @@ class CountDownLabel: UIImageView  {
     func initTimer(_ from : Int, _ all : Int){
         
         startCounts = all
-        totalCounts = from
-        
-        //        doScheduledTimer()
+        totalCounts = from 
         
     }
     

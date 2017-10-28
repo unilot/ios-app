@@ -1,8 +1,8 @@
 //
-//  CountUppMoney.swift
+//  CountDownTimeMonth.swift
 //  Unilot
 //
-//  Created by Alyona on 9/27/17.
+//  Created by Alyona on 10/28/17.
 //  Copyright © 2017 Vovasoft. All rights reserved.
 //
 
@@ -11,57 +11,22 @@ import UIKit
 import Splitflap
 
 
-class CountUppMoney: CountDownCore  {
-    
-    override func initConstants(){
-        
-        countFlipersCountAndStep()
-        
-        timerUpdateDuration = 0.5
-
-    }
-    
-    func countFlipersCountAndStep(){
-        let current_game = games_list[local_current_game_type]!
-
-        let money2 = current_game.prize_amount_fiat
- 
-        
-        flippersCount = 1 + Int(log10(money2)) + flippersGaps
-        
-    }
-    
-    
-    override func updateLabels() {
-        
-        updateFlippers("\(totalCounts)")
-        
-    }
-    
-    override func changeCounts() -> Bool {
-        
-        if totalCounts < startCounts {
-            totalCounts += 1
-            return true
-        }
-        
-        return false
-    }
- 
- 
-}
-
 
 class CountDownTimeMonth: CountDownCore  {
     
     override func initConstants(){
         
         flippersCount = 2
-                
-        timerUpdateDuration = 6.0 // tmp
+        
+        timerUpdateDuration = 3600 * 24
         
     }
     
+    
+    override func adComa() {
+        
+        
+    }
     
     override func updateLabels() {
         

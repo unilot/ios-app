@@ -50,8 +50,8 @@ class BonusView: MainViewPositions {
         
         howDoesItWork.setTitle("Как попасть в розыгрыш?", for: .normal)
         prizePlaces.setTitle("Призовые места", for: .normal)
-        
-        local_current_game_type = kTypeMonth
+
+        local_current_game = games_list[kTypeMonth]!
         
         addTimersBody()
         
@@ -59,13 +59,14 @@ class BonusView: MainViewPositions {
         
     } 
     
-    override func setTimersNumbers(_ from: Int, _ all: Int) {
+    override func setTimersNumbers(_ from: Int, _ all: Int , _ type: Int) {
 
-        daysCount.initTimer(from,all)
+        daysCount.initTimer(from/(3600*24),all/(3600*24))
     
     }
     
     override  func setButtonView(){
+        
         super.setButtonView()
         
         howDoesItWork.layer.cornerRadius = howDoesItWork.frame.height/2

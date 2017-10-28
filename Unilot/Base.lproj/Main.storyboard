@@ -136,7 +136,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.23.10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="a21-FW-yFZ">
-                                                    <rect key="frame" x="50" y="12.5" width="83.5" height="20"/>
+                                                    <rect key="frame" x="50" y="13" width="83.5" height="20"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1943,8 +1943,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="eth" destination="4uH-PX-Awc" id="hKN-Ap-IOb"/>
                         <outlet property="searchMain" destination="STZ-qs-8Zh" id="h5o-9p-9sn"/>
                         <outlet property="tableMain" destination="9Jc-Rv-deV" id="vcW-8l-12L"/>
+                        <outlet property="users" destination="EWh-gb-QPq" id="XcC-t7-Aou"/>
+                        <outlet property="winners" destination="baG-as-iQt" id="Ysc-TX-mrP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MQ8-NL-dFZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

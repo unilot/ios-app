@@ -57,7 +57,7 @@
                     <color key="textColor" red="0.1764705882" green="0.1529411765" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-vg-g4z" customClass="CountDownSimpleTime" customModule="Unilot" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-vg-g4z" customClass="CDTimerPopUp" customModule="Unilot" customModuleProvider="target">
                     <rect key="frame" x="59.5" y="317" width="200" height="74"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -82,6 +82,17 @@
                     <state key="normal" title="  Скопировать номер кошелька" image="copy-x3">
                         <color key="titleColor" red="0.1764705882" green="0.1529411765" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="onCopyNumber" destination="iN0-l3-epB" eventType="touchUpInside" id="4o4-cR-5SV"/>
                     </connections>

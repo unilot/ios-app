@@ -14,9 +14,8 @@ import QRCodeReader
 
 
 //MARK: - Local Vars
-
-var local_current_game_type = kTypeDay
-
+  
+var local_current_game = GameInfo()
 
 
 //MARK: - Structures
@@ -24,56 +23,30 @@ var local_current_game_type = kTypeDay
 let cReviews    = 6
 
 
+class UserForGame{
+    
+    var user_id             : String = kEmpty
+    var position            : Int = 0
+    var prize_amount        : Float = 0
+    var prize_amount_fiat   : Float = 0
+     
+}
 
-class GameInfo : NSObject, NSCoding{
+
+class GameInfo {
     
-    
-    var game_id             : Int = 0
+    var game_id             : String = kEmpty
     var smart_contract_id   : String = kEmpty
     var num_players         : Int = 0
+    var num_winners         : Int = 0
     var prize_amount        : Float = 0
     var prize_amount_fiat   : Float = 0
     var prize_amount_local  : Float = 0
     var started_at          : Int = 0
     var ending_at           : Int = 0
-    var status              : Int = 0
-    var type                : Int = 0
-    
- 
- 
-    func encode(with aCoder: NSCoder){
-        
-        aCoder.encode(self.game_id, forKey: "game_id")
-        aCoder.encode(self.smart_contract_id, forKey: "smart_contract_id")
-        aCoder.encode(self.num_players, forKey: "num_players")
-        aCoder.encode(self.prize_amount, forKey: "prize_amount")
-        aCoder.encode(self.prize_amount_fiat, forKey: "prize_amount_fiat")
-        aCoder.encode(self.prize_amount_local, forKey: "prize_amount_local")
-        aCoder.encode(self.started_at, forKey: "started_at")
-        aCoder.encode(self.ending_at, forKey: "ending_at")
-        aCoder.encode(self.status, forKey: "status")
-        aCoder.encode(self.type, forKey: "type")
-        
-    }
-    
-    
-    required init (coder aDecoder: NSCoder) {
-        self.game_id = aDecoder.decodeObject(forKey: "game_id") as! Int
-        self.smart_contract_id = aDecoder.decodeObject(forKey: "smart_contract_id") as! String
-        self.num_players = aDecoder.decodeObject(forKey: "num_players") as! Int
-        self.prize_amount = aDecoder.decodeObject(forKey: "prize_amount") as! Float
-        self.prize_amount_fiat = aDecoder.decodeObject(forKey: "prize_amount_fiat") as! Float
-        self.prize_amount_local = aDecoder.decodeObject(forKey: "prize_amount_local") as! Float
-        self.started_at = aDecoder.decodeObject(forKey: "started_at") as! Int
-        self.ending_at = aDecoder.decodeObject(forKey: "ending_at") as! Int
-        self.status = aDecoder.decodeObject(forKey: "status") as! Int
-        self.type = aDecoder.decodeObject(forKey: "type") as! Int
-    }
-    
-    
-    override init() {
-        super.init()
-    }
+    var status              : Int = 10
+    var type                : Int = 10
+  
 }
 
 
@@ -96,6 +69,31 @@ func TR(_ str: String?) -> String{
     
 }
 
+
+func recountTimersData(_ game : GameInfo) -> (Int, Int, Int) { //now/all/stepType
+    
+    let timerNow = game.ending_at - Int(Date().timeIntervalSince1970)
+    let timeAll = game.ending_at - game.started_at
+    
+    let diff = timeAll - timerNow
+    
+    let typeOfStep =  ( diff > (3600 * 24) ) ? ( diff > (3600 * 24 * 30 ) ? 2 : 1) : 0
+    
+    if timerNow > 0 {
+        return (timerNow,timeAll,typeOfStep)
+    } else {
+        return (0,0,-1)
+    }
+}
+
+func getNiceDateFormatString(from timeSec : Int) -> String {
+
+    let currentDate = Date(timeIntervalSince1970: TimeInterval(timeSec))
+    let  calendar = NSCalendar.current
+    let components = calendar.dateComponents([.year,.month,.day], from: currentDate)
+    
+    return "\(components.year!).\(components.month!).\(components.day!)"
+}
 
 func labelFor(_ cell: UITableViewCell, _ index: Int) -> UILabel?{
     

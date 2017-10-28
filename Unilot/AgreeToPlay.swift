@@ -13,7 +13,7 @@ import SCLAlertView
 
 class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
     
-    @IBOutlet weak var clockTablet: CountDownSimpleTime!
+    @IBOutlet weak var clockTablet: CDTimerPopUp!
     
     @IBOutlet weak var textBig: UILabel!
     
@@ -32,33 +32,39 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
     }
     
      override func setInitBorders(){
-        
+
         super.setInitBorders()
          
-        copy_line.text = games_list[local_current_game_type]!.smart_contract_id
-            
-        copyButton.layer.borderWidth = 1
-        copyButton.layer.borderColor = UIColor.lightGray.cgColor
-        copyButton.layer.cornerRadius = 4
-        
-        clockTablet.createBody(self)
-        clockTablet.labelMain.textColor = UIColor.black
-        clockTablet.initTimer(1500, 2500)
-        clockTablet.labelMain.font = UIFont(name: kFont_Regular, size: 500)
-        clockTablet.labelMain.frame.origin = CGPoint(x: 0,
-                                                     y: -clockTablet.labelMain.frame.height * 0.4)
+        copy_line.text = local_current_game.smart_contract_id
         
         let ptophyUpper = setColorForImage(trophy.frame.size, "trophy-x3")
         trophy.addSubview(ptophyUpper)
- 
+
         startClock()
     }
     
-    func startClock(){
     
-        clockTablet.doScheduledTimer()
+    func startClock(){
+        
+        let items = recountTimersData(local_current_game)
+        
+        if items.2 > -1 {
+            
+            clockTablet.createBody(self)
+            clockTablet.setTextColor(UIColor.black)
+            clockTablet.labelMain.font = UIFont(name: kFont_Regular, size: 500)
+            clockTablet.labelMain.frame.origin = CGPoint(x: 0,
+                                                         y: -clockTablet.labelMain.frame.height * 0.4)
 
-    }
+            clockTablet.initTimer(items.0, items.1)
+            clockTablet.changeTextOnStaticLabels(items.2)
+            clockTablet.doScheduledTimer()
+            
+        } else {
+            onX()
+        }
+        
+     }
     
     
     

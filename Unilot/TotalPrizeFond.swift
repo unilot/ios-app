@@ -8,7 +8,7 @@
 
 
 import UIKit
-
+import SCLAlertView
 
 
 class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
@@ -18,7 +18,7 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableMain: UITableView!
     @IBOutlet weak var trophy: SpecialItem!
     
-    var dataForTable = [Int]()
+    var dataForTable = [UserForGame]()
     var widthOfCell = CGFloat(0)
     
     class func createTotalPrizeFond() -> TotalPrizeFond {
@@ -34,11 +34,28 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         
         widthOfCell = frame.width * 0.9
         
-        dataForTable = [87687,87687,987987,98798,98,98988,8,98,98,9,9,9]
-        tableMain.reloadData()
+        NetWork.getListWinners(completion: onAnswer)
         
     }
     
+    
+    func onAnswer(_ error :String?) {
+        
+        if error != nil {
+            
+            SCLAlertView().showError(" ", subTitle: error!)
+
+            
+        } else {
+            
+            dataForTable =  winners_list.sorted(by: {  return $0.position < $1.position})
+
+            tableMain.reloadData()
+
+        }
+        
+        
+    }
     
     
     
@@ -65,7 +82,9 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
             createCellBody(cell!)
             
         }
-        setCellBody(cell!,["3-567","67.463.536","345.544"])
+        
+    
+        setCellBody(cell!,dataForTable[indexPath.row]!)
         
         
         if indexPath.row % 2 == 0 {
@@ -118,20 +137,13 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
          
     }
     
-    func setCellBody(_ cell : UITableViewCell, _ withData : [String] ) {
+    func setCellBody(_ cell : UITableViewCell, _ item : UserForGame) {
       
         
-        if let item = cell.contentView.viewWithTag(10) as? UILabel {
-            item.text = withData[0]
-        }
+        labelFor(cell, 10)?.text = "\(item.position)"
+        labelFor(cell, 20)?.text = "\(item.prize_amount_fiat)"
+        labelFor(cell, 30)?.text = "\(item.prize_amount)"
         
-        if let item = cell.contentView.viewWithTag(20) as? UILabel {
-            item.text = withData[1]
-        }
-
-        if let item = cell.contentView.viewWithTag(30) as? UILabel {
-            item.text = withData[2]
-        }
 
     }
 

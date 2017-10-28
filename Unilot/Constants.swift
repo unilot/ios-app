@@ -12,10 +12,12 @@
 
 //MARK: -  games info
 
+
 let kTypeHour = 5
 let kTypeDay = 10
 let kTypeWeek = 30
 let kTypeMonth = 50
+
 
 let kStatusPublished = 10
 let kStatusCancele  = 20
@@ -34,7 +36,20 @@ let kLink_Twitter = "https://twitter.com/unilot_lottery"
 
 //MARK: -  local data
 
-var lottery_images = ["`1day-x3","`7days-x3","`31days-x3"]
+var lottery_images   = ["`1day-x3","`7days-x3","`31days-x3"]
+var kTypeImage       = [kTypeDay : "`1day-x3", kTypeWeek : "`7days-x3", kTypeMonth : "`31days-x3"]
+var kTypeTabBarOrder = [kTypeDay, kTypeWeek, kTypeMonth]
+
+
+let staticClockSecondsStep = [1,60,3600]
+
+let staticClockNames =
+    [
+        ["Часа  ","Минут","  Сек"],
+        ["Дней  ","Часа","  Минут",],
+        ["Недель ", "Дней  ","Часа",]
+]
+
 
 let kEmpty = ""
 

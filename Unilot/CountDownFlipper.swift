@@ -158,9 +158,11 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
     //MARK: -  count down
     func doScheduledTimer(){
 
+        doUpdate()
+
         countdownTimer  = Timer.scheduledTimer(timeInterval: timerUpdateDuration,
                                                target: self,
-                                               selector: #selector(CountDownLabel.doUpdate),
+                                               selector: #selector(CountDownCore.doUpdate),
                                                userInfo: nil,
                                                repeats: true)
 

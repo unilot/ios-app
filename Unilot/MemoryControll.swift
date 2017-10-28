@@ -15,6 +15,7 @@ var users_account_number =  ["1231qewr4r124","Qwr34qwawerwt2345t4"]
 
 var currentTabBarLottery = 0
 
+var tokenForNotifications = kEmpty
 
 class MemoryControll {
     

@@ -8,6 +8,8 @@
 
 
 import UIKit
+import Foundation
+import SCLAlertView
 
 
 
@@ -15,31 +17,61 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     
     
     @IBOutlet weak var table: UITableView!
+    
+    var dataForTable = [GameInfo]()
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        table.layer.opacity = 0.0
+        
+        showActivityViewIndicator()
+        
+        NetWork.getHistoryPage(completion: onAnswer)
+        
+    }
+    
+    func onAnswer(_ error : String?){
+        
+        hideActivityViewIndicator()
+        
+        if error != nil{
+            
+//            SCLAlertView().showError(" ", subTitle: error!)
 
+            dataForTable = [
+                games_list[kTypeDay]!,
+                games_list[kTypeDay]!,
+                games_list[kTypeDay]!,
+                games_list[kTypeDay]!,
+                games_list[kTypeDay]!,
+                games_list[kTypeWeek]!,
+                games_list[kTypeDay]!,
+                games_list[kTypeDay]!,
+                games_list[kTypeDay]!,
+                games_list[kTypeMonth]!
+            ]
+            
+            
+        } else {
+            
+            dataForTable =  history_list.sorted(by: {  return $0.started_at > $1.started_at})
+
+        }
+        
+        table.reloadData()
+        
+        UIView.animate(withDuration: 0.5) {
+            
+            self.table.layer.opacity = 1.0
+            
+        }
+    }
     
-    var dataForTable =
-    [
-    ["0","0","10.10.17","в процессе","перейти"],
-    ["0","1","10.10.17","в процессе","перейти"],
-    ["0","2","10.10.17","в процессе","перейти"],
-    ["1","1","10.10.17","завершена","список победителей"],
-    ["1","2","10.10.17","завершена","список победителей"],
-    ["1","0","10.10.17","завершена","список победителей"],
-    ["1","1","10.10.17","завершена","список победителей"],
-    ["1","1","10.10.17","завершена","список победителей"],
-    ["1","2","10.10.17","завершена","список победителей"],
-    ["1","0","10.10.17","завершена","список победителей"],
-    ["1","2","10.10.17","завершена","список победителей"],
-    ["1","1","10.10.17","завершена","список победителей"],
-    
-    ]
     
     
-    
-    
-//    var dataForTable = [87687,87687,987987,9,87,98,09,98,98,9,8,8,8,98,98,9,9,9]//[String]()
     var viewWithPlaces : TotalPrizeFond? = nil
-  
     
     override func setTitle() {
         notifications_data =  ["badge" : 0]
@@ -96,24 +128,36 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
         let item = dataForTable[indexPath.row]
         
-        labelFor(cell, 20)?.text = item[2]
-        labelFor(cell, 30)?.text = item[3]
-
         if let img = cell.contentView.viewWithTag(10) as? UIImageView{
-            img.image = UIImage(named: lottery_images[Int(item[1])!])
+            img.image = UIImage(named: kTypeImage[item.type]!)
         }
         
-        let label  =   labelFor(cell, 40)!
-
-        label.text = item[4]
+        labelFor(cell, 20)?.text = getNiceDateFormatString(from: item.started_at)
+ 
+        let actionLabel  =   labelFor(cell, 30)!
+        let statusLabel  =   labelFor(cell, 40)!
         
-        if item[0] == "1" {
-            label.textColor = kColorSelectedBlue
-        } else {
-            label.textColor = kColorNormalGreen
+        switch item.status {
+            
+        case kStatusComplete:
+            actionLabel.text = "завершена"
+            statusLabel.text = "список победителей"
+            statusLabel.textColor = kColorSelectedBlue
+            
+        case kStatusPublished:
+            actionLabel.text = "в процессе"
+            statusLabel.text = "перейти"
+            statusLabel.textColor = kColorNormalGreen
+            
+        default: //kStatusCancele
+            actionLabel.text = "отменена"
+            statusLabel.text = " "
+            statusLabel.textColor = kColorLightOrange
+            break
         }
         
         
+        // decor
         if let fon = cell.contentView.viewWithTag(5) as? UIImageView{
             
             if indexPath.row % 2 == 0 {
@@ -133,22 +177,33 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let item = dataForTable[indexPath.row]
-
-        if item[0] == "1" {
-            onDetails()
-        } else{
-            
-            currentTabBarLottery  =  Int(item[1])!
-            
-            goToMainView()
+        local_current_game = dataForTable[indexPath.row]
         
+        switch local_current_game.status {
+            
+        case kStatusComplete:
+            onDetails()
+
+            
+        case kStatusPublished:
+            
+            onDetails()
+
+            
+//            currentTabBarLottery  =  kTypeTabBarOrder.index(of: item.type)!
+//            
+//            goToMainView()
+//            
+        default: //kStatusCancele
+            
+            break
         }
         
     }
  
     
     func onDetails(){
+        
         performSegue(withIdentifier: "sigue_details", sender: self)
         
     }

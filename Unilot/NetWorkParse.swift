@@ -14,6 +14,10 @@ var session_data = [String: Any]()
 
 var games_list = [Int : GameInfo]()
 
+var winners_list = [UserForGame]()
+
+var history_list = [GameInfo]()
+
 
 class NetWorkParse {
      
@@ -34,12 +38,10 @@ class NetWorkParse {
     }
 
     static func parseGamesList(_ resultValue : Any) -> String? {
-        
+
         guard let responseJSON = resultValue as? [[String:Any]] else {
             return "Wrong json format for parseGamesList"
         }
-
-        print(resultValue)
 
         games_list = [:]
         
@@ -55,11 +57,47 @@ class NetWorkParse {
         }
         
         
-        MemoryControll.saveObject(games_list, key: "GameInfo")
+//        MemoryControll.saveObject(games_list, key: "GameInfo")
         
         return nil
         
     }
+    
+    
+    static func parseWinnersList(_ resultValue : Any) -> String? {
+        
+        guard let responseJSON = resultValue as? [[String:Any]] else {
+            return "Wrong json format for parseWinnersList"
+        }
+        
+        winners_list = []
+        
+        for item in responseJSON {
+            let game = createUserItemForGame(from: item)
+            winners_list.append(game)
+        }
+        
+        return nil
+        
+    }
+    
+    static func parseHistoryPage(_ resultValue : Any) -> String? {
+
+        guard let responseJSON = resultValue as? [[String:Any]] else {
+            return "Wrong json format for parseHistoryPage"
+        }
+        
+        history_list = []
+        
+        for item in responseJSON {
+            let game = createGameItem(from: item)
+            history_list.append(game)
+        }
+        
+        return nil
+        
+    }
+    
     
     //MARK: - fill items
     
@@ -67,7 +105,7 @@ class NetWorkParse {
             
         let item = GameInfo()
         
-        item.game_id            = data["id"] as! Int
+        item.game_id            = "\(data["id"]!)"
         item.smart_contract_id  = data["smart_contract_id"] as! String
         item.num_players        = data["num_players"] as! Int
         item.prize_amount       = data["prize_amount"] as! Float
@@ -82,4 +120,20 @@ class NetWorkParse {
         return item
     }
 
+    
+    
+    static func createUserItemForGame(from data :[String : Any]) -> UserForGame{
+        
+        let item = UserForGame()
+        
+        item.user_id            = data["address"] as! String
+        item.position           = data["position"] as! Int
+        item.prize_amount       = data["prize_amount"] as! Float
+        item.prize_amount_fiat  = data["prize_amount_fiat"] as! Float
+        
+        return item
+    }
+
+    
+    
 }

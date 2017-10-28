@@ -9,6 +9,7 @@
 
 import UIKit
 import Foundation
+import SCLAlertView
 
 
 class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
@@ -16,16 +17,19 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
     
     @IBOutlet weak var tableMain: UITableView!
     @IBOutlet weak var searchMain: UISearchBar!
+  
     
- 
-    var origin_dataForTable  = [[String: String]]()
-    var dataForTable  = [[String: String]]()
+    @IBOutlet weak var eth: UILabel!
+    @IBOutlet weak var users: UILabel!
+    @IBOutlet weak var winners: UILabel!
     
-    var from_date = "31.08.17"
-    var from_lottery = 1
+    
+    var origin_dataForTable  = [UserForGame]()
+    var dataForTable  = [UserForGame]()
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         setNavControllerClear()
@@ -33,20 +37,58 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         setTitle()
         
         tableMain.layer.opacity = 0.0
-
         
         addTouchForKeyBoard()
         
-        NetWork.getLotteryDetails(onAnswerSuccess, onAnswerError)
+        showActivityViewIndicator()
+        
+        NetWork.getListWinners(completion: onAnswer)
         
     }
-
     
+    func onAnswer(_ error : String?){
+ 
+        hideActivityViewIndicator()
+        
+        if error != nil{
+            
+            SCLAlertView().showError(" ", subTitle: error!)
+ 
+        } else {
+            
+            dataForTable =  winners_list.sorted(by: {  return $0.position < $1.position})
+            
+            origin_dataForTable = dataForTable
+        }
+        
+        tableMain.reloadData()
+        
+        UIView.animate(withDuration: 0.5) {
+            
+            self.tableMain.layer.opacity = 1.0
+            
+        }
+    }
     
     override func setTitle(){
         
+        
+        // fill data in title
+        
+        let date_string = getNiceDateFormatString(from: local_current_game.started_at)
+        let game_image = kTypeImage[local_current_game.type]!
+        
+        eth.text = "\(local_current_game.prize_amount_fiat)"
+        users.text = "\(local_current_game.num_players)"
+        winners.text = "\(local_current_game.num_winners)"
+        
+        
+        
         let height = navigationController!.navigationBar.frame.height
         let width =  CGFloat(300)//navigationController!.navigationBar.frame.width
+        
+        
+        // title image
         
         let title_view = UIView(frame : CGRect(x: 0,
                                                y: 0,
@@ -58,7 +100,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
                                               width:  height/2,
                                               height: height/2))
         
-        image_view.image = UIImage(named: lottery_images[from_lottery])
+        image_view.image = UIImage(named: game_image)
         image_view.contentMode = .scaleAspectFit
         image_view.clipsToBounds = true
         
@@ -66,6 +108,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         let title = UILabel(frame: CGRect(x: height , y: 0,
                                           width: width - height/2,
                                           height: height))
+        
         
         // create attributed string
 
@@ -78,40 +121,21 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         let attr2 = [ NSFontAttributeName: UIFont(name: kFont_Regular, size: 15.0)!,
                             NSForegroundColorAttributeName : kColorMenuPeach]
         
-        let second_string = NSMutableAttributedString(string:from_date, attributes: attr2 )
-
-
+        let second_string = NSMutableAttributedString(string: date_string,
+                                                      attributes: attr2 )
+ 
         first_string.append(second_string)
        
         title.attributedText = first_string
         title.textAlignment = .left
         title.adjustsFontSizeToFitWidth = true
         
-        
         title_view.addSubview(image_view)
         title_view.addSubview(title)
         
-//        title_view.center = CGPoint(x: navigationController!.navigationBar.width / 2.0,
-//                                    y: navigationController!.navigationBar.height / 2.0)
-
+        
         navigationItem.titleView = title_view
         
-    }
-    
-    //MARK: -  NetWork
-
-    override func onAnswerSuccess(_ dataRecieved : [[String: String]]){
-        
-        dataForTable = dataRecieved
-        origin_dataForTable = dataRecieved
-        
-        tableMain.reloadData()
-        
-        UIView.animate(withDuration: 0.5) {
-            
-            self.tableMain.layer.opacity = 1.0
-            
-        }
     }
     
     
@@ -160,12 +184,12 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         cell.layoutIfNeeded()
 
         
-        let item = dataForTable[indexPath.row]
-
-        labelFor(cell, 10)?.text = item["place"]
-        labelFor(cell, 20)?.text = item["key"]
-        labelFor(cell, 30)?.text = item["eth"]
-        labelFor(cell, 40)?.text = item["usd"]
+        let item : UserForGame = dataForTable.first {   $0.position == indexPath.row + 1 }!
+ 
+        labelFor(cell, 10)?.text = "\(item.position)"
+        labelFor(cell, 20)?.text = item.user_id
+        labelFor(cell, 30)?.text = "\(item.prize_amount_fiat)"
+        labelFor(cell, 40)?.text = "\(item.prize_amount)"
         
         
         if indexPath.row % 2 == 0 {
@@ -175,7 +199,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         }
         
         
-        if users_account_number.contains( item["key"]!) {
+        if users_account_number.contains( item.user_id) {
             cell.contentView.backgroundColor = kColorLightYellow
         }
         
@@ -185,7 +209,9 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        saveToClipboard(dataForTable[indexPath.row]["key"]!)
+        let item : UserForGame = dataForTable.first {   $0.position == indexPath.row + 1 }!
+
+        saveToClipboard(item.user_id)
         
     }
     
@@ -216,14 +242,14 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
     }
 
     
-    func containsText(_ item : [String : String], _ searchtext : String) -> Bool {
+    func containsText(_ item : UserForGame, _ searchtext : String) -> Bool {
      
         let search_text = searchtext.lowercased()
 
-        let text1 = item["place"]!.lowercased()
-        let text2 = item["key"]!.lowercased()
-        let text3 = item["eth"]!.lowercased()
-        let text4 = item["usd"]!.lowercased()
+        let text1 = item.user_id.lowercased()
+        let text2 = "\(item.position)"
+        let text3 = "\(item.prize_amount_fiat)"
+        let text4 = "\(item.prize_amount)"
         
         return  text1.contains(search_text) || text2.contains(search_text) ||
                 text3.contains(search_text) || text4.contains(search_text)
@@ -236,7 +262,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         
         if searchtext != nil && searchtext!.characters.count > 0{
             
-            dataForTable = origin_dataForTable.filter({ (item : [String : String]) -> Bool in
+            dataForTable = origin_dataForTable.filter({ (item : UserForGame) -> Bool in
               
                 return containsText(item, searchtext!)
                 

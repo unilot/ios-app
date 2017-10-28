@@ -14,13 +14,17 @@ class HowDoesItWork : TextViewCore {
     
     override func viewDidLoad() {
         
-        
         view_name = TR("Как это работает")
          
         super.viewDidLoad()
         
         textView.text = getTextFromFileInfo()
 
+    }
+    
+    override  func addText() {
+
+        
     }
 }
 

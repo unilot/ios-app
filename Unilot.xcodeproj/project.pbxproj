@@ -47,6 +47,8 @@
 		D6D591BB1F8D19D20002451A /* LxTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D591BA1F8D19D20002451A /* LxTabBarController.swift */; };
 		D6DCCD131FA4BCA1009BD20E /* BundleNew.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DCCD121FA4BCA1009BD20E /* BundleNew.m */; };
 		D6DCCD181FA4C795009BD20E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6DCCD1A1FA4C795009BD20E /* Localizable.strings */; };
+		D6DCCD1E1FA4F31C009BD20E /* HDIW_ru.txt in Resources */ = {isa = PBXBuildFile; fileRef = D6DCCD1D1FA4F31C009BD20E /* HDIW_ru.txt */; };
+		D6DCCD201FA4F338009BD20E /* HDIW_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = D6DCCD1F1FA4F338009BD20E /* HDIW_en.txt */; };
 		D6E2BF671F8FE804002D28F2 /* MemoryControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E2BF661F8FE804002D28F2 /* MemoryControll.swift */; };
 		D6E2BF691F8FF4BE002D28F2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E2BF681F8FF4BE002D28F2 /* LoadingView.swift */; };
 		D6E42B791F8AFBE2005270A9 /* HistoryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E42B781F8AFBE2005270A9 /* HistoryTable.swift */; };
@@ -125,6 +127,8 @@
 		D6DCCD121FA4BCA1009BD20E /* BundleNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BundleNew.m; sourceTree = "<group>"; };
 		D6DCCD1B1FA4C797009BD20E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D6DCCD1C1FA4C798009BD20E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D6DCCD1D1FA4F31C009BD20E /* HDIW_ru.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HDIW_ru.txt; sourceTree = "<group>"; };
+		D6DCCD1F1FA4F338009BD20E /* HDIW_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HDIW_en.txt; sourceTree = "<group>"; };
 		D6E2BF661F8FE804002D28F2 /* MemoryControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryControll.swift; sourceTree = "<group>"; };
 		D6E2BF681F8FF4BE002D28F2 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		D6E42B781F8AFBE2005270A9 /* HistoryTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTable.swift; sourceTree = "<group>"; };
@@ -238,6 +242,8 @@
 				D62A31701F7AC06E00275B86 /* Bridging-Header.h */,
 				D6DCCD0F1FA4B60F009BD20E /* Unilot.entitlements */,
 				D63F45161F8AC1BE00F69E7F /* Terms.html */,
+				D6DCCD1D1FA4F31C009BD20E /* HDIW_ru.txt */,
+				D6DCCD1F1FA4F338009BD20E /* HDIW_en.txt */,
 				D6DCCD1A1FA4C795009BD20E /* Localizable.strings */,
 				D69364D11F5F254400FD0D37 /* Info.plist */,
 			);
@@ -520,6 +526,7 @@
 				D6ED6B381F8F90C100384672 /* InfoView.xib in Resources */,
 				D6C6BAB31F8CD6C000EC7FE0 /* Roboto-Bold.ttf in Resources */,
 				D63F45171F8AC1BE00F69E7F /* Terms.html in Resources */,
+				D6DCCD201FA4F338009BD20E /* HDIW_en.txt in Resources */,
 				D6C6BAB61F8CD6C000EC7FE0 /* Roboto-Regular.ttf in Resources */,
 				D6F460AD1F9D215F0006FA08 /* YouWin.xib in Resources */,
 				D62E4C2C1F86C15B00C619EA /* TotalPrizeFond.xib in Resources */,
@@ -528,6 +535,7 @@
 				D66878B81F84D9CF0096FB3F /* AgreeToPlay.xib in Resources */,
 				D6C6BAB41F8CD6C000EC7FE0 /* Roboto-Light.ttf in Resources */,
 				D69364CB1F5F254400FD0D37 /* Main.storyboard in Resources */,
+				D6DCCD1E1FA4F31C009BD20E /* HDIW_ru.txt in Resources */,
 				D612BBF71F9536AA002C4647 /* Assets.xcassets in Resources */,
 				D612BBFB1F96B48F002C4647 /* LotteryResults.xib in Resources */,
 				D6DCCD181FA4C795009BD20E /* Localizable.strings in Resources */,

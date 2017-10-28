@@ -30,7 +30,6 @@ class MainView: MainViewPositions {
         
         addTimersBody() 
 
-        tabBarItem.title = TR("Дневная")
     }
     
     
@@ -64,12 +63,12 @@ class MainView: MainViewPositions {
         clockTablet?.endTimer()
     }
     
-    override func addSwipeForMenuOpen(){
-        
-        if revealViewController() != nil {
-            view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-        }
-    }
+//    override func addSwipeForMenuOpen(){
+//        
+//        if revealViewController() != nil {
+//            view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+//        }
+//    }
 }
 
 
@@ -81,9 +80,12 @@ class MainWeekView: MainView {
         
     }
     
-    override func addSwipeForMenuOpen(){
-
-    }
+//    override func addSwipeForMenuOpen(){
+//        
+//        if revealViewController() != nil {
+//            view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+//        }
+//    }
     
 }
 

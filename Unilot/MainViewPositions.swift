@@ -48,28 +48,27 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
         super.viewDidLayoutSubviews()
         
+        currentTabBarLottery = tabBarItem.tag
+        
         view.backgroundColor = UIColor.clear
 
         itemBadge?.setNumberLabel(notifications_data["badge"]!)
 
         setButtonView()
 
+        setGameNumbers()
+        
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        prizePlaces.isHidden = true
-
+        self.view.layer.opacity = 0.0
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
- 
-        currentTabBarLottery = tabBarItem.tag
-        
-        
-        setGameNumbers()
         
         if widthProgress == -1 {
         
@@ -83,7 +82,12 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
 
         }
         
+        animateAppearance()
+
+        
     }
+    
+ 
     
     func  setGameNumbers() {
         
@@ -105,7 +109,14 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
         super.viewWillDisappear(animated)
         
+        MemoryControll.saveObject(moneyTablet.totalCounts,
+                                  key: "gameTimeLeft" + local_current_game.game_id)
+        
+        local_current_game.prize_amount_local = moneyTablet.totalCounts
+
         stopSchedule()
+        
+        animateDisAppearance()
         
     }
     override func setBackButton(){
@@ -126,7 +137,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         peopleCount.text = Int(gameInfo.num_players).stringWithSepator
         usSum.text = "$ \(gameInfo.prize_amount)"
         
-        moneyTablet.initTimer(Int(gameInfo.prize_amount_local * 1000),
+        moneyTablet.initTimer(Int(gameInfo.prize_amount_local),
                               Int(gameInfo.prize_amount_fiat * 1000))
         
         reCountTimers()
@@ -164,13 +175,12 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
 //    override func addSwipeForMenuOpen(){
 //        
-//        if tabBarItem!.tag == 0 &&
-//            tabBarController?.revealViewController() != nil {
+//        if  tabBarController?.revealViewController() != nil {
 //            view.addGestureRecognizer(tabBarController!.revealViewController().panGestureRecognizer())
 //        }
 //    }
-//    
-     
+    
+    
     func setButtonView(){
 
         prizePlaces.layer.cornerRadius = prizePlaces.frame.height/2

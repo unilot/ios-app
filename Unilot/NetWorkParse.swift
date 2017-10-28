@@ -139,7 +139,10 @@ class NetWorkParse {
         item.status             = data["status"] as! Int
         item.type               = data["type"] as! Int
         
-
+        if let localPrize = MemoryControll.getObject("gameTimeLeft" + item.game_id) as? Int {
+            item.prize_amount_local = localPrize
+         }
+        
         return item
     }
 

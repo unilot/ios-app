@@ -10,19 +10,26 @@ import UIKit
 import SCLAlertView
 
 
-class TabBarController: LxTabBarController  {
-
+class TabBarController: UITabBarController  {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
          
         var tabFrame: CGRect = self.tabBar.frame
         tabFrame.origin.y = self.view.frame.height - tabFrame.height - 5
-        self.tabBar.frame = tabFrame
-        
-//        setNavBar()
+        self.tabBar.frame = tabFrame        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        for i in 0..<tabBar.items!.count {
+            
+            tabBar.items![i].title = TR(tabbar_strings[i])
+            
+        }
+        
+    }
     override func viewDidLoad() {
         
         //UITabBar.appearance().tintColor = UIColor.white
@@ -59,14 +66,8 @@ class TabBarController: LxTabBarController  {
         tabBar.shadowImage = UIImage()
         tabBar.backgroundImage = UIImage()
         tabBar.backgroundColor = UIColor.clear
+
         
-        
-        self.tabBar
-//        
-//        for item in tabBar.items {
-//            item.tit
-//        }
-//        
     }
  
     

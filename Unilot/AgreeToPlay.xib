@@ -188,6 +188,7 @@
                 <outlet property="textBig" destination="Ltz-Tj-gjO" id="QWg-NQ-rVt"/>
                 <outlet property="titleMain" destination="5nn-c6-pxt" id="49G-nM-UPN"/>
                 <outlet property="trophy" destination="mYr-XO-cWx" id="vGS-ka-5nJ"/>
+                <outlet property="warningLabel" destination="f6h-is-Ioa" id="8Py-K6-pHf"/>
             </connections>
             <point key="canvasLocation" x="57.5" y="99.5"/>
         </view>

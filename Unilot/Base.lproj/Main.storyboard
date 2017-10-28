@@ -66,19 +66,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" verticalHuggingPriority="251" text="ТИП И ДАТА" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cR-bc-fe3">
-                                                    <rect key="frame" x="18" y="14" width="112.5" height="16"/>
+                                                    <rect key="frame" x="18" y="14" width="112" height="16"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="30" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выйгрыш" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvt-XM-z6L">
-                                                    <rect key="frame" x="250" y="14" width="112" height="16"/>
+                                                    <rect key="frame" x="249.5" y="14" width="112.5" height="16"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="СТАТУС" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCm-8P-j0I">
-                                                    <rect key="frame" x="134.5" y="14" width="111.5" height="16"/>
+                                                    <rect key="frame" x="134" y="14" width="111.5" height="16"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
@@ -642,7 +642,7 @@
             </objects>
             <point key="canvasLocation" x="-23" y="2360"/>
         </scene>
-        <!--Дневная-->
+        <!-- -->
         <scene sceneID="aO5-mU-YhL">
             <objects>
                 <viewController storyboardIdentifier="SB_Main_View" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aYf-Er-A4w" customClass="MainView" customModule="Unilot" customModuleProvider="target" sceneMemberID="viewController">
@@ -946,7 +946,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="c80-Ik-yVY" secondAttribute="trailing" constant="4" id="uxB-YZ-zJw"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Дневная" image="`1day-x3" id="YUi-m9-JnI">
+                    <tabBarItem key="tabBarItem" title=" " image="`1day-x3" id="YUi-m9-JnI">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <connections>
@@ -969,7 +969,7 @@
             </objects>
             <point key="canvasLocation" x="-1228.125" y="3208.0985915492956"/>
         </scene>
-        <!--Profile-->
+        <!-- -->
         <scene sceneID="VfV-iG-PN8">
             <objects>
                 <viewController storyboardIdentifier="SB_Profile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gBi-I1-ONO" customClass="ProfileView" customModule="Unilot" customModuleProvider="target" sceneMemberID="viewController">
@@ -1152,7 +1152,7 @@
                             <constraint firstItem="KnS-4g-kMF" firstAttribute="leading" secondItem="Med-SJ-zoo" secondAttribute="trailing" constant="5" id="z6i-aI-Clo"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="3" title="Profile" image="`profile-x3" id="71D-Sz-eoW">
+                    <tabBarItem key="tabBarItem" tag="3" title=" " image="`profile-x3" id="71D-Sz-eoW">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <connections>
@@ -1223,7 +1223,7 @@
             </objects>
             <point key="canvasLocation" x="-2936" y="2360"/>
         </scene>
-        <!--Бонусная-->
+        <!-- -->
         <scene sceneID="pPI-Wb-PK7">
             <objects>
                 <viewController storyboardIdentifier="SB_Bonus" useStoryboardIdentifierAsRestorationIdentifier="YES" id="w11-Uq-A1M" customClass="BonusView" customModule="Unilot" customModuleProvider="target" sceneMemberID="viewController">
@@ -1453,7 +1453,7 @@
                             <constraint firstItem="9Vf-fw-shV" firstAttribute="width" secondItem="Ro3-QA-SEU" secondAttribute="width" multiplier="0.4" id="zzL-dZ-RYn"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="Бонусная" image="`31days-x3" id="qEU-MP-gvX">
+                    <tabBarItem key="tabBarItem" tag="2" title=" " image="`31days-x3" id="qEU-MP-gvX">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <connections>
@@ -1941,7 +1941,7 @@
             </objects>
             <point key="canvasLocation" x="-88" y="1595"/>
         </scene>
-        <!--Недельная-->
+        <!-- -->
         <scene sceneID="wJS-jE-2O5">
             <objects>
                 <viewController storyboardIdentifier="SB_MainWeek" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wgG-he-XiK" customClass="MainWeekView" customModule="Unilot" customModuleProvider="target" sceneMemberID="viewController">
@@ -2245,7 +2245,7 @@
                             <constraint firstItem="bgr-ad-zym" firstAttribute="leading" secondItem="zan-Qe-GZb" secondAttribute="leadingMargin" constant="20" id="zhi-u0-zXo"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="Недельная" image="`7days-x3" id="sXT-1e-TAz">
+                    <tabBarItem key="tabBarItem" tag="1" title=" " image="`7days-x3" id="sXT-1e-TAz">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <connections>

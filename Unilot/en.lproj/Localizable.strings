@@ -38,6 +38,7 @@
 "Дневная лотерея" = "Daily game";
 "Недельная лотерея" = "Weekly game";
 "Бонусная лотерея" = "Bonus game";
+"лотерея" = "lottery";
 "Джекпот" = "Jackpot";
 "До конца регистрации" = "Until the end of the registration";
 "Призовые места" = "Winner places";
@@ -55,3 +56,13 @@
 "в процессе" = "in process";
 "перейти" = "open";
 "отменена" = "canceled";
+"Номер" = "The number";
+"был сохранен в буфер" = "was saved to clipboard";
+"HDIW" = "HDIW_en";
+"Что бы принять участие в %@ вам необходимо перечислить %@ Eth на кошелек, который вы получите нажав на кнопку ниже" =
+"For taking part in %@, you need to pay %@ Eth to the wallet , you get by pressing the button";
+"Лотерея заканчивается через" = "The lottery will be completed in";
+"После оплаты вернитесь в приложение\nи зарегистрируйте свой кошелек" = "After payment, return to the app\nand register your wallet";
+"Скопировать номер кошелька" = "Copy the number of your wallet";
+}
+

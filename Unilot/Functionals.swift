@@ -42,7 +42,7 @@ class GameInfo {
     var num_players         : Int = 0
     var prize_amount        : Float = 0
     var prize_amount_fiat   : Float = 0
-    var prize_amount_local  : Float = 0
+    var prize_amount_local  : Int = 0
     var started_at          : Int = 0
     var ending_at           : Int = 0
     var status              : Int = 10
@@ -56,7 +56,8 @@ class GameInfo {
 
 func saveToClipboard(_ text : String){
     UIPasteboard.general.string = text
-    SCLAlertView().showInfo(" ", subTitle: "The number\n\n\(text)\n\nwas saved to clipboard")
+    let alert_text = TR("Номер") + "\n\n" + text + "\n\n" + TR("был сохранен в буфер")
+    SCLAlertView().showInfo(" ", subTitle: alert_text)
 }
 
 

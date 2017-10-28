@@ -58,6 +58,8 @@ var setting_strings = [
     ["Дневной лотерее","Недельной лотерее","Бонусной лотерее"],
     ["English","Русский"]]
 
+var tabbar_strings =   ["Дневная","Недельная","Бонусная","Профайл"]
+
 var langCodes = ["en","ru"]
 
 let kEmpty = ""

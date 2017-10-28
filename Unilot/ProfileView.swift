@@ -63,11 +63,12 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         
     }
     
-    override func addSwipeForMenuOpen(){
-        
- 
-    
-    }
+//    override func addSwipeForMenuOpen(){
+//        
+//        if  tabBarController?.revealViewController() != nil {
+//            view.addGestureRecognizer(tabBarController!.revealViewController().panGestureRecognizer())
+//        }
+//    }
   
     func setTextField(){
 

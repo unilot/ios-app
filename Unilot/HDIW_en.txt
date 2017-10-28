@@ -1,0 +1,9 @@
+1. Select the type: Daily, Weekly
+2. Pay the ticket cost
+3. Wait for the result
+
+The system is choosing the winners who split the jackpot randomly.
+
+During the drawings you can always check the number of prize-winning places and the jackpot amount in the relevant section: Daily, Weekly, Bonus. Lists are constantly changing depending on the number of participants.
+
+All the users who lost in Daily and Weekly drawings will automatically become participants of the Bonus Monthly Draw for free.

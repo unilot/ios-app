@@ -13,15 +13,20 @@ import SCLAlertView
 
 class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
     
+    @IBOutlet weak var trophy: UIImageView!
+
     @IBOutlet weak var clockTablet: CDTimerPopUp!
+    
+    
     
     @IBOutlet weak var textBig: UILabel!
     
     @IBOutlet weak var endLabel: UILabel!
 
+    @IBOutlet weak var warningLabel: UILabel!
+
     @IBOutlet weak var copyButton: UIButton!
 
-    @IBOutlet weak var trophy: UIImageView!
 
     @IBOutlet weak var copy_line: UILabel!
 
@@ -41,6 +46,15 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
         trophy.addSubview(ptophyUpper)
 
         startClock()
+        
+        let order = kTypeTabBarOrder.index(of: local_current_game.type)
+        
+        let lotteryType = setting_strings[0][order!]
+        titleMain.text = TR(tabbar_strings[order!]) + " " + TR("лотерея") +  " UNILOT"
+        textBig.text = String(format: TR("Что бы принять участие в %@ вам необходимо перечислить %@ Eth на кошелек, который вы получите нажав на кнопку ниже"),TR(lotteryType),"0.005")
+        endLabel.text = TR("Лотерея заканчивается через")
+        warningLabel.text = TR("После оплаты вернитесь в приложение\nи зарегистрируйте свой кошелек")
+        copyButton.setTitle(TR("Скопировать номер кошелька"), for: .normal)
     }
     
     

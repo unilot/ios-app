@@ -105,9 +105,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         if navigationController?.revealViewController() != nil {
             navigationController?.view.addGestureRecognizer(navigationController!.revealViewController().panGestureRecognizer())
         }
-    }
-    
-    
+    } 
     
     func openHistory(_ sender : PopUpCore){
         
@@ -232,5 +230,25 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     }
  
     
+    func animateAppearance(){
+        
+        if self.view.layer.opacity < 1.0 {
+            UIView.animate(withDuration: 0.5) {
+                self.view.layer.opacity = 1.0
+            }
+        }
+        
+    }
+    
+    
+    func animateDisAppearance(){
+        
+        if self.view.layer.opacity > 0.0 {
+            UIView.animate(withDuration: 0.5) {
+                self.view.layer.opacity = 0.0
+            }
+        }
+        
+    }
 
 }

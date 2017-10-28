@@ -108,7 +108,7 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         let little_shift = CGFloat(8)
         
         let first_field = CGFloat(60)
-        let money_field = (frame.width - (little_shift + first_field)) / 2
+        let money_field = (widthOfCell - (little_shift + first_field)) / 2
 
         
         frame.size = CGSize(width: widthOfCell , height: frame.size.height)

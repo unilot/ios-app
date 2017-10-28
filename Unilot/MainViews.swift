@@ -33,6 +33,11 @@ class MainView: MainViewPositions {
     }
     
     
+    func waitForNewGame(){
+        titleUntilTheEnd.text = TR("Система выбирает победителя")
+
+    }
+    
     override func setGameNumbers(){
         
         local_current_game = games_list[kTypeDay]!

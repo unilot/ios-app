@@ -18,7 +18,7 @@ import QRCodeReader
 var startWas : Bool = false
 
 var local_current_game = GameInfo()
-
+var local_current_user = UserForGame()
 
 //MARK: - Structures
 
@@ -104,6 +104,18 @@ func getNiceDateFormatString(from timeSec : Int) -> String {
     
     return "\(components.year!).\(components.month!).\(components.day!)"
 }
+
+
+func getNiceFullDateFormatString(from timeSec : Int) -> String {
+    
+    let currentDate = Date(timeIntervalSince1970: TimeInterval(timeSec))
+    let  calendar = NSCalendar.current
+    let components = calendar.dateComponents([.year,.month,.day], from: currentDate)
+    
+    return "\(components.year!).\(components.month!).\(components.day!)"
+}
+
+
 
 func labelFor(_ cell: UITableViewCell, _ index: Int) -> UILabel?{
     

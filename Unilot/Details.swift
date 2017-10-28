@@ -60,7 +60,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
             
             origin_dataForTable = dataForTable
         
-            winners.text = "\(local_current_game.num_players - dataForTable.count)"
+            winners.text = "\(dataForTable.count)"
         
         }
         

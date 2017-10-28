@@ -35,7 +35,11 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         super.viewDidLoad()
         
         UINavigationBar.appearance().tintColor = kColorMenuPeach
+       
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.orange]
+
         
+
         addSwipeForMenuOpen()
 
         setNavControllerClear()

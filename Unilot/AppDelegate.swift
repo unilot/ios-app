@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
     
-
+                
         registerForPushNotifications(application)
         application.applicationIconBadgeNumber = 0;
         
@@ -161,15 +161,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print(notificationDictionary)
         
-        notification_data = notificationDictionary
+        notification_data.append( notificationDictionary )
         
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "NOTIFICATION_START"), object: nil)
+
     }
     
     
     func startAfterAnswerFromRemoteNotifications(){
         if  !startWas {
             startWas = true
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "NOTIFICATION_START"), object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "enter_after_start"), object: nil)
         }
     }
 

@@ -166,7 +166,7 @@ class NetWorkParse {
     
     static func parseNotification(){
         
-        let action = notification_data["action"] as! String
+        let action = notification_data.first!["action"] as! String
         
         switch action {
             

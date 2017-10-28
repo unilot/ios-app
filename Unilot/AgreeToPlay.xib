@@ -48,17 +48,17 @@
                         <constraint firstAttribute="height" constant="1" id="Qb4-ic-ehh"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лотерея заканчивается через" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sd1-aD-ahN">
-                    <rect key="frame" x="20" y="274" width="280" height="28"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лотерея заканчивается через" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="sd1-aD-ahN">
+                    <rect key="frame" x="20" y="274" width="280" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="28" id="vUU-fK-nKF"/>
+                        <constraint firstAttribute="height" constant="40" id="vUU-fK-nKF"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                     <color key="textColor" red="0.1764705882" green="0.1529411765" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-vg-g4z" customClass="CDTimerPopUp" customModule="Unilot" customModuleProvider="target">
-                    <rect key="frame" x="59.5" y="317" width="200" height="74"/>
+                    <rect key="frame" x="59.5" y="329" width="200" height="62"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="ezM-lg-mYW"/>

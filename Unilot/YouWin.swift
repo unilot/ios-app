@@ -35,10 +35,15 @@ class YouWin: PopUpCore {
     override func setInitBorders(){
         
         super.setInitBorders()
-        
-//        priceETH.adjustsFontSizeToFitWidth = true
+
         self.layer.borderWidth = 0
- 
+        
+        text1.text = TR("Поздравляем")
+        text2.text = TR("Вы победили")
+        text3.text = String(format : TR("Вы заняли %d место и выиграли"),local_current_user.position)
+        showButton.setTitle(TR("История розыгрыша"), for: .normal)
+        priceETH.text = "\(local_current_user.prize_amount_fiat)"
+        priceUSD.text = "US $ \(local_current_user.prize_amount)"
     }
     
  

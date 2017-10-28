@@ -32,12 +32,15 @@
 "Часа" = "Hours";
 "Минут" = "Min";
 "Сек" = "Sec";
+
 "Дневной лотерее" = "Daily games";
 "Недельной лотерее"  = "Weekly games";
 "Бонусной лотерее"  = "Bonus games";
+
 "Дневная лотерея" = "Daily game";
 "Недельная лотерея" = "Weekly game";
 "Бонусная лотерея" = "Bonus game";
+
 "лотерея" = "lottery";
 "Джекпот" = "Jackpot";
 "До конца регистрации" = "Until the end of the registration";
@@ -69,4 +72,16 @@
 "Закрыть" = "Close";
 
 
+
+
+"Поздравляем" = "Congratulations";
+"Вы победили" = "You won!";
+"Вы заняли %d место и выиграли" = "You are on the %d place and won";
+"История розыгрыша" = "Details";
+
+"К сожалению, вас нет в списке победителей" = "Unfortunatelly, you are not in the list of winners";
+"Итоги" = "Results of";
+"Вы автоматически становитесь участником бонусного розыгрыша который состоится через:" =
+"You automatically become a participant in the Bonus Lottery which will take place in:";
+"До объявления победителя" = "Until the announcement\nof the winner left";
 

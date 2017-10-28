@@ -39,17 +39,17 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="До обьявления победителя:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sd1-aD-ahN">
-                    <rect key="frame" x="20" y="293" width="335" height="28"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="До обьявления победителя:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sd1-aD-ahN">
+                    <rect key="frame" x="20" y="293" width="335" height="60"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="28" id="vUU-fK-nKF"/>
+                        <constraint firstAttribute="height" constant="60" id="vUU-fK-nKF"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                     <color key="textColor" red="0.1764705882" green="0.1529411765" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-vg-g4z" customClass="CountDownSimpleDays" customModule="Unilot" customModuleProvider="target">
-                    <rect key="frame" x="143" y="331" width="90" height="90"/>
+                    <rect key="frame" x="143" y="363" width="90" height="90"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="90" id="Rcf-56-Hq4"/>
@@ -100,7 +100,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дней" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="qsj-9o-2RY">
-                    <rect key="frame" x="243" y="331" width="48" height="90"/>
+                    <rect key="frame" x="243" y="363" width="48" height="90"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                     <color key="textColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -170,10 +170,14 @@
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
+                <outlet property="butHey" destination="ysa-bV-fTx" id="t7b-ex-FOR"/>
                 <outlet property="clockTablet" destination="sZB-vg-g4z" id="OKd-TU-pFD"/>
                 <outlet property="copyButton" destination="7Kd-e9-pKQ" id="ccj-bI-jxE"/>
+                <outlet property="dayTitle" destination="gRR-pu-1BI" id="MAF-fD-skI"/>
+                <outlet property="days" destination="qsj-9o-2RY" id="Ums-Tg-XdW"/>
                 <outlet property="endLabel" destination="sd1-aD-ahN" id="6nP-0f-FYZ"/>
                 <outlet property="titleMain" destination="5nn-c6-pxt" id="49G-nM-UPN"/>
+                <outlet property="unfortunately" destination="X2Q-RD-GCp" id="4ma-QW-MnV"/>
             </connections>
             <point key="canvasLocation" x="57.5" y="99.5"/>
         </view>

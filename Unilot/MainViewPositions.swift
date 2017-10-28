@@ -34,8 +34,6 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     @IBOutlet weak var clockTablet: CountDownFullTimer?
 
-    
-    var gameInfo = GameInfo()
 
     var widthProgress = CGFloat(-1)
         
@@ -68,7 +66,8 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         
-         
+        setGameNumbers()
+        
         if widthProgress == -1 {
         
             fillWithData()
@@ -130,14 +129,12 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     
     func answerOnInitData(){
-
-        gameInfo = local_current_game
+ 
+        peopleCount.text = Int(local_current_game.num_players).stringWithSepator
+        usSum.text = "$ \(local_current_game.prize_amount)"
         
-        peopleCount.text = Int(gameInfo.num_players).stringWithSepator
-        usSum.text = "$ \(gameInfo.prize_amount)"
-        
-        moneyTablet.initTimer(Int(gameInfo.prize_amount_local),
-                              Int(gameInfo.prize_amount_fiat * 1000))
+        moneyTablet.initTimer(Int(local_current_game.prize_amount_local),
+                              Int(local_current_game.prize_amount_fiat * 1000))
         
         reCountTimers()
         
@@ -145,7 +142,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
 
     func reCountTimers(){
         
-        let data = recountTimersData(gameInfo)
+        let data = recountTimersData(local_current_game)
         
         if data.0 == -1 {
             showCompleteView()
@@ -267,11 +264,35 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     //MARK: - onButtons
 
-         
-    @IBAction func onHowDoesItWork(){
-       
+    func openEndWithFail(){
         
         let viewWithPlaces = LotteryResults.createLotteryResults()
+        viewWithPlaces.delegate = self
+        let frameForView = CGRect(x: 10,
+                                  y: 70,
+                                  width: view.frame.width - 20,
+                                  height: view.frame.height - 150)
+        
+        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: 1)
+        
+    }
+    
+    func openEndWithWin(){
+        
+        let viewWithPlaces = YouWin.createYouWin()
+        viewWithPlaces.delegate = self
+        let frameForView = CGRect(x: 10,
+                                  y: 70,
+                                  width: view.frame.width - 20,
+                                  height: view.frame.height - 150)
+        
+        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: 0)
+        
+    }
+    
+    @IBAction func onHowDoesItWork(){
+       
+        let viewWithPlaces = InfoView.createInfoView()
         viewWithPlaces.delegate = self
         let frameForView = CGRect(x: 10,
                                   y: 70,

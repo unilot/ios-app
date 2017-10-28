@@ -17,11 +17,13 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
 
     @IBOutlet weak var clockTablet: CountDownSimpleDays!
     
-    @IBOutlet weak var textView1: UITextView!
-    @IBOutlet weak var textView2: UITextView!
+    @IBOutlet weak var dayTitle: UILabel!
+    @IBOutlet weak var unfortunately: UITextView!
+    @IBOutlet weak var butHey: UILabel!
     
     @IBOutlet weak var endLabel: UILabel!
     
+    @IBOutlet weak var days: UILabel!
     @IBOutlet weak var copyButton: UIButton!
     
     class func createLotteryResults() -> LotteryResults {
@@ -36,6 +38,17 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         super.setInitBorders()
         
         clockTablet.layoutIfNeeded()
+        
+        
+        let type = kTypeTabBarOrder.index(of: local_current_game.type)
+
+        titleMain.text = TR("Итоги") + " " + TR(setting_strings[0][type!])
+        dayTitle.text = getNiceDateFormatString(from: local_current_game.started_at)
+        unfortunately.text = TR("К сожалению, вас нет в списке победителей")
+        butHey.text =  TR("Вы автоматически становитесь участником бонусного розыгрыша который состоится через:")
+        endLabel.text = TR("До объявления победителя")
+        days.text = TR("Дней")
+        copyButton.setTitle(TR("История розыгрыша"), for: .normal)
         
         clockTablet.createBody(self)
         clockTablet.initTimer(30, 30)

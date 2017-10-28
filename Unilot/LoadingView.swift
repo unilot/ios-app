@@ -26,7 +26,7 @@ class LoadingView : UIViewController, NVActivityIndicatorViewable{
         } else {
             NotificationCenter.default.addObserver(self,
                                                    selector: #selector(LoadingView.enterApp),
-                                                   name: NSNotification.Name(rawValue: "NOTIFICATION_START"),
+                                                   name: NSNotification.Name(rawValue: "enter_after_start"),
                                                    object: nil)
         }
         

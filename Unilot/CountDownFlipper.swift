@@ -174,7 +174,6 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
 
         doUpdate()
 
-
     }
     
     

@@ -377,8 +377,8 @@
 				D6ED6B3B1F8FA6DC00384672 /* PopUpCore.swift */,
 				D6F1E1371F7BAA4E0098B34C /* ControllerCore.swift */,
 				D6632ED71F8C9C6800EC18C9 /* TextViewCore.swift */,
-				D6F1E1311F7B9F3B0098B34C /* MainViewPositions.swift */,
 				D6D3CEB41FA61DA3000F2FF3 /* WebCore.swift */,
+				D6F1E1311F7B9F3B0098B34C /* MainViewPositions.swift */,
 			);
 			name = "main cores";
 			sourceTree = "<group>";

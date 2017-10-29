@@ -8,8 +8,7 @@
 
 import Foundation
  
-var badge_data = ["badge" : 3]
-
+ 
 var session_data = [String: Any]()
 
 var games_list = [Int : GameInfo]()

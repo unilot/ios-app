@@ -40,12 +40,15 @@ class MemoryControll {
             
         } else {
 
-            current_language = setting_strings[1][0]
-            Bundle.setLanguage(langCodes[0])
+            let pre = Locale.preferredLanguages[0]
+            
+            let ind : Int  =  langCodes.index(of: pre) ?? 0
+            
+            current_language = setting_strings[1][ind]
+            Bundle.setLanguage(langCodes[ind])
 
             saveObject(0, key: "current_language")
         }
-        
         
         if let switchers = getObject("notifications_switch") as? [Bool] {
             notifications_switch = switchers
@@ -58,6 +61,14 @@ class MemoryControll {
         } else {
             saveObject(users_account_number, key: "users_account_number")
         }
+        
+        
+        if let switchers = getObject("notifications_app") as? [[String : Any]] {
+            notification_data = switchers
+        } else {
+            saveObject(notification_data, key: "notifications_app")
+        }
+        
     }
     
     

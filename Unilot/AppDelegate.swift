@@ -177,6 +177,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         notification_data.append( notificationDictionary )
         
+        MemoryControll.saveObject(notification_data, key: "notifications_app")
+
         NotificationCenter.default.post(name: Notification.Name(rawValue: "NOTIFICATION_CAME"), object: nil)
 
     }

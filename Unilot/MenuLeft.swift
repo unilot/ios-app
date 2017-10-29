@@ -44,8 +44,8 @@ class MenuLeft: UITableViewController {
         
         super.viewWillAppear(animated)
         
-        itemBadge.setNumberLabel(badge_data["badge"]!)
-        ico_image.image = UIImage(named : TR("Скоро"))
+        itemBadge.setNumberLabel(notification_data.count)
+        ico_image.image = UIImage(named : TR("Скорo"))
         ico_image.contentMode = .scaleAspectFit
         
         history.text = TR("История розыгрышей")

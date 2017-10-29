@@ -14,6 +14,9 @@ class LoadingView : UIViewController, NVActivityIndicatorViewable{
     
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        MemoryControll.init_defaults_if_any()
+
         super.viewWillAppear(animated)
         
         startAnimating(CGSize(width: 40 , height: 40),
@@ -35,8 +38,6 @@ class LoadingView : UIViewController, NVActivityIndicatorViewable{
     
     func enterApp() {
         
-        MemoryControll.init_defaults_if_any()
-         
         getSessionToken()
         
     }

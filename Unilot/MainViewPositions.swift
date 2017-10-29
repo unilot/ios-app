@@ -56,7 +56,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
         view.backgroundColor = UIColor.clear
 
-        itemBadge?.setNumberLabel(badge_data["badge"]!)
+        itemBadge?.setNumberLabel(notification_data.count)
 
         setButtonView()
 
@@ -406,17 +406,20 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
             return users_account_number.contains(item.user_id)
         })
         
-        if my_win_wallets.count > 0 {
-            
-            for item in my_win_wallets {
-                showYouWin(item)
-            }
-            
-        } else {
-            
-            openEndWithFail()
-            
-        }
+        showYouWin(local_current_user)
+
+        
+//        if my_win_wallets.count > 0 {
+//            
+//            for item in my_win_wallets {
+//                showYouWin(item)
+//            }
+//            
+//        } else {
+//            
+//            openEndWithFail()
+//            
+//        }
         
         NetWork.getGamesList(completion: onAnswerAfterNewDataRequest)
 

@@ -129,14 +129,14 @@ func labelFor(_ cell: UITableViewCell, _ index: Int) -> UILabel?{
 
 func create_fon_view(_ size: CGSize) -> UIImageView {
 
-    let amount = CGFloat(10)
+    let amount = CGFloat(100)
 
     let bg_view = UIImageView(frame : CGRect(x: -amount, y: -amount,
                                              width: size.width + 2*amount,
                                              height:  size.height + 2*amount))
     
     bg_view.image =  UIImage(named: "bg_1")
-    bg_view.contentMode = .scaleToFill
+    bg_view.contentMode = .scaleAspectFill
     addParallaxToView(bg_view, Int(amount))
     
     return bg_view

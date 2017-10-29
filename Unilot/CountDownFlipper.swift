@@ -60,7 +60,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
         
         let newTimerPrevious =  timerStep * timerStep
         
-        let delay = (newTimerPrevious  - timerPrevious)  * timerCoeff
+        let delay = (newTimerPrevious - timerPrevious)  * timerCoeff
         
         timerPrevious = newTimerPrevious
         
@@ -149,6 +149,10 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
         
     }
     
+    
+    func completeCountFast(){
+
+    }
     
     func createBody(){
         

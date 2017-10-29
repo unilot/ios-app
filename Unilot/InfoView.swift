@@ -29,6 +29,9 @@ class InfoView: PopUpCore {
         titleMain.text = TR("Как это работает")
         
         textView.text = getTextFromFileInfo()
+        
+        textView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        
     }
     
 

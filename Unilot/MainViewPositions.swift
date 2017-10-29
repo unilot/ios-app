@@ -383,7 +383,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
         showActivityViewIndicator()
 
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 1, animations: {
             
             self.firstOverlay.layer.opacity = 0.0
             self.secondOverlay.layer.opacity = 0.0

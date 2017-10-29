@@ -26,11 +26,12 @@ class CountDownTimeMonth: CountDownCore  {
         
     }
     
+    
     override func updateLabels() -> Double{
         
         updateFlippers("\(totalCounts)")
         
-        return super.updateLabels()
+        return 24 * 60 * 60
     }
     
     override func changeCounts() -> Bool {

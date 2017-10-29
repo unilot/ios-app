@@ -30,7 +30,7 @@ class InfoView: PopUpCore {
         
         textView.text = getTextFromFileInfo()
         
-        textView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        textView.scrollRangeToVisible(NSMakeRange(0, 0))
         
     }
     

@@ -46,6 +46,8 @@ class BonusView: MainViewPositions {
     }
     override func fillWithData(){
         
+        playWin()
+        
         widthProgress = 0
         
         titleMain.text = TR("Бонусная лотерея")

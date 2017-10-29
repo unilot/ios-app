@@ -280,6 +280,7 @@ func playWin() {
         
         do {
             let audioPlayer = try AVAudioPlayer(contentsOf: audioFileUrl)
+            audioPlayer.prepareToPlay()
             audioPlayer.play()
 
             // use audioPlayer

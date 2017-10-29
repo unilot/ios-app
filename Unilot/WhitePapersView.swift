@@ -10,19 +10,29 @@
 
 import UIKit
 
-
-class WhitePapersView : TextViewCore {
+class WhitePapersView : WebCore {
     
     override func viewDidLoad() {
         
-        
-        file_name = "Terms"
-        
-        view_name = "White Papers"
+        navigationItem.title = TR("White Papers")
         
         super.viewDidLoad()
-        self.navigationController?.navigationBar.tintColor = kColorMenuPeach
-
         
+        navigationController?.navigationBar.tintColor = kColorMenuPeach
+        
+        
+        let id_lang =   setting_strings[1].index(of: current_language)!
+        
+        let file_line =   "UNILOT_\(langCodes[id_lang])"
+
+        if let pdf = Bundle.main.url(forResource: file_line, withExtension: "pdf", subdirectory: nil, localization: nil)  {
+            let req = NSURLRequest(url: pdf)
+            webView.loadRequest(req as URLRequest)
+        }
+        
+        zooms()
     }
+    
+    
+    
 }

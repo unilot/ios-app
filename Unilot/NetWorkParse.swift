@@ -8,7 +8,7 @@
 
 import Foundation
  
-var notifications_data = ["badge" : 3]
+var badge_data = ["badge" : 3]
 
 var session_data = [String: Any]()
 
@@ -173,6 +173,7 @@ class NetWorkParse {
         //Начало игры:
         case "game_started":
             
+
             break
             
         //Завершение приёма заявок и начало определения победител
@@ -198,6 +199,9 @@ class NetWorkParse {
             
             break
         }
+
+        print(notification_data.first!["data"])
+
     }
     
 }

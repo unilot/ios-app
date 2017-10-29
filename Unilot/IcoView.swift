@@ -7,76 +7,27 @@
 //
 
 import UIKit
-import NVActivityIndicatorView
 
-class IcoView : ControllerCore , UIWebViewDelegate{
-    
-    @IBOutlet weak var webView : UIWebView!
+class IcoView : WebCore {
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
 
-        navigationItem.title = TR("ICO")        
-        
-    }
-    
-    
-    
-    
-    //MARK: - unSignedRequest
-    
-    func unSignedRequest ( ) {
-        
-        let index = setting_strings[1].index(of: current_language)!
-        
-        let urlRequest =  URLRequest.init(url: URL.init(string: "https://unilot.io/\(langCodes[index])/")!)
-        
-        webView.loadRequest(urlRequest)
-    }
-    
-    func checkRequestForCallbackURL(request: URLRequest) -> Bool {
-//        
-//        let requestURLString = (request.url?.absoluteString)! as String
-//        
-//        if requestURLString.hasPrefix("redirect_back") {
-////            let range: Range<String.Index> = requestURLString.range(of: "code=")!
-////            handleAuth(requestURLString.substring(from: range.upperBound))
-//            return false
-//        }
-        return true
-    }
-//    
-//    func handleAuth(_ code: String)  {
-//        
-//    }
-    
-    
-    
-    //MARK: - DELEGATE
-    
-    
-    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        return checkRequestForCallbackURL(request: request)
+        navigationController?.navigationBar.tintColor = kColorMenuPeach
 
+        navigationItem.title = TR("ICO")
+        
+        let id_lang =   setting_strings[1].index(of: current_language)!
+        
+        let url_line =   "https://unilot.io/\(langCodes[id_lang])/"
+        
+        openPage(url_line)
+        
     }
     
-    func webViewDidStartLoad(_ webView: UIWebView){
-        
-        showActivityViewIndicator()
-    }
+   
     
-    func webViewDidFinishLoad(_ webView: UIWebView){
-        
-        hideActivityViewIndicator()
-    }
-    
-    func webView(_ webView: UIWebView, didFailLoadWithError error: Error){
-        
-        webViewDidFinishLoad(webView)
-
-    }
-
 }
 

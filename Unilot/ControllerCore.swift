@@ -38,7 +38,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     
     func onNotifRecieved(){
         
-        print(notification_data)
+        NetWorkParse.parseNotification()
     }
     
     //MARK: override

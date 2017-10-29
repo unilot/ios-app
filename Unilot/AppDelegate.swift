@@ -135,6 +135,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+    //MARK: - rotations
+
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        
+        if let navigationController = self.window?.rootViewController as? UINavigationController {
+            if navigationController.visibleViewController is WhitePapersView {
+                return UIInterfaceOrientationMask.all
+            }
+        }
+        
+        return UIInterfaceOrientationMask.portrait
+    }
+    
+    
     //MARK: -
     
      

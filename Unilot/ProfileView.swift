@@ -43,7 +43,7 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         
         fillWithData()
 
-        itemBadge?.setNumberLabel(notifications_data["badge"]!)
+        itemBadge?.setNumberLabel(badge_data["badge"]!)
 
         
     }

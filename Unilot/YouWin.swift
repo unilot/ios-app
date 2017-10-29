@@ -24,6 +24,8 @@ class YouWin: PopUpCore {
 
     @IBOutlet weak var showButton: UIButton!
  
+    var user_data = UserForGame()
+    
     
     class func createYouWin() -> YouWin {
         let myClassNib = UINib(nibName: "YouWin", bundle: nil)
@@ -34,16 +36,18 @@ class YouWin: PopUpCore {
     
     override func setInitBorders(){
         
+        playWin()
+        
         super.setInitBorders()
 
         self.layer.borderWidth = 0
         
         text1.text = TR("Поздравляем")
         text2.text = TR("Вы победили")
-        text3.text = String(format : TR("Вы заняли %d место и выиграли"),local_current_user.position)
+        text3.text = String(format : TR("Вы заняли %d место и выиграли"),user_data.position)
         showButton.setTitle(TR("История розыгрыша"), for: .normal)
-        priceETH.text = "\(local_current_user.prize_amount_fiat)"
-        priceUSD.text = "US $ \(local_current_user.prize_amount)"
+        priceETH.text = "\(user_data.prize_amount_fiat)"
+        priceUSD.text = "US $ \(user_data.prize_amount)"
     }
     
  

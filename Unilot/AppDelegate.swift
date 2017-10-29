@@ -163,7 +163,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         notification_data.append( notificationDictionary )
         
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "NOTIFICATION_START"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "NOTIFICATION_CAME"), object: nil)
 
     }
     

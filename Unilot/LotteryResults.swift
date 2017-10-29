@@ -17,6 +17,8 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
 
     @IBOutlet weak var clockTablet: CountDownSimpleDays!
     
+    @IBOutlet weak var icoImage: UIImageView!
+
     @IBOutlet weak var dayTitle: UILabel!
     @IBOutlet weak var unfortunately: UITextView!
     @IBOutlet weak var butHey: UILabel!

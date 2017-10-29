@@ -18,6 +18,8 @@ class MenuLeft: UITableViewController {
     @IBOutlet weak var itemBadge: SpecialItem!
 
     
+    @IBOutlet weak var ico_image: UIImageView!
+
     @IBOutlet weak var history: UILabel!
     @IBOutlet weak var how: UILabel!
     @IBOutlet weak var wp: UILabel!
@@ -42,7 +44,9 @@ class MenuLeft: UITableViewController {
         
         super.viewWillAppear(animated)
         
-        itemBadge.setNumberLabel(notifications_data["badge"]!)
+        itemBadge.setNumberLabel(badge_data["badge"]!)
+        ico_image.image = UIImage(named : TR("Скоро"))
+        ico_image.contentMode = .scaleAspectFit
         
         history.text = TR("История розыгрышей")
         how.text = TR("Как это работает")
@@ -62,11 +66,14 @@ class MenuLeft: UITableViewController {
         case 1: // 3 main buttons
             return rowOneHeight
             
-        case 2: // settings
+        case 2: // 1 settings
+            return rowOneHeight * 1.5
+
+        case 3: // 1 ico button
             return rowOneHeight * 2
 
         default: // socials
-            return CGFloat(tableView.frame.height - rowOneHeight * 7)
+            return CGFloat(tableView.frame.height - rowOneHeight * 8.5)
         }
         
     }
@@ -85,6 +92,8 @@ class MenuLeft: UITableViewController {
         
         ["SB_SettingsView"],
         
+        ["SB_IcoView"],
+
         [nil]
 
         ]

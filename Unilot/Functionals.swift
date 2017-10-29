@@ -6,8 +6,10 @@
 //  Copyright © 2017 Vovasoft. All rights reserved.
 //
 
+import AVFoundation
 import SCLAlertView
 import QRCodeReader
+
 
 
 
@@ -252,5 +254,42 @@ func setColorForImage(_ sizeOfView : CGSize, _ imageName : String) -> SpecialIte
     bgView.bringSubview(toFront: bgView.numberInCircle)
     
     return bgView
+}
+
+
+func playStandart(){
+    
+    // create a sound ID, in this case its the tweet sound.
+//    let systemSoundID: SystemSoundID = 1016
+    
+    // to play sound
+//    AudioServicesPlaySystemSound (systemSoundID)
+    
+}
+
+func playWin() {
+    
+    
+    
+    let audioFilePath = Bundle.main.path(forResource: "win", ofType: "mp3")
+    
+    if audioFilePath != nil {
+        
+        let audioFileUrl = NSURL.fileURL(withPath: audioFilePath!)
+        
+        
+        do {
+            let audioPlayer = try AVAudioPlayer(contentsOf: audioFileUrl)
+            audioPlayer.play()
+
+            // use audioPlayer
+        } catch let error as NSError {
+            print(error.localizedDescription)
+            // error is now an NSError instance; do what you will
+        }
+        
+        
+        
+    }
 }
 

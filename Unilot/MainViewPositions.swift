@@ -8,6 +8,7 @@
 
 
 import UIKit
+import SCLAlertView
 
 class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
@@ -38,6 +39,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     var secondOverlay: UIImageView!
 
+    var secondTimerThin: CDHourL!
     
     var widthProgress = CGFloat(-1)
         
@@ -54,7 +56,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
         view.backgroundColor = UIColor.clear
 
-        itemBadge?.setNumberLabel(notifications_data["badge"]!)
+        itemBadge?.setNumberLabel(badge_data["badge"]!)
 
         setButtonView()
 
@@ -268,18 +270,6 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     //MARK: - onButtons
 
-    func openEndWithFail(){
-        
-        let viewWithPlaces = LotteryResults.createLotteryResults()
-        viewWithPlaces.delegate = self
-        let frameForView = CGRect(x: 10,
-                                  y: 70,
-                                  width: view.frame.width - 20,
-                                  height: view.frame.height - 150)
-        
-        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: 1)
-        
-    }
     
     func openEndWithWin(){
         
@@ -307,10 +297,13 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
     }
     
-    @IBAction func showYouWin(){
+    
+    func showYouWin(_ user : UserForGame){
         
         let viewWithPlaces = YouWin.createYouWin()
         viewWithPlaces.delegate = self
+        viewWithPlaces.user_data = user
+        
         let frameForView = CGRect(x: 10,
                                   y: 70,
                                   width: view.frame.width - 20,
@@ -320,6 +313,18 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
     }
     
+    func openEndWithFail(){
+        
+        let viewWithPlaces = LotteryResults.createLotteryResults()
+        viewWithPlaces.delegate = self
+        let frameForView = CGRect(x: 10,
+                                  y: 70,
+                                  width: view.frame.width - 20,
+                                  height: view.frame.height - 150)
+        
+        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: 1)
+        
+    }
     
     
     @IBAction func onPrizePlaces(){
@@ -338,73 +343,198 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     @IBAction func onTakePart(){
         
-        let viewWithPlaces = AgreeToPlay.createAgreeToPlay()
-        viewWithPlaces.delegate = self
-        let frameForView = CGRect(x: 10,
-                                  y: 70,
-                                  width: view.frame.width - 20,
-                                  height: view.frame.height - 150)
+        openSecondView()
         
-        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: 1)
-        
-
+//        let viewWithPlaces = AgreeToPlay.createAgreeToPlay()
+//        viewWithPlaces.delegate = self
+//        let frameForView = CGRect(x: 10,
+//                                  y: 70,
+//                                  width: view.frame.width - 20,
+//                                  height: view.frame.height - 150)
+//        
+//        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: 1)
+//        
+//
     }
     
     
+    func openSecondView(){
+        
+        // create second layer
+        createOverLayWithWait()
+
+        secondTimerThin.doScheduledTimer()
+
+        UIView.animate(withDuration: 1, animations: {
+            
+            self.firstOverlay.layer.opacity = 0.0
+
+        })
+        
+        UIView.animate(withDuration: 2, animations: {
+
+            self.secondOverlay.layer.opacity = 1.0
+            
+        })
+        
+    }
+    
+    func onReloadDataForMainView(){
+        
+        showActivityViewIndicator()
+
+        UIView.animate(withDuration: 0.5, animations: {
+            
+            self.firstOverlay.layer.opacity = 0.0
+            self.secondOverlay.layer.opacity = 0.0
+            
+        }){ (_ animate : Bool) in
+            
+            self.secondOverlay.removeFromSuperview()
+            
+        }
+        
+        NetWork.getListWinners(completion: onAnswerAfterWinnerList)
+    }
+    
+    //MARK: - Hide and Show SecondTimer
+    
+    func showViewsAfterWinnerList(){
+        
+        my_win_wallets = winners_list.filter({ (item : UserForGame) -> Bool in
+            
+            return users_account_number.contains(item.user_id)
+        })
+        
+        if my_win_wallets.count > 0 {
+            
+            for item in my_win_wallets {
+                showYouWin(item)
+            }
+            
+        } else {
+            
+            openEndWithFail()
+            
+        }
+        
+        NetWork.getGamesList(completion: onAnswerAfterNewDataRequest)
+
+
+    }
+
+    
     func createOverLayWithWait(){
-        
-        firstOverlay.isHidden = true
+   
         secondOverlay = UIImageView(frame: firstOverlay.frame)
-        view.addSubview(secondOverlay)
-        
         secondOverlay.clipsToBounds = true
         secondOverlay.layer.cornerRadius = firstOverlay.layer.cornerRadius
-        secondOverlay.backgroundColor = firstOverlay.backgroundColor
-        secondOverlay.layer.backgroundColor = firstOverlay.layer.backgroundColor
+        secondOverlay.backgroundColor = UIColor.uuDarkTwo.withAlphaComponent(0.8)
         
         
-        
-        let title = UILabel(frame: CGRect(x: 5, y: 5, width: secondOverlay.frame.width - 10, height: 90))
-        title.text =  TR("Система \nвыбирает победителя")
+        let title = UILabel(frame: CGRect(x: 5, y: 0,
+                                          width: secondOverlay.frame.width - 10,
+                                          height: secondOverlay.frame.height * 0.35))
+        title.text =  TR("Система\nвыбирает победителя")
         title.textColor = UIColor.white
-        title.numberOfLines = 3
-        title.font = UIFont(name: kFont_Regular, size: 30)
+        title.numberOfLines = 2
+        title.font = UIFont(name: kFont_Medium, size: 17)
         title.textAlignment = .center
         secondOverlay.addSubview(title)
         
+        secondTimerThin = CDHourL(frame: CGRect( x: secondOverlay.frame.width * 0.33,
+                                                 y: title.frame.height,
+                                             width: secondOverlay.frame.width * 0.34,
+                                            height: secondOverlay.frame.height * 0.15))
+        secondTimerThin.createBodyTimers()
+        secondTimerThin.initTimer(3600, 0)
+        secondOverlay.addSubview(secondTimerThin)
         
-        let timerThin =  CDHourL(frame: CGRect(x: 15, y: 15 + title.frame.height,
-                                               width: secondOverlay.frame.width - 30, height: 90))
-        timerThin.createBodyTimers()
-        timerThin.initTimer(0, 60)
-        timerThin.doScheduledTimer()
-        secondOverlay.addSubview(timerThin)
+        let tranzaction_string = UILabel(frame: CGRect(x: 15,
+                                                       y: secondTimerThin.frame.origin.y + secondTimerThin.frame.height + 5,
+                                                       width: secondOverlay.frame.width - 30,
+                                                       height: 20))
         
-        
-        let tranzaction_string = UILabel(frame: CGRect(x: 5, y: 220,
-                                                       width: secondOverlay.frame.width - 10, height: 28))
-        
-        tranzaction_string.text = local_current_game.game_id
+        tranzaction_string.text = local_current_game.smart_contract_id
         tranzaction_string.textColor = UIColor.white
         tranzaction_string.numberOfLines = 1
         tranzaction_string.font = UIFont(name: kFont_Regular, size: 14)
+        tranzaction_string.adjustsFontSizeToFitWidth = true
         tranzaction_string.textAlignment = .center
         secondOverlay.addSubview(tranzaction_string)
     
     
-        let copyButton = UIButton(frame : CGRect(x: 5, y: secondOverlay.frame.height - 60,
-                                                width:  secondOverlay.frame.width - 10, height: 60))
-        copyButton.setImage(UIImage(named: "copy-x3"), for: .normal)
-        copyButton.setTitle(TR("Скопировать номер транзакции"), for: .normal)
-        copyButton.titleLabel?.font = UIFont(name: kFont_Regular, size: 14)
-        copyButton.layer.backgroundColor = UIColor.clear.cgColor
-        copyButton.layer.cornerRadius = 6
+        let copyButton = UIButton(frame : CGRect(x: 15,
+                                                 y: tranzaction_string.frame.origin.y + tranzaction_string.frame.height + 10,
+                                                width:  secondOverlay.frame.width - 30,
+                                                height: secondOverlay.frame.height * 0.2))
         
+        copyButton.setImage(UIImage(named: "copy-x3"), for: .normal)
+        copyButton.setTitle("  " + TR("Скопировать номер транзакции"), for: .normal)
+        copyButton.titleLabel?.font = UIFont(name: kFont_Regular, size: 14)
+        copyButton.backgroundColor = UIColor.clear
+        copyButton.layer.borderColor = UIColor.white.cgColor
+        copyButton.layer.borderWidth = 0.5
+        copyButton.layer.cornerRadius = 6
+        copyButton.tintColor = kColorLightOrange
+        copyButton.titleLabel?.textColor = UIColor.white
+        copyButton.addTarget(self, action: #selector(MainViewPositions.onCopyTransactionNumber), for: .touchUpInside)
         secondOverlay.addSubview(copyButton)
-    
+        
+        secondOverlay.isUserInteractionEnabled = true
+        secondOverlay.layer.opacity = 0.0
+        view.addSubview(secondOverlay)
     }
     
     
+    
+    func reloadViewForFirstLayer(){
+        
+        setGameNumbers()
+        
+        answerOnInitData()
+        
+        UIView.animate(withDuration: 0.5) {
+            self.firstOverlay.layer.opacity = 1.0
+        }
+    }
+    
+    
+    func onCopyTransactionNumber(){
+     
+        onReloadDataForMainView()
+//        saveToClipboard(local_current_game.smart_contract_id)
+
+    }
+    
+    
+    func onAnswerAfterWinnerList(_ error : String?){
+        
+        hideActivityViewIndicator()
+        
+        if error != nil{
+            
+            SCLAlertView().showError(" ", subTitle: error!)
+            
+        } else {
+            
+            showViewsAfterWinnerList()
+        }
+        
+    }
+    
+    func onAnswerAfterNewDataRequest(_ error : String?){
+        
+        if error != nil{
+            
+            SCLAlertView().showError(" ", subTitle: error!)
+            
+        } else {
+            
+            reloadViewForFirstLayer()
+        }
+        
+    }
     
 }
 

@@ -45,6 +45,8 @@
 		D6D17FC51FA53F6700A74235 /* CDHourL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D17FC41FA53F6700A74235 /* CDHourL.swift */; };
 		D6D1D0E21FA24D8200909551 /* MainBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D1D0E11FA24D8200909551 /* MainBonus.swift */; };
 		D6D1D0E61FA2551D00909551 /* blockClock.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D1D0E51FA2551D00909551 /* blockClock.xib */; };
+		D6D3CEAC1FA5FF94000F2FF3 /* IcoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D3CEAB1FA5FF94000F2FF3 /* IcoView.swift */; };
+		D6D3CEB01FA60661000F2FF3 /* win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D6D3CEAF1FA60661000F2FF3 /* win.mp3 */; };
 		D6D591BB1F8D19D20002451A /* LxTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D591BA1F8D19D20002451A /* LxTabBarController.swift */; };
 		D6DCCD131FA4BCA1009BD20E /* BundleNew.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DCCD121FA4BCA1009BD20E /* BundleNew.m */; };
 		D6DCCD181FA4C795009BD20E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6DCCD1A1FA4C795009BD20E /* Localizable.strings */; };
@@ -123,6 +125,8 @@
 		D6D17FC41FA53F6700A74235 /* CDHourL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDHourL.swift; sourceTree = "<group>"; };
 		D6D1D0E11FA24D8200909551 /* MainBonus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainBonus.swift; sourceTree = "<group>"; };
 		D6D1D0E51FA2551D00909551 /* blockClock.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = blockClock.xib; sourceTree = "<group>"; };
+		D6D3CEAB1FA5FF94000F2FF3 /* IcoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IcoView.swift; sourceTree = "<group>"; };
+		D6D3CEAF1FA60661000F2FF3 /* win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = win.mp3; path = Settings/win.mp3; sourceTree = "<group>"; };
 		D6D591BA1F8D19D20002451A /* LxTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LxTabBarController.swift; sourceTree = "<group>"; };
 		D6DCCD0F1FA4B60F009BD20E /* Unilot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Unilot.entitlements; sourceTree = "<group>"; };
 		D6DCCD111FA4BCA1009BD20E /* BundleNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BundleNew.h; sourceTree = "<group>"; };
@@ -242,6 +246,7 @@
 			children = (
 				D6C6BAAD1F8CD6BF00EC7FE0 /* Roboto font */,
 				D62A31701F7AC06E00275B86 /* Bridging-Header.h */,
+				D6D3CEAF1FA60661000F2FF3 /* win.mp3 */,
 				D6DCCD0F1FA4B60F009BD20E /* Unilot.entitlements */,
 				D63F45161F8AC1BE00F69E7F /* Terms.html */,
 				D6DCCD1D1FA4F31C009BD20E /* HDIW_ru.txt */,
@@ -285,6 +290,7 @@
 				D62CA43C1F8FB73E00D67C0A /* SettingsView.swift */,
 				D6C57EF71F8AA9210082BCBB /* WhitePapersView.swift */,
 				D6632ED51F8C9C4100EC18C9 /* HowDoesItWork.swift */,
+				D6D3CEAB1FA5FF94000F2FF3 /* IcoView.swift */,
 			);
 			name = "main windows";
 			sourceTree = "<group>";
@@ -539,6 +545,7 @@
 				D6C6BAB41F8CD6C000EC7FE0 /* Roboto-Light.ttf in Resources */,
 				D69364CB1F5F254400FD0D37 /* Main.storyboard in Resources */,
 				D6DCCD1E1FA4F31C009BD20E /* HDIW_ru.txt in Resources */,
+				D6D3CEB01FA60661000F2FF3 /* win.mp3 in Resources */,
 				D612BBF71F9536AA002C4647 /* Assets.xcassets in Resources */,
 				D612BBFB1F96B48F002C4647 /* LotteryResults.xib in Resources */,
 				D6DCCD181FA4C795009BD20E /* Localizable.strings in Resources */,
@@ -650,6 +657,7 @@
 				D62CA43D1F8FB73E00D67C0A /* SettingsView.swift in Sources */,
 				D6DCCD131FA4BCA1009BD20E /* BundleNew.m in Sources */,
 				D6D17FC51FA53F6700A74235 /* CDHourL.swift in Sources */,
+				D6D3CEAC1FA5FF94000F2FF3 /* IcoView.swift in Sources */,
 				D685E9A41F8D59500056C9C8 /* CountDownLabel.swift in Sources */,
 				D6F1E1921F7E55130098B34C /* JSDropdownField.m in Sources */,
 				D69364D91F5F328D00FD0D37 /* FlippingLabel.swift in Sources */,

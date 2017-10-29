@@ -29,8 +29,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         showActivityViewIndicator()
         
         NetWork.getHistoryPage(completion: onAnswer)
-        
-    }
+     }
     
     func onAnswer(_ error : String?){
         
@@ -74,7 +73,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     var viewWithPlaces : TotalPrizeFond? = nil
     
     override func setTitle() {
-        notifications_data =  ["badge" : 0]
+        badge_data =  ["badge" : 0]
         navigationItem.title = TR("История ваших розыгрышей")
     }
     

@@ -28,6 +28,19 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         return QRCodeReaderViewController(builder: builder)
     }()
     
+    
+    func addNotifAction(){
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(ControllerCore.onNotifRecieved),
+                                               name: NSNotification.Name(rawValue: "NOTIFICATION_CAME"),
+                                               object: nil)
+    }
+    
+    func onNotifRecieved(){
+        
+        print(notification_data)
+    }
+    
     //MARK: override
     
     override func viewDidLoad() {

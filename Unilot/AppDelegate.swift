@@ -46,7 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -69,8 +68,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-        
-        
+    @available(iOS 8.0, *)
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+        if notificationSettings.types != UIUserNotificationType() {
+            application.registerForRemoteNotifications()
+        }
+    }
+    
+    
         
    //MARK: - remote stuff
 
@@ -81,9 +86,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(url.pathComponents);
         
         
-        let args = url.absoluteString.components(separatedBy: "id_listing=")
+        let args = url.absoluteString.components(separatedBy: "from_user_id=")
         if args.count == 2 {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "NOTIFICATION_OPEN_SHARE_LINK"), object: nil, userInfo: ["id_listing" : args[1] ])
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "NOTIFICATION_OPEN_SHARE_LINK"), object: nil, userInfo: ["from_user_id" : args[1] ])
             
         }
         
@@ -113,13 +118,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         completionHandler()
     }
     
-    @available(iOS 8.0, *)
-    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
-        if notificationSettings.types != UIUserNotificationType() {
-            application.registerForRemoteNotifications()
-        }
-    }
-    
+    //MARK: - device id for pushes
+     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
         
@@ -133,16 +133,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tokenForNotifications = tokenString
         print("Device Token: ", tokenString)
         
-        startAfterAnswerFromRemoteNotifications()
+        UserNotifications.startAfterAnswerFromRemoteNotifications()
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         
         print("Failed to register: ", error.localizedDescription)
         
-        startAfterAnswerFromRemoteNotifications()
+        UserNotifications.startAfterAnswerFromRemoteNotifications()
         
     }
+    
     
     //MARK: - rotations
 

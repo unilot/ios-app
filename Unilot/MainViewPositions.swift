@@ -62,9 +62,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     override func viewDidLayoutSubviews() {
         
         super.viewDidLayoutSubviews()
-         
-        itemBadge?.setNumberLabel(notification_data.count)
-
+        
         setButtonView()
     }
     
@@ -87,6 +85,8 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
         super.viewDidAppear(animated)
 
+        currentTabBar = tabBarItem.tag
+        
         if widthProgress == -1 {
         
             fillWithData()
@@ -107,11 +107,8 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
         super.viewWillDisappear(animated)
         
-        MemoryControll.saveObject(moneyTablet.totalCounts,
-                                  key: "gameTimeLeft" + local_current_game.game_id)
+        MemoryControll.saveGameMoneyStart(moneyTablet.totalCounts, tabBarItem.tag)
         
-        games_list[tabBarItem.tag]?.prize_amount_local = moneyTablet.totalCounts
-
         stopSchedule()
         
 //        animateDisAppearance()
@@ -129,9 +126,28 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
     }
     
+    override func showNotificationView(){
+        
+        UserNotifications.cleanLastNotification()
+        
+        let newTab = getTabBarTag()
+        
+        if newTab == tabBarItem.tag {
+            
+            stopSchedule()
+            
+            answerOnInitData()
+            
+        } else {
+            tabBarController?.selectedIndex = getTabBarTag()
+        }
+
+    }
     
     func answerOnInitData(){
  
+        itemBadge?.setNumberLabel(notification_data.count)
+
         peopleCount.text = Int(local_current_game.num_players).stringWithSepator
         usSum.text = "$ \(local_current_game.prize_amount)"
         
@@ -141,6 +157,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         reCountTimers()
         
     }
+    
     
     func startLastClock(){
         
@@ -152,7 +169,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
             
         } else {
             
-            secondTimerThin?.initTimer(from,all)
+            secondTimerThin?.initTimer(data.0,data.1)
         }
         
         startSchedule()

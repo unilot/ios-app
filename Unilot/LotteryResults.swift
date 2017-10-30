@@ -42,9 +42,9 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         clockTablet.layoutIfNeeded()
         
         
-        let type = kTypeTabBarOrder.index(of: local_current_game.type)
-
-        titleMain.text = TR("Итоги") + " " + TR(setting_strings[0][type!])
+        let type = getTabBarTag()
+        
+        titleMain.text = TR("Итоги") + " " + TR(setting_strings[0][type])
         dayTitle.text = getNiceDateFormatString(from: local_current_game.started_at)
         unfortunately.text = TR("К сожалению, вас нет в списке победителей")
         butHey.text =  TR("Вы автоматически становитесь участником бонусного розыгрыша который состоится через:")
@@ -74,7 +74,7 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         if data.2 == -1 {
             onX()
         } else {
-            clockTablet.initTimer(from/(3600*24),all/(3600*24))
+            clockTablet.initTimer(data.0/(3600*24),data.1/(3600*24))
         }
         
         

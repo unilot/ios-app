@@ -194,7 +194,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
             
             timerCoeff = timeOfFlipperAnimation / (diff * diff)
             
-            print("diff = ",diff,"timerCoeff = ",timerCoeff)
+//            print("diff = ",diff,"timerCoeff = ",timerCoeff)
         }
         
         
@@ -208,8 +208,12 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
     func endTimer() {
         
         if countdownTimer != nil {
+            
             countdownTimer.invalidate()
             countdownTimer = nil
+            
+            MemoryControll.saveGameMoneyStart(totalCounts, getTabBarTag())
+
         }
     }
 

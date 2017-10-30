@@ -38,9 +38,10 @@ class NetWorkParse {
 
     static func parseNotificationToken(_ resultValue : Any) -> String? {
         
-        guard let responseJSON = resultValue as? [String: Any] else {
+        guard resultValue is [String: Any] else {
             return "Wrong json format for parseNotificationToken"
         }
+        
         
         return nil
     }
@@ -138,8 +139,17 @@ class NetWorkParse {
         item.status             = data["status"] as! Int
         item.type               = data["type"] as! Int
         
-        if let localPrize = MemoryControll.getObject("gameTimeLeft" + item.game_id) as? Int {
-            item.prize_amount_local = localPrize
+        
+        let keyLine = "gameTimeLeft" + item.game_id
+        if let localPrize = MemoryControll.getObject(keyLine) as? Int {
+            if localPrize > Int(item.prize_amount_fiat/1000) {
+                
+                MemoryControll.removeObject(keyLine)
+                
+            } else {
+                item.prize_amount_local = localPrize
+   
+            }
          }
         
         return item

@@ -56,6 +56,9 @@ class GameInfo {
 
 //MARK: - Functions
 
+
+
+
 func saveToClipboard(_ text : String){
     UIPasteboard.general.string = text
     let alert_text = TR("Номер") + "\n\n" + text + "\n\n" + TR("был сохранен в буфер")
@@ -72,6 +75,14 @@ func TR(_ str: String?) -> String{
     
 }
 
+
+//MARK: - Games details
+
+func getTabBarTag() -> Int{
+    
+    return kTypeTabBarOrder.index(of:local_current_game.type)!
+
+}
 
 func recountTimersForLastCounter(_ game : GameInfo) -> (Int, Int) { //now/all/stepType
 
@@ -144,7 +155,7 @@ func create_fon_view(_ size: CGSize) -> UIImageView {
 
     let amount = CGFloat(100)
 
-    let bg_view = UIImageView(frame : CGRect(x: 0, y: 0,
+    let bg_view = UIImageView(frame : CGRect(x: -amount, y: 0,
                                              width: size.width + 2*amount,
                                              height:  size.height))
     

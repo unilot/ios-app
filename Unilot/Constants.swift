@@ -17,6 +17,7 @@ let kTypeHour = 5
 let kTypeDay = 10
 let kTypeWeek = 30
 let kTypeMonth = 50
+let kTypeUndefined = 0
 
 
 let kStatusPublished = 10
@@ -43,7 +44,7 @@ var timeOfFlipperAnimation = 15.0
 
 var lottery_images   = ["`1day-x3","`7days-x3","`31days-x3"]
 var kTypeImage       = [kTypeDay : "`1day-x3", kTypeWeek : "`7days-x3", kTypeMonth : "`31days-x3"]
-var kTypeTabBarOrder = [kTypeDay, kTypeWeek, kTypeMonth]
+var kTypeTabBarOrder = [kTypeDay, kTypeWeek, kTypeMonth,kTypeUndefined]
 
 
 let staticClockSecondsStep = [1,60,3600]

@@ -185,7 +185,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             
         case kStatusPublished:
 
-            goToMainView( kTypeTabBarOrder.index(of: local_current_game.type)!)
+            goToMainView(getTabBarTag())
 
         default: //kStatusCancel
             

@@ -28,20 +28,45 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         
         return QRCodeReaderViewController(builder: builder)
     }()
-    
-    
-    func addNotifAction(){
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(ControllerCore.onNotifRecieved),
-                                               name: NSNotification.Name(rawValue: "NOTIFICATION_CAME"),
-                                               object: nil)
-    }
+   
     
     func onNotifRecieved(){
         
-        UserNotifications.notificationAction()
+        showActivityViewIndicator()
+
+        let data = notification_data.last!["data"] as! [String : Any]
+        
+        if let currentIdOfRefreshedGame = data["id"] as? Int  {
+            NetWork.getGameDetails("\(currentIdOfRefreshedGame)", completion: onAnswerFromNotifCheckServer)
+        } else {
+            NetWork.getGamesList(completion: onAnswerFromNotifCheckServer)
+        }
+
     }
     
+    
+    func onAnswerFromNotifCheckServer(_ error : String?){
+        
+        hideActivityViewIndicator()
+        
+        
+        if error == nil {
+          showNotificationView()
+        }
+
+    }
+    
+    func showNotificationView(){
+        
+        UserNotifications.cleanLastNotification()
+        
+        local_current_game.ending_at = local_current_game.started_at
+        games_list[1] = local_current_game
+
+        goToMainView(getTabBarTag())
+        
+    }
+
     //MARK: override
     
     override func viewDidLoad() {
@@ -51,8 +76,6 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         UINavigationBar.appearance().tintColor = kColorMenuPeach
        
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.orange]
-
-        addNotifAction()
 
         addSwipeForMenuOpen()
 
@@ -67,6 +90,8 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         super.viewWillAppear(animated)
         
         self.view.isUserInteractionEnabled = true
+        
+        current_controller_core = self
         
     }
     

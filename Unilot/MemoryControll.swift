@@ -18,6 +18,9 @@ var tokenForNotifications = kEmpty //"0xf49ebf9ac72767cf83a8969fe76acceb44855745
 
 var notification_data = [[String : Any]]()
 
+var currentTabBar = 0
+
+weak var current_controller_core : ControllerCore?
 
 class MemoryControll {
     
@@ -147,6 +150,14 @@ class MemoryControll {
     }
     
  
-    
+    //mark: - spec
+
+    static func saveGameMoneyStart(_ newMeaning : Int, _ forGame :Int){
+        
+        MemoryControll.saveObject( newMeaning,
+                                  key: "gameTimeLeft" + local_current_game.game_id)
+        
+        games_list[forGame]?.prize_amount_local = newMeaning
+    }
 }
 

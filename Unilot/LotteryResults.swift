@@ -53,7 +53,6 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         copyButton.setTitle(TR("История розыгрыша"), for: .normal)
         
         clockTablet.createBody(self)
-        clockTablet.initTimer(30, 30)
        // clockTablet.labelMain.frame.origin = CGPoint(x: 0,
          //                                            y: -clockTablet.labelMain.frame.height * 0.35)
         
@@ -63,7 +62,22 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         clockTablet.labelMain.backgroundColor = UIColor.clear
         clockTablet.isHidden = true
         
+        setTimerDetails()
         startClock()
+    }
+    
+    
+    func setTimerDetails(){
+        
+        let data = recountTimersData(local_current_game)
+        
+        if data.2 == -1 {
+            onX()
+        } else {
+            clockTablet.initTimer(from/(3600*24),all/(3600*24))
+        }
+        
+        
     }
     
     func startClock(){

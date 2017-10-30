@@ -73,6 +73,19 @@ func TR(_ str: String?) -> String{
 }
 
 
+func recountTimersForLastCounter(_ game : GameInfo) -> (Int, Int) { //now/all/stepType
+
+    let timerNow = game.ending_at +  kTimeForPreperationWait - Int(Date().timeIntervalSince1970)
+    let timeAll = kTimeForPreperationWait
+    
+    if timerNow > 0 {
+        return (timerNow,timeAll)
+    } else {
+        return (0,-1)
+    }
+    
+}
+
 func recountTimersData(_ game : GameInfo) -> (Int, Int, Int) { //now/all/stepType
     
     let timerNow = game.ending_at - Int(Date().timeIntervalSince1970)

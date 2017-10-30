@@ -39,7 +39,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     
     func onNotifRecieved(){
         
-        NetWorkParse.parseNotification()
+        UserNotifications.notificationAction()
     }
     
     //MARK: override
@@ -52,7 +52,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
        
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.orange]
 
-        
+        addNotifAction()
 
         addSwipeForMenuOpen()
 

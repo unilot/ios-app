@@ -25,6 +25,8 @@ let kStatusComplete = 30
  
 
 
+let kTimeForPreperationWait = 3600
+
 //MARK: -  links
 
 

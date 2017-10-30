@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import UserNotifications
 
 
 @UIApplicationMain
@@ -19,21 +19,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
     
-                
-        registerForPushNotifications(application)
+        
+        
+        
+        
+        UserNotifications.registerForPushNotifications(application)
+        
+        //0 
+        // removw badge
         application.applicationIconBadgeNumber = 0;
+
         
-        
-        // Check if launched from notification
         // 1
+        // Check if launched from notification
+
         if let notification = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [String: Any] {
             // 2
-
-            parseNotification(notification, isOpened: false)
+            
+            UserNotifications.parseNotification(notification, isOpened: false)
             
             // 3
         }
-
+        
         return true
         
     }
@@ -66,7 +73,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
    //MARK: - remote stuff
-    
+
+     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         
         print("url recieved:", url);
@@ -89,7 +97,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let aps = userInfo as! [String: Any]
         
-        parseNotification(aps, isOpened: true)
+        UserNotifications.parseNotification(aps, isOpened: true)
+        
         completionHandler(.newData)
         
     }
@@ -99,9 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let aps = userInfo as! [String: Any]
         
-        // 2
-        
-        parseNotification(aps, isOpened: true)
+        UserNotifications.parseNotification(aps, isOpened: true)
         
         completionHandler()
     }
@@ -114,6 +121,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        
         let tokenChars = (deviceToken as NSData).bytes.bindMemory(to: CChar.self, capacity: deviceToken.count)
         var tokenString = kEmpty
         
@@ -149,48 +158,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    //MARK: -
-    
-     
-    func registerForPushNotifications(_ application: UIApplication) {
-        
-        let viewAction = UIMutableUserNotificationAction()
-        viewAction.identifier = "VIEW_IDENTIFIER"
-        viewAction.title = "View"
-        viewAction.activationMode = .foreground
-        
-        let newsCategory = UIMutableUserNotificationCategory()
-        newsCategory.identifier = "NEWS_CATEGORY"
-        newsCategory.setActions([viewAction], for: .default)
-        
-        let notificationSettings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: [newsCategory])
-        application.registerUserNotificationSettings(notificationSettings)
-        
-        perform(#selector(AppDelegate.startAfterAnswerFromRemoteNotifications), with: nil, afterDelay: 5)
-        
-    }
-    
-    
-    func parseNotification(_ notificationDictionary:[String: Any], isOpened: Bool) {
-        
-        print(notificationDictionary)
-        
-        notification_data.append( notificationDictionary )
-        
-        MemoryControll.saveObject(notification_data, key: "notifications_app")
 
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "NOTIFICATION_CAME"), object: nil)
-
-    }
     
-    
-    func startAfterAnswerFromRemoteNotifications(){
-        if  !startWas {
-            startWas = true
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "enter_after_start"), object: nil)
-        }
-    }
-
-
-}
+ }
 

@@ -141,12 +141,28 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         reCountTimers()
         
     }
+    
+    func startLastClock(){
+        
+        let data = recountTimersForLastCounter(local_current_game)
+        
+        if data.1 == -1 {
+            
+            onReloadDataForMainView()
+            
+        } else {
+            
+            secondTimerThin?.initTimer(from,all)
+        }
+        
+        startSchedule()
+    }
 
     func reCountTimers(){
         
         let data = recountTimersData(local_current_game)
         
-        if data.0 == -1 {
+        if data.2 == -1 {
             
             openSecondView()
         
@@ -457,15 +473,6 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
                                              width: secondOverlay.frame.width * 0.34,
                                             height: secondOverlay.frame.height * 0.15))
         secondTimerThin!.createBodyTimers()
-        
-        
-        let diffTime =
-            
-            moneyTablet.initTimer(Int(local_current_game.prize_amount_local),
-                                  Int(local_current_game.prize_amount_fiat * 1000))
-        
-        secondTimerThin!.initTimer(3600, 0)
-        
         secondOverlay.addSubview(secondTimerThin!)
         
         let tranzaction_string = UILabel(frame: CGRect(x: 15,

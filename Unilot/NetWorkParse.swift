@@ -159,48 +159,6 @@ class NetWorkParse {
         return item
     }
 
-    
-    
-    //MARK: - NOTIFICATIO PARSE
-    
-    static func parseNotification(){
-        
-        let action = notification_data.first!["action"] as! String
-        
-        switch action {
-            
-        //Начало игры:
-        case "game_started":
-            
 
-            break
-            
-        //Завершение приёма заявок и начало определения победител
-        case "game_unpublished":
-            
-            
-            break
-            
-        //Завершение определения победителей:
-        case "game_finished":
-            
-            
-            break
-            
-        //Отчёт об игре:
-        case "game_updated":
-            
-            
-            
-            break
-            
-        default:
-            
-            break
-        }
-
-        print(notification_data.first!["data"])
-
-    }
     
 }

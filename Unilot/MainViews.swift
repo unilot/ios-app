@@ -54,7 +54,7 @@ class MainView: MainViewPositions {
     
     override func startSchedule(){
         
-        if firstOverlay.isHidden{
+        if secondTimerThin != nil {
             secondTimerThin?.doScheduledTimer()
         } else {
             moneyTablet.doScheduledTimer()

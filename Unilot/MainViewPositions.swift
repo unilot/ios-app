@@ -39,7 +39,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     var secondOverlay: UIImageView!
 
-    var secondTimerThin: CDHourL!
+    var secondTimerThin: CDHourL?
     
     var widthProgress = CGFloat(-1)
     
@@ -77,7 +77,6 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         if widthProgress > -1 {
             
             reCountTimers()
-            startSchedule()
             
         }
         
@@ -95,8 +94,6 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
             setLoadingSign(toWidth: 0)
 
             answerOnInitData()
-
-            startSchedule()
 
         }
         
@@ -150,10 +147,15 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         let data = recountTimersData(local_current_game)
         
         if data.0 == -1 {
-            showCompleteView()
+            
+            openSecondView()
+        
         } else {
             setTimersNumbers(data.0, data.1, data.2)
         }
+
+        startSchedule()
+
         
     }
     
@@ -247,6 +249,11 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     func countDownFinished(){
         
+        if  firstOverlay.isHidden {
+            onReloadDataForMainView()
+        } else {
+            openSecondView()
+        }
 
     }
     
@@ -263,12 +270,6 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     }
     
     func stopSchedule(){
-        
-    }
-    
-    
-    
-    func showCompleteView(){
         
     }
     
@@ -348,18 +349,18 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     @IBAction func onTakePart(){
         
-        openSecondView()
+//        openSecondView()
         
-//        let viewWithPlaces = AgreeToPlay.createAgreeToPlay()
-//        viewWithPlaces.delegate = self
-//        let frameForView = CGRect(x: 10,
-//                                  y: 70,
-//                                  width: view.frame.width - 20,
-//                                  height: view.frame.height - 150)
-//        
-//        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: 1)
-//        
-//
+        let viewWithPlaces = AgreeToPlay.createAgreeToPlay()
+        viewWithPlaces.delegate = self
+        let frameForView = CGRect(x: 10,
+                                  y: 70,
+                                  width: view.frame.width - 20,
+                                  height: view.frame.height - 150)
+        
+        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: 1)
+        
+
     }
     
     
@@ -368,7 +369,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         // create second layer
         createOverLayWithWait()
 
-        secondTimerThin.doScheduledTimer()
+        secondTimerThin?.doScheduledTimer()
 
         UIView.animate(withDuration: 1, animations: {
             
@@ -387,6 +388,10 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     func onReloadDataForMainView(){
         
         showActivityViewIndicator()
+        
+        stopSchedule()
+        
+        moneyTablet.completeFlipping()
 
         UIView.animate(withDuration: 1, animations: {
             
@@ -410,21 +415,18 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
             
             return users_account_number.contains(item.user_id)
         })
-        
-        showYouWin(local_current_user)
 
-        
-//        if my_win_wallets.count > 0 {
-//            
-//            for item in my_win_wallets {
-//                showYouWin(item)
-//            }
-//            
-//        } else {
-//            
-//            openEndWithFail()
-//            
-//        }
+        if my_win_wallets.count > 0 {
+            
+            for item in my_win_wallets {
+                showYouWin(item)
+            }
+            
+        } else {
+            
+            openEndWithFail()
+            
+        }
         
         NetWork.getGamesList(completion: onAnswerAfterNewDataRequest)
 
@@ -454,12 +456,20 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
                                                  y: title.frame.height,
                                              width: secondOverlay.frame.width * 0.34,
                                             height: secondOverlay.frame.height * 0.15))
-        secondTimerThin.createBodyTimers()
-        secondTimerThin.initTimer(3600, 0)
-        secondOverlay.addSubview(secondTimerThin)
+        secondTimerThin!.createBodyTimers()
+        
+        
+        let diffTime =
+            
+            moneyTablet.initTimer(Int(local_current_game.prize_amount_local),
+                                  Int(local_current_game.prize_amount_fiat * 1000))
+        
+        secondTimerThin!.initTimer(3600, 0)
+        
+        secondOverlay.addSubview(secondTimerThin!)
         
         let tranzaction_string = UILabel(frame: CGRect(x: 15,
-                                                       y: secondTimerThin.frame.origin.y + secondTimerThin.frame.height + 5,
+                                                       y: secondTimerThin!.frame.origin.y + secondTimerThin!.frame.height + 5,
                                                        width: secondOverlay.frame.width - 30,
                                                        height: 20))
         
@@ -510,8 +520,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     func onCopyTransactionNumber(){
      
-        onReloadDataForMainView()
-//        saveToClipboard(local_current_game.smart_contract_id)
+        saveToClipboard(local_current_game.smart_contract_id)
 
     }
     

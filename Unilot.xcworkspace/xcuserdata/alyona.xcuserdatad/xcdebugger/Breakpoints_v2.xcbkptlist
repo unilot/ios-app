@@ -65,8 +65,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "501"
             endingLineNumber = "501"
-            landmarkName = "reloadViewForFirstLayer()"
-            landmarkType = "7">
+            landmarkName = "MainViewPositions"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

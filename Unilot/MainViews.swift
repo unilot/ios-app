@@ -38,6 +38,7 @@ class MainView: MainViewPositions {
         
         addTimersBody() 
 
+        
     }
     
     
@@ -48,14 +49,18 @@ class MainView: MainViewPositions {
         moneyTablet.createBody()
         
         clockTablet?.createBody(self)
+    
     }
     
     override func startSchedule(){
         
-        moneyTablet.doScheduledTimer()
-        
-        clockTablet?.doScheduledTimer()
-
+        if firstOverlay.isHidden{
+            secondTimerThin?.doScheduledTimer()
+        } else {
+            moneyTablet.doScheduledTimer()
+            
+            clockTablet?.doScheduledTimer()
+        }
     }
     
     override func stopSchedule() {
@@ -63,6 +68,9 @@ class MainView: MainViewPositions {
         moneyTablet.endTimer()
         
         clockTablet?.endTimer()
+        
+        secondTimerThin?.endTimer()
+
     }
     
     

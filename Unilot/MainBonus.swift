@@ -59,7 +59,7 @@ class BonusView: MainViewPositions {
         
         answerOnInitData()
         
-    } 
+    }
     
     override func setTimersNumbers(_ from: Int, _ all: Int , _ type: Int) {
 
@@ -80,12 +80,7 @@ class BonusView: MainViewPositions {
 
     override func setLoadingSign(toWidth: CGFloat ){
         
-    }
-    
-    override func countDownDidFall(from: Int, left: Int){
-        
-    }
-    
+    } 
     
     
     
@@ -99,22 +94,27 @@ class BonusView: MainViewPositions {
         
     }
     
-    
     override func startSchedule(){
         
-        moneyTablet.doScheduledTimer()
-        
-        daysCount.doScheduledTimer()
-        
+        if firstOverlay.isHidden{
+            secondTimerThin?.doScheduledTimer()
+        } else {
+            moneyTablet.doScheduledTimer()
+            
+            daysCount.doScheduledTimer()
+        }
     }
-    
     
     override func stopSchedule() {
         
         moneyTablet.endTimer()
         
         daysCount.endTimer()
+        
+        secondTimerThin?.endTimer()
+        
     }
+    
     
 }
 

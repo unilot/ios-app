@@ -40,5 +40,14 @@ class CountUppMoney: CountDownCore  {
         return false
     }
  
+    
+    func completeFlipping(){
+        
+        endTimer()
+        
+        totalCounts =  startCounts
+        
+        updateFlippers("\(totalCounts)")
+    }
  
 }

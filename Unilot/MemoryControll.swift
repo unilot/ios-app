@@ -13,10 +13,7 @@ var current_language = "English"
 var notifications_switch = [false,false,true]
 var users_account_number =  ["1231qewr4r124","Qwr34qwawerwt2345t4"]
 var my_win_wallets = [UserForGame]()
-
-
-var currentTabBarLottery = 0
-
+ 
 var tokenForNotifications = kEmpty //"0xf49ebf9ac72767cf83a8969fe76acceb44855745"
 
 var notification_data = [[String : Any]]()

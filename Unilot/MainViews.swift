@@ -11,6 +11,14 @@ import UIKit
 
 
 class MainView: MainViewPositions {
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        game_type = kTypeDay
+
+    }
   
     override func fillWithData(){
 
@@ -32,12 +40,6 @@ class MainView: MainViewPositions {
 
     }
     
-    
-    override func setGameNumbers(){
-        
-        local_current_game = games_list[kTypeDay]!
- 
-    }
     
     //MARK: - timers
     
@@ -63,29 +65,19 @@ class MainView: MainViewPositions {
         clockTablet?.endTimer()
     }
     
-//    override func addSwipeForMenuOpen(){
-//        
-//        if revealViewController() != nil {
-//            view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-//        }
-//    }
+    
 }
 
 
 class MainWeekView: MainView {
     
-    override func setGameNumbers(){
+    override func viewDidLoad() {
         
-        local_current_game = games_list[kTypeWeek]!
+        super.viewDidLoad()
         
+        game_type = kTypeWeek
+
     }
-    
-//    override func addSwipeForMenuOpen(){
-//        
-//        if revealViewController() != nil {
-//            view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-//        }
-//    }
     
 }
 

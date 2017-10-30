@@ -17,7 +17,7 @@ class CountUppMoney: CountDownCore  {
         
         let money2 = local_current_game.prize_amount_fiat
         
-        flippersCount = 1 + Int(log10(money2)) + flippersGaps
+        flippersCount = max(6,1 + Int(log10(money2)) + flippersGaps)
          
     }
     

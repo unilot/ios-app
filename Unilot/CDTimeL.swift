@@ -91,6 +91,18 @@ class CountDownFullTimer: CountDownLabel  {
         
     }
     
+    override func changeCounts()  -> Bool {
+        
+        if totalCounts > Int(timerUpdateDuration) {
+            
+            totalCounts = totalCounts - Int(timerUpdateDuration)
+            return true
+        }
+        
+        return false
+        
+    }
+    
     override func labelFormatted(_ totalUnits: Int) -> String {
         
         
@@ -107,6 +119,7 @@ class CountDownFullTimer: CountDownLabel  {
             let hours = Int(totalUnits) / 3600 % 24
             let minutes = Int(totalUnits) / 60 % 60
             
+            print(totalUnits)
             return String(format:"%02i : %02i : %02i", days, hours, minutes)
         }
         

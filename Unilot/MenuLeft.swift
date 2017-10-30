@@ -12,37 +12,55 @@ import NVActivityIndicatorView
 
 
 
-class MenuLeft: UITableViewController {
+class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
     
-    let rowOneHeight = CGFloat(50)
     @IBOutlet weak var itemBadge: SpecialItem!
-
-    
     @IBOutlet weak var ico_image: UIImageView!
-
     @IBOutlet weak var history: UILabel!
     @IBOutlet weak var how: UILabel!
     @IBOutlet weak var wp: UILabel!
-
     @IBOutlet weak var settings: UILabel!
-
     @IBOutlet weak var socials: UILabel!
+
+    
+    //MARK: - View override
 
     override func viewDidLoad() {
 
         super.viewDidLoad()
-         
-        self.view.backgroundColor = kColorMenuFon
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
+        
+        setNavControllerClear()
     
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        
+        setLocolizedStuff()
+    }
+    
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        
+//        revealViewController().frontViewController.view.isUserInteractionEnabled = false
+//        
+//        
+//    }
+//    
+//    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        
+//        revealViewController().frontViewController.view.isUserInteractionEnabled = true
+//
+//    }
+
+    //MARK: -
+
+    
+    func setLocolizedStuff(){
         
         itemBadge.setNumberLabel(notification_data.count)
         ico_image.image = UIImage(named : TR("Скорo"))
@@ -53,11 +71,14 @@ class MenuLeft: UITableViewController {
         wp.text = TR("White paper")
         settings.text = TR("Настройки")
         socials.text = TR("Оставайтесь в курсе")
+        
     }
-     
+    
+    //MARK: - TableVIew
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
+        let rowOneHeight = CGFloat(50)
         
         switch indexPath.section {
         case 0: // header
@@ -78,9 +99,7 @@ class MenuLeft: UITableViewController {
         
     }
     
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         
         var viewsNames = [
         
@@ -105,42 +124,15 @@ class MenuLeft: UITableViewController {
     }
 
     
+    //MARK: - Actions
     
     @IBAction func onSocial(_ sender : UIButton){
         
-        
-        var url = URL(string: "https://www.google.com")
-
-
-        switch sender.tag {
-        case 100:
-            url = URL(string: kLink_FB)
-        case 200:
-            url = URL(string: kLink_Telegram)
-        case 300:
-            url = URL(string: kLink_Reddit)
-        case 400:
-            url = URL(string: kLink_Twitter)
-        default:
-            break
-        }
-        
-        
-        if UIApplication.shared.canOpenURL(url!) {
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(url!, options: [:], completionHandler: nil)
-                UIApplication.shared.open(url!, options: [:], completionHandler: { (success) in
-                    print("Open url : \(success)")
-                })
-
-            } else {
-                // Fallback on earlier versions
-                UIApplication.shared.openURL(url!)
-            }
-        }
+        let links = [kLink_FB, kLink_Telegram, kLink_Reddit, kLink_Twitter]
+ 
+        openUrlFromApp(links[sender.tag / 100 - 1] )
         
     }
-    
  
     
     func goToViewController(_ nameOfView : String){
@@ -148,12 +140,19 @@ class MenuLeft: UITableViewController {
         let navController = UINavigationController()
         let rootViewController = getVCFromName(nameOfView)
         
-        
         var cntrllrs =   navController.viewControllers
         cntrllrs.insert(rootViewController, at: 0)
         
         navController.setViewControllers(cntrllrs, animated: false)
         revealViewController().pushFrontViewController(navController, animated: true)
      }
+    
+    //MARK: - SWRevealViewControllerDelegate
+    
+    
+    func revealController(_ revealController: SWRevealViewController!, didMoveTo position: FrontViewPosition) {
+        
+        
+    }
 }
 

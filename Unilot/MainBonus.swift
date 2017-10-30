@@ -30,24 +30,18 @@ class BonusView: MainViewPositions {
     @IBOutlet weak var label2: UILabel!
     
     
-    override func setLoadingSign(toWidth: CGFloat ){
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        game_type = kTypeMonth
         
     }
     
-    override func countDownDidFall(from: Int, left: Int){
-        
-    }
-    
-    
-    override func setGameNumbers(){
-        
-        local_current_game = games_list[kTypeMonth]!
-        
-    }
+  
     override func fillWithData(){
-        
-        playWin()
-        
+                
         widthProgress = 0
         
         titleMain.text = TR("Бонусная лотерея")
@@ -81,6 +75,18 @@ class BonusView: MainViewPositions {
         howDoesItWork.backgroundColor = UIColor.clear
         
     }
+    
+    //MARK: - CountDownTimeDelegate
+
+    override func setLoadingSign(toWidth: CGFloat ){
+        
+    }
+    
+    override func countDownDidFall(from: Int, left: Int){
+        
+    }
+    
+    
     
     
     //MARK: - timers

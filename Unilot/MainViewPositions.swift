@@ -42,38 +42,52 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     var secondTimerThin: CDHourL!
     
     var widthProgress = CGFloat(-1)
+    
+    var game_type = Int(0)
         
     //MARK: - Views Load override
 
 //    viewWillLayoutSubviews
     
     
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        view.layer.opacity = 0.0
+        view.backgroundColor = UIColor.clear
+        
+    }
+    
     override func viewDidLayoutSubviews() {
         
         super.viewDidLayoutSubviews()
-        
-        currentTabBarLottery = tabBarItem.tag
-        
-        view.backgroundColor = UIColor.clear
-
+         
         itemBadge?.setNumberLabel(notification_data.count)
 
         setButtonView()
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
         setGameNumbers()
+
+        if widthProgress > -1 {
+            
+            reCountTimers()
+            startSchedule()
+            
+        }
         
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.layer.opacity = 0.0
-    }
     
     override func viewDidAppear(_ animated: Bool) {
         
-        setGameNumbers()
-        
+        super.viewDidAppear(animated)
+
         if widthProgress == -1 {
         
             fillWithData()
@@ -87,27 +101,10 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         }
         
         animateAppearance()
-
         
     }
-    
- 
-    
-    func  setGameNumbers() {
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if widthProgress > -1 {
-            
-            reCountTimers()
-            startSchedule()
-    
-        }
-        
-    }
+  
+  
     
     override func viewWillDisappear(_ animated: Bool) {
         
@@ -116,13 +113,15 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         MemoryControll.saveObject(moneyTablet.totalCounts,
                                   key: "gameTimeLeft" + local_current_game.game_id)
         
-        local_current_game.prize_amount_local = moneyTablet.totalCounts
+        games_list[tabBarItem.tag]?.prize_amount_local = moneyTablet.totalCounts
 
         stopSchedule()
         
 //        animateDisAppearance()
         
     }
+    
+    //MARK: -
     override func setBackButton(){
         
         addMenuButton()
@@ -167,6 +166,12 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     //MARK: - Set all views
     
+    
+    func  setGameNumbers() {
+        
+        local_current_game = games_list[game_type]!
+        
+    }
     func setTakePartView(){
         
         takePart.setTitle(TR("Принять участие"), for: .normal)
@@ -291,7 +296,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         let frameForView = CGRect(x: 10,
                                   y: 70,
                                   width: view.frame.width - 20,
-                                  height: view.frame.height - 150)
+                                  height: view.frame.height - 140)
         
         viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: 1)
         

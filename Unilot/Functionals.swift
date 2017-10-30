@@ -131,9 +131,9 @@ func create_fon_view(_ size: CGSize) -> UIImageView {
 
     let amount = CGFloat(100)
 
-    let bg_view = UIImageView(frame : CGRect(x: -amount, y: -amount,
+    let bg_view = UIImageView(frame : CGRect(x: 0, y: 0,
                                              width: size.width + 2*amount,
-                                             height:  size.height + 2*amount))
+                                             height:  size.height))
     
     bg_view.image =  UIImage(named: "bg_1")
     bg_view.contentMode = .scaleAspectFill
@@ -150,12 +150,12 @@ func addParallaxToView(_ forView: UIView, _ bounce : Int) {
     horizontal.minimumRelativeValue = -bounce
     horizontal.maximumRelativeValue = bounce
     
-    let vertical = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
-    vertical.minimumRelativeValue = -bounce
-    vertical.maximumRelativeValue = bounce
+//    let vertical = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+//    vertical.minimumRelativeValue = -bounce
+//    vertical.maximumRelativeValue = bounce
     
     let group = UIMotionEffectGroup()
-    group.motionEffects = [horizontal, vertical]
+    group.motionEffects = [horizontal]
     forView.addMotionEffect(group)
 }
 
@@ -203,6 +203,31 @@ func convertDate(from isoDate : String) -> Int {
     return Int(finalDate.timeIntervalSince1970)
     
 }
+
+
+func openUrlFromApp(_ path : String ){
+    
+    let url = URL(string: path)
+    
+    if url == nil {
+        return
+    }
+    
+    if UIApplication.shared.canOpenURL(url!) {
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+            UIApplication.shared.open(url!, options: [:], completionHandler: { (success) in
+                print("Open url : \(success)")
+            })
+            
+        } else {
+            // Fallback on earlier versions
+            UIApplication.shared.openURL(url!)
+        }
+    }
+}
+
+
 func imageScaledToSize(size: CGSize, image: UIImage) -> UIImage {
     UIGraphicsBeginImageContextWithOptions(size, false, 0.0);
     image.draw(in: CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height))
@@ -279,9 +304,14 @@ func playWin() {
         
         
         do {
-            let audioPlayer = try AVAudioPlayer(contentsOf: audioFileUrl)
-            audioPlayer.prepareToPlay()
-            audioPlayer.play()
+            let sound = try AVAudioPlayer(contentsOf: audioFileUrl)
+            sound.numberOfLoops = 1
+            sound.prepareToPlay()
+            sound.play()
+            
+//            let audioPlayer = try AVAudioPlayer(contentsOf: audioFileUrl)
+//            audioPlayer.prepareToPlay()
+//            audioPlayer.play()
 
             // use audioPlayer
         } catch let error as NSError {

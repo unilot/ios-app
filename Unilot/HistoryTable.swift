@@ -184,12 +184,10 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
 
             
         case kStatusPublished:
-            
-            currentTabBarLottery  =  kTypeTabBarOrder.index(of: local_current_game.type)!
-            
-            goToMainView()
 
-        default: //kStatusCancele
+            goToMainView( kTypeTabBarOrder.index(of: local_current_game.type)!)
+
+        default: //kStatusCancel
             
             break
         }

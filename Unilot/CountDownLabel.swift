@@ -143,10 +143,12 @@ class CountDownLabel: UIImageView  {
     
     func doUpdate(){
         
-        updateLabels()
-        
         if changeCounts() {
+        
+            updateLabels()
+
             delegate?.countDownDidFall(from: startCounts, left: totalCounts)
+        
         } else {
             endTimer()
             delegate?.countDownFinished()

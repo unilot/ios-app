@@ -18,7 +18,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
 
     var comaPlace = Float(1.55)
 
-    var flippersCount = 5
+    var flippersCount = 6
     
     var flippersGaps  = 3
 

@@ -16,6 +16,7 @@ import QRCodeReader
 
 class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDelegate {
 
+    
     var activityIndicatorView : NVActivityIndicatorView?
     var itemBadge: SpecialItem?
 
@@ -75,9 +76,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         
         self.view.isUserInteractionEnabled = false
         
-    }
-    
-    
+    } 
     //MARK: - Buttons
     
     
@@ -135,13 +134,12 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     }
     
     
-    func goToMainView(){
+    func goToMainView(_ toTabBar : Int){
         
         let navController = self.navigationController!
-        
-        
+         
         let rootViewController = getVCFromName("SB_TabBarController") as! TabBarController
-        rootViewController.selectedIndex = currentTabBarLottery
+        rootViewController.selectedIndex = toTabBar
 
         
         var cntrllrs =   navController.viewControllers
@@ -160,7 +158,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     
     @IBAction func onBackMenuArrow(){
      
-        goToMainView()
+        goToMainView(0)
     }
 
     @IBAction func onQRScan(_ sender: Any) {

@@ -47,13 +47,7 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
 
         
     }
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        currentTabBarLottery = tabBarItem.tag
-    } 
+     
     
     
     override func setBackButton(){
@@ -199,6 +193,7 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
             table.deleteRows(at: [IndexPath(row: currentTagForRemove, section: 0)],
                              with: .top)
          
+            saveDataInMemory()
             currentTagForRemove = -1
         }
     }
@@ -209,6 +204,8 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
             users_account_number.insert(fieldPurse.text!, at: 0)
             
             table.insertRows(at: [IndexPath(row: 0, section: 0)], with: .bottom)
+            
+            saveDataInMemory()
             
             fieldPurse.text = nil
         }
@@ -233,14 +230,25 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
     }
 
     //MARK: - exit
+    
+    override func onRevealMenu() {
+        
+        fieldPurse.resignFirstResponder()
+
+        super.onRevealMenu()
+
+    }
 
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
         
         fieldPurse.resignFirstResponder()
+    }
+    
+    func saveDataInMemory(){
         
         MemoryControll.saveObject(users_account_number, key: "users_account_number")
-        
+
     }
 }

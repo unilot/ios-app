@@ -89,10 +89,11 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
      }
     
     func countDownDidFall(from: Int, left: Int){
-        
+  
     }
     
     func countDownFinished(){
+        onX()
         
     }
 

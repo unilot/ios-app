@@ -31,6 +31,10 @@ class InfoView: PopUpCore {
         textView.text = getTextFromFileInfo()
         
         textView.scrollRangeToVisible(NSMakeRange(0, 0))
+
+        textView.scrollsToTop = true
+        
+        textView.layoutIfNeeded()
         
     }
     

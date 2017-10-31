@@ -9,11 +9,7 @@
 import AVFoundation
 import SCLAlertView
 import QRCodeReader
-
-
-
-
-
+import SwiftySound
 
 //MARK: - Local Vars
 
@@ -308,6 +304,8 @@ func setColorForImage(_ sizeOfView : CGSize, _ imageName : String) -> SpecialIte
 
 func playStandart(){
     
+    Sound.play(file: "win.mp3")
+
     // create a sound ID, in this case its the tweet sound.
 //    let systemSoundID: SystemSoundID = 1016
     
@@ -317,34 +315,34 @@ func playStandart(){
 }
 
 func playWin() {
+     
+    Sound.play(file: "win.mp3")
     
-    
-    
-    let audioFilePath = Bundle.main.path(forResource: "win", ofType: "mp3")
-    
-    if audioFilePath != nil {
-        
-        let audioFileUrl = NSURL.fileURL(withPath: audioFilePath!)
-        
-        
-        do {
-            let sound = try AVAudioPlayer(contentsOf: audioFileUrl)
-            sound.numberOfLoops = 1
-            sound.prepareToPlay()
-            sound.play()
-            
-//            let audioPlayer = try AVAudioPlayer(contentsOf: audioFileUrl)
-//            audioPlayer.prepareToPlay()
-//            audioPlayer.play()
-
-            // use audioPlayer
-        } catch let error as NSError {
-            print(error.localizedDescription)
-            // error is now an NSError instance; do what you will
-        }
-        
-        
-        
-    }
+//    let audioFilePath = Bundle.main.path(forResource: "win", ofType: "mp3")
+//    
+//    if audioFilePath != nil {
+//        
+//        let audioFileUrl = NSURL.fileURL(withPath: audioFilePath!)
+//        
+//        
+//        do {
+//            let sound = try AVAudioPlayer(contentsOf: audioFileUrl)
+//            sound.numberOfLoops = 1
+//            sound.prepareToPlay()
+//            sound.play()
+//            
+////            let audioPlayer = try AVAudioPlayer(contentsOf: audioFileUrl)
+////            audioPlayer.prepareToPlay()
+////            audioPlayer.play()
+//
+//            // use audioPlayer
+//        } catch let error as NSError {
+//            print(error.localizedDescription)
+//            // error is now an NSError instance; do what you will
+//        }
+//        
+//        
+//        
+//    }
 }
 

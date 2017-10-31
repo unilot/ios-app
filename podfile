@@ -8,4 +8,5 @@ target 'Unilot' do
     pod 'Splitflap'
     pod 'QRCodeReader.swift'
     pod 'Alamofire'
+    pod 'SwiftySound'
 end

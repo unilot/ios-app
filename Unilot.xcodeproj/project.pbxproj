@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		290FA72F1CDF40E19A0E8204 /* Pods_Unilot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBC0194290D8904822A4787C /* Pods_Unilot.framework */; };
+		D611305F1FA826BE003B30E9 /* usual.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D611305E1FA826BE003B30E9 /* usual.mp3 */; };
 		D612BBF71F9536AA002C4647 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D612BBF61F9536AA002C4647 /* Assets.xcassets */; };
 		D612BBF91F96B450002C4647 /* LotteryResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D612BBF81F96B450002C4647 /* LotteryResults.swift */; };
 		D612BBFB1F96B48F002C4647 /* LotteryResults.xib in Resources */ = {isa = PBXBuildFile; fileRef = D612BBFA1F96B48F002C4647 /* LotteryResults.xib */; };
@@ -43,7 +44,7 @@
 		D6C6BAB61F8CD6C000EC7FE0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6C6BAB11F8CD6C000EC7FE0 /* Roboto-Regular.ttf */; };
 		D6C6BAB71F8CD6C000EC7FE0 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6C6BAB21F8CD6C000EC7FE0 /* Roboto-Thin.ttf */; };
 		D6CFAC831FA713B500A0F045 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CFAC821FA713B500A0F045 /* UserNotifications.framework */; };
-		D6CFAC851FA7154100A0F045 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CFAC841FA7154100A0F045 /* NotificationController.swift */; };
+		D6CFAC851FA7154100A0F045 /* NotifApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CFAC841FA7154100A0F045 /* NotifApp.swift */; };
 		D6D17FC51FA53F6700A74235 /* CDHourL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D17FC41FA53F6700A74235 /* CDHourL.swift */; };
 		D6D1D0E21FA24D8200909551 /* MainBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D1D0E11FA24D8200909551 /* MainBonus.swift */; };
 		D6D1D0E61FA2551D00909551 /* blockClock.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D1D0E51FA2551D00909551 /* blockClock.xib */; };
@@ -102,6 +103,7 @@
 /* Begin PBXFileReference section */
 		61239D8B0908489D3E371489 /* Pods-Unilot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unilot.release.xcconfig"; path = "Pods/Target Support Files/Pods-Unilot/Pods-Unilot.release.xcconfig"; sourceTree = "<group>"; };
 		CBC0194290D8904822A4787C /* Pods_Unilot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unilot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D611305E1FA826BE003B30E9 /* usual.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = usual.mp3; path = Settings/usual.mp3; sourceTree = "<group>"; };
 		D612BBF61F9536AA002C4647 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D612BBF81F96B450002C4647 /* LotteryResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotteryResults.swift; sourceTree = "<group>"; };
 		D612BBFA1F96B48F002C4647 /* LotteryResults.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LotteryResults.xib; sourceTree = "<group>"; };
@@ -141,7 +143,7 @@
 		D6C6BAB11F8CD6C000EC7FE0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		D6C6BAB21F8CD6C000EC7FE0 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		D6CFAC821FA713B500A0F045 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
-		D6CFAC841FA7154100A0F045 /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		D6CFAC841FA7154100A0F045 /* NotifApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifApp.swift; sourceTree = "<group>"; };
 		D6CFAC8C1FA7175700A0F045 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		D6CFAC8F1FA7175700A0F045 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		D6CFAC921FA7175700A0F045 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -243,7 +245,7 @@
 			children = (
 				D6BDD9021F7AD1DB00E91FD0 /* Constants.swift */,
 				D69364C31F5F254400FD0D37 /* AppDelegate.swift */,
-				D6CFAC841FA7154100A0F045 /* NotificationController.swift */,
+				D6CFAC841FA7154100A0F045 /* NotifApp.swift */,
 				D6F1E1671F7CD3C50098B34C /* NetWorkController.swift */,
 				D62DF7831FA187E00009DB6F /* NetWorkParse.swift */,
 				D6632ED31F8C9B7900EC18C9 /* Functionals.swift */,
@@ -284,6 +286,7 @@
 				D6DCCD1F1FA4F338009BD20E /* HDIW_en.txt */,
 				D6D3CEB61FA61F3E000F2FF3 /* UNILOT_en.pdf */,
 				D6D3CEB71FA61F3E000F2FF3 /* UNILOT_ru.pdf */,
+				D611305E1FA826BE003B30E9 /* usual.mp3 */,
 				D6DCCD1A1FA4C795009BD20E /* Localizable.strings */,
 				D69364D11F5F254400FD0D37 /* Info.plist */,
 			);
@@ -597,6 +600,7 @@
 				D6D3CEB91FA61F3E000F2FF3 /* UNILOT_ru.pdf in Resources */,
 				D612BBFB1F96B48F002C4647 /* LotteryResults.xib in Resources */,
 				D6DCCD181FA4C795009BD20E /* Localizable.strings in Resources */,
+				D611305F1FA826BE003B30E9 /* usual.mp3 in Resources */,
 				D6C6BAB51F8CD6C000EC7FE0 /* Roboto-Medium.ttf in Resources */,
 				D6D1D0E61FA2551D00909551 /* blockClock.xib in Resources */,
 			);
@@ -650,6 +654,7 @@
 				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/Splitflap/Splitflap.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftySound/SwiftySound.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -658,6 +663,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Splitflap.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftySound.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -713,7 +719,7 @@
 				D6F1E16A1F7D7B0C0098B34C /* MenuLeft.swift in Sources */,
 				D6F1E1951F7E55130098B34C /* JSRuleApply.m in Sources */,
 				D6477F131FA43AC5008677D3 /* CDDaysF.swift in Sources */,
-				D6CFAC851FA7154100A0F045 /* NotificationController.swift in Sources */,
+				D6CFAC851FA7154100A0F045 /* NotifApp.swift in Sources */,
 				D6F1E1981F7E55130098B34C /* JSRuleNumberRange.m in Sources */,
 				D6632ED81F8C9C6800EC18C9 /* TextViewCore.swift in Sources */,
 				D6BDD90E1F7B240600E91FD0 /* ProfileView.swift in Sources */,

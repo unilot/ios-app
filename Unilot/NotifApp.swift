@@ -12,7 +12,7 @@ import UserNotifications
 
 
 
-class UserNotifications {
+class NotifApp {
       
     
     static func registerForPushNotifications(_ application: UIApplication) {
@@ -25,8 +25,7 @@ class UserNotifications {
                 if granted {
                     application.registerForRemoteNotifications()
                 } else {
-//                    UserNotifications.startAfterAnswerFromRemoteNotifications()
-                    if error != nil {
+                     if error != nil {
                         print("error push id " + error!.localizedDescription )
                     }
                 }
@@ -34,8 +33,7 @@ class UserNotifications {
             }
             
             application.registerForRemoteNotifications()
-
-//            application.registerForRemoteNotifications()
+            application.registerUserNotificationSettings(UIUserNotificationSettings(types:  [.badge, .alert, .sound], categories: nil))
             
         } else {
             
@@ -43,10 +41,12 @@ class UserNotifications {
             
             let notificationSettings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
             application.registerUserNotificationSettings(notificationSettings)
-            
-            UserNotifications.startAfterAnswerFromRemoteNotifications()
+            application.registerUserNotificationSettings(UIUserNotificationSettings(types:  [.badge, .alert, .sound], categories: nil))
+
+            startAfterAnswerFromRemoteNotifications()
             
         }
+        
     }
     
     
@@ -69,18 +69,7 @@ class UserNotifications {
         
         MemoryControll.saveObject(notification_data, key: "notifications_app")
         
-        searchForCurrentViewController()
-        
-    }
-    
-    
-    static func searchForCurrentViewController( ){
-       
-        if current_controller_core != nil {
-            current_controller_core?.onNotifRecieved()
-        } else {
-            print("current_controller_core = nil")
-        }
+        parseNotificationAction()
         
     }
     
@@ -104,9 +93,10 @@ class UserNotifications {
     
     //MARK: - NOTIFICATIO PARSE
     
-    static func notificationAction(){
+    static func parseNotificationAction(){
 
         let action = notification_data.first!["action"] as? String
+        let data   = notification_data.first!["data"] as? [String : Any]
 
         
         if action == nil {
@@ -120,10 +110,15 @@ class UserNotifications {
         case "game_started":
             
             
+            
+            
             break
             
         //Завершение приёма заявок и начало определения победител
         case "game_unpublished":
+            
+            
+            
             
             
             break
@@ -132,12 +127,28 @@ class UserNotifications {
         case "game_finished":
             
             
+            
+            
             break
             
         //Отчёт об игре:
         case "game_updated":
             
-            
+            if data != nil {
+                
+                let item = NetWork.createGameItem(from: data!)
+
+                let tababrNumber = tabbar_strings.index(of: item.game_id)!
+                let oldItem = games_list[tababrNumber]!
+               
+                MemoryControll.saveGameMoneyStart( Int(oldItem.prize_amount_fiat) / 1000 , tababrNumber)
+
+                tabbar_strings[tababrNumber] = item
+   
+            }
+        
+            current_controller_core?.onNotifRecieved()
+
             
             break
             

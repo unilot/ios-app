@@ -28,6 +28,8 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
         showActivityViewIndicator()
         
+        NotifApp.cleanNotificationStack()
+        
         NetWork.getHistoryPage(completion: onAnswer)
      }
     
@@ -185,7 +187,9 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             
         case kStatusPublished:
 
-            goToMainView(getTabBarTag())
+            showNotificationView()
+
+//            goToMainView(getTabBarTag())
 
         default: //kStatusCancel
             

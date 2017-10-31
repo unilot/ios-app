@@ -4,6 +4,7 @@ PODS:
   - QRCodeReader.swift (7.4.0)
   - SCLAlertView (0.7.0)
   - Splitflap (2.1.0)
+  - SwiftySound (0.3.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - QRCodeReader.swift
   - SCLAlertView
   - Splitflap
+  - SwiftySound
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
@@ -18,7 +20,8 @@ SPEC CHECKSUMS:
   QRCodeReader.swift: 759a4320cd9005ecc94abdb4aaf0eb72fcd359d0
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   Splitflap: 9b1f8391a1166a9ecf76dd376c69b3fb0597a1f3
+  SwiftySound: 77f0adcc39815b53c6f66cf998b203b121340300
 
-PODFILE CHECKSUM: 880a6be8182ce313b3bc1d230bcf32381d27c964
+PODFILE CHECKSUM: c093cf17eb9bdc86e759a4d49b63de19471a5844
 
 COCOAPODS: 1.3.1

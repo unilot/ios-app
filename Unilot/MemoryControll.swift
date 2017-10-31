@@ -18,8 +18,6 @@ var tokenForNotifications = kEmpty //"0xf49ebf9ac72767cf83a8969fe76acceb44855745
 
 var notification_data = [[String : Any]]()
 
-var currentTabBar = 0
-
 weak var current_controller_core : ControllerCore?
 
 class MemoryControll {

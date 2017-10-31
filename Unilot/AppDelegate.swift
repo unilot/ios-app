@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        UserNotifications.registerForPushNotifications(application)
+        NotifApp.registerForPushNotifications(application)
         
         //0 
         // removw badge
@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let notification = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [String: Any] {
             // 2
             
-            UserNotifications.parseNotification(notification, isOpened: false)
+            NotifApp.parseNotification(notification, isOpened: false)
             
             // 3
         }
@@ -102,7 +102,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let aps = userInfo as! [String: Any]
         
-        UserNotifications.parseNotification(aps, isOpened: true)
+        NotifApp.parseNotification(aps, isOpened: true)
         
         completionHandler(.newData)
         
@@ -113,7 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let aps = userInfo as! [String: Any]
         
-        UserNotifications.parseNotification(aps, isOpened: true)
+        NotifApp.parseNotification(aps, isOpened: true)
         
         completionHandler()
     }
@@ -133,14 +133,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tokenForNotifications = tokenString
         print("Device Token: ", tokenString)
         
-        UserNotifications.startAfterAnswerFromRemoteNotifications()
+        NotifApp.startAfterAnswerFromRemoteNotifications()
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         
         print("Failed to register: ", error.localizedDescription)
         
-        UserNotifications.startAfterAnswerFromRemoteNotifications()
+        NotifApp.startAfterAnswerFromRemoteNotifications()
         
     }
     

@@ -32,6 +32,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     
     func onNotifRecieved(){
         
+        playStandart()
         showActivityViewIndicator()
 
         let data = notification_data.last!["data"] as! [String : Any]
@@ -41,7 +42,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         } else {
             NetWork.getGamesList(completion: onAnswerFromNotifCheckServer)
         }
-
+        
     }
     
     
@@ -49,8 +50,8 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         
         hideActivityViewIndicator()
         
-        
         if error == nil {
+            
           showNotificationView()
         }
 
@@ -58,11 +59,12 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     
     func showNotificationView(){
         
-        UserNotifications.cleanLastNotification()
+        NotifApp.cleanLastNotification()
         
         local_current_game.ending_at = local_current_game.started_at
         games_list[1] = local_current_game
 
+        
         goToMainView(getTabBarTag())
         
     }

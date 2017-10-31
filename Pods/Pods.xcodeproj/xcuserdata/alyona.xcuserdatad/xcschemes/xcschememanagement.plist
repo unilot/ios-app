@@ -8,63 +8,46 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>NVActivityIndicatorView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Pods-Unilot.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>QRCodeReader.swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>SCLAlertView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>Splitflap.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
+		</dict>
+		<key>SwiftySound.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>283EA86264A441D1D512F4BCF062C3ED</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>28A9E23DF3EBDEF83EF6AFF243319554</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2CF33ACE251F33E27E353701E93D0598</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>3EDFE4052B5DE7D509935AC0774CB135</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>55A36A7299DB85E2E6758314D7BC63F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -74,7 +57,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F123B4BFFD2A25865ABD4AF788E2B0D0</key>
+		<key>891B56D21FE15C762C3AA80037BF02FA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8F3D4A9CBE85C86DC996B2BC0EE56B25</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9049F0BC63EF8C2ADA68A3FB20933460</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E45F80AE107273A315AD4315609224E5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

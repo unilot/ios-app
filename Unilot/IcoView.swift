@@ -25,6 +25,7 @@ class IcoView : WebCore {
         
         openPage(url_line)
         
+        
     }
     
    

@@ -84,8 +84,6 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
-
-        currentTabBar = tabBarItem.tag
         
         if widthProgress == -1 {
         
@@ -128,7 +126,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     override func showNotificationView(){
         
-        UserNotifications.cleanLastNotification()
+        NotifApp.cleanLastNotification()
         
         let newTab = getTabBarTag()
         

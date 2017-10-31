@@ -65,11 +65,7 @@ class NotifApp {
         
         print(notificationDictionary)
         
-        notification_data.append( notificationDictionary )
-        
-        MemoryControll.saveObject(notification_data, key: "notifications_app")
-        
-        parseNotificationAction()
+        parseNotificationAction( notificationDictionary )
         
     }
     
@@ -91,13 +87,16 @@ class NotifApp {
         
     }
     
-    //MARK: - NOTIFICATIO PARSE
+    //MARK: - LOCAL NOTIFICATIONS
     
-    static func parseNotificationAction(){
+    
+    //MARK: - NOTIFICATION PARSE
+    
+    static func parseNotificationAction( _ notificationDictionary : [String : Any] ){
 
         let action = notification_data.first!["action"] as? String
         let data   = notification_data.first!["data"] as? [String : Any]
-
+        
         
         if action == nil {
         
@@ -128,7 +127,6 @@ class NotifApp {
             
             
             
-            
             break
             
         //Отчёт об игре:
@@ -143,7 +141,7 @@ class NotifApp {
                
                 MemoryControll.saveGameMoneyStart( Int(oldItem.prize_amount_fiat) / 1000 , tababrNumber)
 
-                tabbar_strings[tababrNumber] = item
+                games_list[tababrNumber] = item
    
             }
         
@@ -156,6 +154,10 @@ class NotifApp {
             
             break
         }
+        
+        notification_data.append( notificationDictionary )
+        
+        MemoryControll.saveObject(notification_data, key: "notifications_app")
 
         
     }

@@ -82,7 +82,10 @@ class NetWork : NetWorkParse {
             
             .responseJSON { (response) -> Void in
                 
-                completion(sendToErrorParsAndDataParse(response, parseGamesList))
+                completion(sendToErrorParsAndDataParse(response, parseGamesList,"list_games"))
+                
+
+                
         }
         
     }
@@ -99,6 +102,8 @@ class NetWork : NetWorkParse {
             
             .responseJSON { (response) -> Void in
                 
+                MemoryControll.saveObject(response, key: "winners_" + local_current_game.game_id)
+
                 completion(sendToErrorParsAndDataParse(response, parseWinnersList))
         }
         
@@ -115,6 +120,8 @@ class NetWork : NetWorkParse {
             
             .responseJSON { (response) -> Void in
                 
+                MemoryControll.saveObject(response, key: "history")
+
                 completion(sendToErrorParsAndDataParse(response, parseHistoryPage))
         }
         
@@ -131,6 +138,8 @@ class NetWork : NetWorkParse {
             
             .responseJSON { (response) -> Void in
                 
+                MemoryControll.saveObject(response, key: "game_" + gameNumber )
+
                 completion(sendToErrorParsAndDataParse(response, parseGameDetails))
         }
         
@@ -140,25 +149,63 @@ class NetWork : NetWorkParse {
     //MARK: - ERRORS
     
     static func sendToErrorParsAndDataParse(
-                            _ response      : DataResponse<Any>,
-                            _ dataParse     : (Any?) -> String? ) -> String? {
-        
+                            _ response       : DataResponse<Any>,
+                            _ dataParse      : ((Any?) -> String?),
+                            _ keyForSavings  : String? = nil) -> String? {
         
         print(response)
         
-        guard response.result.isSuccess else {
-            return  response.result.error!.localizedDescription
+        var answer : String? = nil
+        
+        
+        guard (response.result.isSuccess) &&  (response.result.value != nil) else {
+            
+            if response.result.error  != nil {
+                
+                answer = response.result.error!.localizedDescription
+                
+            } else {
+                
+                answer =  "response.result.value is NULL"
+
+            }
         }
         
-        // some othe error check
+        let dataForDetails =  response.result.value!
         
-        if  response.result.value == nil  {
-            return  "response.result.value is NULL"
+        if keyForSavings == nil {
+            
+            return dataParse(dataForDetails)
+            
+        } else {
+            
+            if answer != nil {
+                
+                let object = MemoryControll.getObject(keyForSavings!)
+                
+                if object != nil {
+                    let parseAnswer = dataParse(object!)
+                    
+                    if parseAnswer != nil {
+                        
+                    } else {
+                        
+                    }
+                }
+                
+
+            } else {
+                
+                MemoryControll.saveObject(dataForDetails, key: keyForSavings!)
+                
+            }
+            
+            return dataParse(dataForDetails)
+
+
         }
         
-        // parse usefull data
         
-        return dataParse( response.result.value)
         
     }
     

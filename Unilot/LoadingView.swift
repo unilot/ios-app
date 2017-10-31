@@ -88,6 +88,7 @@ class LoadingView : UIViewController, NVActivityIndicatorViewable{
             } else {
                 
                 self.getGamesList()
+                
             }
             
         }
@@ -98,7 +99,6 @@ class LoadingView : UIViewController, NVActivityIndicatorViewable{
     func getGamesList(){
         
 //        NetWork.test()
-        
         
          NetWork.getGamesList { (error : String?) in
             

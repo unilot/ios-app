@@ -82,7 +82,15 @@ func getTabBarTag() -> Int{
 
 func recountTimersForLastCounter(_ game : GameInfo) -> (Int, Int) { //now/all/stepType
 
-    let timerNow = game.ending_at +  kTimeForPreperationWait - Int(Date().timeIntervalSince1970)
+    let currentTime = getCurrentDateWithUTCTimeZone(Date())
+    let timerNow = game.ending_at + kTimeForPreperationWait - currentTime
+    
+    
+    print("game.ending_at = ", game.ending_at)
+    print("currenttime    = ", currentTime)
+
+    
+    
     let timeAll = kTimeForPreperationWait
     
     if timerNow > 0 {
@@ -94,8 +102,8 @@ func recountTimersForLastCounter(_ game : GameInfo) -> (Int, Int) { //now/all/st
 }
 
 func recountTimersData(_ game : GameInfo) -> (Int, Int, Int) { //now/all/stepType
-    
-    let timerNow = game.ending_at - Int(Date().timeIntervalSince1970)
+
+    let timerNow = game.ending_at - getCurrentDateWithUTCTimeZone(Date())
     let timeAll = game.ending_at - game.started_at
     
     let diff = timeAll - timerNow
@@ -121,6 +129,8 @@ func getTextFromFileInfo() -> String? {
 func getNiceDateFormatString(from timeSec : Int) -> String {
 
     let currentDate = Date(timeIntervalSince1970: TimeInterval(timeSec))
+    
+//    let formatter
     let  calendar = NSCalendar.current
     let components = calendar.dateComponents([.year,.month,.day], from: currentDate)
     
@@ -129,6 +139,8 @@ func getNiceDateFormatString(from timeSec : Int) -> String {
 
 
 func getNiceFullDateFormatString(from timeSec : Int) -> String {
+    
+//    let currentDate = getCurrentDateWithUTCTimeZone(<#T##date: Date##Date#>)
     
     let currentDate = Date(timeIntervalSince1970: TimeInterval(timeSec))
     let  calendar = NSCalendar.current
@@ -209,20 +221,30 @@ func setColorForLabel(_ sizeOfView : CGSize, _ text : String) -> UIView{
     return bgView
 }
 
-func convertDate(from isoDate : String) -> Int {
+func convertDate(from isoDate : String?) -> Int {
     
-    let dateFormatter = DateFormatter()
+    if isoDate == nil {
+        return 0
+    }
+    
+    
+    let dateFormatter =  DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-    let date = dateFormatter.date(from:isoDate)!
-    let calendar = Calendar.current
-    let components = calendar.dateComponents([.year, .month, .day, .hour], from: date)
-    let finalDate: Date = calendar.date(from:components) ?? Date()
+    let date =  dateFormatter.date(from: isoDate!)
     
-    
-    
-    return Int(finalDate.timeIntervalSince1970)
+    let timeZoneOffset = NSTimeZone.system.secondsFromGMT(for: Date())
+ 
+    return Int(date!.timeIntervalSince1970) - timeZoneOffset
     
 }
+
+func getCurrentDateWithUTCTimeZone( _ date : Date ) -> Int {
+    
+    return Int(date.timeIntervalSince1970)
+
+}
+
+//MARK:UTCStringToDate
 
 
 func openUrlFromApp(_ path : String ){

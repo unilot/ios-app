@@ -20,6 +20,7 @@ class WebCore : ControllerCore , UIWebViewDelegate{
         
         let url_line =  URL(string: path )
 
+
         webView.loadRequest(URLRequest(url:  url_line ?? URL(string:"ya.ru")!))
         
         webView.delegate = self

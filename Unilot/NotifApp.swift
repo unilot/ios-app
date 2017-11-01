@@ -106,24 +106,16 @@ class NotifApp {
         }
         
         
-        current_controller_core?.onNotifRecieved()
-
         switch action! {
             
         //Начало игры:
         case "game_started":
-            
-            
-            playStandart()
-            
+             
             break
             
         //Завершение приёма заявок и начало определения победител
         case "game_unpublished":
             
-            
-            playStandart()
-
             
             
             break
@@ -132,29 +124,13 @@ class NotifApp {
         case "game_finished":
             
             
-            playStandart()
 
             break
             
         //Отчёт об игре:
         case "game_updated":
             
-            playStandart()
-
-            if data != nil {
-                
-                let new_game = NetWork.createGameItem(from: data!)
-               
-                MemoryControll.saveGameMoneyStart ( Int(games_list[local_current_game.type]!.prize_amount_fiat) / 1000, new_game)
-
-                games_list[local_current_game.type] = new_game
-                
-                local_current_game = new_game
-            }
-
-            current_controller_core?.onNotifRecieved()
-
-            
+ 
             break
             
         default:
@@ -162,10 +138,26 @@ class NotifApp {
             break
         }
         
-        notification_data.append( notificationDictionary )
+         
+        if data != nil {
+            
+            let new_game = NetWork.createGameItem(from: data!)
+            
+            MemoryControll.saveGameMoneyStart ( Int(games_list[local_current_game.type]!.prize_amount) / 1000, new_game)
+            
+            games_list[local_current_game.type] = new_game
+            
+            local_current_game = new_game
+        }
         
-        MemoryControll.saveObject(notification_data, key: "notifications_app")
+        if action != "game_updated" {
+            notification_data.append( notificationDictionary )
+            MemoryControll.saveObject(notification_data, key: "notifications_app")
+        }
 
+ 
+        current_controller_core?.onNotifRecieved()
+        
         
     }
 

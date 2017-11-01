@@ -51,10 +51,10 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
         
         let lotteryType = setting_strings[0][order]
         titleMain.text = TR(tabbar_strings[order]) + " " + TR("лотерея") +  " UNILOT"
-        textBig.text = String(format: TR("Что бы принять участие в %@ вам необходимо перечислить %@ Eth на кошелек, который вы получите нажав на кнопку ниже"),TR(lotteryType),"0.005")
+        textBig.text = String(format: TR("Чтобы принять участие в %@, вам необходимо перечислить %@ Eth на кошелек, который вы получите нажав на кнопку ниже"),TR(lotteryType),ticketPrice)
         endLabel.text = TR("Лотерея заканчивается через")
         warningLabel.text = TR("После оплаты вернитесь в приложение\nи зарегистрируйте свой кошелек")
-        copyButton.setTitle(TR("Скопировать номер кошелька"), for: .normal)
+        copyButton.setTitle("  " + TR("Скопировать номер кошелька"), for: .normal)
     }
     
     
@@ -94,6 +94,15 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
     
     func countDownFinished(){
         onX()
+    }
+    
+    
+    override func onX() {
+        
+        clockTablet.endTimer()
+        
+        super.onX()
+        
         
     }
 

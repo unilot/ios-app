@@ -29,43 +29,10 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     }()
    
      
-    func onNotifRecieved(){
+    func onNotifRecieved(){ 
         
         playStandart()
-        showActivityViewIndicator()
-
-        let data = notification_data.last!["data"] as! [String : Any]
-        
-        if let currentIdOfRefreshedGame = data["id"] as? Int  {
-            NetWork.getGameDetails("\(currentIdOfRefreshedGame)", completion: onAnswerFromNotifCheckServer)
-        } else {
-            NetWork.getGamesList(completion: onAnswerFromNotifCheckServer)
-        }
-        
-    }
-    
-    
-    func onAnswerFromNotifCheckServer(_ error : String?){
-        
-        hideActivityViewIndicator()
-        
-        if error == nil {
-            
-          showNotificationView()
-        }
-
-    }
-    
-    func showNotificationView(){
-        
-        playStandart()
-        
-        NotifApp.cleanLastNotification()
-        
-        local_current_game.ending_at = local_current_game.started_at
-        games_list[local_current_game.type] = local_current_game
-
-        
+                        
         goToMainView(getTabBarTag())
         
     }

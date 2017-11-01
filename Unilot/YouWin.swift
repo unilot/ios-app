@@ -46,8 +46,8 @@ class YouWin: PopUpCore {
         text2.text = TR("Вы победили")
         text3.text = String(format : TR("Вы заняли %d место и выиграли"),user_data.position)
         showButton.setTitle(TR("История розыгрыша"), for: .normal)
-        priceETH.text = "\(user_data.prize_amount_fiat)"
-        priceUSD.text = "US $ \(user_data.prize_amount)"
+        priceETH.text = "\(user_data.prize_amount)"
+        priceUSD.text = "US $ \(user_data.prize_amount_fiat)"
     }
     
  

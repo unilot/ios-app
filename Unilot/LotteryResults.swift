@@ -104,5 +104,11 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         
     }
 
-    
+    override func onX() {
+        
+        clockTablet.endTimer()
+        
+        super.onX()
+         
+    }
 }

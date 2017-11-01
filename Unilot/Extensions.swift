@@ -213,7 +213,6 @@ extension String {
 }
 
 
-
 class SpecialItem : UIImageView {
     
     var sizeDiag = CGFloat(20)

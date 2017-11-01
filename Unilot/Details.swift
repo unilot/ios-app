@@ -81,7 +81,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         let date_string = getNiceDateFormatString(from: local_current_game.started_at)
         let game_image = kTypeImage[local_current_game.type]!
         
-        eth.text = "\(local_current_game.prize_amount_fiat)"
+        eth.text = "\(local_current_game.prize_amount)"
         users.text = "\(local_current_game.num_players)"
         
         let height = navigationController!.navigationBar.frame.height
@@ -188,8 +188,8 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
  
         labelFor(cell, 10)?.text = "\(item.position)"
         labelFor(cell, 20)?.text = item.user_id
-        labelFor(cell, 30)?.text = "\(item.prize_amount_fiat)"
-        labelFor(cell, 40)?.text = "\(item.prize_amount)"
+        labelFor(cell, 30)?.text = "\(item.prize_amount)"
+        labelFor(cell, 40)?.text = "\(item.prize_amount_fiat)"
         
         
         if indexPath.row % 2 == 0 {
@@ -248,8 +248,8 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
 
         let text1 = item.user_id.lowercased()
         let text2 = "\(item.position)"
-        let text3 = "\(item.prize_amount_fiat)"
-        let text4 = "\(item.prize_amount)"
+        let text3 = "\(item.prize_amount)"
+        let text4 = "\(item.prize_amount_fiat)"
         
         return  text1.contains(search_text) || text2.contains(search_text) ||
                 text3.contains(search_text) || text4.contains(search_text)

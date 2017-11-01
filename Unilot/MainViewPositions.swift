@@ -164,6 +164,8 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
             
             titlePrize.text = TR("Джекпот")
             
+            takePartEth.text = ticketPrice + " Eth"
+            
             prizePlaces.isUserInteractionEnabled = true
             
             firstOverlay.isHidden = false
@@ -191,24 +193,6 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
         
     }
-    
-    override func showNotificationView(){
-        
-        NotifApp.cleanLastNotification()
-        
-        let newTab = getTabBarTag()
-        
-        if newTab == tabBarItem.tag {
-            
-            stopSchedule()
-            
-            answerOnInitData()
-            
-        } else {
-            tabBarController?.selectedIndex = getTabBarTag()
-        }
-
-    }
 
     
     func answerOnInitData(){
@@ -232,10 +216,10 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         itemBadge?.setNumberLabel(notification_data.count)
         
         peopleCount.text = Int(gameItem.num_players).stringWithSepator
-        usSum.text = "$ \(gameItem.prize_amount)"
+        usSum.text = "$ \(gameItem.prize_amount_fiat)"
         
         moneyTablet.initTimer(Int(gameItem.prize_amount_local),
-                              Int(gameItem.prize_amount_fiat * 1000))
+                              Int(gameItem.prize_amount * 1000))
         
     }
     
@@ -457,10 +441,33 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
     }
     
+    override func onNotifRecieved(){
+        
+        if local_current_game.type == current_game.type {
+            
+            current_game = local_current_game
+            
+            stopSchedule()
+            
+            answerOnInitData()
+            
+        } else {
+            
+            itemBadge?.setNumberLabel(notification_data.count)
+            
+            tabBarController?.selectedIndex = getTabBarTag()
+
+        }
+        
+        
+    }
+    
     
     @IBAction func onTakePart(){
-        
-//        openSecondView()
+        // test notifications
+        //
+//        local_current_game = games_list[kTypeWeek]!
+//        current_controller_core?.onNotifRecieved()
         
         let viewWithPlaces = AgreeToPlay.createAgreeToPlay()
         viewWithPlaces.delegate = self

@@ -29,6 +29,8 @@ let kStatusComplete = 30
 
 let kTimeForPreperationWait = 3600
 
+
+var ticketPrice = "0.01"
 //MARK: -  links
 
 
@@ -38,6 +40,12 @@ let kLink_LinkedIn = "https://www.linkedin.com/company/unilot"
 let kLink_Reddit = "https://www.reddit.com/user/unilot_lottery/"
 let kLink_Twitter = "https://twitter.com/unilot_lottery"
 let kLink_Telegram = "https://t.me/unilot_channel"
+
+
+let kPDF_files = ["https://unilot.io//static/files/UNILOT_ENG.pdf",
+                  "https://unilot.io//static/files/UNILOT_RUS.pdf"]
+
+
 
 //MARK: -  local data
 

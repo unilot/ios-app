@@ -17,8 +17,8 @@ class CountUppMoney: CountDownCore  {
         
         if let money = games_list[type]{
             
-            if money.prize_amount_fiat > 0 {
-                flippersCount = max(6,1 + Int(log10(money.prize_amount_fiat)) + flippersGaps)
+            if money.prize_amount > 0 {
+                flippersCount = max(6,1 + Int(log10(money.prize_amount)) + flippersGaps)
             }
 
         }
@@ -51,7 +51,7 @@ class CountUppMoney: CountDownCore  {
         
         totalCounts =  startCounts
         
-        updateFlippers("\(totalCounts)")
+        updateFlippers("\(totalCounts)", false)
     }
  
 }

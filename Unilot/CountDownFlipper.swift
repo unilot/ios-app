@@ -134,7 +134,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
     
     
     
-    func changeFlip(_ forPlace: Int, _ labelNewText: String) {
+    func changeFlip(_ forPlace: Int, _ labelNewText: String, _ animated : Bool) {
 //        
 //        if let flip = viewWithTag((forPlace + 1 ) * 10000) as? FlippingLabel {
 //            flip.updateWithText( labelNewText )
@@ -142,7 +142,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
 //        }
         
         if let flip = viewWithTag((forPlace + 1 ) * 10000) as? Splitflap {
-            flip.setText(labelNewText, animated: true)
+            flip.setText(labelNewText, animated: animated)
              
         }
         
@@ -192,13 +192,11 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
             
             timerCoeff = timeOfFlipperAnimation / (diff * diff)
             
-//            print("diff = ",diff,"timerCoeff = ",timerCoeff)
-        }
-        
-        
-        
-        
-//        doScheduledTimer()
+        } else {
+            
+            updateFlippers("\(totalCounts)", false)
+            
+        } 
         
     }
     
@@ -215,7 +213,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
         }
     }
 
-    func changeDigit(forPlace: Int, _ units: String) {
+    func changeDigit(forPlace: Int, _ units: String, _ animated : Bool) {
         
         var newLabelText = "0"
         
@@ -225,15 +223,15 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
  
         }
 
-        changeFlip(forPlace, newLabelText )
+        changeFlip(forPlace, newLabelText, animated)
         
     }
     
     
-    func updateFlippers(_ units : String) {
+    func updateFlippers(_ units : String, _ animated : Bool = true) {
         
         for i in 0..<flippersCount {
-            changeDigit(forPlace: i,  units)
+            changeDigit(forPlace: i,  units, animated)
         }
         
     }

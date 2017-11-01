@@ -101,15 +101,22 @@ class CountDownLabel: UIImageView  {
     
     func doScheduledTimer(){
         
-        doUpdate()
- 
-        countdownTimer  = Timer.scheduledTimer(timeInterval: timerUpdateDuration,
-                                               target: self,
-                                               selector: #selector(CountDownLabel.doUpdate),
-                                               userInfo: nil,
-                                               repeats: true)
+        endTimer()
+
+        if doUpdate() {
+            
+            print("CountStart")
+            
+            countdownTimer  = Timer.scheduledTimer(timeInterval: timerUpdateDuration,
+                                                   target: self,
+                                                   selector: #selector(CountDownLabel.doUpdate),
+                                                   userInfo: nil,
+                                                   repeats: true)
+            
+
+        }
         
-    }
+     }
     
     
     
@@ -141,7 +148,7 @@ class CountDownLabel: UIImageView  {
     }
     
     
-    func doUpdate(){
+    func doUpdate() -> Bool{
         
         if changeCounts() {
         
@@ -149,9 +156,15 @@ class CountDownLabel: UIImageView  {
 
             delegate?.countDownDidFall(from: startCounts, left: totalCounts)
         
+            return true
+            
         } else {
+            
             endTimer()
+            
             delegate?.countDownFinished()
+            
+            return false
         }
     }
     

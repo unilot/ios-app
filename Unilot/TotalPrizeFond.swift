@@ -39,7 +39,7 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         
         widthOfCell = frame.width * 0.9
         
-        titleWithPrice.text = "\(local_current_game.prize_amount_fiat) ETh = $ \(local_current_game.prize_amount)"
+        titleWithPrice.text = "\(local_current_game.prize_amount) ETh = $ \(local_current_game.prize_amount_fiat)"
 
         titleMain.text = TR("Общий призовой фонд")
         close.setTitle(TR("Закрыть"), for: .normal)
@@ -161,8 +161,8 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
     func setCellBody(_ cell : UITableViewCell, _ item : UserForGame) {
         
         labelFor(cell, 10)?.text = "\(item.position)"
-        labelFor(cell, 20)?.text = "\(item.prize_amount_fiat)"
-        labelFor(cell, 30)?.text = "\(item.prize_amount)"
+        labelFor(cell, 20)?.text = "\(item.prize_amount)"
+        labelFor(cell, 30)?.text = "\(item.prize_amount_fiat)"
         
 
     }

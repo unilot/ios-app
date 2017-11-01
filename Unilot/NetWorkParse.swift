@@ -120,15 +120,16 @@ class NetWorkParse {
             
         let item = GameInfo()
         
-        item.game_id            = "\(data["id"]!)"
-        item.smart_contract_id  = data["smart_contract_id"] as! String
-        item.num_players        = data["num_players"] as! Int
-        item.prize_amount       = data["prize_amount"] as! Float
-        item.prize_amount_fiat  = data["prize_amount_fiat"] as! Float
-        item.started_at         = convertDate(from: data["started_at"] as! String)
-        item.ending_at          = convertDate(from: data["ending_at"] as! String)
-        item.status             = data["status"] as! Int
-        item.type               = data["type"] as! Int
+        item.game_id            = "\(data["id"] ?? -1 )"
+        item.smart_contract_id  = data["smart_contract_id"] as? String ?? "0"
+        item.num_players        = data["num_players"] as? Int  ?? 0
+        item.prize_amount       = data["prize_amount"] as? Float  ?? 0
+        item.prize_amount_fiat  = data["prize_amount_fiat"] as? Float ?? 0
+        item.started_at         = convertDate(from: data["started_at"] as? String)
+        item.ending_at          = convertDate(from: data["ending_at"] as? String)
+        item.status             = data["status"] as? Int ?? kTypeUndefined
+        item.type               = data["type"] as? Int ?? local_current_game.type
+        
         
         
         let keyLine = "gameTimeLeft" + item.game_id
@@ -136,7 +137,7 @@ class NetWorkParse {
             
             let data_saved = Float(localPrize) / 1000.0
             
-            if data_saved > item.prize_amount_fiat {
+            if data_saved > item.prize_amount {
                 
                 MemoryControll.removeObject(keyLine)
                 

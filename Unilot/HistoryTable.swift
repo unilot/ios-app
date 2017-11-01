@@ -173,9 +173,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             
         case kStatusPublished:
 
-            showNotificationView()
-
-//            goToMainView(getTabBarTag())
+            goToMainView(getTabBarTag())
 
         default: //kStatusCancel
             

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import UserNotifications
+import SCLAlertView
 
 
 
@@ -64,7 +65,9 @@ class NotifApp {
     static func parseNotification(_ notificationDictionary:[String: Any], isOpened: Bool) {
         
         print(notificationDictionary)
-        
+         
+//        SCLAlertView().showTitle("NOTIFICATION", subTitle: notificationDictionary.description, style: .info)
+ 
         parseNotificationAction( notificationDictionary )
         
     }
@@ -87,8 +90,7 @@ class NotifApp {
         
     }
     
-    //MARK: - LOCAL NOTIFICATIONS
-    
+     
     
     //MARK: - NOTIFICATION PARSE
     
@@ -103,13 +105,16 @@ class NotifApp {
              return
         }
         
+        
+        current_controller_core?.onNotifRecieved()
+
         switch action! {
             
         //Начало игры:
         case "game_started":
             
             
-            
+            playStandart()
             
             break
             
@@ -117,7 +122,8 @@ class NotifApp {
         case "game_unpublished":
             
             
-            
+            playStandart()
+
             
             
             break
@@ -126,25 +132,26 @@ class NotifApp {
         case "game_finished":
             
             
-            
+            playStandart()
+
             break
             
         //Отчёт об игре:
         case "game_updated":
             
+            playStandart()
+
             if data != nil {
                 
-                let item = NetWork.createGameItem(from: data!)
-
-                let tababrNumber = tabbar_strings.index(of: item.game_id)!
-                let oldItem = games_list[tababrNumber]!
+                let new_game = NetWork.createGameItem(from: data!)
                
-                MemoryControll.saveGameMoneyStart( Int(oldItem.prize_amount_fiat) / 1000 , tababrNumber)
+                MemoryControll.saveGameMoneyStart ( Int(games_list[local_current_game.type]!.prize_amount_fiat) / 1000, new_game)
 
-                games_list[tababrNumber] = item
-   
+                games_list[local_current_game.type] = new_game
+                
+                local_current_game = new_game
             }
-        
+
             current_controller_core?.onNotifRecieved()
 
             

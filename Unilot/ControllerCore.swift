@@ -12,8 +12,7 @@ import AVFoundation
 import NVActivityIndicatorView
 import SCLAlertView
 import QRCodeReader
-
-
+ 
 class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDelegate {
 
     
@@ -29,7 +28,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         return QRCodeReaderViewController(builder: builder)
     }()
    
-    
+     
     func onNotifRecieved(){
         
         playStandart()
@@ -59,16 +58,27 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     
     func showNotificationView(){
         
+        playStandart()
+        
         NotifApp.cleanLastNotification()
         
         local_current_game.ending_at = local_current_game.started_at
-        games_list[1] = local_current_game
+        games_list[local_current_game.type] = local_current_game
 
         
         goToMainView(getTabBarTag())
         
     }
+    
+    
+    func onUserCloseView(){
+        
+    }
 
+    func onUserOpenView(){
+        
+    }
+    
     //MARK: override
     
     override func viewDidLoad() {

@@ -37,20 +37,23 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
 
     @IBOutlet weak var firstOverlay: UIView!
     
-    var secondOverlay: UIImageView!
+    var secondOverlay: UIImageView?
 
     var secondTimerThin: CDHourL?
     
     var widthProgress = CGFloat(-1)
-    
-    var game_type = Int(0)
         
+    var current_game = GameInfo()
+    
+    
     //MARK: - Views Load override
 
 //    viewWillLayoutSubviews
     
     
     override func viewDidLoad() {
+        
+        current_game.type = kTypeTabBarOrder[tabBarItem.tag]
         
         super.viewDidLoad()
         
@@ -59,61 +62,124 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
     }
     
-    override func viewDidLayoutSubviews() {
-        
-        super.viewDidLayoutSubviews()
-        
-        setButtonView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        super.viewWillAppear(animated)
-        
-        setGameNumbers()
 
-        if widthProgress > -1 {
-            
-            reCountTimers()
-            
-        }
+    func fillLocalGameData(){
+
+        current_game = games_list[current_game.type] ?? current_game
         
+        local_current_game = current_game
+
     }
-    
     
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
         
-        if widthProgress == -1 {
+        fillLocalGameData()
         
+        // if first time opened the view
+        if widthProgress == -1 {
+            
+            // names of titleMain
+            setLotteryName()
+            
+            //create bodies and fill the text
             fillWithData()
 
-            setLoadingSign(toWidth: 0)
 
-            answerOnInitData()
+            //fix button layer view
+            setButtonView()
+            
+            // create progress bar
+            setLoadingSign(toWidth: 0)
 
         }
         
+        
+        // fill with data
+        answerOnInitData()
+ 
+        
+        // open view for user
         animateAppearance()
         
     }
-  
-  
+
     
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
         
-        MemoryControll.saveGameMoneyStart(moneyTablet.totalCounts, tabBarItem.tag)
+        if current_game.status != kStatusNoGame {
+            
+            local_current_game = current_game
+            
+            onUserCloseView()
+            
+        }
         
-        stopSchedule()
-        
-//        animateDisAppearance()
         
     }
     
     //MARK: -
+    
+    
+    override func onUserCloseView(){
+        
+        stopSchedule()
+
+    }
+    
+    override func onUserOpenView(){
+
+        answerOnInitData()
+    
+    }
+    
+    func setLotteryName (){
+        
+        titleMain.text = TR(tabbar_strings[tabBarItem.tag]) + " " + TR("лотерея")
+        
+    }
+    
+    func checkForGameData() -> Bool{
+        
+        if current_game.status == kStatusNoGame {
+            
+            titlePrize.text = TR("Will be soon ....")
+            
+            prizePlaces.isUserInteractionEnabled = false
+            
+            firstOverlay.isHidden = true
+            
+            secondOverlay?.isHidden = true
+            
+            peopleCount.text = "0"
+            
+            usSum.text = "$ 0"
+            
+            return false
+            
+        } else {
+            
+            titlePrize.text = TR("Джекпот")
+            
+            prizePlaces.isUserInteractionEnabled = true
+            
+            firstOverlay.isHidden = false
+            
+            secondOverlay?.isHidden = false
+            
+            return true
+            
+        }
+        
+    }
+
+    
+    
+    //MARK: -
+    
     override func setBackButton(){
         
         addMenuButton()
@@ -121,6 +187,8 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     }
     
     func fillWithData(){
+        
+        
         
     }
     
@@ -141,25 +209,39 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         }
 
     }
+
     
     func answerOnInitData(){
  
-        itemBadge?.setNumberLabel(notification_data.count)
+        if checkForGameData() {
+            
+            fillWithNumbers()
+            
+            reCountTimers()
+            
+        }
 
-        peopleCount.text = Int(local_current_game.num_players).stringWithSepator
-        usSum.text = "$ \(local_current_game.prize_amount)"
-        
-        moneyTablet.initTimer(Int(local_current_game.prize_amount_local),
-                              Int(local_current_game.prize_amount_fiat * 1000))
-        
-        reCountTimers()
         
     }
     
     
+    func fillWithNumbers(){
+        
+        let gameItem =  current_game
+        
+        itemBadge?.setNumberLabel(notification_data.count)
+        
+        peopleCount.text = Int(gameItem.num_players).stringWithSepator
+        usSum.text = "$ \(gameItem.prize_amount)"
+        
+        moneyTablet.initTimer(Int(gameItem.prize_amount_local),
+                              Int(gameItem.prize_amount_fiat * 1000))
+        
+    }
+    
     func startLastClock(){
         
-        let data = recountTimersForLastCounter(local_current_game)
+        let data = recountTimersForLastCounter(current_game)
         
         if data.1 == -1 {
             
@@ -175,7 +257,8 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
 
     func reCountTimers(){
         
-        let data = recountTimersData(local_current_game)
+        
+        let data = recountTimersData(current_game)
         
         if data.2 == -1 {
             
@@ -200,14 +283,8 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     //MARK: - Set all views
     
     
-    func  setGameNumbers() {
-        
-        local_current_game = games_list[game_type]!
-        
-    }
     func setTakePartView(){
         
-        takePart.setTitle(TR("Принять участие"), for: .normal)
         takePartFon.layer.cornerRadius = takePartFon.frame.height/2
         takePartFon.clipsToBounds = true
         
@@ -292,6 +369,9 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     func addTimersBody(){
         
+        moneyTablet.initConstants(current_game.type)
+        
+        moneyTablet.createBody()
         
         
     }
@@ -410,7 +490,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         
         UIView.animate(withDuration: 2, animations: {
 
-            self.secondOverlay.layer.opacity = 1.0
+            self.secondOverlay?.layer.opacity = 1.0
             
         })
         
@@ -427,11 +507,11 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         UIView.animate(withDuration: 1, animations: {
             
             self.firstOverlay.layer.opacity = 0.0
-            self.secondOverlay.layer.opacity = 0.0
+            self.secondOverlay?.layer.opacity = 0.0
             
         }){ (_ animate : Bool) in
             
-            self.secondOverlay.removeFromSuperview()
+            self.secondOverlay?.removeFromSuperview()
             
         }
         
@@ -442,7 +522,7 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     func showViewsAfterWinnerList(){
         
-        my_win_wallets = winners_list.filter({ (item : UserForGame) -> Bool in
+        let my_win_wallets = winners_list.filter({ (item : UserForGame) -> Bool in
             
             return users_account_number.contains(item.user_id)
         })
@@ -467,47 +547,50 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     func createOverLayWithWait(){
    
+        let itemGame = current_game
+        
+        
         secondOverlay = UIImageView(frame: firstOverlay.frame)
-        secondOverlay.clipsToBounds = true
-        secondOverlay.layer.cornerRadius = firstOverlay.layer.cornerRadius
-        secondOverlay.backgroundColor = UIColor.uuDarkTwo.withAlphaComponent(0.8)
+        secondOverlay!.clipsToBounds = true
+        secondOverlay!.layer.cornerRadius = firstOverlay.layer.cornerRadius
+        secondOverlay!.backgroundColor = UIColor.uuDarkTwo.withAlphaComponent(0.8)
         
         
         let title = UILabel(frame: CGRect(x: 5, y: 0,
-                                          width: secondOverlay.frame.width - 10,
-                                          height: secondOverlay.frame.height * 0.35))
+                                          width: secondOverlay!.frame.width - 10,
+                                          height: secondOverlay!.frame.height * 0.35))
         title.text =  TR("Система\nвыбирает победителя")
         title.textColor = UIColor.white
         title.numberOfLines = 2
         title.font = UIFont(name: kFont_Medium, size: 17)
         title.textAlignment = .center
-        secondOverlay.addSubview(title)
+        secondOverlay!.addSubview(title)
         
-        secondTimerThin = CDHourL(frame: CGRect( x: secondOverlay.frame.width * 0.33,
+        secondTimerThin = CDHourL(frame: CGRect( x: secondOverlay!.frame.width * 0.33,
                                                  y: title.frame.height,
-                                             width: secondOverlay.frame.width * 0.34,
-                                            height: secondOverlay.frame.height * 0.15))
+                                             width: secondOverlay!.frame.width * 0.34,
+                                            height: secondOverlay!.frame.height * 0.15))
         secondTimerThin!.createBodyTimers()
-        secondOverlay.addSubview(secondTimerThin!)
+        secondOverlay!.addSubview(secondTimerThin!)
         
         let tranzaction_string = UILabel(frame: CGRect(x: 15,
                                                        y: secondTimerThin!.frame.origin.y + secondTimerThin!.frame.height + 5,
-                                                       width: secondOverlay.frame.width - 30,
+                                                       width: secondOverlay!.frame.width - 30,
                                                        height: 20))
         
-        tranzaction_string.text = local_current_game.smart_contract_id
+        tranzaction_string.text = itemGame.smart_contract_id
         tranzaction_string.textColor = UIColor.white
         tranzaction_string.numberOfLines = 1
         tranzaction_string.font = UIFont(name: kFont_Regular, size: 14)
         tranzaction_string.adjustsFontSizeToFitWidth = true
         tranzaction_string.textAlignment = .center
-        secondOverlay.addSubview(tranzaction_string)
+        secondOverlay!.addSubview(tranzaction_string)
     
     
         let copyButton = UIButton(frame : CGRect(x: 15,
                                                  y: tranzaction_string.frame.origin.y + tranzaction_string.frame.height + 10,
-                                                width:  secondOverlay.frame.width - 30,
-                                                height: secondOverlay.frame.height * 0.2))
+                                                width:  secondOverlay!.frame.width - 30,
+                                                height: secondOverlay!.frame.height * 0.2))
         
         copyButton.setImage(UIImage(named: "copy-x3"), for: .normal)
         copyButton.setTitle("  " + TR("Скопировать номер транзакции"), for: .normal)
@@ -519,18 +602,16 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
         copyButton.tintColor = kColorLightOrange
         copyButton.titleLabel?.textColor = UIColor.white
         copyButton.addTarget(self, action: #selector(MainViewPositions.onCopyTransactionNumber), for: .touchUpInside)
-        secondOverlay.addSubview(copyButton)
+        secondOverlay!.addSubview(copyButton)
         
-        secondOverlay.isUserInteractionEnabled = true
-        secondOverlay.layer.opacity = 0.0
-        view.addSubview(secondOverlay)
+        secondOverlay!.isUserInteractionEnabled = true
+        secondOverlay!.layer.opacity = 0.0
+        view.addSubview(secondOverlay!)
     }
     
     
     
     func reloadViewForFirstLayer(){
-        
-        setGameNumbers()
         
         answerOnInitData()
         
@@ -541,8 +622,8 @@ class MainViewPositions: ControllerCore, CountDownTimeDelegate {
     
     
     func onCopyTransactionNumber(){
-     
-        saveToClipboard(local_current_game.smart_contract_id)
+        
+        saveToClipboard(current_game.smart_contract_id)
 
     }
     

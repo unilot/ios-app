@@ -50,7 +50,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
     
     // MARK: - override
 
-    func initConstants(){
+    func initConstants(_ type : Int){
         
 
     }
@@ -66,7 +66,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
         
         timerStep = timerStep + 1
         
-        return delay
+        return min(delay, 0.05)
         
     }
     
@@ -156,8 +156,6 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
     
     func createBody(){
         
-        initConstants()
-        
         if isFull {
             return
         }
@@ -212,7 +210,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
             countdownTimer.invalidate()
             countdownTimer = nil
             
-            MemoryControll.saveGameMoneyStart(totalCounts, getTabBarTag())
+            MemoryControll.saveGameMoneyStart(totalCounts,local_current_game)
 
         }
     }

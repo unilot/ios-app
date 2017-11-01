@@ -46,6 +46,11 @@ class LoadingView : UIViewController, NVActivityIndicatorViewable{
         
         stopAnimating()
         SCLAlertView().showError(" ", subTitle: error)
+        
+        if let dataParse = MemoryControll.getObject("list_games") {
+            _ = NetWork.parseGamesList(dataParse)
+        }
+
         enterTheApp()
 
     }

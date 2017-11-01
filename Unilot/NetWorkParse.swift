@@ -55,19 +55,10 @@ class NetWorkParse {
 
         games_list = [:]
         
-//        let old_data = MemoryControll.getObject("GameInfo") as? [Int : GameInfo]
-
         for item in responseJSON {
             let game = createGameItem(from: item)
             games_list[game.type] = game
-            
-//            if old_data != nil {
-//                games_list[game.type]?.prize_amount_local = (old_data![game.type]?.prize_amount_fiat)!
-//            }
-        }
-        
-        
-//        MemoryControll.saveObject(games_list, key: "GameInfo")
+         }
         
         return nil
         
@@ -142,11 +133,15 @@ class NetWorkParse {
         
         let keyLine = "gameTimeLeft" + item.game_id
         if let localPrize = MemoryControll.getObject(keyLine) as? Int {
-            if localPrize > Int(item.prize_amount_fiat/1000) {
+            
+            let data_saved = Float(localPrize) / 1000.0
+            
+            if data_saved > item.prize_amount_fiat {
                 
                 MemoryControll.removeObject(keyLine)
                 
             } else {
+                
                 item.prize_amount_local = localPrize
    
             }

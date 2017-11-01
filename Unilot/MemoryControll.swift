@@ -10,9 +10,8 @@ import UIKit
 
 
 var current_language = "English"
-var notifications_switch = [false,false,true]
-var users_account_number =  ["1231qewr4r124","Qwr34qwawerwt2345t4"]
-var my_win_wallets = [UserForGame]()
+var notifications_switch = [true,true,true]
+var users_account_number =  [String]()
  
 var tokenForNotifications = kEmpty //"0xf49ebf9ac72767cf83a8969fe76acceb44855745"
 
@@ -150,12 +149,13 @@ class MemoryControll {
  
     //mark: - spec
 
-    static func saveGameMoneyStart(_ newMeaning : Int, _ forGame :Int){
+    static func saveGameMoneyStart(_ newMeaning : Int, _ game : GameInfo){
         
-        MemoryControll.saveObject( newMeaning,
-                                  key: "gameTimeLeft" + local_current_game.game_id)
+        MemoryControll.saveObject( newMeaning,  key: "gameTimeLeft" + game.game_id)
         
-        games_list[forGame]?.prize_amount_local = newMeaning
+        local_current_game = game
+        local_current_game.prize_amount_local  = newMeaning
+        games_list[game.type]?.prize_amount_local = newMeaning
     }
 }
 

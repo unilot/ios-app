@@ -39,21 +39,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
         if error != nil{
             
-//            SCLAlertView().showError(" ", subTitle: error!)
-
-            dataForTable = [
-                games_list[kTypeDay]!,
-                games_list[kTypeDay]!,
-                games_list[kTypeDay]!,
-                games_list[kTypeDay]!,
-                games_list[kTypeDay]!,
-                games_list[kTypeWeek]!,
-                games_list[kTypeDay]!,
-                games_list[kTypeDay]!,
-                games_list[kTypeDay]!,
-                games_list[kTypeMonth]!
-            ]
-            
+            SCLAlertView().showError(" ", subTitle: error!)
             
         } else {
             

@@ -82,8 +82,7 @@ class NetWork : NetWorkParse {
             
             .responseJSON { (response) -> Void in
                 
-                completion(sendToErrorParsAndDataParse(response, parseGamesList,"list_games"))
-                
+                completion(sendToErrorParsAndDataParse(response, parseGamesList, "list_games"))
 
                 
         }
@@ -93,18 +92,17 @@ class NetWork : NetWorkParse {
     
     static func getListWinners(completion: @escaping (String?) -> Void) {
         
+        let gameId = local_current_game.game_id
         
-        print("local_current_game.game_id ", local_current_game.game_id)
-        Alamofire.request( String(format:kServer + kAPI_get_list_winners, local_current_game.game_id),
+        print("local_current_game.game_id ", gameId)
+        Alamofire.request( String(format:kServer + kAPI_get_list_winners, gameId),
                            method : .get,
                            encoding: JSONEncoding.default,
                            headers: request_headers)
             
             .responseJSON { (response) -> Void in
                 
-                MemoryControll.saveObject(response, key: "winners_" + local_current_game.game_id)
-
-                completion(sendToErrorParsAndDataParse(response, parseWinnersList))
+                completion(sendToErrorParsAndDataParse(response, parseWinnersList,"winners_" + gameId))
         }
         
     }
@@ -119,10 +117,8 @@ class NetWork : NetWorkParse {
                            headers: request_headers)
             
             .responseJSON { (response) -> Void in
-                
-                MemoryControll.saveObject(response, key: "history")
 
-                completion(sendToErrorParsAndDataParse(response, parseHistoryPage))
+                completion(sendToErrorParsAndDataParse(response, parseHistoryPage, "history"))
         }
         
     }
@@ -138,9 +134,7 @@ class NetWork : NetWorkParse {
             
             .responseJSON { (response) -> Void in
                 
-                MemoryControll.saveObject(response, key: "game_" + gameNumber )
-
-                completion(sendToErrorParsAndDataParse(response, parseGameDetails))
+                completion(sendToErrorParsAndDataParse(response, parseGameDetails, "game_" + gameNumber ))
         }
         
     }
@@ -155,57 +149,34 @@ class NetWork : NetWorkParse {
         
         print(response)
         
-        var answer : String? = nil
-        
-        
         guard (response.result.isSuccess) &&  (response.result.value != nil) else {
             
-            if response.result.error  != nil {
-                
+            var answer : String? = nil
+
+            if response.result.error != nil {
                 answer = response.result.error!.localizedDescription
-                
             } else {
-                
-                answer =  "response.result.value is NULL"
-
-            }
-        }
-        
-        let dataForDetails =  response.result.value!
-        
-        if keyForSavings == nil {
-            
-            return dataParse(dataForDetails)
-            
-        } else {
-            
-            if answer != nil {
-                
-                let object = MemoryControll.getObject(keyForSavings!)
-                
-                if object != nil {
-                    let parseAnswer = dataParse(object!)
-                    
-                    if parseAnswer != nil {
-                        
-                    } else {
-                        
-                    }
-                }
-                
-
-            } else {
-                
-                MemoryControll.saveObject(dataForDetails, key: keyForSavings!)
-                
+                answer = "response.result.value is NULL"
             }
             
-            return dataParse(dataForDetails)
-
+            if keyForSavings != nil {
+                 _ = dataParse( MemoryControll.getObject(keyForSavings!)!)
+            }
+            
+            return answer
 
         }
         
+        let dataForDetails = response.result.value!
         
+        if keyForSavings != nil {
+            
+            MemoryControll.saveObject(dataForDetails, key: keyForSavings!)
+ 
+        }
+        
+        return dataParse(dataForDetails)
+
         
     }
     

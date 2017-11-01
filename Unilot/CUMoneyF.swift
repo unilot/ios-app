@@ -13,12 +13,16 @@ import Splitflap
 
 class CountUppMoney: CountDownCore  {
     
-    override func initConstants(){
+    override func initConstants(_ type : Int){
         
-        let money2 = local_current_game.prize_amount_fiat
+        if let money = games_list[type]{
+            
+            if money.prize_amount_fiat > 0 {
+                flippersCount = max(6,1 + Int(log10(money.prize_amount_fiat)) + flippersGaps)
+            }
+
+        }
         
-        flippersCount = max(6,1 + Int(log10(money2)) + flippersGaps)
-         
     }
     
     

@@ -43,8 +43,8 @@ class GameInfo {
     var prize_amount_local  : Int = 0
     var started_at          : Int = 0
     var ending_at           : Int = 0
-    var status              : Int = 10
-    var type                : Int = 10
+    var status              : Int = kStatusNoGame
+    var type                : Int = kTypeUndefined
   
 }
 

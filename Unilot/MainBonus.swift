@@ -28,36 +28,19 @@ class BonusView: MainViewPositions {
     @IBOutlet weak var label1: UILabel!
     
     @IBOutlet weak var label2: UILabel!
-    
-    
-    
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        
-        game_type = kTypeMonth
-        
-    }
-    
+     
   
     override func fillWithData(){
                 
         widthProgress = 0
-        
-        titleMain.text = TR("Бонусная лотерея")
-        
-        titlePrize.text = TR("Джекпот")
         
         label1.text = TR("До обьявления\nпобедителей:")
         label2.text = TR("дней")
         
         howDoesItWork.setTitle(TR("Как попасть в розыгрыш?"), for: .normal)
         prizePlaces.setTitle(TR("Призовые места"), for: .normal)
-
         
         addTimersBody()
-        
-        answerOnInitData()
         
     }
     
@@ -88,8 +71,9 @@ class BonusView: MainViewPositions {
     
     override  func addTimersBody(){
         
-        moneyTablet.createBody()
-        
+        super.addTimersBody()
+         
+        daysCount.initConstants(0)
         daysCount.createBody()
         
     }

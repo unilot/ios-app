@@ -14,7 +14,7 @@ import Splitflap
 
 class CountDownTimeMonth: CountDownCore  {
     
-    override func initConstants(){
+    override func initConstants(_ type : Int){
         
         flippersCount = 2
                 

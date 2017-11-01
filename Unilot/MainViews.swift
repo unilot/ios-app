@@ -11,29 +11,16 @@ import UIKit
 
 
 class MainView: MainViewPositions {
-    
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        
-        game_type = kTypeDay
-
-    }
+ 
   
     override func fillWithData(){
-
-        if tabBarItem.tag == 0 {
-            titleMain.text = TR("Дневная лотерея")
-        } else {
-            titleMain.text = TR("Недельная лотерея")
-        }
-        
-        titlePrize.text = TR("Джекпот")
 
         titleUntilTheEnd.text = TR("До конца регистрации")
         
         prizePlaces.setTitle(TR("Призовые места"), for: .normal)
-         
+        
+        takePart.setTitle(TR("Принять участие"), for: .normal)
+        
         setTakePartView()
         
         addTimersBody() 
@@ -45,8 +32,8 @@ class MainView: MainViewPositions {
     //MARK: - timers
     
    override  func addTimersBody(){
-        
-        moneyTablet.createBody()
+    
+        super.addTimersBody()
         
         clockTablet?.createBody(self)
     
@@ -79,13 +66,7 @@ class MainView: MainViewPositions {
 
 class MainWeekView: MainView {
     
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        
-        game_type = kTypeWeek
 
-    }
     
 }
 

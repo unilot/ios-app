@@ -12,8 +12,8 @@ import UIKit
 var current_language = "English"
 var notifications_switch = [true,true,true]
 var users_account_number =  [String]()
- 
-var tokenForNotifications = kEmpty //"0xf49ebf9ac72767cf83a8969fe76acceb44855745"
+
+var tokenForNotifications = kEmpty
 
 var notification_data = [[String : Any]]()
 
@@ -61,7 +61,7 @@ class MemoryControll {
         
         
         if let switchers = getObject("notifications_app") as? [[String : Any]] {
-            notification_data = switchers
+            notification_data = switchers  
         } else {
             saveObject(notification_data, key: "notifications_app")
         }

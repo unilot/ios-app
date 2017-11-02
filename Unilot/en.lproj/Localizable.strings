@@ -37,6 +37,12 @@
 "Недельной лотерее"  = "Weekly drawing";
 "Бонусной лотерее"  = "Bonus drawing";
 
+"Дневной" = "Daily";
+"Недельной"  = "Weekly";
+"Бонусной"  = "Bonus";
+
+"лотереи"  = "drawing";
+
 "Дневная лотерея" = "Daily drawing";
 "Недельная лотерея" = "Weekly drawing";
 "Бонусная лотерея" = "Bonus drawing";
@@ -62,8 +68,8 @@
 "Номер" = "The number";
 "был сохранен в буфер" = "was saved to clipboard";
 "HDIW" = "HDIW_en";
-"Чтобы принять участие в %@, вам необходимо перечислить %@ Eth на кошелек, который вы получите нажав на кнопку ниже" =
-"To participate in %@, you need to pay %@ Eth to the wallet, that you can get by pressing the button";
+"Чтобы принять участие в %@, вам необходимо перечислить %.3f Eth на кошелек, который вы получите нажав на кнопку ниже" =
+"To participate in %@, you need to pay %.3f Eth to the wallet, that you can get by pressing the button";
 "Лотерея заканчивается через" = "The drawing will be over in";
 "После оплаты вернитесь в приложение\nи зарегистрируйте свой кошелек" = "Return to the app and register\nyour wallet after payment";
 "Скопировать номер кошелька" = "Copy the number of your wallet";
@@ -89,3 +95,5 @@
 "Система\nвыбирает победителя" = "The system is \ncalculating the winner";
 
 "Скорo" = "Soon";
+
+"Презентация" = "Presentation";

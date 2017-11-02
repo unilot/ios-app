@@ -28,8 +28,8 @@ class NetWorkParse {
         
         session_data = responseJSON
         
-        let tokenType: String = responseJSON["token_type"] as! String
-        let tokenMeaning: String = responseJSON["access_token"] as! String
+        let tokenType       = responseJSON["token_type"] as? String ?? "Bearer"
+        let tokenMeaning    = responseJSON["access_token"] as? String ?? "empty_token_key"
         
         request_headers["Authorization"] = tokenType + " " + tokenMeaning
         
@@ -116,23 +116,24 @@ class NetWorkParse {
     
     //MARK: - fill items
     
-    static func createGameItem(from data :[String : Any]) -> GameInfo{
+    static func createGameItem(from data :[String : Any] ) -> GameInfo{
             
         let item = GameInfo()
         
-        item.game_id            = "\(data["id"] ?? -1 )"
+        item.game_id            = "\(data["id"] ?? kEmpty )"
         item.smart_contract_id  = data["smart_contract_id"] as? String ?? "0"
         item.num_players        = data["num_players"] as? Int  ?? 0
         item.prize_amount       = data["prize_amount"] as? Float  ?? 0
+        item.bet_amount         = data["bet"] as? Float  ?? KBetDefault
         item.prize_amount_fiat  = data["prize_amount_fiat"] as? Float ?? 0
         item.started_at         = convertDate(from: data["started_at"] as? String)
         item.ending_at          = convertDate(from: data["ending_at"] as? String)
         item.status             = data["status"] as? Int ?? kTypeUndefined
         item.type               = data["type"] as? Int ?? local_current_game.type
         
-        
-        
+    
         let keyLine = "gameTimeLeft" + item.game_id
+        
         if let localPrize = MemoryControll.getObject(keyLine) as? Int {
             
             let data_saved = Float(localPrize) / 1000.0
@@ -152,15 +153,14 @@ class NetWorkParse {
     }
 
     
-    
     static func createUserItemForGame(from data :[String : Any]) -> UserForGame{
         
         let item = UserForGame()
         
-        item.user_id            = data["address"] as! String
-        item.position           = data["position"] as! Int
-        item.prize_amount       = data["prize_amount"] as! Float
-        item.prize_amount_fiat  = data["prize_amount_fiat"] as! Float
+        item.user_id            = data["address"] as? String ?? "0"
+        item.position           = data["position"] as? Int ?? 0
+        item.prize_amount       = data["prize_amount"] as? Float ?? 0
+        item.prize_amount_fiat  = data["prize_amount_fiat"] as? Float ?? 0
         
         return item
     }

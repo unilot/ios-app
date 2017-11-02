@@ -68,7 +68,7 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
         
         history.text = TR("История розыгрышей")
         how.text = TR("Как это работает")
-        wp.text = TR("White paper")
+        wp.text = TR("Презентация")
         settings.text = TR("Настройки")
         socials.text = TR("Оставайтесь в курсе")
         

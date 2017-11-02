@@ -42,7 +42,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         
         showActivityViewIndicator()
         
-        NetWork.getListWinners(completion: onAnswer)
+        NetWork.getListWinners(local_current_game.game_id,completion: onAnswer)
         
     }
     

@@ -24,7 +24,8 @@ class NotifApp {
                 // actions based on whether notifications were authorized or not
                
                 if granted {
-                    application.registerForRemoteNotifications()
+
+                
                 } else {
                      if error != nil {
                         print("error push id " + error!.localizedDescription )
@@ -94,72 +95,113 @@ class NotifApp {
     
     //MARK: - NOTIFICATION PARSE
     
-    static func parseNotificationAction( _ notificationDictionary : [String : Any] ){
-
-        let action = notification_data.first!["action"] as? String
-        let data   = notification_data.first!["data"] as? [String : Any]
+    static func parseNotif(_ data : [String : Any]) -> NotifStruct {
         
+        let notifItem = NotifStruct()
         
-        if action == nil {
+        notifItem.action = data["action"] as? String ?? kActionUndefined
         
-             return
+        if let dataDict = data["data"] as? [String : Any] {
+            
+            notifItem.game = NetWork.createGameItem(from: dataDict)
+            
+            if notifItem.game.game_id == kEmpty {
+                notifItem.data = dataDict
+            }
         }
         
+        return notifItem
         
-        switch action! {
+    }
+    
+    static func parseNotificationAction( _ notificationDictionary : [String : Any] ){
+
+        let notifItem = parseNotif(notificationDictionary)
+        
+        switch notifItem.action {
             
         //Начало игры:
-        case "game_started":
+        case  kActionStarted:
              
             break
             
         //Завершение приёма заявок и начало определения победител
-        case "game_unpublished":
+        case kActionFinishing:
             
             
             
             break
             
         //Завершение определения победителей:
-        case "game_finished":
-            
-            
+        case kActionCompleted:
+ 
+            notification_data.append( notificationDictionary )
+            MemoryControll.saveObject(notification_data, key: "notifications_app")
 
             break
             
         //Отчёт об игре:
-        case "game_updated":
+        case kActionUpdate:
             
- 
-            break
-            
-        default:
+
             
             break
+            
+        default: // kActionUndefined
+            
+            
+            return
         }
         
          
-        if data != nil {
+        if notifItem.game.game_id != kEmpty  {
             
-            let new_game = NetWork.createGameItem(from: data!)
+            let game_item = games_list[notifItem.game.type]
             
-            MemoryControll.saveGameMoneyStart ( Int(games_list[local_current_game.type]!.prize_amount) / 1000, new_game)
-            
-            games_list[local_current_game.type] = new_game
-            
-            local_current_game = new_game
-        }
-        
-        if action != "game_updated" {
-            notification_data.append( notificationDictionary )
-            MemoryControll.saveObject(notification_data, key: "notifications_app")
-        }
+            if (game_item != nil) && (game_item!.game_id == notifItem.game.game_id) {
 
+                MemoryControll.saveGameMoneyStart ( Int(games_list[local_current_game.type]!.prize_amount) / 1000, notifItem.game)
+                games_list[local_current_game.type] = notifItem.game
+                local_current_game = notifItem.game
+            
+            }
+
+        }
  
-        current_controller_core?.onNotifRecieved()
+ 
+        current_controller_core?.onNotifRecieved(notifItem.action, notifItem.game.type)
         
         
     }
 
+    
+    
+    
+    
+    static var numberOfFakeGamers: Int = 5
+
+    static func sendFakeNotif(){
+     
+        numberOfFakeGamers = numberOfFakeGamers + 1
+        
+        let fake_data = ["action": kActionCompleted,//kActionFinishing,//kActionUpdate,
+                         "data":
+        [
+            "ending_at" : "2017-11-05T14:00:00Z",
+            "id" : 6,
+            "num_players" : numberOfFakeGamers,
+            "prize_amount" : 0.021,
+            "prize_amount_fiat" : 5.978490000000001,
+            "smart_contract_id" : "0xb588530e3956d9787b0429244ca360f566ff3301",
+            "started_at" : "2017-10-29T15:00:00Z",
+            "status" : kStatusComplete,
+            "type": kTypeWeek,
+            ]
+        
+        ] as [String : Any]
+        parseNotificationAction(fake_data)
+        
+    }
+    
     
 }

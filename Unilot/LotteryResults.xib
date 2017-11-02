@@ -30,7 +30,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Итоги дневной лотереи" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nn-c6-pxt">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Итоги дневной лотереи" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="5nn-c6-pxt">
                     <rect key="frame" x="10" y="35" width="355" height="28"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="SjH-0w-gXt"/>
@@ -40,7 +40,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="До обьявления победителя:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sd1-aD-ahN">
-                    <rect key="frame" x="20" y="293" width="335" height="60"/>
+                    <rect key="frame" x="20" y="268" width="335" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="vUU-fK-nKF"/>
                     </constraints>
@@ -49,7 +49,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-vg-g4z" customClass="CountDownSimpleDays" customModule="Unilot" customModuleProvider="target">
-                    <rect key="frame" x="143" y="363" width="90" height="90"/>
+                    <rect key="frame" x="143" y="338" width="90" height="90"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="90" id="Rcf-56-Hq4"/>
@@ -100,7 +100,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дней" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="qsj-9o-2RY">
-                    <rect key="frame" x="243" y="363" width="48" height="90"/>
+                    <rect key="frame" x="243" y="338" width="48" height="90"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                     <color key="textColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -125,18 +125,18 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы автоматически становитесь участником бонусного розыгрыша который состоится через:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysa-bV-fTx">
-                    <rect key="frame" x="25" y="178" width="325" height="100"/>
+                    <rect key="frame" x="25" y="168" width="325" height="100"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="M4Z-cd-cmC"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                     <color key="textColor" red="0.49439453119999999" green="0.49439453119999999" blue="0.49439453119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="ysa-bV-fTx" firstAttribute="top" secondItem="X2Q-RD-GCp" secondAttribute="bottom" constant="10" id="2nb-Oz-pjf"/>
+                <constraint firstItem="ysa-bV-fTx" firstAttribute="top" secondItem="X2Q-RD-GCp" secondAttribute="bottom" id="2nb-Oz-pjf"/>
                 <constraint firstItem="X2Q-RD-GCp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="3zy-4g-4SH"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qsj-9o-2RY" secondAttribute="trailing" constant="15" id="4Nz-vx-eem"/>
                 <constraint firstItem="7Kd-e9-pKQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="6Gj-rf-JAI"/>
@@ -144,7 +144,7 @@
                 <constraint firstItem="sZB-vg-g4z" firstAttribute="top" secondItem="sd1-aD-ahN" secondAttribute="bottom" constant="10" id="FeQ-xk-cyu"/>
                 <constraint firstItem="qsj-9o-2RY" firstAttribute="bottom" secondItem="sZB-vg-g4z" secondAttribute="bottom" id="JtQ-UJ-EE2"/>
                 <constraint firstAttribute="trailing" secondItem="sd1-aD-ahN" secondAttribute="trailing" constant="20" id="ObE-Nh-inZ"/>
-                <constraint firstItem="sd1-aD-ahN" firstAttribute="top" secondItem="ysa-bV-fTx" secondAttribute="bottom" constant="15" id="QdR-7S-dAV"/>
+                <constraint firstItem="sd1-aD-ahN" firstAttribute="top" secondItem="ysa-bV-fTx" secondAttribute="bottom" id="QdR-7S-dAV"/>
                 <constraint firstAttribute="trailing" secondItem="gRR-pu-1BI" secondAttribute="trailing" constant="5" id="RI6-mg-t34"/>
                 <constraint firstItem="gRR-pu-1BI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="SgF-1R-BQi"/>
                 <constraint firstAttribute="trailing" secondItem="7Kd-e9-pKQ" secondAttribute="trailing" constant="15" id="VuV-dd-YeV"/>

@@ -34,7 +34,6 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
     }
     
     
-    
     override func setInitBorders(){
         
         super.setInitBorders()
@@ -44,7 +43,7 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         
         let type = getTabBarTag()
         
-        titleMain.text = TR("Итоги") + " " + TR(setting_strings[0][type])
+        titleMain.text = TR("Итоги") + " " + TR(bonus_titles[type]) + " " + TR("лотереи")
         dayTitle.text = getNiceDateFormatString(from: local_current_game.started_at)
         unfortunately.text = TR("К сожалению, вас нет в списке победителей")
         butHey.text =  TR("Вы автоматически становитесь участником бонусного розыгрыша который состоится через:")
@@ -87,7 +86,6 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         clockTablet.doScheduledTimer()
         
     }
-    
     
     
     @IBAction func onCopyNumber(){

@@ -44,7 +44,7 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         titleMain.text = TR("Общий призовой фонд")
         close.setTitle(TR("Закрыть"), for: .normal)
         firstLabel.text = TR("Призовые\nместа")
-        NetWork.getListWinners(completion: onAnswer)
+        NetWork.getListWinners(local_current_game.game_id, completion: onAnswer)
         
     }
     

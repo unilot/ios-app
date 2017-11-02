@@ -29,11 +29,13 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     }()
    
      
-    func onNotifRecieved(){ 
+    func onNotifRecieved(_ action : String, _ type : Int){ 
         
-        playStandart()
-                        
-        goToMainView(getTabBarTag())
+        if action != kActionUpdate {
+            
+            goToMainView(getTabBarTag())
+            
+        }
         
     }
     
@@ -248,7 +250,8 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         navigationController?.popViewController(animated: true)
     }
  
-    
+    //MARK: - animateView
+ 
     func animateAppearance(){
         
         if self.view.layer.opacity < 1.0 {

@@ -11,11 +11,13 @@ import UIKit
 
 class CDHourL: CountDownFullTimer  {
     
-    override func createBodyTimers(){
-        
+    func createHourCounter(_ delegateNew : CountDownTimeDelegate){
+    
+        delegate = delegateNew
         createLabelBody(self.frame.height)
-        
+    
     }
+    
     
     override func labelFormatted(_ totalUnits: Int) -> String {
         
@@ -25,6 +27,11 @@ class CDHourL: CountDownFullTimer  {
         return String(format:"%02i : %02i", minutes, seconds)
     }
     
+    
+    func isCounting() -> Bool {
+        
+        return false
+    }
     
     
 }

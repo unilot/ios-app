@@ -22,6 +22,8 @@ var local_current_user = UserForGame()
 
 let cReviews    = 6
 
+let KBetDefault = Float(0.01)
+
 
 class UserForGame{
     
@@ -40,14 +42,22 @@ class GameInfo {
     var num_players         : Int = 0
     var prize_amount        : Float = 0
     var prize_amount_fiat   : Float = 0
-    var prize_amount_local  : Int = 0
+    var bet_amount          : Float = KBetDefault
     var started_at          : Int = 0
     var ending_at           : Int = 0
     var status              : Int = kStatusNoGame
     var type                : Int = kTypeUndefined
-  
+    var prize_amount_local  : Int = 0
+
 }
 
+
+class NotifStruct {
+    
+    var action              : String = kActionUndefined
+    var game                : GameInfo = GameInfo()
+    var data                : [String:Any]? = nil
+}
 
 
 //MARK: - Functions
@@ -82,19 +92,12 @@ func getTabBarTag() -> Int{
 
 func recountTimersForLastCounter(_ game : GameInfo) -> (Int, Int) { //now/all/stepType
 
+    let timeForWaiting: Int = kTimeForPreperationWait
     let currentTime = getCurrentDateWithUTCTimeZone(Date())
-    let timerNow = game.ending_at + kTimeForPreperationWait - currentTime
-    
-    
-    print("game.ending_at = ", game.ending_at)
-    print("currenttime    = ", currentTime)
-
-    
-    
-    let timeAll = kTimeForPreperationWait
+    let timerNow =  timeForWaiting - (currentTime - game.ending_at)
     
     if timerNow > 0 {
-        return (timerNow,timeAll)
+        return (timerNow,timeForWaiting)
     } else {
         return (0,-1)
     }
@@ -106,7 +109,7 @@ func recountTimersData(_ game : GameInfo) -> (Int, Int, Int) { //now/all/stepTyp
     let timerNow = game.ending_at - getCurrentDateWithUTCTimeZone(Date())
     let timeAll = game.ending_at - game.started_at
     
-    let diff = timeAll - timerNow
+    let diff = timerNow //timeAll - timerNow
     
     let typeOfStep =  ( diff > (3600 * 24) ) ? ( diff > (3600 * 24 * 30 ) ? 2 : 1) : 0
     
@@ -323,10 +326,15 @@ func setColorForImage(_ sizeOfView : CGSize, _ imageName : String) -> SpecialIte
     return bgView
 }
 
-
+func playMoney(){
+    
+    Sound.play(file: "money.mp3")
+    
+    
+}
 func playStandart(){
     
-    Sound.play(file: "win.mp3")
+    Sound.play(file: "usual.mp3")
 
     // create a sound ID, in this case its the tweet sound.
 //    let systemSoundID: SystemSoundID = 1016

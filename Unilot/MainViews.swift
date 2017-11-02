@@ -17,8 +17,6 @@ class MainView: MainViewPositions {
 
         titleUntilTheEnd.text = TR("До конца регистрации")
         
-        prizePlaces.setTitle(TR("Призовые места"), for: .normal)
-        
         takePart.setTitle(TR("Принять участие"), for: .normal)
         
         setTakePartView()
@@ -39,18 +37,15 @@ class MainView: MainViewPositions {
     
     }
     
-    override func startSchedule(){
-        
-        if secondTimerThin != nil {
-            secondTimerThin?.doScheduledTimer()
-        } else {
-            moneyTablet.doScheduledTimer()
+    override func startTimersOnFirstView(){
+ 
+        moneyTablet.doScheduledTimer()
             
-            clockTablet?.doScheduledTimer()
-        }
-    }
+        clockTablet?.doScheduledTimer()
+     }
     
-    override func stopSchedule() {
+    
+    override func stopAllSchedule() {
         
         moneyTablet.endTimer()
         

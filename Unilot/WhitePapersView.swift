@@ -14,7 +14,7 @@ class WhitePapersView : WebCore {
     
     override func viewDidLoad() {
         
-        navigationItem.title = TR("White Papers")
+        navigationItem.title = TR("Презентация")
         
         super.viewDidLoad()
         

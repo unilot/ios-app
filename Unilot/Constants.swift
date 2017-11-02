@@ -22,18 +22,21 @@ let kTypeUndefined = 0
 
 let kStatusNoGame = 0
 let kStatusPublished = 10
+let kStatusFinishing = 15
 let kStatusCancele  = 20
 let kStatusComplete = 30
- 
+
+let kActionStarted      = "game_started"
+let kActionFinishing    = "game_unpublished"
+let kActionCompleted    = "game_finished"
+let kActionUpdate       = "game_updated"
+let kActionUndefined    =  ""
+
 
 
 let kTimeForPreperationWait = 3600
 
-
-var ticketPrice = "0.01"
 //MARK: -  links
-
-
 
 let kLink_FB = "https://www.facebook.com/unilot.io/"
 let kLink_LinkedIn = "https://www.linkedin.com/company/unilot"
@@ -65,6 +68,8 @@ let staticClockNames =
         ["Недель", "Дней","Часа",]
 ]
 
+
+var bonus_titles = ["Дневной","Недельной","Бонусной" ]
 
 var setting_strings = [
     ["Дневной лотерее","Недельной лотерее","Бонусной лотерее"],

@@ -38,7 +38,6 @@ class BonusView: MainViewPositions {
         label2.text = TR("дней")
         
         howDoesItWork.setTitle(TR("Как попасть в розыгрыш?"), for: .normal)
-        prizePlaces.setTitle(TR("Призовые места"), for: .normal)
         
         addTimersBody()
         
@@ -78,18 +77,15 @@ class BonusView: MainViewPositions {
         
     }
     
-    override func startSchedule(){
-        
-        if secondTimerThin != nil {
-            secondTimerThin?.doScheduledTimer()
-        } else {
-            moneyTablet.doScheduledTimer()
+    override func startTimersOnFirstView(){
+      
+        moneyTablet.doScheduledTimer()
             
-            daysCount.doScheduledTimer()
-        }
+        daysCount.doScheduledTimer()
+     
     }
     
-    override func stopSchedule() {
+    override func stopAllSchedule() {
         
         moneyTablet.endTimer()
         

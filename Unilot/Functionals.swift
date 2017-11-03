@@ -49,6 +49,22 @@ class GameInfo {
     var type                : Int = kTypeUndefined
     var prize_amount_local  : Int = 0
 
+    
+    func isEqual(to game: GameInfo) -> Bool{
+        return  (
+           game_id == game.game_id
+        && smart_contract_id == game.smart_contract_id
+        && num_players == game.num_players
+        && prize_amount == game.prize_amount
+        && prize_amount_fiat == game.prize_amount_fiat
+        && bet_amount == game.bet_amount
+        && started_at == game.started_at
+        && ending_at == game.ending_at
+        && status == game.status
+        && type == game.type
+        && prize_amount_local == game.prize_amount_local )
+        
+    }
 }
 
 

@@ -236,6 +236,9 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate {
     
     @IBAction func onTakePart(){
         
+        if current_game.status != kStatusPublished {
+            return
+        }
         
         let viewWithPlaces = AgreeToPlay.createAgreeToPlay()
         viewWithPlaces.delegate = self

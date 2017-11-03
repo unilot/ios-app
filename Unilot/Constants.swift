@@ -20,6 +20,7 @@ let kTypeMonth = 50
 let kTypeUndefined = 0
 
 
+let kStatusUndefined = -1
 let kStatusNoGame = 0
 let kStatusPublished = 10
 let kStatusFinishing = 15

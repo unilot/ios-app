@@ -154,8 +154,10 @@ class MainViewPositions: TabBarTimersViewCore {
             
             break
             
+            
+            
         // game was canceled by some reason // no game started yet  // game was finished
-        case kStatusCancele, kStatusNoGame ,  kStatusComplete:
+        case kStatusUndefined, kStatusCancele, kStatusNoGame ,  kStatusComplete:
             
             animateFirstViewAppearance(0.0, 0.05)
             
@@ -165,7 +167,7 @@ class MainViewPositions: TabBarTimersViewCore {
             
             openViewsForWinnnerOrLoser()
             
-            return
+            break
             
         default:
             
@@ -191,6 +193,18 @@ class MainViewPositions: TabBarTimersViewCore {
     }
 
     
+    func setLowerButton(goToPrizeOrRefresh : Bool){
+
+        let image_name = goToPrizeOrRefresh ? "Призовые места" : "Tap To refresh"
+        
+        prizePlaces.setTitle(TR(image_name), for: .normal)
+        
+        imageTrophy.isHidden    = !goToPrizeOrRefresh
+        imageArrow.isHidden     = !goToPrizeOrRefresh
+        
+    }
+    
+    
     func fillWithNoGame(){
         
         titlePrize.text = TR("Will be soon ....")
@@ -199,20 +213,15 @@ class MainViewPositions: TabBarTimersViewCore {
         
         usSum.text = "$ 0"
 
-        prizePlaces.setTitle(TR("Tap To refresh"), for: .normal)
-
-        imageTrophy.isHidden    = true
-        imageArrow.isHidden     = true
+        setLowerButton(goToPrizeOrRefresh : false)
     }
     
     func fillWithCurrentGame(){
         
         titlePrize.text = TR("Джекпот")
+        
+        setLowerButton(goToPrizeOrRefresh : true)
 
-        prizePlaces.setTitle(TR("Призовые места"), for: .normal)
-
-        imageTrophy.isHidden    = false
-        imageArrow.isHidden     = false
 
     }
 
@@ -326,11 +335,28 @@ class MainViewPositions: TabBarTimersViewCore {
             
             showError(message!)
             
+            
         } else {
             
-            fillLocalGameData()
             
-            answerOnInitData()
+            if games_list[current_game.type] == nil {
+                
+                current_game.status = kStatusNoGame
+                
+                answerOnInitData()
+
+            } else
+            if current_game.isEqual(to: games_list[current_game.type]!) {
+                
+                setLowerButton(goToPrizeOrRefresh : false)
+                
+            } else {
+                
+                fillLocalGameData()
+                
+                answerOnInitData()
+            }
+            
             
         }
         

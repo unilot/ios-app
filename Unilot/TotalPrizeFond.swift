@@ -9,6 +9,7 @@
 
 import UIKit
 import SCLAlertView
+import NVActivityIndicatorView
 
 
 class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
@@ -22,9 +23,15 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var firstLabel: UILabel!
 
-    
     var dataForTable = [UserForGame]()
     var widthOfCell = CGFloat(0)
+
+    
+    var activityData = ActivityData.init(size: CGSize(width: 40, height: 40),
+                                         type: .lineScalePulseOut,
+                                         color: UIColor.white)
+
+    
     
     class func createTotalPrizeFond() -> TotalPrizeFond {
         let myClassNib = UINib(nibName: "TotalPrizeFond", bundle: nil)
@@ -44,13 +51,18 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         titleMain.text = TR("Общий призовой фонд")
         close.setTitle(TR("Закрыть"), for: .normal)
         firstLabel.text = TR("Призовые\nместа")
+        
+        
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+
         NetWork.getListWinners(local_current_game.game_id, completion: onAnswer)
         
     }
     
-    
     func onAnswer(_ error :String?) {
         
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+
         if error != nil {
   
             delegate?.showError(error!)

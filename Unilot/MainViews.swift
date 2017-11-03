@@ -58,11 +58,6 @@ class MainView: MainViewPositions {
     
 }
 
-
-class MainWeekView: MainView {
-    
-
-    
-}
+ 
 
 

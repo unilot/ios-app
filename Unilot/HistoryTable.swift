@@ -129,12 +129,14 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             actionLabel.text = TR("завершена")
             statusLabel.text = TR("список победителей")
             statusLabel.textColor = kColorSelectedBlue
+            break
             
-        case kStatusPublished:
+        case kStatusPublished , kStatusFinishing:
             actionLabel.text = TR("в процессе")
             statusLabel.text = TR("перейти")
             statusLabel.textColor = kColorNormalGreen
-            
+             break
+         
         default: //kStatusCancele
             actionLabel.text = TR("отменена")
             statusLabel.text = " "

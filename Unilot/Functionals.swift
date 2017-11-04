@@ -251,9 +251,9 @@ func convertDate(from isoDate : String?) -> Int {
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
     let date =  dateFormatter.date(from: isoDate!)
     
-    let timeZoneOffset = NSTimeZone.system.secondsFromGMT(for: Date())
+//    let timeZoneOffset = NSTimeZone.system.secondsFromGMT(for: Date())
  
-    return Int(date!.timeIntervalSince1970) - timeZoneOffset
+    return Int(date!.timeIntervalSince1970) //- timeZoneOffset
     
 }
 

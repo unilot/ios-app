@@ -293,9 +293,38 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate {
     
     // MARK: - create second view
     
-    func createSecondOverlay(){
+    func updateSecondOverlay(){
         
-        let itemGame = current_game
+        if secondOverlay != nil {
+            
+            if let item = secondOverlay?.viewWithTag(10000) as? UILabel {
+                item.text =  TR("Система\nвыбирает победителя")
+            }
+            
+            if let item = secondOverlay?.viewWithTag(20000) as? UILabel {
+                item.text =  current_game.smart_contract_id
+            }
+        
+            if let item = secondOverlay?.viewWithTag(30000) as? UIButton {
+                item.setTitle("  " + TR("Скопировать номер транзакции"), for: .normal)
+            }
+            
+        }
+        
+    }
+    
+    func setSecondOverlay(){
+        
+        if secondOverlay == nil {
+            createSecondOverlay()
+        }
+        
+        updateSecondOverlay()
+
+    }
+    
+    func createSecondOverlay(){
+    
         
         secondOverlay = UIImageView(frame: firstOverlay.frame)
         secondOverlay!.clipsToBounds = true
@@ -306,9 +335,9 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate {
         let title = UILabel(frame: CGRect(x: 5, y: 0,
                                           width: secondOverlay!.frame.width - 10,
                                           height: secondOverlay!.frame.height * 0.35))
-        title.text =  TR("Система\nвыбирает победителя")
         title.textColor = UIColor.white
         title.numberOfLines = 2
+        title.tag = 10000
         title.font = UIFont(name: kFont_Medium, size: 17)
         title.textAlignment = .center
         secondOverlay!.addSubview(title)
@@ -325,12 +354,13 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate {
                                                        width: secondOverlay!.frame.width - 30,
                                                        height: 20))
         
-        tranzaction_string.text = itemGame.smart_contract_id
         tranzaction_string.textColor = UIColor.white
         tranzaction_string.numberOfLines = 1
         tranzaction_string.font = UIFont(name: kFont_Regular, size: 14)
         tranzaction_string.adjustsFontSizeToFitWidth = true
         tranzaction_string.textAlignment = .center
+        tranzaction_string.tag = 20000
+
         secondOverlay!.addSubview(tranzaction_string)
         
         
@@ -340,9 +370,9 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate {
                                                  height: secondOverlay!.frame.height * 0.2))
         
         copyButton.setImage(UIImage(named: "copy-x3"), for: .normal)
-        copyButton.setTitle("  " + TR("Скопировать номер транзакции"), for: .normal)
         copyButton.titleLabel?.font = UIFont(name: kFont_Regular, size: 14)
         copyButton.backgroundColor = UIColor.clear
+        copyButton.tag = 30000
         copyButton.layer.borderColor = UIColor.white.cgColor
         copyButton.layer.borderWidth = 0.5
         copyButton.layer.cornerRadius = 6
@@ -392,6 +422,54 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate {
         }
     }
     
+    
+    //MARK: - view
+    
+//    var tapStart : UITouch?
+//    
+//    var  isMovingVieNow = false
+//    var  beginPointView = CGPoint.zero
+//    var  kDirectionPanThreshold = CGFloat(5)
+//
+//
+//    
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        tapStart = touches.first
+//        
+//        let  touch = touches.first!
+//        beginPointView = touch.location(in: self.view)
+//        isMovingVieNow =  false
+//        
+//        super.touchesBegan(touches, with: event)
+//    
+//    }
+    
+    
+//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        
+//        
+//    }
+//    
+//    
+//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        
+//        super.touchesMoved(touches, with: event)
+//        
+//        if ( beginPointView || self.state == UIGestureRecognizerStateFailed)
+//            return
+//        
+//        
+//        let  touch = touches.first
+//        var nowPoint  = touch.location(in: self.view)
+//
+//        if (ABS(nowPoint.x - beginPointView.x) > kDirectionPanThreshold) {
+//            isMovingVieNow = true
+//        }
+//        else
+//            if (ABS(nowPoint.y - beginPointView.y) > kDirectionPanThreshold) {
+//                self.state = UIGestureRecognizerStateFailed
+//            }
+//    }
 }
 
 

@@ -277,8 +277,8 @@ class MainViewPositions: TabBarTimersViewCore {
         // hide other view
         animateFirstViewAppearance(0.0)
          
-        createSecondOverlay()
-
+        setSecondOverlay()
+        
         let data = recountTimersForLastCounter(current_game)
         
         if data.1 > -1 {
@@ -389,6 +389,8 @@ class MainViewPositions: TabBarTimersViewCore {
     
     
     override func onNotifRecieved(_ action : String, _ type : Int){
+
+        playStandart()
 
         // if updeted current game
         

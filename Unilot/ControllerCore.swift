@@ -31,6 +31,8 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
      
     func onNotifRecieved(_ action : String, _ type : Int){ 
         
+        playStandart()
+
         if action != kActionUpdate {
             
             goToMainView(getTabBarTag())

@@ -154,7 +154,7 @@ class NotifApp {
         
         // do something with these data if app is closed
         if gameStatus == kGameStatusClosed {
-            
+
             let notif_key = notifItem.action + "&" + notifItem.game.game_id + "&" + notifItem.game.type
             LocalNotificationHelper.sharedInstance().scheduleNotificationWithKey(notif_key,
                                                                                  title: notifItem.messages[current_language_ind],

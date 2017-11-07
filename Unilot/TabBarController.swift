@@ -30,6 +30,25 @@ class TabBarController: UITabBarController  {
         }
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
+        if open_from_notif {
+            
+            let notifItem = open_from_notif!.components(separatedBy: "&")[2]
+            
+            selectedIndex = getTabBarTag(notifItem.game.type)
+
+            open_from_notif = nil
+        }
+        
+        
+        
+    }
+    
+    
     override func viewDidLoad() {
         
         //UITabBar.appearance().tintColor = UIColor.white

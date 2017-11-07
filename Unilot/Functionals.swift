@@ -70,9 +70,12 @@ class GameInfo {
 
 class NotifStruct {
     
+    var notif_id            : String = kEmpty
     var action              : String = kActionUndefined
+    var messages            : [String] = []
     var game                : GameInfo = GameInfo()
     var data                : [String:Any]? = nil
+    
 }
 
 
@@ -100,9 +103,14 @@ func TR(_ str: String?) -> String{
 
 //MARK: - Games details
 
-func getTabBarTag() -> Int{
+func getTabBarTag(_ typeOfGame : String? = nil) -> Int{
     
-    return kTypeTabBarOrder.index(of:local_current_game.type)!
+    
+    if typeOfGame == nil {
+        return kTypeTabBarOrder.index(of: local_current_game.type) ?? 0
+    } else {
+        return kTypeTabBarOrder.index(of: typeOfGame!) ?? 0
+    }
 
 }
 

@@ -8,14 +8,16 @@
 
 import UIKit
 
+var current_language_ind = 0
 
-var current_language = "English"
 var notifications_switch = [true,true,true]
 var users_account_number =  [String]()
 
 var tokenForNotifications = kEmpty
 
 var notification_data = [[String : Any]]()
+
+var open_from_notif : String?
 
 weak var current_controller_core : ControllerCore?
 
@@ -29,29 +31,57 @@ class MemoryControll {
     
     
     static func init_defaults_if_any(){
+
+        getLanguages()
+  
+        getNotifSettings()
+
+        getUsersWallets()
+        
+        getNotificationSaved()
+
+    }
+    
+    
+    static func getLanguages(){
         
         if let lang = getObject("current_language") as? Int {
             
-            current_language = setting_strings[1][lang]
+            current_language_ind = lang
+            
             Bundle.setLanguage(langCodes[lang])
             
         } else {
-
+            
             let pre = Locale.preferredLanguages[0]
             
             let ind : Int  =  langCodes.index(of: pre) ?? 0
-            
-            current_language = setting_strings[1][ind]
-            Bundle.setLanguage(langCodes[ind])
 
-            saveObject(0, key: "current_language")
+            setLanguage(ind)
         }
+    }
+    
+    static func setLanguage(_ ind : Int){
+        
+        current_language_ind = ind
+        
+        Bundle.setLanguage(langCodes[current_language_ind])
+            
+        saveObject(current_language_ind, key: "current_language")
+     }
+    
+    
+    static func getNotifSettings(){
         
         if let switchers = getObject("notifications_switch") as? [Bool] {
             notifications_switch = switchers
         } else {
             saveObject(notifications_switch, key: "notifications_switch")
         }
+    }
+    
+    
+    static func getUsersWallets(){
         
         if let array_of_numbers = getObject("users_account_number") as? [String] {
             users_account_number = array_of_numbers
@@ -59,15 +89,17 @@ class MemoryControll {
             saveObject(users_account_number, key: "users_account_number")
         }
         
-        
-        if let switchers = getObject("notifications_app") as? [[String : Any]] {
-            notification_data = switchers  
+    }
+    
+    
+    static func getNotificationSaved(){
+        if let data = getObject("notifications_app") as? [[String : Any]] {
+            notification_data = data
         } else {
             saveObject(notification_data, key: "notifications_app")
         }
         
     }
-    
     
     static func getObject(_ key: String) -> Any? {
         
@@ -131,8 +163,6 @@ class MemoryControll {
     }
     
     
-    
-    
     static  func getTimeStamp() -> String {
         
         let timestamp = DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .short)
@@ -146,7 +176,15 @@ class MemoryControll {
         return  keyFormsTMP + ".Forms." + nameOfVIew
     }
     
- 
+    
+    static func saveNewNotif(_ notificationDictionary : [String : Any] ){
+
+        notification_data.append( notificationDictionary )
+        MemoryControll.saveObject(notification_data, key: "notifications_app")
+        
+    }
+    
+    
     //mark: - spec
 
     static func saveGameMoneyStart(_ newMeaning : Int, _ game : GameInfo){

@@ -98,13 +98,9 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             cell.layoutIfNeeded()
             
             labelFor(cell, 20)?.text = setting_strings[1][indexPath.row]
-
-            if current_language == setting_strings[1][indexPath.row]{
-                cell.accessoryType = .checkmark
-            } else {
-                cell.accessoryType = .none
-            }
-            
+ 
+            cell.accessoryType = setting_strings[1][indexPath.row] ? .checkmark : .none
+    
             return cell
 
         }
@@ -114,19 +110,15 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
     }
     
-    
-    
+   
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == 1 {
             
-            current_language = setting_strings[1][indexPath.row]
+            MemoryControll.setLanguage( indexPath.row )
             
-            Bundle.setLanguage(langCodes[indexPath.row])
-            
-            MemoryControll.saveObject( indexPath.row, key: "current_language")
-
             setTitle()
+            
             tableView.reloadData()
         }
     }

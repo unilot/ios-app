@@ -31,8 +31,13 @@ let kActionStarted      = "game_started"
 let kActionFinishing    = "game_unpublished"
 let kActionCompleted    = "game_finished"
 let kActionUpdate       = "game_updated"
+let kActionProlong      = "game_prolong"
 let kActionUndefined    =  ""
 
+
+let kGameStatusClosed   = 0
+let kGameStatusOpened   = 1
+let kGameStatusSleep    = 2
 
 
 let kTimeForPreperationWait = 3600
@@ -72,13 +77,14 @@ let staticClockNames =
 
 var bonus_titles = ["Дневной","Недельной","Бонусной" ]
 
+var langCodes = ["en","ru"]
+
 var setting_strings = [
     ["Дневной лотерее","Недельной лотерее","Бонусной лотерее"],
     ["English","Русский"]]
 
 var tabbar_strings =   ["Дневная","Недельная","Бонусная","Профайл"]
 
-var langCodes = ["en","ru"]
 
 let kEmpty = ""
 

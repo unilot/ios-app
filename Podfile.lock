@@ -1,27 +1,33 @@
 PODS:
   - Alamofire (4.4.0)
+  - LocalNotificationHelper (2.0)
   - NVActivityIndicatorView (3.6.0)
   - QRCodeReader.swift (7.4.0)
   - SCLAlertView (0.7.0)
   - Splitflap (2.1.0)
   - SwiftySound (0.3.0)
+  - Whisper (4.0.0)
 
 DEPENDENCIES:
   - Alamofire
+  - LocalNotificationHelper
   - NVActivityIndicatorView
   - QRCodeReader.swift
   - SCLAlertView
   - Splitflap
   - SwiftySound
+  - Whisper
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  LocalNotificationHelper: a0ae20a413d1d0dcaa81b125b636e267551b8c26
   NVActivityIndicatorView: c7c1c4300b418bd9ed06459e78d4df859ddbe31f
   QRCodeReader.swift: 759a4320cd9005ecc94abdb4aaf0eb72fcd359d0
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   Splitflap: 9b1f8391a1166a9ecf76dd376c69b3fb0597a1f3
   SwiftySound: 77f0adcc39815b53c6f66cf998b203b121340300
+  Whisper: 08be92623311f8e53201e62e17f6d7b9599a4714
 
-PODFILE CHECKSUM: c093cf17eb9bdc86e759a4d49b63de19471a5844
+PODFILE CHECKSUM: a46f584f8b7c78dc66fe14cd2fdf6445bab9600a
 
 COCOAPODS: 1.3.1

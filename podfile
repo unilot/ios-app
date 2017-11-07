@@ -9,4 +9,6 @@ target 'Unilot' do
     pod 'QRCodeReader.swift'
     pod 'Alamofire'
     pod 'SwiftySound'
+    pod 'Whisper'
+    pod 'LocalNotificationHelper'
 end

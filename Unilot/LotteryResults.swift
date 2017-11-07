@@ -46,32 +46,49 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         titleMain.text = TR("Итоги") + " " + TR(bonus_titles[type]) + " " + TR("лотереи")
         dayTitle.text = getNiceDateFormatString(from: local_current_game.started_at)
         unfortunately.text = TR("К сожалению, вас нет в списке победителей")
-        butHey.text =  TR("Вы автоматически становитесь участником бонусного розыгрыша который состоится через:")
-        endLabel.text = TR("До объявления победителя")
-        days.text = TR("Дней")
         copyButton.setTitle(TR("История розыгрыша"), for: .normal)
         
-        clockTablet.createBody(self)
        // clockTablet.labelMain.frame.origin = CGPoint(x: 0,
          //                                            y: -clockTablet.labelMain.frame.height * 0.35)
         
-        clockTablet.labelMain.font = UIFont(name: kFont_Regular, size: 500)
-        clockTablet.labelMain.adjustsFontSizeToFitWidth = true
-        clockTablet.labelMain.textColor = UIColor.black
-        clockTablet.labelMain.backgroundColor = UIColor.clear
-        clockTablet.isHidden = true
+        setTimersLabel()
         
-        setTimerDetails()
-        startClock()
     }
     
+    
+    func setTimersLabel(){
+        
+        
+        if games_list[kTypeMonth] != nil {
+            butHey.text =  TR("Вы автоматически становитесь участником бонусного розыгрыша который состоится через:")
+            endLabel.text = TR("До объявления победителя")
+            days.text = TR("Дней")
+            
+            clockTablet.createBody(self)
+            clockTablet.labelMain.font = UIFont(name: kFont_Regular, size: 500)
+            clockTablet.labelMain.adjustsFontSizeToFitWidth = true
+            clockTablet.labelMain.textColor = UIColor.black
+            clockTablet.labelMain.backgroundColor = UIColor.clear
+            clockTablet.isHidden = true
+            
+            setTimerDetails()
+            startClock()
+        } else {
+            butHey.text =  TR("Бонусная игра пока не началась")
+            endLabel.text = TR(" ")
+            days.text = TR(" ")
+            
+        }
+
+        
+    }
     
     func setTimerDetails(){
         
         let data = recountTimersData(local_current_game)
         
         if data.2 == -1 {
-            onX()
+//            onX()
         } else {
             clockTablet.initTimer(data.0/(3600*24),data.1/(3600*24))
         }

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>LocalNotificationHelper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>NVActivityIndicatorView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -39,15 +44,40 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Whisper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>06DC018D2DFB54A6058CD429074DEA70</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0851D81EDDBC0B8BAB775E8F0A3A7706</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1C66D62507F5BD869C4CBE74606BDAD9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>314F29AD32856D37A0C2FD1879DE42E9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3EDFE4052B5DE7D509935AC0774CB135</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>55A36A7299DB85E2E6758314D7BC63F4</key>
+		<key>81DBEC220DE9FC79636336AC9B7C4762</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,22 +87,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>891B56D21FE15C762C3AA80037BF02FA</key>
+		<key>9A00552AA76A992609AE17F34515C5C1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8F3D4A9CBE85C86DC996B2BC0EE56B25</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9049F0BC63EF8C2ADA68A3FB20933460</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E45F80AE107273A315AD4315609224E5</key>
+		<key>D05F1F648D4C48C223355EFCD929A9F9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

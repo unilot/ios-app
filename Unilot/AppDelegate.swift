@@ -8,7 +8,7 @@
 
 import UIKit
 import UserNotifications
-
+import LocalNotificationHelper
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,11 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         NotifApp.registerForPushNotifications(application)
-        
-        //0 
-        // removw badge
-        application.applicationIconBadgeNumber = 0;
-
         
         // 1
         // Check if launched from notification
@@ -101,6 +96,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+    // This method will be called when app received push notifications in foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
+    {
+    
+         completionHandler([.alert, .badge, .sound])
+    
+    
+    }
+    
+    
+    // Catching notifications in appdelegate
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+        print("notification - tapped")
+    }
+    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
         
@@ -113,14 +123,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [AnyHashable: Any], completionHandler: @escaping () -> Void) {
-        // 1
         
+        // 1
         let aps = userInfo as! [String: Any]
         
-        NotifApp.parseNotification(aps, isOpened: true)
+        NotifApp.parseNotificationAction(aps, application.applicationState)
         
         completionHandler()
     }
+    
+    // Handling action buttons and notifying where you need with notificationCenter
+    func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, withResponseInfo responseInfo: [AnyHashable : Any], completionHandler: @escaping () -> Void) {
+       
+        open_from_notif = identifier
+         
+        completionHandler()
+    }
+    
     
     //MARK: - device id for pushes
      

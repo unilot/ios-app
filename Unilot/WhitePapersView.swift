@@ -32,9 +32,7 @@ class WhitePapersView : WebCore {
     
     func getAddressForFile() -> URL? {
         
-        let id_lang =   setting_strings[1].index(of: current_language)!
-
-        let file_line =   "UNILOT_\(langCodes[id_lang])"
+        let file_line =   "UNILOT_\(langCodes[current_language_ind])"
         
         return Bundle.main.url(forResource: file_line, withExtension: "pdf", subdirectory: nil, localization: nil)
         

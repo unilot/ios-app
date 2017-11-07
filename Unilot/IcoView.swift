@@ -19,9 +19,7 @@ class IcoView : WebCore {
 
         navigationItem.title = TR("ICO")
         
-        let id_lang =   setting_strings[1].index(of: current_language)!
-        
-        let url_line =   "https://unilot.io/\(langCodes[id_lang])/"
+        let url_line =   "https://unilot.io/\(langCodes[current_language_ind])/"
         
         openPage(url_line)
         

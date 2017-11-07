@@ -131,6 +131,8 @@ class MainViewPositions: TabBarTimersViewCore {
         
         stopAllSchedule()
         
+        openViewsForWinnnerOrLoser()
+
         switch current_game.status {
             
         //  game in progress      // game is caclulating the winner
@@ -165,7 +167,6 @@ class MainViewPositions: TabBarTimersViewCore {
             
             fillWithNoGame()
             
-            openViewsForWinnnerOrLoser()
             
             break
             
@@ -308,7 +309,9 @@ class MainViewPositions: TabBarTimersViewCore {
         if notification_data.count > 0 {
             let itemInit  = notification_data.last!
             let item = NotifApp.parseNotif(itemInit)
-            NetWork.getListWinners(item.game.game_id, completion: onAnswerAfterWinnerList)
+            if item.action == kActionCompleted {
+                NetWork.getListWinners(item.game.game_id, completion: onAnswerAfterWinnerList)
+            }
         }
         
     }
@@ -388,13 +391,13 @@ class MainViewPositions: TabBarTimersViewCore {
     }
     
     
-    override func onNotifRecieved(_ action : String, _ type : Int){
+    override func onNotifRecieved(_ notif : NotifStruct){
 
         playStandart()
 
         // if updeted current game
         
-        if type == current_game.type {
+        if notif.game.type == current_game.type {
             
             fillLocalGameData()
             
@@ -404,7 +407,7 @@ class MainViewPositions: TabBarTimersViewCore {
             
             // if updates neighbor game
             
-            if action != kActionUpdate {
+            if notif.action != kActionUpdate {
                 
                 itemBadge?.setNumberLabel(notification_data.count)
                 
@@ -415,6 +418,11 @@ class MainViewPositions: TabBarTimersViewCore {
          
     }
     
+    func checkForNotifMemory(_ action : String){
+        
+    
+        
+    }
     
     override func countDownFinished(){
         

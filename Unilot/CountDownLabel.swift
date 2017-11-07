@@ -68,8 +68,18 @@ class CountDownLabel: UIImageView  {
         
         updateLabels()
         
+//        fixSizeOfLabel()
+        
         isFull = true
     }
+    
+    func fixSizeOfLabel(){
+        
+        let fontM = labelMain.font
+        labelMain.adjustsFontSizeToFitWidth = false
+        labelMain.font = fontM
+    }
+    
     
     func createBodyTimers(){
         

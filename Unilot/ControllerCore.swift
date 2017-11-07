@@ -12,6 +12,8 @@ import AVFoundation
 import NVActivityIndicatorView
 import SCLAlertView
 import QRCodeReader
+import Whisper
+
  
 class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDelegate {
 
@@ -28,15 +30,31 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         return QRCodeReaderViewController(builder: builder)
     }()
    
-     
-    func onNotifRecieved(_ action : String, _ type : Int){ 
-        
+  
+    func onNotifRecieved(_ notif : NotifStruct){
+  
         playStandart()
+        
+        let message = notif.messages[current_language_ind]
+ 
+        if notif.action == kActionCompleted {
+            
+            let typeId = getTabBarTag(notif.game.type)
 
-        if action != kActionUpdate {
+            let announcement = Announcement(title:message, subtitle: kEmpty, image: UIImage(named: lottery_images[typeId]))
             
-            goToMainView(getTabBarTag())
+            Whisper.show(shout: announcement, to: navigationController, completion: {
+                
+                self.goToMainView(typeId)
+                
+            })
             
+        } else {
+            let message = Message(title: message, backgroundColor: kColorMenuPeach)
+            
+            // Show and hide a message after delay
+            Whisper.show(whisper: message, to: navigationController!, action: .show)
+   
         }
         
     }

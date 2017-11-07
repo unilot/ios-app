@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import UserNotifications
 import SCLAlertView
+import LocalNotificationHelper
 
 
 
@@ -58,18 +59,18 @@ class NotifApp {
             NotificationCenter.default.post(name: Notification.Name(rawValue: "enter_after_start"), object: nil)
         }
     }
-    
+
     
     //MARK: -
     
-    
     static func parseNotification(_ notificationDictionary:[String: Any], isOpened: Bool) {
         
+        playStandart()
         print(notificationDictionary)
          
 //        SCLAlertView().showTitle("NOTIFICATION", subTitle: notificationDictionary.description, style: .info)
  
-        parseNotificationAction( notificationDictionary )
+        parseNotificationAction( notificationDictionary  )
         
     }
     
@@ -91,7 +92,7 @@ class NotifApp {
         
     }
     
-     
+    
     
     //MARK: - NOTIFICATION PARSE
     
@@ -99,51 +100,111 @@ class NotifApp {
         
         let notifItem = NotifStruct()
         
+        notifItem.messages = data["message"] as? [String] ?? []
         notifItem.action = data["action"] as? String ?? kActionUndefined
         
         if let dataDict = data["data"] as? [String : Any] {
             
             notifItem.game = NetWork.createGameItem(from: dataDict)
             
+            
             if notifItem.game.game_id == kEmpty {
                 notifItem.data = dataDict
+            } else {
+                notifItem.notif_id = notifItem.game.game_id + notifItem.action
             }
         }
+        
+
         
         return notifItem
         
     }
     
-    static func parseNotificationAction( _ notificationDictionary : [String : Any] ){
-
+    static func parseNotificationAction( _ notificationDictionary : [String : Any], _ gameStatus : UIApplicationState ){
+        
+        if gameStatus == .in {
+            
+            MemoryControll.init_defaults_if_any()
+        }
+        
+        
+        // parse data from remote notification
         let notifItem = parseNotif(notificationDictionary)
+        
+        
+        // if game id is in notification
+        if notifItem.game.game_id != kEmpty {
+            
+            // if user switched of the notification - do not do anything
+            if notifications_switch[getTabBarTag(notifItem.game.type)] == false {
+                
+                return
+            }
+        }
+        
+        // if we have complete game status - save it and change Badge item
+        if  notifItem.action == kActionCompleted{
+            
+            MemoryControll.saveNewNotif(notificationDictionary)
+            
+            UIApplication.shared.applicationIconBadgeNumber = notification_data.count
+
+        }
+        
+        // do something with these data if app is closed
+        if gameStatus == kGameStatusClosed {
+            
+            let notif_key = notifItem.action + "&" + notifItem.game.game_id + "&" + notifItem.game.type
+            LocalNotificationHelper.sharedInstance().scheduleNotificationWithKey(notif_key,
+                                                                                 title: notifItem.messages[current_language_ind],
+                                                                                 message: kEmpty,
+                                                                                 seconds: 0)
+
+        } else {
+
+            if notifItem.game.game_id != kEmpty {
+                
+                MemoryControll.saveGameMoneyStart ( Int(games_list[local_current_game.type]!.prize_amount_fiat) / 1000, notifItem.game)
+            }
+            
+            // do something with these data if app was launched
+            current_controller_core?.onNotifRecieved(notifItem)
+
+        }
+
+    }
+
+    
+    static func lookAtActionsOfNotif(_ notifItem : NotifStruct){
         
         switch notifItem.action {
             
         //Начало игры:
         case  kActionStarted:
-             
+            
             break
             
         //Завершение приёма заявок и начало определения победител
         case kActionFinishing:
             
             
-            
             break
             
         //Завершение определения победителей:
         case kActionCompleted:
- 
-            notification_data.append( notificationDictionary )
-            MemoryControll.saveObject(notification_data, key: "notifications_app")
-
+            
+            
+            break
+            
+        //Игра продлена изза недостаточного количества игроков:
+        case kActionProlong:
+            
+            
             break
             
         //Отчёт об игре:
         case kActionUpdate:
-            
-
             
             break
             
@@ -153,28 +214,8 @@ class NotifApp {
             return
         }
         
-         
-        if notifItem.game.game_id != kEmpty  {
-            
-            let game_item = games_list[notifItem.game.type]
-            
-            if (game_item != nil) && (game_item!.game_id == notifItem.game.game_id) {
-
-                MemoryControll.saveGameMoneyStart ( Int(games_list[local_current_game.type]!.prize_amount) / 1000, notifItem.game)
-                games_list[local_current_game.type] = notifItem.game
-                local_current_game = notifItem.game
-            
-            }
-
-        }
- 
- 
-        current_controller_core?.onNotifRecieved(notifItem.action, notifItem.game.type)
-        
         
     }
-
-    
     
     
     
@@ -185,6 +226,7 @@ class NotifApp {
         numberOfFakeGamers = numberOfFakeGamers + 1
         
         let fake_data = ["action": kActionCompleted,//kActionFinishing,//kActionUpdate,
+            "message" : ["Game is over", "Игра закончилась"],
                          "data":
         [
             "ending_at" : "2017-11-05T14:00:00Z",
@@ -199,7 +241,7 @@ class NotifApp {
             ]
         
         ] as [String : Any]
-        parseNotificationAction(fake_data)
+        parseNotificationAction(fake_data, kGameStatusOpened)
         
     }
     

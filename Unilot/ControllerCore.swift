@@ -43,7 +43,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
 
             let announcement = Announcement(title:message, subtitle: kEmpty, image: UIImage(named: lottery_images[typeId]))
             
-            Whisper.show(shout: announcement, to: navigationController, completion: {
+            Whisper.show(shout: announcement, to: navigationController!, completion: {
                 
                 self.goToMainView(typeId)
                 

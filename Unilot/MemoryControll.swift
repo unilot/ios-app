@@ -43,6 +43,21 @@ class MemoryControll {
     }
     
     
+    static func getFirstLaunch(){
+        
+        if (getObject("launch_first") as? Int) != nil {
+            
+            open_from_notif = nil
+            
+        } else {
+            
+            open_from_notif = "&&\(kTypeProfile)"
+
+            saveObject(Date().timeIntervalSince1970, key: "launch_first")
+
+        }
+    }
+    
     static func getLanguages(){
         
         if let lang = getObject("current_language") as? Int {
@@ -175,6 +190,8 @@ class MemoryControll {
         
         return  keyFormsTMP + ".Forms." + nameOfVIew
     }
+    
+
     
     
     static func saveNewNotif(_ notificationDictionary : [String : Any] ){

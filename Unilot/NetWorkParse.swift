@@ -128,7 +128,7 @@ class NetWorkParse {
         item.prize_amount_fiat  = data["prize_amount_fiat"] as? Float ?? 0
         item.started_at         = convertDate(from: data["started_at"] as? String)
         item.ending_at          = convertDate(from: data["ending_at"] as? String)
-        item.status             = data["status"] as? Int ?? kTypeUndefined
+        item.status             = data["status"] as? Int ?? kStatusUndefined
         item.type               = data["type"] as? Int ?? local_current_game.type
         
     

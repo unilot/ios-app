@@ -103,7 +103,7 @@ func TR(_ str: String?) -> String{
 
 //MARK: - Games details
 
-func getTabBarTag(_ typeOfGame : String? = nil) -> Int{
+func getTabBarTag(_ typeOfGame : Int? = nil) -> Int{
     
     
     if typeOfGame == nil {

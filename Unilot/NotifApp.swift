@@ -63,14 +63,14 @@ class NotifApp {
     
     //MARK: -
     
-    static func parseNotification(_ notificationDictionary:[String: Any], isOpened: Bool) {
+    static func parseNotification(_ notificationDictionary:[String: Any],_  gameStatus: UIApplicationState) {
         
         playStandart()
         print(notificationDictionary)
          
 //        SCLAlertView().showTitle("NOTIFICATION", subTitle: notificationDictionary.description, style: .info)
  
-        parseNotificationAction( notificationDictionary  )
+        parseNotificationAction( notificationDictionary, gameStatus   )
         
     }
     
@@ -94,7 +94,43 @@ class NotifApp {
     
     
     
+    //MARK: - SOME SMALL STUFF
+    
+    static func getDataFromNotifString(_ idOfData : Int) -> String? {
+        
+        return open_from_notif?.components(separatedBy: "&")[idOfData]
+
+    }
+    
+    
+    static func getElementFromNotif(_ notif_id : String) ->  [String : Any]? {
+        
+        let notif = notification_data.filter({
+            let item = NotifApp.parseNotif($0)
+            return item.notif_id == notif_id
+        }).first
+        
+        return notif
+    }
+    
+    
+    static func saveNewNotifWithoutElement(_ item : [String : Any] ){
+      
+        let compere_item = NotifApp.parseNotif(item)
+        
+        let new_array = notification_data.filter({
+            let item = NotifApp.parseNotif($0)
+            return item.notif_id != compere_item.notif_id
+        })
+        
+        notification_data = new_array
+        MemoryControll.saveObject(new_array, key: "notifications_app")
+        
+    }
+    
+    
     //MARK: - NOTIFICATION PARSE
+
     
     static func parseNotif(_ data : [String : Any]) -> NotifStruct {
         
@@ -111,11 +147,9 @@ class NotifApp {
             if notifItem.game.game_id == kEmpty {
                 notifItem.data = dataDict
             } else {
-                notifItem.notif_id = notifItem.game.game_id + notifItem.action
+                notifItem.notif_id = "\(notifItem.action)&\(notifItem.game.game_id)&\(notifItem.game.type)"
             }
         }
-        
-
         
         return notifItem
         
@@ -123,7 +157,7 @@ class NotifApp {
     
     static func parseNotificationAction( _ notificationDictionary : [String : Any], _ gameStatus : UIApplicationState ){
         
-        if gameStatus == .in {
+        if gameStatus != .active {
             
             MemoryControll.init_defaults_if_any()
         }
@@ -132,16 +166,7 @@ class NotifApp {
         // parse data from remote notification
         let notifItem = parseNotif(notificationDictionary)
         
-        
-        // if game id is in notification
-        if notifItem.game.game_id != kEmpty {
-            
-            // if user switched of the notification - do not do anything
-            if notifications_switch[getTabBarTag(notifItem.game.type)] == false {
-                
-                return
-            }
-        }
+
         
         // if we have complete game status - save it and change Badge item
         if  notifItem.action == kActionCompleted{
@@ -153,20 +178,37 @@ class NotifApp {
         }
         
         // do something with these data if app is closed
-        if gameStatus == kGameStatusClosed {
+        if gameStatus != .active {
+            
+            // if game id is in notification
+            if notifItem.game.game_id != kEmpty {
+                
+                //  check for users settings of switching of notification
+                if notifications_switch[getTabBarTag(notifItem.game.type)] {
 
-            let notif_key = notifItem.action + "&" + notifItem.game.game_id + "&" + notifItem.game.type
-            LocalNotificationHelper.sharedInstance().scheduleNotificationWithKey(notif_key,
-                                                                                 title: notifItem.messages[current_language_ind],
-                                                                                 message: kEmpty,
-                                                                                 seconds: 0)
+                    // send notification from closed app
+                     
+                    
+                    LocalNotificationHelper.sharedInstance().scheduleNotificationWithKey(notifItem.notif_id,
+                                                                                         title: notifItem.messages[current_language_ind],
+                                                                                         message: kEmpty,
+                                                                                         seconds: 0)
+                }
+            }
+            
+            
 
         } else {
 
+            // if game id is in notification
             if notifItem.game.game_id != kEmpty {
                 
+                // save current flipper meanings of money for next smooth animation
                 MemoryControll.saveGameMoneyStart ( Int(games_list[local_current_game.type]!.prize_amount_fiat) / 1000, notifItem.game)
             }
+            
+            
+            open_from_notif = notifItem.notif_id
             
             // do something with these data if app was launched
             current_controller_core?.onNotifRecieved(notifItem)
@@ -241,7 +283,7 @@ class NotifApp {
             ]
         
         ] as [String : Any]
-        parseNotificationAction(fake_data, kGameStatusOpened)
+        parseNotificationAction(fake_data, .active)
         
     }
     

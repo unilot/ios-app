@@ -303,20 +303,7 @@ class MainViewPositions: TabBarTimersViewCore {
     }
     
     //MARK: - connect server
-
-    func openViewsForWinnnerOrLoser(){
-        
-        if notification_data.count > 0 {
-            let itemInit  = notification_data.last!
-            let item = NotifApp.parseNotif(itemInit)
-            if item.action == kActionCompleted {
-                NetWork.getListWinners(item.game.game_id, completion: onAnswerAfterWinnerList)
-            }
-        }
-        
-    }
-    
-    
+ 
     func sendServerCheckForUpdateData(){
         
         showActivityViewIndicator()
@@ -325,6 +312,47 @@ class MainViewPositions: TabBarTimersViewCore {
         
     }
     
+    
+    //MARK: - Notification stuff
+    
+    func openViewsForWinnnerOrLoser(){
+        
+        // check current notification item
+        let game_id = checkNotificationFromLaunch()
+        
+        // clean the flag
+        open_from_notif = nil
+ 
+        
+        if game_id != nil {
+            
+            // will deal only with completed results
+            NetWork.getListWinners(game_id!, completion: onAnswerAfterWinnerList)
+            
+        }
+        
+        
+    }
+    
+    func checkNotificationFromLaunch() -> String? {
+        
+        let game_id = NotifApp.getDataFromNotifString(1)
+        
+        if (open_from_notif != nil) {
+            
+            // search for item in notification memory
+            if let notif = NotifApp.getElementFromNotif(open_from_notif!) {
+                
+                // remove found item from memory
+                NotifApp.saveNewNotifWithoutElement(notif)
+
+                // return the id of game
+                return  game_id
+            }            
+        }
+        
+        return nil
+    }
     
     //MARK: - Answers from outside
     
@@ -397,9 +425,8 @@ class MainViewPositions: TabBarTimersViewCore {
 
         // if updeted current game
         
+
         if notif.game.type == current_game.type {
-            
-            fillLocalGameData()
             
             answerOnInitData()
             
@@ -409,20 +436,15 @@ class MainViewPositions: TabBarTimersViewCore {
             
             if notif.action != kActionUpdate {
                 
-                itemBadge?.setNumberLabel(notification_data.count)
-                
-                tabBarController?.selectedIndex = getTabBarTag()
+                tabBarController?.selectedIndex = getTabBarTag(notif.game.type)
             }
             
         }
          
     }
     
-    func checkForNotifMemory(_ action : String){
-        
+
     
-        
-    }
     
     override func countDownFinished(){
         

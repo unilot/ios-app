@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let notification = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [String: Any] {
             // 2
             
-            NotifApp.parseNotification(notification, isOpened: false)
+            NotifApp.parseNotification(notification, .background)
             
             // 3
         }
@@ -97,6 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // This method will be called when app received push notifications in foreground
+    @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
     {
     
@@ -116,7 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let aps = userInfo as! [String: Any]
         
-        NotifApp.parseNotification(aps, isOpened: true)
+        NotifApp.parseNotification(aps,application.applicationState)
         
         completionHandler(.newData)
         

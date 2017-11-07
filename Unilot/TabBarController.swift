@@ -31,23 +31,6 @@ class TabBarController: UITabBarController  {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
-        if open_from_notif {
-            
-            let notifItem = open_from_notif!.components(separatedBy: "&")[2]
-            
-            selectedIndex = getTabBarTag(notifItem.game.type)
-
-            open_from_notif = nil
-        }
-        
-        
-        
-    }
-    
     
     override func viewDidLoad() {
         
@@ -66,6 +49,9 @@ class TabBarController: UITabBarController  {
         setFon()
 
         setTabBar()
+        
+        switchToTab()
+
     }
     
     
@@ -89,6 +75,23 @@ class TabBarController: UITabBarController  {
         
     }
  
+    
+    func switchToTab(){
+        
+        if open_from_notif != nil {
+            
+            let notif_type = Int(NotifApp.getDataFromNotifString(2)!)
+
+            let notif_status = NotifApp.getDataFromNotifString(0)!
+            
+            if (notif_type == kTypeProfile)  ||  ( notif_status != kActionCompleted ){
+                open_from_notif = nil
+            }
+            
+            selectedIndex = getTabBarTag(notif_type)
+        }
+        
+    }
     
     //MARK: - button
     

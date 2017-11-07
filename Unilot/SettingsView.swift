@@ -99,7 +99,7 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             
             labelFor(cell, 20)?.text = setting_strings[1][indexPath.row]
  
-            cell.accessoryType = setting_strings[1][indexPath.row] ? .checkmark : .none
+            cell.accessoryType = current_language_ind == indexPath.row ? .checkmark : .none
     
             return cell
 

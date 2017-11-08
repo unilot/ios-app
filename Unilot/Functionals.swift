@@ -10,7 +10,7 @@ import AVFoundation
 import SCLAlertView
 import QRCodeReader
 import SwiftySound
-
+ 
 //MARK: - Local Vars
 
 var startWas : Bool = false
@@ -99,6 +99,8 @@ func TR(_ str: String?) -> String{
     return NSLocalizedString(str!,  comment: " ")
     
 }
+
+
 
 
 //MARK: - Games details

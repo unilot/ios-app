@@ -10,6 +10,63 @@ import UIKit
 import UserNotifications
 import LocalNotificationHelper
 
+func sendNotification(_ message : String, _ key_id : String){
+    
+    if #available(iOS 10.0, *) {
+        let content = UNMutableNotificationContent()
+        content.title = message
+        content.body = "text"
+        content.sound = UNNotificationSound.default()
+        let request = UNNotificationRequest(identifier: key_id, content: content, trigger: nil)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: { error in
+            // handle error
+        })
+        
+    } else {
+        
+        // Fallback on earlier versions
+        
+        let notification = UILocalNotification()
+        notification.alertBody = message
+        
+        
+        let fixdate = Date().timeIntervalSince1970 + 5
+        notification.fireDate = Date(timeIntervalSince1970: fixdate)
+        notification.userInfo = ["task_id" : key_id]
+        notification.soundName = UILocalNotificationDefaultSoundName
+        UIApplication.shared.scheduleLocalNotification(notification)
+        
+    }
+
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+ 
+        if UIApplication.shared.applicationState != .active {
+            completionHandler([.alert, .badge, .sound])
+        }
+        
+
+    }
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        
+        if response.actionIdentifier == UNNotificationDefaultActionIdentifier {
+            open_from_notif = response.notification.request.identifier
+        }
+        
+
+        completionHandler()
+    }
+    
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -20,7 +77,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
     
         
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().delegate = self
+        }
         
+
         NotifApp.registerForPushNotifications(application)
         
         // 1
@@ -97,15 +158,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // This method will be called when app received push notifications in foreground
-    @available(iOS 10.0, *)
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
-    {
-    
-         completionHandler([.alert, .badge, .sound])
-    
-    
-    }
-    
+ 
     
     // Catching notifications in appdelegate
     func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
@@ -136,7 +189,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Handling action buttons and notifying where you need with notificationCenter
     func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, withResponseInfo responseInfo: [AnyHashable : Any], completionHandler: @escaping () -> Void) {
        
-        open_from_notif = identifier
+        open_from_notif = responseInfo["task_id"] as? String
          
         completionHandler()
     }

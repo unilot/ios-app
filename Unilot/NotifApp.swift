@@ -98,8 +98,11 @@ class NotifApp {
     
     static func getDataFromNotifString(_ idOfData : Int) -> String? {
         
-        return open_from_notif?.components(separatedBy: "&")[idOfData]
+        if open_from_notif != nil {
+            return open_from_notif!.components(separatedBy: "&")[idOfData]
+        }
 
+        return nil
     }
     
     
@@ -187,13 +190,11 @@ class NotifApp {
                 if notifications_switch[getTabBarTag(notifItem.game.type)] {
 
                     // send notification from closed app
-                     
                     
-                    LocalNotificationHelper.sharedInstance().scheduleNotificationWithKey(notifItem.notif_id,
-                                                                                         title: notifItem.messages[current_language_ind],
-                                                                                         message: kEmpty,
-                                                                                         seconds: 0)
-                }
+                    sendNotification(notifItem.messages[current_language_ind], notifItem.notif_id)
+                    
+                 }
+                
             }
             
             
@@ -203,13 +204,13 @@ class NotifApp {
             // if game id is in notification
             if notifItem.game.game_id != kEmpty {
                 
-                // save current flipper meanings of money for next smooth animation
-                MemoryControll.saveGameMoneyStart ( Int(games_list[local_current_game.type]!.prize_amount_fiat) / 1000, notifItem.game)
+                games_list[notifItem.game.type] = notifItem.game
+
             }
             
             
             open_from_notif = notifItem.notif_id
-            
+
             // do something with these data if app was launched
             current_controller_core?.onNotifRecieved(notifItem)
 
@@ -262,24 +263,34 @@ class NotifApp {
     
     
     static var numberOfFakeGamers: Int = 5
+    
+    static func sendFakeLocalPush(){
+        
+        if #available(iOS 10.0, *) {
+            let timeInterval = 5.0
+            let timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: false, block: { (timer) in
+                sendFakeNotif()
+            })
+        }
 
+    }
     static func sendFakeNotif(){
      
         numberOfFakeGamers = numberOfFakeGamers + 1
         
-        let fake_data = ["action": kActionCompleted,//kActionFinishing,//kActionUpdate,
+        let fake_data = ["action": kActionCompleted,//kActionCompleted,//kActionFinishing,//kActionUpdate,
             "message" : ["Game is over", "Игра закончилась"],
                          "data":
         [
-            "ending_at" : "2017-11-05T14:00:00Z",
-            "id" : 6,
+            "ending_at" : "2017-11-08T08:00:00Z",
+            "id" : 12,
             "num_players" : numberOfFakeGamers,
-            "prize_amount" : 0.021,
-            "prize_amount_fiat" : 5.978490000000001,
-            "smart_contract_id" : "0xb588530e3956d9787b0429244ca360f566ff3301",
-            "started_at" : "2017-10-29T15:00:00Z",
+            "prize_amount" : 0.021 + 0.07 * Float(numberOfFakeGamers),
+            "prize_amount_fiat" : 5.978490000000001 + 0.00007 * Float(numberOfFakeGamers),
+            "smart_contract_id" : "0x677639717d4d6e69a263be77cb31c319a01df6ea",
+            "started_at" : "2017-11-07T08:00:00Z",
             "status" : kStatusComplete,
-            "type": kTypeWeek,
+            "type": kTypeDay,
             ]
         
         ] as [String : Any]

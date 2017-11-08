@@ -197,6 +197,9 @@ class MemoryControll {
     static func saveNewNotif(_ notificationDictionary : [String : Any] ){
 
         notification_data.append( notificationDictionary )
+        
+        UIApplication.shared.applicationIconBadgeNumber = notification_data.count
+
         MemoryControll.saveObject(notification_data, key: "notifications_app")
         
     }

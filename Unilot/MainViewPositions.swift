@@ -76,6 +76,7 @@ class MainViewPositions: TabBarTimersViewCore {
     
     override func onPrizePlaces() {
         
+        
         if imageTrophy.isHidden {
             
             sendServerCheckForUpdateData()
@@ -92,7 +93,9 @@ class MainViewPositions: TabBarTimersViewCore {
 
         playStandart()
         
-        sendServerCheckForUpdateData()
+        NotifApp.sendFakeLocalPush()
+
+//        sendServerCheckForUpdateData()
         
         // fake data
         
@@ -126,6 +129,7 @@ class MainViewPositions: TabBarTimersViewCore {
     
     
     func answerOnInitData(){
+        
         
         itemBadge?.setNumberLabel(notification_data.count)
         
@@ -427,6 +431,11 @@ class MainViewPositions: TabBarTimersViewCore {
         
 
         if notif.game.type == current_game.type {
+             
+            // save current flipper meanings of money for next smooth animation
+            MemoryControll.saveGameMoneyStart ( Int(current_game.prize_amount_fiat) / 1000, notif.game)
+
+            fillLocalGameData()
             
             answerOnInitData()
             

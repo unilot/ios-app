@@ -38,16 +38,19 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         let message = notif.messages[current_language_ind]
  
         if notif.action == kActionCompleted {
-            
+
             let typeId = getTabBarTag(notif.game.type)
 
-            let announcement = Announcement(title:message, subtitle: kEmpty, image: UIImage(named: lottery_images[typeId]))
-            
-            Whisper.show(shout: announcement, to: navigationController!, completion: {
-                
-                self.goToMainView(typeId)
-                
-            })
+            goToMainView(typeId)
+
+//
+//            let announcement = Announcement(title:message, subtitle: kEmpty, image: nil)
+//            
+//            Whisper.show(shout: announcement, to: navigationController!, completion: {
+//                
+//                self.goToMainView(typeId)
+//                
+//            })
             
         } else {
             let message = Message(title: message, backgroundColor: kColorMenuPeach)
@@ -270,6 +273,12 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         navigationController?.popViewController(animated: true)
     }
  
+    func popViewWasClosed(){
+        
+        
+    }
+    
+    
     //MARK: - animateView
  
     func animateAppearance(){

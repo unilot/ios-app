@@ -330,6 +330,8 @@ class MainViewPositions: TabBarTimersViewCore {
         
         if game_id != nil {
             
+            showActivityViewIndicator()
+            
             // will deal only with completed results
             NetWork.getListWinners(game_id!, completion: onAnswerAfterWinnerList)
             
@@ -399,12 +401,17 @@ class MainViewPositions: TabBarTimersViewCore {
     
     
     func onAnswerAfterWinnerList(_ error : String?){
-        
+
+
         if error != nil{
-         
+             
+            sendServerCheckForUpdateData()
+            
             return
         }
         
+        hideActivityViewIndicator()
+
         let my_win_wallets = winners_list.filter({ (item : UserForGame) -> Bool in
             
             return users_account_number.contains(item.user_id)
@@ -461,6 +468,12 @@ class MainViewPositions: TabBarTimersViewCore {
         
     }
     
+    
+    override func popViewWasClosed(){
+        
+        answerOnInitData()
+
+    }
     
     
 

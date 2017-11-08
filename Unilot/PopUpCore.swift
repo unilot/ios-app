@@ -15,6 +15,7 @@ protocol PopUpCoreDelegate {
     func showActivityViewIndicator()
     func hideActivityViewIndicator()
     func showError(_ error : String)
+    func popViewWasClosed()
 
 }
 
@@ -119,6 +120,7 @@ class PopUpCore: UIView  {
             
             self.bigButtonFade?.removeFromSuperview()
             self.bigButtonFade = nil
+            self.delegate?.popViewWasClosed()
             self.removeFromSuperview()
         }
         

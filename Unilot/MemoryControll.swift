@@ -114,6 +114,8 @@ class MemoryControll {
             saveObject(notification_data, key: "notifications_app")
         }
         
+        UIApplication.shared.applicationIconBadgeNumber = notification_data.count
+
     }
     
     static func getObject(_ key: String) -> Any? {

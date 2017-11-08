@@ -14,8 +14,8 @@ func sendNotification(_ message : String, _ key_id : String){
     
     if #available(iOS 10.0, *) {
         let content = UNMutableNotificationContent()
-        content.title = message
-        content.body = "text"
+        content.title = "Unilot"
+        content.body = message
         content.sound = UNNotificationSound.default()
         let request = UNNotificationRequest(identifier: key_id, content: content, trigger: nil)
         

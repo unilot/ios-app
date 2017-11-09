@@ -8,7 +8,8 @@
 
 import UIKit
 import UserNotifications
-import LocalNotificationHelper
+import Firebase
+
 
 func sendNotification(_ message : String, _ key_id : String){
     
@@ -78,7 +79,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         app_is_active = true
  
-        
+        FirebaseApp.configure()
+
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
         }

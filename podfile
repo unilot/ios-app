@@ -11,4 +11,5 @@ target 'Unilot' do
     pod 'SwiftySound'
     pod 'Whisper'
     pod 'LocalNotificationHelper'
+    pod 'Firebase/Core'
 end

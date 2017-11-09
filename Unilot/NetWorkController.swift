@@ -30,6 +30,7 @@ let request_session_data_PROD : Parameters = [
 
 
 
+let kAPI_check_version      = "api/v1/versioncheck"
 let kAPI_get_token          = "o2/token/"
 let kAPI_set_device         = "api/v1/device/"
 let kAPI_get_list_games     = "api/v1/games"
@@ -66,7 +67,7 @@ class NetWork : NetWorkParse {
                 completion(sendToErrorParsAndDataParse(response, parseAuthorisation))
         }
     }
-    
+
     static func postNotifToken(completion: @escaping (String?) -> Void) {
         
         if tokenForNotifications == kEmpty{
@@ -88,14 +89,30 @@ class NetWork : NetWorkParse {
             }
             
         }
-        
-
+ 
     }
     
     
+    static func checkVersion(completion: @escaping (String?) -> Void){
+        
+        let params : Parameters = ["version" : "1.0.0"]
+
+        Alamofire.request(kServer + kAPI_post_notif_token,
+                          method: HTTPMethod.post,
+                          parameters: params,
+                          encoding: JSONEncoding.default,
+                          headers: request_headers)
+            .responseJSON { (response) -> Void in
+                
+                completion(sendToErrorParsAndDataParse(response, checkVersionParse))
+        }
+        
+        
+    }
+    
     static func getGamesList(completion: @escaping (String?) -> Void) {
         
-        Alamofire.request( kServer + kAPI_get_list_games,
+        Alamofire.request( kServer + kAPI_check_version,
                                method : .get,
                                encoding: JSONEncoding.default,
                                headers: request_headers)

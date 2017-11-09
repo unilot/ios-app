@@ -1,5 +1,18 @@
 PODS:
   - Alamofire (4.4.0)
+  - Firebase/Core (3.15.0):
+    - FirebaseAnalytics (= 3.7.0)
+    - FirebaseCore (= 3.5.2)
+  - FirebaseAnalytics (3.7.0):
+    - FirebaseCore (~> 3.5)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseCore (3.5.2):
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseInstanceID (1.0.9)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
   - LocalNotificationHelper (2.0)
   - NVActivityIndicatorView (3.6.0)
   - QRCodeReader.swift (7.4.0)
@@ -10,6 +23,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Firebase/Core
   - LocalNotificationHelper
   - NVActivityIndicatorView
   - QRCodeReader.swift
@@ -20,6 +34,11 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
+  FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
+  FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
+  FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   LocalNotificationHelper: a0ae20a413d1d0dcaa81b125b636e267551b8c26
   NVActivityIndicatorView: c7c1c4300b418bd9ed06459e78d4df859ddbe31f
   QRCodeReader.swift: 759a4320cd9005ecc94abdb4aaf0eb72fcd359d0
@@ -28,6 +47,6 @@ SPEC CHECKSUMS:
   SwiftySound: 77f0adcc39815b53c6f66cf998b203b121340300
   Whisper: 08be92623311f8e53201e62e17f6d7b9599a4714
 
-PODFILE CHECKSUM: a46f584f8b7c78dc66fe14cd2fdf6445bab9600a
+PODFILE CHECKSUM: b4637c452974b995e301178d15e0c1c545ef81a2
 
 COCOAPODS: 1.3.1

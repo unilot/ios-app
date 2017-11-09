@@ -47,6 +47,15 @@ class NetWorkParse {
     }
     
     
+    static func checkVersionParse(_ resultValue : Any) -> String? {
+        
+        guard resultValue is [String: Any] else {
+            return "Wrong json format for checkVersionParse"
+        }
+        
+        return nil
+    }
+    
     static func parseGamesList(_ resultValue : Any) -> String? {
 
         guard let responseJSON = resultValue as? [[String:Any]] else {
@@ -165,6 +174,12 @@ class NetWorkParse {
         return item
     }
 
-
+    
+    
+    static func dev_errorShowed() -> String {
+        
+        return "error"
+    }
+    
     
 }

@@ -157,9 +157,7 @@ class NotifApp {
     }
     
     static func showLocalNotifInApp(withController : UINavigationController , _  notif : NotifStruct){
-        
-        playStandart()
-        
+                
         let lCode = langCodes[current_language_ind]
         let typeId = getTabBarTag(notif.game.type)
 

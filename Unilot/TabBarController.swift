@@ -92,22 +92,7 @@ class TabBarController: UITabBarController  {
         }
         
     }
-    
-    //MARK: - button
-    
-    @IBAction func onInfoBarButton(_ sender: UIBarButtonItem){
-         
-        let viewWithPlaces = InfoView.createInfoView()
-        let frameForView = CGRect(x: 10,
-                                  y: 70,
-                                  width: view.frame.width - 20,
-                                  height: view.frame.height - 140)
-        
-        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: -1)
-        
-        
-    }
-    
+
     
     //MARK: - left
     

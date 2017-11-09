@@ -41,6 +41,8 @@ class PopUpCore: UIView  {
         
         self.layoutIfNeeded()
         
+        self.tag = kTag_PopUp
+        
         directionInSign = directionSign
         
         

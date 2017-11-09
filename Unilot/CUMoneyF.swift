@@ -13,7 +13,10 @@ import Splitflap
 
 class CountUppMoney: CountDownCore  {
     
-    override func initConstants(_ type : Int){
+    
+    func initConstants(_ type : Int, _ delegate_core : CountUppFlippersMoneyDelegate){
+        
+        delegate = delegate_core
         
         if let money = games_list[type]{
             

@@ -25,7 +25,7 @@ weak var current_controller_core : ControllerCore?
 
 class MemoryControll {
     
-    static var lastchangesStr : String = "123459479888"
+    static var lastchangesStr : String = "1234594798888933e"
     
     
     //MARK: - DEFAULTS init
@@ -143,13 +143,19 @@ class MemoryControll {
     }
     
     
-    static func saveGameMoneyStart(_ newMeaning : Int, _ game : GameInfo){
+    static func saveGameMoneyStart(_ newMeaning : Int, _ game_id : String){
         
-        saveObject( newMeaning,  key: "gameTimeLeft" + game.game_id)
+        saveObject( newMeaning,  key: "gameTimeLeft" + game_id)
+
+    }
+    
+    static func getGameMoneyStart(_ game_id : String) -> Int{
         
-        local_current_game = game
-        local_current_game.prize_amount_local  = newMeaning
-        games_list[game.type]?.prize_amount_local = newMeaning
+        if let local_meanings = getObject("gameTimeLeft" + game_id) as? Int {
+            return local_meanings
+        }
+        
+        return 0
     }
     
     //MARK: - memory stuff

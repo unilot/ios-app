@@ -141,24 +141,6 @@ class NetWorkParse {
         item.status             = data["status"] as? Int ?? kStatusUndefined
         item.type               = data["type"] as? Int ?? local_current_game.type
         
-    
-        let keyLine = "gameTimeLeft" + item.game_id
-        
-        if let localPrize = MemoryControll.getObject(keyLine) as? Int {
-            
-            let data_saved = Float(localPrize) / 1000.0
-            
-            if data_saved > item.prize_amount {
-                
-                MemoryControll.removeObject(keyLine)
-                
-            } else {
-                
-                item.prize_amount_local = localPrize
-   
-            }
-         }
-        
         return item
     }
 

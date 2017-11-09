@@ -11,8 +11,15 @@ import UIKit
 import Splitflap
 
 
+protocol CountUppFlippersMoneyDelegate {
+    func countUppMoneyFinished(_ currentTime : Int )
+}
+
 class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
     
+    
+    var delegate : CountUppFlippersMoneyDelegate?
+
     
     var stepCount = 1
 
@@ -68,7 +75,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
         
         timerStep = timerStep + 1
         
-        rotation_speed = min(delay, 0.2)
+        rotation_speed = min(delay, 0.15)
         
         return rotation_speed
         
@@ -182,7 +189,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
     func initTimer(_ from : Int, _ all : Int){
         
         startCounts = all
-        totalCounts = from
+        totalCounts = max(from,totalCounts)
         
         let diff = Double(abs(all - from))
         
@@ -206,8 +213,8 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
             countdownTimer.invalidate()
             countdownTimer = nil
             
-            MemoryControll.saveGameMoneyStart(totalCounts,local_current_game)
-
+            delegate?.countUppMoneyFinished(totalCounts)
+            
         }
     }
 

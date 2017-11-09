@@ -92,6 +92,9 @@ let kEmpty = ""
 
 
 
+//MARK: - TAGS
+let kTag_PopUp        = 6666666
+
 //MARK: - COLORS
 
 let kColorLightGray   =  UIColor(red: 243.0/255.0, green: 243.0/255.0, blue: 243.0/255.0, alpha: 1)

@@ -16,9 +16,7 @@ class MainViewPositions: TabBarTimersViewCore {
     //MARK: - Views Load override
      
     override func viewDidLoad() {
-        
-        current_game.type = kTypeTabBarOrder[tabBarItem.tag]
-        
+                
         super.viewDidLoad()
         
         view.layer.opacity = 0.0
@@ -58,17 +56,19 @@ class MainViewPositions: TabBarTimersViewCore {
         
     }
     
+    
+    //MARK: - APP CLOSED OPENED
+
     override func onUserOpenView(){
-        
-        // save current flipper meanings of money for next smooth animation
-        MemoryControll.saveGameMoneyStart ( Int(current_game.prize_amount) / 1000, current_game)
         
         answerOnInitData()
          
     }
     
     override func onUserCloseView(){
-        
+         
+        super.onUserCloseView()
+
         stopAllSchedule()
         
     }
@@ -112,12 +112,14 @@ class MainViewPositions: TabBarTimersViewCore {
         // if first time opened the view
         if widthProgress == -1 {
             
+            //add info upper button
+            addInfoButton()
+            
             // names of titleMain
             setLotteryName()
             
             //create bodies and fill the text
             fillWithData()
-            
             
             //fix button layer view
             setButtonView()
@@ -241,8 +243,9 @@ class MainViewPositions: TabBarTimersViewCore {
 
         usSum.text = "$ \(current_game.prize_amount_fiat)"
         
-        moneyTablet.initTimer(Int(current_game.prize_amount_local),
-                              Int(current_game.prize_amount * 1000))
+        let start_count = MemoryControll.getGameMoneyStart(current_game.game_id)
+
+        moneyTablet.initTimer(start_count, Int(current_game.prize_amount * 1000))
         
    
 
@@ -406,7 +409,9 @@ class MainViewPositions: TabBarTimersViewCore {
         }
     }
     
+    //MARK: - NOTIFICATION
     
+    // if app was sleeping
     override func onCheckAppNotifRecieved(){
         
         let type_ofNotif = Int(NotifApp.getDataFromNotifString(open_from_notif,2))
@@ -417,6 +422,8 @@ class MainViewPositions: TabBarTimersViewCore {
         
         if type_ofNotif == current_game.type {
             
+            fillLocalGameData()
+            
             answerOnInitData()
             
         } else {
@@ -426,11 +433,11 @@ class MainViewPositions: TabBarTimersViewCore {
         }
     }
     
-    
+    // if app was active
     override func onActiveAppNotifRecieved(_ notif : NotifStruct){
 
-        // if updeted current game
-        
+        // if updated current game
+        playStandart()
 
         if notif.game.type == current_game.type {
 
@@ -441,6 +448,7 @@ class MainViewPositions: TabBarTimersViewCore {
         } else {
             
             // if updates neighbor game
+
             
             if notif.action != kActionUpdate {
                 
@@ -456,6 +464,7 @@ class MainViewPositions: TabBarTimersViewCore {
          
     }
     
+    //MARK: - DELEGATES
     
     override func countDownFinished(){
         

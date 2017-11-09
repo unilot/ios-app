@@ -10,7 +10,7 @@
 import UIKit
 import SCLAlertView
 
-class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate {
+class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate, CountUppFlippersMoneyDelegate {
     
     
     //MARK: -
@@ -54,8 +54,6 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate {
     var widthProgress = CGFloat(-1)
     
     var current_game = GameInfo()
-    
-    
     
     //MARK: -
     
@@ -162,11 +160,17 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate {
 
     }
     
+    func countUppMoneyFinished(_ currentTime : Int ){
+    
+        MemoryControll.saveGameMoneyStart ( currentTime, current_game.game_id)
+
+    }
+    
     //MARK: - override
     
     func addTimersBody(){
         
-        moneyTablet.initConstants(current_game.type)
+        moneyTablet.initConstants(current_game.type, self)
         
         moneyTablet.createBody()
         
@@ -210,6 +214,7 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate {
         
         let viewWithPlaces = InfoView.createInfoView()
         viewWithPlaces.delegate = self
+        pop_up_view = viewWithPlaces
         let frameForView = CGRect(x: 10,
                                   y: 70,
                                   width: view.frame.width - 20,
@@ -224,6 +229,7 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate {
         
         let viewWithPlaces = TotalPrizeFond.createTotalPrizeFond()
         viewWithPlaces.delegate = self
+        pop_up_view = viewWithPlaces
         let frameForView = CGRect(x: 10,
                                   y: 70,
                                   width: view.frame.width - 20,
@@ -242,6 +248,7 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate {
         
         let viewWithPlaces = AgreeToPlay.createAgreeToPlay()
         viewWithPlaces.delegate = self
+        pop_up_view = viewWithPlaces
         let frameForView = CGRect(x: 10,
                                   y: 70,
                                   width: view.frame.width - 20,
@@ -264,6 +271,7 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate {
         
         let viewWithPlaces = LotteryResults.createLotteryResults()
         viewWithPlaces.delegate = self
+
         let frameForView = CGRect(x: 10,
                                   y: 70,
                                   width: view.frame.width - 20,
@@ -421,55 +429,7 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate {
             
         }
     }
-    
-    
-    //MARK: - view
-    
-//    var tapStart : UITouch?
-//    
-//    var  isMovingVieNow = false
-//    var  beginPointView = CGPoint.zero
-//    var  kDirectionPanThreshold = CGFloat(5)
-//
-//
-//    
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        tapStart = touches.first
-//        
-//        let  touch = touches.first!
-//        beginPointView = touch.location(in: self.view)
-//        isMovingVieNow =  false
-//        
-//        super.touchesBegan(touches, with: event)
-//    
-//    }
-    
-    
-//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        
-//        
-//    }
-//    
-//    
-//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        
-//        super.touchesMoved(touches, with: event)
-//        
-//        if ( beginPointView || self.state == UIGestureRecognizerStateFailed)
-//            return
-//        
-//        
-//        let  touch = touches.first
-//        var nowPoint  = touch.location(in: self.view)
-//
-//        if (ABS(nowPoint.x - beginPointView.x) > kDirectionPanThreshold) {
-//            isMovingVieNow = true
-//        }
-//        else
-//            if (ABS(nowPoint.y - beginPointView.y) > kDirectionPanThreshold) {
-//                self.state = UIGestureRecognizerStateFailed
-//            }
-//    }
+ 
 }
 
 

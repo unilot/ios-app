@@ -34,6 +34,7 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         
         view.backgroundColor = UIColor.clear
         
+        addInfoButton()
         
         setBorders()
         
@@ -232,7 +233,7 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
     //MARK: - notifications
 
     override  func onCheckAppNotifRecieved(){
-         
+                
         let type_ofNotif = Int(NotifApp.getDataFromNotifString(open_from_notif, 2))
         
         tabBarController?.selectedIndex = getTabBarTag(type_ofNotif)

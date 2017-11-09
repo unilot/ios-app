@@ -20,6 +20,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     var activityIndicatorView : NVActivityIndicatorView?
     var itemBadge: SpecialItem?
 
+    weak var pop_up_view : PopUpCore?
     
     lazy var readerVC: QRCodeReaderViewController = {
         let builder = QRCodeReaderViewControllerBuilder {
@@ -28,6 +29,8 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         
         return QRCodeReaderViewController(builder: builder)
     }()
+
+    //MARK: - NOTIFICATION
 
     
     func onCheckAppNotifRecieved(){
@@ -40,12 +43,15 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     
     func onActiveAppNotifRecieved(_ notif : NotifStruct){
    
+        playStandart()
+
         if notif.action == kActionCompleted {
  
             goToMainViewFromType(notif.game.type)
 
         } else {
             
+
             NotifApp.showLocalNotifInApp(withController: navigationController!, notif)
              
         }
@@ -53,8 +59,14 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     }
     
     
+    //MARK:  -
+    
     func onUserCloseView(){
-   
+        
+        // hide popUps
+        if let pop_up = view.viewWithTag(kTag_PopUp) as? PopUpCore {
+            pop_up.onX()
+        }
     }
 
     func onUserOpenView(){
@@ -114,6 +126,16 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
  
     }
     
+    func  addInfoButton(){
+        
+        let infoB = UIBarButtonItem(image: UIImage(named:"info2-x3"), style: .plain,
+                                       target: self,
+                                       action: #selector(ControllerCore.onInfoBarButton(_:)) )
+        
+        infoB.tintColor =  kColorLightGray
+        
+        tabBarController?.navigationItem.rightBarButtonItem = infoB
+    }
     
     
     func setBackButton(){
@@ -135,7 +157,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         
     }
 
-    
+
     func addSwipeForMenuOpen(){
 
         if navigationController?.revealViewController() != nil {
@@ -177,6 +199,19 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         navigationController?.popViewController(animated: true)
     }
  
+    
+    @IBAction func onInfoBarButton(_ sender: UIBarButtonItem){
+        
+        let viewWithPlaces = InfoView.createInfoView()
+        pop_up_view = viewWithPlaces
+        let frameForView = CGRect(x: 10,
+                                  y: 70,
+                                  width: view.frame.width - 20,
+                                  height: view.frame.height - 140)
+        
+        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: -1)
+    }
+    
     
     func openHistory(_ sender : PopUpCore){
         

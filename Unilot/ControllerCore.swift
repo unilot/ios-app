@@ -12,7 +12,6 @@ import AVFoundation
 import NVActivityIndicatorView
 import SCLAlertView
 import QRCodeReader
-import Whisper
 
  
 class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDelegate {
@@ -29,42 +28,26 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         
         return QRCodeReaderViewController(builder: builder)
     }()
-   
-  
+
+    
     func onCheckAppNotifRecieved(){
         
-        let type_ofNotif = Int(NotifApp.getDataFromNotifString(open_from_notif,2))
-                
-        goToMainView(getTabBarTag(type_ofNotif))
-    
+        let int_type = Int(NotifApp.getDataFromNotifString(open_from_notif,2))
+        
+        goToMainViewFromType(int_type)
+      
     }
     
     func onActiveAppNotifRecieved(_ notif : NotifStruct){
-        
-        let typeId = getTabBarTag(notif.game.type)
-  
+   
         if notif.action == kActionCompleted {
  
-            goToMainView(typeId)
-            
-        } else {
+            goToMainViewFromType(notif.game.type)
 
+        } else {
             
-            let lCode = langCodes[current_language_ind]
-            
-            let message = notif.messages[lCode]!
-            let title = tabbar_strings[typeId] + " " + TR("лотерея")
-            let image = UIImage(named: lottery_images[typeId] + "-small")
-            
-            Whisper.show(shout: Announcement(title: title, subtitle: message, image: image),
-                         to: navigationController!,
-                         completion: {
-                            
-                            print("over")
-                            
-            })
+            NotifApp.showLocalNotifInApp(withController: navigationController!, notif)
              
-            
         }
         
     }
@@ -160,6 +143,41 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         }
     } 
     
+    
+    //MARK: - Go To Main View
+
+    func goToMainViewFromType(_ type : Int?){
+        
+        let typeId = getTabBarTag(type)
+        
+        goToMainView(typeId)
+    }
+    
+    
+    func goToMainView(_ toTabBar : Int){
+        
+        let navController = self.navigationController!
+        
+        let rootViewController = getVCFromName("SB_TabBarController") as! TabBarController
+        rootViewController.selectedIndex = toTabBar
+        
+        
+        var cntrllrs =   navController.viewControllers
+        cntrllrs.insert(rootViewController, at: 0)
+        
+        navController.setViewControllers(cntrllrs, animated: true)
+        navigationController?.popToViewController(rootViewController, animated: true)
+    }
+    
+    
+    
+    //MARK: - On Functions    
+    
+    func onOpenMenu(){
+        navigationController?.popViewController(animated: true)
+    }
+ 
+    
     func openHistory(_ sender : PopUpCore){
         
         sender.onX()
@@ -170,23 +188,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         
     }
     
-    
-    func goToMainView(_ toTabBar : Int){
-        
-        let navController = self.navigationController!
-         
-        let rootViewController = getVCFromName("SB_TabBarController") as! TabBarController
-        rootViewController.selectedIndex = toTabBar
 
-        
-        var cntrllrs =   navController.viewControllers
-        cntrllrs.insert(rootViewController, at: 0)
-        
-        navController.setViewControllers(cntrllrs, animated: true)
-        navigationController?.popToViewController(rootViewController, animated: true)
-    }
- 
-    
     func onRevealMenu(){
         if revealViewController() != nil {
             revealViewController().revealToggle(nil)
@@ -274,13 +276,10 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         SCLAlertView().showError(" ", subTitle: error)
 
     }
-    //MARK: - onButtons
     
     
-    func onOpenMenu(){
-        navigationController?.popViewController(animated: true)
-    }
- 
+    //MARK: - delegates
+
     func popViewWasClosed(){
         
         

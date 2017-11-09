@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import UserNotifications
 import SCLAlertView
- 
+import Whisper
 
 
 class NotifApp {
@@ -154,6 +154,27 @@ class NotifApp {
         open_from_notif = notif
         current_controller_core?.onCheckAppNotifRecieved()
         
+    }
+    
+    static func showLocalNotifInApp(withController : UINavigationController , _  notif : NotifStruct){
+        
+        playStandart()
+        
+        let lCode = langCodes[current_language_ind]
+        let typeId = getTabBarTag(notif.game.type)
+
+        
+        let message = notif.messages[lCode]!
+        let title = TR(tabbar_strings[typeId]) + " " + TR("лотерея")
+        let image = UIImage(named: lottery_images[typeId] + "-small")
+        
+        Whisper.show(shout: Announcement(title: title, subtitle: message, image: image),
+                     to: withController,
+                     completion: {
+                        
+                        print("over")
+                        
+        })
     }
     
     //MARK: - REMOTE NOTIFICATION

@@ -60,6 +60,9 @@ class MainViewPositions: TabBarTimersViewCore {
     
     override func onUserOpenView(){
         
+        // save current flipper meanings of money for next smooth animation
+        MemoryControll.saveGameMoneyStart ( Int(current_game.prize_amount) / 1000, current_game)
+        
         answerOnInitData()
          
     }
@@ -430,9 +433,6 @@ class MainViewPositions: TabBarTimersViewCore {
         
 
         if notif.game.type == current_game.type {
-             
-            // save current flipper meanings of money for next smooth animation
-            MemoryControll.saveGameMoneyStart ( Int(current_game.prize_amount_fiat) / 1000, notif.game)
 
             fillLocalGameData()
             
@@ -445,15 +445,15 @@ class MainViewPositions: TabBarTimersViewCore {
             if notif.action != kActionUpdate {
                 
                 tabBarController?.selectedIndex = getTabBarTag(notif.game.type)
+            
+            } else {
+
+                NotifApp.showLocalNotifInApp(withController: navigationController!, notif)
+
             }
             
         }
          
-    }
-    
-
-    func notifStuff(){
-        
     }
     
     

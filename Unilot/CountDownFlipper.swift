@@ -16,6 +16,8 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
     
     var stepCount = 1
 
+    var rotation_speed = 0.05
+    
     var comaPlace = Float(1.55)
 
     var flippersCount = 6
@@ -66,7 +68,9 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
         
         timerStep = timerStep + 1
         
-        return min(delay, 0.05)
+        rotation_speed = min(delay, 0.2)
+        
+        return rotation_speed
         
     }
     
@@ -135,15 +139,9 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
     
     
     func changeFlip(_ forPlace: Int, _ labelNewText: String, _ animated : Bool) {
-//        
-//        if let flip = viewWithTag((forPlace + 1 ) * 10000) as? FlippingLabel {
-//            flip.updateWithText( labelNewText )
-//
-//        }
-        
+
         if let flip = viewWithTag((forPlace + 1 ) * 10000) as? Splitflap {
             flip.setText(labelNewText, animated: animated)
-             
         }
         
         
@@ -228,7 +226,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
     }
     
     
-    func updateFlippers(_ units : String, _ animated : Bool = true) {
+    func updateFlippers(_ units : String,  _ animated : Bool = true) {
         
         for i in 0..<flippersCount {
             changeDigit(forPlace: i,  units, animated)
@@ -289,5 +287,11 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
             builder.font            = UIFont(name: kFont_Light, size: 60)
             builder.lineColor       = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
         }
+    }
+    
+    func splitflap(_ splitflap: Splitflap, rotationDurationForFlapAtIndex index: Int) -> Double {
+        
+        return rotation_speed
+    
     }
 }

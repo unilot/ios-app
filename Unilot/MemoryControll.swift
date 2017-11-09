@@ -25,12 +25,10 @@ weak var current_controller_core : ControllerCore?
 
 class MemoryControll {
     
+    static var lastchangesStr : String = "123459479888"
     
-    static var lastchangesStr : String = "firstForTest"
-    static var lastchangesStrOffer : String = "forOffersTMPRRs"
-    static var keyFormsTMP : String = "forOffersTMPRRsu"
-
     
+    //MARK: - DEFAULTS init
     
     static func init_defaults_if_any(){
 
@@ -44,22 +42,7 @@ class MemoryControll {
 
     }
     
-    
-    static func getFirstLaunch(){
-        
-        if (getObject("launch_first") as? Int) != nil {
-            
-            open_from_notif = nil
-            
-        } else {
-            
-            open_from_notif = "&&\(kTypeProfile)"
-
-            saveObject(Date().timeIntervalSince1970, key: "launch_first")
-
-        }
-    }
-    
+  
     static func getLanguages(){
         
         if let lang = getObject("current_language") as? Int {
@@ -77,17 +60,8 @@ class MemoryControll {
             setLanguage(ind)
         }
     }
-    
-    static func setLanguage(_ ind : Int){
-        
-        current_language_ind = ind
-        
-        Bundle.setLanguage(langCodes[current_language_ind])
-            
-        saveObject(current_language_ind, key: "current_language")
-     }
-    
-    
+
+
     static func getNotifSettings(){
         
         if let switchers = getObject("notifications_switch") as? [Bool] {
@@ -117,8 +91,36 @@ class MemoryControll {
         }
         
         UIApplication.shared.applicationIconBadgeNumber = notification_data.count
-
+        
     }
+    
+    //MARK: - App stuff
+
+    
+    static func getFirstLaunch(){
+        
+        if (getObject("launch_first") as? Int) != nil {
+            
+            open_from_notif = nil
+            
+        } else {
+            
+            open_from_notif = "&&\(kTypeProfile)"
+            
+            saveObject(Date().timeIntervalSince1970, key: "launch_first")
+            
+        }
+    }
+    
+    static func setLanguage(_ ind : Int){
+        
+        current_language_ind = ind
+        
+        Bundle.setLanguage(langCodes[current_language_ind])
+        
+        saveObject(current_language_ind, key: "current_language")
+    }
+    
     
     static func setNotificationSaved(){
         
@@ -127,10 +129,35 @@ class MemoryControll {
         UIApplication.shared.applicationIconBadgeNumber = notification_data.count
         
     }
+
+    
+    
+    static func saveNewNotif(_ notificationDictionary : String ){
+        
+        notification_data.append( notificationDictionary )
+        
+        UIApplication.shared.applicationIconBadgeNumber = notification_data.count
+        
+        saveObject(notification_data, key: "notifications_app")
+        
+    }
+    
+    
+    static func saveGameMoneyStart(_ newMeaning : Int, _ game : GameInfo){
+        
+        saveObject( newMeaning,  key: "gameTimeLeft" + game.game_id)
+        
+        local_current_game = game
+        local_current_game.prize_amount_local  = newMeaning
+        games_list[game.type]?.prize_amount_local = newMeaning
+    }
+    
+    //MARK: - memory stuff
+
     
     static func getObject(_ key: String) -> Any? {
         
-        if let numback = UserDefaults.standard.object(forKey: key){
+        if let numback = UserDefaults.standard.object(forKey: key + lastchangesStr){
             
             return  NSKeyedUnarchiver.unarchiveObject(with: numback as! Data)
         }
@@ -142,7 +169,7 @@ class MemoryControll {
     static func saveObject(_ obj: Any, key: String){
         
         UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: obj),
-                                  forKey:key)
+                                  forKey:key + lastchangesStr)
         UserDefaults.standard.synchronize()
         
     }
@@ -150,10 +177,12 @@ class MemoryControll {
     
     static func removeObject(  _ key: String){
         
-        UserDefaults.standard.removeObject(forKey: key)
+        UserDefaults.standard.removeObject(forKey: key + lastchangesStr)
         UserDefaults.standard.synchronize()
         
     }
+    
+    //MARK: - tech stuff
     
     static  func setNewPredicate(){
         
@@ -167,9 +196,9 @@ class MemoryControll {
         
         let date = Date(timeIntervalSinceReferenceDate: 162000)
         
-        lastchangesStrOffer = "PredStart_" + dateFormatter.string(from: date) + "_"
+        lastchangesStr = "PredStart_" + dateFormatter.string(from: date) + "_"
         
-        UserDefaults.standard.set(lastchangesStrOffer, forKey: "PredicateCacheWord")
+        UserDefaults.standard.set(lastchangesStr, forKey: "PredicateCacheWord")
         
         UserDefaults.standard.synchronize()
         
@@ -188,42 +217,6 @@ class MemoryControll {
         
         
     }
-    
-    
-    static  func getTimeStamp() -> String {
-        
-        let timestamp = DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .short)
-        
-        return timestamp
-    }
-    
-    
-    static func keyOfFormsStuff(_ nameOfVIew: String, specLang langSpec : String? = nil) -> String {
-        
-        return  keyFormsTMP + ".Forms." + nameOfVIew
-    }
-    
-    
-    static func saveNewNotif(_ notificationDictionary : String ){
 
-        notification_data.append( notificationDictionary )
-        
-        UIApplication.shared.applicationIconBadgeNumber = notification_data.count
-
-        MemoryControll.saveObject(notification_data, key: "notifications_app")
-        
-    }
-    
-    
-    //mark: - spec
-
-    static func saveGameMoneyStart(_ newMeaning : Int, _ game : GameInfo){
-        
-        MemoryControll.saveObject( newMeaning,  key: "gameTimeLeft" + game.game_id)
-        
-        local_current_game = game
-        local_current_game.prize_amount_local  = newMeaning
-        games_list[game.type]?.prize_amount_local = newMeaning
-    }
 }
 

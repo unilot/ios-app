@@ -64,9 +64,8 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     func onUserCloseView(){
         
         // hide popUps
-        if let pop_up = view.viewWithTag(kTag_PopUp) as? PopUpCore {
-            pop_up.onX()
-        }
+        pop_up_view?.onX(0)
+
     }
 
     func onUserOpenView(){
@@ -215,7 +214,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     
     func openHistory(_ sender : PopUpCore){
         
-        sender.onX()
+        sender.onX(0)
         
         let rootViewController = getVCFromName("SB_Details")
 

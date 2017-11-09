@@ -98,11 +98,11 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
     }
     
     
-    override func onX() {
+    override func onX(_ duration: Double = 0.4) {
         
         clockTablet.endTimer()
         
-        super.onX()
+        super.onX(duration)
         
         
     }

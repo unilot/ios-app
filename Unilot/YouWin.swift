@@ -56,9 +56,9 @@ class YouWin: PopUpCore {
     }
     
     
-    @IBAction override func onX(){
-        
-        UIView.animate(withDuration: 0.4, animations: {
+    @IBAction override func onX(_ duration: Double) {
+ 
+        UIView.animate(withDuration: duration, animations: {
             
             self.layer.opacity = 0.0
             self.bigButtonFade?.layer.opacity = 0.0
@@ -70,6 +70,6 @@ class YouWin: PopUpCore {
             self.removeFromSuperview()
         }
     }
-
+ 
     
 }

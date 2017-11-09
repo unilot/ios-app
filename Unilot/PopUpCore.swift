@@ -104,29 +104,42 @@ class PopUpCore: UIView  {
     }
     
     
-    @IBAction func onX(){
+    @IBAction func onX(_ duration: Double = 0.4){
 
-        let newFarme = CGRect(x: self.frame.origin.x,
-                              y: -directionInSign * self.frame.height,
-                              width:  self.frame.width,
-                              height: self.frame.height)
         
-        
-        UIView.animate(withDuration: 0.4, animations: {
+        if duration > 0.0 {
             
-            self.frame =  newFarme
-            self.layer.opacity = 0.0
-            self.bigButtonFade?.layer.opacity = 0.0
+            let newFarme = CGRect(x: self.frame.origin.x,
+                                  y: -directionInSign * self.frame.height,
+                                  width:  self.frame.width,
+                                  height: self.frame.height)
             
-        }) { (_ animate : Bool) in
             
-            self.bigButtonFade?.removeFromSuperview()
-            self.bigButtonFade = nil
-            self.delegate?.popViewWasClosed()
-            self.removeFromSuperview()
+            
+            UIView.animate(withDuration: 0.4, animations: {
+                
+                self.frame =  newFarme
+                self.layer.opacity = 0.0
+                self.bigButtonFade?.layer.opacity = 0.0
+                
+            }) { (_ animate : Bool) in
+                
+                self.deleteSelf(animated:true)
+
+            }
+            
+        } else {
+            deleteSelf(animated:true)
         }
-        
         
     }
     
+    func deleteSelf(animated : Bool){
+        
+        bigButtonFade?.removeFromSuperview()
+        bigButtonFade = nil
+        delegate?.popViewWasClosed()
+        removeFromSuperview()
+    }
+ 
 }

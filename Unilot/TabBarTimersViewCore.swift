@@ -11,9 +11,7 @@ import UIKit
 import SCLAlertView
 
 class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate, CountUppFlippersMoneyDelegate {
-    
-    
-    //MARK: -
+     
     
     //MARK: - Vars
 

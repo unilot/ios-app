@@ -12,16 +12,20 @@ import SCLAlertView
 
 class MainViewPositions: TabBarTimersViewCore {
     
-    
+
     //MARK: - Views Load override
      
     override func viewDidLoad() {
-                
+        
+        current_game.type = kTypeTabBarOrder[tabBarItem.tag]
+
         super.viewDidLoad()
         
         view.layer.opacity = 0.0
         view.backgroundColor = UIColor.clear
+
         
+
     }
 
     
@@ -96,11 +100,11 @@ class MainViewPositions: TabBarTimersViewCore {
 
         playStandart()
         
-//        sendServerCheckForUpdateData()
+        sendServerCheckForUpdateData()
         
         // fake data
         
-        NotifApp.sendFakeLocalPush()
+//        NotifApp.sendFakeLocalPush()
 
 //        NotifApp.sendFakeNotif()
         

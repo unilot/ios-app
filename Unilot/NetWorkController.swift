@@ -43,7 +43,7 @@ let kAPI_get_game_details   = "api/v1/games/"
 
 let kServer                 =  is_mod_production ? kServerPROD : kServerDEV
 
-let request_session_data    = is_mod_production ? request_session_data_PROD :request_session_data_DEV
+let request_session_data    =  is_mod_production ? request_session_data_PROD :request_session_data_DEV
 
 
 
@@ -56,7 +56,9 @@ var request_headers : HTTPHeaders  = [
 class NetWork : NetWorkParse {
  
     static func startSession(completion: @escaping (String?) -> Void) {
-         
+        
+//        let local_headers : HTTPHeaders  = ["Content-Type" : "application/json" ]
+      
         Alamofire.request(kServer + kAPI_get_token,
                           method: HTTPMethod.post,
                           parameters: request_session_data,
@@ -64,39 +66,21 @@ class NetWork : NetWorkParse {
                           headers: request_headers)
             .responseJSON { (response) -> Void in
                 
-                completion(sendToErrorParsAndDataParse(response, parseAuthorisation))
+                error_or_success(response, parseAuthorisation,completion)
         }
     }
 
     static func postNotifToken(completion: @escaping (String?) -> Void) {
         
-        if tokenForNotifications == kEmpty{
-            
+        guard ( tokenForNotifications != kEmpty)  else {
+           
             completion(nil)
-            
-        } else {
-            
-            let params : Parameters = ["os" : 10, "token" :  tokenForNotifications]
-            
-            Alamofire.request(kServer + kAPI_post_notif_token,
-                              method: HTTPMethod.post,
-                              parameters: params,
-                              encoding: JSONEncoding.default,
-                              headers: request_headers)
-                .responseJSON { (response) -> Void in
-                    
-                    completion(sendToErrorParsAndDataParse(response, parseNotificationToken))
-            }
-            
-        }
- 
-    }
-    
-    
-    static func checkVersion(completion: @escaping (String?) -> Void){
         
-        let params : Parameters = ["version" : "1.0.0"]
-
+            return
+        }
+   
+        let params : Parameters = ["os" : 10, "token" :  tokenForNotifications]
+        
         Alamofire.request(kServer + kAPI_post_notif_token,
                           method: HTTPMethod.post,
                           parameters: params,
@@ -104,7 +88,25 @@ class NetWork : NetWorkParse {
                           headers: request_headers)
             .responseJSON { (response) -> Void in
                 
-                completion(sendToErrorParsAndDataParse(response, checkVersionParse))
+                error_or_success(response, parseNotificationToken,completion)
+        }
+        
+  
+    }
+    
+    
+    static func checkVersion(completion: @escaping (String?) -> Void){
+        
+        let params : Parameters = ["version" : "1.0.0"]
+
+        Alamofire.request(kServer + kAPI_check_version,
+                          method: HTTPMethod.post,
+                          parameters: params,
+                          encoding: JSONEncoding.default,
+                          headers: request_headers)
+            .responseJSON { (response) -> Void in
+                
+                error_or_success(response, checkVersionParse,completion)
         }
         
         
@@ -112,14 +114,14 @@ class NetWork : NetWorkParse {
     
     static func getGamesList(completion: @escaping (String?) -> Void) {
         
-        Alamofire.request( kServer + kAPI_check_version,
+        Alamofire.request( kServer + kAPI_get_list_games,
                                method : .get,
                                encoding: JSONEncoding.default,
                                headers: request_headers)
             
             .responseJSON { (response) -> Void in
                 
-                completion(sendToErrorParsAndDataParse(response, parseGamesList, "list_games"))
+               error_or_success(response, parseGamesList, completion, "list_games")
 
                 
         }
@@ -129,15 +131,14 @@ class NetWork : NetWorkParse {
     
     static func getListWinners(_ gameId : String, completion: @escaping (String?) -> Void) {
         
-        print("local_current_game.game_id ", gameId)
-        Alamofire.request( String(format:kServer + kAPI_get_list_winners, gameId),
+         Alamofire.request( String(format:kServer + kAPI_get_list_winners, gameId),
                            method : .get,
                            encoding: JSONEncoding.default,
                            headers: request_headers)
             
             .responseJSON { (response) -> Void in
                 
-                completion(sendToErrorParsAndDataParse(response, parseWinnersList,"winners_" + gameId))
+                error_or_success(response, parseWinnersList, completion, "winners_" + gameId)
         }
         
     }
@@ -146,6 +147,7 @@ class NetWork : NetWorkParse {
     
     static func getHistoryPage(completion: @escaping (String?) -> Void) {
         
+
         Alamofire.request( kServer + kAPI_get_history,
                            method : .get,
                            encoding: JSONEncoding.default,
@@ -153,7 +155,7 @@ class NetWork : NetWorkParse {
             
             .responseJSON { (response) -> Void in
 
-                completion(sendToErrorParsAndDataParse(response, parseHistoryPage, "history"))
+                error_or_success(response, parseHistoryPage, completion,"history")
         }
         
     }
@@ -169,7 +171,9 @@ class NetWork : NetWorkParse {
             
             .responseJSON { (response) -> Void in
                 
-                completion(sendToErrorParsAndDataParse(response, parseGameDetails, "game_" + gameNumber ))
+                error_or_success(response, parseGameDetails, completion, "game_" + gameNumber)
+ 
+                
         }
         
     }
@@ -177,42 +181,70 @@ class NetWork : NetWorkParse {
     
     //MARK: - ERRORS
     
-    static func sendToErrorParsAndDataParse(
+    static func error_or_success(
                             _ response       : DataResponse<Any>,
-                            _ dataParse      : ((Any?) -> String?),
-                            _ keyForSavings  : String? = nil) -> String? {
+                            _ dataParse      : @escaping ((Any?) -> String?),
+                            _ completion     : @escaping ((String?) -> Void),
+                            _ keyForSavings  : String? = nil) {
         
         print(response)
         
-        guard (response.result.isSuccess) &&  (response.result.value != nil) else {
+        guard (response.response?.statusCode != 401) else {
+          
+            startSession(completion: { (error : String? ) in
+                if error == nil {
+
+                    var oldRequest = response.request!
+                    oldRequest.allHTTPHeaderFields = request_headers
+
+                    Alamofire.request(oldRequest).responseJSON { (response) -> Void in
+                        
+                        error_or_success(response, dataParse, completion, keyForSavings)
+                    
+                    }
+                    
+                } else {
+                    
+                    completion(TR("Ошибка соединения, пожалуйста повторите запрос"))
+
+                }
+            })
+            
+            return
+        }
+        
+        guard (response.result.isSuccess) && (response.result.value != nil) else {
             
             var answer : String? = nil
 
             if response.result.error != nil {
-                answer = response.result.error!.localizedDescription
+                answer = dev_messagesShowed(error : response.result.error!)
             } else {
-                answer = "response.result.value is NULL"
+                answer = dev_messagesShowed(line : "response.result.value is NULL")
             }
             
             if keyForSavings != nil {
                  _ = dataParse( MemoryControll.getObject(keyForSavings!)!)
             }
             
-            return answer
+            completion(answer)
 
+            return
         }
+        
         
         let dataForDetails = response.result.value!
         
-        if keyForSavings != nil {
+         if keyForSavings != nil {
             
             MemoryControll.saveObject(dataForDetails, key: keyForSavings!)
  
         }
         
-        return dataParse(dataForDetails)
-
+        let answer = dataParse(dataForDetails)
         
+        completion(answer)
+
     }
     
 

@@ -10,8 +10,7 @@ import Foundation
 import UIKit
 import UserNotifications
 import SCLAlertView
-import LocalNotificationHelper
-
+ 
 
 
 class NotifApp {

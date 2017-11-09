@@ -7,8 +7,9 @@
 //
 
 import Foundation
- 
- 
+import Firebase
+import Crashlytics
+
 var session_data = [String: Any]()
 
 var games_list = [Int : GameInfo]()
@@ -23,7 +24,7 @@ class NetWorkParse {
     static func parseAuthorisation(_ resultValue : Any) -> String? {
         
         guard let responseJSON = resultValue as? [String: Any] else {
-            return "Wrong json format for parseAuthorisation"
+            return dev_messagesShowed(line : "Authorisation")
         }
         
         session_data = responseJSON
@@ -39,7 +40,7 @@ class NetWorkParse {
     static func parseNotificationToken(_ resultValue : Any) -> String? {
         
         guard resultValue is [String: Any] else {
-            return "Wrong json format for parseNotificationToken"
+            return dev_messagesShowed(line : "NotificationToken")
         }
         
         
@@ -50,7 +51,7 @@ class NetWorkParse {
     static func checkVersionParse(_ resultValue : Any) -> String? {
         
         guard resultValue is [String: Any] else {
-            return "Wrong json format for checkVersionParse"
+            return dev_messagesShowed(line : "checkVersion")
         }
         
         return nil
@@ -59,7 +60,7 @@ class NetWorkParse {
     static func parseGamesList(_ resultValue : Any) -> String? {
 
         guard let responseJSON = resultValue as? [[String:Any]] else {
-            return "Wrong json format for parseGamesList"
+            return dev_messagesShowed(line : "GamesList")
         }
 
         games_list = [:]
@@ -77,7 +78,7 @@ class NetWorkParse {
     static func parseWinnersList(_ resultValue : Any) -> String? {
         
         guard let responseJSON = resultValue as? [[String:Any]] else {
-            return "Wrong json format for parseWinnersList"
+            return dev_messagesShowed(line: "WinnersList")
         }
         
         winners_list = []
@@ -94,7 +95,7 @@ class NetWorkParse {
     static func parseHistoryPage(_ resultValue : Any) -> String? {
 
         guard let responseJSON = resultValue as? [[String:Any]] else {
-            return "Wrong json format for parseHistoryPage"
+            return dev_messagesShowed(line: "HistoryPage")
         }
         
         history_list = []
@@ -112,7 +113,7 @@ class NetWorkParse {
     static func parseGameDetails(_ resultValue : Any) -> String?{
         
         guard let responseJSON = resultValue as? [String:Any] else {
-            return "Wrong json format for parseGameDetails"
+            return dev_messagesShowed(line: "GameDetails")
         }
         
         
@@ -176,9 +177,20 @@ class NetWorkParse {
 
     
     
-    static func dev_errorShowed() -> String {
+    static func dev_messagesShowed(line : String? = nil, description : String? = nil, body : Any? = nil, error: Error? = nil) -> String {
         
-        return "error"
+        if error != nil {
+            Crashlytics.sharedInstance().recordError(error!)
+        }
+         
+        var params = [String : NSObject]()
+        params["function"] = (line ?? kEmpty ) as NSObject
+        params["description"] = (description ?? kEmpty ) as NSObject
+        params["body"] = String(describing: body) as NSObject
+        
+        FIRAnalytics.logEvent(withName: "parse_error", parameters : params)
+ 
+        return TR("Ошибка соединения, пожалуйста повторите запрос")
     }
     
     

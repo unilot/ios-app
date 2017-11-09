@@ -1,6 +1,0 @@
-framework module LocalNotificationHelper {
-  umbrella header "LocalNotificationHelper-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -41,31 +41,30 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     
     func onActiveAppNotifRecieved(_ notif : NotifStruct){
         
-        let lCode = langCodes[current_language_ind]
-
-        let message = notif.messages[lCode]!
- 
+        let typeId = getTabBarTag(notif.game.type)
+  
         if notif.action == kActionCompleted {
-
-            let typeId = getTabBarTag(notif.game.type)
-
+ 
             goToMainView(typeId)
-
-//
-//            let announcement = Announcement(title:message, subtitle: kEmpty, image: nil)
-//            
-//            Whisper.show(shout: announcement, to: navigationController!, completion: {
-//                
-//                self.goToMainView(typeId)
-//                
-//            })
             
         } else {
-            let message = Message(title: message, backgroundColor: kColorMenuPeach)
+
             
-            // Show and hide a message after delay
-            Whisper.show(whisper: message, to: navigationController!, action: .show)
-   
+            let lCode = langCodes[current_language_ind]
+            
+            let message = notif.messages[lCode]!
+            let title = tabbar_strings[typeId] + " " + TR("лотерея")
+            let image = UIImage(named: lottery_images[typeId] + "-small")
+            
+            Whisper.show(shout: Announcement(title: title, subtitle: message, image: image),
+                         to: navigationController!,
+                         completion: {
+                            
+                            print("over")
+                            
+            })
+             
+            
         }
         
     }

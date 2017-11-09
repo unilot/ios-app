@@ -41,7 +41,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         addTouchForKeyBoard()
         
         showActivityViewIndicator()
-        
+         
         NetWork.getListWinners(local_current_game.game_id,completion: onAnswer)
         
     }

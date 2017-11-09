@@ -9,6 +9,7 @@
 import UIKit
 import UserNotifications
 import Firebase
+import Crashlytics
 
 
 func sendNotification(_ message : String, _ key_id : String){
@@ -225,9 +226,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         
         print("Failed to register: ", error.localizedDescription)
-        FirebaseCrash.log("SQL database failed to initialize");
 
-        
+        Crashlytics.sharedInstance().recordError(error)
+
         NotifApp.startAfterAnswerFromRemoteNotifications()
         
     }

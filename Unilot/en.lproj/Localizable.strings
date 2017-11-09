@@ -67,7 +67,6 @@
 "отменена" = "canceled";
 "Номер" = "The number";
 "был сохранен в буфер" = "was saved to clipboard";
-"HDIW" = "HDIW_en";
 "Чтобы принять участие в %@, вам необходимо перечислить %.3f Eth на кошелек, который вы получите нажав на кнопку ниже" =
 "To participate in %@, you need to pay %.3f Eth to the wallet, that you can get by pressing the button";
 "Лотерея заканчивается через" = "The drawing will be over in";
@@ -76,9 +75,6 @@
 "Общий призовой фонд" = "Total jackpot";
 "Призовые\nместа" = "Prize\nplaces";
 "Закрыть" = "Close";
-
-
-
 
 "Поздравляем" = "Congratulations";
 "Вы победили" = "You won!";
@@ -93,12 +89,18 @@
 
 
 "Система\nвыбирает победителя" = "The system is \ncalculating the winner";
-
 "Скорo" = "Soon";
-
 "Презентация" = "Presentation";
-
-
-"game_finished" = "Dialy game is over!";
-
 "Бонусная игра пока не началась" = "Bonus Lottery has not started yet";
+"Скоро начнется ...." = "Will be soon ....";
+"Обновить данные" = "Tap To refresh";
+
+
+"Ошибка соединения, пожалуйста повторите запрос" = "Connection error! Please, try again";
+
+//MARK: -  FILES NAME
+
+"HDIW" = "HDIW_en";
+
+
+

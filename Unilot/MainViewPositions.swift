@@ -198,7 +198,7 @@ class MainViewPositions: TabBarTimersViewCore {
     
     func setLowerButton(goToPrizeOrRefresh : Bool){
 
-        let image_name = goToPrizeOrRefresh ? "Призовые места" : "Tap To refresh"
+        let image_name = goToPrizeOrRefresh ? "Призовые места" : "Обновить данные"
         
         prizePlaces.setTitle(TR(image_name), for: .normal)
         
@@ -210,7 +210,7 @@ class MainViewPositions: TabBarTimersViewCore {
     
     func fillWithNoGame(){
         
-        titlePrize.text = TR("Will be soon ....")
+        titlePrize.text = TR("Скоро начнется ....")
 
         peopleCount.text = "0"
         

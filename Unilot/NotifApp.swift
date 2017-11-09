@@ -272,7 +272,8 @@ class NotifApp {
         
         if #available(iOS 10.0, *) {
             let timeInterval = 5.0
-            let timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: false, block: { (timer) in
+            
+            Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: false, block: { (timer) in
                 sendFakeNotif()
             })
         }

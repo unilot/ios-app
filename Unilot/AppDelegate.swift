@@ -79,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         app_is_active = true
  
-        FirebaseApp.configure()
+        FIRApp.configure()
 
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
@@ -225,7 +225,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         
         print("Failed to register: ", error.localizedDescription)
-                
+        FirebaseCrash.log("SQL database failed to initialize");
+
         
         NotifApp.startAfterAnswerFromRemoteNotifications()
         

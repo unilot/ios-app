@@ -8,6 +8,7 @@
 
  
 
+let is_mod_production          = false
 
 
 //MARK: -  games info
@@ -43,7 +44,7 @@ let kGameStatusSleep    = 2
 
 let kTimeForPreperationWait = 3600
 
-//MARK: -  links
+//MARK: -  LINKS
 
 let kLink_FB = "https://www.facebook.com/unilot.io/"
 let kLink_LinkedIn = "https://www.linkedin.com/company/unilot"
@@ -57,14 +58,13 @@ let kPDF_files = ["https://unilot.io//static/files/UNILOT_ENG.pdf",
 
 
 
-//MARK: -  local data
+//MARK: -  LOCALS
 
 var timeOfFlipperAnimation = 15.0
 
 var lottery_images   = ["`1day-x3","`7days-x3","`31days-x3"]
 var kTypeImage       = [kTypeDay : "`1day-x3", kTypeWeek : "`7days-x3", kTypeMonth : "`31days-x3"]
 var kTypeTabBarOrder = [kTypeDay, kTypeWeek, kTypeMonth, kTypeProfile]
-
 
 let staticClockSecondsStep = [1,60,3600]
 
@@ -74,7 +74,6 @@ let staticClockNames =
         ["Дней","Часа","Минут",],
         ["Недель", "Дней","Часа",]
 ]
-
 
 var bonus_titles = ["Дневной","Недельной","Бонусной" ]
 
@@ -86,8 +85,11 @@ var setting_strings = [
 
 var tabbar_strings =   ["Дневная","Недельная","Бонусная","Профайл"]
 
-
 let kEmpty = ""
+
+
+
+//MARK: - COLORS
 
 let kColorLightGray   =  UIColor(red: 243.0/255.0, green: 243.0/255.0, blue: 243.0/255.0, alpha: 1)
 let kColorNormalGreen =  UIColor(red: 76.0/255.0, green: 215.0/255.0, blue: 100/255.0, alpha: 1)
@@ -99,8 +101,10 @@ let kColorMenuPeach    =  UIColor(red: 255.0/255.0, green: 213.0/255.0, blue: 16
 let kColorBadge =  UIColor(red: 172.0/255.0, green: 41.0/255.0, blue: 74.0/255.0, alpha: 1)
 
 
-let kFont_Bold = "Roboto-Bold"
-let kFont_Light = "Roboto-Light"
-let kFont_Medium = "Roboto-Medium"
-let kFont_Regular = "Roboto-Regular"
-let kFont_Thin = "Roboto-Thin"
+//MARK: - FONTS
+
+let kFont_Bold          = "Roboto-Bold"
+let kFont_Light         = "Roboto-Light"
+let kFont_Medium        = "Roboto-Medium"
+let kFont_Regular       = "Roboto-Regular"
+let kFont_Thin          = "Roboto-Thin"

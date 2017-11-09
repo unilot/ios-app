@@ -9,7 +9,26 @@
 
 import Alamofire
 
-let kServer                 = "https://dev.unilot.io/"
+let kServerDEV                 = "https://dev.unilot.io/"
+let kServerPROD                = "https://api.unilot.io/"
+
+let request_session_data_DEV : Parameters = [
+    "client_id": "PccTjiTN7xXU9PCJRiAzYA2frgKUSEl0scJMTzFb",
+    "client_secret": "2HIDVZRBWIDWUVMnlgH76K6pA3g5vPuAygnTm5P4IbvTkQMymFVCejMRoOkiZkadenWUsiM5OPP8mhREYytAxtzym9ejKj5LVG37z3mgbtrlJ1nMuv3s14sx60AuwwO1",
+    "grant_type" : "client_credentials"
+]
+
+let request_session_data_PROD : Parameters = [
+    "client_id": "ZACP3xcutFCuHYNMQNnYChEWr4xLVuXBWbQRAgw0",
+    "client_secret": "y89eVMS5a4cVQ8YpxAb8r1EhJq2IwKxMyaDu17Rq1Ah8nJPEbKvsuU12b0OVYJtR7Xafyq1VfSFEvN1t5WVHyYCyRPAnOHmQijSLWyUgb9IHbU0pjQPhofq5kobMviFf",
+    "grant_type" : "client_credentials"
+]
+
+
+
+
+
+
 
 let kAPI_get_token          = "o2/token/"
 let kAPI_set_device         = "api/v1/device/"
@@ -20,11 +39,12 @@ let kAPI_post_notif_token   = "api/v1/device/"
 let kAPI_get_game_details   = "api/v1/games/"
 
 
-let request_session_data : Parameters = [
-    "client_id": "PccTjiTN7xXU9PCJRiAzYA2frgKUSEl0scJMTzFb",
-    "client_secret": "2HIDVZRBWIDWUVMnlgH76K6pA3g5vPuAygnTm5P4IbvTkQMymFVCejMRoOkiZkadenWUsiM5OPP8mhREYytAxtzym9ejKj5LVG37z3mgbtrlJ1nMuv3s14sx60AuwwO1",
-    "grant_type" : "client_credentials"
-]
+
+let kServer                 =  is_mod_production ? kServerPROD : kServerDEV
+
+let request_session_data    = is_mod_production ? request_session_data_PROD :request_session_data_DEV
+
+
 
 var request_headers : HTTPHeaders  = [
     "Content-Type" : "application/json"

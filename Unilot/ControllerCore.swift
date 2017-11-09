@@ -31,11 +31,19 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     }()
    
   
-    func onNotifRecieved(_ notif : NotifStruct){
-  
-        playStandart()
+    func onCheckAppNotifRecieved(){
         
-        let message = notif.messages[current_language_ind]
+        let type_ofNotif = Int(NotifApp.getDataFromNotifString(open_from_notif,2))
+                
+        goToMainView(getTabBarTag(type_ofNotif))
+    
+    }
+    
+    func onActiveAppNotifRecieved(_ notif : NotifStruct){
+        
+        let lCode = langCodes[current_language_ind]
+
+        let message = notif.messages[lCode]!
  
         if notif.action == kActionCompleted {
 
@@ -64,11 +72,12 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     
     
     func onUserCloseView(){
-        
+   
     }
 
     func onUserOpenView(){
-        
+
+    
     }
     
     //MARK: override
@@ -175,7 +184,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         cntrllrs.insert(rootViewController, at: 0)
         
         navController.setViewControllers(cntrllrs, animated: true)
-        navigationController?.popViewController(animated: true)
+        navigationController?.popToViewController(rootViewController, animated: true)
     }
  
     

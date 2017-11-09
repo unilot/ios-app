@@ -15,9 +15,11 @@ var users_account_number =  [String]()
 
 var tokenForNotifications = kEmpty
 
-var notification_data = [[String : Any]]()
+var notification_data = [String]()
 
 var open_from_notif : String?
+
+var app_is_active : Bool = false
 
 weak var current_controller_core : ControllerCore?
 
@@ -108,7 +110,7 @@ class MemoryControll {
     
     
     static func getNotificationSaved(){
-        if let data = getObject("notifications_app") as? [[String : Any]] {
+        if let data = getObject("notifications_app") as? [String] {
             notification_data = data
         } else {
             saveObject(notification_data, key: "notifications_app")
@@ -116,6 +118,14 @@ class MemoryControll {
         
         UIApplication.shared.applicationIconBadgeNumber = notification_data.count
 
+    }
+    
+    static func setNotificationSaved(){
+        
+        saveObject(notification_data, key: "notifications_app")
+        
+        UIApplication.shared.applicationIconBadgeNumber = notification_data.count
+        
     }
     
     static func getObject(_ key: String) -> Any? {
@@ -193,10 +203,8 @@ class MemoryControll {
         return  keyFormsTMP + ".Forms." + nameOfVIew
     }
     
-
     
-    
-    static func saveNewNotif(_ notificationDictionary : [String : Any] ){
+    static func saveNewNotif(_ notificationDictionary : String ){
 
         notification_data.append( notificationDictionary )
         

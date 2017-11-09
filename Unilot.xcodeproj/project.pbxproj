@@ -31,6 +31,7 @@
 		D69364D01F5F254400FD0D37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69364CE1F5F254400FD0D37 /* LaunchScreen.storyboard */; };
 		D69364D91F5F328D00FD0D37 /* FlippingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364D71F5F328D00FD0D37 /* FlippingLabel.swift */; };
 		D69364DA1F5F328D00FD0D37 /* MainViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364D81F5F328D00FD0D37 /* MainViews.swift */; };
+		D697091B1FB44B1300A7DC44 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D697091A1FB44B1300A7DC44 /* GoogleService-Info.plist */; };
 		D6BDD9031F7AD1DB00E91FD0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BDD9021F7AD1DB00E91FD0 /* Constants.swift */; };
 		D6BDD9051F7AD1F200E91FD0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BDD9041F7AD1F200E91FD0 /* Extensions.swift */; };
 		D6BDD9081F7AF23400E91FD0 /* CountDownFlipper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BDD9071F7AF23400E91FD0 /* CountDownFlipper.swift */; };
@@ -132,6 +133,7 @@
 		D69364D11F5F254400FD0D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D69364D71F5F328D00FD0D37 /* FlippingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlippingLabel.swift; sourceTree = "<group>"; };
 		D69364D81F5F328D00FD0D37 /* MainViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViews.swift; sourceTree = "<group>"; };
+		D697091A1FB44B1300A7DC44 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Settings/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D6BDD9021F7AD1DB00E91FD0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D6BDD9041F7AD1F200E91FD0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D6BDD9071F7AF23400E91FD0 /* CountDownFlipper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountDownFlipper.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				D6C8B2851FAB4F0600AE05B9 /* Sounds */,
 				D6C6BAAD1F8CD6BF00EC7FE0 /* Roboto font */,
 				D62A31701F7AC06E00275B86 /* Bridging-Header.h */,
+				D697091A1FB44B1300A7DC44 /* GoogleService-Info.plist */,
 				D6DCCD0F1FA4B60F009BD20E /* Unilot.entitlements */,
 				D63F45161F8AC1BE00F69E7F /* Terms.html */,
 				D6DCCD1D1FA4F31C009BD20E /* HDIW_ru.txt */,
@@ -612,6 +615,7 @@
 				D6D3CEB01FA60661000F2FF3 /* win.mp3 in Resources */,
 				D6D3CEB81FA61F3E000F2FF3 /* UNILOT_en.pdf in Resources */,
 				D612BBF71F9536AA002C4647 /* Assets.xcassets in Resources */,
+				D697091B1FB44B1300A7DC44 /* GoogleService-Info.plist in Resources */,
 				D6D3CEB91FA61F3E000F2FF3 /* UNILOT_ru.pdf in Resources */,
 				D612BBFB1F96B48F002C4647 /* LotteryResults.xib in Resources */,
 				D6DCCD181FA4C795009BD20E /* Localizable.strings in Resources */,

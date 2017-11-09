@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>745749654900-ph8iudirr1h5prb1qolk7vhatvbhmr9m.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.745749654900-ph8iudirr1h5prb1qolk7vhatvbhmr9m</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAhr6YOZM4vFJrtepvVzZhpjrMHt1a4fro</string>
+	<key>GCM_SENDER_ID</key>
+	<string>745749654900</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.vovasoft.crowdcharity</string>
+	<key>PROJECT_ID</key>
+	<string>unilot-18a1d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>unilot-18a1d.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:745749654900:ios:fb3787e68a8e56d6</string>
+	<key>DATABASE_URL</key>
+	<string>https://unilot-18a1d.firebaseio.com</string>
+</dict>
+</plist>

@@ -61,18 +61,8 @@ class NotifApp {
     }
 
     
-    //MARK: -
-    
-    static func parseNotification(_ notificationDictionary:[String: Any],_  gameStatus: UIApplicationState) {
-        
-        playStandart()
-        print(notificationDictionary)
-         
-//        SCLAlertView().showTitle("NOTIFICATION", subTitle: notificationDictionary.description, style: .info)
- 
-        parseNotificationAction( notificationDictionary, gameStatus   )
-        
-    }
+
+    //MARK: - stuff
     
     static func cleanLastNotification (){
         
@@ -96,50 +86,49 @@ class NotifApp {
     
     //MARK: - SOME SMALL STUFF
     
-    static func getDataFromNotifString(_ idOfData : Int) -> String? {
+    static func getDataFromNotifString(_ notifStr : String?, _ idOfData : Int) -> String {
         
-        if open_from_notif != nil {
-            return open_from_notif!.components(separatedBy: "&")[idOfData]
+        if notifStr == nil{
+            return "0"
         }
-
+ 
+        let parse_line =  notifStr!.components(separatedBy: "&")[idOfData]
+        
+        if parse_line == kEmpty {
+            return "0"
+        }
+ 
+        return parse_line
+    }
+    
+    
+    static func getIdOfGameIfCompletedInMemory() -> String?{
+        
+        if open_from_notif == nil{
+            return nil
+        }
+        
+        if let ind = notification_data.index(of: open_from_notif!) {
+            
+            // remove found item from memory
+            notification_data.remove(at: ind)
+            MemoryControll.setNotificationSaved()
+            
+            return  getDataFromNotifString(open_from_notif!,1)
+             
+        }
+        
+        
         return nil
-    }
-    
-    
-    static func getElementFromNotif(_ notif_id : String) ->  [String : Any]? {
-        
-        let notif = notification_data.filter({
-            let item = NotifApp.parseNotif($0)
-            return item.notif_id == notif_id
-        }).first
-        
-        return notif
-    }
-    
-    
-    static func saveNewNotifWithoutElement(_ item : [String : Any] ){
-      
-        let compere_item = NotifApp.parseNotif(item)
-        
-        let new_array = notification_data.filter({
-            let item = NotifApp.parseNotif($0)
-            return item.notif_id != compere_item.notif_id
-        })
-        
-        notification_data = new_array
-        MemoryControll.saveObject(new_array, key: "notifications_app")
         
     }
-    
-    
-    //MARK: - NOTIFICATION PARSE
 
     
     static func parseNotif(_ data : [String : Any]) -> NotifStruct {
         
         let notifItem = NotifStruct()
         
-        notifItem.messages = data["message"] as? [String] ?? []
+        notifItem.messages = data["message"] as? [String : String] ?? [:]
         notifItem.action = data["action"] as? String ?? kActionUndefined
         
         if let dataDict = data["data"] as? [String : Any] {
@@ -158,9 +147,26 @@ class NotifApp {
         
     }
     
-    static func parseNotificationAction( _ notificationDictionary : [String : Any], _ gameStatus : UIApplicationState ){
+    //MARK: - LOCAL NOTIFICATION
+    
+    
+    static func gotLocalUserNotifAnswer( _ notif : String){
         
-        if gameStatus != .active {
+        open_from_notif = notif
+        current_controller_core?.onCheckAppNotifRecieved()
+        
+    }
+    
+    //MARK: - REMOTE NOTIFICATION
+    
+    static func parseRemoteNotification( _ notificationDictionary : [String : Any]){
+        
+        print(notificationDictionary)
+        
+//        SCLAlertView().showTitle("NOTIFICATION", subTitle: notificationDictionary.description, style: .info)
+ 
+        
+        if !app_is_active {
             
             MemoryControll.init_defaults_if_any()
         }
@@ -168,20 +174,18 @@ class NotifApp {
         
         // parse data from remote notification
         let notifItem = parseNotif(notificationDictionary)
-        
-
+ 
         
         // if we have complete game status - save it and change Badge item
         if  notifItem.action == kActionCompleted{
             
-            MemoryControll.saveNewNotif(notificationDictionary)
-            
-            UIApplication.shared.applicationIconBadgeNumber = notification_data.count
+            MemoryControll.saveNewNotif(notifItem.notif_id) 
 
         }
         
+        
         // do something with these data if app is closed
-        if gameStatus != .active {
+        if !app_is_active {
             
             // if game id is in notification
             if notifItem.game.game_id != kEmpty {
@@ -190,15 +194,12 @@ class NotifApp {
                 if notifications_switch[getTabBarTag(notifItem.game.type)] {
 
                     // send notification from closed app
-                    
-                    sendNotification(notifItem.messages[current_language_ind], notifItem.notif_id)
+                    let lCode = langCodes[current_language_ind]
+                    sendNotification(notifItem.messages[lCode]!, notifItem.notif_id)
                     
                  }
-                
             }
             
-            
-
         } else {
 
             // if game id is in notification
@@ -212,11 +213,12 @@ class NotifApp {
             open_from_notif = notifItem.notif_id
 
             // do something with these data if app was launched
-            current_controller_core?.onNotifRecieved(notifItem)
+            current_controller_core?.onActiveAppNotifRecieved(notifItem)
 
         }
 
     }
+    
 
     
     static func lookAtActionsOfNotif(_ notifItem : NotifStruct){
@@ -261,6 +263,8 @@ class NotifApp {
     }
     
     
+    //MARK: -
+    //MARK: - FAKE PUSHES
     
     static var numberOfFakeGamers: Int = 5
     
@@ -278,25 +282,28 @@ class NotifApp {
      
         numberOfFakeGamers = numberOfFakeGamers + 1
         
-        let fake_data = ["action": kActionCompleted,//kActionCompleted,//kActionFinishing,//kActionUpdate,
-            "message" : ["Game is over", "Игра закончилась"],
+        let fake_data = ["action": kActionUpdate,//kActionCompleted,//kActionFinishing,//kActionUpdate,
+            "message" : ["en":"Game is over", "ru":"Игра закончилась"],
                          "data":
         [
             "ending_at" : "2017-11-08T08:00:00Z",
             "id" : 12,
             "num_players" : numberOfFakeGamers,
-            "prize_amount" : 0.021 + 0.07 * Float(numberOfFakeGamers),
+            "prize_amount" : 0.021 + 0.04 * Float(numberOfFakeGamers),
             "prize_amount_fiat" : 5.978490000000001 + 0.00007 * Float(numberOfFakeGamers),
             "smart_contract_id" : "0x677639717d4d6e69a263be77cb31c319a01df6ea",
             "started_at" : "2017-11-07T08:00:00Z",
-            "status" : kStatusComplete,
+            "status" : kStatusPublished,
             "type": kTypeDay,
             ]
         
         ] as [String : Any]
-        parseNotificationAction(fake_data, .active)
+        
+        
+        parseRemoteNotification(fake_data)
         
     }
+    
     
     
 }

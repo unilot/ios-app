@@ -46,7 +46,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
  
-        if UIApplication.shared.applicationState != .active {
+        if !app_is_active {
             completionHandler([.alert, .badge, .sound])
         }
         
@@ -57,9 +57,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
         
-        if response.actionIdentifier == UNNotificationDefaultActionIdentifier {
-            open_from_notif = response.notification.request.identifier
-        }
+//        if response.actionIdentifier == UNNotificationDefaultActionIdentifier {
+             NotifApp.gotLocalUserNotifAnswer(response.notification.request.identifier)
+//        }
         
 
         completionHandler()
@@ -76,6 +76,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
     
+        app_is_active = true
+ 
         
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
@@ -86,15 +88,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 1
         // Check if launched from notification
-
-        if let notification = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [String: Any] {
-            // 2
-            
-            NotifApp.parseNotification(notification, .background)
-            
-            // 3
-        }
-        
+//
+//        if let notification = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [String: Any] {
+//            // 2
+//            
+//            NotifApp.parseRemoteNotification(notification, .background)
+//            
+//            // 3
+//        }
+//        
         return true
         
     }
@@ -104,7 +106,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
         
+
         current_controller_core?.onUserCloseView()
+        app_is_active = false
 
     }
 
@@ -116,6 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         current_controller_core?.onUserOpenView()
+        app_is_active = true
 
     }
 
@@ -170,7 +175,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let aps = userInfo as! [String: Any]
         
-        NotifApp.parseNotification(aps,application.applicationState)
+        NotifApp.parseRemoteNotification(aps)
         
         completionHandler(.newData)
         
@@ -181,7 +186,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 1
         let aps = userInfo as! [String: Any]
         
-        NotifApp.parseNotificationAction(aps, application.applicationState)
+        NotifApp.parseRemoteNotification(aps)
         
         completionHandler()
     }
@@ -189,8 +194,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Handling action buttons and notifying where you need with notificationCenter
     func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, withResponseInfo responseInfo: [AnyHashable : Any], completionHandler: @escaping () -> Void) {
        
-        open_from_notif = responseInfo["task_id"] as? String
-         
+
+        // ios <= 9
+        NotifApp.gotLocalUserNotifAnswer(responseInfo["task_id"] as! String)
+        
         completionHandler()
     }
     

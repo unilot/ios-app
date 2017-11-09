@@ -111,7 +111,7 @@ class CountDownFullTimer: CountDownLabel  {
             let minutes = Int(totalUnits) / 60 % 60
             let seconds = Int(totalUnits) % 60
             
-            return String(format:"%02i : %02i : %02i", hours, minutes, seconds)
+            return String(format:" %02i : %02i : %02i ", hours, minutes, seconds)
         }
         
         if timerUpdateDuration == 60 {
@@ -119,7 +119,7 @@ class CountDownFullTimer: CountDownLabel  {
             let hours = Int(totalUnits) / 3600 % 24
             let minutes = Int(totalUnits) / 60 % 60
 
-            return String(format:"%02i : %02i : %02i", days, hours, minutes)
+            return String(format:" %02i : %02i : %02i ", days, hours, minutes)
         }
         
         if timerUpdateDuration == (3600) {
@@ -127,7 +127,7 @@ class CountDownFullTimer: CountDownLabel  {
             let days = Int(totalUnits) / (3600 * 24) / 7
             let hours = Int(totalUnits) / 3600 % 24
             
-            return String(format:"%02i : %02i : %02i", weeks, days, hours )
+            return String(format:" %02i : %02i : %02i ", weeks, days, hours )
         }
     
         return kEmpty

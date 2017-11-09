@@ -80,9 +80,9 @@ class TabBarController: UITabBarController  {
         
         if open_from_notif != nil {
             
-            let notif_type = Int(NotifApp.getDataFromNotifString(2)!)
+            let notif_type = Int(NotifApp.getDataFromNotifString(open_from_notif,2))
 
-            let notif_status = NotifApp.getDataFromNotifString(0)!
+            let notif_status = NotifApp.getDataFromNotifString(open_from_notif,0)
             
             if (notif_type == kTypeProfile)  ||  ( notif_status != kActionCompleted ){
                 open_from_notif = nil

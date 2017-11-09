@@ -72,7 +72,7 @@ class NotifStruct {
     
     var notif_id            : String = kEmpty
     var action              : String = kActionUndefined
-    var messages            : [String] = []
+    var messages            : [String: String] = [:]
     var game                : GameInfo = GameInfo()
     var data                : [String:Any]? = nil
     

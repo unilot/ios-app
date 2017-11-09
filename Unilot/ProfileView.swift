@@ -229,6 +229,16 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         
     }
 
+    //MARK: - notifications
+
+    override  func onCheckAppNotifRecieved(){
+         
+        let type_ofNotif = Int(NotifApp.getDataFromNotifString(open_from_notif, 2))
+        
+        tabBarController?.selectedIndex = getTabBarTag(type_ofNotif)
+        
+    }
+    
     //MARK: - exit
     
     override func onRevealMenu() {

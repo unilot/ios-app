@@ -13,6 +13,12 @@ import SCLAlertView
 class LoadingView : UIViewController, NVActivityIndicatorViewable{
     
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         
         MemoryControll.init_defaults_if_any()

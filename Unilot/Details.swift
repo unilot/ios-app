@@ -45,7 +45,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         addTouchForKeyBoard()
         
         showActivityViewIndicator()
-         
+                
         NetWork.getListWinners(local_current_game.game_id,completion: onAnswer)
         
     }
@@ -121,12 +121,12 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         // create attributed string
 
         
-        let attr1 = [ NSFontAttributeName: UIFont(name: kFont_Regular, size: 15.0)!,
+        let attr1 = [ NSFontAttributeName: UIFont(name: kFont_Regular, size: 12.0)!,
                             NSForegroundColorAttributeName : UIColor.white]
 
         let first_string = NSMutableAttributedString(string:TR("Розыгрыш от") + ": ", attributes: attr1 )
         
-        let attr2 = [ NSFontAttributeName: UIFont(name: kFont_Regular, size: 15.0)!,
+        let attr2 = [ NSFontAttributeName: UIFont(name: kFont_Regular, size: 12.0)!,
                             NSForegroundColorAttributeName : kColorMenuPeach]
         
         let second_string = NSMutableAttributedString(string: date_string,
@@ -210,7 +210,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         if users_account_number.contains( item.user_id) {
             cell.contentView.backgroundColor = kColorLightYellow
         }
-        
+    
         return cell
         
     }

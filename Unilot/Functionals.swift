@@ -153,17 +153,6 @@ func getTextFromFileInfo() -> String? {
 }
 
 
-func getNiceDateFormatString(from timeSec : Int) -> String {
-
-    let currentDate = Date(timeIntervalSince1970: TimeInterval(timeSec))
-    
-//    let formatter
-    let  calendar = NSCalendar.current
-    let components = calendar.dateComponents([.year,.month,.day], from: currentDate)
-    
-    return "\(components.year!).\(components.month!).\(components.day!)"
-}
-
 
 func getNiceFullDateFormatString(from timeSec : Int) -> String {
     
@@ -248,12 +237,37 @@ func setColorForLabel(_ sizeOfView : CGSize, _ text : String) -> UIView{
     return bgView
 }
 
+
+func getNiceDateFormatString(from timeSec : Int) -> String {
+    
+    let currentDate = Date(timeIntervalSince1970: TimeInterval(timeSec))
+    
+    let dateFormatter =  DateFormatter()
+    dateFormatter.locale = Locale(identifier: langCodes[current_language_ind])
+    dateFormatter.dateFormat = "dd MMMM yyyy, EEEE"
+    
+    return dateFormatter.string(from: currentDate)
+    
+    
+}
+
+func getNiceDateFormatShortString(from timeSec : Int) -> String {
+    
+    let currentDate = Date(timeIntervalSince1970: TimeInterval(timeSec))
+    
+    let dateFormatter =  DateFormatter()
+    dateFormatter.locale = Locale(identifier: langCodes[current_language_ind])
+    dateFormatter.dateFormat = "yyyy.MM.dd"
+    
+    return dateFormatter.string(from: currentDate)
+}
+
+
 func convertDate(from isoDate : String?) -> Int {
     
     if isoDate == nil {
         return 0
     }
-    
     
     let dateFormatter =  DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"

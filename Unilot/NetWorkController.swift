@@ -50,7 +50,7 @@ let request_session_data    =  is_mod_production ? request_session_data_PROD :re
 
 var request_headers : HTTPHeaders  = [
     "Content-Type"  : "application/json",
-    "Version"       : current_version,
+    "Api-Version"   : current_version,
 ]
 
 
@@ -203,9 +203,9 @@ class NetWork : NetWorkParse {
             if response.result.error != nil {
                 completion(response.result.error?.localizedDescription)
             }
-
             
-            UIApplication.shared.inputViewController
+            let appDelegate  = UIApplication.shared.delegate as! AppDelegate
+            let viewController = appDelegate.window!.rootViewController
             return
         }
         

@@ -28,7 +28,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
         showActivityViewIndicator()
         
-        NotifApp.cleanNotificationStack()
+//        NotifApp.cleanNotificationStack()
         
         NetWork.getHistoryPage(completion: onAnswer)
      }
@@ -114,11 +114,15 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
         let item = dataForTable[indexPath.row]
         
-        if let img = cell.contentView.viewWithTag(10) as? UIImageView{
+        if let img = cell.contentView.viewWithTag(10) as? SpecialItem{
             img.image = UIImage(named: kTypeImage[item.type]!)
+            img.setCircleMark(item.game_id)
         }
         
-        labelFor(cell, 20)?.text = getNiceDateFormatString(from: item.started_at)
+        
+        
+
+        labelFor(cell, 20)?.text = getNiceDateFormatShortString(from: item.started_at)
  
         let actionLabel  =   labelFor(cell, 30)!
         let statusLabel  =   labelFor(cell, 40)!
@@ -167,9 +171,15 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
         local_current_game = dataForTable[indexPath.row]
         
+        
+        NotifApp.removeNotifWithSameGameId(local_current_game.game_id)
+        
+        tableView.reloadRows(at: [indexPath], with: .fade)
+        
         switch local_current_game.status {
             
         case kStatusComplete:
+            
             onDetails()
 
             

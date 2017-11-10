@@ -51,6 +51,10 @@ class TabBarController: UITabBarController  {
         setTabBar()
         
         switchToTab()
+        
+        
+        // for fake test
+//        notification_data = ["game_finished&8&10","game_finished&5&10","game_finished&6&10","game_finished&9&10"]
 
     }
     

@@ -105,6 +105,19 @@ class CountDownFullTimer: CountDownLabel  {
     
     override func labelFormatted(_ totalUnits: Int) -> String {
         
+        if local_current_game.type == kTypeDay {
+            
+           return  dayParseTime(totalUnits)
+        
+        } else {
+        
+           return  usuallParseTime(totalUnits)
+        
+        }
+    }
+    
+    
+    func usuallParseTime(_ totalUnits: Int) -> String {
         
         if timerUpdateDuration == 1 {
             let hours = Int(totalUnits) / 3600
@@ -118,7 +131,7 @@ class CountDownFullTimer: CountDownLabel  {
             let days = Int(totalUnits) / (3600 * 24)
             let hours = Int(totalUnits) / 3600 % 24
             let minutes = Int(totalUnits) / 60 % 60
-
+            
             return String(format:" %02i : %02i : %02i ", days, hours, minutes)
         }
         
@@ -129,10 +142,19 @@ class CountDownFullTimer: CountDownLabel  {
             
             return String(format:" %02i : %02i : %02i ", weeks, days, hours )
         }
-    
+        
         return kEmpty
     }
     
+    func dayParseTime(_ totalUnits: Int) -> String {
+        
+        let hours = Int(totalUnits) / 3600
+        let minutes = Int(totalUnits) / 60 % 60
+        let seconds = Int(totalUnits) % 60
+        
+        return String(format:" %02i : %02i : %02i ", hours, minutes, seconds)
+        
+    }
     
 }
 

@@ -63,13 +63,12 @@ class NotifApp {
 
     //MARK: - stuff
     
-    static func cleanLastNotification (){
+
+    static func cleanNotification(_ game_id : String){
         
-        if notification_data.count > 0 {
-            notification_data.removeLast()
-        }
+        notification_data.removeAll()
         
-        MemoryControll.saveObject(notification_data, key: "notifications_app")
+        MemoryControll.removeObject("notifications_app")
         
     }
     

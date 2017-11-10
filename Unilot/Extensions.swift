@@ -232,6 +232,7 @@ class SpecialItem : UIImageView {
     
     func addBadge(){
         
+//        sizeDiag = 100
         numberInCircle.layer.cornerRadius = sizeDiag/2
         numberInCircle.clipsToBounds = true
         numberInCircle.backgroundColor = kColorBadge
@@ -247,16 +248,43 @@ class SpecialItem : UIImageView {
         addSubview(numberInCircle)
     }
     
+    func setCircle(){
+        
+        sizeDiag = self.frame.width/2
+        numberInCircle.layer.cornerRadius = sizeDiag/2
+        numberInCircle.clipsToBounds = true
+        numberInCircle.backgroundColor = kColorBadge
+        numberInCircle.frame =  CGRect(x:  self.frame.size.width - sizeDiag/2,
+                                       y:  0 , width: sizeDiag , height: sizeDiag)
+        numberInCircle.isHidden = false
+        numberInCircle.text = kEmpty
+    }
+    
     func setNumberLabel(_ number: Int){
         
         
         if number == 0 {
             numberInCircle.isHidden = true
         } else {
+            setCircle()
             numberInCircle.isHidden = false
             numberInCircle.text = "\(number)"
         }
     }
     
+    
+    func setCircleMark(_ game_id: String){
+        
+        if notification_data.filter({
+            return game_id == NotifApp.getDataFromNotifString($0, 1)
+        
+        }).count > 0 {
+            setCircle()
+        } else {
+           numberInCircle.isHidden = true
+        }
+    
+    }
+
 }
 

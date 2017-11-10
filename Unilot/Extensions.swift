@@ -232,7 +232,7 @@ class SpecialItem : UIImageView {
     
     func addBadge(){
         
-        sizeDiag = frame.height/2
+
         numberInCircle.layer.cornerRadius = sizeDiag/2
         numberInCircle.clipsToBounds = true
         numberInCircle.backgroundColor = kColorBadge
@@ -266,7 +266,6 @@ class SpecialItem : UIImageView {
         if number == 0 {
             numberInCircle.isHidden = true
         } else {
-            setCircle()
             numberInCircle.isHidden = false
             numberInCircle.text = "\(number)"
         }

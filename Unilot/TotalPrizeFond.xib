@@ -126,7 +126,7 @@
                     <color key="tintColor" red="0.43137254899999999" green="0.4039215686" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" image="X-x3"/>
                     <connections>
-                        <action selector="onX" destination="iN0-l3-epB" eventType="touchUpInside" id="f5o-ec-TRv"/>
+                        <action selector="onXbutton" destination="iN0-l3-epB" eventType="touchUpInside" id="pkG-c6-cNa"/>
                     </connections>
                 </button>
             </subviews>

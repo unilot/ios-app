@@ -266,7 +266,7 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate, CountUppFlipp
    
     
     func showYouLost(){
-        
+ 
         let viewWithPlaces = LotteryResults.createLotteryResults()
         viewWithPlaces.delegate = self
 

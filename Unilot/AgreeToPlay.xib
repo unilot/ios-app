@@ -106,7 +106,7 @@
                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="Button" image="X-x3"/>
                     <connections>
-                        <action selector="onX" destination="iN0-l3-epB" eventType="touchUpInside" id="Osf-2D-o8m"/>
+                        <action selector="onXbutton" destination="iN0-l3-epB" eventType="touchUpInside" id="F0m-wA-u89"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12938470238945628937465092809284yr8wer98wugeirk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Nql-Z0-5DR">

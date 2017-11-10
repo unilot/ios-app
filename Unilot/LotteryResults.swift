@@ -58,23 +58,31 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
     
     func setTimersLabel(){
         
+        clockTablet.createBody(self)
+        clockTablet.labelMain.font = UIFont(name: kFont_Regular, size: 500)
+        clockTablet.labelMain.adjustsFontSizeToFitWidth = true
+        clockTablet.labelMain.textColor = UIColor.black
+        clockTablet.labelMain.backgroundColor = UIColor.clear
+        clockTablet.isHidden = true
+        
         
         if games_list[kTypeMonth] != nil {
             butHey.text =  TR("Вы автоматически становитесь участником бонусного розыгрыша который состоится через:")
             endLabel.text = TR("До объявления победителя")
             days.text = TR("Дней")
-            
-            clockTablet.createBody(self)
-            clockTablet.labelMain.font = UIFont(name: kFont_Regular, size: 500)
-            clockTablet.labelMain.adjustsFontSizeToFitWidth = true
-            clockTablet.labelMain.textColor = UIColor.black
-            clockTablet.labelMain.backgroundColor = UIColor.clear
-            clockTablet.isHidden = true
+
             
             setTimerDetails()
             startClock()
+            
         } else {
-            butHey.text =  TR("Бонусная игра пока не началась")
+            clockTablet.frame = CGRect(x: clockTablet.frame.origin.x,
+                                       y: clockTablet.frame.origin.y,
+                                       width: clockTablet.borderWidth, height: 2)
+
+            clockTablet.reloadInputViews()
+            
+            butHey.text =  TR("Бонусная игра пока не началась khkj gkj gk gkjh gkjh gkjhg kjh gkjhg kj jkh kjh g")
             endLabel.text = TR(" ")
             days.text = TR(" ")
             

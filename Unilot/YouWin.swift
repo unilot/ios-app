@@ -54,7 +54,7 @@ class YouWin: PopUpCore {
     @IBAction func onShow(){
         delegate?.openHistory(self)
     }
-    
+
     
     @IBAction override func onX(_ duration: Double) {
  

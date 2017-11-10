@@ -50,7 +50,6 @@
 		D6CFAC851FA7154100A0F045 /* NotifApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CFAC841FA7154100A0F045 /* NotifApp.swift */; };
 		D6D17FC51FA53F6700A74235 /* CDHourL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D17FC41FA53F6700A74235 /* CDHourL.swift */; };
 		D6D1D0E21FA24D8200909551 /* MainBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D1D0E11FA24D8200909551 /* MainBonus.swift */; };
-		D6D1D0E61FA2551D00909551 /* blockClock.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D1D0E51FA2551D00909551 /* blockClock.xib */; };
 		D6D3CEAC1FA5FF94000F2FF3 /* IcoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D3CEAB1FA5FF94000F2FF3 /* IcoView.swift */; };
 		D6D3CEB01FA60661000F2FF3 /* win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D6D3CEAF1FA60661000F2FF3 /* win.mp3 */; };
 		D6D3CEB51FA61DA3000F2FF3 /* WebCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D3CEB41FA61DA3000F2FF3 /* WebCore.swift */; };
@@ -156,7 +155,6 @@
 		D6CFAC941FA7175700A0F045 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6D17FC41FA53F6700A74235 /* CDHourL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDHourL.swift; sourceTree = "<group>"; };
 		D6D1D0E11FA24D8200909551 /* MainBonus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainBonus.swift; sourceTree = "<group>"; };
-		D6D1D0E51FA2551D00909551 /* blockClock.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = blockClock.xib; sourceTree = "<group>"; };
 		D6D3CEAB1FA5FF94000F2FF3 /* IcoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IcoView.swift; sourceTree = "<group>"; };
 		D6D3CEAF1FA60661000F2FF3 /* win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = win.mp3; path = Settings/win.mp3; sourceTree = "<group>"; };
 		D6D3CEB41FA61DA3000F2FF3 /* WebCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebCore.swift; sourceTree = "<group>"; };
@@ -275,7 +273,6 @@
 				D612BBFA1F96B48F002C4647 /* LotteryResults.xib */,
 				D6ED6B371F8F90C100384672 /* InfoView.xib */,
 				D6F460AC1F9D215F0006FA08 /* YouWin.xib */,
-				D6D1D0E51FA2551D00909551 /* blockClock.xib */,
 			);
 			name = StoryBoard;
 			sourceTree = "<group>";
@@ -622,7 +619,6 @@
 				D6DCCD181FA4C795009BD20E /* Localizable.strings in Resources */,
 				D611305F1FA826BE003B30E9 /* usual.mp3 in Resources */,
 				D6C6BAB51F8CD6C000EC7FE0 /* Roboto-Medium.ttf in Resources */,
-				D6D1D0E61FA2551D00909551 /* blockClock.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

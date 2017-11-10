@@ -48,7 +48,7 @@ class PopUpCore: UIView  {
         
         bigButtonFade = UIButton(frame: mainView.frame)
         bigButtonFade!.backgroundColor = UIColor.black
-        bigButtonFade!.addTarget(self, action: #selector(PopUpCore.onX), for: .touchUpInside)
+        bigButtonFade!.addTarget(self, action: #selector(PopUpCore.onX(_:)), for: .touchUpInside)
         bigButtonFade!.layer.opacity = 0.0
         UIApplication.shared.keyWindow?.addSubview(bigButtonFade!)
         
@@ -104,7 +104,14 @@ class PopUpCore: UIView  {
     }
     
     
-    @IBAction func onX(_ duration: Double = 0.4){
+    @IBAction func onXbutton() {
+        
+        onX()
+        
+    }
+    
+    
+    func onX(_ duration: Double = 0.4){
 
         
         if duration > 0.0 {

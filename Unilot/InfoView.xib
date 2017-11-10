@@ -33,7 +33,7 @@
                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="Button" image="X-x3"/>
                     <connections>
-                        <action selector="onX" destination="iN0-l3-epB" eventType="touchUpInside" id="mwz-Bl-Mwo"/>
+                        <action selector="onXbutton" destination="iN0-l3-epB" eventType="touchUpInside" id="tiX-39-8lT"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Окно с разьяснениями" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfn-SP-I9P">

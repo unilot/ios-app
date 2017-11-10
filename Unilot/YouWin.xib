@@ -102,7 +102,7 @@
                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="Button" image="X-x3"/>
                     <connections>
-                        <action selector="onX" destination="iN0-l3-epB" eventType="touchUpInside" id="bpX-ae-pRR"/>
+                        <action selector="onXbutton" destination="iN0-l3-epB" eventType="touchUpInside" id="9Ic-jg-Pwb"/>
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="win" translatesAutoresizingMaskIntoConstraints="NO" id="FWY-cU-RLt">

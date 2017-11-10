@@ -141,9 +141,7 @@ class MainViewPositions: TabBarTimersViewCore {
         itemBadge?.setNumberLabel(notification_data.count)
         
         stopAllSchedule()
-        
-        openViewsForWinnnerOrLoser()
-
+ 
         switch current_game.status {
             
         //  game in progress      // game is caclulating the winner
@@ -178,6 +176,7 @@ class MainViewPositions: TabBarTimersViewCore {
             
             fillWithNoGame()
             
+            openCompletedViewsForWinnnerOrLoser()
             
             break
             
@@ -188,6 +187,7 @@ class MainViewPositions: TabBarTimersViewCore {
         }
         
         
+        openNotifViewsForWinnnerOrLoser()
         
         
     }
@@ -325,25 +325,47 @@ class MainViewPositions: TabBarTimersViewCore {
     }
     
     
+    func sendWinnerListRequest(_ game_id : String){
+        
+        showActivityViewIndicator()
+
+        NetWork.getListWinners(game_id, completion: onAnswerAfterWinnerList)
+    }
+    
     //MARK: - Notification stuff
     
-    func openViewsForWinnnerOrLoser(){
+    func openCompletedViewsForWinnnerOrLoser(){
+
+        // show popups for current completed game
+        if current_game.status == kStatusComplete{
+            
+            NotifApp.removeNotifWithSameGameId(current_game.game_id)
+            
+            current_game.status = kStatusNoGame
+
+            sendWinnerListRequest(current_game.game_id)
+         
+        }
+        
+    }
+
+    func openNotifViewsForWinnnerOrLoser(){
         
         // check current notification item
         if let game_id = NotifApp.getIdOfGameIfCompletedInMemory() {
             
-            showActivityViewIndicator()
-            
-            // will deal only with completed results
-            NetWork.getListWinners(game_id, completion: onAnswerAfterWinnerList)
+            if current_game.game_id != game_id {
+                
+                sendWinnerListRequest(game_id)
+
+            }
             
         }
-         
+        
         // clean the flag
         open_from_notif = nil
         
     }
-    
     
     //MARK: - Answers from outside
      
@@ -400,7 +422,7 @@ class MainViewPositions: TabBarTimersViewCore {
             
             return users_account_number.contains(item.user_id)
         })
-        
+ 
         if my_win_wallets.count > 0 {
             
             for item in my_win_wallets {
@@ -411,6 +433,7 @@ class MainViewPositions: TabBarTimersViewCore {
             
             showYouLost()
         }
+
     }
     
     //MARK: - NOTIFICATION

@@ -101,24 +101,29 @@ class NotifApp {
     }
     
     
+    static func removeNotifWithSameGameId( _ game_id : String){
+
+        let new_filtered = notification_data.filter({
+            return game_id != getDataFromNotifString($0, 1)
+        })
+
+        notification_data = new_filtered
+        
+        MemoryControll.setNotificationSaved()
+
+    }
+    
     static func getIdOfGameIfCompletedInMemory() -> String?{
         
         if open_from_notif == nil{
             return nil
         }
         
-        if let ind = notification_data.index(of: open_from_notif!) {
-            
-            // remove found item from memory
-            notification_data.remove(at: ind)
-            MemoryControll.setNotificationSaved()
-            
-            return  getDataFromNotifString(open_from_notif!,1)
-             
-        }
+        let game_id = getDataFromNotifString(open_from_notif!,1)
         
+        removeNotifWithSameGameId(game_id)
         
-        return nil
+        return game_id
         
     }
 
@@ -170,7 +175,7 @@ class NotifApp {
                      to: withController,
                      completion: {
                         
-                        print("over")
+                        print("showLocalNotifInApp closed ")
                         
         })
     }
@@ -191,6 +196,11 @@ class NotifApp {
         
         
         // parse data from remote notification
+        
+        // fake push
+//        let notifItem = parseNotif(createFakePush())
+        
+        // real code
         let notifItem = parseNotif(notificationDictionary)
  
         
@@ -284,7 +294,6 @@ class NotifApp {
     //MARK: -
     //MARK: - FAKE PUSHES
     
-    static var numberOfFakeGamers: Int = 5
     
     static func sendFakeLocalPush(){
         
@@ -297,32 +306,38 @@ class NotifApp {
         }
 
     }
+    
+    static var numberOfFakeGamers: Int = 5
+    
     static func sendFakeNotif(){
-     
+        
         numberOfFakeGamers = numberOfFakeGamers + 1
         
-        let fake_data = ["action": kActionUpdate,//kActionCompleted,//kActionFinishing,//kActionUpdate,
-            "message" : ["en":"Game is over", "ru":"Игра закончилась"],
-                         "data":
-        [
-            "ending_at" : "2017-11-08T08:00:00Z",
-            "id" : 12,
-            "num_players" : numberOfFakeGamers,
-            "prize_amount" : 0.021 + 0.04 * Float(numberOfFakeGamers),
-            "prize_amount_fiat" : 5.978490000000001 + 0.00007 * Float(numberOfFakeGamers),
-            "smart_contract_id" : "0x677639717d4d6e69a263be77cb31c319a01df6ea",
-            "started_at" : "2017-11-07T08:00:00Z",
-            "status" : kStatusPublished,
-            "type": kTypeDay,
-            ]
-        
-        ] as [String : Any]
-        
-        
-        parseRemoteNotification(fake_data)
+        parseRemoteNotification(createFakePush())
         
     }
     
+    static func createFakePush() -> [String : Any] {
+      
+        return  ["action": kActionCompleted,//kActionCompleted,//kActionFinishing,//kActionUpdate,
+            "message" : ["en":"Game is over", "ru":"Игра закончилась"],
+            "data":
+                [
+                    "ending_at" : "2017-11-07T08:00:00Z",
+                    "id" : 12,
+                    "num_players" : numberOfFakeGamers,
+                    "prize_amount" : 0.021 + 0.04 * Float(numberOfFakeGamers),
+                    "prize_amount_fiat" : 5.978490000000001 + 0.00007 * Float(numberOfFakeGamers),
+                    "smart_contract_id" : "0x677639717d4d6e69a263be77cb31c319a01df6ea",
+                    "started_at" : "2017-11-07T08:00:00Z",
+                    "status" : kStatusComplete,
+                    "type": kTypeDay,
+            ]
+            
+            ] as [String : Any]
+    }
+    
+
     
     
 }

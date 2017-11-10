@@ -11,9 +11,11 @@ import UIKit
 
 class NeedNewVersion : ControllerCore {
 
-    
+    @IBOutlet weak var center_label: UILabel!
     @IBOutlet weak var button: UIButton!
 
+//    SB_NeedNewVersion
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -26,16 +28,24 @@ class NeedNewVersion : ControllerCore {
         
         setTitle()
         
-        title.text = TR("Обновите версию приложения")
-        button.
+        center_label.text = TR("Обновите версию приложения")
         
+        button.setTitle(TR("go to app store"), for: .normal)
+        
+        setFon()
     }
     
     
+    func setFon(){
+        
+        let fon  = create_fon_view(self.view.frame.size)
+        self.view.insertSubview(fon, at: 0)
+        
+    }
     
     @IBAction func onGoToAppStore(){
        
-        
+        openUrlFromApp(kLink_AppStore)
     }
     
     

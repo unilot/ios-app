@@ -136,7 +136,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.23.10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="a21-FW-yFZ">
-                                                    <rect key="frame" x="50" y="12.5" width="68" height="20"/>
+                                                    <rect key="frame" x="50" y="12" width="68" height="20"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -223,7 +223,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unilotmenu-item" translatesAutoresizingMaskIntoConstraints="NO" id="tfJ-7z-Ph0">
                                                     <rect key="frame" x="8" y="8" width="102" height="52"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blockchain based lottery" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjI-NS-q1B">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blockchain-based lottery" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjI-NS-q1B">
                                                     <rect key="frame" x="15" y="60" width="297" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="6mI-3h-SpR"/>
@@ -2429,22 +2429,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_1" translatesAutoresizingMaskIntoConstraints="NO" id="mBg-L0-Mgz">
-                                <rect key="frame" x="-100" y="0.0" width="520" height="568"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoq-KC-jtF">
-                                <rect key="frame" x="41" y="45" width="238" height="209"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="70" translatesAutoresizingMaskIntoConstraints="NO" id="zoq-KC-jtF">
+                                <rect key="frame" x="41" y="55" width="238" height="264"/>
+                                <color key="backgroundColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
+                                <color key="highlightedColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ry-R0-m4h">
                                 <rect key="frame" x="60" y="269" width="200" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="0rp-j0-UtP"/>
                                     <constraint firstAttribute="height" constant="30" id="KM9-YO-MLz"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.94901960780000005" green="0.32156862749999998" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onGoToAppStore" destination="wS1-iF-ljG" eventType="touchUpInside" id="1qx-X1-coG"/>
                                 </connections>
@@ -2452,18 +2470,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1Ry-R0-m4h" firstAttribute="top" secondItem="zoq-KC-jtF" secondAttribute="bottom" constant="15" id="E2g-V6-HYQ"/>
-                            <constraint firstItem="zoq-KC-jtF" firstAttribute="top" secondItem="Bhr-Fy-GS8" secondAttribute="bottom" constant="25" id="IbX-wv-F9O"/>
-                            <constraint firstAttribute="trailing" secondItem="mBg-L0-Mgz" secondAttribute="trailing" constant="-100" id="Np7-vg-LeK"/>
-                            <constraint firstItem="mBg-L0-Mgz" firstAttribute="leading" secondItem="905-8m-Irb" secondAttribute="leading" constant="-100" id="TdF-mU-lYO"/>
+                            <constraint firstItem="zoq-KC-jtF" firstAttribute="top" secondItem="Bhr-Fy-GS8" secondAttribute="bottom" constant="35" id="IbX-wv-F9O"/>
                             <constraint firstItem="zoq-KC-jtF" firstAttribute="leading" secondItem="905-8m-Irb" secondAttribute="leadingMargin" constant="25" id="VbV-LZ-c8v"/>
                             <constraint firstItem="1Ry-R0-m4h" firstAttribute="centerX" secondItem="zoq-KC-jtF" secondAttribute="centerX" id="cFV-KV-Jk5"/>
-                            <constraint firstItem="mBg-L0-Mgz" firstAttribute="top" secondItem="905-8m-Irb" secondAttribute="top" id="eg7-7S-qNq"/>
-                            <constraint firstAttribute="bottom" secondItem="mBg-L0-Mgz" secondAttribute="bottom" id="mL2-FD-uYV"/>
                             <constraint firstItem="1Ry-R0-m4h" firstAttribute="centerY" secondItem="905-8m-Irb" secondAttribute="centerY" id="rkl-C2-pRA"/>
+                            <constraint firstItem="1Ry-R0-m4h" firstAttribute="bottom" secondItem="zoq-KC-jtF" secondAttribute="bottom" constant="-20" id="wZc-E1-FJ0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zoq-KC-jtF" secondAttribute="trailing" constant="25" id="xcC-wC-gjd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="button" destination="1Ry-R0-m4h" id="xpL-RC-fLs"/>
+                        <outlet property="center_label" destination="zoq-KC-jtF" id="vvV-ri-BRD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t4J-D6-eru" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

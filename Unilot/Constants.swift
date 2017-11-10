@@ -55,6 +55,9 @@ let kLink_Reddit = "https://www.reddit.com/user/unilot_lottery/"
 let kLink_Twitter = "https://twitter.com/unilot_lottery"
 let kLink_Telegram = "https://t.me/unilot_channel"
 
+let kLink_AppStore = "itms://itunes.apple.com/de/app/x-gift/id839686104?mt=8&uo=4"
+
+
 
 let kPDF_files = ["https://unilot.io//static/files/UNILOT_ENG.pdf",
                   "https://unilot.io//static/files/UNILOT_RUS.pdf"]

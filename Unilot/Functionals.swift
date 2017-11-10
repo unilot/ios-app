@@ -284,7 +284,7 @@ func openUrlFromApp(_ path : String ){
     
     if UIApplication.shared.canOpenURL(url!) {
         if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+           
             UIApplication.shared.open(url!, options: [:], completionHandler: { (success) in
                 print("Open url : \(success)")
             })

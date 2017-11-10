@@ -205,7 +205,7 @@ class NetWork : NetWorkParse {
             }
 
             
-            UIApplicatio
+            UIApplication.shared.inputViewController
             return
         }
         

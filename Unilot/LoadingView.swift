@@ -128,8 +128,13 @@ class LoadingView : UIViewController, NVActivityIndicatorViewable{
     
     
 
-    //MARK: - SCLAlertView
+    //MARK: - End Of Version screen
     
+    
+    
+    func onScreenNow(){
+        
+    }
     
     
 }

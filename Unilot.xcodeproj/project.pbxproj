@@ -25,6 +25,7 @@
 		D6632ED61F8C9C4100EC18C9 /* HowDoesItWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6632ED51F8C9C4100EC18C9 /* HowDoesItWork.swift */; };
 		D6632ED81F8C9C6800EC18C9 /* TextViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6632ED71F8C9C6800EC18C9 /* TextViewCore.swift */; };
 		D66878B81F84D9CF0096FB3F /* AgreeToPlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66878B71F84D9CF0096FB3F /* AgreeToPlay.xib */; };
+		D679F1441FB5BA5400AE27DF /* NeedNewVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F1431FB5BA5400AE27DF /* NeedNewVersion.swift */; };
 		D685E9A41F8D59500056C9C8 /* CountDownLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D685E9A31F8D59500056C9C8 /* CountDownLabel.swift */; };
 		D69364C41F5F254400FD0D37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364C31F5F254400FD0D37 /* AppDelegate.swift */; };
 		D69364CB1F5F254400FD0D37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69364C91F5F254400FD0D37 /* Main.storyboard */; };
@@ -124,6 +125,7 @@
 		D6632ED51F8C9C4100EC18C9 /* HowDoesItWork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowDoesItWork.swift; sourceTree = "<group>"; };
 		D6632ED71F8C9C6800EC18C9 /* TextViewCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewCore.swift; sourceTree = "<group>"; };
 		D66878B71F84D9CF0096FB3F /* AgreeToPlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgreeToPlay.xib; sourceTree = "<group>"; };
+		D679F1431FB5BA5400AE27DF /* NeedNewVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedNewVersion.swift; sourceTree = "<group>"; };
 		D685E9A31F8D59500056C9C8 /* CountDownLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountDownLabel.swift; sourceTree = "<group>"; };
 		D69364C01F5F254400FD0D37 /* Unilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unilot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D69364C31F5F254400FD0D37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				D6E2BF681F8FF4BE002D28F2 /* LoadingView.swift */,
+				D679F1431FB5BA5400AE27DF /* NeedNewVersion.swift */,
 				D6F1E1691F7D7B0C0098B34C /* MenuLeft.swift */,
 				D69364D81F5F328D00FD0D37 /* MainViews.swift */,
 				D6D1D0E11FA24D8200909551 /* MainBonus.swift */,
@@ -721,6 +724,7 @@
 				D6ED6B361F8F90B200384672 /* InfoView.swift in Sources */,
 				D6F1E1911F7E55130098B34C /* DropDownListView.m in Sources */,
 				D6F1E1961F7E55130098B34C /* JSRuleLength.m in Sources */,
+				D679F1441FB5BA5400AE27DF /* NeedNewVersion.swift in Sources */,
 				D6F1E18E1F7E55130098B34C /* NSError+JSHelper.m in Sources */,
 				D612BBF91F96B450002C4647 /* LotteryResults.swift in Sources */,
 				D6632ED61F8C9C4100EC18C9 /* HowDoesItWork.swift in Sources */,

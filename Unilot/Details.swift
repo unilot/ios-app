@@ -19,6 +19,10 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
     @IBOutlet weak var searchMain: UISearchBar!
   
     
+    @IBOutlet weak var t_jackpot: UILabel!
+    @IBOutlet weak var t_users: UILabel!
+    @IBOutlet weak var t_winners: UILabel!
+
     @IBOutlet weak var eth: UILabel!
     @IBOutlet weak var users: UILabel!
     @IBOutlet weak var winners: UILabel!
@@ -74,6 +78,10 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
     }
     
     override func setTitle(){
+        
+        t_jackpot.text = TR("ДЖЕКПОТ")
+        t_users.text = TR("УЧАСТНИКОВ")
+        t_winners.text = TR("ПОБЕДИТЕЛЕЙ")
         
         
         // fill data in title

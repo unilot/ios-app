@@ -7,6 +7,7 @@
 //
 
 
+import UIKit
 import Alamofire
  
 let kServerDEV                 = "https://dev.unilot.io/"
@@ -49,7 +50,7 @@ let request_session_data    =  is_mod_production ? request_session_data_PROD :re
 
 var request_headers : HTTPHeaders  = [
     "Content-Type"  : "application/json",
-    "version"       : current_version,
+    "Version"       : current_version,
 ]
 
 
@@ -203,6 +204,8 @@ class NetWork : NetWorkParse {
                 completion(response.result.error?.localizedDescription)
             }
 
+            
+            UIApplicatio
             return
         }
         

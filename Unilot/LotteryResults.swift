@@ -82,7 +82,7 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
 
             clockTablet.reloadInputViews()
             
-            butHey.text =  TR("Бонусная игра пока не началась khkj gkj gk gkjh gkjh gkjhg kjh gkjhg kj jkh kjh g")
+            butHey.text =  TR("Так как вы не зарегистрировали ваш кошелек, ваш статус незвестен.\nпроверьте историю розыгрыша")
             endLabel.text = TR(" ")
             days.text = TR(" ")
             

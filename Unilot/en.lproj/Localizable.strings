@@ -97,7 +97,7 @@
 
 
 "Ошибка соединения, пожалуйста повторите запрос" = "Connection error! Please, try again";
-
+"Так как вы не зарегистрировали ваш кошелек, ваш статус незвестен.\nпроверьте историю розыгрыша" = "Since you have not registered your wallet, your status is unknown.\nCheck the history of the drawing";
 //MARK: -  FILES NAME
 
 "HDIW" = "HDIW_en";

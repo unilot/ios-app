@@ -324,7 +324,7 @@ class NotifApp {
             "data":
                 [
                     "ending_at" : "2017-11-07T08:00:00Z",
-                    "id" : 12,
+                    "id" : 2,
                     "num_players" : numberOfFakeGamers,
                     "prize_amount" : 0.021 + 0.04 * Float(numberOfFakeGamers),
                     "prize_amount_fiat" : 5.978490000000001 + 0.00007 * Float(numberOfFakeGamers),

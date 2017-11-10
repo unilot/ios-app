@@ -11,7 +11,7 @@
 let is_mod_production          = false
 
 let current_version            = "1.0"
-let current_build              = "19"
+let current_build              = "20"
 
 
 //MARK: -  games info

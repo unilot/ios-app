@@ -103,6 +103,10 @@ class MainViewPositions: TabBarTimersViewCore {
         sendServerCheckForUpdateData()
         
         // fake data
+     
+        notification_data = ["game_finished&8&10","game_finished&6&10","game_finished&9&10"]
+
+//        close_views()
         
 //        NotifApp.sendFakeLocalPush()
 

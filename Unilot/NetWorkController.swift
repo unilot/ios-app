@@ -204,8 +204,8 @@ class NetWork : NetWorkParse {
                 completion(response.result.error?.localizedDescription)
             }
             
-            let appDelegate  = UIApplication.shared.delegate as! AppDelegate
-            let viewController = appDelegate.window!.rootViewController
+            current_controller_core?.close_views()
+
             return
         }
         

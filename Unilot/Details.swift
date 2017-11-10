@@ -113,7 +113,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         image_view.clipsToBounds = true
         
         
-        let title = UILabel(frame: CGRect(x: height , y: 0,
+        let title = UILabel(frame: CGRect(x: height * 0.75 , y: 0,
                                           width: width - height/2,
                                           height: height))
         

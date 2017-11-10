@@ -232,7 +232,7 @@ class SpecialItem : UIImageView {
     
     func addBadge(){
         
-//        sizeDiag = 100
+        sizeDiag = frame.height/2
         numberInCircle.layer.cornerRadius = sizeDiag/2
         numberInCircle.clipsToBounds = true
         numberInCircle.backgroundColor = kColorBadge

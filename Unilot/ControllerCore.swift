@@ -103,6 +103,8 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     
     override func viewWillDisappear(_ animated: Bool) {
         
+        hideActivityViewIndicator()
+        
         super.viewWillDisappear(animated)
         
         self.view.isUserInteractionEnabled = false
@@ -343,4 +345,15 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         
     }
 
+    
+    func close_views(){
+        
+        let rootViewController = getVCFromName("SB_NeedNewVersion")
+
+        let appDelegate  = UIApplication.shared.delegate as! AppDelegate
+ 
+        appDelegate.window!.rootViewController = rootViewController
+        
+        
+    }
 }

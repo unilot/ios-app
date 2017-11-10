@@ -170,8 +170,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         local_current_game = dataForTable[indexPath.row]
-        
-        
+         
         NotifApp.removeNotifWithSameGameId(local_current_game.game_id)
         
         tableView.reloadRows(at: [indexPath], with: .fade)

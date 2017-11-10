@@ -10,13 +10,13 @@ import UIKit
 import NVActivityIndicatorView
 import SCLAlertView
 
-class LoadingView : UIViewController, NVActivityIndicatorViewable{
+
+class LoadingView : ControllerCore{
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
+         
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -130,12 +130,52 @@ class LoadingView : UIViewController, NVActivityIndicatorViewable{
 
     //MARK: - End Of Version screen
     
+    override func addSwipeForMenuOpen() {
+        
+    }
     
+    override func setNavControllerClear(){
+        
+        
+    }
+    
+    override func setBackButton(){
+        
+    }
+    
+    override func setTitle()  {
+        
+    }
     
     func onScreenNow(){
         
     }
     
+    //MARK:  -
+    
+    override func onUserCloseView(){
+        
+        
+    }
+    
+    override func onUserOpenView(){
+        
+        
+    }
+    
+    //MARK: - NOTIFICATION
+    
+    
+    override func onCheckAppNotifRecieved(){
+        
+        
+    }
+    
+    override func onActiveAppNotifRecieved(_ notif : NotifStruct){
+        
+        
+        
+    }
     
 }
 

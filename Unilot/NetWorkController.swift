@@ -50,7 +50,7 @@ let request_session_data    =  is_mod_production ? request_session_data_PROD :re
 
 var request_headers : HTTPHeaders  = [
     "Content-Type"  : "application/json",
-    "Api-Version"   : current_version,
+    "Api-Version"   : ("~=" + current_version),
 ]
 
 

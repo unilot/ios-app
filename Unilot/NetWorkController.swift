@@ -30,8 +30,8 @@ let request_session_data_PROD : Parameters = [
 
 
 
-let kAPI_check_version      = "api/v1/versioncheck"
 let kAPI_get_token          = "o2/token/"
+
 let kAPI_set_device         = "api/v1/device/"
 let kAPI_get_list_games     = "api/v1/games"
 let kAPI_get_list_winners   = "api/v1/games/%@/winners"
@@ -48,7 +48,8 @@ let request_session_data    =  is_mod_production ? request_session_data_PROD :re
 
 
 var request_headers : HTTPHeaders  = [
-    "Content-Type" : "application/json"
+    "Content-Type"  : "application/json",
+    "version"       : current_version,
 ]
 
 
@@ -57,8 +58,6 @@ class NetWork : NetWorkParse {
  
     static func startSession(completion: @escaping (String?) -> Void) {
         
-//        let local_headers : HTTPHeaders  = ["Content-Type" : "application/json" ]
-      
         Alamofire.request(kServer + kAPI_get_token,
                           method: HTTPMethod.post,
                           parameters: request_session_data,
@@ -93,24 +92,7 @@ class NetWork : NetWorkParse {
         
   
     }
-    
-    
-    static func checkVersion(completion: @escaping (String?) -> Void){
-        
-        let params : Parameters = ["version" : "1.0.0"]
-
-        Alamofire.request(kServer + kAPI_check_version,
-                          method: HTTPMethod.post,
-                          parameters: params,
-                          encoding: JSONEncoding.default,
-                          headers: request_headers)
-            .responseJSON { (response) -> Void in
-                
-                error_or_success(response, checkVersionParse,completion)
-        }
-        
-        
-    }
+     
     
     static func getGamesList(completion: @escaping (String?) -> Void) {
         
@@ -189,6 +171,7 @@ class NetWork : NetWorkParse {
         
         print(response)
         
+        // token was old
         guard (response.response?.statusCode != 401) else {
           
             startSession(completion: { (error : String? ) in
@@ -213,6 +196,17 @@ class NetWork : NetWorkParse {
             return
         }
         
+        // need upgrade
+        guard (response.response?.statusCode != 417) else {
+            
+            if response.result.error != nil {
+                completion(response.result.error?.localizedDescription)
+            }
+
+            return
+        }
+        
+        // some connection error
         guard (response.result.isSuccess) && (response.result.value != nil) else {
             
             var answer : String? = nil

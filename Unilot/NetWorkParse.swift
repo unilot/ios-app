@@ -46,17 +46,7 @@ class NetWorkParse {
         
         return nil
     }
-    
-    
-    static func checkVersionParse(_ resultValue : Any) -> String? {
-        
-        guard resultValue is [String: Any] else {
-            return dev_messagesShowed(line : "checkVersion")
-        }
-        
-        return nil
-    }
-    
+ 
     static func parseGamesList(_ resultValue : Any) -> String? {
 
         guard let responseJSON = resultValue as? [[String:Any]] else {

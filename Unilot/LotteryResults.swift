@@ -45,7 +45,7 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         
         titleMain.text = TR("Итоги") + " " + TR(bonus_titles[type]) + " " + TR("лотереи")
         dayTitle.text = getNiceDateFormatString(from: local_current_game.started_at)
-        unfortunately.text = TR("К сожалению, вас нет в списке победителей")
+        unfortunately.text = ""//TR("К сожалению, вас нет в списке победителей")
         copyButton.setTitle(TR("История розыгрыша"), for: .normal)
         
        // clockTablet.labelMain.frame.origin = CGPoint(x: 0,

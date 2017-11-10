@@ -327,9 +327,12 @@ class MainViewPositions: TabBarTimersViewCore {
     
     func sendWinnerListRequest(_ game_id : String){
         
+//        showYouLost()
+        
         showActivityViewIndicator()
 
         NetWork.getListWinners(game_id, completion: onAnswerAfterWinnerList)
+    
     }
     
     //MARK: - Notification stuff
@@ -371,7 +374,6 @@ class MainViewPositions: TabBarTimersViewCore {
      
     func onAnswerFromServerRefreshed(_ message : String?){
         
-        
         hideActivityViewIndicator()
         
         if message != nil {
@@ -387,17 +389,18 @@ class MainViewPositions: TabBarTimersViewCore {
                 current_game.status = kStatusNoGame
                 
                 answerOnInitData()
-
+                
             } else
-            if current_game.isEqual(to: games_list[current_game.type]!) {
                 
-                setLowerButton(goToPrizeOrRefresh : false)
-                
-            } else {
-                
-                fillLocalGameData()
-                
-                answerOnInitData()
+                if current_game.isEqual(to: games_list[current_game.type]!) {
+                    
+                    setLowerButton(goToPrizeOrRefresh : false)
+                    
+                } else {
+                    
+                    fillLocalGameData()
+                    
+                    answerOnInitData()
             }
             
             

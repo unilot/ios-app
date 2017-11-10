@@ -198,10 +198,10 @@ class NotifApp {
         // parse data from remote notification
         
         // fake push
-//        let notifItem = parseNotif(createFakePush())
+        let notifItem = parseNotif(createFakePush())
         
         // real code
-        let notifItem = parseNotif(notificationDictionary)
+//        let notifItem = parseNotif(notificationDictionary)
  
         
         // if we have complete game status - save it and change Badge item

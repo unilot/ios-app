@@ -40,7 +40,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="До обьявления победителя:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sd1-aD-ahN">
-                    <rect key="frame" x="20" y="248" width="280" height="60"/>
+                    <rect key="frame" x="20" y="268" width="280" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="vUU-fK-nKF"/>
                     </constraints>
@@ -49,7 +49,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-vg-g4z" customClass="CountDownSimpleDays" customModule="Unilot" customModuleProvider="target">
-                    <rect key="frame" x="115.5" y="318" width="90" height="90"/>
+                    <rect key="frame" x="115.5" y="338" width="90" height="90"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="90" id="Rcf-56-Hq4"/>
@@ -100,7 +100,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дней" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="qsj-9o-2RY">
-                    <rect key="frame" x="215.5" y="318" width="48" height="90"/>
+                    <rect key="frame" x="215.5" y="338" width="48" height="90"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                     <color key="textColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -125,11 +125,12 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы автоматически становитесь участником бонусного розыгрыша который состоится через:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" preferredMaxLayoutWidth="60" translatesAutoresizingMaskIntoConstraints="NO" id="ysa-bV-fTx">
-                    <rect key="frame" x="25" y="168" width="270" height="80"/>
+                    <rect key="frame" x="25" y="168" width="270" height="100"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="80" id="ATf-Dn-hVy"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="2Aa-jh-aez"/>
+                        <constraint firstAttribute="height" priority="999" constant="100" id="ATf-Dn-hVy"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                     <color key="textColor" red="0.49439453119999999" green="0.49439453119999999" blue="0.49439453119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>

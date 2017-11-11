@@ -86,7 +86,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         
         // fill data in title
         
-        let date_string = getNiceDateFormatString(from: local_current_game.started_at)
+        let date_string = getNiceDateFormatShortString(from: local_current_game.started_at)
         let game_image = kTypeImage[local_current_game.type]!
         
         eth.text = "\(local_current_game.prize_amount)"

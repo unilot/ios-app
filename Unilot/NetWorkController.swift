@@ -199,10 +199,10 @@ class NetWork : NetWorkParse {
         
         // need upgrade
         guard (response.response?.statusCode != 417) else {
-            
-            if response.result.error != nil {
-                completion(response.result.error?.localizedDescription)
-            }
+//            
+//            if response.result.error != nil {
+//                dev_messagesShowed(error : response.result.error)
+//            }
             
             current_controller_core?.close_views()
 

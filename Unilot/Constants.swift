@@ -10,7 +10,7 @@
 
 let is_mod_production          = false
 
-let current_version            = "1.0.0"
+let current_version            = "1.0.9"
 let current_build              = "20"
 
 
@@ -76,8 +76,8 @@ let staticClockSecondsStep = [1,60,3600]
 
 let staticClockNames =
     [
-        ["Часа","Минут","Сек"],
-        ["Дней","Часа","Минут",],
+        ["Часа","Мин","Сек"],
+        ["Дней","Часа","Мин",],
         ["Недель", "Дней","Часа",]
 ]
 

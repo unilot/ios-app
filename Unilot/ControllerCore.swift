@@ -203,6 +203,14 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     
     @IBAction func onInfoBarButton(_ sender: UIBarButtonItem){
         
+        
+        openTutorialFirst()
+        
+//        openInfoText()
+    }
+    
+    
+    func openInfoText(){
         let viewWithPlaces = InfoView.createInfoView()
         pop_up_view = viewWithPlaces
         let frameForView = CGRect(x: 10,
@@ -211,9 +219,9 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
                                   height: view.frame.height - 140)
         
         viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: -1)
+
     }
-    
-    
+
     func openHistory(_ sender : PopUpCore){
         
         sender.onX(0)
@@ -254,10 +262,27 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     func onQRAnswer(_ haveText : String?){
    
         
+    }
+
+    
+    //MARK: - tutorial
+     
+    func openTutorialFirst(){
+        
+        let viewWithPlaces = TutorialScroll.createTutorialScroll()
+        pop_up_view = viewWithPlaces
+        let frameForView = CGRect(x: 0,
+                                  y: 20,
+                                  width: view.frame.width,
+                                  height: view.frame.height-20)
+        
+        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: 0)
+        
         
         
     }
-
+    
+    
     //MARK: -  NetWork
     
     func onAnswerSuccess(_ dataRecieved : [[String: String]]){

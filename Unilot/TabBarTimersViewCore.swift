@@ -59,7 +59,7 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate, CountUppFlipp
      
     func setLotteryName (){
         
-        titleMain.text = TR(tabbar_strings[tabBarItem.tag]) + " " + TR("лотерея")
+        titleMain.text = TR(tabbar_strings[tabBarItem.tag]) + " " + TR("drawing1")
         
     }
 
@@ -257,6 +257,7 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate, CountUppFlipp
         
     }
     
+ 
     
     @IBAction func onEthButton(){
 
@@ -304,7 +305,7 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate, CountUppFlipp
         if secondOverlay != nil {
             
             if let item = secondOverlay?.viewWithTag(10000) as? UILabel {
-                item.text =  TR("Система\nвыбирает победителя")
+                item.text =  TR("system_is_choosing")
             }
             
             if let item = secondOverlay?.viewWithTag(20000) as? UILabel {
@@ -312,7 +313,7 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate, CountUppFlipp
             }
         
             if let item = secondOverlay?.viewWithTag(30000) as? UIButton {
-                item.setTitle("  " + TR("Скопировать номер транзакции"), for: .normal)
+                item.setTitle("  " + TR("copy_transaction"), for: .normal)
             }
             
         }

@@ -27,10 +27,6 @@ let request_session_data_PROD : Parameters = [
 
 
 
-
-
-
-
 let kAPI_get_token          = "o2/token/"
 
 let kAPI_set_device         = "api/v1/device/"
@@ -41,17 +37,15 @@ let kAPI_post_notif_token   = "api/v1/device/"
 let kAPI_get_game_details   = "api/v1/games/"
 
 
+var request_headers : HTTPHeaders  = [
+    "Content-Type"  : "application/json",
+    "Api-Version"   : ("~=" + current_version)
+]
+
 
 let kServer                 =  is_mod_production ? kServerPROD : kServerDEV
 
 let request_session_data    =  is_mod_production ? request_session_data_PROD :request_session_data_DEV
-
-
-
-var request_headers : HTTPHeaders  = [
-    "Content-Type"  : "application/json",
-    "Api-Version"   : ("~=" + current_version),
-]
 
 
 
@@ -172,6 +166,16 @@ class NetWork : NetWorkParse {
         
         print(response)
         
+//        // server error
+//        guard (response.response?.statusCode != 500) else {
+//            
+//
+//            completion(TR("connectio_error"))
+//            
+//            return
+//        }
+//        
+        
         // token was old
         guard (response.response?.statusCode != 401) else {
           
@@ -189,7 +193,7 @@ class NetWork : NetWorkParse {
                     
                 } else {
                     
-                    completion(TR("Ошибка соединения, пожалуйста повторите запрос"))
+                    completion(TR("connectio_error"))
 
                 }
             })

@@ -83,61 +83,12 @@ class TabBarController: UITabBarController  {
         if open_from_notif != nil {
             
             let notif_type = Int(NotifApp.getDataFromNotifString(open_from_notif,2))
-
-            let notif_status = NotifApp.getDataFromNotifString(open_from_notif,0)
-            
-            if (notif_type == kTypeProfile)  ||  ( notif_status != kActionCompleted ){
-                open_from_notif = nil
-            }
             
             selectedIndex = getTabBarTag(notif_type)
         }
         
     }
-
-    
-    //MARK: - left
-    
-    func createAllPages(){
-        
-        let view_controller_1 = getVCFromName("SB_Main_View") as! MainView
-        let nc1 = UINavigationController(rootViewController: view_controller_1)
-
-        let view_controller_2 = getVCFromName("SB_Main_View") as! MainView
-        let nc2 = UINavigationController(rootViewController: view_controller_2)
-
-        let view_controller_3 = getVCFromName("SB_Bonus") as! BonusView
-        let nc3 = UINavigationController(rootViewController: view_controller_3)
-
-        
-        let view_controller_4 = getVCFromName("SB_Profile") as! ProfileView
-        let nc4 = UINavigationController(rootViewController: view_controller_4)
-
-        
-        let tb1 =  UITabBarItem(title: TR("Дневная"),
-                                image: UIImage(named:"`1day-x3"),
-                                tag: 0 )
-        
-        
-        let tb2 =  UITabBarItem(title: TR("Недельная"),
-                                image: UIImage(named:"`7day-x3"),
-                                tag: 1)
-        
-
-        let tb3 =  UITabBarItem(title: TR("Бонусная"),
-                                image: UIImage(named:"`31day-x3"),
-                                tag: 2)
-
-        
-        
-        let tb4  =  UITabBarItem(title: TR("Профиль"),
-                                 image: UIImage(named:"`profile-x3"),
-                                 tag: 3)
-        
-        self.viewControllers = [nc1, nc2, nc3, nc4]
-        self.tabBar.items = [tb1,tb2,tb3,tb4]
-    }
-    
+ 
 
     
     

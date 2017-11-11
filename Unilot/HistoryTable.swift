@@ -27,9 +27,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         table.layer.opacity = 0.0
         
         showActivityViewIndicator()
-        
-//        NotifApp.cleanNotificationStack()
-        
+
         NetWork.getHistoryPage(completion: onAnswer)
      }
     
@@ -93,9 +91,9 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
         headerView.addSubview(headerCell)
        
-        labelFor(headerCell, 10)?.text = TR("ДАТА И ЛОТЕРЕЯ")
-        labelFor(headerCell, 20)?.text = TR("СТАТУС")
-        labelFor(headerCell, 30)?.text = TR("ВЫИГРЫШ")
+        labelFor(headerCell, 10)?.text = TR("date_drawing").uppercased()
+        labelFor(headerCell, 20)?.text = TR("status").uppercased()
+        labelFor(headerCell, 30)?.text = TR("prize").uppercased()
         
 
         headerView.layoutIfNeeded()
@@ -130,19 +128,19 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         switch item.status {
             
         case kStatusComplete:
-            actionLabel.text = TR("завершена")
-            statusLabel.text = TR("список победителей")
+            actionLabel.text = TR("finished")
+            statusLabel.text = TR("list_of_winners")
             statusLabel.textColor = kColorSelectedBlue
             break
             
         case kStatusPublished , kStatusFinishing:
-            actionLabel.text = TR("в процессе")
-            statusLabel.text = TR("перейти")
+            actionLabel.text = TR("in_process")
+            statusLabel.text = TR("open")
             statusLabel.textColor = kColorNormalGreen
              break
          
         default: //kStatusCancele
-            actionLabel.text = TR("отменена")
+            actionLabel.text = TR("canceled")
             statusLabel.text = " "
             statusLabel.textColor = kColorLightOrange
             break

@@ -45,8 +45,16 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         fillWithData()
 
         itemBadge?.setNumberLabel(notification_data.count)
-
         
+        //tutotial
+        
+        if open_from_notif == default_first_launch {
+        
+            open_from_notif = nil
+            
+            openTutorialFirst()
+        }
+
     }
      
     
@@ -83,10 +91,10 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
     
  
     func fillWithData(){
-        titleAddMore.text = TR("Добавить кошелёк")
-        titleMain.text = TR("Ваши кошельки")
-        fieldPurse.placeholder = TR("Номер вашего кошелька")
-        checkMorePurses.setTitle(TR("Добавить") + " +", for: .normal)
+        titleAddMore.text = TR("add_wallet_address")
+        titleMain.text = TR("your_wallets")
+        fieldPurse.placeholder = TR("your_wallet_address")
+        checkMorePurses.setTitle(TR("add") + " +", for: .normal)
     }
      
 
@@ -171,14 +179,14 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
             
             let alertView = SCLAlertView(appearance: appearance)
 
-            alertView.addButton(TR("Да"), target:self, selector: #selector(ProfileView.onDelete))
-            alertView.addButton(TR("Нет")) {
+            alertView.addButton(TR("Yes"), target:self, selector: #selector(ProfileView.onDelete))
+            alertView.addButton(TR("No")) {
                 self.currentTagForRemove = -1
             }
             
             let keyCurrent = users_account_number[currentTagForRemove]
 
-            alertView.showWarning("", subTitle: TR("Вы уверены что хотите удалить ключ ") + keyCurrent + "?")
+            alertView.showWarning("", subTitle: TR("question_for_delete") + keyCurrent + "?")
             
         }
         

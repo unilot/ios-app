@@ -10,9 +10,10 @@
 
 let is_mod_production          = false
 
-let current_version            = "1.0.9"
+let current_version            = "1.0.0"
 let current_build              = "20"
 
+let app_name                   = "Unilot"
 
 //MARK: -  games info
 
@@ -47,6 +48,8 @@ let kGameStatusSleep    = 2
 
 let kTimeForPreperationWait = 3600
 
+
+let default_first_launch     = "&&\(kTypeProfile)"
 //MARK: -  LINKS
 
 let kLink_FB = "https://www.facebook.com/unilot.io/"
@@ -76,20 +79,18 @@ let staticClockSecondsStep = [1,60,3600]
 
 let staticClockNames =
     [
-        ["часы","минуты","секунды"],
-        ["дни","часы","минуты",],
-        ["недели", "дни","часы",]
+        ["hours","minutes","seconds"],
+        ["days","hours","minutes",],
+        ["weeks", "days","hours",]
 ]
-
-var bonus_titles = ["Дневной","Недельной","Бонусной" ]
 
 var langCodes = ["en","ru"]
 
-var setting_strings = [
-    ["Дневной лотерее","Недельной лотерее","Бонусной лотерее"],
-    ["English","Русский"]]
+var bonus_titles = ["daily2","weekly2","bonus2" ]
 
-var tabbar_strings =   ["Дневная","Недельная","Бонусная","Профиль"]
+var setting_strings =  [ ["daily2","weekly2","bonus2" ],  ["English","Русский"]]
+
+var tabbar_strings =   ["daily1","weekly1","bonus1","profile"]
 
 let kEmpty = ""
 

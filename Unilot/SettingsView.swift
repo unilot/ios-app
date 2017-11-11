@@ -22,7 +22,7 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
  
     
     override func setTitle() {
-        navigationItem.title = TR("Настройки")
+        navigationItem.title = TR("settings")
     }
     
     //MARK:-  UITableViewDelegate, UITableViewDataSource
@@ -54,10 +54,10 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
         switch section {
         case 0:
-            labelFor(headerCell, 20)?.text = TR("Получать уведомления о")
+            labelFor(headerCell, 20)?.text = TR("get_notifications_for")
 
         default:
-            labelFor(headerCell, 20)?.text = TR("Выберите язык:")
+            labelFor(headerCell, 20)?.text = TR("choose_language")
 
         }
         return headerView
@@ -75,7 +75,7 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "id_cell", for: indexPath)
             cell.layoutIfNeeded()
             
-            labelFor(cell, 20)?.text = TR(setting_strings[0][indexPath.row])
+            labelFor(cell, 20)?.text = TR(setting_strings[0][indexPath.row])  + " " + TR("drawing3")
 
             
             if let img = cell.contentView.viewWithTag(10) as? UIImageView{

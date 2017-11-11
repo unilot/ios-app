@@ -84,6 +84,8 @@ class NetWorkParse {
     
     static func parseHistoryPage(_ resultValue : Any) -> String? {
 
+//        Crashlytics.sharedInstance().crash()
+
         guard let responseJSON = resultValue as? [[String:Any]] else {
             return dev_messagesShowed(line: "HistoryPage")
         }
@@ -148,22 +150,6 @@ class NetWorkParse {
     }
 
     
-    
-    static func dev_messagesShowed(line : String? = nil, description : String? = nil, body : Any? = nil, error: Error? = nil) -> String {
-        
-        if error != nil {
-            Crashlytics.sharedInstance().recordError(error!)
-        }
-         
-        var params = [String : NSObject]()
-        params["function"] = (line ?? kEmpty ) as NSObject
-        params["description"] = (description ?? kEmpty ) as NSObject
-        params["body"] = String(describing: body) as NSObject
-        
-        FIRAnalytics.logEvent(withName: "parse_error", parameters : params)
- 
-        return TR("Ошибка соединения, пожалуйста повторите запрос")
-    }
     
     
 }

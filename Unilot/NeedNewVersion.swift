@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Crashlytics
 
 class NeedNewVersion : ControllerCore {
 
@@ -19,7 +19,8 @@ class NeedNewVersion : ControllerCore {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+
+
         UINavigationBar.appearance().tintColor = kColorMenuPeach
         
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.orange]
@@ -28,9 +29,9 @@ class NeedNewVersion : ControllerCore {
         
         setTitle()
         
-        center_label.text = TR("Данная версия Unilot устарела. Пожалуйста, обновите приложение.")
+        center_label.text = String(format: TR("notification_old_version"), app_name)
         
-        button.setTitle(TR("go to app store"), for: .normal)
+        button.setTitle(TR("go_to_appstore"), for: .normal)
         
         setFon()
     }

@@ -48,9 +48,9 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         
         titleWithPrice.text = "\(local_current_game.prize_amount) ETh = $ \(local_current_game.prize_amount_fiat)"
 
-        titleMain.text = TR("Общий призовой фонд")
-        close.setTitle(TR("Закрыть"), for: .normal)
-        firstLabel.text = TR("Призовые\nместа")
+        titleMain.text = TR("total_jackpot")
+        close.setTitle(TR("close"), for: .normal)
+        firstLabel.text = TR("prize_places")
         
         
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)

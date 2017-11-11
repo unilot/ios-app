@@ -16,7 +16,7 @@ func sendNotification(_ message : String, _ key_id : String){
     
     if #available(iOS 10.0, *) {
         let content = UNMutableNotificationContent()
-        content.title = "Unilot"
+        content.title = app_name
         content.body = message
         content.sound = UNNotificationSound.default()
         let request = UNNotificationRequest(identifier: key_id, content: content, trigger: nil)
@@ -220,17 +220,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         tokenForNotifications = tokenString
-        print("Device Token: ", tokenString)
+//        print("Device Token: ", tokenString)
         
         NotifApp.startAfterAnswerFromRemoteNotifications()
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        
-        print("Failed to register: ", error.localizedDescription)
 
-        Crashlytics.sharedInstance().recordError(error)
-
+        message_to_Crashlytics(error : error)
+ 
         NotifApp.startAfterAnswerFromRemoteNotifications()
         
     }

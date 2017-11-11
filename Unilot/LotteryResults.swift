@@ -43,10 +43,10 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         
         let type = getTabBarTag()
         
-        titleMain.text = TR("Итоги") + " " + TR(bonus_titles[type]) + " " + TR("лотереи")
+        titleMain.text = TR("results") + " " + TR(bonus_titles[type]) + " " + TR("drawing2")
         dayTitle.text = getNiceDateFormatString(from: local_current_game.started_at)
-        unfortunately.text = ""//TR("К сожалению, вас нет в списке победителей")
-        copyButton.setTitle(TR("История розыгрыша"), for: .normal)
+        unfortunately.text = "" // TR("you_lost_text")
+        copyButton.setTitle(TR("details"), for: .normal)
         
        // clockTablet.labelMain.frame.origin = CGPoint(x: 0,
          //                                            y: -clockTablet.labelMain.frame.height * 0.35)
@@ -67,9 +67,9 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         
         
         if games_list[kTypeMonth] != nil {
-            butHey.text =  TR("Вы автоматически становитесь участником бонусного розыгрыша, который состоится через:")
-            endLabel.text = TR("До объявления победителя:")
-            days.text = TR("Дней")
+            butHey.text =  TR("you_take_part_in_bonus")
+            endLabel.text = TR("left_before_end")
+            days.text = TR("days2").capitalized
 
             
             setTimerDetails()

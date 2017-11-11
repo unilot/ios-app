@@ -28,7 +28,8 @@ class NotifApp {
                 
                 } else {
                      if error != nil {
-                        print("error push id " + error!.localizedDescription )
+                        message_to_Crashlytics(error : error!)
+//                        print("error push id " + error!.localizedDescription )
                     }
                 }
 
@@ -59,28 +60,7 @@ class NotifApp {
         }
     }
 
-    
-
-    //MARK: - stuff
-    
-
-    static func cleanNotification(_ game_id : String){
-        
-        notification_data.removeAll()
-        
-        MemoryControll.removeObject("notifications_app")
-        
-    }
-    
-    static func cleanNotificationStack(){
-        
-        notification_data.removeAll()
-        
-        MemoryControll.removeObject("notifications_app")
-        
-    }
-    
-    
+     
     
     //MARK: - SOME SMALL STUFF
     
@@ -167,7 +147,7 @@ class NotifApp {
 
         
         let message = notif.messages[lCode]!
-        let title = TR(tabbar_strings[typeId]) + " " + TR("лотерея")
+        let title = TR(tabbar_strings[typeId]) + " " + TR("drawing1")
         let image = UIImage(named: lottery_images[typeId] + "-small")
         
         Whisper.show(shout: Announcement(title: title, subtitle: message, image: image),

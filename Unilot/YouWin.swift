@@ -42,10 +42,10 @@ class YouWin: PopUpCore {
 
         self.layer.borderWidth = 0
         
-        text1.text = TR("Поздравляем!")
-        text2.text = TR("Вы победили!")
-        text3.text = String(format : TR("Вы заняли %d место и выиграли"),user_data.position)
-        showButton.setTitle(TR("История розыгрыша"), for: .normal)
+        text1.text = TR("congratulations!")
+        text2.text = TR("you_won!")
+        text3.text = String(format : TR("you_took_place"),user_data.position)
+        showButton.setTitle(TR("details"), for: .normal)
         priceETH.text = "\(user_data.prize_amount)"
         priceUSD.text = "US $ \(user_data.prize_amount_fiat)"
     }

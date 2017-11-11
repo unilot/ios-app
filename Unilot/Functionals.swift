@@ -10,7 +10,9 @@ import AVFoundation
 import SCLAlertView
 import QRCodeReader
 import SwiftySound
- 
+
+import Crashlytics
+
 //MARK: - Local Vars
 
 var startWas : Bool = false
@@ -84,7 +86,7 @@ class NotifStruct {
 
 func saveToClipboard(_ text : String){
     UIPasteboard.general.string = text
-    let alert_text = TR("Адрес") + "\n\n" + text + "\n\n" + TR("был сохранен в буфер")
+    let alert_text = TR("address") + "\n\n" + text + "\n\n" + TR("was-saved_in_memory")
     SCLAlertView().showInfo(" ", subTitle: alert_text)
 }
 
@@ -412,5 +414,32 @@ func playWin() {
 //        
 //        
 //    }
+    
 }
 
+
+
+//MARK: - CRASHLITICS
+
+
+func message_to_Crashlytics(line : String? = nil, description : String? = nil, body : Any? = nil, error: Error? = nil) -> String {
+    
+    if error != nil {
+        //            Crashlytics.sharedInstance().crash()
+        //            Crashlytics.sharedInstance().recordError(NSError(domain:"", code: 418, userInfo:nil))
+        
+        Crashlytics.sharedInstance().recordError(error!)
+    } else {
+        
+        var params = [String : NSObject]()
+        params["function"] = (line ?? kEmpty ) as NSObject
+        params["description"] = (description ?? kEmpty ) as NSObject
+        params["body"] = String(describing: body) as NSObject
+        
+        FIRAnalytics.logEvent(withName: "parse_error", parameters : params)
+        
+    }
+    
+    
+    return TR("connectio_error")
+}

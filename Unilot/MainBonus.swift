@@ -34,8 +34,8 @@ class BonusView: MainViewPositions {
                 
         widthProgress = 0
         
-        label1.text = TR("До объявления\nпобедителей:")
-        label2.text = TR("дней")
+        label1.text = TR("left_\nbefore_end")
+        label2.text = TR("days2")
         
         howDoesItWork.setTitle(TR("Как попасть в розыгрыш?"), for: .normal)
         

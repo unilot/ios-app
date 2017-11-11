@@ -15,50 +15,29 @@ class LoadingView : ControllerCore{
     
     
     override func viewDidLoad() {
+
         super.viewDidLoad()
-         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         
         MemoryControll.init_defaults_if_any()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+ 
         super.viewWillAppear(animated)
         
-        startAnimating(CGSize(width: 40 , height: 40),
-                       type : NVActivityIndicatorType.lineScalePulseOut)
+        showActivityViewIndicator()
         
         if startWas {
             
-            enterApp()
+            getSessionToken()
             
         } else {
-            NotificationCenter.default.addObserver(self,
-                                                   selector: #selector(LoadingView.enterApp),
-                                                   name: NSNotification.Name(rawValue: "enter_after_start"),
-                                                   object: nil)
+            
+            init_notification_start()
+
         }
         
-    }
-    
-    
-    func enterApp() {
-        
-        getSessionToken()
-        
-    }
-    
-    func failComplete(_ error: String){
-        
-        stopAnimating()
-        SCLAlertView().showError(" ", subTitle: error)
-        
-        if let dataParse = MemoryControll.getObject("list_games") {
-            _ = NetWork.parseGamesList(dataParse)
-        }
-
-        enterTheApp()
-
     }
     
     
@@ -66,10 +45,12 @@ class LoadingView : ControllerCore{
         
         stopAnimating()
         
-        let view_controller_1 = getVCFromName("SB_SWRevealViewController")
-        present(view_controller_1, animated: false, completion: nil)
-        
+        goToMainController()
+
     }
+
+
+    
     
     
     func getSessionToken(){
@@ -126,7 +107,37 @@ class LoadingView : ControllerCore{
         }
     }
     
+
     
+    //MARK: - STUUFF
+
+    
+    func failComplete(_ error: String){
+        
+        stopAnimating()
+        SCLAlertView().showError(" ", subTitle: error)
+        
+        if let dataParse = MemoryControll.getObject("list_games") {
+            _ = NetWork.parseGamesList(dataParse)
+        }
+        
+        enterTheApp()
+        
+    }
+    
+    func init_notification_start(){
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(LoadingView.getSessionToken),
+                                               name: NSNotification.Name(rawValue: "enter_after_start"),
+                                               object: nil)
+    }
+    
+    func goToMainController(){
+
+        present(getVCFromName("SB_SWRevealViewController"), animated: false, completion: nil)
+   
+    }
+
 
     //MARK: - End Of Version screen
     

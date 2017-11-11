@@ -49,13 +49,13 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
         
         let order = getTabBarTag()
         
-        let lotteryType = setting_strings[0][order]
-        titleMain.text = TR(tabbar_strings[order]) + " " + TR("лотерея") +  " UNILOT"
+        let lotteryType = setting_strings[0][order] + " " + TR("drawing3")
+        titleMain.text = TR(tabbar_strings[order]) + " " + TR("drawing1") +  " " + app_name.uppercased()
         let floatBet = local_current_game.bet_amount
-        textBig.text = String(format: TR("Чтобы принять участие в %@, вам необходимо перечислить %.3f Eth на кошелек, адрес которого вы получите, нажав на кнопку ниже."),TR(lotteryType),floatBet)
-        endLabel.text = TR("Лотерея заканчивается через:")
-        warningLabel.text = TR("После оплаты вернитесь в приложение\nи зарегистрируйте свой кошелек")
-        copyButton.setTitle("  " + TR("Скопировать номер кошелька"), for: .normal)
+        textBig.text = String(format: TR("to_participate_you_need"),TR(lotteryType),floatBet)
+        endLabel.text = TR("will_be_off_after:")
+        warningLabel.text = TR("go_back_after_payment")
+        copyButton.setTitle("  " + TR("copy_address"), for: .normal)
     }
     
     

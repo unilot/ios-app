@@ -66,11 +66,11 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
         ico_image.image = UIImage(named : TR("Скорo"))
         ico_image.contentMode = .scaleAspectFit
         
-        history.text = TR("История розыгрышей")
-        how.text = TR("Как это работает")
-        wp.text = TR("Презентация")
-        settings.text = TR("Настройки")
-        socials.text = TR("Оставайтесь в курсе:")
+        history.text = TR("history_of_drawings")
+        how.text = TR("how_it_works")
+        wp.text = TR("presentation")
+        settings.text = TR("settings")
+        socials.text = TR("stay_tuned:")
         
     }
     

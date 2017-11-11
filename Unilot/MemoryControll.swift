@@ -32,6 +32,8 @@ class MemoryControll {
     
     static func init_defaults_if_any(){
 
+        getFirstLaunch()
+        
         getLanguages()
   
         getNotifSettings()
@@ -99,15 +101,15 @@ class MemoryControll {
     
     static func getFirstLaunch(){
         
-        if (getObject("launch_first") as? Int) != nil {
+        if (getObject("launch_first") as? String) != nil {
             
             open_from_notif = nil
             
         } else {
             
-            open_from_notif = "&&\(kTypeProfile)"
+            open_from_notif =  default_first_launch
             
-            saveObject(Date().timeIntervalSince1970, key: "launch_first")
+            saveObject("\(current_version) \(Date().timeIntervalSince1970)", key: "launch_first")
             
         }
     }

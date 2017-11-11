@@ -32,6 +32,8 @@
 		D69364D01F5F254400FD0D37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69364CE1F5F254400FD0D37 /* LaunchScreen.storyboard */; };
 		D69364D91F5F328D00FD0D37 /* FlippingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364D71F5F328D00FD0D37 /* FlippingLabel.swift */; };
 		D69364DA1F5F328D00FD0D37 /* MainViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69364D81F5F328D00FD0D37 /* MainViews.swift */; };
+		D6943EF61FB7056D003A5518 /* TutorialScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6943EF51FB7056D003A5518 /* TutorialScroll.swift */; };
+		D6943EF81FB705EC003A5518 /* TutorialScroll.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6943EF71FB705EC003A5518 /* TutorialScroll.xib */; };
 		D697091B1FB44B1300A7DC44 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D697091A1FB44B1300A7DC44 /* GoogleService-Info.plist */; };
 		D6BDD9031F7AD1DB00E91FD0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BDD9021F7AD1DB00E91FD0 /* Constants.swift */; };
 		D6BDD9051F7AD1F200E91FD0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BDD9041F7AD1F200E91FD0 /* Extensions.swift */; };
@@ -134,6 +136,8 @@
 		D69364D11F5F254400FD0D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D69364D71F5F328D00FD0D37 /* FlippingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlippingLabel.swift; sourceTree = "<group>"; };
 		D69364D81F5F328D00FD0D37 /* MainViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViews.swift; sourceTree = "<group>"; };
+		D6943EF51FB7056D003A5518 /* TutorialScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialScroll.swift; sourceTree = "<group>"; };
+		D6943EF71FB705EC003A5518 /* TutorialScroll.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorialScroll.xib; sourceTree = "<group>"; };
 		D697091A1FB44B1300A7DC44 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Settings/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D6BDD9021F7AD1DB00E91FD0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D6BDD9041F7AD1F200E91FD0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -274,6 +278,7 @@
 				D62E4C2B1F86C15B00C619EA /* TotalPrizeFond.xib */,
 				D612BBFA1F96B48F002C4647 /* LotteryResults.xib */,
 				D6ED6B371F8F90C100384672 /* InfoView.xib */,
+				D6943EF71FB705EC003A5518 /* TutorialScroll.xib */,
 				D6F460AC1F9D215F0006FA08 /* YouWin.xib */,
 			);
 			name = StoryBoard;
@@ -442,6 +447,7 @@
 		D6F1E1341F7BA0CA0098B34C /* Pop Up Views */ = {
 			isa = PBXGroup;
 			children = (
+				D6943EF51FB7056D003A5518 /* TutorialScroll.swift */,
 				D612BBF81F96B450002C4647 /* LotteryResults.swift */,
 				D62E4C2D1F86C36300C619EA /* TotalPrizeFond.swift */,
 				D6F460AA1F9D21340006FA08 /* YouWin.swift */,
@@ -605,6 +611,7 @@
 				D6DCCD201FA4F338009BD20E /* HDIW_en.txt in Resources */,
 				D6C6BAB61F8CD6C000EC7FE0 /* Roboto-Regular.ttf in Resources */,
 				D6F460AD1F9D215F0006FA08 /* YouWin.xib in Resources */,
+				D6943EF81FB705EC003A5518 /* TutorialScroll.xib in Resources */,
 				D62E4C2C1F86C15B00C619EA /* TotalPrizeFond.xib in Resources */,
 				D6C6BAB71F8CD6C000EC7FE0 /* Roboto-Thin.ttf in Resources */,
 				D69364D01F5F254400FD0D37 /* LaunchScreen.storyboard in Resources */,
@@ -663,16 +670,16 @@
 		};
 		D6935E971FB4591F00B918F3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"";
 		};
 		D9DDEC89A3E92EDC3B8187DE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -763,6 +770,7 @@
 				D6BDD90E1F7B240600E91FD0 /* ProfileView.swift in Sources */,
 				D6F1E1381F7BAA4E0098B34C /* ControllerCore.swift in Sources */,
 				D6BDD9031F7AD1DB00E91FD0 /* Constants.swift in Sources */,
+				D6943EF61FB7056D003A5518 /* TutorialScroll.swift in Sources */,
 				D6F460AB1F9D21340006FA08 /* YouWin.swift in Sources */,
 				D6D591BB1F8D19D20002451A /* LxTabBarController.swift in Sources */,
 				D6D3CEB51FA61DA3000F2FF3 /* WebCore.swift in Sources */,

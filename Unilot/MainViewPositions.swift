@@ -10,6 +10,7 @@
 import UIKit
 import SCLAlertView
 
+
 class MainViewPositions: TabBarTimersViewCore {
     
 
@@ -23,8 +24,6 @@ class MainViewPositions: TabBarTimersViewCore {
         
         view.layer.opacity = 0.0
         view.backgroundColor = UIColor.clear
-
-        
 
     }
 
@@ -43,6 +42,7 @@ class MainViewPositions: TabBarTimersViewCore {
         
         // open view for user
         animateAppearance()
+        
     }
 
     
@@ -104,6 +104,7 @@ class MainViewPositions: TabBarTimersViewCore {
         
         // fake data
      
+
 //        notification_data = ["game_finished&8&10","game_finished&6&10","game_finished&9&10"]
 
 //        close_views()
@@ -119,6 +120,7 @@ class MainViewPositions: TabBarTimersViewCore {
         
         // if first time opened the view
         if widthProgress == -1 {
+      
             
             //add info upper button
             addInfoButton()
@@ -211,7 +213,7 @@ class MainViewPositions: TabBarTimersViewCore {
     
     func setLowerButton(goToPrizeOrRefresh : Bool){
 
-        let image_name = goToPrizeOrRefresh ? "Призовые места" : "Обновить данные"
+        let image_name = goToPrizeOrRefresh ? "prize_places" : "tap_to_refreshed"
         
         prizePlaces.setTitle(TR(image_name), for: .normal)
         
@@ -223,7 +225,7 @@ class MainViewPositions: TabBarTimersViewCore {
     
     func fillWithNoGame(){
         
-        titlePrize.text = TR("Скоро начнется ....")
+        titlePrize.text = TR("will_start_soon")
 
         peopleCount.text = "0"
         
@@ -234,7 +236,7 @@ class MainViewPositions: TabBarTimersViewCore {
     
     func fillWithCurrentGame(){
         
-        titlePrize.text = TR("Джекпот")
+        titlePrize.text = TR("jackpot").capitalized
         
         setLowerButton(goToPrizeOrRefresh : true)
 

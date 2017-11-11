@@ -7,105 +7,140 @@
  */
 
 
-"Розыгрыш от" = "Drawing dated";
-"МЕСТО" = "PLACE";
-"КОШЕЛЕК" = "WALLET";
-"ДАТА И ЛОТЕРЕЯ" = "DATE AND DRAWING";
-"СТАТУС" = "STATUS";
-"ВЫИГРЫШ" = "PRIZE";
-"Ваши кошельки" = "Your wallets";
-"Добавить кошелёк" = "Add wallet address";
-"Номер вашего кошелька" = "Your wallet address";
-"Добавить" = "Add";
-"Вы уверены что хотите удалить ключ " = "Are you sure you want to delete the wallet ";
-"Настройки" = "Settings";
-"Получать уведомления о" = "Get notifications for";
-"Выберите язык:" = "Choose language:";
-"Дневная" = "Daily";
-"Недельная" = "Weekly";
-"Бонусная" = "Bonus";
-"Профиль" = "Profile";
-"Как это работает:" = "How it works:";
-"История розыгрышей" = "History of drawings";
-"дни" = "Days";
-"недели" = "Weeks";
-"часы" = "Hours";
-"минуты" = "Minutes";
-"секунды" = "Seconds";
 
-"Дневной лотерее" = "Daily drawing";
-"Недельной лотерее"  = "Weekly drawing";
-"Бонусной лотерее"  = "Bonus drawing";
+"canceled"                  = "canceled";
+"Done"                      = "Done";
 
-"Дневной" = "Daily";
-"Недельной"  = "Weekly";
-"Бонусной"  = "Bonus";
+"Yes"                       = "Yes";
+"No"                        = "No";
 
-"лотереи"  = "drawing";
-
-"Дневная лотерея" = "Daily drawing";
-"Недельная лотерея" = "Weekly drawing";
-"Бонусная лотерея" = "Bonus drawing";
-
-"лотерея" = "drawing";
-"Джекпот" = "Jackpot";
-"До окончания розыгрыша:" = "Left till the end of drawing:";
-"Призовые места" = "Prize-winning places";
-"Да"= "Yes";
-"Нет" = "No";
-"Принять участие" = "Participate";
-"До объявления\nпобедителей:" = "Left till winners\n announcement:";
-"дней" = "days";
-"Как попасть в этот розыгрыш?" = "How can I join this drawing?";
-"История розыгрышей" = "History";
-"Настройки" = "Settings";
-"Оставайтесь в курсе:" = "Stay tuned:";
-"завершена" = "finished";
-"список победителей" = "list of winners";
-"в процессе" = "in process";
-"перейти" = "open";
-"отменена" = "canceled";
-"Адрес" = "The address";
-"был сохранен в буфер" = "was saved to clipboard";
-"Чтобы принять участие в %@, вам необходимо перечислить %.3f Eth на кошелек, адрес которого вы получите, нажав на кнопку ниже." =
-"To participate in %@ you should transfer %.3f Eth to a specified wallet. Please tap on the button below to get the wallet address.";
-"Лотерея заканчивается через:" = "The drawing finishes in:";
-"После оплаты вернитесь в приложение\nи зарегистрируйте свой кошелек" = "Return to the app and register\nyour wallet after the payment";
-"Скопировать адрес кошелька" = "Copy the wallet address";
-"Общий призовой фонд" = "Total jackpot";
-"Призовые\nместа" = "Prize\nplaces";
-"Закрыть" = "Close";
-
-"Поздравляем!" = "Congratulations!";
-"Вы победили!" = "You won!";
-"Вы заняли %d место и выиграли" = "You took the %d place and won";
-"История розыгрыша" = "Details";
-
-"К сожалению, вас нет в списке победителей." = "Unfortunately, you lose.";
-"Итоги" = "Results of";
-"Вы автоматически становитесь участником бонусного розыгрыша, который состоится через:" =
-"You automatically become a participant of the Bonus drawing that is to take place in:";
-"До объявления победителя:" = "Left till winner announcement:\n";
-
-"Система\nвыбирает победителя" = "The system is \nchoosing winners";
-"Скорo" = "Soon";
-"Презентация" = "Presentation";
-"Бонусная лотерея еще не началась" = "Bonus drawing has not started yet";
-"Скоро начнется..." = "Will start soon...";
-"Обновить данные" = "Tap to refresh";
+"open"                      = "Open";
+"close"                     = "Close";
+"add"                       = "Add";
 
 
-"Ошибка соединения, пожалуйста повторите запрос" = "Connection error! Please try it again";
+
+"drawing_dated"             = "Drawing dated";
+"date_drawing"              = "date and drawing";
+"status"                    = "status";
+"prize"                     = "prize";
+
+"your_wallets"              = "Your wallets";
+"add_wallet_address"        = "Add wallet address";
+"your_wallet_address"       = "Your wallet address";
+
+"settings"                  = "Settings";
+"profile"                   = "Profile";
+"presentation"              = "Presentation";
+"details"                   = "Details";
+"history_of_drawings"       = "History of drawings";
+
+
+
+
+"get_notifications_for"     = "Get notifications for";
+"go_to_appstore"            = "Go to App Store";
+
+"choose_language:"          = "Choose language:";
+
+
+
+"jackpot"                   = "jackpot";
+"participants"              = "participants";
+"winners"                   = "winners";
+
+
+"daily1"                    = "daily";
+"weekly1"                   = "weekly";
+"bonus1"                    = "bonus";
+
+
+"daily2"                    = "daily";
+"weekly2"                   = "weekly";
+"bonus2"                    = "bonus";
+
+"drawing1"                  = "drawing";
+"drawing2"                  = "drawing";
+"drawing3"                  = "drawing";
+
+
+"how_it_works:"             = "How it works:";
+"question_for_delete"       = "Are you sure you want to delete the wallet ";
+
+
+"weeks"                     = "weeks";
+"days"                      = "days";
+"hours"                     = "hours";
+"minutes"                   = "minutes";
+"seconds"                   = "seconds";
+
+"days2"                     = "days";
+
+"finished"                  = "finished";
+
+"address"                   = "address";
+
+"soon"                      = "Soon";
+
+"will_start_soon"           = "Will start soon...";
+"tap_to_refreshed"          = "Tap to refresh";
+
+
+"prize_places"              = "Prize-winning places";
+"participate"               = "Participate";
+
+"stay_tuned:"               = "Stay tuned:";
+"left_till_end:"            = "Left till the end of drawing:";
+
+"in_process"                = "in process";
+
+"copy_address"              = "Copy the wallet address";
+"copy_transaction"          = "Copy transaction address";
+"total_jackpot"             = "Total jackpot";
+"prize_places"              = "Prize\nplaces";
+
+"congratulations!"          = "Congratulations!";
+"you_won!"                  = "You won!";
+"results"                   = "Results of";
+
+"you_took_place"            = "You took the %d place and won";
+
+
+"you_lost_text"             = "Unfortunately, you lose.";
+
+"you_take_part_in_bonus:"   = "You automatically become a participant of the Bonus drawing that is to take place in:";
+
+"system_is_choosing"        = "The system is \nchoosing winners";
+
+"connectio_error"           = "Connection error! Please try it again";
+"notification_old_version"  = "Your version of %@ is out of date. Please update it on the App Store.";
+"list_of_winners"           = "list of winners";
+
+"was-saved_in_memory"       = "was saved to clipboard";
+
+"left_before_end"           = "Left till winner announcement:\n";
+"left_\nbefore_end"         = "Left till winners\n announcement:";
+
+
+"how_join?"                 = "How can I join this drawing?";
+"will_be_off_after:"        = "The drawing finishes in:";
+"go_back_after_payment"     = "Return to the app and register\nyour wallet after the payment";
+"to_participate_you_need"   = "To participate in %@ you should transfer %.3f Eth to a specified wallet. Please tap on the button below to get the wallet address.";
+
+
+
+"tutorial_text_1" = "композиционная форма, которую используют в литературоведении и лингвистике для подробной характеристики предметов или явлений в целях создания художественного образа";
+
+"tutorial_text_2" = "композиционная форма, которую используют в литературоведении и лингвистике для подробной характеристики предметов или явлений в целях создания художественного образа";
+
+"tutorial_text_3" = "композиционная форма, которую используют в литературоведении и лингвистике для подробной характеристики предметов или явлений в целях создания художественного образа";
+
+"tutorial_text_4" = "композиционная форма, которую используют в литературоведении и лингвистике для подробной характеристики предметов или явлений в целях создания художественного образа";
+
+"tutorial_text_5" = "композиционная форма, которую используют в литературоведении и лингвистике для подробной характеристики предметов или явлений в целях создания художественного образа";
+
+"tutorial_text_6" = "композиционная форма, которую используют в литературоведении и лингвистике для подробной характеристики предметов или явлений в целях создания художественного образа";
 
 //MARK: -  FILES NAME
 
-"HDIW" = "HDIW_en";
-"Данная версия Unilot устарела. Пожалуйста, обновите приложение." = "Your version of Unilot is out of date. Please update it on the App Store.";
-
-
-
-"ДЖЕКПОТ" = "JACKPOT";
-"УЧАСТНИКИ" = "PARTICIPANTS";
-"ПОБЕДИТЕЛИ" = "WINNERS";
-
-"Перейти в Аpp Store" = "Go to App Store";
+"HDIW"                      = "HDIW_en";

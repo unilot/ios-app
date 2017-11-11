@@ -79,9 +79,9 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
     
     override func setTitle(){
         
-        t_jackpot.text = TR("ДЖЕКПОТ")
-        t_users.text = TR("УЧАСТНИКИ")
-        t_winners.text = TR("ПОБЕДИТЕЛИ")
+        t_jackpot.text = TR("jackpot").uppercased()
+        t_users.text = TR("participants").uppercased()
+        t_winners.text = TR("winners").uppercased()
         
         
         // fill data in title
@@ -124,7 +124,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         let attr1 = [ NSFontAttributeName: UIFont(name: kFont_Regular, size: 12.0)!,
                             NSForegroundColorAttributeName : UIColor.white]
 
-        let first_string = NSMutableAttributedString(string:TR("Розыгрыш от") + ": ", attributes: attr1 )
+        let first_string = NSMutableAttributedString(string:TR("drawing_dated") + ": ", attributes: attr1 )
         
         let attr2 = [ NSFontAttributeName: UIFont(name: kFont_Regular, size: 12.0)!,
                             NSForegroundColorAttributeName : kColorMenuPeach]
@@ -177,8 +177,8 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         
         headerView.addSubview(headerCell)
         
-        labelFor(headerCell, 10)?.text = TR("МЕСТО")
-        labelFor(headerCell, 20)?.text = TR("КОШЕЛЕК")
+        labelFor(headerCell, 10)?.text = TR("place").uppercased()
+        labelFor(headerCell, 20)?.text = TR("wallet").uppercased()
         
         return headerView
         

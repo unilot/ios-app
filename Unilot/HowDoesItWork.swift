@@ -14,7 +14,7 @@ class HowDoesItWork : TextViewCore {
     
     override func viewDidLoad() {
         
-        view_name = TR("Как это работает")
+        view_name = TR("how_it_works")
          
         super.viewDidLoad()
         

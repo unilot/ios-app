@@ -52,8 +52,8 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
         let lotteryType = setting_strings[0][order]
         titleMain.text = TR(tabbar_strings[order]) + " " + TR("лотерея") +  " UNILOT"
         let floatBet = local_current_game.bet_amount
-        textBig.text = String(format: TR("Чтобы принять участие в %@, вам необходимо перечислить %.3f Eth на кошелек, который вы получите нажав на кнопку ниже"),TR(lotteryType),floatBet)
-        endLabel.text = TR("Лотерея заканчивается через")
+        textBig.text = String(format: TR("Чтобы принять участие в %@, вам необходимо перечислить %.3f Eth на кошелек, адрес которого вы получите, нажав на кнопку ниже."),TR(lotteryType),floatBet)
+        endLabel.text = TR("Лотерея заканчивается через:")
         warningLabel.text = TR("После оплаты вернитесь в приложение\nи зарегистрируйте свой кошелек")
         copyButton.setTitle("  " + TR("Скопировать номер кошелька"), for: .normal)
     }

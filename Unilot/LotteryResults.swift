@@ -67,8 +67,8 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         
         
         if games_list[kTypeMonth] != nil {
-            butHey.text =  TR("Вы автоматически становитесь участником бонусного розыгрыша который состоится через:")
-            endLabel.text = TR("До объявления победителя")
+            butHey.text =  TR("Вы автоматически становитесь участником бонусного розыгрыша, который состоится через:")
+            endLabel.text = TR("До объявления победителя:")
             days.text = TR("Дней")
 
             

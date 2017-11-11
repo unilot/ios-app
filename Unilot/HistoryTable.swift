@@ -61,7 +61,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     var viewWithPlaces : TotalPrizeFond? = nil
     
     override func setTitle() {
-        navigationItem.title = TR("История ваших розыгрышей")
+        navigationItem.title = TR("История розыгрышей")
     }
     
     //MARK:-  UITableViewDelegate, UITableViewDataSource

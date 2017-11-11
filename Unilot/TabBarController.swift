@@ -130,7 +130,7 @@ class TabBarController: UITabBarController  {
 
         
         
-        let tb4  =  UITabBarItem(title: TR("Профайл"),
+        let tb4  =  UITabBarItem(title: TR("Профиль"),
                                  image: UIImage(named:"`profile-x3"),
                                  tag: 3)
         

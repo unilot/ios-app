@@ -57,7 +57,7 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             labelFor(headerCell, 20)?.text = TR("Получать уведомления о")
 
         default:
-            labelFor(headerCell, 20)?.text = TR("Выбор языка")
+            labelFor(headerCell, 20)?.text = TR("Выберите язык:")
 
         }
         return headerView

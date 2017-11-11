@@ -80,8 +80,8 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
     override func setTitle(){
         
         t_jackpot.text = TR("ДЖЕКПОТ")
-        t_users.text = TR("УЧАСТНИКОВ")
-        t_winners.text = TR("ПОБЕДИТЕЛЕЙ")
+        t_users.text = TR("УЧАСТНИКИ")
+        t_winners.text = TR("ПОБЕДИТЕЛИ")
         
         
         // fill data in title

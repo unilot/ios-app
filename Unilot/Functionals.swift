@@ -84,7 +84,7 @@ class NotifStruct {
 
 func saveToClipboard(_ text : String){
     UIPasteboard.general.string = text
-    let alert_text = TR("Номер") + "\n\n" + text + "\n\n" + TR("был сохранен в буфер")
+    let alert_text = TR("Адрес") + "\n\n" + text + "\n\n" + TR("был сохранен в буфер")
     SCLAlertView().showInfo(" ", subTitle: alert_text)
 }
 

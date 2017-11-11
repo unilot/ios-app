@@ -15,7 +15,7 @@ class MainView: MainViewPositions {
   
     override func fillWithData(){
 
-        titleUntilTheEnd.text = TR("До конца регистрации")
+        titleUntilTheEnd.text = TR("До окончания розыгрыша:")
         
         takePart.setTitle(TR("Принять участие"), for: .normal)
         

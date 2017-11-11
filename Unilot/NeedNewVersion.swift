@@ -28,7 +28,7 @@ class NeedNewVersion : ControllerCore {
         
         setTitle()
         
-        center_label.text = TR("Обновите версию приложения")
+        center_label.text = TR("Данная версия Unilot устарела. Пожалуйста, обновите приложение.")
         
         button.setTitle(TR("go to app store"), for: .normal)
         

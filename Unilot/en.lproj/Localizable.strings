@@ -7,31 +7,31 @@
  */
 
 
-"Розыгрыш от" = "Drawing from";
+"Розыгрыш от" = "Drawing dated";
 "МЕСТО" = "PLACE";
-"КОШЕЛЕК" = "Wallet";
-"ДАТА И ЛОТЕРЕЯ" = "DATE AND DRAWING ";
+"КОШЕЛЕК" = "WALLET";
+"ДАТА И ЛОТЕРЕЯ" = "DATE AND DRAWING";
 "СТАТУС" = "STATUS";
 "ВЫИГРЫШ" = "PRIZE";
 "Ваши кошельки" = "Your wallets";
-"Добавить кошелёк" = "Add the number of your wallet";
-"Номер вашего кошелька" = "Number of your wallet";
+"Добавить кошелёк" = "Add wallet address";
+"Номер вашего кошелька" = "Your wallet address";
 "Добавить" = "Add";
-"Вы уверены что хотите удалить ключ " = "Are you sure, you want to delete the wallet ";
+"Вы уверены что хотите удалить ключ " = "Are you sure you want to delete the wallet ";
 "Настройки" = "Settings";
 "Получать уведомления о" = "Get notifications for";
-"Выбор языка" = "Choose language";
+"Выберите язык:" = "Choose language:";
 "Дневная" = "Daily";
 "Недельная" = "Weekly";
 "Бонусная" = "Bonus";
-"Профайл" = "Profile";
-"Как это работает" = "How it works";
-"История ваших розыгрышей" = "History of drawings";
-"Дней" = "Days";
-"Недель" = "Weeks";
-"Часа" = "Hours";
-"Мин" = "Min";
-"Сек" = "Sec";
+"Профиль" = "Profile";
+"Как это работает:" = "How it works:";
+"История розыгрышей" = "History of drawings";
+"дни" = "Days";
+"недели" = "Weeks";
+"часы" = "Hours";
+"минуты" = "Minutes";
+"секунды" = "Seconds";
 
 "Дневной лотерее" = "Daily drawing";
 "Недельной лотерее"  = "Weekly drawing";
@@ -49,68 +49,63 @@
 
 "лотерея" = "drawing";
 "Джекпот" = "Jackpot";
-"До конца регистрации" = "Before the end of the registration";
+"До окончания розыгрыша:" = "Left till the end of drawing:”;
 "Призовые места" = "Prize-winning places";
 "Да"= "Yes";
 "Нет" = "No";
-"Принять участие" = "Take part in ";
-"До обьявления\nпобедителей:" = "Before the winners\n announcement";
+"Принять участие" = "Participate";
+"До объявления\nпобедителей:" = "Left till winners\n announcement:”;
 "дней" = "days";
-"Как попасть в розыгрыш?" = "How can I join the drawing?";
+"Как попасть в этот розыгрыш?" = "How can I join this drawing?";
 "История розыгрышей" = "History";
 "Настройки" = "Settings";
-"Оставайтесь в курсе" = "Stay up to date.";
+"Оставайтесь в курсе:" = "Stay tuned:";
 "завершена" = "finished";
-"список победителей" = "winners list";
+"список победителей" = "list of winners”;
 "в процессе" = "in process";
 "перейти" = "open";
 "отменена" = "canceled";
-"Номер" = "The number";
+"Адрес" = "The address";
 "был сохранен в буфер" = "was saved to clipboard";
-"Чтобы принять участие в %@, вам необходимо перечислить %.3f Eth на кошелек, который вы получите нажав на кнопку ниже" =
-"To participate in %@, you need to pay %.3f Eth to the wallet, that you can get by pressing the button";
-"Лотерея заканчивается через" = "The drawing will be over in";
-"После оплаты вернитесь в приложение\nи зарегистрируйте свой кошелек" = "Return to the app and register\nyour wallet after payment";
-"Скопировать номер кошелька" = "Copy the number of your wallet";
+"Чтобы принять участие в %@, вам необходимо перечислить %.3f Eth на кошелек, адрес которого вы получите, нажав на кнопку ниже." =
+"To participate in %@ you should transfer %.3f Eth to a specified wallet. Please tap on the button below to get the wallet address.";
+"Лотерея заканчивается через:" = "The drawing finishes in:";
+"После оплаты вернитесь в приложение\nи зарегистрируйте свой кошелек" = "Return to the app and register\nyour wallet after the payment";
+"Скопировать адрес кошелька" = "Copy the wallet address";
 "Общий призовой фонд" = "Total jackpot";
 "Призовые\nместа" = "Prize\nplaces";
 "Закрыть" = "Close";
 
-"Поздравляем" = "Congratulations";
-"Вы победили" = "You won!";
-"Вы заняли %d место и выиграли" = "You are on the %d place and won";
+"Поздравляем!" = "Congratulations!";
+"Вы победили!" = "You won!";
+"Вы заняли %d место и выиграли" = "You took the %d place and won";
 "История розыгрыша" = "Details";
 
-"К сожалению, вас нет в списке победителей" = "Unfortunately, you are not in the list of winners";
+"К сожалению, вас нет в списке победителей." = "Unfortunately, you lose.";
 "Итоги" = "Results of";
-"Вы автоматически становитесь участником бонусного розыгрыша который состоится через:" =
+"Вы автоматически становитесь участником бонусного розыгрыша, который состоится через:" =
 "You automatically become a participant of the Bonus drawing that is to take place in:";
-"До объявления победителя" = "Before the winner announcement\no";
+"До объявления победителя:" = "Left till winner announcement:\n";
 
-
-"Система\nвыбирает победителя" = "The system is \ncalculating the winner";
+"Система\nвыбирает победителя" = "The system is \nchoosing winners";
 "Скорo" = "Soon";
 "Презентация" = "Presentation";
-"Бонусная игра пока не началась" = "Bonus Lottery has not started yet";
-"Скоро начнется ...." = "Will be soon ....";
-"Обновить данные" = "Tap To refresh";
+"Бонусная лотерея еще не началась" = "Bonus drawing has not started yet";
+"Скоро начнется..." = "Will start soon...";
+"Обновить данные" = "Tap to refresh";
 
 
-"Ошибка соединения, пожалуйста повторите запрос" = "Connection error! Please, try again";
-"Так как вы не зарегистрировали ваш кошелек, ваш статус незвестен.\nпроверьте историю розыгрыша" = "Since you have not registered your wallet, your status is unknown.\nCheck the history of the drawing";
+"Ошибка соединения, пожалуйста повторите запрос" = "Connection error! Please try it again";
+
 //MARK: -  FILES NAME
 
 "HDIW" = "HDIW_en";
+"Данная версия Unilot устарела. Пожалуйста, обновите приложение." = "Your version of Unilot is out of date. Please update it on the App Store.";
+
 
 
 "ДЖЕКПОТ" = "JACKPOT";
-"УЧАСТНИКОВ" = "PARTICIPANTS";
-"ПОБЕДИТЕЛЕЙ" = "WINNERS";
+"УЧАСТНИКИ" = "PARTICIPANTS";
+"ПОБЕДИТЕЛИ" = "WINNERS";
 
-
-
-"Обновите версию приложения" = "Update the app";
-
-"go to app store" = "go to app store";
-
-
+"Перейти в Аpp Store" = "Go to App Store";

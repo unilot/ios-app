@@ -9,8 +9,7 @@
 
 
 "canceled"                  = "canceled";
-"Done"                      = "Done";
-
+ 
 "Yes"                       = "Yes";
 "No"                        = "No";
 
@@ -24,6 +23,9 @@
 "date_drawing"              = "date and drawing";
 "status"                    = "status";
 "prize"                     = "prize";
+"place"                     = "place";
+"wallet"                    = "wallet";
+
 
 "your_wallets"              = "Your wallets";
 "add_wallet_address"        = "Add wallet address";
@@ -41,7 +43,7 @@
 "get_notifications_for"     = "Get notifications for";
 "go_to_appstore"            = "Go to App Store";
 
-"choose_language:"          = "Choose language:";
+"choose_language"          = "Choose language:";
 
 
 
@@ -64,7 +66,7 @@
 "drawing3"                  = "drawing";
 
 
-"how_it_works:"             = "How it works:";
+"how_it_works"             = "How it works";
 "question_for_delete"       = "Are you sure you want to delete the wallet ";
 
 
@@ -127,6 +129,7 @@
 "go_back_after_payment"     = "Return to the app and register\nyour wallet after the payment";
 "to_participate_you_need"   = "To participate in %@ you should transfer %.3f Eth to a specified wallet. Please tap on the button below to get the wallet address.";
 
+"we_dont_know_your_wallet"  = "Since you have not registered your wallet, your status is unknown.\nCheck History of the drawing.";
 
 
 "tutorial_text_1" = "композиционная форма, которую используют в литературоведении и лингвистике для подробной характеристики предметов или явлений в целях создания художественного образа";
@@ -143,4 +146,5 @@
 
 //MARK: -  FILES NAME
 
+"soon"                      = "Soon";
 "HDIW"                      = "HDIW_en";

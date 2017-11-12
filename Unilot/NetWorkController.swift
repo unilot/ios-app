@@ -205,7 +205,7 @@ class NetWork : NetWorkParse {
         guard (response.response?.statusCode != 417) else {
 //            
 //            if response.result.error != nil {
-//                dev_messagesShowed(error : response.result.error)
+//                message_to_Crashlytics(error : response.result.error)
 //            }
             
             current_controller_core?.close_views()
@@ -219,9 +219,9 @@ class NetWork : NetWorkParse {
             var answer : String? = nil
 
             if response.result.error != nil {
-                answer = dev_messagesShowed(error : response.result.error!)
+                answer = message_to_Crashlytics(error : response.result.error!)
             } else {
-                answer = dev_messagesShowed(line : "response.result.value is NULL")
+                answer = message_to_Crashlytics(line : "response.result.value is NULL")
             }
             
             if keyForSavings != nil {

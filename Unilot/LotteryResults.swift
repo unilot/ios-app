@@ -43,7 +43,7 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         
         let type = getTabBarTag()
         
-        titleMain.text = TR("results") + " " + TR(bonus_titles[type]) + " " + TR("drawing2")
+        titleMain.text = TR("results") + " " + TR(setting_strings[0][type]).capitalized + " " + TR("drawing2")
         dayTitle.text = getNiceDateFormatString(from: local_current_game.started_at)
         unfortunately.text = "" // TR("you_lost_text")
         copyButton.setTitle(TR("details"), for: .normal)
@@ -82,7 +82,7 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
 
             clockTablet.reloadInputViews()
             
-            butHey.text =  TR("Так как вы не зарегистрировали ваш кошелек, ваш статус незвестен.\nпроверьте историю розыгрыша")
+            butHey.text =  TR("we_dont_know_your_wallet")
             endLabel.text = TR(" ")
             days.text = TR(" ")
             

@@ -15,6 +15,26 @@ let current_build              = "20"
 
 let app_name                   = "Unilot"
 
+//MARK: -  LINKS
+
+let kLink_FB            = "https://www.facebook.com/unilot.io/"
+let kLink_LinkedIn      = "https://www.linkedin.com/company/unilot"
+let kLink_Reddit        = "https://www.reddit.com/user/unilot_lottery/"
+let kLink_Twitter       = "https://twitter.com/unilot_lottery"
+let kLink_Telegram      = "https://t.me/unilot_channel"
+
+let kLink_AppStore      = "itms://itunes.apple.com/de/app/x-gift/id839686104?mt=8&uo=4"
+
+let kLink_AppSite       = "https://unilot.io"
+
+
+
+
+let kPDF_files = ["https://unilot.io//static/files/UNILOT_ENG.pdf",
+                  "https://unilot.io//static/files/UNILOT_RUS.pdf"]
+
+
+
 //MARK: -  games info
 
 
@@ -48,34 +68,19 @@ let kGameStatusSleep    = 2
 
 let kTimeForPreperationWait = 3600
 
+var timeOfFlipperAnimation = 15.0
 
-let default_first_launch     = "&&\(kTypeProfile)"
-//MARK: -  LINKS
-
-let kLink_FB = "https://www.facebook.com/unilot.io/"
-let kLink_LinkedIn = "https://www.linkedin.com/company/unilot"
-let kLink_Reddit = "https://www.reddit.com/user/unilot_lottery/"
-let kLink_Twitter = "https://twitter.com/unilot_lottery"
-let kLink_Telegram = "https://t.me/unilot_channel"
-
-let kLink_AppStore = "itms://itunes.apple.com/de/app/x-gift/id839686104?mt=8&uo=4"
-
-
-
-let kPDF_files = ["https://unilot.io//static/files/UNILOT_ENG.pdf",
-                  "https://unilot.io//static/files/UNILOT_RUS.pdf"]
-
+let staticClockSecondsStep = [1,60,3600]
 
 
 //MARK: -  LOCALS
 
-var timeOfFlipperAnimation = 15.0
+let default_first_launch     = "&&\(kTypeProfile)"
 
 var lottery_images   = ["`1day-x3","`7days-x3","`31days-x3"]
 var kTypeImage       = [kTypeDay : "`1day-x3", kTypeWeek : "`7days-x3", kTypeMonth : "`31days-x3"]
 var kTypeTabBarOrder = [kTypeDay, kTypeWeek, kTypeMonth, kTypeProfile]
 
-let staticClockSecondsStep = [1,60,3600]
 
 let staticClockNames =
     [
@@ -85,8 +90,6 @@ let staticClockNames =
 ]
 
 var langCodes = ["en","ru"]
-
-var bonus_titles = ["daily2","weekly2","bonus2" ]
 
 var setting_strings =  [ ["daily2","weekly2","bonus2" ],  ["English","Русский"]]
 

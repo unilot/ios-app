@@ -24,7 +24,7 @@ class NetWorkParse {
     static func parseAuthorisation(_ resultValue : Any) -> String? {
         
         guard let responseJSON = resultValue as? [String: Any] else {
-            return dev_messagesShowed(line : "Authorisation")
+            return message_to_Crashlytics(line : "Authorisation")
         }
         
         session_data = responseJSON
@@ -40,7 +40,7 @@ class NetWorkParse {
     static func parseNotificationToken(_ resultValue : Any) -> String? {
         
         guard resultValue is [String: Any] else {
-            return dev_messagesShowed(line : "NotificationToken")
+            return message_to_Crashlytics(line : "NotificationToken")
         }
         
         
@@ -50,7 +50,7 @@ class NetWorkParse {
     static func parseGamesList(_ resultValue : Any) -> String? {
 
         guard let responseJSON = resultValue as? [[String:Any]] else {
-            return dev_messagesShowed(line : "GamesList")
+            return message_to_Crashlytics(line : "GamesList")
         }
 
         games_list = [:]
@@ -68,7 +68,7 @@ class NetWorkParse {
     static func parseWinnersList(_ resultValue : Any) -> String? {
         
         guard let responseJSON = resultValue as? [[String:Any]] else {
-            return dev_messagesShowed(line: "WinnersList")
+            return message_to_Crashlytics(line: "WinnersList")
         }
         
         winners_list = []
@@ -87,7 +87,7 @@ class NetWorkParse {
 //        Crashlytics.sharedInstance().crash()
 
         guard let responseJSON = resultValue as? [[String:Any]] else {
-            return dev_messagesShowed(line: "HistoryPage")
+            return message_to_Crashlytics(line: "HistoryPage")
         }
         
         history_list = []
@@ -105,7 +105,7 @@ class NetWorkParse {
     static func parseGameDetails(_ resultValue : Any) -> String?{
         
         guard let responseJSON = resultValue as? [String:Any] else {
-            return dev_messagesShowed(line: "GameDetails")
+            return message_to_Crashlytics(line: "GameDetails")
         }
         
         

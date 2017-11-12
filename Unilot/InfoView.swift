@@ -26,7 +26,7 @@ class InfoView: PopUpCore {
         
         super.setInitBorders()
         
-        titleMain.text = TR("how_it_works")
+        titleMain.text = TR("how_it_works") + ":"
         
         textView.text = getTextFromFileInfo()
         

@@ -193,22 +193,32 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     }
     
     
-    
-    //MARK: - On Functions    
-    
-    func onOpenMenu(){
-        navigationController?.popViewController(animated: true)
+    //MARK: - Settings
+
+    func setFon(){
+        
+        let fon  = create_fon_view(self.view.frame.size)
+        self.view.insertSubview(fon, at: 0)
+        
     }
- 
+    
+    //MARK: - On Functions
+    
+    @IBAction func onGoToAppStore(){
+        
+        openUrlFromApp(kLink_AppStore)
+    }
     
     @IBAction func onInfoBarButton(_ sender: UIBarButtonItem){
-        
-        
+         
         openTutorialFirst()
         
 //        openInfoText()
     }
     
+    func onOpenMenu(){
+        navigationController?.popViewController(animated: true)
+    }
     
     func openInfoText(){
         let viewWithPlaces = InfoView.createInfoView()

@@ -48,9 +48,6 @@ class LoadingView : ControllerCore{
         goToMainController()
 
     }
-
-
-    
     
     
     func getSessionToken(){
@@ -89,9 +86,7 @@ class LoadingView : ControllerCore{
     
     
     func getGamesList(){
-        
-//        NetWork.test()
-        
+                
          NetWork.getGamesList { (error : String?) in
             
             if error != nil {
@@ -115,6 +110,7 @@ class LoadingView : ControllerCore{
     func failComplete(_ error: String){
         
         stopAnimating()
+        
         SCLAlertView().showError(" ", subTitle: error)
         
         if let dataParse = MemoryControll.getObject("list_games") {

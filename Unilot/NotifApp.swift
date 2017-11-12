@@ -163,10 +163,7 @@ class NotifApp {
     
     static func parseRemoteNotification( _ notificationDictionary : [String : Any]){
         
-        print(notificationDictionary)
-        
-//        SCLAlertView().showTitle("NOTIFICATION", subTitle: notificationDictionary.description, style: .info)
- 
+//        print(notificationDictionary)
         
         if !app_is_active {
             

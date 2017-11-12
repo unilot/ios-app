@@ -37,7 +37,7 @@ class BonusView: MainViewPositions {
         label1.text = TR("left_\nbefore_end")
         label2.text = TR("days2")
         
-        howDoesItWork.setTitle(TR("Как попасть в розыгрыш?"), for: .normal)
+        howDoesItWork.setTitle(TR("how_join?"), for: .normal)
         
         addTimersBody()
         
@@ -63,7 +63,6 @@ class BonusView: MainViewPositions {
     override func setLoadingSign(toWidth: CGFloat ){
         
     } 
-    
     
     
     //MARK: - timers

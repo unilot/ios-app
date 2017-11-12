@@ -75,7 +75,7 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "id_cell", for: indexPath)
             cell.layoutIfNeeded()
             
-            labelFor(cell, 20)?.text = TR(setting_strings[0][indexPath.row])  + " " + TR("drawing3")
+            labelFor(cell, 20)?.text = TR(setting_strings[0][indexPath.row]).capitalized  + " " + TR("drawing3")
 
             
             if let img = cell.contentView.viewWithTag(10) as? UIImageView{

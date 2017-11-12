@@ -41,30 +41,11 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
     }
     
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        
-//        revealViewController().frontViewController.view.isUserInteractionEnabled = false
-//        
-//        
-//    }
-//    
-//    
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        
-//        revealViewController().frontViewController.view.isUserInteractionEnabled = true
-//
-//    }
-
     //MARK: -
-
     
     func setLocolizedStuff(){
         
         itemBadge.setNumberLabel(notification_data.count)
-        ico_image.image = UIImage(named : TR("Скорo"))
-        ico_image.contentMode = .scaleAspectFit
         
         history.text = TR("history_of_drawings")
         how.text = TR("how_it_works")
@@ -72,6 +53,9 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
         settings.text = TR("settings")
         socials.text = TR("stay_tuned:")
         
+        ico_image.image = UIImage(named : TR("soon"))
+        ico_image.contentMode = .scaleAspectFit
+
     }
     
     //MARK: - TableVIew

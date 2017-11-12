@@ -49,8 +49,8 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
         
         let order = getTabBarTag()
         
-        let lotteryType = setting_strings[0][order] + " " + TR("drawing3")
-        titleMain.text = TR(tabbar_strings[order]) + " " + TR("drawing1") +  " " + app_name.uppercased()
+        let lotteryType = TR(setting_strings[0][order]).capitalized + " " + TR("drawing3")
+        titleMain.text = TR(tabbar_strings[order]).capitalized + " " + TR("drawing1") +  " " + app_name.uppercased()
         let floatBet = local_current_game.bet_amount
         textBig.text = String(format: TR("to_participate_you_need"),TR(lotteryType),floatBet)
         endLabel.text = TR("will_be_off_after:")

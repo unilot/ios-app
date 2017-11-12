@@ -42,6 +42,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         
         tableMain.layer.opacity = 0.0
         
+        
         addTouchForKeyBoard()
         
         showActivityViewIndicator()
@@ -70,6 +71,8 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         
         tableMain.reloadData()
         
+        setTableHeader()
+
         UIView.animate(withDuration: 0.5) {
             
             self.tableMain.layer.opacity = 1.0
@@ -121,12 +124,12 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         // create attributed string
 
         
-        let attr1 = [ NSFontAttributeName: UIFont(name: kFont_Regular, size: 12.0)!,
+        let attr1 = [ NSFontAttributeName: UIFont(name: kFont_Regular, size: 14.0)!,
                             NSForegroundColorAttributeName : UIColor.white]
 
         let first_string = NSMutableAttributedString(string:TR("drawing_dated") + ": ", attributes: attr1 )
         
-        let attr2 = [ NSFontAttributeName: UIFont(name: kFont_Regular, size: 12.0)!,
+        let attr2 = [ NSFontAttributeName: UIFont(name: kFont_Regular, size: 16.0)!,
                             NSForegroundColorAttributeName : kColorMenuPeach]
         
         let second_string = NSMutableAttributedString(string: date_string,
@@ -160,29 +163,22 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         return 32
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
-    }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func setTableHeader(){
         
-        tableView.setNeedsLayout()
-        tableView.layoutIfNeeded()
-         
-        let headerView = UIView(frame: CGRect(x: 0, y: 0,
-                                              width: tableView.frame.width,
-                                              height: 44))
-      
-        let headerCell = tableView.dequeueReusableCell(withIdentifier: "id_header")!
+        let header_view = tableMain.tableHeaderView!
         
-        headerView.addSubview(headerCell)
+        if let label = header_view.viewWithTag(10) as? UILabel{
+            label.text = TR("place").uppercased()
+        }
         
-        labelFor(headerCell, 10)?.text = TR("place").uppercased()
-        labelFor(headerCell, 20)?.text = TR("wallet").uppercased()
-        
-        return headerView
-        
+        if let label = header_view.viewWithTag(20) as? UILabel{
+            label.text = TR("wallet").uppercased()
+        }
+
     }
+ 
+    
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

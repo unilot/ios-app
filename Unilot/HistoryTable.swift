@@ -47,6 +47,8 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
         table.reloadData()
         
+        setTableHeader()
+        
         UIView.animate(withDuration: 0.5) {
             
             self.table.layer.opacity = 1.0
@@ -59,7 +61,9 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     var viewWithPlaces : TotalPrizeFond? = nil
     
     override func setTitle() {
-        navigationItem.title = TR("История розыгрышей")
+        
+        navigationItem.title = TR("history_of_drawings")
+    
     }
     
     //MARK:-  UITableViewDelegate, UITableViewDataSource
@@ -75,33 +79,25 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         return 32
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
-    }
+    func setTableHeader(){
+        
+        let header_view = table.tableHeaderView!
+        
+        if let label = header_view.viewWithTag(10) as? UILabel{
+            label.text = TR("date_drawing").uppercased()
+        }
+        
+        if let label = header_view.viewWithTag(20) as? UILabel{
+            label.text = TR("status").uppercased()
+        }
+        
+        if let label = header_view.viewWithTag(20) as? UILabel{
+            label.text = TR("prize").uppercased()
+        }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let headerView = UIView(frame: CGRect(x: 0, y: 0,
-                                              width: view.frame.width * 0.9,
-                                              height: 44))
-        let headerCell = tableView.dequeueReusableCell(withIdentifier: "id_header")!        
-      
-
-        headerCell.contentView.frame  = headerView.frame
-        
-        headerView.addSubview(headerCell)
-       
-        labelFor(headerCell, 10)?.text = TR("date_drawing").uppercased()
-        labelFor(headerCell, 20)?.text = TR("status").uppercased()
-        labelFor(headerCell, 30)?.text = TR("prize").uppercased()
-        
-
-        headerView.layoutIfNeeded()
-        
-        return headerView
-        
     }
-
+ 
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         

@@ -9,6 +9,7 @@
 import UIKit
 import UserNotifications
 import Firebase
+import Fabric
 import Crashlytics
 
 
@@ -81,6 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         app_is_active = true
  
         FIRApp.configure()
+        Fabric.with([Crashlytics.self])
 
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
@@ -227,7 +229,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
 
-        message_to_Crashlytics(error : error)
+        _ = message_to_Crashlytics(error : error)
  
         NotifApp.startAfterAnswerFromRemoteNotifications()
         

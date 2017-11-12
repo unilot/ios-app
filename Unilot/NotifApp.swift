@@ -28,7 +28,7 @@ class NotifApp {
                 
                 } else {
                      if error != nil {
-                        message_to_Crashlytics(error : error!)
+                        _ = message_to_Crashlytics(error : error!)
 //                        print("error push id " + error!.localizedDescription )
                     }
                 }

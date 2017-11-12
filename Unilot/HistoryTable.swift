@@ -91,7 +91,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             label.text = TR("status").uppercased()
         }
         
-        if let label = header_view.viewWithTag(20) as? UILabel{
+        if let label = header_view.viewWithTag(30) as? UILabel{
             label.text = TR("prize").uppercased()
         }
     

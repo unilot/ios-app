@@ -50,7 +50,7 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
 
         titleMain.text = TR("total_jackpot")
         close.setTitle(TR("close"), for: .normal)
-        firstLabel.text = TR("prize_places")
+        firstLabel.text = TR("prize_\nplaces")
         
         
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)

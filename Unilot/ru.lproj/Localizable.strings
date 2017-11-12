@@ -85,6 +85,8 @@
 
 
 "prize_places"              = "Призовые места";
+"prize_\nplaces"              = "Призовые\nместа";
+
 "participate"               = "Принять участие";
 
 "stay_tuned:"               = "Оставайтесь в курсе:";
@@ -95,7 +97,6 @@
 "copy_address"              = "Скопировать адрес кошелька";
 "copy_transaction"          = "Скопировать адрес транзакции";
 "total_jackpot"             = "Общий призовой фонд";
-"prize_places"              = "Призовые\nместа";
 
 "congratulations!"          = "Поздравляем!";
 "you_won!"                  = "Вы победили!";

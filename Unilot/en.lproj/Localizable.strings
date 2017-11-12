@@ -89,6 +89,9 @@
 
 
 "prize_places"              = "Prize-winning places";
+"prize_\nplaces"              = "Prize\nplaces";
+
+
 "participate"               = "Participate";
 
 "stay_tuned:"               = "Stay tuned:";
@@ -99,7 +102,6 @@
 "copy_address"              = "Copy the wallet address";
 "copy_transaction"          = "Copy transaction address";
 "total_jackpot"             = "Total jackpot";
-"prize_places"              = "Prize\nplaces";
 
 "congratulations!"          = "Congratulations!";
 "you_won!"                  = "You won!";

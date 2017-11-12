@@ -164,7 +164,9 @@ class NetWork : NetWorkParse {
                             _ completion     : @escaping ((String?) -> Void),
                             _ keyForSavings  : String? = nil) {
         
-        print(response)
+//        print(response)
+        
+//        print("status code = \(response.response?.statusCode)")
         
 //        // server error
 //        guard (response.response?.statusCode != 500) else {

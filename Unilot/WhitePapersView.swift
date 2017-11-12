@@ -32,15 +32,13 @@ class WhitePapersView : WebCore {
     
     func getAddressForFile() -> URL? {
         
-        let file_line =   "UNILOT_\(langCodes[current_language_ind])"
+//        let file_line =   "UNILOT_\(langCodes[current_language_ind])"
         
-        return Bundle.main.url(forResource: file_line, withExtension: "pdf", subdirectory: nil, localization: nil)
+//        return Bundle.main.url(forResource: file_line, withExtension: "pdf", subdirectory: nil, localization: nil)
+        
+        return URL(string: kPDF_files[current_language_ind])
         
         
-//        let url = URL(string: kPDF_files[id_lang])
-        
-//        return url
-
     }
     
     @IBAction func onShare(){

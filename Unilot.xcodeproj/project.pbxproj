@@ -56,8 +56,6 @@
 		D6D3CEAC1FA5FF94000F2FF3 /* IcoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D3CEAB1FA5FF94000F2FF3 /* IcoView.swift */; };
 		D6D3CEB01FA60661000F2FF3 /* win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D6D3CEAF1FA60661000F2FF3 /* win.mp3 */; };
 		D6D3CEB51FA61DA3000F2FF3 /* WebCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D3CEB41FA61DA3000F2FF3 /* WebCore.swift */; };
-		D6D3CEB81FA61F3E000F2FF3 /* UNILOT_en.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6D3CEB61FA61F3E000F2FF3 /* UNILOT_en.pdf */; };
-		D6D3CEB91FA61F3E000F2FF3 /* UNILOT_ru.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D6D3CEB71FA61F3E000F2FF3 /* UNILOT_ru.pdf */; };
 		D6D591BB1F8D19D20002451A /* LxTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D591BA1F8D19D20002451A /* LxTabBarController.swift */; };
 		D6DCCD131FA4BCA1009BD20E /* BundleNew.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DCCD121FA4BCA1009BD20E /* BundleNew.m */; };
 		D6DCCD181FA4C795009BD20E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6DCCD1A1FA4C795009BD20E /* Localizable.strings */; };
@@ -164,8 +162,6 @@
 		D6D3CEAB1FA5FF94000F2FF3 /* IcoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IcoView.swift; sourceTree = "<group>"; };
 		D6D3CEAF1FA60661000F2FF3 /* win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = win.mp3; path = Settings/win.mp3; sourceTree = "<group>"; };
 		D6D3CEB41FA61DA3000F2FF3 /* WebCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebCore.swift; sourceTree = "<group>"; };
-		D6D3CEB61FA61F3E000F2FF3 /* UNILOT_en.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = UNILOT_en.pdf; path = Settings/UNILOT_en.pdf; sourceTree = "<group>"; };
-		D6D3CEB71FA61F3E000F2FF3 /* UNILOT_ru.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = UNILOT_ru.pdf; path = Settings/UNILOT_ru.pdf; sourceTree = "<group>"; };
 		D6D591BA1F8D19D20002451A /* LxTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LxTabBarController.swift; sourceTree = "<group>"; };
 		D6DCCD0F1FA4B60F009BD20E /* Unilot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Unilot.entitlements; sourceTree = "<group>"; };
 		D6DCCD111FA4BCA1009BD20E /* BundleNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BundleNew.h; sourceTree = "<group>"; };
@@ -295,8 +291,6 @@
 				D63F45161F8AC1BE00F69E7F /* Terms.html */,
 				D6DCCD1D1FA4F31C009BD20E /* HDIW_ru.txt */,
 				D6DCCD1F1FA4F338009BD20E /* HDIW_en.txt */,
-				D6D3CEB61FA61F3E000F2FF3 /* UNILOT_en.pdf */,
-				D6D3CEB71FA61F3E000F2FF3 /* UNILOT_ru.pdf */,
 				D6DCCD1A1FA4C795009BD20E /* Localizable.strings */,
 				D69364D11F5F254400FD0D37 /* Info.plist */,
 			);
@@ -621,10 +615,8 @@
 				D69364CB1F5F254400FD0D37 /* Main.storyboard in Resources */,
 				D6DCCD1E1FA4F31C009BD20E /* HDIW_ru.txt in Resources */,
 				D6D3CEB01FA60661000F2FF3 /* win.mp3 in Resources */,
-				D6D3CEB81FA61F3E000F2FF3 /* UNILOT_en.pdf in Resources */,
 				D612BBF71F9536AA002C4647 /* Assets.xcassets in Resources */,
 				D697091B1FB44B1300A7DC44 /* GoogleService-Info.plist in Resources */,
-				D6D3CEB91FA61F3E000F2FF3 /* UNILOT_ru.pdf in Resources */,
 				D612BBFB1F96B48F002C4647 /* LotteryResults.xib in Resources */,
 				D6DCCD181FA4C795009BD20E /* Localizable.strings in Resources */,
 				D611305F1FA826BE003B30E9 /* usual.mp3 in Resources */,

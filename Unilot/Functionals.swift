@@ -429,6 +429,8 @@ func message_to_Crashlytics(line : String? = nil, description : String? = nil, b
         //            Crashlytics.sharedInstance().recordError(NSError(domain:"", code: 418, userInfo:nil))
         
         Crashlytics.sharedInstance().recordError(error!)
+        
+        
     } else {
         
         var params = [String : NSObject]()

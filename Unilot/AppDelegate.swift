@@ -9,7 +9,6 @@
 import UIKit
 import UserNotifications
 import Firebase
-import Fabric
 import Crashlytics
 
 
@@ -82,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         app_is_active = true
  
         FIRApp.configure()
-        Fabric.with([Crashlytics.self])
+//        Fabric.with([Crashlytics.self])
 
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self

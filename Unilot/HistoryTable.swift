@@ -41,7 +41,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             
         } else {
             
-            dataForTable =  history_list.sorted(by: {  return $0.started_at > $1.started_at})
+            dataForTable =  history_list //.sorted(by: {  return $0.ending_at > $1.ending_at})
 
         }
         
@@ -76,7 +76,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 32
+        return 44
     }
     
     func setTableHeader(){
@@ -113,10 +113,8 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             img.setCircleMark(item.game_id)
         }
         
-        
-        
 
-        labelFor(cell, 20)?.text = getNiceDateFormatShortString(from: item.started_at)
+        labelFor(cell, 20)?.text = getNiceDateFormatHistoryString(from: item.ending_at)
  
         let actionLabel  =   labelFor(cell, 30)!
         let statusLabel  =   labelFor(cell, 40)!

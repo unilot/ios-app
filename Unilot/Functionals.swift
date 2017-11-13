@@ -253,6 +253,17 @@ func getNiceDateFormatString(from timeSec : Int) -> String {
     
 }
 
+func getNiceDateFormatHistoryString(from timeSec : Int) -> String {
+    
+    let currentDate = Date(timeIntervalSince1970: TimeInterval(timeSec))
+    
+    let dateFormatter =  DateFormatter()
+    dateFormatter.locale = Locale(identifier: langCodes[current_language_ind])
+    dateFormatter.dateFormat = "dd.MM.yy"
+    
+    return dateFormatter.string(from: currentDate)
+}
+
 func getNiceDateFormatShortString(from timeSec : Int) -> String {
     
     let currentDate = Date(timeIntervalSince1970: TimeInterval(timeSec))
@@ -280,6 +291,7 @@ func convertDate(from isoDate : String?) -> Int {
     return Int(date!.timeIntervalSince1970) //- timeZoneOffset
     
 }
+
 
 func getCurrentDateWithUTCTimeZone( _ date : Date ) -> Int {
     

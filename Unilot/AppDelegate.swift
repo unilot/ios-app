@@ -9,8 +9,8 @@
 import UIKit
 import UserNotifications
 import Firebase
+import Fabric
 import Crashlytics
-
 
 func sendNotification(_ message : String, _ key_id : String){
     
@@ -89,6 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 
         NotifApp.registerForPushNotifications(application)
+        Fabric.with([Crashlytics.self])
         
         // 1
         // Check if launched from notification

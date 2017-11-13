@@ -160,7 +160,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 32
+        return 40
     }
     
     

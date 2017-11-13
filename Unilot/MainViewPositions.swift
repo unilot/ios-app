@@ -83,6 +83,7 @@ class MainViewPositions: TabBarTimersViewCore {
     
     override func onPrizePlaces() {
         
+        local_current_game = current_game
         
         if imageTrophy.isHidden {
             
@@ -230,7 +231,9 @@ class MainViewPositions: TabBarTimersViewCore {
         peopleCount.text = "0"
         
         usSum.text = "$ 0"
-
+        
+        moneyTablet.initTimer(0,0)
+ 
         setLowerButton(goToPrizeOrRefresh : false)
     }
     
@@ -333,13 +336,21 @@ class MainViewPositions: TabBarTimersViewCore {
     
     func sendWinnerListRequest(_ game_id : String){
         
-//        showYouLost()
-        
         showActivityViewIndicator()
 
         NetWork.getListWinners(game_id, completion: onAnswerAfterWinnerList)
     
     }
+    
+    
+    
+    func getNotifDataFromNet(_ game_id : String){
+        
+        showActivityViewIndicator()
+
+        NetWork.getGameDetails(game_id, completion: onAnswerGameDataFromNet)
+    }
+    
     
     //MARK: - Notification stuff
     
@@ -361,11 +372,14 @@ class MainViewPositions: TabBarTimersViewCore {
     func openNotifViewsForWinnnerOrLoser(){
         
         // check current notification item
+
         if let game_id = NotifApp.getIdOfGameIfCompletedInMemory() {
             
-            if current_game.game_id != game_id {
+            let notif_action = NotifApp.getDataFromNotifString(open_from_notif,0)
+
+            if (notif_action == kActionCompleted) {
                 
-                sendWinnerListRequest(game_id)
+                getNotifDataFromNet(game_id)
 
             }
             
@@ -376,6 +390,7 @@ class MainViewPositions: TabBarTimersViewCore {
         
     }
     
+
     //MARK: - Answers from outside
      
     func onAnswerFromServerRefreshed(_ message : String?){
@@ -414,10 +429,22 @@ class MainViewPositions: TabBarTimersViewCore {
         
     }
     
+    func onAnswerGameDataFromNet(_ error : String?){
+        
+        if error != nil {
+            
+            hideActivityViewIndicator()
+
+            showError(error!)
+            
+        } else {
+            
+            sendWinnerListRequest(local_current_game.game_id)
+        }
+    }
     
     func onAnswerAfterWinnerList(_ error : String?){
-
-
+ 
         if error != nil{
              
             sendServerCheckForUpdateData()
@@ -426,22 +453,28 @@ class MainViewPositions: TabBarTimersViewCore {
         }
         
         hideActivityViewIndicator()
-
-        let my_win_wallets = winners_list.filter({ (item : UserForGame) -> Bool in
+        
+        
+        if (winners_list.count > 0) && (winners_list.first!.user_id != kNullUserId) {
             
-            return users_account_number.contains(item.user_id)
-        })
- 
-        if my_win_wallets.count > 0 {
+            let my_win_wallets = winners_list.filter({ (item : UserForGame) -> Bool in
+                
+                return users_account_number.contains(item.user_id)
+            })
             
-            for item in my_win_wallets {
-                showYouWin(item)
+            if my_win_wallets.count > 0 {
+                
+                for item in my_win_wallets {
+                    showYouWin(item)
+                }
+                
+            } else {
+                
+                showYouLost()
+                
             }
-            
-        } else {
-            
-            showYouLost()
         }
+
 
     }
     

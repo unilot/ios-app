@@ -25,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ежедневная лотерея UNILOT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nn-c6-pxt">
-                    <rect key="frame" x="10" y="80" width="300" height="28"/>
+                    <rect key="frame" x="10" y="70" width="300" height="28"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="SjH-0w-gXt"/>
                     </constraints>
@@ -34,14 +34,15 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mYr-XO-cWx">
-                    <rect key="frame" x="136.5" y="15" width="47" height="60"/>
+                    <rect key="frame" x="140.5" y="15" width="39" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="mYr-XO-cWx" secondAttribute="height" multiplier="63:80" id="UVQ-sU-wpM"/>
-                        <constraint firstAttribute="height" constant="60" id="eit-xh-8s1"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="eit-xh-8s1"/>
+                        <constraint firstAttribute="height" priority="999" constant="50" id="sBn-N2-gLb"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oaj-7G-tC4">
-                    <rect key="frame" x="119.5" y="258" width="80" height="1"/>
+                    <rect key="frame" x="119.5" y="238" width="80" height="1"/>
                     <color key="backgroundColor" red="0.81382812500000001" green="0.81382812500000001" blue="0.81382812500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="AhV-zS-C18"/>
@@ -49,20 +50,22 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лотерея заканчивается через" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="sd1-aD-ahN">
-                    <rect key="frame" x="20" y="274" width="280" height="40"/>
+                    <rect key="frame" x="20" y="254" width="280" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="vUU-fK-nKF"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="Qsm-NB-sRk"/>
+                        <constraint firstAttribute="height" priority="456" constant="40" id="vUU-fK-nKF"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                     <color key="textColor" red="0.1764705882" green="0.1529411765" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-vg-g4z" customClass="CDTimerPopUp" customModule="Unilot" customModuleProvider="target">
-                    <rect key="frame" x="59.5" y="329" width="200" height="50"/>
+                    <rect key="frame" x="59.5" y="304" width="200" height="50"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="ezM-lg-mYW"/>
+                        <constraint firstAttribute="height" priority="888" constant="50" id="ezM-lg-mYW"/>
                         <constraint firstAttribute="width" constant="200" id="i8p-Ac-feJ"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="rYN-Xc-tuM"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -71,7 +74,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Kd-e9-pKQ">
-                    <rect key="frame" x="34.5" y="426" width="250" height="52"/>
+                    <rect key="frame" x="34.5" y="401" width="250" height="52"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="250" id="cNc-qx-kjo"/>
@@ -110,7 +113,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12938470238945628937465092809284yr8wer98wugeirk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Nql-Z0-5DR">
-                    <rect key="frame" x="10" y="394" width="300" height="28"/>
+                    <rect key="frame" x="10" y="369" width="300" height="28"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="tP0-wB-dpH"/>
                     </constraints>
@@ -119,9 +122,9 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="f6h-is-Ioa">
-                    <rect key="frame" x="40" y="498" width="240" height="40"/>
+                    <rect key="frame" x="40" y="473" width="240" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="txe-gb-5dO"/>
+                        <constraint firstAttribute="height" constant="30" id="txe-gb-5dO"/>
                     </constraints>
                     <string key="text">После оплаты вернитесь в приложение 
 и зарегистрируйте свой кошелек</string>
@@ -130,13 +133,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ltz-Tj-gjO">
-                    <rect key="frame" x="15" y="118" width="290" height="130"/>
+                    <rect key="frame" x="15" y="108" width="290" height="120"/>
                     <constraints>
-                        <constraint firstAttribute="height" priority="999" constant="130" id="gVX-Q3-zWN"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="wk3-ry-tCP"/>
+                        <constraint firstAttribute="height" priority="998" constant="120" id="gVX-Q3-zWN"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="wk3-ry-tCP"/>
                     </constraints>
                     <string key="text">Что бы принять участие в ежедневной лотерее вам необходимо перечислить 0.005 Eth на кошелек, который вы получите нажав на кнопку ниже</string>
-                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -144,14 +147,16 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="sZB-vg-g4z" firstAttribute="centerX" secondItem="mYr-XO-cWx" secondAttribute="centerX" id="256-s6-yDQ"/>
-                <constraint firstItem="Nql-Z0-5DR" firstAttribute="top" secondItem="sZB-vg-g4z" secondAttribute="bottom" constant="15" id="EF9-l9-w9e"/>
-                <constraint firstItem="sZB-vg-g4z" firstAttribute="top" secondItem="sd1-aD-ahN" secondAttribute="bottom" constant="15" id="IEV-7s-RVN"/>
-                <constraint firstItem="sd1-aD-ahN" firstAttribute="top" secondItem="Oaj-7G-tC4" secondAttribute="bottom" constant="15" id="Ita-3u-QKR"/>
+                <constraint firstItem="Nql-Z0-5DR" firstAttribute="top" secondItem="sZB-vg-g4z" secondAttribute="bottom" priority="544" constant="15" id="EF9-l9-w9e"/>
+                <constraint firstItem="sd1-aD-ahN" firstAttribute="top" secondItem="Oaj-7G-tC4" secondAttribute="bottom" priority="333" constant="15" id="GUv-TN-lIi"/>
+                <constraint firstItem="sZB-vg-g4z" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sd1-aD-ahN" secondAttribute="bottom" constant="5" id="IEV-7s-RVN"/>
+                <constraint firstItem="sd1-aD-ahN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Oaj-7G-tC4" secondAttribute="bottom" id="Ita-3u-QKR"/>
                 <constraint firstItem="7Kd-e9-pKQ" firstAttribute="top" secondItem="Nql-Z0-5DR" secondAttribute="bottom" constant="4" id="Kgi-dT-oiI"/>
+                <constraint firstItem="sZB-vg-g4z" firstAttribute="top" secondItem="sd1-aD-ahN" secondAttribute="bottom" priority="999" constant="10" id="Mq8-U8-Inb"/>
                 <constraint firstItem="Nql-Z0-5DR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="NGW-dl-eeX"/>
                 <constraint firstAttribute="trailing" secondItem="sd1-aD-ahN" secondAttribute="trailing" constant="20" id="ObE-Nh-inZ"/>
                 <constraint firstItem="Nql-Z0-5DR" firstAttribute="centerX" secondItem="mYr-XO-cWx" secondAttribute="centerX" id="Pi0-Tw-TeM"/>
-                <constraint firstItem="f6h-is-Ioa" firstAttribute="top" secondItem="7Kd-e9-pKQ" secondAttribute="bottom" priority="999" constant="20" id="X2h-Og-g54"/>
+                <constraint firstItem="f6h-is-Ioa" firstAttribute="top" secondItem="7Kd-e9-pKQ" secondAttribute="bottom" priority="444" constant="20" id="X2h-Og-g54"/>
                 <constraint firstItem="Ltz-Tj-gjO" firstAttribute="top" secondItem="5nn-c6-pxt" secondAttribute="bottom" constant="10" id="X72-U7-YQf"/>
                 <constraint firstItem="5nn-c6-pxt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="XCJ-ca-60b"/>
                 <constraint firstItem="f6h-is-Ioa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="Y1g-h3-D5d"/>
@@ -170,9 +175,10 @@
                 <constraint firstItem="5nn-c6-pxt" firstAttribute="top" secondItem="mYr-XO-cWx" secondAttribute="bottom" constant="5" id="nj2-HF-cbV"/>
                 <constraint firstItem="5nn-c6-pxt" firstAttribute="centerX" secondItem="mYr-XO-cWx" secondAttribute="centerX" id="o4E-qb-hBS"/>
                 <constraint firstAttribute="trailing" secondItem="f6h-is-Ioa" secondAttribute="trailing" constant="40" id="r0I-s4-bBM"/>
+                <constraint firstItem="Nql-Z0-5DR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sZB-vg-g4z" secondAttribute="bottom" constant="10" id="r6f-yy-hhr"/>
                 <constraint firstItem="mYr-XO-cWx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="sJv-Ab-KT4"/>
                 <constraint firstItem="Oaj-7G-tC4" firstAttribute="top" secondItem="Ltz-Tj-gjO" secondAttribute="bottom" constant="10" id="tUG-GF-1cZ"/>
-                <constraint firstAttribute="bottom" secondItem="f6h-is-Ioa" secondAttribute="bottom" priority="999" constant="30" id="ua8-Xc-5DQ"/>
+                <constraint firstAttribute="bottom" secondItem="f6h-is-Ioa" secondAttribute="bottom" priority="222" constant="30" id="ua8-Xc-5DQ"/>
                 <constraint firstItem="sd1-aD-ahN" firstAttribute="centerX" secondItem="mYr-XO-cWx" secondAttribute="centerX" id="yeo-CB-H0u"/>
             </constraints>
             <userDefinedRuntimeAttributes>

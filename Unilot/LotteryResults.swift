@@ -28,6 +28,7 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
     @IBOutlet weak var days: UILabel!
     @IBOutlet weak var copyButton: UIButton!
     
+    
     class func createLotteryResults() -> LotteryResults {
         let myClassNib = UINib(nibName: "LotteryResults", bundle: nil)
         return myClassNib.instantiate(withOwner: nil, options: nil)[0] as! LotteryResults
@@ -44,7 +45,7 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         let type = getTabBarTag()
         
         titleMain.text = TR("results") + " " + TR(setting_strings[0][type]).capitalized + " " + TR("drawing2")
-        dayTitle.text = getNiceDateFormatString(from: local_current_game.started_at)
+        dayTitle.text = getNiceDateFormatString(from: current_game.started_at)
         unfortunately.text = "" // TR("you_lost_text")
         copyButton.setTitle(TR("details"), for: .normal)
         
@@ -93,7 +94,7 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
     
     func setTimerDetails(){
         
-        let data = recountTimersData(local_current_game)
+        let data = recountTimersData(current_game)
         
         if data.2 == -1 {
 //            onX()

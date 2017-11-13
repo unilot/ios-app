@@ -40,7 +40,7 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
 
         super.setInitBorders()
          
-        copy_line.text = local_current_game.smart_contract_id
+        copy_line.text = current_game.smart_contract_id
         
         let ptophyUpper = setColorForImage(trophy.frame.size, "trophy-x3")
         trophy.addSubview(ptophyUpper)
@@ -51,7 +51,7 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
         
         let lotteryType = TR(setting_strings[0][order]).capitalized + " " + TR("drawing3")
         titleMain.text = TR(tabbar_strings[order]).capitalized + " " + TR("drawing1") +  " " + app_name.uppercased()
-        let floatBet = local_current_game.bet_amount
+        let floatBet = current_game.bet_amount
         textBig.text = String(format: TR("to_participate_you_need"),TR(lotteryType),floatBet)
         endLabel.text = TR("will_be_off_after:")
         warningLabel.text = TR("go_back_after_payment")
@@ -61,7 +61,7 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
     
     func startClock(){
         
-        let items = recountTimersData(local_current_game)
+        let items = recountTimersData(current_game)
         
         if items.2 > -1 {
             

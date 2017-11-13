@@ -244,6 +244,8 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate, CountUppFlipp
             return
         }
         
+        local_current_game = current_game
+        
         let viewWithPlaces = AgreeToPlay.createAgreeToPlay()
         viewWithPlaces.delegate = self
         pop_up_view = viewWithPlaces
@@ -270,7 +272,7 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate, CountUppFlipp
  
         let viewWithPlaces = LotteryResults.createLotteryResults()
         viewWithPlaces.delegate = self
-
+        
         let frameForView = CGRect(x: 10,
                                   y: 70,
                                   width: view.frame.width - 20,

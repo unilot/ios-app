@@ -23,6 +23,7 @@ class PopUpCore: UIView  {
     
     @IBOutlet weak var titleMain: UILabel!
 
+    var current_game = local_current_game
     
     var delegate : PopUpCoreDelegate?
     var bigButtonFade : UIButton?

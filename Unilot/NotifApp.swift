@@ -105,7 +105,8 @@ class NotifApp {
         return game_id
         
     }
-
+ 
+    
     
     static func parseNotif(_ data : [String : Any]) -> NotifStruct {
         
@@ -162,8 +163,8 @@ class NotifApp {
     //MARK: - REMOTE NOTIFICATION
     
     static func parseRemoteNotification( _ notificationDictionary : [String : Any]){
-        
-//        print(notificationDictionary)
+         
+        print(notificationDictionary)
         
         if !app_is_active {
             
@@ -192,6 +193,7 @@ class NotifApp {
         // do something with these data if app is closed
         if !app_is_active {
             
+            
             // if game id is in notification
             if notifItem.game.game_id != kEmpty {
                 
@@ -208,11 +210,16 @@ class NotifApp {
         } else {
 
             // if game id is in notification
-            if notifItem.game.game_id != kEmpty {
+            
+            if let game = games_list[notifItem.game.type] {
                 
-                games_list[notifItem.game.type] = notifItem.game
-
+                if game.ending_at <= notifItem.game.ending_at {
+                    
+                    games_list[notifItem.game.type] = notifItem.game
+                    
+                }
             }
+
             
             
             open_from_notif = notifItem.notif_id

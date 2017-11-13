@@ -51,7 +51,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         if !app_is_active {
             completionHandler([.alert, .badge, .sound])
         }
-        
+    
 
     }
     
@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         app_is_active = true
  
         FIRApp.configure()
-//        Fabric.with([Crashlytics.self])
+        Fabric.with([Crashlytics.self])
 
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
@@ -89,19 +89,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 
         NotifApp.registerForPushNotifications(application)
-        Fabric.with([Crashlytics.self])
         
-        // 1
-        // Check if launched from notification
-//
-//        if let notification = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [String: Any] {
-//            // 2
-//            
-//            NotifApp.parseRemoteNotification(notification, .background)
-//            
-//            // 3
-//        }
-//        
+        
+        // Set Background Fetch Intervall for background services / terminated app
+        UIApplication.shared.setMinimumBackgroundFetchInterval(10)
+        
         return true
         
     }
@@ -178,8 +170,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+
         
-        
+//        sendNotification("drfkyughkjlkujyhgf","key")
+
         let aps = userInfo as! [String: Any]
         
         NotifApp.parseRemoteNotification(aps)
@@ -190,7 +184,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [AnyHashable: Any], completionHandler: @escaping () -> Void) {
         
-        // 1
+        
+         // 1
         let aps = userInfo as! [String: Any]
         
         NotifApp.parseRemoteNotification(aps)

@@ -25,7 +25,7 @@ class TabBarController: UITabBarController  {
         
         for i in 0..<tabBar.items!.count {
             
-            tabBar.items![i].title = TR(tabbar_strings[i])
+            tabBar.items![i].title = TR(tabbar_strings[i]).capitalized
             
         }
         

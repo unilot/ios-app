@@ -46,7 +46,7 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         
         widthOfCell = frame.width * 0.9
         
-        titleWithPrice.text = "\(local_current_game.prize_amount) ETh = $ \(local_current_game.prize_amount_fiat)"
+        titleWithPrice.text = "\(current_game.prize_amount) ETh = $ \(current_game.prize_amount_fiat)"
 
         titleMain.text = TR("total_jackpot")
         close.setTitle(TR("close"), for: .normal)
@@ -55,7 +55,7 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
 
-        NetWork.getListWinners(local_current_game.game_id, completion: onAnswer)
+        NetWork.getListWinners(current_game.game_id, completion: onAnswer)
         
     }
     

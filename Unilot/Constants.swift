@@ -37,6 +37,7 @@ let kPDF_files = ["https://unilot.io//static/files/UNILOT_ENG.pdf",
 
 //MARK: -  games info
 
+let kNullUserId = "0x0000000000000000000000000000000000000000"
 
 let kTypeHour = 5
 let kTypeDay = 10

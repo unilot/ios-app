@@ -31,6 +31,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
     var origin_dataForTable  = [UserForGame]()
     var dataForTable  = [UserForGame]()
     
+    var current_game = local_current_game
     
     override func viewDidLoad() {
         
@@ -47,7 +48,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         
         showActivityViewIndicator()
                 
-        NetWork.getListWinners(local_current_game.game_id,completion: onAnswer)
+        NetWork.getListWinners(current_game.game_id,completion: onAnswer)
         
     }
     
@@ -89,11 +90,11 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         
         // fill data in title
         
-        let date_string = getNiceDateFormatShortString(from: local_current_game.started_at)
-        let game_image = kTypeImage[local_current_game.type]!
+        let date_string = getNiceDateFormatShortString(from: current_game.started_at)
+        let game_image = kTypeImage[current_game.type]!
         
-        eth.text = "\(local_current_game.prize_amount)"
-        users.text = "\(local_current_game.num_players)"
+        eth.text = "\(current_game.prize_amount)"
+        users.text = "\(current_game.num_players)"
         
         let height = navigationController!.navigationBar.frame.height
         let width =  CGFloat(300)//navigationController!.navigationBar.frame.width

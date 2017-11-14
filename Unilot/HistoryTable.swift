@@ -17,18 +17,24 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     
     
     @IBOutlet weak var table: UITableView!
+
+    var currentTable = 0
     
-    var dataForTable = [GameInfo]()
+    var dataForSegment: [[GameInfo]] = [[],[],[]]
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        fillSegmentNames()
         
         table.layer.opacity = 0.0
         
         showActivityViewIndicator()
 
         NetWork.getHistoryPage(completion: onAnswer)
+        
+        
      }
     
     func onAnswer(_ error : String?){
@@ -41,8 +47,8 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             
         } else {
             
-            dataForTable =  history_list //.sorted(by: {  return $0.ending_at > $1.ending_at})
-
+           onFillDataForSegment()
+            
         }
         
         table.reloadData()
@@ -56,21 +62,45 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         }
     }
     
-    
-    
-    var viewWithPlaces : TotalPrizeFond? = nil
-    
     override func setTitle() {
         
         navigationItem.title = TR("history_of_drawings")
     
     }
     
+    //MARK:-  segment
+    
+    
+    func fillSegmentNames(){
+        
+        for i in 1..<4 {
+            
+            let uibutton = view.viewWithTag(i*100) as! UIButton
+            uibutton.addTarget(self, action: #selector(HistoryTable.onSegmentChange(_:)), for: .touchUpInside)
+            
+            let image = view.viewWithTag(i*100+1) as! UIImageView
+            image.tintColor = currentTable == (i-1) ? kColorLightOrange : UIColor.black
+
+            let label = view.viewWithTag(i*100+2) as! UILabel
+            label.text =  TR(tabbar_strings[i]).capitalized
+            label.textColor = currentTable == (i-1) ? kColorLightOrange : UIColor.black
+        }
+    }
+
+    
+    func onFillDataForSegment(){
+        
+        for i in 0..<3 {
+            dataForSegment[i] = history_list.filter({return $0.type == kTypeTabBarOrder[i]})
+        }
+
+    }
+    
     //MARK:-  UITableViewDelegate, UITableViewDataSource
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataForTable.count
+        return dataForSegment[currentTable].count
     }
     
     
@@ -106,10 +136,11 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
         cell.layoutIfNeeded()
         
-        let item = dataForTable[indexPath.row]
+        let item = dataForSegment[currentTable][indexPath.row]
         
         if let img = cell.contentView.viewWithTag(10) as? SpecialItem{
-            img.image = UIImage(named: kTypeImage[item.type]!)
+            img.image = UIImage(named: kTypeImage[item.type]! + "-template")
+            img.tintColor = kColorHistoryGray
             img.setCircleMark(item.game_id)
         }
         
@@ -117,26 +148,31 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         labelFor(cell, 20)?.text = getNiceDateFormatHistoryString(from: item.ending_at)
  
         let actionLabel  =   labelFor(cell, 30)!
-        let statusLabel  =   labelFor(cell, 40)!
+        let button = cell.contentView.viewWithTag(40) as! MyButton
         
+        button.setTitle(item.smart_contract_id, for: .normal)
+        button.subTag = indexPath
+        button.isUserInteractionEnabled = false
+//      button.addTarget(self, action: #selector(HistoryTable.onContractId(sender:)), for: .touchUpInside)
+ 
         switch item.status {
             
         case kStatusComplete:
             actionLabel.text = TR("finished")
-            statusLabel.text = TR("list_of_winners")
-            statusLabel.textColor = kColorSelectedBlue
+            button.setTitle(TR("list_of_winners"), for: .normal)
+            button.setTitleColor(kColorSelectedBlue, for: .normal)
             break
             
         case kStatusPublished , kStatusFinishing:
             actionLabel.text = TR("in_process")
-            statusLabel.text = TR("open")
-            statusLabel.textColor = kColorNormalGreen
+            button.setTitle(TR("open"), for: .normal)
+            button.setTitleColor(kColorNormalGreen, for: .normal)
              break
          
         default: //kStatusCancele
             actionLabel.text = TR("canceled")
-            statusLabel.text = " "
-            statusLabel.textColor = kColorLightOrange
+            button.setTitle(TR(" "), for: .normal)
+            button.setTitleColor(kColorLightOrange, for: .normal)
             break
         }
         
@@ -161,7 +197,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        local_current_game = dataForTable[indexPath.row]
+        local_current_game = dataForSegment[currentTable][indexPath.row]
          
         NotifApp.removeNotifWithSameGameId(local_current_game.game_id)
         
@@ -183,6 +219,28 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             break
         }
         
+    }
+ 
+    
+    //MARK: - onBUttons
+    
+    
+    func onSegmentChange(_ button : UIButton){
+        
+        currentTable = button.tag/100 - 1
+
+        fillSegmentNames()
+        
+        table.layer.opacity = 0.0
+        
+        table.reloadData()
+        
+        UIView.animate(withDuration: 0.3) {
+            
+            self.table.layer.opacity = 1.0
+            
+        }
+    
     }
  
     

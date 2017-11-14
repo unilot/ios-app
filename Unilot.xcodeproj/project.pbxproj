@@ -154,9 +154,6 @@
 		D6CFAC821FA713B500A0F045 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		D6CFAC841FA7154100A0F045 /* NotifApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifApp.swift; sourceTree = "<group>"; };
 		D6CFAC8C1FA7175700A0F045 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
-		D6CFAC8F1FA7175700A0F045 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
-		D6CFAC921FA7175700A0F045 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		D6CFAC941FA7175700A0F045 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6D17FC41FA53F6700A74235 /* CDHourL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDHourL.swift; sourceTree = "<group>"; };
 		D6D1D0E11FA24D8200909551 /* MainBonus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainBonus.swift; sourceTree = "<group>"; };
 		D6D3CEAB1FA5FF94000F2FF3 /* IcoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IcoView.swift; sourceTree = "<group>"; };
@@ -340,7 +337,6 @@
 			isa = PBXGroup;
 			children = (
 				D69364C21F5F254400FD0D37 /* Unilot */,
-				D6CFAC8E1FA7175700A0F045 /* UnilotPush */,
 				D69364C11F5F254400FD0D37 /* Products */,
 				618755CDCD35E9229FC443C6 /* Pods */,
 				336C009D07D6695BEE800AA7 /* Frameworks */,
@@ -403,16 +399,6 @@
 				D611305E1FA826BE003B30E9 /* usual.mp3 */,
 			);
 			name = Sounds;
-			sourceTree = "<group>";
-		};
-		D6CFAC8E1FA7175700A0F045 /* UnilotPush */ = {
-			isa = PBXGroup;
-			children = (
-				D6CFAC8F1FA7175700A0F045 /* NotificationViewController.swift */,
-				D6CFAC911FA7175700A0F045 /* MainInterface.storyboard */,
-				D6CFAC941FA7175700A0F045 /* Info.plist */,
-			);
-			path = UnilotPush;
 			sourceTree = "<group>";
 		};
 		D6DCCD101FA4BCA1009BD20E /* LanguagesSet */ = {
@@ -789,14 +775,6 @@
 				D69364CF1F5F254400FD0D37 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		D6CFAC911FA7175700A0F045 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D6CFAC921FA7175700A0F045 /* Base */,
-			);
-			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 		D6DCCD1A1FA4C795009BD20E /* Localizable.strings */ = {

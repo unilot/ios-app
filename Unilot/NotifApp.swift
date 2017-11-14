@@ -13,6 +13,62 @@ import SCLAlertView
 import Whisper
 
 
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        if !app_is_active {
+            completionHandler([.alert, .badge, .sound])
+        }
+        
+        
+    }
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        //        if response.actionIdentifier == UNNotificationDefaultActionIdentifier {
+        NotifApp.gotLocalUserNotifAnswer(response.notification.request.identifier)
+        //        }
+        
+        
+        completionHandler()
+    }
+    
+}
+
+func sendNotification(_ message : String, _ key_id : String){
+    
+    if #available(iOS 10.0, *) {
+        let content = UNMutableNotificationContent()
+        content.title = app_name
+        content.body = message
+        content.sound = UNNotificationSound.default()
+        let request = UNNotificationRequest(identifier: key_id, content: content, trigger: nil)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: { error in
+            // handle error
+        })
+        
+    } else {
+        
+        // Fallback on earlier versions
+        
+        let notification = UILocalNotification()
+        notification.alertBody = message
+        
+        
+        let fixdate = Date().timeIntervalSince1970 + 5
+        notification.fireDate = Date(timeIntervalSince1970: fixdate)
+        notification.userInfo = ["task_id" : key_id]
+        notification.soundName = UILocalNotificationDefaultSoundName
+        UIApplication.shared.scheduleLocalNotification(notification)
+        
+    }
+    
+}
+
 class NotifApp {
       
     
@@ -24,6 +80,7 @@ class NotifApp {
                 // actions based on whether notifications were authorized or not
                
                 if granted {
+                    application.registerForRemoteNotifications()
 
                 
                 } else {
@@ -31,11 +88,11 @@ class NotifApp {
                         _ = message_to_Crashlytics(error : error!)
 //                        print("error push id " + error!.localizedDescription )
                     }
+                    
                 }
 
             }
             
-            application.registerForRemoteNotifications()
             application.registerUserNotificationSettings(UIUserNotificationSettings(types:  [.badge, .alert, .sound], categories: nil))
             
         } else {
@@ -162,8 +219,7 @@ class NotifApp {
     
     //MARK: - REMOTE NOTIFICATION
     
-    static func parseRemoteNotification( _ notificationDictionary : [String : Any]){
-         
+    static func parseRemoteNotificationWhenAppIsClosed( _ notificationDictionary : [String : Any]){
         print(notificationDictionary)
         
         if !app_is_active {
@@ -175,18 +231,18 @@ class NotifApp {
         // parse data from remote notification
         
         // fake push
-//        let notifItem = parseNotif(createFakePush())
+        //        let notifItem = parseNotif(createFakePush())
         
         
         // real code
         let notifItem = parseNotif(notificationDictionary)
- 
+        
         
         // if we have complete game status - save it and change Badge item
         if  notifItem.action == kActionCompleted{
             
-            MemoryControll.saveNewNotif(notifItem.notif_id) 
-
+            MemoryControll.saveNewNotif(notifItem.notif_id)
+            
         }
         
         
@@ -199,16 +255,16 @@ class NotifApp {
                 
                 //  check for users settings of switching of notification
                 if notifications_switch[getTabBarTag(notifItem.game.type)] {
-
+                    
                     // send notification from closed app
                     let lCode = langCodes[current_language_ind]
                     sendNotification(notifItem.messages[lCode]!, notifItem.notif_id)
                     
-                 }
+                }
             }
             
         } else {
-
+            
             // if game id is in notification
             
             if let game = games_list[notifItem.game.type] {
@@ -219,15 +275,49 @@ class NotifApp {
                     
                 }
             }
-
+            
             
             
             open_from_notif = notifItem.notif_id
-
+            
             // do something with these data if app was launched
             current_controller_core?.onActiveAppNotifRecieved(notifItem)
+            
+        }
+        
+    }
+    
+    
+    
+    static func parseRemoteNotification( _ notificationDictionary : [String : Any]) -> String{
+        
+        
+        MemoryControll.init_defaults_if_any()
+        
+        let notifItem = parseNotif(notificationDictionary)
+
+        if  notifItem.action == kActionCompleted{
+            
+            MemoryControll.saveNewNotif(notifItem.notif_id) 
 
         }
+            
+        // if game id is in notification
+        if notifItem.game.game_id != kEmpty {
+            
+            //  check for users settings of switching of notification
+            if notifications_switch[getTabBarTag(notifItem.game.type)] {
+                
+ 
+                
+            }
+        }
+        
+         // send notification from closed app
+        let lCode = langCodes[current_language_ind]
+ 
+        return notifItem.messages[lCode]!
+ 
 
     }
     

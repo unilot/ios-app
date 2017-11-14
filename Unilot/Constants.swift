@@ -105,6 +105,7 @@ let kTag_PopUp        = 6666666
 
 //MARK: - COLORS
 
+let kColorHistoryGray   =  UIColor(red: 190.0/255.0, green:190.0/255.0, blue: 190.0/255.0, alpha: 1)
 let kColorLightGray   =  UIColor(red: 243.0/255.0, green: 243.0/255.0, blue: 243.0/255.0, alpha: 1)
 let kColorNormalGreen =  UIColor(red: 76.0/255.0, green: 215.0/255.0, blue: 100/255.0, alpha: 1)
 let kColorLightOrange =  UIColor(red: 255.0/255.0, green: 152.0/255.0, blue: 140/255.0, alpha: 1)

@@ -29,7 +29,7 @@
 
 "your_wallets"              = "Ваши кошельки";
 "add_wallet_address"        = "Добавить кошелёк";
-"your_wallet_address"       = "Номер вашего кошелька";
+"your_wallet_address"       = "Адрес вашего кошелька";
 
 "settings"                  = "Настройки";
 "profile"                   = "Профиль";

@@ -35,7 +35,7 @@ class ProfileView: ControllerCore, UITextFieldDelegate,  UITableViewDelegate, UI
         view.backgroundColor = UIColor.clear
         
         addInfoButton()
-        
+
         setBorders()
         
         setTextField()

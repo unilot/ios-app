@@ -12,62 +12,7 @@ import Firebase
 import Fabric
 import Crashlytics
 
-func sendNotification(_ message : String, _ key_id : String){
-    
-    if #available(iOS 10.0, *) {
-        let content = UNMutableNotificationContent()
-        content.title = app_name
-        content.body = message
-        content.sound = UNNotificationSound.default()
-        let request = UNNotificationRequest(identifier: key_id, content: content, trigger: nil)
-        
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: { error in
-            // handle error
-        })
-        
-    } else {
-        
-        // Fallback on earlier versions
-        
-        let notification = UILocalNotification()
-        notification.alertBody = message
-        
-        
-        let fixdate = Date().timeIntervalSince1970 + 5
-        notification.fireDate = Date(timeIntervalSince1970: fixdate)
-        notification.userInfo = ["task_id" : key_id]
-        notification.soundName = UILocalNotificationDefaultSoundName
-        UIApplication.shared.scheduleLocalNotification(notification)
-        
-    }
 
-}
-
-extension AppDelegate: UNUserNotificationCenterDelegate {
-    
-    @available(iOS 10.0, *)
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
- 
-        if !app_is_active {
-            completionHandler([.alert, .badge, .sound])
-        }
-    
-
-    }
-    
-    @available(iOS 10.0, *)
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        
-        
-//        if response.actionIdentifier == UNNotificationDefaultActionIdentifier {
-             NotifApp.gotLocalUserNotifAnswer(response.notification.request.identifier)
-//        }
-        
-
-        completionHandler()
-    }
-    
-}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -78,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
     
+        
         app_is_active = true
  
         FIRApp.configure()
@@ -87,6 +33,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UNUserNotificationCenter.current().delegate = self
         }
         
+        if #available(iOS 10.0, *) {
+            let center  = UNUserNotificationCenter.current()
+            center.delegate = self
+
+        }
+        
+
 
         NotifApp.registerForPushNotifications(application)
         
@@ -169,11 +122,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("notification - tapped")
     }
     
+    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 
         
-//        sendNotification("drfkyughkjlkujyhgf","key")
-
         let aps = userInfo as! [String: Any]
         
         NotifApp.parseRemoteNotification(aps)

@@ -15,9 +15,9 @@ import QRCodeReader
 
  
 class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDelegate {
-
-    
+     
     var activityIndicatorView : NVActivityIndicatorView?
+    
     var itemBadge: SpecialItem?
 
     weak var pop_up_view : PopUpCore?
@@ -123,7 +123,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         itemBadge = setColorForImage(frameBarButton, "menu")
         itemBadge!.addGestureRecognizer(tapRecognizer)
         
-        tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: itemBadge!)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: itemBadge!)
  
     }
     
@@ -135,7 +135,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         
         infoB.tintColor =  kColorLightGray
         
-        tabBarController?.navigationItem.rightBarButtonItem = infoB
+        navigationItem.rightBarButtonItem = infoB
     }
     
     
@@ -154,7 +154,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         
         let image = setImageForTitle(CGSize(width: 100, height: 40), "unilotmenu-item")
         
-        tabBarController?.navigationItem.titleView = image
+        navigationItem.titleView = image
         
     }
 
@@ -181,8 +181,8 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         
         let navController = self.navigationController!
         
-        let rootViewController = getVCFromName("SB_TabBarController") as! TabBarController
-        rootViewController.selectedIndex = toTabBar
+        let rootViewController = getVCFromName("SB_MainViewScroll") as! MainViewScroll
+        rootViewController.current_page = toTabBar
         
         
         var cntrllrs =   navController.viewControllers
@@ -202,6 +202,12 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         
     }
     
+    
+    func setBadgeNumber(){
+        
+        itemBadge?.setNumberLabel(notification_data.count)
+
+    }
     //MARK: - On Functions
     
     @IBAction func onGoToAppStore(){

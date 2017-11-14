@@ -18,7 +18,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var table: UITableView!
 
-    var currentTable = 0
+    var currentTable = 1
     
     var dataForSegment: [[GameInfo]] = [[],[],[]]
     
@@ -36,6 +36,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
         
      }
+     
     
     func onAnswer(_ error : String?){
         
@@ -79,12 +80,13 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             uibutton.addTarget(self, action: #selector(HistoryTable.onSegmentChange(_:)), for: .touchUpInside)
             
             let image = view.viewWithTag(i*100+1) as! UIImageView
-            image.tintColor = currentTable == (i-1) ? kColorLightOrange : UIColor.black
+            image.tintColor =  currentTable == (i-1) ? kColorLightOrange : UIColor.black
 
             let label = view.viewWithTag(i*100+2) as! UILabel
-            label.text =  TR(tabbar_strings[i]).capitalized
+            label.text =  TR(tabbar_strings[i-1]).capitalized
             label.textColor = currentTable == (i-1) ? kColorLightOrange : UIColor.black
         }
+
     }
 
     

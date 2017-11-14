@@ -21,6 +21,16 @@
 		D63F45171F8AC1BE00F69E7F /* Terms.html in Resources */ = {isa = PBXBuildFile; fileRef = D63F45161F8AC1BE00F69E7F /* Terms.html */; };
 		D6477F111FA3E72D008677D3 /* CDDaysL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6477F101FA3E72D008677D3 /* CDDaysL.swift */; };
 		D6477F131FA43AC5008677D3 /* CDDaysF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6477F121FA43AC5008677D3 /* CDDaysF.swift */; };
+		D6595E071FBB50EE00089917 /* MainViewScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6595E061FBB50EE00089917 /* MainViewScroll.swift */; };
+		D6595E091FBB544F00089917 /* ViewMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6595E081FBB544F00089917 /* ViewMain.xib */; };
+		D6595E0B1FBB551C00089917 /* BonusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6595E0A1FBB551C00089917 /* BonusView.xib */; };
+		D6595E0D1FBB558100089917 /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6595E0C1FBB558100089917 /* ProfileView.xib */; };
+		D6595E0F1FBB55D800089917 /* LotteryItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6595E0E1FBB55D800089917 /* LotteryItemsView.swift */; };
+		D6595E111FBB57FE00089917 /* MainItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6595E101FBB57FE00089917 /* MainItemView.swift */; };
+		D6595E131FBB5DC000089917 /* DailyLottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6595E121FBB5DC000089917 /* DailyLottery.swift */; };
+		D6595E151FBB5DD900089917 /* BonusLottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6595E141FBB5DD900089917 /* BonusLottery.swift */; };
+		D6595E181FBB5E1A00089917 /* ProfileSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6595E171FBB5E1A00089917 /* ProfileSubView.swift */; };
+		D6595E1A1FBB725500089917 /* OnScrollItemCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6595E191FBB725500089917 /* OnScrollItemCore.swift */; };
 		D6632ED41F8C9B7900EC18C9 /* Functionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6632ED31F8C9B7900EC18C9 /* Functionals.swift */; };
 		D6632ED61F8C9C4100EC18C9 /* HowDoesItWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6632ED51F8C9C4100EC18C9 /* HowDoesItWork.swift */; };
 		D6632ED81F8C9C6800EC18C9 /* TextViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6632ED71F8C9C6800EC18C9 /* TextViewCore.swift */; };
@@ -121,6 +131,16 @@
 		D63F45161F8AC1BE00F69E7F /* Terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Terms.html; path = Settings/Terms.html; sourceTree = "<group>"; };
 		D6477F101FA3E72D008677D3 /* CDDaysL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDDaysL.swift; sourceTree = "<group>"; };
 		D6477F121FA43AC5008677D3 /* CDDaysF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDDaysF.swift; sourceTree = "<group>"; };
+		D6595E061FBB50EE00089917 /* MainViewScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewScroll.swift; sourceTree = "<group>"; };
+		D6595E081FBB544F00089917 /* ViewMain.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewMain.xib; sourceTree = "<group>"; };
+		D6595E0A1FBB551C00089917 /* BonusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BonusView.xib; sourceTree = "<group>"; };
+		D6595E0C1FBB558100089917 /* ProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
+		D6595E0E1FBB55D800089917 /* LotteryItemsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotteryItemsView.swift; sourceTree = "<group>"; };
+		D6595E101FBB57FE00089917 /* MainItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainItemView.swift; sourceTree = "<group>"; };
+		D6595E121FBB5DC000089917 /* DailyLottery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyLottery.swift; sourceTree = "<group>"; };
+		D6595E141FBB5DD900089917 /* BonusLottery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusLottery.swift; sourceTree = "<group>"; };
+		D6595E171FBB5E1A00089917 /* ProfileSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSubView.swift; sourceTree = "<group>"; };
+		D6595E191FBB725500089917 /* OnScrollItemCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnScrollItemCore.swift; sourceTree = "<group>"; };
 		D6632ED31F8C9B7900EC18C9 /* Functionals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functionals.swift; sourceTree = "<group>"; };
 		D6632ED51F8C9C4100EC18C9 /* HowDoesItWork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowDoesItWork.swift; sourceTree = "<group>"; };
 		D6632ED71F8C9C6800EC18C9 /* TextViewCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewCore.swift; sourceTree = "<group>"; };
@@ -273,6 +293,9 @@
 				D6ED6B371F8F90C100384672 /* InfoView.xib */,
 				D6943EF71FB705EC003A5518 /* TutorialScroll.xib */,
 				D6F460AC1F9D215F0006FA08 /* YouWin.xib */,
+				D6595E081FBB544F00089917 /* ViewMain.xib */,
+				D6595E0A1FBB551C00089917 /* BonusView.xib */,
+				D6595E0C1FBB558100089917 /* ProfileView.xib */,
 			);
 			name = StoryBoard;
 			sourceTree = "<group>";
@@ -312,6 +335,16 @@
 				D62A31741F7AC10300275B86 /* SWRevealViewController.m */,
 			);
 			path = SideBarMenu;
+			sourceTree = "<group>";
+		};
+		D6595E161FBB5DE300089917 /* Sub Items */ = {
+			isa = PBXGroup;
+			children = (
+				D6595E121FBB5DC000089917 /* DailyLottery.swift */,
+				D6595E141FBB5DD900089917 /* BonusLottery.swift */,
+				D6595E171FBB5E1A00089917 /* ProfileSubView.swift */,
+			);
+			name = "Sub Items";
 			sourceTree = "<group>";
 		};
 		D6632ED21F8C7FE700EC18C9 /* main windows */ = {
@@ -420,6 +453,11 @@
 				D6D3CEB41FA61DA3000F2FF3 /* WebCore.swift */,
 				D6F1E1311F7B9F3B0098B34C /* MainViewPositions.swift */,
 				D6C8B2811FAB403600AE05B9 /* TabBarTimersViewCore.swift */,
+				D6595E161FBB5DE300089917 /* Sub Items */,
+				D6595E101FBB57FE00089917 /* MainItemView.swift */,
+				D6595E0E1FBB55D800089917 /* LotteryItemsView.swift */,
+				D6595E191FBB725500089917 /* OnScrollItemCore.swift */,
+				D6595E061FBB50EE00089917 /* MainViewScroll.swift */,
 			);
 			name = "main cores";
 			sourceTree = "<group>";
@@ -586,12 +624,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6ED6B381F8F90C100384672 /* InfoView.xib in Resources */,
+				D6595E0D1FBB558100089917 /* ProfileView.xib in Resources */,
 				D6C6BAB31F8CD6C000EC7FE0 /* Roboto-Bold.ttf in Resources */,
+				D6595E091FBB544F00089917 /* ViewMain.xib in Resources */,
 				D63F45171F8AC1BE00F69E7F /* Terms.html in Resources */,
 				D6DCCD201FA4F338009BD20E /* HDIW_en.txt in Resources */,
 				D6C6BAB61F8CD6C000EC7FE0 /* Roboto-Regular.ttf in Resources */,
 				D6F460AD1F9D215F0006FA08 /* YouWin.xib in Resources */,
 				D6943EF81FB705EC003A5518 /* TutorialScroll.xib in Resources */,
+				D6595E0B1FBB551C00089917 /* BonusView.xib in Resources */,
 				D62E4C2C1F86C15B00C619EA /* TotalPrizeFond.xib in Resources */,
 				D6C6BAB71F8CD6C000EC7FE0 /* Roboto-Thin.ttf in Resources */,
 				D69364D01F5F254400FD0D37 /* LaunchScreen.storyboard in Resources */,
@@ -704,12 +745,14 @@
 				D6F1E1991F7E55130098B34C /* JSRuleNumeric.m in Sources */,
 				D6F1E18F1F7E55130098B34C /* NSString+JSHelper.m in Sources */,
 				D6E2BF691F8FF4BE002D28F2 /* LoadingView.swift in Sources */,
+				D6595E181FBB5E1A00089917 /* ProfileSubView.swift in Sources */,
 				D6E2BF671F8FE804002D28F2 /* MemoryControll.swift in Sources */,
 				D62E4C2E1F86C36300C619EA /* TotalPrizeFond.swift in Sources */,
 				D6ED6B361F8F90B200384672 /* InfoView.swift in Sources */,
 				D6F1E1911F7E55130098B34C /* DropDownListView.m in Sources */,
 				D6F1E1961F7E55130098B34C /* JSRuleLength.m in Sources */,
 				D679F1441FB5BA5400AE27DF /* NeedNewVersion.swift in Sources */,
+				D6595E0F1FBB55D800089917 /* LotteryItemsView.swift in Sources */,
 				D6F1E18E1F7E55130098B34C /* NSError+JSHelper.m in Sources */,
 				D612BBF91F96B450002C4647 /* LotteryResults.swift in Sources */,
 				D6632ED61F8C9C4100EC18C9 /* HowDoesItWork.swift in Sources */,
@@ -731,12 +774,15 @@
 				D6F1E19A1F7E55130098B34C /* JSRuleRegex.m in Sources */,
 				D6C8B2821FAB403600AE05B9 /* TabBarTimersViewCore.swift in Sources */,
 				D6F1E1361F7BA0E50098B34C /* AgreeToPlay.swift in Sources */,
+				D6595E131FBB5DC000089917 /* DailyLottery.swift in Sources */,
 				D62CA43D1F8FB73E00D67C0A /* SettingsView.swift in Sources */,
 				D6DCCD131FA4BCA1009BD20E /* BundleNew.m in Sources */,
 				D6D17FC51FA53F6700A74235 /* CDHourL.swift in Sources */,
+				D6595E071FBB50EE00089917 /* MainViewScroll.swift in Sources */,
 				D6D3CEAC1FA5FF94000F2FF3 /* IcoView.swift in Sources */,
 				D685E9A41F8D59500056C9C8 /* CountDownLabel.swift in Sources */,
 				D6F1E1921F7E55130098B34C /* JSDropdownField.m in Sources */,
+				D6595E111FBB57FE00089917 /* MainItemView.swift in Sources */,
 				D69364D91F5F328D00FD0D37 /* FlippingLabel.swift in Sources */,
 				D6F1E1931F7E55130098B34C /* JSInputField.m in Sources */,
 				D6F1E16A1F7D7B0C0098B34C /* MenuLeft.swift in Sources */,
@@ -746,6 +792,7 @@
 				D6F1E1981F7E55130098B34C /* JSRuleNumberRange.m in Sources */,
 				D6632ED81F8C9C6800EC18C9 /* TextViewCore.swift in Sources */,
 				D6BDD90E1F7B240600E91FD0 /* ProfileView.swift in Sources */,
+				D6595E1A1FBB725500089917 /* OnScrollItemCore.swift in Sources */,
 				D6F1E1381F7BAA4E0098B34C /* ControllerCore.swift in Sources */,
 				D6BDD9031F7AD1DB00E91FD0 /* Constants.swift in Sources */,
 				D6943EF61FB7056D003A5518 /* TutorialScroll.swift in Sources */,
@@ -755,6 +802,7 @@
 				D6F1E1321F7B9F3B0098B34C /* MainViewPositions.swift in Sources */,
 				D6D1D0E21FA24D8200909551 /* MainBonus.swift in Sources */,
 				D6F1E1971F7E55130098B34C /* JSRuleNotNull.m in Sources */,
+				D6595E151FBB5DD900089917 /* BonusLottery.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

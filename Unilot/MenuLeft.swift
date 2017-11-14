@@ -87,7 +87,7 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
         
         var viewsNames = [
         
-        ["SB_TabBarController"],
+        ["SB_MainViewScroll"],
         
         ["SB_HistoryTable",
          "SB_HowDoesItWork",

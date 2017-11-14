@@ -30,7 +30,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
     
     var current_page = Int(0)
     
-    
+    var initWas = false
     //MARK: - Views Load override
     
     override func viewDidLoad() {
@@ -48,12 +48,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         addInfoButton()
         
         fillSegmentNames()
-        
-        
-        ifWentFromNotif()
-        
-        ifNeedTutorial()
-        
+         
     }
     
     
@@ -66,11 +61,18 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
-        
-        fillMainViews()
 
-        updateAppearanceOfGames()
-    
+        if !initWas   {
+            
+            fillMainViews()
+            
+            ifNeedTutorial()
+            
+            ifWentFromNotif()
+            
+            initWas = true
+        }
+
     }
     
     

@@ -24,7 +24,9 @@ class  OnScrollItemCore : UIView {
         setLotteryName(indexNum)
         
         // open view for user
+
         animateAppearance()
+
         
     }
     

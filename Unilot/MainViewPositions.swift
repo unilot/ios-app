@@ -38,7 +38,7 @@ class MainViewPositions: TabBarTimersViewCore {
         onCreateEverything()
         
         // fill with data
-        answerOnInitData()
+        viewDataReload()
         
         // open view for user
         animateAppearance()
@@ -65,7 +65,7 @@ class MainViewPositions: TabBarTimersViewCore {
 
     override func onUserOpenView(){
         
-        answerOnInitData()
+        viewDataReload()
          
     }
     
@@ -143,7 +143,7 @@ class MainViewPositions: TabBarTimersViewCore {
 
     
     
-    func answerOnInitData(){
+    func viewDataReload(){
         
         itemBadge?.setNumberLabel(notification_data.count)
         
@@ -409,7 +409,7 @@ class MainViewPositions: TabBarTimersViewCore {
                 
                 current_game.status = kStatusNoGame
                 
-                answerOnInitData()
+                viewDataReload()
                 
             } else
                 
@@ -421,7 +421,7 @@ class MainViewPositions: TabBarTimersViewCore {
                     
                     fillLocalGameData()
                     
-                    answerOnInitData()
+                    viewDataReload()
             }
             
             
@@ -493,7 +493,7 @@ class MainViewPositions: TabBarTimersViewCore {
             
             fillLocalGameData()
             
-            answerOnInitData()
+            viewDataReload()
             
         } else {
             
@@ -512,7 +512,7 @@ class MainViewPositions: TabBarTimersViewCore {
 
             fillLocalGameData()
             
-            answerOnInitData()
+            viewDataReload()
             
         } else {
             
@@ -537,14 +537,14 @@ class MainViewPositions: TabBarTimersViewCore {
     
     override func countDownFinished(){
         
-        answerOnInitData()
+        viewDataReload()
         
     }
     
     
     override func popViewWasClosed(){
         
-        answerOnInitData()
+        viewDataReload()
 
     }
     

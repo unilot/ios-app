@@ -115,6 +115,7 @@ let kColorSelectedBlue =  UIColor(red: 54.0/255.0, green: 102.0/255.0, blue: 241
 let kColorMenuPeach    =  UIColor(red: 255.0/255.0, green: 213.0/255.0, blue: 167.0/255.0, alpha: 1)
 let kColorBadge =  UIColor(red: 172.0/255.0, green: 41.0/255.0, blue: 74.0/255.0, alpha: 1)
 
+let kColorDarkBlue =  UIColor(red: 15.0/255.0, green: 15.0/255.0, blue: 34.0/255.0, alpha: 0.9)
 
 //MARK: - FONTS
 

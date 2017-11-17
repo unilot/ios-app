@@ -234,7 +234,7 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
                                           width:  frame.width  - 10,
                                           height: frame.height - 4))
             fon!.tag = 5
-            fon!.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+            fon!.backgroundColor = kColorDarkBlue
             fon!.layer.cornerRadius = 8
             cell.contentView.addSubview(fon!)
 

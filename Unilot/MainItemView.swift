@@ -28,14 +28,16 @@ class MainItemView: LotteryItemsView {
         
         // create progress bar
         setLoadingSign(toWidth: 0)
-         
+        
+        super.didLoad(didLoad)
+
+        
         // get data from
         fillLocalGameData()
  
         // fill with data
-        answerOnInitData()
+        viewDataReload()
         
-        super.didLoad(didLoad)
     }
      
     
@@ -43,7 +45,7 @@ class MainItemView: LotteryItemsView {
         
      override func onUserOpenView(){
         
-        answerOnInitData()
+        viewDataReload()
         
     }
     
@@ -81,7 +83,7 @@ class MainItemView: LotteryItemsView {
     
    
     
-    override func answerOnInitData(){
+    override func viewDataReload(){
         
         stopAllSchedule()
         
@@ -347,7 +349,7 @@ class MainItemView: LotteryItemsView {
                 
                 current_game.status = kStatusNoGame
                 
-                answerOnInitData()
+                viewDataReload()
                 
             } else
                 
@@ -359,7 +361,7 @@ class MainItemView: LotteryItemsView {
                     
                     fillLocalGameData()
                     
-                    answerOnInitData()
+                    viewDataReload()
             }
             
             
@@ -422,7 +424,7 @@ class MainItemView: LotteryItemsView {
     
     override func countDownFinished(){
         
-        answerOnInitData()
+        viewDataReload()
         
     }
     

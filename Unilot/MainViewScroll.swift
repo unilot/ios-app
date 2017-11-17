@@ -48,7 +48,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         addInfoButton()
         
         fillSegmentNames()
-         
+        
     }
     
     
@@ -65,6 +65,8 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         if !initWas   {
             
             fillMainViews()
+            
+            addMenuGestureRecognizer()
             
             ifNeedTutorial()
             
@@ -114,7 +116,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
     
     override func popViewWasClosed(){
         
-        main_pages[current_page].answerOnInitData()
+        main_pages[current_page].viewDataReload()
         
     }
     
@@ -183,7 +185,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         
         for view_item in main_pages {
             view_item.fillLocalGameData()
-            view_item.answerOnInitData()
+            view_item.viewDataReload()
             
         }
         
@@ -216,7 +218,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
 //            
 //            fillLocalGameData()
 //            
-//            answerOnInitData()
+//            viewDataReload()
 //            
 //        } else {
 //            
@@ -259,7 +261,16 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
     
     
     //MARK:-  segment
-    
+    func addMenuGestureRecognizer(){
+        
+        let pan_outside = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(MainViewScroll.onOutPan(_:)))
+        
+        view.addSubview(pan_outside)
+    }
+
+    func onOutPan(_ sender : UIScreenEdgePanGestureRecognizer) {
+        
+    }
     
     func fillSegmentNames(){
         
@@ -307,6 +318,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         let x = CGFloat(current_page) * scrollView.frame.size.width
         scrollView.setContentOffset(CGPoint(x: x, y: 0), animated: true)
         
+        main_pages[current_page].viewDataReload
     }
 
     func changePage(_ sender: UIButton) -> () {
@@ -321,6 +333,6 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         
         goToPage(current_page)
     }
-    
 
+    
 }

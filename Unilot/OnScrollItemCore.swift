@@ -50,7 +50,7 @@ class  OnScrollItemCore : UIView {
         
     }
     
-    func answerOnInitData(){
+    func viewDataReload(){
 
     }
     

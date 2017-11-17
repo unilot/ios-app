@@ -100,13 +100,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.23.10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="a21-FW-yFZ">
-                                                    <rect key="frame" x="23" y="13.5" width="77.5" height="17.5"/>
+                                                    <rect key="frame" x="23" y="12.5" width="77.5" height="20"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" tag="40" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRa-uc-dTW" customClass="MyButton" customModule="Unilot" customModuleProvider="target">
-                                                    <rect key="frame" x="204" y="7" width="101" height="30"/>
+                                                    <rect key="frame" x="204" y="6" width="101" height="32"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                                                     <state key="normal" title="Button">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1379,6 +1379,13 @@
                                     <outlet property="delegate" destination="dwd-c4-pRC" id="sXe-wL-qTn"/>
                                 </connections>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zyf-W1-aU9">
+                                <rect key="frame" x="0.0" y="0.0" width="80" height="524"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="ljc-Oh-a5W"/>
+                                </constraints>
+                            </view>
                             <view tag="666666" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WfI-I9-Iws" userLabel="custom tab bar">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <subviews>
@@ -1511,13 +1518,16 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="WfI-I9-Iws" firstAttribute="top" secondItem="Zyf-W1-aU9" secondAttribute="bottom" id="0pn-d9-6s7"/>
                             <constraint firstItem="WfI-I9-Iws" firstAttribute="leading" secondItem="dKT-53-N7Y" secondAttribute="leading" id="4uV-zH-Edj"/>
                             <constraint firstAttribute="trailing" secondItem="KvF-IE-Yi8" secondAttribute="trailing" id="57l-Bp-Ul3"/>
                             <constraint firstItem="WfI-I9-Iws" firstAttribute="top" secondItem="KvF-IE-Yi8" secondAttribute="bottom" id="6n3-3H-lHk"/>
                             <constraint firstAttribute="trailing" secondItem="WfI-I9-Iws" secondAttribute="trailing" id="KL3-Ve-DEz"/>
                             <constraint firstItem="KvF-IE-Yi8" firstAttribute="top" secondItem="hRy-I5-kZj" secondAttribute="bottom" id="McU-14-IMB"/>
+                            <constraint firstItem="Zyf-W1-aU9" firstAttribute="top" secondItem="dKT-53-N7Y" secondAttribute="top" id="Zov-lH-rxf"/>
                             <constraint firstItem="KvF-IE-Yi8" firstAttribute="leading" secondItem="dKT-53-N7Y" secondAttribute="leading" id="e5k-CU-mbT"/>
                             <constraint firstAttribute="bottom" secondItem="WfI-I9-Iws" secondAttribute="bottom" id="kvR-Yu-amy"/>
+                            <constraint firstItem="Zyf-W1-aU9" firstAttribute="leading" secondItem="dKT-53-N7Y" secondAttribute="leading" id="zn8-tH-Ano"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="u23-cK-4Ob"/>

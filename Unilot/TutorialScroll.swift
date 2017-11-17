@@ -13,12 +13,17 @@ class TutorialScroll : PopUpCore , UIScrollViewDelegate{
     
     // MARK: Loadings
     
-    let pagesCount = 6
+    let pagesCount = 5
 
     
     @IBOutlet weak var scroll: UIScrollView!
     
     @IBOutlet weak var pages: UIPageControl!
+
+    @IBOutlet weak var skip: UIButton!
+
+    @IBOutlet weak var tutorial_text: UILabel!
+
     
 
     class func createTutorialScroll() -> TutorialScroll {
@@ -30,34 +35,21 @@ class TutorialScroll : PopUpCore , UIScrollViewDelegate{
         
         self.clipsToBounds = true
         scroll.backgroundColor = UIColor.clear
+        scroll.setNeedsLayout()
         scroll.layoutIfNeeded()
-        scroll.frame = CGRect(x: 0, y: 55, width: self.bounds.width, height: self.bounds.height - 80)
         scroll.isPagingEnabled = true
         
-        let labelHeight = CGFloat(80)
-
         for index in 0..<pagesCount {
             
-            let subView = UIImageView(image: UIImage(named: "promt-\(1+index)"))
-            subView.frame =  CGRect(x: 20, y: labelHeight + 20,
-                                    width: scroll.frame.width - 40, height: scroll.frame.height - labelHeight - 20)
-            subView.frame.origin.x = scroll.frame.size.width * CGFloat(index) + 20
+            let subView = UIImageView(image: UIImage(named: "\(1+index)_" + langCodes[current_language_ind]))
+            subView.frame =  CGRect(x: scroll.frame.size.width * CGFloat(index) + 30,
+                                    y: 0,
+                                    width:  scroll.frame.width - 60,
+                                    height: scroll.frame.height)
             subView.backgroundColor = UIColor.clear
             subView.contentMode = .scaleAspectFit
+            
             scroll.addSubview(subView)
-            
-            
-            let textTitle = UILabel(frame: CGRect(x: 20, y: 0,
-                                                  width: scroll.frame.width - 40, height: labelHeight))
-            textTitle.frame.origin.x = scroll.frame.size.width * CGFloat(index) + 20
-            textTitle.text = TR("tutorial_text_\(1+index)")
-            textTitle.numberOfLines = 0
-            textTitle.font = UIFont(name: kFont_Light, size: 14)
-            textTitle.layer.cornerRadius = 6
-            textTitle.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-            textTitle.textAlignment   = .center
-            textTitle.textColor       = UIColor.white
-            scroll.addSubview(textTitle)
 
         }
         
@@ -72,27 +64,53 @@ class TutorialScroll : PopUpCore , UIScrollViewDelegate{
                                         height: scroll.frame.size.height)
         pages.addTarget(self, action: #selector(TutorialScroll.changePage(_:)), for: .valueChanged)
 
+        changeText(0)
         
+        skip.setTitle(TR("skip"), for: .normal)
+        self.isUserInteractionEnabled = true
+         
     }
     
     func changePage(_ sender: AnyObject) -> () {
         let x = CGFloat(pages.currentPage) * scroll.frame.size.width
         scroll.setContentOffset(CGPoint(x: x, y: 0), animated: true)
+        changeText(pages.currentPage)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
         let pageNumber = Int(round(scroll.contentOffset.x / scroll.frame.size.width))
         pages.currentPage = pageNumber
-
+        changeText(pageNumber)
+        
     }
-    
+
+   
     override func addSwipeGesture(){
     
     
     }
+    
+ 
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
+        let ind = Int(round(scroll.contentOffset.x / scroll.frame.size.width))
+
+        let middlz = scroll.contentOffset.x / scroll.frame.size.width
+        
+        let diff = (middlz - ceil(middlz) + 0.5) * 2
+
+//        print("diff = ",diff, " ind = ",ind)
+        
+        changeText(ind, Float(diff))
+
+    }
+    
+    func changeText(_ num: Int, _ opacity : Float = 1){
+        
+        tutorial_text.layer.opacity = abs(opacity)
+        tutorial_text.text = TR("tutorial_text_\(num + 1)")
+    }
+    
+
 }
-
-
-

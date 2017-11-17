@@ -97,6 +97,8 @@ class  LotteryItemsView : OnScrollItemCore,
     func revealLoadingLine(){
         
         let rect = loadingSignFirst.frame
+       
+        widthProgress = 0
         
         loadingSignProgress?.frame = CGRect(x: rect.origin.x + 1 + rect.size.width,
                                                  y: rect.origin.y + 1,
@@ -203,7 +205,7 @@ class  LotteryItemsView : OnScrollItemCore,
         let frameForView = CGRect(x: 10,
                                   y: 70,
                                   width: frame.width - 20,
-                                  height: frame.height - 140)
+                                  height: frame.height - 150)
         
         viewWithPlaces.initView(mainView: current_controller_core!.view,
                                 frameView: frameForView, directionSign: 1)
@@ -239,9 +241,9 @@ class  LotteryItemsView : OnScrollItemCore,
         viewWithPlaces.delegate = current_controller_core
         current_controller_core!.pop_up_view = viewWithPlaces
         let frameForView = CGRect(x: 10,
-                                  y: 44,
+                                  y: 70,
                                   width: frame.width - 20,
-                                  height: frame.height)
+                                  height: frame.height - 150)
         
         viewWithPlaces.initView(mainView: current_controller_core!.view,
                                 frameView: frameForView, directionSign: 1)
@@ -379,7 +381,7 @@ class  LotteryItemsView : OnScrollItemCore,
         copyButton.layer.cornerRadius = 6
         copyButton.tintColor = kColorLightOrange
         copyButton.titleLabel?.textColor = UIColor.white
-        copyButton.addTarget(self, action: #selector(MainViewPositions.onCopyTransactionNumber), for: .touchUpInside)
+        copyButton.addTarget(self, action: #selector(LotteryItemsView.onCopyTransactionNumber), for: .touchUpInside)
         secondOverlay!.addSubview(copyButton)
         
         secondOverlay!.isUserInteractionEnabled = true

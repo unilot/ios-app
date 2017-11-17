@@ -59,8 +59,6 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
             
             fillMainViews()
             
-            addMenuGestureRecognizer()
-            
             ifNeedTutorial()
             
             ifWentFromNotif()
@@ -85,7 +83,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
             
             let notif_type = Int(NotifApp.getDataFromNotifString(open_from_notif,2))
             
-            goToPage(getTabBarTag(notif_type))
+            refreshView(getTabBarTag(notif_type))
         }
         
     }
@@ -169,7 +167,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
     }
     
     
-    func goToPage(_ newPage: Int){
+    func refreshView(_ newPage: Int){
         
         current_page = newPage
         
@@ -274,20 +272,6 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         return nib_body.instantiate(withOwner: nil, options: nil)[0] as! OnScrollItemCore
      }
 
-    //MARK: -  Pan gesture
-    
-    func addMenuGestureRecognizer(){
-        
-        let pan_outside = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(MainViewScroll.onOutPan(_:)))
-        
-        view.addGestureRecognizer(pan_outside)
-    }
-
-    func onOutPan(_ sender : UIScreenEdgePanGestureRecognizer) {
-        
-        print("out pan")
-    }
-    
     //MARK: -  segmentS
 
     func fillSegmentNames(){
@@ -332,15 +316,13 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
     
     func changePage(_ sender: UIButton) -> () {
         
-        goToPage(sender.tag/1000000-1)
+        refreshView(sender.tag/1000000-1)
     }
     
      
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
-        current_page = Int(round(scrollView.contentOffset.x / scrollView.frame.size.width))
-        
-        goToPage(current_page)
+        refreshView( Int(round(scrollView.contentOffset.x / scrollView.frame.size.width)) )
     }
 
     
@@ -350,4 +332,31 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         scrollView.setContentOffset(CGPoint(x: x, y: 0), animated: true)
     
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+         
+        switch scrollView.panGestureRecognizer.state {
+        case .began:
+            // User began dragging
+            
+            break
+        case .changed:
+            // User is currently dragging the scroll view
+            
+            
+            break
+            
+        case .possible:
+            
+            
+            // The scroll view scrolling but the user is no longer touching the scrollview (table is decelerating)
+            break
+            
+        default:
+            break
+        }
+        
+    }
+    
 }

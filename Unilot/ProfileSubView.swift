@@ -152,7 +152,7 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
             
             let alertView = SCLAlertView(appearance: appearance)
             
-            alertView.addButton(TR("Yes"), target:self, selector: #selector(ProfileView.onDelete))
+            alertView.addButton(TR("Yes"), target:self, selector: #selector(ProfileSubView.onDelete))
             alertView.addButton(TR("No")) {
                 self.currentTagForRemove = -1
             }

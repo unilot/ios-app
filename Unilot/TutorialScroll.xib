@@ -6,9 +6,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Light.ttf">
+            <string>Roboto-Light</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -16,26 +20,45 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial_background" translatesAutoresizingMaskIntoConstraints="NO" id="6PB-yg-iOc">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unilotmenu-item" translatesAutoresizingMaskIntoConstraints="NO" id="Sp1-bR-Vdf">
+                    <rect key="frame" x="136" y="24" width="102" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="gNY-U0-5Fn"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" preferredMaxLayoutWidth="295" translatesAutoresizingMaskIntoConstraints="NO" id="zTq-di-Gch">
+                    <rect key="frame" x="40" y="77" width="295" height="74"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="74" id="wny-nc-994"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8k-PD-wsX">
-                    <rect key="frame" x="0.0" y="55" width="375" height="587"/>
+                    <rect key="frame" x="0.0" y="175" width="375" height="492"/>
                     <connections>
                         <outlet property="delegate" destination="iN0-l3-epB" id="WAO-fp-0g0"/>
                     </connections>
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="nXe-wg-kjP">
-                    <rect key="frame" x="20" y="642" width="335" height="25"/>
+                    <rect key="frame" x="20" y="627" width="335" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="jBi-13-ddl"/>
                     </constraints>
                 </pageControl>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bqh-e6-h7f">
-                    <rect key="frame" x="330" y="15" width="25" height="25"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bqh-e6-h7f">
+                    <rect key="frame" x="265" y="24" width="90" height="33"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="Bqh-e6-h7f" secondAttribute="height" multiplier="1:1" id="j8w-eg-oeS"/>
-                        <constraint firstAttribute="height" constant="25" id="p2s-vw-6PP"/>
+                        <constraint firstAttribute="width" constant="90" id="RqP-kH-lti"/>
+                        <constraint firstAttribute="height" constant="33" id="p2s-vw-6PP"/>
                     </constraints>
+                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <state key="normal" image="X-x3"/>
+                    <state key="normal" title="Skip"/>
                     <connections>
                         <action selector="onXbutton" destination="iN0-l3-epB" eventType="touchUpInside" id="Av6-gh-Uv3"/>
                     </connections>
@@ -43,24 +66,36 @@
             </subviews>
             <color key="backgroundColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Bqh-e6-h7f" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="4di-2G-Sh2"/>
+                <constraint firstItem="Bqh-e6-h7f" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="4di-2G-Sh2"/>
                 <constraint firstAttribute="trailing" secondItem="Z8k-PD-wsX" secondAttribute="trailing" id="5OR-no-lzf"/>
-                <constraint firstItem="Z8k-PD-wsX" firstAttribute="top" secondItem="Bqh-e6-h7f" secondAttribute="bottom" constant="15" id="Jx2-ru-mua"/>
-                <constraint firstItem="nXe-wg-kjP" firstAttribute="top" secondItem="Z8k-PD-wsX" secondAttribute="bottom" id="RJQ-bA-35k"/>
+                <constraint firstAttribute="trailing" secondItem="zTq-di-Gch" secondAttribute="trailing" constant="40" id="6yn-lq-ITQ"/>
+                <constraint firstAttribute="trailing" secondItem="6PB-yg-iOc" secondAttribute="trailing" id="LRh-Nf-8b7"/>
+                <constraint firstItem="Z8k-PD-wsX" firstAttribute="top" secondItem="zTq-di-Gch" secondAttribute="bottom" constant="24" id="QZa-kq-rbg"/>
+                <constraint firstItem="6PB-yg-iOc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="UjS-WQ-CVj"/>
+                <constraint firstItem="6PB-yg-iOc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Vgi-EC-68V"/>
                 <constraint firstItem="Z8k-PD-wsX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YL6-cl-pd7"/>
+                <constraint firstItem="Sp1-bR-Vdf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="coO-pW-8eN"/>
+                <constraint firstAttribute="bottom" secondItem="6PB-yg-iOc" secondAttribute="bottom" id="drL-5P-Nqa"/>
                 <constraint firstAttribute="trailing" secondItem="nXe-wg-kjP" secondAttribute="trailing" constant="20" id="ew0-K9-iLV"/>
                 <constraint firstItem="nXe-wg-kjP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="fqk-w4-quM"/>
+                <constraint firstItem="zTq-di-Gch" firstAttribute="top" secondItem="Sp1-bR-Vdf" secondAttribute="bottom" constant="20" id="hHC-n5-SsE"/>
                 <constraint firstAttribute="trailing" secondItem="Bqh-e6-h7f" secondAttribute="trailing" constant="20" id="lJJ-TR-pdS"/>
-                <constraint firstAttribute="bottom" secondItem="nXe-wg-kjP" secondAttribute="bottom" id="q9I-Fo-SdF"/>
+                <constraint firstItem="zTq-di-Gch" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="o98-rq-E9E"/>
+                <constraint firstItem="Sp1-bR-Vdf" firstAttribute="centerX" secondItem="6PB-yg-iOc" secondAttribute="centerX" id="pvN-e0-FLB"/>
+                <constraint firstAttribute="bottom" secondItem="nXe-wg-kjP" secondAttribute="bottom" constant="15" id="q9I-Fo-SdF"/>
+                <constraint firstAttribute="bottom" secondItem="Z8k-PD-wsX" secondAttribute="bottom" id="u6G-xe-9bn"/>
             </constraints>
             <connections>
                 <outlet property="pages" destination="nXe-wg-kjP" id="A73-hC-xgz"/>
                 <outlet property="scroll" destination="Z8k-PD-wsX" id="WLu-h9-jJ8"/>
+                <outlet property="skip" destination="Bqh-e6-h7f" id="AzP-he-aB8"/>
+                <outlet property="tutorial_text" destination="zTq-di-Gch" id="fSd-3p-NBo"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="69.5"/>
         </view>
     </objects>
     <resources>
-        <image name="X-x3" width="35" height="34"/>
+        <image name="tutorial_background" width="16" height="16"/>
+        <image name="unilotmenu-item" width="102" height="36"/>
     </resources>
 </document>

@@ -26,13 +26,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ваши кошельки" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="aY8-kD-VYF">
-                    <rect key="frame" x="23" y="15" width="329" height="26"/>
+                    <rect key="frame" x="23" y="15" width="329" height="29.5"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="22"/>
                     <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I2k-bJ-Use">
-                    <rect key="frame" x="8" y="56" width="359" height="171"/>
+                    <rect key="frame" x="8" y="59.5" width="359" height="173.5"/>
                     <color key="backgroundColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -41,7 +41,7 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypL-MD-Nwr">
-                    <rect key="frame" x="23" y="172" width="329" height="40"/>
+                    <rect key="frame" x="23" y="178" width="329" height="40"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="xfa-u9-vmh"/>
@@ -55,7 +55,7 @@
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RcK-lE-M1N" customClass="JSInputField">
-                    <rect key="frame" x="23" y="111" width="295" height="40"/>
+                    <rect key="frame" x="23" y="117" width="295" height="40"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="cZ1-cx-NEW"/>
@@ -68,14 +68,14 @@
                     </connections>
                 </textField>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Guy-mI-lxR" userLabel="line under field">
-                    <rect key="frame" x="23" y="151" width="295" height="1"/>
+                    <rect key="frame" x="23" y="157" width="295" height="1"/>
                     <color key="backgroundColor" red="0.4039215686" green="0.36470588240000001" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="gvk-Zj-CXF"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewb-zA-fiK">
-                    <rect key="frame" x="323" y="111" width="40" height="40"/>
+                    <rect key="frame" x="323" y="117" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="ewb-zA-fiK" secondAttribute="height" multiplier="1:1" id="hbG-hf-KFU"/>
                     </constraints>
@@ -86,7 +86,7 @@
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c8f-3R-Jd0">
-                    <rect key="frame" x="8" y="242" width="359" height="420"/>
+                    <rect key="frame" x="8" y="248" width="359" height="414"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -96,7 +96,7 @@
                     </connections>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавить кошелек" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfO-wp-DYX">
-                    <rect key="frame" x="23" y="76" width="300" height="20"/>
+                    <rect key="frame" x="23" y="79.5" width="300" height="22.5"/>
                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
                     <color key="textColor" red="1" green="0.80784313730000001" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>

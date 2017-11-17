@@ -63,22 +63,57 @@
                         <action selector="onXbutton" destination="iN0-l3-epB" eventType="touchUpInside" id="Av6-gh-Uv3"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdD-pr-OGD">
+                    <rect key="frame" x="114" y="579" width="146" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="mvL-AG-qcb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="Want to know more"/>
+                    <connections>
+                        <action selector="onMore" destination="iN0-l3-epB" eventType="touchUpInside" id="56K-62-ibd"/>
+                    </connections>
+                </button>
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7h-LJ-TBZ">
+                    <rect key="frame" x="45" y="512" width="285" height="45"/>
+                    <color key="backgroundColor" red="0.65098039215686276" green="0.16078431372549018" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="qs6-is-Wa1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="Go!"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="14"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="onLets" destination="iN0-l3-epB" eventType="touchUpInside" id="m8R-Sz-JNq"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="nXe-wg-kjP" firstAttribute="top" secondItem="bdD-pr-OGD" secondAttribute="bottom" constant="30" id="3MC-n6-c7b"/>
                 <constraint firstItem="Bqh-e6-h7f" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="4di-2G-Sh2"/>
                 <constraint firstAttribute="trailing" secondItem="Z8k-PD-wsX" secondAttribute="trailing" id="5OR-no-lzf"/>
                 <constraint firstAttribute="trailing" secondItem="zTq-di-Gch" secondAttribute="trailing" constant="40" id="6yn-lq-ITQ"/>
                 <constraint firstAttribute="trailing" secondItem="6PB-yg-iOc" secondAttribute="trailing" id="LRh-Nf-8b7"/>
+                <constraint firstItem="m7h-LJ-TBZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="45" id="Mk7-Lf-pz3"/>
                 <constraint firstItem="Z8k-PD-wsX" firstAttribute="top" secondItem="zTq-di-Gch" secondAttribute="bottom" constant="24" id="QZa-kq-rbg"/>
                 <constraint firstItem="6PB-yg-iOc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="UjS-WQ-CVj"/>
                 <constraint firstItem="6PB-yg-iOc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Vgi-EC-68V"/>
                 <constraint firstItem="Z8k-PD-wsX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YL6-cl-pd7"/>
+                <constraint firstItem="bdD-pr-OGD" firstAttribute="centerX" secondItem="6PB-yg-iOc" secondAttribute="centerX" id="Ydn-I5-aSD"/>
                 <constraint firstItem="Sp1-bR-Vdf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="coO-pW-8eN"/>
                 <constraint firstAttribute="bottom" secondItem="6PB-yg-iOc" secondAttribute="bottom" id="drL-5P-Nqa"/>
                 <constraint firstAttribute="trailing" secondItem="nXe-wg-kjP" secondAttribute="trailing" constant="20" id="ew0-K9-iLV"/>
                 <constraint firstItem="nXe-wg-kjP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="fqk-w4-quM"/>
+                <constraint firstItem="bdD-pr-OGD" firstAttribute="top" secondItem="m7h-LJ-TBZ" secondAttribute="bottom" constant="22" id="fvc-Xj-Hgv"/>
                 <constraint firstItem="zTq-di-Gch" firstAttribute="top" secondItem="Sp1-bR-Vdf" secondAttribute="bottom" constant="20" id="hHC-n5-SsE"/>
+                <constraint firstAttribute="trailing" secondItem="m7h-LJ-TBZ" secondAttribute="trailing" constant="45" id="hQ3-3n-kSZ"/>
                 <constraint firstAttribute="trailing" secondItem="Bqh-e6-h7f" secondAttribute="trailing" constant="20" id="lJJ-TR-pdS"/>
                 <constraint firstItem="zTq-di-Gch" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="o98-rq-E9E"/>
                 <constraint firstItem="Sp1-bR-Vdf" firstAttribute="centerX" secondItem="6PB-yg-iOc" secondAttribute="centerX" id="pvN-e0-FLB"/>
@@ -86,10 +121,12 @@
                 <constraint firstAttribute="bottom" secondItem="Z8k-PD-wsX" secondAttribute="bottom" id="u6G-xe-9bn"/>
             </constraints>
             <connections>
+                <outlet property="lets_start" destination="m7h-LJ-TBZ" id="Lzf-hj-o48"/>
                 <outlet property="pages" destination="nXe-wg-kjP" id="A73-hC-xgz"/>
                 <outlet property="scroll" destination="Z8k-PD-wsX" id="WLu-h9-jJ8"/>
                 <outlet property="skip" destination="Bqh-e6-h7f" id="AzP-he-aB8"/>
                 <outlet property="tutorial_text" destination="zTq-di-Gch" id="fSd-3p-NBo"/>
+                <outlet property="want_more" destination="bdD-pr-OGD" id="X0N-Ax-xq2"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="69.5"/>
         </view>

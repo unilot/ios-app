@@ -27,7 +27,7 @@ let kLink_AppStore      = "itms://itunes.apple.com/de/app/x-gift/id839686104?mt=
 
 let kLink_AppSite       = "https://unilot.io"
 
-
+ 
 
 
 let kPDF_files = ["https://unilot.io//static/files/UNILOT_ENG.pdf",
@@ -95,6 +95,7 @@ var langCodes = ["en","ru"]
 var setting_strings =  [ ["daily2","weekly2","bonus2" ],  ["English","Русский"]]
 
 var tabbar_strings =   ["daily1","weekly1","bonus1","profile"]
+var history_tabbbar  =   ["all","daily1","weekly1","bonus1"]
 
 let kEmpty = ""
 

@@ -202,13 +202,8 @@ class  LotteryItemsView : OnScrollItemCore,
         let viewWithPlaces = InfoView.createInfoView()
         viewWithPlaces.delegate = current_controller_core
         current_controller_core!.pop_up_view = viewWithPlaces
-        let frameForView = CGRect(x: 10,
-                                  y: 70,
-                                  width: frame.width - 20,
-                                  height: frame.height - 150)
-        
-        viewWithPlaces.initView(mainView: current_controller_core!.view,
-                                frameView: frameForView, directionSign: 1)
+        viewWithPlaces.initView(mainView: current_controller_core!.view, directionSign: 1)
+
         
     }
     
@@ -218,13 +213,8 @@ class  LotteryItemsView : OnScrollItemCore,
         let viewWithPlaces = TotalPrizeFond.createTotalPrizeFond()
         viewWithPlaces.delegate = current_controller_core
         current_controller_core!.pop_up_view = viewWithPlaces
-        let frameForView = CGRect(x: 10,
-                                  y: 70,
-                                  width:  frame.width - 20,
-                                  height:  frame.height - 150)
         
-        viewWithPlaces.initView(mainView: current_controller_core!.view,
-                                frameView: frameForView, directionSign: 1)
+        viewWithPlaces.initView(mainView: current_controller_core!.view, directionSign: 1)
         
     }
     
@@ -240,14 +230,8 @@ class  LotteryItemsView : OnScrollItemCore,
         let viewWithPlaces = AgreeToPlay.createAgreeToPlay()
         viewWithPlaces.delegate = current_controller_core
         current_controller_core!.pop_up_view = viewWithPlaces
-        let frameForView = CGRect(x: 10,
-                                  y: 70,
-                                  width: frame.width - 20,
-                                  height: frame.height - 150)
-        
-        viewWithPlaces.initView(mainView: current_controller_core!.view,
-                                frameView: frameForView, directionSign: 1)
-        
+        viewWithPlaces.initView(mainView: current_controller_core!.view, directionSign: 1)
+
         
     }
     
@@ -265,13 +249,8 @@ class  LotteryItemsView : OnScrollItemCore,
         let viewWithPlaces = LotteryResults.createLotteryResults()
         viewWithPlaces.delegate = current_controller_core
         
-        let frameForView = CGRect(x: 10,
-                                  y: 70,
-                                  width: frame.width - 20,
-                                  height: frame.height - 150)
-        
-        viewWithPlaces.initView(mainView: current_controller_core!.view,
-                                frameView: frameForView, directionSign: 1)
+        viewWithPlaces.initView(mainView: current_controller_core!.view, directionSign: 1)
+
         
     }
     
@@ -282,13 +261,8 @@ class  LotteryItemsView : OnScrollItemCore,
         viewWithPlaces.delegate = current_controller_core
         viewWithPlaces.user_data = user
         
-        let frameForView = CGRect(x: 10,
-                                  y: 70,
-                                  width:  frame.width - 20,
-                                  height:  frame.height - 150)
-        
-        viewWithPlaces.initView(mainView: current_controller_core!.view,
-                                frameView: frameForView, directionSign: 0)
+        viewWithPlaces.initView(mainView: current_controller_core!.view, directionSign: 1)
+
         
     }
     

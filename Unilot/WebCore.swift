@@ -14,7 +14,10 @@ import NVActivityIndicatorView
 class WebCore : ControllerCore , UIWebViewDelegate{
     
     @IBOutlet weak var webView : UIWebView!
- 
+
+    
+    
+    //MARK: - 
     
     func openPage(_ path :String){
         
@@ -25,6 +28,7 @@ class WebCore : ControllerCore , UIWebViewDelegate{
         
         webView.delegate = self
     }
+    
     
     //MARK: - unSignedRequest
     

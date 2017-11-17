@@ -19,6 +19,7 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
     @IBOutlet weak var history: UILabel!
     @IBOutlet weak var how: UILabel!
     @IBOutlet weak var wp: UILabel!
+    @IBOutlet weak var faq: UILabel!
     @IBOutlet weak var settings: UILabel!
     @IBOutlet weak var socials: UILabel!
 
@@ -50,6 +51,7 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
         history.text = TR("history_of_drawings")
         how.text = TR("how_it_works")
         wp.text = TR("presentation")
+        faq.text = TR("faq")
         settings.text = TR("settings")
         socials.text = TR("stay_tuned:")
         
@@ -62,13 +64,13 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let rowOneHeight = CGFloat(50)
+        let rowOneHeight = CGFloat(45)
         
         switch indexPath.section {
         case 0: // header
             return rowOneHeight * 2
 
-        case 1: // 3 main buttons
+        case 1: // 4 main buttons
             return rowOneHeight
             
         case 2: // 1 settings
@@ -78,7 +80,7 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
             return rowOneHeight * 2
 
         default: // socials
-            return CGFloat(tableView.frame.height - rowOneHeight * 8.5)
+            return CGFloat(tableView.frame.height - rowOneHeight * 9.5)
         }
         
     }
@@ -91,7 +93,8 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
         
         ["SB_HistoryTable",
          "SB_HowDoesItWork",
-         "SB_WhitePapersView"],
+         "SB_WhitePapersView",
+         "SB_FAQ"],
         
         ["SB_SettingsView"],
         

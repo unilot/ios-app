@@ -14,8 +14,6 @@ class WhitePapersView : WebCore {
     
     override func viewDidLoad() {
         
-        navigationItem.title = TR("presentation")
-        
         super.viewDidLoad()
         
         navigationController?.navigationBar.tintColor = kColorMenuPeach
@@ -29,6 +27,12 @@ class WhitePapersView : WebCore {
         zooms()
     }
     
+    override func setTitle() {
+        
+        navigationItem.title = TR("presentation")
+        
+    }
+
     
     func getAddressForFile() -> URL? {
         

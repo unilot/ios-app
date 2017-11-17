@@ -24,7 +24,10 @@ class TutorialScroll : PopUpCore , UIScrollViewDelegate{
 
     @IBOutlet weak var tutorial_text: UILabel!
 
-    
+    @IBOutlet weak var want_more: UIButton!
+
+    @IBOutlet weak var lets_start: UIButton!
+
 
     class func createTutorialScroll() -> TutorialScroll {
         let myClassNib = UINib(nibName: "TutorialScroll", bundle: nil)
@@ -38,6 +41,9 @@ class TutorialScroll : PopUpCore , UIScrollViewDelegate{
         scroll.setNeedsLayout()
         scroll.layoutIfNeeded()
         scroll.isPagingEnabled = true
+        
+        want_more.layer.opacity = 0
+        lets_start.layer.opacity = 0
         
         for index in 0..<pagesCount {
             
@@ -67,6 +73,9 @@ class TutorialScroll : PopUpCore , UIScrollViewDelegate{
         changeText(0)
         
         skip.setTitle(TR("skip"), for: .normal)
+        want_more.setTitle(TR("need_more_info"), for: .normal)
+        lets_start.setTitle(TR("lets_start"), for: .normal)
+
         self.isUserInteractionEnabled = true
          
     }
@@ -104,6 +113,11 @@ class TutorialScroll : PopUpCore , UIScrollViewDelegate{
         
         changeText(ind, Float(diff))
 
+        if ind == (pagesCount - 1) {
+            revealButtons(Float(diff))
+        } else {
+            revealButtons()
+        }
     }
     
     func changeText(_ num: Int, _ opacity : Float = 1){
@@ -112,5 +126,31 @@ class TutorialScroll : PopUpCore , UIScrollViewDelegate{
         tutorial_text.text = TR("tutorial_text_\(num + 1)")
     }
     
+    func revealButtons( _ opacity : Float = 0){
+        
+        want_more.layer.opacity = opacity
+        lets_start.layer.opacity = opacity
+        skip.layer.opacity = 1 - opacity
+    }
+    
+    
+    @IBAction func onLets(){
+        
+        if lets_start.layer.opacity == 1 {
+            
+            onX()
+        }
+    }
+    
+    @IBAction func onMore(){
+        if want_more.layer.opacity == 1 {
+            
+            onWideX(0, {
+                current_controller_core?.goToFAQ()
+            })
+            
+        }
+    }
+
 
 }

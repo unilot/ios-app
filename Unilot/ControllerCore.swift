@@ -192,6 +192,13 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         navigationController?.popToViewController(rootViewController, animated: true)
     }
     
+    func goToFAQ( ){
+        
+        let rootViewController = getVCFromName("SB_FAQ")
+        
+        navigationController?.pushViewController(rootViewController, animated: true)
+    }
+    
     
     //MARK: - Settings
 
@@ -228,13 +235,8 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     
     func openInfoText(){
         let viewWithPlaces = InfoView.createInfoView()
-        pop_up_view = viewWithPlaces
-        let frameForView = CGRect(x: 10,
-                                  y: 70,
-                                  width: view.frame.width - 20,
-                                  height: view.frame.height - 140)
-        
-        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: -1)
+        pop_up_view = viewWithPlaces 
+        viewWithPlaces.initView(mainView: self.view,  directionSign: -1)
 
     }
 
@@ -287,13 +289,12 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         
         let viewWithPlaces = TutorialScroll.createTutorialScroll()
         pop_up_view = viewWithPlaces
-        let frameForView = CGRect(x: 0,
-                                  y: 20,
+        
+        let frameForView = CGRect(x: 0, y: 20,
                                   width: view.frame.width,
                                   height: view.frame.height-20)
         
-        viewWithPlaces.initView(mainView: self.view, frameView: frameForView, directionSign: 0)
-        
+        viewWithPlaces.initView(mainView: self.view, directionSign: 0, frameForView)
         
         
     }

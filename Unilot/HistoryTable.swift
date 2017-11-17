@@ -18,9 +18,9 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var table: UITableView!
 
-    var currentTable = 1
+    var currentTable = 0
     
-    var dataForSegment: [[GameInfo]] = [[],[],[]]
+    var dataForSegment: [[GameInfo]] = [[],[],[],[]]
     
     override func viewDidLoad() {
         
@@ -68,32 +68,15 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         navigationItem.title = TR("history_of_drawings")
     
     }
-    
-    //MARK:-  segment
-    
-    
-    func fillSegmentNames(){
-        
-        for i in 1..<4 {
-            
-            let uibutton = view.viewWithTag(i*100) as! UIButton
-            uibutton.addTarget(self, action: #selector(HistoryTable.onSegmentChange(_:)), for: .touchUpInside)
-            
-            let image = view.viewWithTag(i*100+1) as! UIImageView
-            image.tintColor =  currentTable == (i-1) ? kColorLightOrange : UIColor.black
 
-            let label = view.viewWithTag(i*100+2) as! UILabel
-            label.text =  TR(tabbar_strings[i-1]).capitalized
-            label.textColor = currentTable == (i-1) ? kColorLightOrange : UIColor.black
-        }
-
-    }
 
     
     func onFillDataForSegment(){
         
+        dataForSegment[0] = history_list
+        
         for i in 0..<3 {
-            dataForSegment[i] = history_list.filter({return $0.type == kTypeTabBarOrder[i]})
+            dataForSegment[i+1] = history_list.filter({return $0.type == kTypeTabBarOrder[i]})
         }
 
     }
@@ -229,7 +212,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     
     func onSegmentChange(_ button : UIButton){
         
-        currentTable = button.tag/100 - 1
+        currentTable = button.tag/1000000 - 1
 
         fillSegmentNames()
         
@@ -249,6 +232,27 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     func onDetails(){
         
         performSegue(withIdentifier: "sigue_details", sender: self)
+        
+    }
+    
+    //MARK: - segments
+    
+    func fillSegmentNames(){
+        
+        let customTabBar = view.viewWithTag(666666)!
+        
+        for i in 1..<5 {
+            
+            let uibutton = customTabBar.viewWithTag(i*1000000) as! UIButton
+            uibutton.addTarget(self, action: #selector(HistoryTable.onSegmentChange(_:)), for: .touchUpInside)
+            
+            let imageView = customTabBar.viewWithTag(i*1000000+1) as! SpecialItem
+            imageView.tintColor =  currentTable == (i-1) ? kColorLightOrange : UIColor.black
+ 
+            let label = customTabBar.viewWithTag(i*1000000+2) as! UILabel
+            label.text   =  TR(history_tabbbar[i-1]).capitalized
+            label.textColor = currentTable == (i-1) ? kColorLightOrange : UIColor.black
+        }
         
     }
     

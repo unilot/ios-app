@@ -37,14 +37,18 @@ class PopUpCore: UIView  {
     }
     
     //MARK: - actions
+    
 
-    func initView(mainView: UIView, frameView: CGRect, directionSign: CGFloat){
+    func initView(mainView: UIView, directionSign: CGFloat, _ frameCustom : CGRect? = nil){
         
         self.layoutIfNeeded()
         
         self.tag = kTag_PopUp
         
         directionInSign = directionSign
+        
+        let frameView =  frameCustom ??
+            CGRect(x: 10,   y: 70, width:  mainView.frame.width - 20, height:  mainView.frame.height - 130)
         
         
         bigButtonFade = UIButton(frame: mainView.frame)
@@ -54,7 +58,7 @@ class PopUpCore: UIView  {
         UIApplication.shared.keyWindow?.addSubview(bigButtonFade!)
         
         self.layer.opacity = 0.0
-        self.frame = CGRect(x: 10,
+        self.frame = CGRect(x: frameView.origin.x,
                             y: directionSign * mainView.frame.height,
                             width:  frameView.width,
                             height: frameView.height)
@@ -114,6 +118,11 @@ class PopUpCore: UIView  {
     
     func onX(_ duration: Double = 0.4){
 
+        onWideX(duration)
+    }
+    
+    func onWideX(_ duration: Double = 0.4, _ completion : (() -> Void)? = nil){
+
         
         if duration > 0.0 {
             
@@ -121,7 +130,6 @@ class PopUpCore: UIView  {
                                   y: -directionInSign * self.frame.height,
                                   width:  self.frame.width,
                                   height: self.frame.height)
-            
             
             
             UIView.animate(withDuration: 0.4, animations: {
@@ -133,15 +141,19 @@ class PopUpCore: UIView  {
             }) { (_ animate : Bool) in
                 
                 self.deleteSelf(animated:true)
-
+                completion?()
             }
             
         } else {
             deleteSelf(animated:true)
+            completion?()
         }
         
     }
     
+    func afterDeleteSelf(){
+        
+    }
     func deleteSelf(animated : Bool){
         
         bigButtonFade?.removeFromSuperview()
@@ -149,5 +161,7 @@ class PopUpCore: UIView  {
         delegate?.popViewWasClosed()
         removeFromSuperview()
     }
+    
+    
  
 }

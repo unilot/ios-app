@@ -59,7 +59,7 @@
 		D6CFAC831FA713B500A0F045 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CFAC821FA713B500A0F045 /* UserNotifications.framework */; };
 		D6CFAC851FA7154100A0F045 /* NotifApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CFAC841FA7154100A0F045 /* NotifApp.swift */; };
 		D6D17FC51FA53F6700A74235 /* CDHourL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D17FC41FA53F6700A74235 /* CDHourL.swift */; };
-		D6D3CEAC1FA5FF94000F2FF3 /* IcoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D3CEAB1FA5FF94000F2FF3 /* IcoView.swift */; };
+		D6D3CEAC1FA5FF94000F2FF3 /* WebViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D3CEAB1FA5FF94000F2FF3 /* WebViews.swift */; };
 		D6D3CEB01FA60661000F2FF3 /* win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D6D3CEAF1FA60661000F2FF3 /* win.mp3 */; };
 		D6D3CEB51FA61DA3000F2FF3 /* WebCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D3CEB41FA61DA3000F2FF3 /* WebCore.swift */; };
 		D6D591BB1F8D19D20002451A /* LxTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D591BA1F8D19D20002451A /* LxTabBarController.swift */; };
@@ -167,7 +167,7 @@
 		D6CFAC841FA7154100A0F045 /* NotifApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifApp.swift; sourceTree = "<group>"; };
 		D6CFAC8C1FA7175700A0F045 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		D6D17FC41FA53F6700A74235 /* CDHourL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDHourL.swift; sourceTree = "<group>"; };
-		D6D3CEAB1FA5FF94000F2FF3 /* IcoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IcoView.swift; sourceTree = "<group>"; };
+		D6D3CEAB1FA5FF94000F2FF3 /* WebViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViews.swift; sourceTree = "<group>"; };
 		D6D3CEAF1FA60661000F2FF3 /* win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = win.mp3; path = Settings/win.mp3; sourceTree = "<group>"; };
 		D6D3CEB41FA61DA3000F2FF3 /* WebCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebCore.swift; sourceTree = "<group>"; };
 		D6D591BA1F8D19D20002451A /* LxTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LxTabBarController.swift; sourceTree = "<group>"; };
@@ -348,7 +348,7 @@
 				D62CA43C1F8FB73E00D67C0A /* SettingsView.swift */,
 				D6632ED51F8C9C4100EC18C9 /* HowDoesItWork.swift */,
 				D6C57EF71F8AA9210082BCBB /* WhitePapersView.swift */,
-				D6D3CEAB1FA5FF94000F2FF3 /* IcoView.swift */,
+				D6D3CEAB1FA5FF94000F2FF3 /* WebViews.swift */,
 			);
 			name = "main windows";
 			sourceTree = "<group>";
@@ -762,7 +762,7 @@
 				D6DCCD131FA4BCA1009BD20E /* BundleNew.m in Sources */,
 				D6D17FC51FA53F6700A74235 /* CDHourL.swift in Sources */,
 				D6595E071FBB50EE00089917 /* MainViewScroll.swift in Sources */,
-				D6D3CEAC1FA5FF94000F2FF3 /* IcoView.swift in Sources */,
+				D6D3CEAC1FA5FF94000F2FF3 /* WebViews.swift in Sources */,
 				D685E9A41F8D59500056C9C8 /* CountDownLabel.swift in Sources */,
 				D6F1E1921F7E55130098B34C /* JSDropdownField.m in Sources */,
 				D6595E111FBB57FE00089917 /* MainItemView.swift in Sources */,

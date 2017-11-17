@@ -81,7 +81,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         
         UINavigationBar.appearance().tintColor = kColorMenuPeach
        
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.orange]
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black]
 
         addSwipeForMenuOpen()
 

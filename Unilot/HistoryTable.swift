@@ -241,7 +241,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     func fillSegmentNames(){
         
         let customTabBar = view.viewWithTag(666666)!
-        
+         
         for i in 1..<5 {
             
             let uibutton = customTabBar.viewWithTag(i*1000000) as! UIButton

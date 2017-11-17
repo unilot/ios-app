@@ -14,10 +14,7 @@ class IcoView : WebCore {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
-        navigationController?.navigationBar.tintColor = kColorMenuPeach
  
-        
         let url_line =   "https://unilot.io/\(langCodes[current_language_ind])/"
         
         openPage(url_line)
@@ -39,8 +36,6 @@ class FAQView : WebCore {
         
         super.viewDidLoad()
         
-        navigationController?.navigationBar.tintColor = kColorMenuPeach
- 
         
         let url_line =   kServer + langCodes[current_language_ind] + "/mobile/faq"
  

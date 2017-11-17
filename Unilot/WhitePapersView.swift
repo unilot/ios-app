@@ -16,9 +16,6 @@ class WhitePapersView : WebCore {
         
         super.viewDidLoad()
         
-        navigationController?.navigationBar.tintColor = kColorMenuPeach
-        
-        
         if let pdf = getAddressForFile() {
             let req = NSURLRequest(url: pdf)
             webView.loadRequest(req as URLRequest)

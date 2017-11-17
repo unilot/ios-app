@@ -246,13 +246,24 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             
             let uibutton = customTabBar.viewWithTag(i*1000000) as! UIButton
             uibutton.addTarget(self, action: #selector(HistoryTable.onSegmentChange(_:)), for: .touchUpInside)
-            
+             
             let imageView = customTabBar.viewWithTag(i*1000000+1) as! SpecialItem
-            imageView.tintColor =  currentTable == (i-1) ? kColorLightOrange : UIColor.black
- 
+            imageView.tintColor = kColorLightGray
+            
             let label = customTabBar.viewWithTag(i*1000000+2) as! UILabel
             label.text   =  TR(history_tabbbar[i-1]).capitalized
-            label.textColor = currentTable == (i-1) ? kColorLightOrange : UIColor.black
+            label.textColor = kColorLightOrange
+            
+            
+            var image_name = lottery_images[i-1]
+            
+            if currentTable != (i-1) {
+                image_name = image_name + "-template"
+                label.textColor =  kColorLightGray
+            }
+            
+            imageView.image = UIImage(named : image_name)
+            
         }
         
     }

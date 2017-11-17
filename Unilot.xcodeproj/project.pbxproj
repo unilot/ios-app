@@ -13,7 +13,6 @@
 		D612BBF91F96B450002C4647 /* LotteryResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D612BBF81F96B450002C4647 /* LotteryResults.swift */; };
 		D612BBFB1F96B48F002C4647 /* LotteryResults.xib in Resources */ = {isa = PBXBuildFile; fileRef = D612BBFA1F96B48F002C4647 /* LotteryResults.xib */; };
 		D62A31751F7AC10300275B86 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A31741F7AC10300275B86 /* SWRevealViewController.m */; };
-		D62A31771F7AC86900275B86 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62A31761F7AC86900275B86 /* TabBarController.swift */; };
 		D62CA43D1F8FB73E00D67C0A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62CA43C1F8FB73E00D67C0A /* SettingsView.swift */; };
 		D62DF7841FA187E00009DB6F /* NetWorkParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62DF7831FA187E00009DB6F /* NetWorkParse.swift */; };
 		D62E4C2C1F86C15B00C619EA /* TotalPrizeFond.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62E4C2B1F86C15B00C619EA /* TotalPrizeFond.xib */; };
@@ -118,7 +117,6 @@
 		D62A31701F7AC06E00275B86 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Settings/Bridging-Header.h"; sourceTree = "<group>"; };
 		D62A31731F7AC10300275B86 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		D62A31741F7AC10300275B86 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		D62A31761F7AC86900275B86 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D62CA43C1F8FB73E00D67C0A /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D62DF7831FA187E00009DB6F /* NetWorkParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkParse.swift; sourceTree = "<group>"; };
 		D62E4C2B1F86C15B00C619EA /* TotalPrizeFond.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TotalPrizeFond.xib; sourceTree = "<group>"; };
@@ -433,7 +431,6 @@
 		D6F1E1331F7BA0A00098B34C /* main cores */ = {
 			isa = PBXGroup;
 			children = (
-				D62A31761F7AC86900275B86 /* TabBarController.swift */,
 				D6ED6B3B1F8FA6DC00384672 /* PopUpCore.swift */,
 				D6F1E1371F7BAA4E0098B34C /* ControllerCore.swift */,
 				D6632ED71F8C9C6800EC18C9 /* TextViewCore.swift */,
@@ -746,7 +743,6 @@
 				D6477F111FA3E72D008677D3 /* CDDaysL.swift in Sources */,
 				D6F3A0AB1F92DC72001EDA29 /* Details.swift in Sources */,
 				D6ED6B3C1F8FA6DC00384672 /* PopUpCore.swift in Sources */,
-				D62A31771F7AC86900275B86 /* TabBarController.swift in Sources */,
 				D6C57EF81F8AA9210082BCBB /* WhitePapersView.swift in Sources */,
 				D6632ED41F8C9B7900EC18C9 /* Functionals.swift in Sources */,
 				D6BDD9081F7AF23400E91FD0 /* CountDownFlipper.swift in Sources */,

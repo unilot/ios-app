@@ -79,7 +79,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         
         super.viewDidLoad()
         
-        UINavigationBar.appearance().tintColor = kColorMenuPeach
+        UINavigationBar.appearance().tintColor = kColorSoftGray
        
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black]
 

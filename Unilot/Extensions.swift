@@ -75,8 +75,7 @@ extension UIViewController{
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
-        
-        
+         
         navigationController?.updateFocusIfNeeded()
     }
     

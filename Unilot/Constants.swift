@@ -131,6 +131,8 @@ let kColorBadge =  UIColor(red: 172.0/255.0, green: 41.0/255.0, blue: 74.0/255.0
 
 let kColorDarkBlue =  UIColor(red: 15.0/255.0, green: 15.0/255.0, blue: 34.0/255.0, alpha: 0.9)
 
+let kColorSoftGray =  UIColor(red: 153.0/255.0, green: 153.0/255.0, blue: 153.0/255.0, alpha: 0.9)
+
 //MARK: - FONTS
 
 let kFont_Bold          = "Roboto-Bold"

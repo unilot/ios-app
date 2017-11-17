@@ -67,6 +67,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
         navigationItem.title = TR("history_of_drawings")
     
+        sendEvent("EVENT_HISTORY_VIEW")
     }
 
 

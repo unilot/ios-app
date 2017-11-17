@@ -30,7 +30,7 @@ class WhitePapersView : WebCore {
     override func setTitle() {
         
         navigationItem.title = TR("presentation")
-        
+        sendEvent("EVENT_PRESENTATION")
     }
 
     

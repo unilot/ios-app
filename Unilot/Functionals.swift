@@ -433,6 +433,15 @@ func playWin() {
 
 //MARK: - CRASHLITICS
 
+func sendEvent( _ line : String, _ params : [String : Any]? = nil){
+    
+    if params != nil{
+        FIRAnalytics.logEvent(withName: line, parameters: params as? [String : NSObject])
+    } else {
+        FIRAnalytics.logEvent(withName: line, parameters:nil)
+    }
+    
+}
 
 func message_to_Crashlytics(line : String? = nil, description : String? = nil, body : Any? = nil, error: Error? = nil) -> String {
     

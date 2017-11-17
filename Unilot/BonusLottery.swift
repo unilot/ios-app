@@ -57,6 +57,14 @@ class BonusLottery: MainItemView {
     }
     
     
+    override func onEthButton(){
+        
+        playStandart()
+        
+        sendServerCheckForUpdateData()
+        
+        sendEvent("EVENT_BONUS_PARTICIPATE_REFRESH")
+    }
     
     //MARK: - timers
     

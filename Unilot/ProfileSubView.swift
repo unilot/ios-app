@@ -182,6 +182,8 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     
     func onAddnewLine(){
         
+        sendEvent("EVENT_WALLET_ADD")
+        
         if fieldPurse.text != nil {
             users_account_number.insert(fieldPurse.text!, at: 0)
             

@@ -204,6 +204,7 @@ class  LotteryItemsView : OnScrollItemCore,
         current_controller_core!.pop_up_view = viewWithPlaces
         viewWithPlaces.initView(mainView: current_controller_core!.view, directionSign: 1)
 
+        sendEvent("EVENT_BONUS_HOWTO")
         
     }
     
@@ -232,7 +233,7 @@ class  LotteryItemsView : OnScrollItemCore,
         current_controller_core!.pop_up_view = viewWithPlaces
         viewWithPlaces.initView(mainView: current_controller_core!.view, directionSign: 1)
 
-        
+        sendEvent("EVENT_\(kEVENTS_middle[current_game.type]!)_PARTICIPATE")
     }
     
     

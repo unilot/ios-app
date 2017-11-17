@@ -76,6 +76,8 @@ let staticClockSecondsStep = [1,60,3600]
 
 //MARK: -  LOCALS
 
+
+
 let default_first_launch     = "&&\(kTypeProfile)"
 
 var lottery_images   = ["`1day-x3","`7days-x3","`31days-x3","`profile-x3"]
@@ -99,6 +101,17 @@ var history_tabbbar  =   ["all","daily1","weekly1","bonus1"]
 
 let kEmpty = ""
 
+
+//MARK: - EVENTS
+
+let kEVENT_menuLeft = ["EVENT_FB","EVENT_TG","EVENT_REDDIT","EVENT_TWITTER"]
+
+
+let kEVENT_main_views = ["EVENT_DAILY", "EVENT_WEEKLY", "EVENT_BONUS",  "EVENT_PROFIL"]
+
+
+
+let kEVENTS_middle : [Int : String] =  [kTypeDay : "DAILY", kTypeWeek : "WEEKLY", kTypeMonth : "BONUS"]
 
 
 //MARK: - TAGS

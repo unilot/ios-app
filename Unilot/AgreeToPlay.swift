@@ -85,6 +85,8 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
     
     @IBAction func onCopyNumber(){
 
+        sendEvent("EVENT_\(kEVENTS_middle[current_game.type]!)_PARTICIPATE_COPY")
+        
         saveToClipboard(copy_line.text!)
 
      }

@@ -55,7 +55,8 @@ class MainItemView: LotteryItemsView {
         playStandart()
         
         sendServerCheckForUpdateData()
-        
+     
+        sendEvent("EVENT_HIDEN_REFRESH")
     }
     
    

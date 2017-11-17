@@ -115,9 +115,13 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
     
     @IBAction func onSocial(_ sender : UIButton){
         
+        let link_tag = sender.tag / 100 - 1
+        
         let links = [kLink_FB, kLink_Telegram, kLink_Reddit, kLink_Twitter]
  
-        openUrlFromApp(links[sender.tag / 100 - 1] )
+        sendEvent(kEVENT_menuLeft[link_tag])
+        
+        openUrlFromApp(links[link_tag] )
         
     }
  

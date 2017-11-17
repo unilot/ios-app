@@ -23,6 +23,7 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     
     override func setTitle() {
         navigationItem.title = TR("settings")
+        sendEvent("EVENT_SETTINGS")
     }
     
     //MARK:-  UITableViewDelegate, UITableViewDataSource
@@ -115,14 +116,21 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
         if indexPath.section == 1 {
             
-            MemoryControll.setLanguage( indexPath.row )
-            
-            setTitle()
+            onLangChange(indexPath.row)
             
             tableView.reloadData()
         }
     }
+    
+    func onLangChange(_ ind : Int){
+                
+        MemoryControll.setLanguage(ind)
         
+        setTitle()
+    
+        sendEvent("EVENT_LANGUAGE_CHANGE", ["key" : langCodes[ind]])
+    }
+    
     func onSwitcher(_ sender : MySwitch){
         
         notifications_switch[sender.subTag!.row] = !notifications_switch[sender.subTag!.row]

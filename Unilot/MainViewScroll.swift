@@ -64,6 +64,8 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
             ifWentFromNotif()
             
             initWas = true
+            
+            refreshView(0)
         }
 
     }
@@ -174,6 +176,8 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         fillSegmentNames()
         
         scrollToCurrentPage()
+        
+        sendEvent(kEVENT_main_views[current_page])
         
         main_pages[current_page].viewDataReload()
     }

@@ -94,6 +94,16 @@ class  LotteryItemsView : OnScrollItemCore,
     
     //MARK: -  LoadingSign
     
+    func revealLoadingLine(){
+        
+        let rect = loadingSignFirst.frame
+        
+        loadingSignProgress?.frame = CGRect(x: rect.origin.x + 1 + rect.size.width,
+                                                 y: rect.origin.y + 1,
+                                                 width: 0,
+                                                 height: rect.size.height - 2)
+    }
+
     func setLoadingSign(toWidth: CGFloat ){
         
         let rect = loadingSignFirst.frame
@@ -162,18 +172,12 @@ class  LotteryItemsView : OnScrollItemCore,
         
     }
     
-    func stopAllSchedule(){
-        
-    }
-    
     func fillWithData(){
         
         
         
     }
-    
-    
-    
+     
     func pauseCountings(){
         
     }
@@ -201,7 +205,8 @@ class  LotteryItemsView : OnScrollItemCore,
                                   width: frame.width - 20,
                                   height: frame.height - 140)
         
-        viewWithPlaces.initView(mainView: self, frameView: frameForView, directionSign: 1)
+        viewWithPlaces.initView(mainView: current_controller_core!.view,
+                                frameView: frameForView, directionSign: 1)
         
     }
     
@@ -216,7 +221,8 @@ class  LotteryItemsView : OnScrollItemCore,
                                   width:  frame.width - 20,
                                   height:  frame.height - 150)
         
-        viewWithPlaces.initView(mainView: self, frameView: frameForView, directionSign: 1)
+        viewWithPlaces.initView(mainView: current_controller_core!.view,
+                                frameView: frameForView, directionSign: 1)
         
     }
     
@@ -237,7 +243,8 @@ class  LotteryItemsView : OnScrollItemCore,
                                   width: frame.width - 20,
                                   height: frame.height)
         
-        viewWithPlaces.initView(mainView: self, frameView: frameForView, directionSign: 1)
+        viewWithPlaces.initView(mainView: current_controller_core!.view,
+                                frameView: frameForView, directionSign: 1)
         
         
     }
@@ -261,7 +268,8 @@ class  LotteryItemsView : OnScrollItemCore,
                                   width: frame.width - 20,
                                   height: frame.height - 150)
         
-        viewWithPlaces.initView(mainView: self, frameView: frameForView, directionSign: 1)
+        viewWithPlaces.initView(mainView: current_controller_core!.view,
+                                frameView: frameForView, directionSign: 1)
         
     }
     
@@ -277,7 +285,8 @@ class  LotteryItemsView : OnScrollItemCore,
                                   width:  frame.width - 20,
                                   height:  frame.height - 150)
         
-        viewWithPlaces.initView(mainView: self, frameView: frameForView, directionSign: 0)
+        viewWithPlaces.initView(mainView: current_controller_core!.view,
+                                frameView: frameForView, directionSign: 0)
         
     }
     

@@ -136,21 +136,21 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         var frame = CGRect(x: 0, y:  0,
                            width: scrollView.frame.width,  height: scrollView.frame.height)
         
-        let first_tab =  getFromNi("ViewMain") as! DailyLottery
+        let first_tab =  getFromNib("ViewMain") as! DailyLottery
         first_tab.frame = frame
         first_tab.didLoad(0)
         scrollView.addSubview(first_tab)
         
         
         frame.origin.x += scrollView.frame.width
-        let second_tab = getFromNi("ViewMain") as! DailyLottery
+        let second_tab = getFromNib("ViewMain") as! DailyLottery
         second_tab.frame = frame
         second_tab.didLoad(1)
         scrollView.addSubview(second_tab)
 
         
         frame.origin.x += scrollView.frame.width
-        let third_tab =   getFromNi("BonusView") as! BonusLottery
+        let third_tab =   getFromNib("BonusView") as! BonusLottery
         
         third_tab.frame = frame
         third_tab.didLoad(2)
@@ -158,7 +158,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
 
         
         frame.origin.x += scrollView.frame.width
-        profile_tab = getFromNi("ProfileView") as! ProfileSubView        
+        profile_tab = getFromNib("ProfileView") as! ProfileSubView
         profile_tab.frame = frame
         profile_tab.didLoad(3)
         scrollView.addSubview(profile_tab)
@@ -177,7 +177,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         
         scrollToCurrentPage()
         
-        main_pages[current_page].viewDataReload
+        main_pages[current_page].viewDataReload()
     }
 
     
@@ -280,26 +280,29 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         
         let pan_outside = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(MainViewScroll.onOutPan(_:)))
         
-        view.addSubview(pan_outside)
+        view.addGestureRecognizer(pan_outside)
     }
 
     func onOutPan(_ sender : UIScreenEdgePanGestureRecognizer) {
         
+        print("out pan")
     }
     
     //MARK: -  segmentS
 
     func fillSegmentNames(){
         
+        let customTabBar = view.viewWithTag(666666)!
+
         for i in 1..<5 {
             
-            let uibutton = view.viewWithTag(i*1000000) as! UIButton
+            let uibutton = customTabBar.viewWithTag(i*1000000) as! UIButton
             uibutton.addTarget(self, action: #selector(MainViewScroll.changePage(_:)), for: .touchUpInside)
             
-            var imageView = view.viewWithTag(i*1000000+1) as! SpecialItem
+            var imageView = customTabBar.viewWithTag(i*1000000+1) as! SpecialItem
             
             let image = lottery_images[i-1] + "-template"
-            let label = view.viewWithTag(i*1000000+2) as! UILabel
+            let label = customTabBar.viewWithTag(i*1000000+2) as! UILabel
             label.text   =  TR(tabbar_strings[i-1]).capitalized
             
             

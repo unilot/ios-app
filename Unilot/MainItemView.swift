@@ -15,11 +15,8 @@ class MainItemView: LotteryItemsView {
         //MARK: - Views Load override
         
     
-    override func didLoad(_ didLoad : Int) {
+    override func loadMainSubViews() {
         
-        self.setNeedsLayout()
-        self.layoutIfNeeded()
- 
         //create bodies and fill the text
         fillWithData()
         
@@ -27,10 +24,7 @@ class MainItemView: LotteryItemsView {
         setButtonView()
         
         // create progress bar
-        setLoadingSign(toWidth: 0)
-        
-        super.didLoad(didLoad)
-
+        revealLoadingLine()
         
         // get data from
         fillLocalGameData()
@@ -38,24 +32,7 @@ class MainItemView: LotteryItemsView {
         // fill with data
         viewDataReload()
         
-    }
-     
-    
-    //MARK: - APP CLOSED OPENED
-        
-     override func onUserOpenView(){
-        
-        viewDataReload()
-        
-    }
-    
-     override func onUserCloseView(){
-        
-        stopAllSchedule()
-        
-    }
-    
-    
+    } 
     
     //MARK: -
     

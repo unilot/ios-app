@@ -51,9 +51,11 @@ class BonusLottery: MainItemView {
     
     //MARK: - CountDownTimeDelegate
     
-    override func setLoadingSign(toWidth: CGFloat ){
+    
+    override func revealLoadingLine(){
         
     }
+    
     
     
     //MARK: - timers

@@ -17,24 +17,67 @@ class  OnScrollItemCore : UIView {
     func didLoad(_ indexNum : Int) {
         
         // clean from XIB
-        layer.opacity = 0.0
-        backgroundColor = UIColor.clear
+        cleanFromXib()
         
         // names of titleMain
         setMainTitle(indexNum)
         
-        // open view for user
-
-        animateAppearance()
-
+        // load main items
+        loadMainSubViews()
         
+        // open view for user
+        animateAppearance()        
     }
     
+    
+    //MARK: - Override
+
     func setMainTitle (_ indexNum : Int){
 
         
     }
     
+    
+    func loadMainSubViews(){
+        
+    }
+
+    
+    func fillLocalGameData(){
+        
+    }
+    
+    func viewDataReload(){
+
+    }
+    
+    func stopAllSchedule(){
+        
+    }
+
+    
+    func onUserOpenView(){
+        
+        viewDataReload()
+
+    }
+    
+    func onUserCloseView(){
+         
+        stopAllSchedule()
+
+    }
+    
+    
+    //MARK: - Functions
+    
+    func cleanFromXib(){
+        
+        layer.opacity = 0.0
+        backgroundColor = UIColor.clear
+        setNeedsLayout()
+        layoutIfNeeded()
+    }
 
     func animateAppearance(){
         
@@ -46,25 +89,14 @@ class  OnScrollItemCore : UIView {
         
     }
     
-    func fillLocalGameData(){
+    
+    func animateExit(){
+        
+        if self.layer.opacity > 0.0 {
+            UIView.animate(withDuration: 0.5) {
+                self.layer.opacity = 0.0
+            }
+        }
         
     }
-    
-    func viewDataReload(){
-
-    }
-    
-    
-    
-    //MARK: - APP CLOSED OPENED
-    
-    func onUserOpenView(){
-        
-    }
-    
-    func onUserCloseView(){
-         
-        
-    }
-    
 }

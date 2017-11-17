@@ -25,11 +25,8 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
      
     //MARK: - Views Load override
     
-    override func didLoad(_ indexNum: Int) {
+    override func loadMainSubViews() {
  
-        // clean from XIB
-        super.didLoad(indexNum)
-        
         setTextField()
         
         fillWithData()
@@ -37,6 +34,14 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
         addTouchForKeyBoard()
 
     }
+    
+    
+    override func stopAllSchedule(){
+       
+        fieldPurse.resignFirstResponder()
+        
+    }
+    
     
     //MARK: - keyboard
     
@@ -54,12 +59,6 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
         
         fieldPurse.resignFirstResponder()
         
-    }
-    
-    override func onUserCloseView(){
-
-        fieldPurse.resignFirstResponder()
-
     }
     
     //MARK: -
@@ -95,7 +94,6 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     }
     
     
-    
     //MARK:-  UITableViewDelegate, UITableViewDataSource
     
     
@@ -104,7 +102,7 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 54
     }
     
     
@@ -141,7 +139,7 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     
     func onIks(_ sender: MyButton){
         
-        if let cell = sender.superview?.superview as? UITableViewCell{
+        if let cell = sender.superview?.superview?.superview as? UITableViewCell{
             currentTagForRemove = table.indexPath(for: cell)!.row
             
             
@@ -205,7 +203,10 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     }
     
     
-    
+    @IBAction func onQrScan(_ sender : Any){
+        
+        current_controller_core?.onQRScan(sender)
+    }
     
     func onQRAnswer(_ haveText : String?){
         if let text = haveText{
@@ -217,22 +218,19 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     
     
     func createCellBody(_ cell : UITableViewCell) {
-
-        cell.setNeedsLayout()
-        cell.layoutIfNeeded()
         
         cell.backgroundColor = UIColor.clear
         cell.selectionStyle = .none
+
+        let fon_frame =  CGRect(x: 0, y: 0,
+                                width:  table.frame.width,
+                                height: 50)
         
-        let frame = cell.contentView.frame
-        
-        var fon = cell.contentView.viewWithTag(5) as? UIImageView
+        var fon = cell.contentView.viewWithTag(5)
         
         if fon == nil{
             
-            fon = UIImageView(frame: CGRect(x: 5, y: 2,
-                                          width:  frame.width  - 10,
-                                          height: frame.height - 4))
+            fon = UIView(frame:fon_frame)
             fon!.tag = 5
             fon!.backgroundColor = kColorDarkBlue
             fon!.layer.cornerRadius = 8
@@ -245,35 +243,49 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
         if first == nil{
         
             first = UILabel(frame: CGRect(x: 15, y: 0,
-                width:  frame.width - 15 - frame.height, height: frame.height))
+                width:  fon_frame.width - 15 - fon_frame.height, height: fon_frame.height))
             first!.tag = 10
             first!.textColor = UIColor.white
             first!.textAlignment = .left
             first!.backgroundColor = UIColor.clear
             first!.font = UIFont(name: kFont_Light, size: 16)
             first!.adjustsFontSizeToFitWidth = true
-            cell.contentView.addSubview(first!)
+            fon!.addSubview(first!)
         }
         
         
+        var hiddenIkx = cell.contentView.viewWithTag(15) as? UIImageView
+        
+        if hiddenIkx == nil{
+            hiddenIkx = UIImageView(frame: CGRect(x: fon_frame.width - 30,
+                                              y: (fon_frame.height - 20)/2,
+                                          width: 20, height: 20))
+
+            hiddenIkx!.image = UIImage(named : "X-x3")
+            hiddenIkx!.tag = 15
+            hiddenIkx!.contentMode = .scaleAspectFit
+            hiddenIkx!.backgroundColor = UIColor.clear
+            hiddenIkx!.tintColor = kColorLightGray
+            hiddenIkx!.clipsToBounds = true
+            fon!.addSubview(hiddenIkx!)
+
+        }
+
         var button_x = cell.contentView.viewWithTag(20) as? MyButton
         
         if button_x == nil{
-            button_x = MyButton(frame: CGRect(x: frame.width - 50, y: (frame.height - 40)/2,
-                                          width: 40, height: 40))
-
-            button_x!.setImage(UIImage(named : "X-x3"), for: .normal)
+            button_x = MyButton(frame: CGRect(x: fon_frame.width - fon_frame.height, y: 0,
+                                              width: fon_frame.height, height: fon_frame.height))
             button_x!.tag = 20
             button_x!.addTarget(self, action: #selector(ProfileSubView.onIks(_:)), for: .touchUpInside)
             button_x!.imageView?.contentMode = .scaleAspectFit
             button_x!.imageView?.backgroundColor = UIColor.clear
             button_x!.backgroundColor = UIColor.clear
-            button_x!.imageView?.tintColor = kColorLightGray
             button_x!.imageView?.clipsToBounds = true
-            cell.contentView.addSubview(button_x!)
-
+            fon!.addSubview(button_x!)
+            
         }
-
+        
         
     }
     

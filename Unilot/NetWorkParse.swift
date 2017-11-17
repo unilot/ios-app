@@ -47,6 +47,16 @@ class NetWorkParse {
         return nil
     }
  
+    static func parseDeviceSettings(_ resultValue : Any) -> String? {
+        
+        guard resultValue is [String: Any] else {
+            return message_to_Crashlytics(line : "NotificationToken")
+        }
+        
+        
+        return nil
+    }
+    
     static func parseGamesList(_ resultValue : Any) -> String? {
 
         guard let responseJSON = resultValue as? [[String:Any]] else {

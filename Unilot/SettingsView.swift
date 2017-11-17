@@ -129,15 +129,16 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         setTitle()
     
         sendEvent("EVENT_LANGUAGE_CHANGE", ["key" : langCodes[ind]])
+        
+        saveDeviceSettings()
     }
     
     func onSwitcher(_ sender : MySwitch){
         
         notifications_switch[sender.subTag!.row] = !notifications_switch[sender.subTag!.row]
-        MemoryControll.saveObject(notifications_switch, key: "notifications_switch")
- 
+      
+        saveDeviceSettings()
     }
 
-    
-    
+
 }

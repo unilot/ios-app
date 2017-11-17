@@ -35,7 +35,7 @@ let kAPI_get_list_winners   = "api/v1/games/%@/winners"
 let kAPI_get_history        = "api/v1/games/archived"
 let kAPI_post_notif_token   = "api/v1/device/"
 let kAPI_get_game_details   = "api/v1/games/"
-
+let kAPI_post_settings      = "api/v1/device/settings"
 
 var request_headers : HTTPHeaders  = [
     "Content-Type"  : "application/json",
@@ -88,6 +88,28 @@ class NetWork : NetWorkParse {
   
     }
      
+    static func postDeviceSettings(completion: @escaping (String?) -> Void) {
+        
+        
+        let params : Parameters = ["os" : 10,
+                                   "token" :  tokenForNotifications,
+                                   "language" : langCodes[current_language_ind],
+                                   "dayly_game_notifications_enabled" : notifications_switch[0],
+                                   "weekly_game_notifications_enabled" : notifications_switch[1],
+                                   "bonus_game_notifications_enabled" : notifications_switch[2] ]
+        
+        Alamofire.request(kServer + kAPI_post_settings,
+                          method: HTTPMethod.post,
+                          parameters: params,
+                          encoding: JSONEncoding.default,
+                          headers: request_headers)
+            .responseJSON { (response) -> Void in
+                
+                error_or_success(response, parseNotificationToken,completion)
+        }
+        
+        
+    }
     
     static func getGamesList(completion: @escaping (String?) -> Void) {
         

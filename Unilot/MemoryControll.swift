@@ -69,7 +69,7 @@ class MemoryControll {
         if let switchers = getObject("notifications_switch") as? [Bool] {
             notifications_switch = switchers
         } else {
-            saveObject(notifications_switch, key: "notifications_switch")
+            saveDeviceSettings()
         }
     }
     

@@ -82,7 +82,7 @@ class  OnScrollItemCore : UIView {
     func animateAppearance(){
         
         if self.layer.opacity < 1.0 {
-            UIView.animate(withDuration: 0.5) {
+            UIView.animate(withDuration: 0.2) {
                 self.layer.opacity = 1.0
             }
         }
@@ -93,7 +93,7 @@ class  OnScrollItemCore : UIView {
     func animateExit(){
         
         if self.layer.opacity > 0.0 {
-            UIView.animate(withDuration: 0.5) {
+            UIView.animate(withDuration: 0.2) {
                 self.layer.opacity = 0.0
             }
         }

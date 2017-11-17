@@ -81,6 +81,8 @@ let staticClockSecondsStep = [1,60,3600]
 let default_first_launch     = "&&\(kTypeProfile)"
 
 var lottery_images   = ["`1day-x3","`7days-x3","`31days-x3","`profile-x3"]
+var histiry_images   = ["`1day-x3","`1day-x3","`7days-x3","`31days-x3" ]
+
 var kTypeImage       = [kTypeDay : "`1day-x3", kTypeWeek : "`7days-x3", kTypeMonth : "`31days-x3"]
 var kTypeTabBarOrder = [kTypeDay, kTypeWeek, kTypeMonth, kTypeProfile]
 

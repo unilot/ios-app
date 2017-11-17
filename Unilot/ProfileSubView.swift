@@ -43,24 +43,6 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     }
     
     
-    //MARK: - keyboard
-    
-    
-    func addTouchForKeyBoard(){
-        
-        let viewTapGestureRec = UITapGestureRecognizer(target: self, action: #selector(ProfileSubView.handleViewTap(recognizer:)))
-        
-        viewTapGestureRec.cancelsTouchesInView = false
-        self.addGestureRecognizer(viewTapGestureRec)
-        
-    }
-    
-    func handleViewTap(recognizer: UIGestureRecognizer) {
-        
-        fieldPurse.resignFirstResponder()
-        
-    }
-    
     //MARK: -
 
     func setTextField(){

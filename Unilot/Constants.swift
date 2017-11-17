@@ -54,10 +54,11 @@ let kStatusFinishing = 15
 let kStatusCancele  = 20
 let kStatusComplete = 30
 
-let kActionStarted      = "game_started"
+let kActionUpdate       = "game_updated"
 let kActionFinishing    = "game_unpublished"
 let kActionCompleted    = "game_finished"
-let kActionUpdate       = "game_updated"
+
+let kActionStarted      = "game_started"
 let kActionProlong      = "game_prolong"
 let kActionUndefined    =  ""
 

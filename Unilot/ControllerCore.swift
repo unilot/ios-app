@@ -79,6 +79,8 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         
         super.viewDidLoad()
         
+        hideKeyboardWhenTappedAround()
+
         UINavigationBar.appearance().tintColor = kColorSoftGray
        
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black]

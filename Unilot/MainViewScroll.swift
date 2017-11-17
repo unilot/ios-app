@@ -330,12 +330,15 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
     
     }
     
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
          
         switch scrollView.panGestureRecognizer.state {
         case .began:
             // User began dragging
+            
+            profile_tab.stopAllSchedule()
             
             break
         case .changed:

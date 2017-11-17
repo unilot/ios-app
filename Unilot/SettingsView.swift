@@ -22,7 +22,11 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
  
     
     override func setTitle() {
+        
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        
         navigationItem.title = TR("settings")
+        
         sendEvent("EVENT_SETTINGS")
     }
     

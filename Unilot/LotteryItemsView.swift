@@ -57,7 +57,7 @@ class  LotteryItemsView : OnScrollItemCore,
     
     //MARK: - FUNCTIONS
     
-    override func setLotteryName (_ indexNum : Int){
+    override func setMainTitle (_ indexNum : Int){
         
         current_game.type = kTypeTabBarOrder[indexNum]
 

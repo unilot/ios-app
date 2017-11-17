@@ -16,13 +16,6 @@ import SCLAlertView
 class MainViewScroll: ControllerCore , UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView : UIScrollView!
- 
-    
-    var first_tab   : DailyLottery!
-    
-    var second_tab  : DailyLottery!
-    
-    var third_tab   : BonusLottery!
     
     var profile_tab : ProfileSubView!
 
@@ -143,22 +136,21 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         var frame = CGRect(x: 0, y:  0,
                            width: scrollView.frame.width,  height: scrollView.frame.height)
         
-        first_tab =  UINib(nibName: "ViewMain", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! DailyLottery
+        let first_tab =  getFromNi("ViewMain") as! DailyLottery
         first_tab.frame = frame
         first_tab.didLoad(0)
         scrollView.addSubview(first_tab)
         
         
         frame.origin.x += scrollView.frame.width
-        second_tab =  UINib(nibName: "ViewMain", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! DailyLottery
-        
+        let second_tab = getFromNi("ViewMain") as! DailyLottery
         second_tab.frame = frame
         second_tab.didLoad(1)
         scrollView.addSubview(second_tab)
 
         
         frame.origin.x += scrollView.frame.width
-        third_tab =  UINib(nibName: "BonusView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! BonusLottery
+        let third_tab =   getFromNi("BonusView") as! BonusLottery
         
         third_tab.frame = frame
         third_tab.didLoad(2)
@@ -166,8 +158,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
 
         
         frame.origin.x += scrollView.frame.width
-        profile_tab =  UINib(nibName: "ProfileView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ProfileSubView
-        
+        profile_tab = getFromNi("ProfileView") as! ProfileSubView        
         profile_tab.frame = frame
         profile_tab.didLoad(3)
         scrollView.addSubview(profile_tab)
@@ -176,6 +167,20 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         main_pages = [first_tab,second_tab,third_tab,profile_tab]
         
     }
+    
+    
+    func goToPage(_ newPage: Int){
+        
+        current_page = newPage
+        
+        fillSegmentNames()
+        
+        scrollToCurrentPage()
+        
+        main_pages[current_page].viewDataReload
+    }
+
+    
     
     //MARK: - NOTIFICATION
     
@@ -260,7 +265,17 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
     }
     
     
-    //MARK:-  segment
+    //MARK: -  Pan gesture
+    
+    func getFromNib(_ name : String) -> OnScrollItemCore {
+       
+        let nib_body = UINib(nibName: name, bundle: nil)
+        
+        return nib_body.instantiate(withOwner: nil, options: nil)[0] as! OnScrollItemCore
+     }
+
+    //MARK: -  Pan gesture
+    
     func addMenuGestureRecognizer(){
         
         let pan_outside = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(MainViewScroll.onOutPan(_:)))
@@ -272,6 +287,8 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         
     }
     
+    //MARK: -  segmentS
+
     func fillSegmentNames(){
         
         for i in 1..<5 {
@@ -308,19 +325,8 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
     }
     
     //MARK:-  scroll changed
+
     
-    func goToPage(_ newPage: Int){
-        
-        current_page = newPage
-        
-        fillSegmentNames()
-
-        let x = CGFloat(current_page) * scrollView.frame.size.width
-        scrollView.setContentOffset(CGPoint(x: x, y: 0), animated: true)
-        
-        main_pages[current_page].viewDataReload
-    }
-
     func changePage(_ sender: UIButton) -> () {
         
         goToPage(sender.tag/1000000-1)
@@ -335,4 +341,10 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
     }
 
     
+    func scrollToCurrentPage(){
+        
+        let x = CGFloat(current_page) * scrollView.frame.size.width
+        scrollView.setContentOffset(CGPoint(x: x, y: 0), animated: true)
+    
+    }
 }

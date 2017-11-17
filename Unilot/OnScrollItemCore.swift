@@ -21,7 +21,7 @@ class  OnScrollItemCore : UIView {
         backgroundColor = UIColor.clear
         
         // names of titleMain
-        setLotteryName(indexNum)
+        setMainTitle(indexNum)
         
         // open view for user
 
@@ -30,7 +30,7 @@ class  OnScrollItemCore : UIView {
         
     }
     
-    func setLotteryName (_ indexNum : Int){
+    func setMainTitle (_ indexNum : Int){
 
         
     }

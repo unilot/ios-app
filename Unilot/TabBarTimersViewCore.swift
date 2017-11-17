@@ -57,7 +57,7 @@ class TabBarTimersViewCore: ControllerCore, CountDownTimeDelegate, CountUppFlipp
     
     //MARK: - FUNCTIONS
      
-    func setLotteryName (){
+    func setMainTitle (){
         
         titleMain.text = TR(tabbar_strings[tabBarItem.tag]).capitalized + " " + TR("drawing1")
         

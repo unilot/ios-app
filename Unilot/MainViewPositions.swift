@@ -127,7 +127,7 @@ class MainViewPositions: TabBarTimersViewCore {
             addInfoButton()
             
             // names of titleMain
-            setLotteryName()
+            setMainTitle()
             
             //create bodies and fill the text
             fillWithData()

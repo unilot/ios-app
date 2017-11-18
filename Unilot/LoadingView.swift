@@ -130,6 +130,8 @@ class LoadingView : ControllerCore{
     
     func goToMainController(){
 
+        NetWork.postDeviceSettings()
+
         present(getVCFromName("SB_SWRevealViewController"), animated: false, completion: nil)
    
     }

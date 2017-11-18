@@ -99,6 +99,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
  
     
     func ifNeedTutorial(){
+        
         if open_from_notif == default_first_launch {
             
             open_from_notif = nil

@@ -42,7 +42,7 @@ class NetWorkParse {
         guard resultValue is [String: Any] else {
             return message_to_Crashlytics(line : "NotificationToken")
         }
-        
+       
         
         return nil
     }

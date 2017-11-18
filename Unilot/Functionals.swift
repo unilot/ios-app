@@ -435,9 +435,7 @@ func saveDeviceSettings(){
     
     MemoryControll.saveObject(notifications_switch, key: "notifications_switch")
     
-    NetWork.postDeviceSettings { (_ error : String?) in
-        
-    }
+    NetWork.postDeviceSettings()
 }
 
 

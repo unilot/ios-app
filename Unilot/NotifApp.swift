@@ -289,8 +289,7 @@ class NotifApp {
     
     
     
-    static func parseRemoteNotification( _ notificationDictionary : [String : Any]) -> String{
-        
+    static func parseRemoteNotification( _ notificationDictionary : [String : Any]){
         
         MemoryControll.init_defaults_if_any()
         
@@ -312,13 +311,6 @@ class NotifApp {
                 
             }
         }
-        
-         // send notification from closed app
-        let lCode = langCodes[current_language_ind]
- 
-        return notifItem.messages[lCode]!
- 
-
     }
     
 

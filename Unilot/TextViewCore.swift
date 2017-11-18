@@ -22,6 +22,8 @@ class TextViewCore : ControllerCore {
         
         super.viewDidLoad()
         
+        UIApplication.shared.statusBarStyle = .default
+
         textView.text = " "
         
     }
@@ -33,6 +35,7 @@ class TextViewCore : ControllerCore {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         
         addText()
         

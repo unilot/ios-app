@@ -45,10 +45,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // Set Background Fetch Intervall for background services / terminated app
-        UIApplication.shared.setMinimumBackgroundFetchInterval(10)
+//        UIApplication.shared.setMinimumBackgroundFetchInterval(10)
         
         UIApplication.shared.statusBarStyle = .lightContent
-
+        
+//         Check if launched from notification
+        
+        if let notification = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [String: Any] {
+            
+            NotifApp.parseRemoteNotification(notification)
+            
+         }
+        
+        
         return true
         
     }

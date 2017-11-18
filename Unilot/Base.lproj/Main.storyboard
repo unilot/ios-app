@@ -155,16 +155,16 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" tag="1000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vD-ij-avW">
-                                        <rect key="frame" x="0.0" y="36" width="80" height="12"/>
+                                        <rect key="frame" x="0.0" y="34" width="80" height="14"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="12" id="uGb-CT-JoG"/>
+                                            <constraint firstAttribute="height" constant="14" id="uGb-CT-JoG"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" tag="1000001" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trophy-x3" translatesAutoresizingMaskIntoConstraints="NO" id="bSZ-PI-sau" customClass="SpecialItem" customModule="Unilot" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="26" y="0.0" width="28" height="28"/>
                                         <color key="tintColor" red="0.94901960780000005" green="0.32156862749999998" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="bSZ-PI-sau" secondAttribute="height" multiplier="1:1" id="dmO-SO-6W0"/>
@@ -175,16 +175,16 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" tag="2000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gdb-JM-me3">
-                                        <rect key="frame" x="80" y="36" width="80" height="12"/>
+                                        <rect key="frame" x="80" y="34" width="80" height="14"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="12" id="Oxj-V7-QyS"/>
+                                            <constraint firstAttribute="height" constant="14" id="Oxj-V7-QyS"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" tag="2000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="`1day-x3-template" translatesAutoresizingMaskIntoConstraints="NO" id="l2E-oo-pdY" customClass="SpecialItem" customModule="Unilot" customModuleProvider="target">
-                                        <rect key="frame" x="105" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="106" y="0.0" width="28" height="28"/>
                                         <color key="tintColor" red="0.94901960780000005" green="0.32156862749999998" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="l2E-oo-pdY" secondAttribute="height" multiplier="1:1" id="JzT-GQ-L0I"/>
@@ -195,16 +195,16 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" tag="3000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bonus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jc-A3-pI3">
-                                        <rect key="frame" x="160" y="36" width="80" height="12"/>
+                                        <rect key="frame" x="160" y="34" width="80" height="14"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="12" id="LoX-cA-js0"/>
+                                            <constraint firstAttribute="height" constant="14" id="LoX-cA-js0"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" tag="3000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="`7days-x3-template" translatesAutoresizingMaskIntoConstraints="NO" id="cNe-rP-fyf" customClass="SpecialItem" customModule="Unilot" customModuleProvider="target">
-                                        <rect key="frame" x="185" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="186" y="0.0" width="28" height="28"/>
                                         <color key="tintColor" red="0.94901960780000005" green="0.32156862749999998" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="cNe-rP-fyf" secondAttribute="height" multiplier="1:1" id="ehk-rt-k1O"/>
@@ -215,16 +215,16 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" tag="4000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuT-yE-KF1">
-                                        <rect key="frame" x="240" y="36" width="80" height="12"/>
+                                        <rect key="frame" x="240" y="34" width="80" height="14"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="12" id="qCz-eB-Tw0"/>
+                                            <constraint firstAttribute="height" constant="14" id="qCz-eB-Tw0"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" tag="4000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="`31days-x3-template" translatesAutoresizingMaskIntoConstraints="NO" id="ybI-b3-Vdo" customClass="SpecialItem" customModule="Unilot" customModuleProvider="target">
-                                        <rect key="frame" x="265" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="266" y="0.0" width="28" height="28"/>
                                         <color key="tintColor" red="0.94901960780000005" green="0.32156862749999998" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ybI-b3-Vdo" secondAttribute="height" multiplier="1:1" id="irC-bU-4XC"/>
@@ -1482,16 +1482,16 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" tag="1000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEW-oz-Pd8">
-                                        <rect key="frame" x="0.0" y="36" width="80" height="12"/>
+                                        <rect key="frame" x="0.0" y="34" width="80" height="14"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="12" id="QeA-b1-jMH"/>
+                                            <constraint firstAttribute="height" constant="14" id="QeA-b1-jMH"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" tag="1000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="`1day-x3-template" translatesAutoresizingMaskIntoConstraints="NO" id="zaY-US-spD" customClass="SpecialItem" customModule="Unilot" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="26" y="0.0" width="28" height="28"/>
                                         <color key="tintColor" red="0.94901960780000005" green="0.32156862749999998" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zaY-US-spD" secondAttribute="height" multiplier="1:1" id="zw1-s3-rLa"/>
@@ -1502,16 +1502,16 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" tag="2000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfb-qI-XWA">
-                                        <rect key="frame" x="80" y="36" width="80" height="12"/>
+                                        <rect key="frame" x="80" y="34" width="80" height="14"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="12" id="Lqp-s1-QV0"/>
+                                            <constraint firstAttribute="height" constant="14" id="Lqp-s1-QV0"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" tag="2000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="`7days-x3-template" translatesAutoresizingMaskIntoConstraints="NO" id="ghf-wa-L3q" customClass="SpecialItem" customModule="Unilot" customModuleProvider="target">
-                                        <rect key="frame" x="105" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="106" y="0.0" width="28" height="28"/>
                                         <color key="tintColor" red="0.94901960780000005" green="0.32156862749999998" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ghf-wa-L3q" secondAttribute="height" multiplier="1:1" id="7uQ-Yr-Yg1"/>
@@ -1522,16 +1522,16 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" tag="3000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bonus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZf-U6-k2C">
-                                        <rect key="frame" x="160" y="36" width="80" height="12"/>
+                                        <rect key="frame" x="160" y="34" width="80" height="14"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="12" id="3sW-9Q-BqX"/>
+                                            <constraint firstAttribute="height" constant="14" id="3sW-9Q-BqX"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" tag="3000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="`31days-x3-template" translatesAutoresizingMaskIntoConstraints="NO" id="e0W-e4-PBk" customClass="SpecialItem" customModule="Unilot" customModuleProvider="target">
-                                        <rect key="frame" x="185" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="186" y="0.0" width="28" height="28"/>
                                         <color key="tintColor" red="0.94901960780000005" green="0.32156862749999998" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="e0W-e4-PBk" secondAttribute="height" multiplier="1:1" id="2R6-md-Q4X"/>
@@ -1542,16 +1542,16 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" tag="4000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMI-4d-9FY">
-                                        <rect key="frame" x="240" y="36" width="80" height="12"/>
+                                        <rect key="frame" x="240" y="34" width="80" height="14"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="12" id="DwW-Gj-5wA"/>
+                                            <constraint firstAttribute="height" constant="14" id="DwW-Gj-5wA"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" tag="4000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="`profile-x3-template" translatesAutoresizingMaskIntoConstraints="NO" id="kMQ-2M-FNF" customClass="SpecialItem" customModule="Unilot" customModuleProvider="target">
-                                        <rect key="frame" x="265" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="266" y="0.0" width="28" height="28"/>
                                         <color key="tintColor" red="0.94901960780000005" green="0.32156862749999998" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="kMQ-2M-FNF" secondAttribute="height" multiplier="1:1" id="YV8-xG-7FO"/>

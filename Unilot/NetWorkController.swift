@@ -88,8 +88,12 @@ class NetWork : NetWorkParse {
   
     }
      
-    static func postDeviceSettings(completion: @escaping (String?) -> Void) {
+    static func postDeviceSettings() {
         
+        guard tokenForNotifications != kEmpty else {
+
+            return
+        }
         
         let params : Parameters = ["os" : 10,
                                    "token" :  tokenForNotifications,
@@ -105,8 +109,10 @@ class NetWork : NetWorkParse {
                           headers: request_headers)
             .responseJSON { (response) -> Void in
                 
-                error_or_success(response, parseNotificationToken,completion)
-        }
+                error_or_success(response, parseNotificationToken, { ( error : String?) in
+                    
+                })
+         }
         
         
     }

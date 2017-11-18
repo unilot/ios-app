@@ -127,44 +127,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // This method will be called when app received push notifications in foreground
  
-    
-    // Catching notifications in appdelegate
-    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
-        print("notification - tapped")
-    }
-    
-    
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 
-        
-        let aps = userInfo as! [String: Any]
-        
-        NotifApp.parseRemoteNotification(aps)
-        
-        completionHandler(.newData)
-        
-    }
-    
-    func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [AnyHashable: Any], completionHandler: @escaping () -> Void) {
-        
-        
-         // 1
-        let aps = userInfo as! [String: Any]
-        
-        NotifApp.parseRemoteNotification(aps)
-        
-        completionHandler()
-    }
-    
-    // Handling action buttons and notifying where you need with notificationCenter
-    func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, withResponseInfo responseInfo: [AnyHashable : Any], completionHandler: @escaping () -> Void) {
-       
 
-        // ios <= 9
-        NotifApp.gotLocalUserNotifAnswer(responseInfo["task_id"] as! String)
-        
-        completionHandler()
-    }
     
     
     //MARK: - device id for pushes

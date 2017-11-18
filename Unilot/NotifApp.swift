@@ -28,17 +28,59 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
-        //        if response.actionIdentifier == UNNotificationDefaultActionIdentifier {
-        NotifApp.gotLocalUserNotifAnswer(response.notification.request.identifier)
-        //        }
+//                if response.actionIdentifier == UNNotificationDefaultActionIdentifier {
+        NotifApp.parseRemoteNotification(response.notification.request.content.userInfo as! [String : Any])
+
+//                }
         
+        completionHandler()
+    }
+    
+    
+    
+    // Catching notifications in appdelegate
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+    
+        print("notification - tapped")
+    
+    }
+
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        
+        let aps = userInfo as! [String: Any]
+        
+        NotifApp.parseRemoteNotification(aps)
+        
+        completionHandler(.newData)
+        
+    }
+    
+    func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [AnyHashable: Any], completionHandler: @escaping () -> Void) {
+        
+        
+        // 1
+        let aps = userInfo as! [String: Any]
+        
+        NotifApp.parseRemoteNotification(aps)
+        
+        completionHandler()
+    }
+    
+    // Handling action buttons and notifying where you need with notificationCenter
+    func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, withResponseInfo responseInfo: [AnyHashable : Any], completionHandler: @escaping () -> Void) {
+        
+        
+        // ios <= 9
+        NotifApp.parseRemoteNotification(responseInfo as! [String : Any])
         
         completionHandler()
     }
     
 }
 
-func sendNotification(_ message : String, _ key_id : String){
+func sendLocalNotification(_ message : String, _ key_id : String){
     
     if #available(iOS 10.0, *) {
         let content = UNMutableNotificationContent()
@@ -140,7 +182,7 @@ class NotifApp {
     static func removeNotifWithSameGameId( _ game_id : String){
 
         let new_filtered = notification_data.filter({
-            return game_id != getDataFromNotifString($0, 1)
+            return game_id != getDataFromNotifString($0, 0)
         })
 
         notification_data = new_filtered
@@ -155,7 +197,7 @@ class NotifApp {
             return nil
         }
         
-        let game_id = getDataFromNotifString(open_from_notif!,1)
+        let game_id = getDataFromNotifString(open_from_notif!,0)
         
         removeNotifWithSameGameId(game_id)
         
@@ -169,6 +211,8 @@ class NotifApp {
         
         let notifItem = NotifStruct()
         
+        print("notif entity " , data)
+        
         notifItem.messages = data["message"] as? [String : String] ?? [:]
         notifItem.action = data["action"] as? String ?? kActionUndefined
         
@@ -180,7 +224,7 @@ class NotifApp {
             if notifItem.game.game_id == kEmpty {
                 notifItem.data = dataDict
             } else {
-                notifItem.notif_id = "\(notifItem.action)&\(notifItem.game.game_id)&\(notifItem.game.type)"
+                notifItem.notif_id = "\(notifItem.game.game_id)&\(notifItem.game.type)"
             }
         }
         
@@ -195,6 +239,7 @@ class NotifApp {
         
         open_from_notif = notif
         current_controller_core?.onCheckAppNotifRecieved()
+ 
         
     }
     
@@ -202,12 +247,12 @@ class NotifApp {
                 
         let lCode = langCodes[current_language_ind]
         let typeId = getTabBarTag(notif.game.type)
-
         
         let message = notif.messages[lCode]!
         let title = TR(tabbar_strings[typeId]) + " " + TR("drawing1")
         let image = UIImage(named: lottery_images[typeId] + "-small")
         
+         
         Whisper.show(shout: Announcement(title: title, subtitle: message, image: image),
                      to: withController,
                      completion: {
@@ -219,64 +264,23 @@ class NotifApp {
     
     //MARK: - REMOTE NOTIFICATION
     
-    static func parseRemoteNotificationWhenAppIsClosed( _ notificationDictionary : [String : Any]){
-        print(notificationDictionary)
+    static func parseRemoteNotification( _ notificationDictionary : [String : Any]){
         
-        if !app_is_active {
+        
+        let notifItem = parseNotif(notificationDictionary)
+
+        guard notifItem.game.game_id != kEmpty else {
             
-            MemoryControll.init_defaults_if_any()
+            return
         }
         
-        
-        // parse data from remote notification
-        
-        // fake push
-        //        let notifItem = parseNotif(createFakePush())
-        
-        
-        // real code
-        let notifItem = parseNotif(notificationDictionary)
-        
-        
-        // if we have complete game status - save it and change Badge item
         if  notifItem.action == kActionCompleted{
             
-            MemoryControll.saveNewNotif(notifItem.notif_id)
-            
+            MemoryControll.saveNewNotif(notifItem.notif_id) 
+
         }
-        
-        
-        // do something with these data if app is closed
-        if !app_is_active {
-            
-            
-            // if game id is in notification
-            if notifItem.game.game_id != kEmpty {
-                
-                //  check for users settings of switching of notification
-                if notifications_switch[getTabBarTag(notifItem.game.type)] {
-                    
-                    // send notification from closed app
-                    let lCode = langCodes[current_language_ind]
-                    sendNotification(notifItem.messages[lCode]!, notifItem.notif_id)
-                    
-                }
-            }
-            
-        } else {
-            
-            // if game id is in notification
-            
-            if let game = games_list[notifItem.game.type] {
-                
-                if game.ending_at <= notifItem.game.ending_at {
-                    
-                    games_list[notifItem.game.type] = notifItem.game
-                    
-                }
-            }
-            
-            
+         
+        if app_is_active {
             
             open_from_notif = notifItem.notif_id
             
@@ -284,94 +288,36 @@ class NotifApp {
             current_controller_core?.onActiveAppNotifRecieved(notifItem)
             
         }
-        
-    }
-    
-    
-    
-    static func parseRemoteNotification( _ notificationDictionary : [String : Any]){
-        
-        MemoryControll.init_defaults_if_any()
-        
-        let notifItem = parseNotif(notificationDictionary)
 
-        if  notifItem.action == kActionCompleted{
+     }
+    
+    
+    static func CleanUnusedNotifs(_ realGames: [GameInfo]){
+        
+        MemoryControll.getNotificationSaved()
+        
+        var new_filtered = [String]()
+        
+         for notif in notification_data {
             
-            MemoryControll.saveNewNotif(notifItem.notif_id) 
-
-        }
-            
-        // if game id is in notification
-        if notifItem.game.game_id != kEmpty {
-            
-            //  check for users settings of switching of notification
-            if notifications_switch[getTabBarTag(notifItem.game.type)] {
+            for item in realGames {
                 
- 
-                
+                if  item.game_id == getDataFromNotifString(notif, 0){
+                    new_filtered.append(notif)
+                    break
+                }
             }
+            
         }
-    }
-    
-
-    
-    static func lookAtActionsOfNotif(_ notifItem : NotifStruct){
         
-        switch notifItem.action {
-            
-        //Начало игры:
-        case  kActionStarted:
-            
-            break
-            
-        //Завершение приёма заявок и начало определения победител
-        case kActionFinishing:
-            
-            
-            break
-            
-        //Завершение определения победителей:
-        case kActionCompleted:
-            
-            
-            break
-            
-        //Игра продлена изза недостаточного количества игроков:
-        case kActionProlong:
-            
-            
-            break
-            
-        //Отчёт об игре:
-        case kActionUpdate:
-            
-            break
-            
-        default: // kActionUndefined
-            
-            
-            return
-        }
+        MemoryControll.setNotificationSaved()
         
         
     }
-    
-    
     //MARK: -
     //MARK: - FAKE PUSHES
     
-    
-    static func sendFakeLocalPush(){
-        
-        if #available(iOS 10.0, *) {
-            let timeInterval = 5.0
-            
-            Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: false, block: { (timer) in
-                sendFakeNotif()
-            })
-        }
 
-    }
     
     static var numberOfFakeGamers: Int = 5
     
@@ -383,6 +329,18 @@ class NotifApp {
         
     }
     
+    
+    static func sendFakeLocalPush(){
+        
+        if #available(iOS 10.0, *) {
+            let timeInterval = 5.0
+            
+            Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: false, block: { (timer) in
+                sendFakeNotif()
+            })
+        }
+        
+    }
     static func createFakePush() -> [String : Any] {
       
         return  ["action": kActionCompleted,//kActionCompleted,//kActionFinishing,//kActionUpdate,

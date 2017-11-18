@@ -54,7 +54,9 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             
         } else {
             
-           onFillDataForSegment()
+            NotifApp.CleanUnusedNotifs(history_list)
+            
+            onFillDataForSegment()
             
         }
         

@@ -184,6 +184,8 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         
         fillSegmentNames()
         
+        pop_up_view?.onX(0.2)
+
         scrollToCurrentPage()
         
         sendEvent(kEVENT_main_views[current_page])
@@ -194,65 +196,37 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
     
     
     //MARK: - NOTIFICATION
-    
-    
-    
-    func updateAppearanceOfGames(){
-        
-        for view_item in main_pages {
-            view_item.fillLocalGameData()
-            view_item.viewDataReload()
-            
-        }
-        
-    }
-    
-    
-    func updateGameforNotification(){
-        
-        for view_item in main_pages {
-            view_item.fillLocalGameData()
-        }
-        
-    }
-    
-    
-    // if app was sleeping
-    override func onCheckAppNotifRecieved() {
-        
-        updateGameforNotification()
-        
-    }
-    
-    // if app was active
+
     override func onActiveAppNotifRecieved(_ notif : NotifStruct){
         
         // if updated current game
         playStandart()
         
-//        if notif.game.type == current_page {
-//            
-//            fillLocalGameData()
-//            
-//            viewDataReload()
-//            
-//        } else {
-//            
-//            // if updates neighbor game
-//            
-//            
-//            if notif.action != kActionUpdate {
-//                
-//                tabBarController?.selectedIndex = getTabBarTag(notif.game.type)
-//                
-//            } else {
-//                
-//                NotifApp.showLocalNotifInApp(withController: navigationController!, notif)
-//                
-//            }
-//            
-//        }
-//        
+        let type_ind = getTabBarTag(notif.game.type)
+        
+        
+        if type_ind == current_page {
+            
+            main_pages[current_page].fillLocalGameData()
+        
+            main_pages[current_page].viewDataReload()
+            
+        } else {
+            
+            // if updates neighbor game
+             
+            if notif.action != kActionUpdate {
+                
+                refreshView(type_ind)
+                
+            } else {
+                
+                NotifApp.showLocalNotifInApp(withController: navigationController!, notif)
+                
+            }
+            
+        }
+        
     }
     
     
@@ -261,6 +235,8 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
     
     override func onUserOpenView(){
         
+        super.onUserOpenView()
+
         for view_item in main_pages {
             view_item.onUserOpenView()
         }
@@ -268,6 +244,8 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
     }
     
     override func onUserCloseView(){
+        
+        super.onUserCloseView()
         
         for view in main_pages {
             view.onUserCloseView()

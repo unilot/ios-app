@@ -35,7 +35,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     
     func onCheckAppNotifRecieved(){
         
-        let int_type = Int(NotifApp.getDataFromNotifString(open_from_notif,2))
+        let int_type = Int(NotifApp.getDataFromNotifString(open_from_notif,1))
         
         goToMainViewFromType(int_type)
       
@@ -50,8 +50,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
             goToMainViewFromType(notif.game.type)
 
         } else {
-            
-
+ 
             NotifApp.showLocalNotifInApp(withController: navigationController!, notif)
              
         }

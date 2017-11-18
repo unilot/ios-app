@@ -84,15 +84,11 @@ class MemoryControll {
         
     }
     
-    
     static func getNotificationSaved(){
+        
         if let data = getObject("notifications_app") as? [String] {
             notification_data = data
-        } else {
-            saveObject(notification_data, key: "notifications_app")
         }
-        
-        UIApplication.shared.applicationIconBadgeNumber = notification_data.count
         
     }
     
@@ -134,13 +130,21 @@ class MemoryControll {
 
     
     
-    static func saveNewNotif(_ notificationDictionary : String ){
+    static func saveNewNotif(_ newNotif : String ){
         
-        notification_data.append( notificationDictionary )
+        getNotificationSaved()
         
-        UIApplication.shared.applicationIconBadgeNumber = notification_data.count
+        let new_filtered = notification_data.filter({
+            return  $0 == newNotif
+        })
         
-        saveObject(notification_data, key: "notifications_app")
+        guard new_filtered.count == 0  else {
+            return
+        }
+  
+        notification_data.append( newNotif )
+            
+        setNotificationSaved()
         
     }
     

@@ -284,12 +284,15 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         
         let viewWithPlaces = TutorialScroll.createTutorialScroll()
         pop_up_view = viewWithPlaces
+        viewWithPlaces.hideMore = (open_from_notif == default_first_launch)
+
+        viewWithPlaces.delegate = self
         
         let frameForView = CGRect(x: 0, y: 0,
                                   width: view.frame.width,
                                   height: view.frame.height)
         
-        viewWithPlaces.initView(mainView: self.view, directionSign: 0, frameForView)
+        viewWithPlaces.initView(mainView: self.view, directionSign: -1, frameForView)
         
         
     }

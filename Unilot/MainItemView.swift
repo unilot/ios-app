@@ -178,9 +178,8 @@ class MainItemView: LotteryItemsView {
         
         moneyTablet.initTimer(start_count, Int(current_game.prize_amount * 1000))
         
-        
-        
     }
+ 
     //MARK: - OPEN VIEWS
     
     

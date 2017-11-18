@@ -100,7 +100,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.23.10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="a21-FW-yFZ">
-                                                    <rect key="frame" x="47" y="13.5" width="61" height="17.5"/>
+                                                    <rect key="frame" x="47" y="14" width="61" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -741,8 +741,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_1" translatesAutoresizingMaskIntoConstraints="NO" id="ukM-fW-XZI">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_1" translatesAutoresizingMaskIntoConstraints="NO" id="gZU-xe-VAp">
                                 <rect key="frame" x="-200" y="0.0" width="520" height="568"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1splash_full" translatesAutoresizingMaskIntoConstraints="NO" id="ukM-fW-XZI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -750,10 +753,15 @@
                             <constraint firstItem="ukM-fW-XZI" firstAttribute="top" secondItem="zOO-gJ-uwU" secondAttribute="top" id="26v-w8-wvw"/>
                             <constraint firstAttribute="bottom" secondItem="ukM-fW-XZI" secondAttribute="bottom" id="AvD-Js-Ks8"/>
                             <constraint firstAttribute="trailing" secondItem="ukM-fW-XZI" secondAttribute="trailing" id="aAE-3C-Nbe"/>
-                            <constraint firstItem="ukM-fW-XZI" firstAttribute="leading" secondItem="zOO-gJ-uwU" secondAttribute="leading" constant="-200" id="xtW-b9-rwT"/>
+                            <constraint firstAttribute="trailing" secondItem="gZU-xe-VAp" secondAttribute="trailing" id="eUZ-tZ-S7e"/>
+                            <constraint firstAttribute="bottom" secondItem="gZU-xe-VAp" secondAttribute="bottom" id="neU-Jq-eK7"/>
+                            <constraint firstItem="gZU-xe-VAp" firstAttribute="top" secondItem="zOO-gJ-uwU" secondAttribute="top" id="q0M-Et-W4d"/>
+                            <constraint firstItem="gZU-xe-VAp" firstAttribute="leading" secondItem="zOO-gJ-uwU" secondAttribute="leading" constant="-200" id="xK1-YO-RVq"/>
+                            <constraint firstItem="ukM-fW-XZI" firstAttribute="leading" secondItem="zOO-gJ-uwU" secondAttribute="leading" id="xtW-b9-rwT"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="fon" destination="ukM-fW-XZI" id="2pQ-aY-Ogl"/>
                         <segue destination="9h4-nD-pzd" kind="show" identifier="start" id="Ejc-PO-4DI"/>
                     </connections>
                 </viewController>
@@ -1689,6 +1697,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1splash_full" width="375" height="667"/>
         <image name="Soon" width="564" height="244"/>
         <image name="`1day-x3-template" width="30" height="30"/>
         <image name="`31days-x3-template" width="30" height="30"/>

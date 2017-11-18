@@ -59,8 +59,6 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
             fillMainViews()
             
             openCurrentPage()
-
-            ifNeedTutorial()
             
             ifWentFromNotif()
             
@@ -79,17 +77,6 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
   
      //MARK: -
     
-    
-    func ifNeedTutorial(){
-        
-        if open_from_notif == default_first_launch {
-            
-            open_from_notif = nil
-            
-            openTutorialFirst()
-        }
-        
-    }
     
     
     func ifWentFromNotif(){

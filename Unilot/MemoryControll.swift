@@ -25,7 +25,7 @@ weak var current_controller_core : ControllerCore?
 
 class MemoryControll {
     
-    static var lastchangesStr : String = "1234594798888933e"
+    static var lastchangesStr : String = "1234594798888933e070"
     
     
     //MARK: - DEFAULTS init

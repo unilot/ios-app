@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,18 +18,18 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_1" translatesAutoresizingMaskIntoConstraints="NO" id="TaD-Jn-UqA">
-                                <rect key="frame" x="-200" y="0.0" width="575" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1splash_full" translatesAutoresizingMaskIntoConstraints="NO" id="TaD-Jn-UqA">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TaD-Jn-UqA" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="4Z3-u8-DCp"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="TaD-Jn-UqA" secondAttribute="bottom" id="51p-tK-7gM"/>
-                            <constraint firstItem="TaD-Jn-UqA" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-200" id="9op-Gb-6AB"/>
+                            <constraint firstItem="TaD-Jn-UqA" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="9op-Gb-6AB"/>
                             <constraint firstAttribute="trailing" secondItem="TaD-Jn-UqA" secondAttribute="trailing" id="IcP-vO-kf6"/>
                         </constraints>
                     </view>
@@ -41,6 +41,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg_1" width="16" height="16"/>
+        <image name="1splash_full" width="375" height="667"/>
     </resources>
 </document>

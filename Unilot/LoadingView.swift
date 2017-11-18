@@ -13,6 +13,8 @@ import SCLAlertView
 
 class LoadingView : ControllerCore{
     
+    @IBOutlet weak var fon: UIImageView!
+
     
     override func viewDidLoad() {
 
@@ -40,12 +42,51 @@ class LoadingView : ControllerCore{
     }
     
     
-    func enterTheApp(){
+    
+    func prepereToEnter(){
         
         stopAnimating()
         
+        if open_from_notif == default_first_launch {
+            
+            openTutorialFirst()
+            
+            open_from_notif = nil
+
+            UIView.animate(withDuration: 0.6, animations: {
+                
+                self.fon.layer.opacity = 0.0
+                
+            })
+            
+        } else {
+         
+            enterTheApp()
+        }
+        
+
+    }
+    
+    override func popViewWasClosed(){
+
         goToMainController()
 
+    }
+    
+    
+    func enterTheApp(){
+        
+        UIView.animate(withDuration: 0.6, animations: {
+            
+            self.fon.layer.opacity = 0.0
+            
+        }) { (_ sender : Bool) in
+            
+            self.goToMainController()
+            
+        }
+
+        
     }
     
     
@@ -94,7 +135,7 @@ class LoadingView : ControllerCore{
             
             } else {
                 
-                self.enterTheApp()
+                self.prepereToEnter()
 
             }
             
@@ -116,7 +157,7 @@ class LoadingView : ControllerCore{
             _ = NetWork.parseGamesList(dataParse)
         }
         
-        enterTheApp()
+        prepereToEnter()
         
     }
     

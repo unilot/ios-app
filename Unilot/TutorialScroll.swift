@@ -28,7 +28,9 @@ class TutorialScroll : PopUpCore , UIScrollViewDelegate{
 
     @IBOutlet weak var lets_start: UIButton!
 
-
+    
+    var hideMore = false
+    
     class func createTutorialScroll() -> TutorialScroll {
         let myClassNib = UINib(nibName: "TutorialScroll", bundle: nil)
         return myClassNib.instantiate(withOwner: nil, options: nil)[0] as! TutorialScroll
@@ -128,7 +130,7 @@ class TutorialScroll : PopUpCore , UIScrollViewDelegate{
     
     func revealButtons( _ opacity : Float = 0){
         
-        want_more.layer.opacity = opacity
+        want_more.layer.opacity = hideMore ? 0 : opacity
         lets_start.layer.opacity = opacity
         skip.layer.opacity = 1 - opacity
     }

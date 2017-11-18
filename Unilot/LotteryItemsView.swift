@@ -70,7 +70,9 @@ class  LotteryItemsView : OnScrollItemCore,
         clockTablet?.initTimer(from,all)
         clockTablet?.changeTextOnStaticLabels(type)
         
-    }
+        countDownDidFall(from: all, left: from)
+        
+     }
     
     
     //MARK: - Set all views
@@ -125,18 +127,10 @@ class  LotteryItemsView : OnScrollItemCore,
         }
     }
     
-    func changeProgressLine(from: Int, left: Int){
-        
-        let newWidth =  CGFloat(loadingSignFirst.frame.width) * ( 1 - CGFloat(left) / CGFloat(from))
-        
-        setLoadingSign(toWidth: newWidth )
-        
-    }
     
     //MARK: -  CountDownTimeDelegate
     
     func countDownDidFall(from: Int, left: Int){
-        
         
         if current_game.status == kStatusPublished{
             

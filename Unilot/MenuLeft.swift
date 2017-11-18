@@ -148,10 +148,7 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
  
     }
 
-    func revealController(_ revealController: SWRevealViewController!, willMoveTo position: FrontViewPosition) {
-        
-        print("willMoveTo")
-        
+    func revealController(_ revealController: SWRevealViewController!, willMoveTo position: FrontViewPosition) {        
         current_controller_core?.view.endEditing(true)
     }
     

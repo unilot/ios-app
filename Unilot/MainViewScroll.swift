@@ -169,8 +169,6 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         fillSegmentNames()
         
         pop_up_view?.onX(0.2)
-
-        scrollToCurrentPage()
         
         openCurrentPage()
     
@@ -178,6 +176,8 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
 
     func openCurrentPage(){
         
+        scrollToCurrentPage()
+
         sendEvent(kEVENT_main_views[current_page])
         
         main_pages[current_page].viewDataReload()

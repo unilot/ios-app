@@ -25,7 +25,7 @@ weak var current_controller_core : ControllerCore?
 
 class MemoryControll {
     
-    static var lastchangesStr : String = "1234594798888933e070"
+    static var lastchangesStr : String = "123459479888"
     
     
     //MARK: - DEFAULTS init
@@ -86,13 +86,7 @@ class MemoryControll {
         
     }
     
-    static func getNotificationSaved(){
-        
-        if let data = getObject("notifications_app") as? [String] {
-            notification_data = data
-        }
-        
-    }
+
     
     //MARK: - App stuff
 
@@ -121,15 +115,30 @@ class MemoryControll {
         saveObject(current_language_ind, key: "current_language")
     }
     
+    //MARK: - NOTIFICATIONS
+
     
     static func setNotificationSaved(){
         
-        saveObject(notification_data, key: "notifications_app")
+        UserDefaults.init(suiteName: "group.unilot")?.set(notification_data, forKey: "notifications")
+        
+//        saveObject(notification_data, key: "notifications_app")
         
         UIApplication.shared.applicationIconBadgeNumber = notification_data.count
         
     }
 
+    static func getNotificationSaved(){
+        
+        
+        if let data = UserDefaults.init(suiteName: "group.unilot")?.value(forKey: "notifications") as? [String] {
+//        if let data = getObject("notifications_app") as? [String] {
+            notification_data = data
+        }
+        
+    }
+    
+    //MARK: -
     
     
     static func saveNewNotif(_ newNotif : String ){

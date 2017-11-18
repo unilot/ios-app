@@ -91,7 +91,19 @@
 		D6F3A0AB1F92DC72001EDA29 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F3A0AA1F92DC72001EDA29 /* Details.swift */; };
 		D6F460AB1F9D21340006FA08 /* YouWin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F460AA1F9D21340006FA08 /* YouWin.swift */; };
 		D6F460AD1F9D215F0006FA08 /* YouWin.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6F460AC1F9D215F0006FA08 /* YouWin.xib */; };
+		D6FF78231FC0709D0048981F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF78221FC0709D0048981F /* NotificationService.swift */; };
+		D6FF78271FC0709D0048981F /* UnilotNotifications.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D6FF78201FC0709D0048981F /* UnilotNotifications.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D6FF78251FC0709D0048981F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D69364B81F5F254400FD0D37 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D6FF781F1FC0709D0048981F;
+			remoteInfo = UnilotNotifications;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		D6CFAC9B1FA7175700A0F045 /* Embed App Extensions */ = {
@@ -100,6 +112,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				D6FF78271FC0709D0048981F /* UnilotNotifications.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +227,10 @@
 		D6F3A0AA1F92DC72001EDA29 /* Details.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
 		D6F460AA1F9D21340006FA08 /* YouWin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouWin.swift; sourceTree = "<group>"; };
 		D6F460AC1F9D215F0006FA08 /* YouWin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YouWin.xib; sourceTree = "<group>"; };
+		D6FF78201FC0709D0048981F /* UnilotNotifications.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = UnilotNotifications.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6FF78221FC0709D0048981F /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		D6FF78241FC0709D0048981F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6FF782B1FC071100048981F /* UnilotNotifications.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UnilotNotifications.entitlements; sourceTree = "<group>"; };
 		F775BF0A9782A06721E4E9B3 /* Pods-Unilot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unilot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Unilot/Pods-Unilot.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,6 +241,13 @@
 			files = (
 				D6CFAC831FA713B500A0F045 /* UserNotifications.framework in Frameworks */,
 				290FA72F1CDF40E19A0E8204 /* Pods_Unilot.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6FF781D1FC0709D0048981F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				D69364C21F5F254400FD0D37 /* Unilot */,
+				D6FF78211FC0709D0048981F /* UnilotNotifications */,
 				D69364C11F5F254400FD0D37 /* Products */,
 				618755CDCD35E9229FC443C6 /* Pods */,
 				336C009D07D6695BEE800AA7 /* Frameworks */,
@@ -362,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				D69364C01F5F254400FD0D37 /* Unilot.app */,
+				D6FF78201FC0709D0048981F /* UnilotNotifications.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -528,6 +554,16 @@
 			path = ValidationRules;
 			sourceTree = "<group>";
 		};
+		D6FF78211FC0709D0048981F /* UnilotNotifications */ = {
+			isa = PBXGroup;
+			children = (
+				D6FF782B1FC071100048981F /* UnilotNotifications.entitlements */,
+				D6FF78221FC0709D0048981F /* NotificationService.swift */,
+				D6FF78241FC0709D0048981F /* Info.plist */,
+			);
+			path = UnilotNotifications;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -547,11 +583,29 @@
 			buildRules = (
 			);
 			dependencies = (
+				D6FF78261FC0709D0048981F /* PBXTargetDependency */,
 			);
 			name = Unilot;
 			productName = Unilot;
 			productReference = D69364C01F5F254400FD0D37 /* Unilot.app */;
 			productType = "com.apple.product-type.application";
+		};
+		D6FF781F1FC0709D0048981F /* UnilotNotifications */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6FF782A1FC0709D0048981F /* Build configuration list for PBXNativeTarget "UnilotNotifications" */;
+			buildPhases = (
+				D6FF781C1FC0709D0048981F /* Sources */,
+				D6FF781D1FC0709D0048981F /* Frameworks */,
+				D6FF781E1FC0709D0048981F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UnilotNotifications;
+			productName = UnilotNotifications;
+			productReference = D6FF78201FC0709D0048981F /* UnilotNotifications.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -568,11 +622,27 @@
 						DevelopmentTeam = VLZN2JPGN9;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
 							com.apple.Push = {
 								enabled = 1;
+							};
+						};
+					};
+					D6FF781F1FC0709D0048981F = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = VLZN2JPGN9;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 0;
 							};
 						};
 					};
@@ -593,6 +663,7 @@
 			projectRoot = "";
 			targets = (
 				D69364BF1F5F254400FD0D37 /* Unilot */,
+				D6FF781F1FC0709D0048981F /* UnilotNotifications */,
 			);
 		};
 /* End PBXProject section */
@@ -627,6 +698,13 @@
 				D6DCCD181FA4C795009BD20E /* Localizable.strings in Resources */,
 				D611305F1FA826BE003B30E9 /* usual.mp3 in Resources */,
 				D6C6BAB51F8CD6C000EC7FE0 /* Roboto-Medium.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6FF781E1FC0709D0048981F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,7 +856,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D6FF781C1FC0709D0048981F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6FF78231FC0709D0048981F /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D6FF78261FC0709D0048981F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D6FF781F1FC0709D0048981F /* UnilotNotifications */;
+			targetProxy = D6FF78251FC0709D0048981F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D69364C91F5F254400FD0D37 /* Main.storyboard */ = {
@@ -944,6 +1038,38 @@
 			};
 			name = Release;
 		};
+		D6FF78281FC0709D0048981F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = UnilotNotifications/UnilotNotifications.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = VLZN2JPGN9;
+				INFOPLIST_FILE = UnilotNotifications/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vovasoft.crowdcharity.UnilotNotifications;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D6FF78291FC0709D0048981F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = UnilotNotifications/UnilotNotifications.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = VLZN2JPGN9;
+				INFOPLIST_FILE = UnilotNotifications/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vovasoft.crowdcharity.UnilotNotifications;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -964,6 +1090,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		D6FF782A1FC0709D0048981F /* Build configuration list for PBXNativeTarget "UnilotNotifications" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6FF78281FC0709D0048981F /* Debug */,
+				D6FF78291FC0709D0048981F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

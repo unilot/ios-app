@@ -302,8 +302,8 @@ class NotifApp {
         
         MemoryControll.setNotificationSaved()
         
-        
     }
+    
     //MARK: -
     //MARK: - FAKE PUSHES
     

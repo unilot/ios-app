@@ -58,11 +58,16 @@ class NotificationService: UNNotificationServiceExtension {
 
             let action = data?["action"] as? String ?? ""
             
-            let game_id  = "\(game["id"] ?? "" )"
-            
-            let type     = game["type"] as? Int ?? 0
+            if action == "game_finished" {
                 
-            return  "\(action)&\(game_id)&\(type)"
+                let game_id  = "\(game["id"] ?? "" )"
+                
+                let type     = game["type"] as? Int ?? 0
+                
+                return  "\(action)&\(game_id)&\(type)"
+                
+            }
+            
         
         }
         

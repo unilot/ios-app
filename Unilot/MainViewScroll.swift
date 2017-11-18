@@ -24,6 +24,11 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
     var current_page = Int(0)
     
     var initWas = false
+    
+    var scroll_offset = CGFloat(0)
+    
+    var fon_parallaxed = UIImageView()
+    
     //MARK: - Views Load override
     
     override func viewDidLoad() {
@@ -165,6 +170,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
          
 
         main_pages = [first_tab,second_tab,third_tab,profile_tab]
+        scroll_offset = scrollView.frame.width * 3
         
     }
     
@@ -276,7 +282,14 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         return nib_body.instantiate(withOwner: nil, options: nil)[0] as! OnScrollItemCore
      }
 
-    //MARK: -  segmentS
+    //MARK: -  set
+    
+    override func setFon(){
+        
+        fon_parallaxed  = create_fon_view(self.view.frame.size)
+        self.view.insertSubview(fon_parallaxed, at: 0)
+        
+    }
 
     func fillSegmentNames(){
         
@@ -357,10 +370,9 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
             break
         }
 
-        print("scroll.contentOffset.x " , scrollView.contentOffset.x)
+        let parallax_shift = kFakeParallaxShift - scrollView.contentOffset.x * kFakeParallaxShift / scroll_offset
         
-    
-        
+        fon_parallaxed.frame.origin = CGPoint(x: -parallax_shift, y: 0)
     }
     
 }

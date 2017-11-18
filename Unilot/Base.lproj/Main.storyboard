@@ -742,15 +742,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_1" translatesAutoresizingMaskIntoConstraints="NO" id="ukM-fW-XZI">
-                                <rect key="frame" x="-100" y="0.0" width="520" height="568"/>
+                                <rect key="frame" x="-200" y="0.0" width="520" height="568"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ukM-fW-XZI" firstAttribute="top" secondItem="zOO-gJ-uwU" secondAttribute="top" id="26v-w8-wvw"/>
                             <constraint firstAttribute="bottom" secondItem="ukM-fW-XZI" secondAttribute="bottom" id="AvD-Js-Ks8"/>
-                            <constraint firstAttribute="trailing" secondItem="ukM-fW-XZI" secondAttribute="trailing" constant="-100" id="aAE-3C-Nbe"/>
-                            <constraint firstItem="ukM-fW-XZI" firstAttribute="leading" secondItem="zOO-gJ-uwU" secondAttribute="leading" constant="-100" id="xtW-b9-rwT"/>
+                            <constraint firstAttribute="trailing" secondItem="ukM-fW-XZI" secondAttribute="trailing" id="aAE-3C-Nbe"/>
+                            <constraint firstItem="ukM-fW-XZI" firstAttribute="leading" secondItem="zOO-gJ-uwU" secondAttribute="leading" constant="-200" id="xtW-b9-rwT"/>
                         </constraints>
                     </view>
                     <connections>

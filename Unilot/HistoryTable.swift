@@ -26,8 +26,6 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
         super.viewDidLoad()
         
-        UIApplication.shared.statusBarStyle = .default
-
         fillSegmentNames()
         
         table.layer.opacity = 0.0
@@ -38,7 +36,13 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
         
      }
-     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        UIApplication.shared.statusBarStyle = .default
+
+    }
     
     func onAnswer(_ error : String?){
         

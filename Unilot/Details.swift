@@ -52,6 +52,14 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIApplication.shared.statusBarStyle = .default
+        
+    }
+    
+    
     func onAnswer(_ error : String?){
  
         hideActivityViewIndicator()

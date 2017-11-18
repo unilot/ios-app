@@ -22,13 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-    
         
-        app_is_active = true
+        MemoryControll.init_defaults_if_any()
+        
  
-        FIRApp.configure()
-        Fabric.with([Crashlytics.self])
-
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
         }
@@ -39,17 +36,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         }
         
-
-
         NotifApp.registerForPushNotifications(application)
         
         
+        FIRApp.configure()
+        
+        Fabric.with([Crashlytics.self])
+        
         // Set Background Fetch Intervall for background services / terminated app
 //        UIApplication.shared.setMinimumBackgroundFetchInterval(10)
-        
-        UIApplication.shared.statusBarStyle = .lightContent
-        
-//         Check if launched from notification
         
         if let notification = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [String: Any] {
             

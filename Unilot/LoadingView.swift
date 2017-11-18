@@ -16,9 +16,8 @@ class LoadingView : ControllerCore{
     
     override func viewDidLoad() {
 
+
         super.viewDidLoad()
-        
-        MemoryControll.init_defaults_if_any()
 
     }
     
@@ -175,14 +174,9 @@ class LoadingView : ControllerCore{
     //MARK: - NOTIFICATION
     
     
-    override func onCheckAppNotifRecieved(){
-        
-        
-    }
-    
     override func onActiveAppNotifRecieved(_ notif : NotifStruct){
         
-        
+        print("nothing happened")
         
     }
     

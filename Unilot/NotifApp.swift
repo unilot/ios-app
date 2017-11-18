@@ -182,7 +182,7 @@ class NotifApp {
     static func removeNotifWithSameGameId( _ game_id : String){
 
         let new_filtered = notification_data.filter({
-            return game_id != getDataFromNotifString($0, 0)
+            return game_id != getDataFromNotifString($0, 1)
         })
 
         notification_data = new_filtered
@@ -191,13 +191,13 @@ class NotifApp {
 
     }
     
-    static func getIdOfGameIfCompletedInMemory() -> String?{
+    static func getIdOfGameIfWeHaveAny() -> String?{
         
         if open_from_notif == nil{
             return nil
         }
         
-        let game_id = getDataFromNotifString(open_from_notif!,0)
+        let game_id = getDataFromNotifString(open_from_notif!,1)
         
         removeNotifWithSameGameId(game_id)
         
@@ -219,12 +219,11 @@ class NotifApp {
         if let dataDict = data["data"] as? [String : Any] {
             
             notifItem.game = NetWork.createGameItem(from: dataDict)
-            
-            
+             
             if notifItem.game.game_id == kEmpty {
                 notifItem.data = dataDict
             } else {
-                notifItem.notif_id = "\(notifItem.game.game_id)&\(notifItem.game.type)"
+                notifItem.notif_id = "\(notifItem.action)&\(notifItem.game.game_id)&\(notifItem.game.type)"
             }
         }
         
@@ -233,16 +232,7 @@ class NotifApp {
     }
     
     //MARK: - LOCAL NOTIFICATION
-    
-    
-    static func gotLocalUserNotifAnswer( _ notif : String){
-        
-        open_from_notif = notif
-        current_controller_core?.onCheckAppNotifRecieved()
- 
-        
-    }
-    
+   
     static func showLocalNotifInApp(withController : UINavigationController , _  notif : NotifStruct){
                 
         let lCode = langCodes[current_language_ind]
@@ -302,7 +292,7 @@ class NotifApp {
             
             for item in realGames {
                 
-                if  item.game_id == getDataFromNotifString(notif, 0){
+                if  item.game_id == getDataFromNotifString(notif, 1){
                     new_filtered.append(notif)
                     break
                 }

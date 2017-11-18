@@ -31,15 +31,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     }()
 
     //MARK: - NOTIFICATION
-
-    
-    func onCheckAppNotifRecieved(){
-        
-        let int_type = Int(NotifApp.getDataFromNotifString(open_from_notif,1))
-        
-        goToMainViewFromType(int_type)
-      
-    }
+ 
     
     func onActiveAppNotifRecieved(_ notif : NotifStruct){
    

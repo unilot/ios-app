@@ -291,20 +291,18 @@ class MainItemView: LotteryItemsView {
         
         // check current notification item
         
-        if let game_id = NotifApp.getIdOfGameIfCompletedInMemory() {
+        if let game_id = NotifApp.getIdOfGameIfWeHaveAny() {
             
-            let notif_action = NotifApp.getDataFromNotifString(open_from_notif,0)
-            
-            if (notif_action == kActionCompleted) {
+            if ( NotifApp.getDataFromNotifString(open_from_notif,0) == kActionCompleted) {
                 
+                open_from_notif = nil
+
                 getNotifDataFromNet(game_id)
-                
+             
             }
             
         }
         
-        // clean the flag
-        open_from_notif = nil
         
     }
     

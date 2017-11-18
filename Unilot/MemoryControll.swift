@@ -42,6 +42,8 @@ class MemoryControll {
         
         getNotificationSaved()
 
+        app_is_active = true
+
     }
     
   

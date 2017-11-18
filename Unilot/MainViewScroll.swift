@@ -48,13 +48,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         fillSegmentNames()
         
     }
-    
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        
-    }
+
     
     override func viewDidAppear(_ animated: Bool) {
         
@@ -64,13 +58,13 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
             
             fillMainViews()
             
+            openCurrentPage()
+
             ifNeedTutorial()
             
             ifWentFromNotif()
             
             initWas = true
-            
-            refreshView(0)
         }
 
     }
@@ -86,18 +80,6 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
      //MARK: -
     
     
-    func ifWentFromNotif(){
-        
-        if open_from_notif != nil {
-            
-            let notif_type = Int(NotifApp.getDataFromNotifString(open_from_notif,2))
-            
-            refreshView(getTabBarTag(notif_type))
-        }
-        
-    }
- 
-    
     func ifNeedTutorial(){
         
         if open_from_notif == default_first_launch {
@@ -108,6 +90,21 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         }
         
     }
+    
+    
+    func ifWentFromNotif(){
+        
+        if open_from_notif != nil {
+            
+            let notif_type = Int(NotifApp.getDataFromNotifString(open_from_notif,2))
+            
+            refreshView(getTabBarTag(notif_type))
+        
+        }
+        
+    }
+ 
+
     
     override func setBackButton(){
         
@@ -188,11 +185,16 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
 
         scrollToCurrentPage()
         
+        openCurrentPage()
+    
+    }
+
+    func openCurrentPage(){
+        
         sendEvent(kEVENT_main_views[current_page])
         
         main_pages[current_page].viewDataReload()
     }
-
     
     
     //MARK: - NOTIFICATION

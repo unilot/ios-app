@@ -51,12 +51,7 @@ class NeedNewVersion : ControllerCore {
     }
     
     //MARK: - NOTIFICATION
-    
-    
-    override func onCheckAppNotifRecieved(){
-        
-        
-    }
+  
     
     override func onActiveAppNotifRecieved(_ notif : NotifStruct){
         

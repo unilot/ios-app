@@ -45,7 +45,7 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         let type = getTabBarTag()
         
         titleMain.text = TR("results") + " " + TR(setting_strings[0][type]).capitalized + " " + TR("drawing2")
-        dayTitle.text = getNiceDateFormatString(from: current_game.started_at)
+        dayTitle.text = getNiceDateFormatString(from: current_game.ending_at)
         unfortunately.text = "" // TR("you_lost_text")
         copyButton.setTitle(TR("details"), for: .normal)
         

@@ -68,9 +68,10 @@ class  LotteryItemsView : OnScrollItemCore,
     func setTimersNumbers(_ from : Int, _ all : Int, _ type: Int) {
         
         clockTablet?.initTimer(from,all)
+      
         clockTablet?.changeTextOnStaticLabels(type)
         
-        countDownDidFall(from: all, left: from)
+        initLoadingLine(from: all, left: from)
         
      }
     
@@ -95,40 +96,48 @@ class  LotteryItemsView : OnScrollItemCore,
     }
     
     //MARK: -  LoadingSign
-    
-    func revealLoadingLine(){
+  
+ 
+    func setLoadingSign(toWidth: CGFloat, _ progressSpeed : TimeInterval = 0.05 ){
         
         let rect = loadingSignFirst.frame
-       
-        widthProgress = 0
-        
-        loadingSignProgress?.frame = CGRect(x: rect.origin.x + 1 + rect.size.width,
-                                                 y: rect.origin.y + 1,
-                                                 width: 0,
-                                                 height: rect.size.height - 2)
-    }
-
-    func setLoadingSign(toWidth: CGFloat ){
-        
-        let rect = loadingSignFirst.frame
-        
-        let _loadingSignProgress = loadingSignProgress
         
         widthProgress = toWidth
         
-        
         let widthOfFire = rect.size.width - 2  - toWidth
         
-        UIView.animate(withDuration: 0.05) {
-            _loadingSignProgress?.frame = CGRect(x: rect.origin.x + 1 + toWidth,
-                                                 y: rect.origin.y + 1,
-                                                 width: widthOfFire,
-                                                 height: rect.size.height - 2)
+        let newRect = CGRect(x: rect.origin.x + 1 + toWidth,
+                             y: rect.origin.y + 1,
+                             width: widthOfFire,
+                             height: rect.size.height - 2)
+        
+
+        guard progressSpeed > 0  else {
+            loadingSignProgress.frame = newRect
+
+            return
         }
+        
+        
+        UIView.animate(withDuration: progressSpeed) {
+            self.loadingSignProgress.frame = newRect
+         }
+        
+
     }
     
     
     //MARK: -  CountDownTimeDelegate
+    
+    func initLoadingLine(from: Int, left: Int){
+        
+        let newWidth =  CGFloat(loadingSignFirst.frame.width) * ( 1 - CGFloat(left) / CGFloat(from))
+            
+        setLoadingSign(toWidth: newWidth , 0)
+        
+    
+    }
+    
     
     func countDownDidFall(from: Int, left: Int){
         
@@ -138,9 +147,6 @@ class  LotteryItemsView : OnScrollItemCore,
             
             setLoadingSign(toWidth: newWidth )
         }
-        
-        
-        
     }
     
     func countDownFinished(){

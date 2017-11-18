@@ -100,7 +100,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.23.10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="a21-FW-yFZ">
-                                                    <rect key="frame" x="47" y="14" width="61" height="17.5"/>
+                                                    <rect key="frame" x="47" y="13.5" width="61" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -163,7 +163,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" tag="1000001" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trophy-x3" translatesAutoresizingMaskIntoConstraints="NO" id="bSZ-PI-sau" customClass="SpecialItem" customModule="Unilot" customModuleProvider="target">
+                                    <imageView userInteractionEnabled="NO" tag="1000001" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="`alldays-x3" translatesAutoresizingMaskIntoConstraints="NO" id="bSZ-PI-sau" customClass="SpecialItem" customModule="Unilot" customModuleProvider="target">
                                         <rect key="frame" x="26" y="0.0" width="28" height="28"/>
                                         <color key="tintColor" red="0.94901960780000005" green="0.32156862749999998" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1702,6 +1702,7 @@
         <image name="`1day-x3-template" width="30" height="30"/>
         <image name="`31days-x3-template" width="30" height="30"/>
         <image name="`7days-x3-template" width="30" height="30"/>
+        <image name="`alldays-x3" width="45" height="46"/>
         <image name="`profile-x3-template" width="30" height="30"/>
         <image name="arrow_back" width="25" height="25"/>
         <image name="barcode" width="60" height="60"/>
@@ -1714,7 +1715,6 @@
         <image name="reddit" width="30" height="30"/>
         <image name="settings-x3" width="37" height="37"/>
         <image name="telegram-x3" width="32" height="27"/>
-        <image name="trophy-x3" width="34" height="43"/>
         <image name="twitter-x3" width="30" height="24"/>
         <image name="unilotmenu-item" width="102" height="36"/>
         <image name="whitepaper-x3" width="37" height="36"/>

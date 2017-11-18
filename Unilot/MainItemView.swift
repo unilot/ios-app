@@ -22,10 +22,7 @@ class MainItemView: LotteryItemsView {
         
         //fix button layer view
         setButtonView()
-        
-        // create progress bar
-        revealLoadingLine()
-        
+         
         // get data from
         fillLocalGameData()
  

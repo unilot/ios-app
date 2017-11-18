@@ -82,7 +82,7 @@ let staticClockSecondsStep = [1,60,3600]
 let default_first_launch     = "&&\(kTypeProfile)"
 
 var lottery_images   = ["`1day-x3","`7days-x3","`31days-x3","`profile-x3"]
-var histiry_images   = ["`1day-x3","`1day-x3","`7days-x3","`31days-x3" ]
+var histiry_images   = ["`alldays-x3","`1day-x3","`7days-x3","`31days-x3" ]
 
 var kTypeImage       = [kTypeDay : "`1day-x3", kTypeWeek : "`7days-x3", kTypeMonth : "`31days-x3"]
 var kTypeTabBarOrder = [kTypeDay, kTypeWeek, kTypeMonth, kTypeProfile]
@@ -135,6 +135,9 @@ let kColorBadge =  UIColor(red: 172.0/255.0, green: 41.0/255.0, blue: 74.0/255.0
 let kColorDarkBlue =  UIColor(red: 15.0/255.0, green: 15.0/255.0, blue: 34.0/255.0, alpha: 0.9)
 
 let kColorSoftGray =  UIColor(red: 153.0/255.0, green: 153.0/255.0, blue: 153.0/255.0, alpha: 0.9)
+let kColorHistoryDarkGray =  UIColor(red: 68.0/255.0, green: 68.0/255.0, blue: 68.0/255.0, alpha: 0.9)
+let kColorHistoryUnselectDarkGray =  UIColor(red: 187.0/255.0, green: 187.0/255.0, blue: 187.0/255.0, alpha: 0.9)
+
 
 //MARK: - FONTS
 

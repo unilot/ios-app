@@ -34,7 +34,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eth" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="8FU-fr-yyl">
-                    <rect key="frame" x="64.5" y="94" width="23.5" height="18.5"/>
+                    <rect key="frame" x="64.5" y="94" width="23.5" height="16.5"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -171,20 +171,6 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loadingSign" translatesAutoresizingMaskIntoConstraints="NO" id="t7K-c7-d0O" userLabel="progressTrack">
-                            <rect key="frame" x="14" y="136.5" width="274" height="10"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                    <integer key="value" value="2"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="4"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                    <color key="value" red="0.17649723270000001" green="0.26247209230000002" blue="0.37619140629999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Vk-7X-6RS">
                             <rect key="frame" x="15" y="157.5" width="274" height="50"/>
                             <subviews>
@@ -253,6 +239,23 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loadingSign" translatesAutoresizingMaskIntoConstraints="NO" id="t7K-c7-d0O" userLabel="progressTrack">
+                            <rect key="frame" x="288" y="137" width="0.0" height="10"/>
+                            <constraints>
+                                <constraint firstAttribute="width" id="L39-tD-hwu"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                    <integer key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                    <color key="value" red="0.17649723270000001" green="0.26247209230000002" blue="0.37619140629999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -268,7 +271,6 @@
                         <constraint firstAttribute="width" secondItem="1T5-iw-KM2" secondAttribute="height" multiplier="50:35" priority="999" id="ONV-IF-E9p"/>
                         <constraint firstItem="t7K-c7-d0O" firstAttribute="trailing" secondItem="3Hd-DC-4JH" secondAttribute="trailing" constant="-1" id="Oks-Bg-ZhG"/>
                         <constraint firstItem="2Vk-7X-6RS" firstAttribute="leading" secondItem="1T5-iw-KM2" secondAttribute="leading" constant="15" id="Qy3-c3-bbj"/>
-                        <constraint firstItem="t7K-c7-d0O" firstAttribute="leading" secondItem="3Hd-DC-4JH" secondAttribute="leading" constant="-1" id="TXm-32-BxR"/>
                         <constraint firstItem="btU-z3-06I" firstAttribute="top" secondItem="1T5-iw-KM2" secondAttribute="top" priority="888" constant="10" id="U6U-tI-MOC"/>
                         <constraint firstAttribute="trailing" secondItem="2Vk-7X-6RS" secondAttribute="trailing" constant="15" id="Vuw-je-X6m"/>
                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2Vk-7X-6RS" secondAttribute="bottom" constant="5" id="YW3-Br-n6v"/>

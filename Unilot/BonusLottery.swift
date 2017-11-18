@@ -51,12 +51,7 @@ class BonusLottery: MainItemView {
     
     //MARK: - CountDownTimeDelegate
     
-    
-    override func revealLoadingLine(){
-        
-    }
-    
-    
+     
     override func onEthButton(){
         
         playStandart()

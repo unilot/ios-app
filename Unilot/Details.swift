@@ -50,15 +50,10 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
                 
         NetWork.getListWinners(current_game.game_id,completion: onAnswer)
         
+        UIApplication.shared.statusBarStyle = .lightContent
+
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        UIApplication.shared.statusBarStyle = .default
-        
-    }
-    
+     
     
     func onAnswer(_ error : String?){
  

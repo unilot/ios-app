@@ -294,9 +294,9 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         let viewWithPlaces = TutorialScroll.createTutorialScroll()
         pop_up_view = viewWithPlaces
         
-        let frameForView = CGRect(x: 0, y: 20,
+        let frameForView = CGRect(x: 0, y: 0,
                                   width: view.frame.width,
-                                  height: view.frame.height-20)
+                                  height: view.frame.height)
         
         viewWithPlaces.initView(mainView: self.view, directionSign: 0, frameForView)
         

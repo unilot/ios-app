@@ -26,6 +26,8 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
         super.viewDidLoad()
         
+        UIApplication.shared.statusBarStyle = .default
+
         fillSegmentNames()
         
         table.layer.opacity = 0.0

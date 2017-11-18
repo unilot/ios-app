@@ -85,6 +85,8 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
        
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black]
 
+        setNeedsStatusBarAppearanceUpdate()
+        
         addSwipeForMenuOpen()
 
         setNavControllerClear()

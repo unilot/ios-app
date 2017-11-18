@@ -16,8 +16,14 @@ class WebCore : ControllerCore , UIWebViewDelegate{
     @IBOutlet weak var webView : UIWebView!
 
     
-    
-    //MARK: - 
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+
+        UIApplication.shared.statusBarStyle = .default
+
+    }
+    //MARK: -
     
     func openPage(_ path :String){
         

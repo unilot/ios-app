@@ -82,6 +82,8 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         
         
     }
+  
+     //MARK: -
     
     
     func ifWentFromNotif(){

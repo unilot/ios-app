@@ -47,6 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set Background Fetch Intervall for background services / terminated app
         UIApplication.shared.setMinimumBackgroundFetchInterval(10)
         
+        UIApplication.shared.statusBarStyle = .lightContent
+
         return true
         
     }

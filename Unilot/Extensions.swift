@@ -92,6 +92,9 @@ extension UIViewController{
         navigationController?.navigationBar.isTranslucent = true
          
         navigationController?.updateFocusIfNeeded()
+        
+        UIApplication.shared.statusBarStyle = .lightContent
+
     }
     
 }

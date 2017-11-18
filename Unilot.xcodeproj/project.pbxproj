@@ -61,7 +61,6 @@
 		D6D3CEAC1FA5FF94000F2FF3 /* WebViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D3CEAB1FA5FF94000F2FF3 /* WebViews.swift */; };
 		D6D3CEB01FA60661000F2FF3 /* win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D6D3CEAF1FA60661000F2FF3 /* win.mp3 */; };
 		D6D3CEB51FA61DA3000F2FF3 /* WebCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D3CEB41FA61DA3000F2FF3 /* WebCore.swift */; };
-		D6D591BB1F8D19D20002451A /* LxTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D591BA1F8D19D20002451A /* LxTabBarController.swift */; };
 		D6DCCD131FA4BCA1009BD20E /* BundleNew.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DCCD121FA4BCA1009BD20E /* BundleNew.m */; };
 		D6DCCD181FA4C795009BD20E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6DCCD1A1FA4C795009BD20E /* Localizable.strings */; };
 		D6DCCD1E1FA4F31C009BD20E /* HDIW_ru.txt in Resources */ = {isa = PBXBuildFile; fileRef = D6DCCD1D1FA4F31C009BD20E /* HDIW_ru.txt */; };
@@ -168,7 +167,6 @@
 		D6D3CEAB1FA5FF94000F2FF3 /* WebViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViews.swift; sourceTree = "<group>"; };
 		D6D3CEAF1FA60661000F2FF3 /* win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = win.mp3; path = Settings/win.mp3; sourceTree = "<group>"; };
 		D6D3CEB41FA61DA3000F2FF3 /* WebCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebCore.swift; sourceTree = "<group>"; };
-		D6D591BA1F8D19D20002451A /* LxTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LxTabBarController.swift; sourceTree = "<group>"; };
 		D6DCCD0F1FA4B60F009BD20E /* Unilot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Unilot.entitlements; sourceTree = "<group>"; };
 		D6DCCD111FA4BCA1009BD20E /* BundleNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BundleNew.h; sourceTree = "<group>"; };
 		D6DCCD121FA4BCA1009BD20E /* BundleNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BundleNew.m; sourceTree = "<group>"; };
@@ -309,7 +307,6 @@
 			isa = PBXGroup;
 			children = (
 				D6DCCD101FA4BCA1009BD20E /* LanguagesSet */,
-				D6D591BA1F8D19D20002451A /* LxTabBarController.swift */,
 				D6F1E16D1F7E55130098B34C /* JSKit */,
 				D62A31721F7AC10300275B86 /* SideBarMenu */,
 			);
@@ -775,7 +772,6 @@
 				D6BDD9031F7AD1DB00E91FD0 /* Constants.swift in Sources */,
 				D6943EF61FB7056D003A5518 /* TutorialScroll.swift in Sources */,
 				D6F460AB1F9D21340006FA08 /* YouWin.swift in Sources */,
-				D6D591BB1F8D19D20002451A /* LxTabBarController.swift in Sources */,
 				D6D3CEB51FA61DA3000F2FF3 /* WebCore.swift in Sources */,
 				D6F1E1971F7E55130098B34C /* JSRuleNotNull.m in Sources */,
 				D6595E151FBB5DD900089917 /* BonusLottery.swift in Sources */,

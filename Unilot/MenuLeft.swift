@@ -31,6 +31,8 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
         super.viewDidLoad()
         
         setNavControllerClear()
+        
+        revealViewController().delegate = self
     
     }
     
@@ -140,10 +142,19 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
     
     //MARK: - SWRevealViewControllerDelegate
     
-    
+ 
     func revealController(_ revealController: SWRevealViewController!, didMoveTo position: FrontViewPosition) {
         
-        
+ 
     }
+
+    func revealController(_ revealController: SWRevealViewController!, willMoveTo position: FrontViewPosition) {
+        
+        print("willMoveTo")
+        
+        current_controller_core?.view.endEditing(true)
+    }
+    
+    
 }
 

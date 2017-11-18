@@ -177,17 +177,18 @@ func labelFor(_ cell: UITableViewCell, _ index: Int) -> UILabel?{
     return nil
 }
 
+let kFakeParallaxShift = CGFloat(200)
+
 func create_fon_view(_ size: CGSize) -> UIImageView {
 
-    let amount = CGFloat(100)
-
-    let bg_view = UIImageView(frame : CGRect(x: -amount, y: 0,
-                                             width: size.width + 2*amount,
+    
+    let bg_view = UIImageView(frame : CGRect(x: -kFakeParallaxShift, y: 0,
+                                             width: size.width + kFakeParallaxShift,
                                              height:  size.height))
     
     bg_view.image =  UIImage(named: "bg_1")
     bg_view.contentMode = .scaleAspectFill
-    addParallaxToView(bg_view, Int(amount))
+//    addParallaxToView(bg_view, Int(amount))
     
     return bg_view
 }

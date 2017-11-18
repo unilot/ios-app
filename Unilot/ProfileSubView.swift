@@ -31,8 +31,6 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
         
         fillWithData()
 
-        addTouchForKeyBoard()
-
     }
     
     

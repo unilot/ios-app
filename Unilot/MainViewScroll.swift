@@ -356,6 +356,10 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         default:
             break
         }
+
+        print("scroll.contentOffset.x " , scrollView.contentOffset.x)
+        
+    
         
     }
     

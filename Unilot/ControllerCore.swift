@@ -147,7 +147,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     
     func setTitle() {
         
-        let image = setImageForTitle(CGSize(width: 100, height: 40), "unilotmenu-item")
+        let image = setImageForTitle(CGSize(width: 102, height: 35), "unilotmenu-item")
         
         navigationItem.titleView = image
         
@@ -338,8 +338,8 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         let size = CGSize(width: 40 , height: 40)
 
         startAnimating(size, type : NVActivityIndicatorType.lineScalePulseOut )
-        
- 
+       
+
     }
     
     func hideActivityViewIndicator(){

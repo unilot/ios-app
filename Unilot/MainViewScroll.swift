@@ -271,7 +271,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
             uibutton.addTarget(self, action: #selector(MainViewScroll.changePage(_:)), for: .touchUpInside)
             
             let imageView = customTabBar.viewWithTag(i*1000000+1) as! SpecialItem
-            imageView.tintColor = kColorLightGray
+            imageView.tintColor = kColorGameUnselectGray
 
             let label = customTabBar.viewWithTag(i*1000000+2) as! UILabel
             label.text   =  TR(tabbar_strings[i-1]).capitalized
@@ -282,7 +282,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
             
             if current_page != (i-1) {
                 image_name = image_name + "-template"
-                label.textColor =  kColorLightGray
+                label.textColor =  kColorGameUnselectGray
             }
             
             imageView.image = UIImage(named : image_name)

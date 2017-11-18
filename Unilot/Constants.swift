@@ -138,6 +138,9 @@ let kColorSoftGray =  UIColor(red: 153.0/255.0, green: 153.0/255.0, blue: 153.0/
 let kColorHistoryDarkGray =  UIColor(red: 68.0/255.0, green: 68.0/255.0, blue: 68.0/255.0, alpha: 0.9)
 let kColorHistoryUnselectDarkGray =  UIColor(red: 187.0/255.0, green: 187.0/255.0, blue: 187.0/255.0, alpha: 0.9)
 
+let kColorGameUnselectGray =  UIColor(red: 142.0/255.0, green: 134.0/255.0, blue: 162.0/255.0, alpha: 0.9)
+
+
 
 //MARK: - FONTS
 

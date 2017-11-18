@@ -27,7 +27,7 @@ class LoadingView : ControllerCore{
  
         super.viewWillAppear(animated)
         
-        showActivityViewIndicator()
+//        showActivityViewIndicator()
         
         if startWas {
             

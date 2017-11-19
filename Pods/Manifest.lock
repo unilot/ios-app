@@ -1,31 +1,39 @@
 PODS:
-  - Alamofire (4.4.0)
-  - Crashlytics (3.8.6):
-    - Fabric (~> 1.6.3)
-  - Fabric (1.6.11)
-  - Firebase/Core (3.15.0):
-    - FirebaseAnalytics (= 3.7.0)
-    - FirebaseCore (= 3.5.2)
-  - FirebaseAnalytics (3.7.0):
-    - FirebaseCore (~> 3.5)
-    - FirebaseInstanceID (~> 1.0)
+  - Alamofire (4.5.1)
+  - Crashlytics (3.9.3):
+    - Fabric (~> 1.7.2)
+  - Fabric (1.7.2)
+  - Firebase/Core (4.6.0):
+    - FirebaseAnalytics (= 4.0.5)
+    - FirebaseCore (= 4.0.11)
+  - FirebaseAnalytics (4.0.5):
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (3.5.2):
+    - nanopb (~> 0.3)
+  - FirebaseCore (4.0.11):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseInstanceID (1.0.9)
-  - GoogleToolboxForMac/Defines (2.1.1)
-  - GoogleToolboxForMac/NSData+zlib (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-  - NVActivityIndicatorView (3.6.0)
-  - QRCodeReader.swift (7.4.0)
+  - FirebaseInstanceID (2.0.6)
+  - GoogleToolboxForMac/Defines (2.1.3)
+  - GoogleToolboxForMac/NSData+zlib (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
+  - NVActivityIndicatorView (4.0.0):
+    - NVActivityIndicatorView/Presenter (= 4.0.0)
+  - NVActivityIndicatorView/Presenter (4.0.0)
+  - QRCodeReader.swift (8.0.3)
   - SCLAlertView (0.7.0)
-  - Splitflap (2.1.0)
-  - SwiftySound (0.3.0)
-  - Whisper (4.0.0)
+  - Splitflap (3.0.0)
+  - SwiftySound (0.7.0)
+  - Whisper (6.0.0)
 
 DEPENDENCIES:
   - Alamofire
-  - Crashlytics
+  - Crashlytics (~> 3.9)
   - Fabric
   - Firebase/Core
   - NVActivityIndicatorView
@@ -36,21 +44,22 @@ DEPENDENCIES:
   - Whisper
 
 SPEC CHECKSUMS:
-  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  Crashlytics: 95d05f4e4c19a771250c4bd9ce344d996de32bbf
-  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
-  Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
-  FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
-  FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
-  FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
-  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
-  NVActivityIndicatorView: c7c1c4300b418bd9ed06459e78d4df859ddbe31f
-  QRCodeReader.swift: 759a4320cd9005ecc94abdb4aaf0eb72fcd359d0
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
+  Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
+  Firebase: 27321a925aa85520618255a7c630859e0502ccbd
+  FirebaseAnalytics: 5b02a63ead2c3f0259cfc7f15e053e440587ecf8
+  FirebaseCore: 2a946ece8fbe3ce1fdeeb55324f273caade22df9
+  FirebaseInstanceID: 24958382a1011bba5aaff37e334e7a650b9118f5
+  GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
+  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  NVActivityIndicatorView: 54c9b93b6f25a4f467512680c0c90c09a1095cf2
+  QRCodeReader.swift: 7c98a05c2544a7c8737853845428b4460273d50d
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
-  Splitflap: 9b1f8391a1166a9ecf76dd376c69b3fb0597a1f3
-  SwiftySound: 77f0adcc39815b53c6f66cf998b203b121340300
-  Whisper: 08be92623311f8e53201e62e17f6d7b9599a4714
+  Splitflap: fd670762bb325955699df99f5a51dc58e9420722
+  SwiftySound: bca0bb721690fb65249f4776cb0875abd98e9941
+  Whisper: 2d2c7cf64ed0563cd4ce03306555edf9b7ddc5c3
 
-PODFILE CHECKSUM: 496ff3b7144f3329664e688055e71e7b5edff5fc
+PODFILE CHECKSUM: aa76986a3829ec494bafc5fd1eafd043edbf0c24
 
 COCOAPODS: 1.3.1

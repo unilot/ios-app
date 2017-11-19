@@ -8,64 +8,51 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>NVActivityIndicatorView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
 		</dict>
 		<key>Pods-Unilot.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>7</integer>
 		</dict>
 		<key>QRCodeReader.swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>8</integer>
 		</dict>
 		<key>SCLAlertView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>9</integer>
 		</dict>
 		<key>Splitflap.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>10</integer>
 		</dict>
 		<key>SwiftySound.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>11</integer>
 		</dict>
 		<key>Whisper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>12</integer>
+		</dict>
+		<key>nanopb.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -75,27 +62,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2827E769F9E9393D263ECC2031C0C083</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2C80AC1E4E992C115203F43A15C4B64B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>37DA2F84DE0027B51D615CC1AD9F13AC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>3EDFE4052B5DE7D509935AC0774CB135</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8589B7B212CA756F0E5F6ABB36824EAF</key>
+		<key>3FEAFD38B4D1AA1BD5F58B8953C5D1DF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>50AA746BC123E035EF3E3C4A7264BED6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -105,12 +82,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CA51BEA4F5B55160B98C37B6FF15689A</key>
+		<key>904DA1D15E09F9A1A3EA11E5A1A04703</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E8B7CFB563E5CEC4E0ADB9D260C2DB27</key>
+		<key>9A0CDA2D6BC24C3B6930FE322CF925DA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AFD29FC58E2FB496AFCD289E9D29E325</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C794F1C7B2D4F6400BA645F85E10EFB9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E4DD95323C54A78F879DAB0F1508B8E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

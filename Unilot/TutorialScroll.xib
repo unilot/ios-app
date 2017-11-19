@@ -60,7 +60,7 @@
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="Skip"/>
                     <connections>
-                        <action selector="onXbutton" destination="iN0-l3-epB" eventType="touchUpInside" id="Av6-gh-Uv3"/>
+                        <action selector="onSkip" destination="iN0-l3-epB" eventType="touchUpInside" id="1cY-4o-cmA"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdD-pr-OGD">

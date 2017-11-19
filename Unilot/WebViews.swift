@@ -14,6 +14,9 @@ class IcoView : WebCore {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        sendEvent("EVENT_ICO")
+
  
         let url_line =   "https://unilot.io/\(langCodes[current_language_ind])/"
         
@@ -36,6 +39,7 @@ class FAQView : WebCore {
         
         super.viewDidLoad()
         
+        sendEvent("EVENT_FAQ")
         
         let url_line =   kServer + langCodes[current_language_ind] + "/mobile/faq"
  

@@ -445,19 +445,13 @@ func saveDeviceSettings(){
 
 func sendEvent( _ line : String, _ params : [String : Any]? = nil){
     
-    if params != nil{
-        FIRAnalytics.logEvent(withName: line, parameters: params as? [String : NSObject])
-    } else {
-        FIRAnalytics.logEvent(withName: line, parameters:nil)
-    }
-    
-}
+    Answers.logCustomEvent(withName: line, customAttributes: params)
+  
+ }
 
 func message_to_Crashlytics(line : String? = nil, description : String? = nil, body : Any? = nil, error: Error? = nil) -> String {
     
     if error != nil {
-        //            Crashlytics.sharedInstance().crash()
-        //            Crashlytics.sharedInstance().recordError(NSError(domain:"", code: 418, userInfo:nil))
         
         Crashlytics.sharedInstance().recordError(error!)
         
@@ -469,7 +463,7 @@ func message_to_Crashlytics(line : String? = nil, description : String? = nil, b
         params["description"] = (description ?? kEmpty ) as NSObject
         params["body"] = String(describing: body) as NSObject
         
-        FIRAnalytics.logEvent(withName: "parse_error", parameters : params)
+        sendEvent("parse_error", params)
         
     }
     

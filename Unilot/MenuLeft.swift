@@ -106,9 +106,16 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
 
         ]
      
+        
             
         if let nameOfView = viewsNames[indexPath.section][indexPath.row]{
-            goToViewController(nameOfView)
+            
+            if nameOfView == "SB_HowDoesItWork" {
+                revealViewController().revealToggle(animated: true)
+                current_controller_core?.onTutorialWithButton()
+            } else {
+                goToViewController(nameOfView)
+            }
         }
     }
 

@@ -218,10 +218,16 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     }
     
     @IBAction func onInfoBarButton(_ sender: UIBarButtonItem){
-         
-        openTutorialFirst()
+    
+        onTutorialWithButton()
+
+    }
+    
+    func onTutorialWithButton(){
         
-//        openInfoText()
+        sendEvent("EVENT_TUTORIAL_VIEW")
+        
+        openTutorialFirst()
     }
     
     func onOpenMenu(){

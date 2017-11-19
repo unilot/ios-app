@@ -140,16 +140,23 @@ class TutorialScroll : PopUpCore , UIScrollViewDelegate{
         
         if lets_start.layer.opacity == 1 {
             
-            sendEvent("EVENT_TUTORIAL_PARTICIPATE")
+            sendEvent("EVENT_TUTORIAL_DONE")
             
             onX()
         }
     }
     
+    @IBAction func onSkip(){
+
+        sendEvent("EVENT_TUTORIAL_SKIP")
+        onX()
+
+    }
+    
     @IBAction func onMore(){
         if want_more.layer.opacity == 1 {
             
-            sendEvent("EVENT_TUTORIAL_FAQ")
+            sendEvent("EVENT_TUTORIAL_MORE")
             
             onWideX(0, {
                 current_controller_core?.goToFAQ()

@@ -37,7 +37,7 @@ DEPENDENCIES:
   - Fabric
   - Firebase/Core
   - NVActivityIndicatorView
-  - QRCodeReader.swift
+  - QRCodeReader.swift (~> 8.0.3)
   - SCLAlertView
   - Splitflap
   - SwiftySound
@@ -60,6 +60,6 @@ SPEC CHECKSUMS:
   SwiftySound: bca0bb721690fb65249f4776cb0875abd98e9941
   Whisper: 2d2c7cf64ed0563cd4ce03306555edf9b7ddc5c3
 
-PODFILE CHECKSUM: aa76986a3829ec494bafc5fd1eafd043edbf0c24
+PODFILE CHECKSUM: a08788862abfc318617d0dcd3b1712207b804a70
 
 COCOAPODS: 1.3.1

@@ -54,7 +54,13 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
         let floatBet = current_game.bet_amount
         textBig.text = String(format: TR("to_participate_you_need"),TR(lotteryType),floatBet)
         endLabel.text = TR("will_be_off_after:")
-        warningLabel.text = TR("go_back_after_payment")
+        
+        if users_account_number.count == 0 {
+            warningLabel.text = TR("go_back_after_payment")
+        } else {
+            warningLabel.isHidden = true
+        }
+        
         copyButton.setTitle("  " + TR("copy_address"), for: .normal)
     }
     

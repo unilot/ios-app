@@ -74,10 +74,9 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Kd-e9-pKQ">
-                    <rect key="frame" x="34.5" y="401" width="250" height="52"/>
+                    <rect key="frame" x="15" y="401" width="290" height="52"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="250" id="cNc-qx-kjo"/>
                         <constraint firstAttribute="height" constant="52" id="l5B-Sl-y7N"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
@@ -113,7 +112,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12938470238945628937465092809284yr8wer98wugeirk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Nql-Z0-5DR">
-                    <rect key="frame" x="10" y="369" width="300" height="28"/>
+                    <rect key="frame" x="5" y="369" width="310" height="28"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="tP0-wB-dpH"/>
                     </constraints>
@@ -146,40 +145,39 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="7Kd-e9-pKQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="1YA-eV-FZd"/>
                 <constraint firstItem="sZB-vg-g4z" firstAttribute="centerX" secondItem="mYr-XO-cWx" secondAttribute="centerX" id="256-s6-yDQ"/>
                 <constraint firstItem="Nql-Z0-5DR" firstAttribute="top" secondItem="sZB-vg-g4z" secondAttribute="bottom" priority="544" constant="15" id="EF9-l9-w9e"/>
                 <constraint firstItem="sd1-aD-ahN" firstAttribute="top" secondItem="Oaj-7G-tC4" secondAttribute="bottom" priority="333" constant="15" id="GUv-TN-lIi"/>
                 <constraint firstItem="sZB-vg-g4z" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sd1-aD-ahN" secondAttribute="bottom" constant="5" id="IEV-7s-RVN"/>
-                <constraint firstItem="sd1-aD-ahN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Oaj-7G-tC4" secondAttribute="bottom" id="Ita-3u-QKR"/>
+                <constraint firstItem="sd1-aD-ahN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Oaj-7G-tC4" secondAttribute="bottom" constant="5" id="Ita-3u-QKR"/>
                 <constraint firstItem="7Kd-e9-pKQ" firstAttribute="top" secondItem="Nql-Z0-5DR" secondAttribute="bottom" constant="4" id="Kgi-dT-oiI"/>
                 <constraint firstItem="sZB-vg-g4z" firstAttribute="top" secondItem="sd1-aD-ahN" secondAttribute="bottom" priority="999" constant="10" id="Mq8-U8-Inb"/>
-                <constraint firstItem="Nql-Z0-5DR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="NGW-dl-eeX"/>
+                <constraint firstItem="Nql-Z0-5DR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="NGW-dl-eeX"/>
                 <constraint firstAttribute="trailing" secondItem="sd1-aD-ahN" secondAttribute="trailing" constant="20" id="ObE-Nh-inZ"/>
-                <constraint firstItem="Nql-Z0-5DR" firstAttribute="centerX" secondItem="mYr-XO-cWx" secondAttribute="centerX" id="Pi0-Tw-TeM"/>
                 <constraint firstItem="f6h-is-Ioa" firstAttribute="top" secondItem="7Kd-e9-pKQ" secondAttribute="bottom" priority="444" constant="20" id="X2h-Og-g54"/>
                 <constraint firstItem="Ltz-Tj-gjO" firstAttribute="top" secondItem="5nn-c6-pxt" secondAttribute="bottom" constant="10" id="X72-U7-YQf"/>
                 <constraint firstItem="5nn-c6-pxt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="XCJ-ca-60b"/>
                 <constraint firstItem="f6h-is-Ioa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="Y1g-h3-D5d"/>
+                <constraint firstItem="mYr-XO-cWx" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ZgV-tR-Alo"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="f6h-is-Ioa" secondAttribute="bottom" constant="5" id="aUM-7f-sR9"/>
                 <constraint firstItem="Ltz-Tj-gjO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="ah2-BL-8NW"/>
-                <constraint firstAttribute="trailing" secondItem="Nql-Z0-5DR" secondAttribute="trailing" constant="10" id="bCs-hl-uDO"/>
+                <constraint firstAttribute="trailing" secondItem="Nql-Z0-5DR" secondAttribute="trailing" constant="5" id="bCs-hl-uDO"/>
                 <constraint firstAttribute="trailing" secondItem="s1j-k9-CUw" secondAttribute="trailing" constant="10" id="btD-xb-KKd"/>
                 <constraint firstItem="mYr-XO-cWx" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="cc3-Pz-JXz"/>
                 <constraint firstItem="sd1-aD-ahN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="cuc-fG-BFO"/>
                 <constraint firstItem="s1j-k9-CUw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="d3j-ls-sIn"/>
-                <constraint firstItem="7Kd-e9-pKQ" firstAttribute="centerX" secondItem="mYr-XO-cWx" secondAttribute="centerX" id="dcv-BI-EbE"/>
                 <constraint firstAttribute="trailing" secondItem="Ltz-Tj-gjO" secondAttribute="trailing" constant="15" id="fbe-n8-ZVL"/>
                 <constraint firstItem="Oaj-7G-tC4" firstAttribute="centerX" secondItem="mYr-XO-cWx" secondAttribute="centerX" id="kXl-LQ-i3s"/>
                 <constraint firstItem="f6h-is-Ioa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="7Kd-e9-pKQ" secondAttribute="bottom" constant="5" id="mmg-Tv-afT"/>
                 <constraint firstAttribute="trailing" secondItem="5nn-c6-pxt" secondAttribute="trailing" constant="10" id="nQq-yH-FMb"/>
                 <constraint firstItem="5nn-c6-pxt" firstAttribute="top" secondItem="mYr-XO-cWx" secondAttribute="bottom" constant="5" id="nj2-HF-cbV"/>
-                <constraint firstItem="5nn-c6-pxt" firstAttribute="centerX" secondItem="mYr-XO-cWx" secondAttribute="centerX" id="o4E-qb-hBS"/>
                 <constraint firstAttribute="trailing" secondItem="f6h-is-Ioa" secondAttribute="trailing" constant="40" id="r0I-s4-bBM"/>
                 <constraint firstItem="Nql-Z0-5DR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sZB-vg-g4z" secondAttribute="bottom" constant="10" id="r6f-yy-hhr"/>
                 <constraint firstItem="mYr-XO-cWx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="sJv-Ab-KT4"/>
                 <constraint firstItem="Oaj-7G-tC4" firstAttribute="top" secondItem="Ltz-Tj-gjO" secondAttribute="bottom" constant="10" id="tUG-GF-1cZ"/>
                 <constraint firstAttribute="bottom" secondItem="f6h-is-Ioa" secondAttribute="bottom" priority="222" constant="30" id="ua8-Xc-5DQ"/>
-                <constraint firstItem="sd1-aD-ahN" firstAttribute="centerX" secondItem="mYr-XO-cWx" secondAttribute="centerX" id="yeo-CB-H0u"/>
+                <constraint firstAttribute="trailing" secondItem="7Kd-e9-pKQ" secondAttribute="trailing" constant="15" id="z5t-FB-oEc"/>
             </constraints>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

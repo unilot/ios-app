@@ -220,15 +220,13 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
 
     func changeDigit(forPlace: Int, _ units: String, _ animated : Bool) {
         
-        var newLabelText = "0"
-        
-        if forPlace < units.characters.count {
-            let ind = units.characters.index(units.characters.startIndex, offsetBy: ( units.characters.count - forPlace - 1))
-            newLabelText = String(units[ind])
- 
+        let arrStr = Array(units)
+        if arrStr.count > forPlace {
+            let mySubstring = String(arrStr[arrStr.count - forPlace - 1])
+            changeFlip(forPlace, mySubstring, animated)
+        } else {
+            changeFlip(forPlace, "0", animated)
         }
-
-        changeFlip(forPlace, newLabelText, animated)
         
     }
     
@@ -266,7 +264,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
     }
 
     func tokensInSplitflap(_ splitflap: Splitflap) -> [String] {
-        return "0123456789".characters.map { String($0) }
+        return Array("0123456789").map { String($0) }
     }
     
 //    func splitflap(_ splitflap: Splitflap, rotationDurationForFlapAtIndex index: Int) -> Double

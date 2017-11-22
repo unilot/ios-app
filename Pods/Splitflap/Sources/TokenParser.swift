@@ -56,7 +56,9 @@ final class TokenParser {
 
     var word: String = ""
 
-    for character in string.utf8 {
+    var arr = Array(string)
+    
+    for character in arr {
       word += String(character)
 
       if isToken(word) {

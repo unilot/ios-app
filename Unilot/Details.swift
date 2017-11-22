@@ -268,7 +268,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         
         let searchtext = searchMain.text
         
-        if searchtext != nil && searchtext!.characters.count > 0{
+        if searchtext != nil && Array(searchtext!).count > 0{
             
             dataForTable = origin_dataForTable.filter({ (item : UserForGame) -> Bool in
               

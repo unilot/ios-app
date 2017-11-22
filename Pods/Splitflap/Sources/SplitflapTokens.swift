@@ -39,13 +39,13 @@ open class SplitflapTokens {
   open static let Numeric = (0 ... 9).map { String($0) }
 
   /// Alphabetic characters (lower and upper cases).
-  open static let Alphabetic = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".utf8.map { String($0) }
+  open static let Alphabetic = Array("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ").map { String($0) }
 
   /// Combination of alphabetic (lower and upper cases) and numeric characters.
-  open static let Alphanumeric = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".utf8.map { String($0) }
+  open static let Alphanumeric = Array("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789").map { String($0) }
 
   /// Combination of alphabetic (lower and upper cases) and numeric characters plus the space.
-  open static let AlphanumericAndSpace = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".utf8.map { String($0) }
+  open static let AlphanumericAndSpace = Array(" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789").map { String($0) }
 
   /// The 12-hour clock characters (from 1 to 12).
   open static let TwelveHourClock = (1 ... 12).map { String($0) }

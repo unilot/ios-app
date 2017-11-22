@@ -8,7 +8,6 @@
 
 import AVFoundation
 import SCLAlertView
-import QRCodeReader
 import SwiftySound
 import Firebase
 import Crashlytics

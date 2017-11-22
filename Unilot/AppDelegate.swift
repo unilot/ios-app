@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotifApp.registerForPushNotifications(application)
         
         
-        FIRApp.configure()
+        FirebaseApp.configure()
         
         Fabric.with([Crashlytics.self])
         

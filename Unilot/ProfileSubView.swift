@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import QRCodeReader
 import SCLAlertView
 
 

@@ -11,7 +11,6 @@ import UIKit
 import AVFoundation
 import NVActivityIndicatorView
 import SCLAlertView
-import QRCodeReader
 
  
 class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDelegate {
@@ -21,14 +20,6 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     var itemBadge: SpecialItem?
 
     weak var pop_up_view : PopUpCore?
-    
-    lazy var readerVC: QRCodeReaderViewController = {
-        let builder = QRCodeReaderViewControllerBuilder {
-            $0.reader = QRCodeReader(metadataObjectTypes: [AVMetadataObjectTypeQRCode], captureDevicePosition: .back)
-        }
-        
-        return QRCodeReaderViewController(builder: builder)
-    }()
 
     //MARK: - NOTIFICATION
  
@@ -264,18 +255,24 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     }
 
     @IBAction func onQRScan(_ sender: Any) {
-         
-        readerVC.completionBlock = { (result: QRCodeReaderResult?) in
-            
-            self.onQRAnswer( result?.value)
-           
-            self.dismiss(animated: true, completion: nil)
-            
-        }
         
+//        let scannerController = getVCFromName("SB_ScannerViewController")
         
-        readerVC.modalPresentationStyle = .formSheet
-        present(readerVC, animated: true, completion: nil)
+//        present(scannerController, animated: true, completion: nil)
+        
+//        navigationController?.pushViewController(rootViewController, animated: true)
+//
+//        readerVC.completionBlock = { (result: QRCodeReaderResult?) in
+//
+//            self.onQRAnswer( result?.value)
+//
+//            self.dismiss(animated: true, completion: nil)
+//
+//        }
+//
+//
+//        readerVC.modalPresentationStyle = .formSheet
+//        present(readerVC, animated: true, completion: nil)
     }
     
     func onQRAnswer(_ haveText : String?){

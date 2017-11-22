@@ -8,6 +8,35 @@
 
 import UIKit
 
+
+func extraTop() -> CGFloat {
+    
+    var top: CGFloat = 0
+    
+    if #available(iOS 11.0, *) {
+        
+        if let t = UIApplication.shared.keyWindow?.safeAreaInsets.top {
+            top = t
+        }
+    }
+    return top
+}
+
+
+func extraBottom() -> CGFloat {
+    
+    var bottom: CGFloat = 0
+    
+    if #available(iOS 11.0, *) {
+        
+        if let b = UIApplication.shared.keyWindow?.safeAreaInsets.bottom {
+            bottom = b
+        }
+    }
+    return bottom
+}
+
+
 extension UIColor {
     @nonobjc class var uuDarkTwo: UIColor {
         return UIColor(red: 14.0 / 255.0, green: 14.0 / 255.0, blue: 33.0 / 255.0, alpha: 1.0)

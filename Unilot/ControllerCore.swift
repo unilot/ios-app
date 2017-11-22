@@ -282,11 +282,13 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
 
         viewWithPlaces.delegate = self
         
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
         let frameForView = CGRect(x: 0, y: 0,
                                   width: view.frame.width,
                                   height: view.frame.height)
         
-        viewWithPlaces.initView(mainView: self.view, directionSign: -1, frameForView)
+        viewWithPlaces.initView(mainView: view, directionSign: -1, frameForView)
         
         
     }

@@ -30,24 +30,27 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gve-Jf-V9R" customClass="CountUppMoney" customModule="Unilot" customModuleProvider="target">
-                    <rect key="frame" x="98.5" y="86" width="201.5" height="82.5"/>
+                    <rect key="frame" x="92.5" y="86" width="207.5" height="75"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="75" id="25R-be-f2q"/>
+                    </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eth" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="8FU-fr-yyl">
-                    <rect key="frame" x="58" y="93" width="20.5" height="16.5"/>
+                    <rect key="frame" x="53.5" y="92" width="19" height="16.5"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man-x3" translatesAutoresizingMaskIntoConstraints="NO" id="bm8-QC-Alh">
-                    <rect key="frame" x="21" y="174.5" width="15" height="15"/>
+                    <rect key="frame" x="21" y="167" width="15" height="15"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="15" id="7GC-a7-2E8"/>
                         <constraint firstAttribute="width" secondItem="bm8-QC-Alh" secondAttribute="height" multiplier="1:1" id="fEb-jN-i7n"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ethereum-x3" translatesAutoresizingMaskIntoConstraints="NO" id="rti-pF-jOu" userLabel="Eth Image">
-                    <rect key="frame" x="10" y="93" width="68.5" height="68"/>
+                    <rect key="frame" x="10" y="92" width="62.5" height="62.5"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="rti-pF-jOu" secondAttribute="height" multiplier="1:1" id="DD5-rh-Fdt"/>
@@ -55,7 +58,7 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2n-yO-7RF">
-                    <rect key="frame" x="10" y="93" width="68.5" height="68"/>
+                    <rect key="frame" x="10" y="92" width="62.5" height="62.5"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <state key="normal">
                         <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -80,7 +83,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 3 567 890" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ak-dt-001">
-                    <rect key="frame" x="186" y="172.5" width="108" height="19"/>
+                    <rect key="frame" x="186" y="165" width="108" height="19"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="19" id="c3i-ky-AdD"/>
                     </constraints>
@@ -89,7 +92,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 546" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UuU-gS-DRE">
-                    <rect key="frame" x="46" y="172.5" width="130" height="20"/>
+                    <rect key="frame" x="46" y="165" width="130" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="NaR-z8-fVU"/>
                         <constraint firstAttribute="width" constant="130" id="g9v-fl-fQc"/>
@@ -154,7 +157,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Hd-DC-4JH" userLabel="firstTrack">
-                            <rect key="frame" x="15" y="126.5" width="258" height="10"/>
+                            <rect key="frame" x="15" y="119" width="258" height="10"/>
                             <color key="backgroundColor" red="0.054901960780000002" green="0.054901960780000002" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="10" id="mdu-aZ-3f1"/>
@@ -172,7 +175,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Vk-7X-6RS">
-                            <rect key="frame" x="15" y="146.5" width="258" height="50"/>
+                            <rect key="frame" x="15" y="139" width="258" height="50"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fat button" translatesAutoresizingMaskIntoConstraints="NO" id="LTT-Sh-SlH">
                                     <rect key="frame" x="0.0" y="0.0" width="258" height="50"/>
@@ -226,7 +229,7 @@
                             </constraints>
                         </view>
                         <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ne0-MO-FZM" customClass="CountDownFullTimer" customModule="Unilot" customModuleProvider="target">
-                            <rect key="frame" x="25" y="29" width="238" height="82.5"/>
+                            <rect key="frame" x="25" y="29" width="238" height="75"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </imageView>
@@ -240,7 +243,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loadingSign" translatesAutoresizingMaskIntoConstraints="NO" id="t7K-c7-d0O" userLabel="progressTrack">
-                            <rect key="frame" x="272" y="126" width="0.0" height="10"/>
+                            <rect key="frame" x="272" y="118.5" width="0.0" height="10"/>
                             <constraints>
                                 <constraint firstAttribute="width" id="L39-tD-hwu"/>
                             </constraints>

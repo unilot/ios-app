@@ -47,9 +47,9 @@ class PopUpCore: UIView  {
         self.tag = kTag_PopUp
         
         directionInSign = directionSign
-        
+        let height = CGFloat(extraTop() + 500)
         let frameView =  frameCustom ??
-            CGRect(x: 10,   y: 70, width:  mainView.frame.width - 20, height:  mainView.frame.height - 130)
+            CGRect(x: 10,   y: extraTop() + 50, width:  mainView.frame.width - 20, height: height)
         
         
         bigButtonFade = UIButton(frame: mainView.frame)

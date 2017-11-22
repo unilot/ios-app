@@ -56,7 +56,6 @@ class TutorialScroll : PopUpCore , UIScrollViewDelegate{
                                     height: scroll.frame.height)
             subView.backgroundColor = UIColor.clear
             subView.contentMode = .scaleAspectFit
-            
             scroll.addSubview(subView)
 
         }
@@ -105,6 +104,8 @@ class TutorialScroll : PopUpCore , UIScrollViewDelegate{
  
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
+        scrollView.contentOffset.y = 0.0
+
         let ind = Int(round(scroll.contentOffset.x / scroll.frame.size.width))
 
         let middlz = scroll.contentOffset.x / scroll.frame.size.width

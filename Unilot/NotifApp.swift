@@ -122,7 +122,8 @@ class NotifApp {
                 // actions based on whether notifications were authorized or not
                
                 if granted {
-                    application.registerForRemoteNotifications()
+                    
+                    DispatchQueue.main.async(execute: UIApplication.shared.registerForRemoteNotifications)
 
                 
                 } else {

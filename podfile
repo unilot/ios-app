@@ -5,8 +5,8 @@ use_frameworks!
 target 'Unilot' do
     pod 'NVActivityIndicatorView'
     pod 'SCLAlertView'
-    pod 'Splitflap'
     pod 'QRCodeReader.swift'
+    pod 'Splitflap'
     pod 'Alamofire'
     pod 'SwiftySound'
     pod 'Whisper'

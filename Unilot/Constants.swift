@@ -6,6 +6,8 @@
 //  Copyright © 2017 Vovasoft. All rights reserved.
 //
 
+//    pod 'QRCodeReader.swift', '~> 8.0.3'
+
  
 
 let is_mod_production          = false

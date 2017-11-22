@@ -468,7 +468,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="faqs" translatesAutoresizingMaskIntoConstraints="NO" id="QAX-dN-JSN">
-                                                    <rect key="frame" x="10" y="8" width="28" height="28"/>
+                                                    <rect key="frame" x="10" y="-14" width="28" height="28"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="QAX-dN-JSN" secondAttribute="height" multiplier="1:1" id="0wi-b4-MF0"/>
                                                         <constraint firstAttribute="height" constant="28" id="ljm-LJ-27T"/>
@@ -485,9 +485,9 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="Pwz-Wu-GHe" secondAttribute="bottom" constant="2" id="1Pm-3H-Goo"/>
                                                 <constraint firstItem="Pwz-Wu-GHe" firstAttribute="top" secondItem="TW5-AX-FoU" secondAttribute="topMargin" constant="2" id="1v1-cQ-cik"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Pwz-Wu-GHe" secondAttribute="trailing" constant="5" id="9TF-Bt-Acr"/>
-                                                <constraint firstItem="Pwz-Wu-GHe" firstAttribute="centerY" secondItem="QAX-dN-JSN" secondAttribute="centerY" id="B6l-3u-PMQ"/>
                                                 <constraint firstItem="Pwz-Wu-GHe" firstAttribute="leading" secondItem="QAX-dN-JSN" secondAttribute="trailing" constant="15" id="Tds-0Y-5ra"/>
                                                 <constraint firstItem="QAX-dN-JSN" firstAttribute="leading" secondItem="TW5-AX-FoU" secondAttribute="leading" constant="10" id="ld6-IW-fWn"/>
+                                                <constraint firstItem="Pwz-Wu-GHe" firstAttribute="centerY" secondItem="QAX-dN-JSN" secondAttribute="centerY" id="vrh-m6-MxO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1456,24 +1456,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t4J-D6-eru" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3840" y="1645.7746478873239"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="IGU-cE-lHO">
-            <objects>
-                <viewController storyboardIdentifier="SB_ScannerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8S6-dL-Qwz" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="QEN-HB-lMU"/>
-                        <viewControllerLayoutGuide type="bottom" id="dK7-kK-bRd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="jLi-oT-QLF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7et-Oz-w20" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2983" y="1606"/>
         </scene>
         <!--Main View Scroll-->
         <scene sceneID="PCF-Wt-j6m">

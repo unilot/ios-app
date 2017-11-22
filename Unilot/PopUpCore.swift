@@ -16,6 +16,7 @@ protocol PopUpCoreDelegate {
     func hideActivityViewIndicator()
     func showError(_ error : String)
     func popViewWasClosed()
+    func onQRAnswer(_ haveText : String?)
 
 }
 

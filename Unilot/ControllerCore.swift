@@ -256,24 +256,15 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
 
     @IBAction func onQRScan(_ sender: Any) {
         
-//        let scannerController = getVCFromName("SB_ScannerViewController")
+        let viewWithPlaces = ScannerViewController.create()
+        viewWithPlaces.delegate = current_controller_core
+
+        viewWithPlaces.initView(mainView: current_controller_core!.view, directionSign: 1)
         
-//        present(scannerController, animated: true, completion: nil)
         
-//        navigationController?.pushViewController(rootViewController, animated: true)
-//
-//        readerVC.completionBlock = { (result: QRCodeReaderResult?) in
-//
-//            self.onQRAnswer( result?.value)
-//
-//            self.dismiss(animated: true, completion: nil)
-//
-//        }
-//
-//
-//        readerVC.modalPresentationStyle = .formSheet
-//        present(readerVC, animated: true, completion: nil)
     }
+    
+    
     
     func onQRAnswer(_ haveText : String?){
    

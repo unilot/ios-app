@@ -90,6 +90,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         t_users.text = TR("participants").uppercased()
         t_winners.text = TR("winners").uppercased()
         
+        searchMain.placeholder = TR("your_wallet_address")
         
         // fill data in title
         

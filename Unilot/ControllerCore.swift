@@ -101,15 +101,24 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     
     func addMenuButton() {
         
-        let frameBarButton = CGSize(width: 20, height: 20)
+        let menu = UIBarButtonItem(image: UIImage(named:"menu"), style: .plain,
+                                    target: self,
+                                    action: #selector(ControllerCore.onRevealMenu) )
         
-        let tapRecognizer = UITapGestureRecognizer(target: self,
-                                                   action: #selector(ControllerCore.onRevealMenu) )
-         
-        itemBadge = setColorForImage(frameBarButton, "menu")
-        itemBadge!.addGestureRecognizer(tapRecognizer)
+        menu.tintColor =  kColorLightYellow
+
+        navigationItem.leftBarButtonItem = menu
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: itemBadge!)
+//
+//        let frameBarButton = CGSize(width: 20, height: 20)
+//
+//        let tapRecognizer = UITapGestureRecognizer(target: self,
+//                                                   action: #selector(ControllerCore. onRevealMenu) )
+//
+//        itemBadge = setColorForImage(frameBarButton, "menu")
+//        itemBadge!.addGestureRecognizer(tapRecognizer)
+//
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: itemBadge!)
  
     }
     

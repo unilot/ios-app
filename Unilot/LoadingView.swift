@@ -156,7 +156,7 @@ class LoadingView : ControllerCore{
         if let dataParse = MemoryControll.getObject("list_games") {
             _ = NetWork.parseGamesList(dataParse)
         }
-        
+
         prepereToEnter()
         
     }

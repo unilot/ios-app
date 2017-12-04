@@ -199,12 +199,15 @@ class  LotteryItemsView : OnScrollItemCore,
     
     @IBAction func onHowDoesItWork(){
         
-        let viewWithPlaces = InfoView.createInfoView()
-        viewWithPlaces.delegate = current_controller_core
-        current_controller_core!.pop_up_view = viewWithPlaces
-        viewWithPlaces.initView(mainView: current_controller_core!.view, directionSign: 1)
-
-        sendEvent("EVENT_BONUS_HOWTO")
+        
+        current_controller_core!.onTutorialWithButton()
+        
+//        let viewWithPlaces = InfoView.createInfoView()
+//        viewWithPlaces.delegate = current_controller_core
+//        current_controller_core!.pop_up_view = viewWithPlaces
+//        viewWithPlaces.initView(mainView: current_controller_core!.view, directionSign: 1)
+//
+//        sendEvent("EVENT_BONUS_HOWTO")
         
     }
     

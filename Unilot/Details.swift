@@ -10,6 +10,7 @@
 import UIKit
 import Foundation
 import SCLAlertView
+import NVActivityIndicatorView
 
 
 class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
@@ -26,8 +27,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
     @IBOutlet weak var eth: UILabel!
     @IBOutlet weak var users: UILabel!
     @IBOutlet weak var winners: UILabel!
-    
-    
+
     var origin_dataForTable  = [UserForGame]()
     var dataForTable  = [UserForGame]()
     
@@ -36,24 +36,22 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+
         setNavControllerClear()
     
+        UIApplication.shared.statusBarStyle = .lightContent
+
         setTitle()
         
         tableMain.layer.opacity = 0.0
         
-        
         addTouchForKeyBoard()
         
         showActivityViewIndicator()
-                
+ 
         NetWork.getListWinners(current_game.game_id,completion: onAnswer)
-        
-        UIApplication.shared.statusBarStyle = .lightContent
-
     }
-     
+    
     
     func onAnswer(_ error : String?){
  

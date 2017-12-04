@@ -67,28 +67,32 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         clockTablet.isHidden = true
         
         
-        if games_list[kTypeMonth] != nil {
-            butHey.text =  TR("you_take_part_in_bonus")
-            endLabel.text = TR("left_before_end")
-            days.text = TR("days2").capitalized
-
+        if users_account_number.count > 0 {
             
-            setTimerDetails()
-            startClock()
+            butHey.text =  TR("you_take_part_in_bonus")
+ 
+            if games_list[kTypeMonth] != nil {
+                
+                endLabel.text = TR("left_before_end")
+                days.text = TR("days2").capitalized
+                
+                setTimerDetails()
+                startClock()
+                
+            }
             
         } else {
+            
             clockTablet.frame = CGRect(x: clockTablet.frame.origin.x,
                                        y: clockTablet.frame.origin.y,
                                        width: clockTablet.borderWidth, height: 2)
-
+            
             clockTablet.reloadInputViews()
             
             butHey.text =  TR("we_dont_know_your_wallet")
             endLabel.text = TR(" ")
             days.text = TR(" ")
-            
         }
-
         
     }
     

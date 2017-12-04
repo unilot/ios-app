@@ -339,18 +339,45 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     //MARK: - activityView
 
     func showActivityViewIndicator(){
-        
+
         let size = CGSize(width: 40 , height: 40)
 
-        startAnimating(size, type : NVActivityIndicatorType.lineScalePulseOut )
-       
+        startAnimating(size, type : NVActivityIndicatorType.lineScalePulseOut)
 
     }
-    
+
     func hideActivityViewIndicator(){
-        
+
         stopAnimating()
     }
+    
+    
+    
+    
+//    func showActivityViewIndicator(){
+//
+//        if activityIndicatorView == nil {
+//
+//            let frame = CGRect(x:self.view.frame.width/2, y:self.view.frame.height/2, width: 40 , height: 40)
+//
+//            activityIndicatorView = NVActivityIndicatorView(frame: frame, type: .lineScalePulseOut)
+//
+//            view.addSubview(activityIndicatorView!)
+//
+//        }
+//
+//        view.bringSubview(toFront: activityIndicatorView!)
+//        activityIndicatorView!.startAnimating()
+//    }
+//
+//
+//    func hideActivityViewIndicator(){
+//
+//        if activityIndicatorView != nil {
+//            activityIndicatorView!.stopAnimating()
+//        }
+//    }
+    
     
     
     func showError(_ error : String) {

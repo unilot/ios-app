@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -178,7 +178,7 @@
                 <outlet property="days" destination="qsj-9o-2RY" id="Ums-Tg-XdW"/>
                 <outlet property="endLabel" destination="sd1-aD-ahN" id="6nP-0f-FYZ"/>
                 <outlet property="titleMain" destination="5nn-c6-pxt" id="49G-nM-UPN"/>
-                <outlet property="unfortunately" destination="X2Q-RD-GCp" id="4ma-QW-MnV"/>
+                <outlet property="unfortunately" destination="X2Q-RD-GCp" id="NTc-CJ-uOd"/>
             </connections>
             <point key="canvasLocation" x="57.5" y="99.5"/>
         </view>

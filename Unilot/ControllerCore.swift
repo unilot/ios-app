@@ -17,6 +17,8 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
      
     var activityIndicatorView : NVActivityIndicatorView?
     
+    var dgActivityIndicatorView : DGActivityIndicatorView?
+
     var itemBadge: SpecialItem?
 
     weak var pop_up_view : PopUpCore?
@@ -100,26 +102,17 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     
     
     func addMenuButton() {
-        
-        let menu = UIBarButtonItem(image: UIImage(named:"menu"), style: .plain,
-                                    target: self,
-                                    action: #selector(ControllerCore.onRevealMenu) )
-        
-        menu.tintColor =  kColorLightYellow
-
-        navigationItem.leftBarButtonItem = menu
-        
-//
-//        let frameBarButton = CGSize(width: 20, height: 20)
-//
-//        let tapRecognizer = UITapGestureRecognizer(target: self,
-//                                                   action: #selector(ControllerCore. onRevealMenu) )
-//
-//        itemBadge = setColorForImage(frameBarButton, "menu")
-//        itemBadge!.addGestureRecognizer(tapRecognizer)
-//
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: itemBadge!)
+      
+        let frameBarButton = CGSize(width: 20, height: 20)
  
+        itemBadge = setColorForImage(frameBarButton, "menu")
+ 
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        button.addTarget(self, action: #selector(ControllerCore.onRevealMenu) , for: .touchUpInside)
+        button.addSubview(itemBadge!)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView:button)
+  
     }
     
     func  addInfoButton(){
@@ -340,44 +333,40 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
 
     func showActivityViewIndicator(){
 
-        let size = CGSize(width: 40 , height: 40)
+//        let size = CGSize(width: 40 , height: 40)
+//        startAnimating(size, type : NVActivityIndicatorType.lineScalePulseOut)
+//DGActivityIndicatorAnimationTypeBallGridPulse
+        
+        
+//        ballScaleMultiple
+        
+        if dgActivityIndicatorView == nil {
+            dgActivityIndicatorView = DGActivityIndicatorView.init(type: .cookieTerminator, tintColor: kColorHistoryGray, size: 40)
+            dgActivityIndicatorView?.center = view.center
+            view.addSubview(dgActivityIndicatorView!)
 
-        startAnimating(size, type : NVActivityIndicatorType.lineScalePulseOut)
-
+        }
+        
+        dgActivityIndicatorView!.startAnimating()
+        
+        
     }
 
     func hideActivityViewIndicator(){
 
-        stopAnimating()
+        dgActivityIndicatorView?.stopAnimating()
+        dgActivityIndicatorView?.removeFromSuperview()
+        dgActivityIndicatorView = nil
+        
+
+//        stopAnimating()
     }
     
     
     
     
-//    func showActivityViewIndicator(){
-//
-//        if activityIndicatorView == nil {
-//
-//            let frame = CGRect(x:self.view.frame.width/2, y:self.view.frame.height/2, width: 40 , height: 40)
-//
-//            activityIndicatorView = NVActivityIndicatorView(frame: frame, type: .lineScalePulseOut)
-//
-//            view.addSubview(activityIndicatorView!)
-//
-//        }
-//
-//        view.bringSubview(toFront: activityIndicatorView!)
-//        activityIndicatorView!.startAnimating()
-//    }
-//
-//
-//    func hideActivityViewIndicator(){
-//
-//        if activityIndicatorView != nil {
-//            activityIndicatorView!.stopAnimating()
-//        }
-//    }
-    
+
+
     
     
     func showError(_ error : String) {
@@ -429,3 +418,4 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
         
     }
 }
+

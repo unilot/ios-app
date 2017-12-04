@@ -22,7 +22,7 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
     @IBOutlet weak var dayTitle: UILabel!
     @IBOutlet weak var unfortunately: UITextView!
     @IBOutlet weak var butHey: UILabel!
-    
+ 
     @IBOutlet weak var endLabel: UILabel!
     
     @IBOutlet weak var days: UILabel!
@@ -69,16 +69,24 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         
         if users_account_number.count > 0 {
             
-            butHey.text =  TR("you_take_part_in_bonus")
- 
+            unfortunately.text =  TR("you_lost_text")
+
             if games_list[kTypeMonth] != nil {
-                
+
+                butHey.text =  TR("you_take_part_in_bonus:")
+
                 endLabel.text = TR("left_before_end")
                 days.text = TR("days2").capitalized
                 
                 setTimerDetails()
                 startClock()
                 
+            } else {
+                
+                butHey.text = " "
+ 
+                endLabel.text = " "
+                days.text = " "
             }
             
         } else {
@@ -88,8 +96,8 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
                                        width: clockTablet.borderWidth, height: 2)
             
             clockTablet.reloadInputViews()
-            
-            butHey.text =  TR("we_dont_know_your_wallet")
+            unfortunately.text = " "
+            butHey.text = TR("we_dont_know_your_wallet")
             endLabel.text = TR(" ")
             days.text = TR(" ")
         }

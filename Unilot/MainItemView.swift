@@ -377,6 +377,7 @@ class MainItemView: LotteryItemsView {
             if my_win_wallets.count > 0 {
                 
                 for item in my_win_wallets {
+                    
                     showYouWin(item)
                 }
                 

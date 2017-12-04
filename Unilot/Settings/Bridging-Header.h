@@ -10,3 +10,5 @@
 
 
 #import "BundleNew.h"
+
+#import "DGActivityIndicatorView.h"

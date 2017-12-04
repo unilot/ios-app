@@ -296,4 +296,33 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         
     }
     
+//    override func showActivityViewIndicator(){
+//
+//
+//        let activityData = ActivityData()
+//
+//        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+////
+////        if activityIndicatorView == nil {
+////
+////            let frame = CGRect(x:self.view.frame.width/2, y:self.view.frame.height/2, width: 40 , height: 40)
+////
+////            activityIndicatorView = NVActivityIndicatorView(frame: frame, type: .lineScalePulseOut)
+////
+////            view.addSubview(activityIndicatorView!)
+////
+////        }
+////
+////        view.bringSubview(toFront: activityIndicatorView!)
+////        activityIndicatorView!.startAnimating()
+//    }
+    
+    
+//    override func hideActivityViewIndicator(){
+//        
+//        if activityIndicatorView != nil {
+//            activityIndicatorView!.stopAnimating()
+//        }
+//    }
+    
 }

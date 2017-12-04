@@ -249,7 +249,7 @@ class  LotteryItemsView : OnScrollItemCore,
     
     
     func showYouLost(){
-        
+
         let viewWithPlaces = LotteryResults.createLotteryResults()
         viewWithPlaces.delegate = current_controller_core
         
@@ -260,7 +260,7 @@ class  LotteryItemsView : OnScrollItemCore,
     
     
     func showYouWin(_ user : UserForGame){
-        
+
         let viewWithPlaces = YouWin.createYouWin()
         viewWithPlaces.delegate = current_controller_core
         viewWithPlaces.user_data = user

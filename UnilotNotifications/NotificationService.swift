@@ -22,10 +22,11 @@ class NotificationService: UNNotificationServiceExtension {
         let line_save = parseNotif(notif_info)
 
         
+        let defaultsGroup = UserDefaults.init(suiteName: "group.unilot")
+        var notifications  = defaultsGroup?.value(forKey: "notifications") as? [String]
+
         if line_save != nil {
             
-            let defaultsGroup = UserDefaults.init(suiteName: "group.unilot")
-            var notifications  = defaultsGroup?.value(forKey: "notifications") as? [String]
             
             if notifications == nil {
                 notifications = [String]()
@@ -36,14 +37,11 @@ class NotificationService: UNNotificationServiceExtension {
             }
             
             defaultsGroup?.set(notifications, forKey: "notifications")
-            
-            bestAttemptContent?.badge = NSNumber(value: notifications!.count)
 
-        } else {
-          
-            bestAttemptContent?.badge  = NSNumber(value: 0)
-        
         }
+        
+        bestAttemptContent?.badge = NSNumber(value: notifications!.count)
+
 
         
         contentHandler(bestAttemptContent!)
@@ -63,8 +61,10 @@ class NotificationService: UNNotificationServiceExtension {
                 let game_id  = "\(game["id"] ?? "" )"
                 
                 let type     = game["type"] as? Int ?? 0
-                
-                return  "\(action)&\(game_id)&\(type)"
+ 
+                if type >  0 {
+                    return  "\(action)&\(game_id)&\(type)"
+                }
                 
             }
             

@@ -333,7 +333,19 @@ func imageScaledToSize(size: CGSize, image: UIImage) -> UIImage {
     return imageR!;
 }
 
+func imageWithView(view: UIImageView) -> UIImage? {
+    
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
 
+    view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        
+    let img = UIGraphicsGetImageFromCurrentImageContext()
+        
+    UIGraphicsEndImageContext();
+        
+    return img
+    
+}
 
 
 func setImageForTitle(_ sizeOfView : CGSize, _ imageName : String) -> UIView{

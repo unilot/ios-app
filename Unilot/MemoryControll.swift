@@ -122,8 +122,6 @@ class MemoryControll {
         
         UserDefaults.init(suiteName: "group.unilot")?.set(notification_data, forKey: "notifications")
         
-//        saveObject(notification_data, key: "notifications_app")
-        
         UIApplication.shared.applicationIconBadgeNumber = notification_data.count
         
     }
@@ -145,17 +143,14 @@ class MemoryControll {
         
         getNotificationSaved()
         
-        let new_filtered = notification_data.filter({
-            return  $0 == newNotif
-        })
-        
-        guard new_filtered.count == 0  else {
-            return
-        }
-  
-        notification_data.append( newNotif )
+
+        if !notification_data.contains(newNotif) {
             
-        setNotificationSaved()
+            notification_data.append( newNotif )
+            setNotificationSaved()
+        }
+        
+  
         
     }
     

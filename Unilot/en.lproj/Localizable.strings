@@ -82,8 +82,6 @@
 
 "address"                   = "address";
 
-"soon"                      = "Soon";
-
 "will_start_soon"           = "Will start soon...";
 "tap_to_refreshed"          = "Tap to refresh";
 
@@ -148,7 +146,7 @@
 "lets_start" = "Let's start!";
 "need_more_info" = "Want to know more";
 "faq" = "FAQ";
-"all" = "All games";
+"all" = "All";
 
 //MARK: -  FILES NAME
 

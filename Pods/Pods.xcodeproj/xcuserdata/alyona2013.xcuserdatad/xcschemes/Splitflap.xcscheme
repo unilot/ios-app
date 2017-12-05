@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '680CBB5AFB96C0E7963AB1C222B52835'
+               BlueprintIdentifier = '70C293A4B9B46B1A7DD7CD5CE0C6F851'
                BlueprintName = 'Splitflap'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Splitflap.framework'>

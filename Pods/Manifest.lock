@@ -22,7 +22,6 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - SCLAlertView (0.7.0)
   - Splitflap (3.0.0)
   - SwiftySound (0.7.0)
   - Whisper (6.0.2)
@@ -32,7 +31,6 @@ DEPENDENCIES:
   - Crashlytics (~> 3.9)
   - Fabric
   - Firebase/Core
-  - SCLAlertView
   - Splitflap
   - SwiftySound
   - Whisper
@@ -47,11 +45,10 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 148c25c986c8699e67304b114e365713dce467f2
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   Splitflap: fd670762bb325955699df99f5a51dc58e9420722
   SwiftySound: bca0bb721690fb65249f4776cb0875abd98e9941
   Whisper: 169760fc4bab0abf24d5529f9276f95c25cf1025
 
-PODFILE CHECKSUM: a09cbf83aed7894f5148d6dd6cfc93297c9c31ba
+PODFILE CHECKSUM: 75c27c225598e8f2a0cc4d632b17e2db186fa17c
 
 COCOAPODS: 1.3.1

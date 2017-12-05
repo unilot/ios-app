@@ -9,10 +9,7 @@
 
 
 import UIKit
-import SCLAlertView
-
-
-
+ 
 class LotteryResults: PopUpCore, CountDownTimeDelegate {
 
     @IBOutlet weak var clockTablet: CountDownSimpleDays!

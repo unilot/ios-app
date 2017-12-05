@@ -23,7 +23,7 @@ class ScannerViewController: PopUpCore, AVCaptureMetadataOutputObjectsDelegate {
         self.backgroundColor = UIColor.white
         captureSession = AVCaptureSession()
         
-        guard let videoCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) else { return }
+        guard let videoCaptureDevice = AVCaptureDevice.default(for: AVMediaType.video) else { return }
         let videoInput: AVCaptureDeviceInput
         
         do {
@@ -45,7 +45,7 @@ class ScannerViewController: PopUpCore, AVCaptureMetadataOutputObjectsDelegate {
             captureSession.addOutput(metadataOutput)
             
             metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            metadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
+            metadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
         } else {
             failed()
             return
@@ -71,7 +71,7 @@ class ScannerViewController: PopUpCore, AVCaptureMetadataOutputObjectsDelegate {
         super.onX(duration)
     }
     
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+    func metadataOutput(_ captureOutput: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         captureSession.stopRunning()
         
         if let metadataObject = metadataObjects.first {

@@ -10,9 +10,7 @@
 //SB_MainViewScroll
 
 import UIKit
-import SCLAlertView
-
-
+ 
 class MainViewScroll: ControllerCore , UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView : UIScrollView!

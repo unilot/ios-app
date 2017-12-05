@@ -8,9 +8,6 @@
 
 
 import UIKit
-import SCLAlertView
-import NVActivityIndicatorView
-
 
 class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
 

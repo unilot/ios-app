@@ -9,9 +9,6 @@
 
 import UIKit
 import Foundation
-import SCLAlertView
-import NVActivityIndicatorView
-
 
 class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
@@ -59,8 +56,8 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         
         if error != nil{
             
-            SCLAlertView().showError(" ", subTitle: error!)
- 
+            showError(error!)
+
         } else {
             
             dataForTable =  winners_list.sorted(by: {  return $0.position < $1.position})
@@ -127,13 +124,13 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         // create attributed string
 
         
-        let attr1 = [ NSFontAttributeName: UIFont(name: kFont_Regular, size: 14.0)!,
-                            NSForegroundColorAttributeName : UIColor.white]
+        let attr1 = [ NSAttributedStringKey.font: UIFont(name: kFont_Regular, size: 14.0)!,
+                            NSAttributedStringKey.foregroundColor : UIColor.white]
 
         let first_string = NSMutableAttributedString(string:TR("drawing_dated") + ": ", attributes: attr1 )
         
-        let attr2 = [ NSFontAttributeName: UIFont(name: kFont_Regular, size: 16.0)!,
-                            NSForegroundColorAttributeName : kColorMenuPeach]
+        let attr2 = [ NSAttributedStringKey.font: UIFont(name: kFont_Regular, size: 16.0)!,
+                            NSAttributedStringKey.foregroundColor : kColorMenuPeach]
         
         let second_string = NSMutableAttributedString(string: date_string,
                                                       attributes: attr2 )
@@ -296,33 +293,5 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         
     }
     
-//    override func showActivityViewIndicator(){
-//
-//
-//        let activityData = ActivityData()
-//
-//        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
-////
-////        if activityIndicatorView == nil {
-////
-////            let frame = CGRect(x:self.view.frame.width/2, y:self.view.frame.height/2, width: 40 , height: 40)
-////
-////            activityIndicatorView = NVActivityIndicatorView(frame: frame, type: .lineScalePulseOut)
-////
-////            view.addSubview(activityIndicatorView!)
-////
-////        }
-////
-////        view.bringSubview(toFront: activityIndicatorView!)
-////        activityIndicatorView!.startAnimating()
-//    }
-    
-    
-//    override func hideActivityViewIndicator(){
-//        
-//        if activityIndicatorView != nil {
-//            activityIndicatorView!.stopAnimating()
-//        }
-//    }
     
 }

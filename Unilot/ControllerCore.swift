@@ -9,13 +9,8 @@
 
 import UIKit
 import AVFoundation
-import NVActivityIndicatorView
-import SCLAlertView
-
  
-class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDelegate {
-     
-    var activityIndicatorView : NVActivityIndicatorView?
+class ControllerCore: UIViewController, PopUpCoreDelegate {
     
     var dgActivityIndicatorView : DGActivityIndicatorView?
 
@@ -67,7 +62,7 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
 
         UINavigationBar.appearance().tintColor = kColorSoftGray
        
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.black]
 
         setNeedsStatusBarAppearanceUpdate()
         
@@ -370,7 +365,8 @@ class ControllerCore: UIViewController, NVActivityIndicatorViewable, PopUpCoreDe
     
     
     func showError(_ error : String) {
-        SCLAlertView().showError(" ", subTitle: error)
+
+        SweetAlert().showAlert(" ", subTitle: error, style: AlertStyle.error)
 
     }
     

@@ -41,6 +41,7 @@
 		B91D61D61FD55219006955DE /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = B91D61B01FD55219006955DE /* DGActivityIndicatorRotatingTrigonAnimation.m */; };
 		B91D61D71FD55219006955DE /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = B91D61B21FD55219006955DE /* DGActivityIndicatorBallClipRotateAnimation.m */; };
 		B91D61D81FD55219006955DE /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = B91D61B31FD55219006955DE /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m */; };
+		B91D61DA1FD64269006955DE /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91D61D91FD64268006955DE /* SweetAlert.swift */; };
 		B94C652A1FC515AD006E3BC8 /* ScannerReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94C65291FC515AD006E3BC8 /* ScannerReader.swift */; };
 		B94C652C1FC51A74006E3BC8 /* ScannerReader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B94C652B1FC51A74006E3BC8 /* ScannerReader.xib */; };
 		D611305F1FA826BE003B30E9 /* usual.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D611305E1FA826BE003B30E9 /* usual.mp3 */; };
@@ -223,6 +224,7 @@
 		B91D61B51FD55219006955DE /* DGActivityIndicatorLineScalePulseOutAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGActivityIndicatorLineScalePulseOutAnimation.h; sourceTree = "<group>"; };
 		B91D61B61FD55219006955DE /* DGActivityIndicatorBallZigZagAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGActivityIndicatorBallZigZagAnimation.h; sourceTree = "<group>"; };
 		B91D61B71FD55219006955DE /* DGActivityIndicatorThreeDotsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGActivityIndicatorThreeDotsAnimation.h; sourceTree = "<group>"; };
+		B91D61D91FD64268006955DE /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
 		B94C65291FC515AD006E3BC8 /* ScannerReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerReader.swift; sourceTree = "<group>"; };
 		B94C652B1FC51A74006E3BC8 /* ScannerReader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScannerReader.xib; sourceTree = "<group>"; };
 		CBC0194290D8904822A4787C /* Pods_Unilot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unilot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -517,6 +519,7 @@
 		D62A31711F7AC10300275B86 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B91D61D91FD64268006955DE /* SweetAlert.swift */,
 				B91D61731FD55219006955DE /* DGActivityIndicatorView */,
 				D6DCCD101FA4BCA1009BD20E /* LanguagesSet */,
 				D6F1E16D1F7E55130098B34C /* JSKit */,
@@ -809,6 +812,7 @@
 					D69364BF1F5F254400FD0D37 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = VLZN2JPGN9;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -825,6 +829,7 @@
 					D6FF781F1FC0709D0048981F = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = VLZN2JPGN9;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -956,7 +961,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Unilot/Pods-Unilot-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/Splitflap/Splitflap.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftySound/SwiftySound.framework",
@@ -967,7 +971,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Splitflap.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftySound.framework",
@@ -1057,6 +1060,7 @@
 				D685E9A41F8D59500056C9C8 /* CountDownLabel.swift in Sources */,
 				D6F1E1921F7E55130098B34C /* JSDropdownField.m in Sources */,
 				D6595E111FBB57FE00089917 /* MainItemView.swift in Sources */,
+				B91D61DA1FD64269006955DE /* SweetAlert.swift in Sources */,
 				D69364D91F5F328D00FD0D37 /* FlippingLabel.swift in Sources */,
 				D6F1E1931F7E55130098B34C /* JSInputField.m in Sources */,
 				B91D61CF1FD55219006955DE /* DGActivityIndicatorBallScaleAnimation.m in Sources */,
@@ -1252,7 +1256,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Unilot/Settings/Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1272,7 +1277,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Unilot/Settings/Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1288,7 +1294,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vovasoft.crowdcharity.UnilotNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1304,7 +1311,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vovasoft.crowdcharity.UnilotNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

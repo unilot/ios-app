@@ -8,8 +8,7 @@
 
 
 import UIKit
-import SCLAlertView
-
+ 
 class  OnScrollItemCore : UIView {
 
     @IBOutlet weak var titleMain: UILabel!

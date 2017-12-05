@@ -9,9 +9,7 @@
 
 import UIKit
 import Foundation
-import SCLAlertView
-
-
+ 
 
 class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     
@@ -50,7 +48,8 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
         if error != nil{
             
-            SCLAlertView().showError(" ", subTitle: error!)
+            showError(error!)
+
             
         } else {
             

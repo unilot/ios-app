@@ -49,7 +49,7 @@ class TextViewCore : ControllerCore {
                 let contents = try String(contentsOfFile: filepath)
                 
                 let theAttributedString = try! NSAttributedString(data: contents.data(using: String.Encoding.utf8, allowLossyConversion: false)!,
-                                                                  options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+                                                                  options: [NSAttributedString.DocumentAttributeKey.documentType: NSAttributedString.DocumentType.html],
                                                                   documentAttributes: nil)
                 
                 textView.attributedText = theAttributedString

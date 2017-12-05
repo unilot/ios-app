@@ -9,9 +9,7 @@
 
 
 import UIKit
-import SCLAlertView
-
-
+ 
 
 class YouWin: PopUpCore {
     

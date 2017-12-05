@@ -6,9 +6,7 @@
 //  Copyright © 2017 Vovasoft. All rights reserved.
 //
 
-import UIKit
-import SCLAlertView
-
+import UIKit  
 
 
 class AgreeToPlay: PopUpCore, CountDownTimeDelegate {

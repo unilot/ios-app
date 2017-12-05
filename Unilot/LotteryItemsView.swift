@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import SCLAlertView
-
+ 
 class  LotteryItemsView : OnScrollItemCore,
     CountDownTimeDelegate,
     CountUppFlippersMoneyDelegate{

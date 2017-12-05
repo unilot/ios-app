@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import AVFoundation
-import SCLAlertView
-
+import AVFoundation 
 
 class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegate, UITableViewDataSource {
         
@@ -121,28 +119,19 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
         if let cell = sender.superview?.superview?.superview as? UITableViewCell{
             currentTagForRemove = table.indexPath(for: cell)!.row
             
-            
-            let appearance = SCLAlertView.SCLAppearance(
-                kTitleFont: UIFont(name: kFont_Regular, size: 20)!,
-                kTextFont: UIFont(name: kFont_Light, size: 14)!,
-                kButtonFont: UIFont(name: kFont_Bold, size: 14)!,
-                showCloseButton: false
-            )
-            
-            let alertView = SCLAlertView(appearance: appearance)
-            
-            alertView.addButton(TR("Yes"), target:self, selector: #selector(ProfileSubView.onDelete))
-            alertView.addButton(TR("No")) {
-                self.currentTagForRemove = -1
+            let keyCurrent = users_account_number[currentTagForRemove]
+
+            SweetAlert().showAlert(" ", subTitle: TR("question_for_delete") + keyCurrent + "?", style: AlertStyle.warning, buttonTitle: TR("No"), buttonColor:UIColorFromRGB(0xD0D0D0) , otherButtonTitle: TR("Yes"), otherButtonColor: UIColorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
+                if isOtherButton == true {
+                    self.currentTagForRemove = -1
+                }
+                else {
+                    self.onDelete()
+                 }
             }
             
-            let keyCurrent = users_account_number[currentTagForRemove]
-            
-            alertView.showWarning("", subTitle: TR("question_for_delete") + keyCurrent + "?")
-            
         }
-        
-        
+         
     }
     
     

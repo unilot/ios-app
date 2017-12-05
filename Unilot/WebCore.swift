@@ -8,9 +8,7 @@
 
 
 import UIKit
-import NVActivityIndicatorView
-
-
+  
 class WebCore : ControllerCore , UIWebViewDelegate{
     
     @IBOutlet weak var webView : UIWebView!

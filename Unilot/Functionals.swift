@@ -7,7 +7,6 @@
 //
 
 import AVFoundation
-import SCLAlertView
 import SwiftySound
 import Firebase
 import Crashlytics
@@ -86,7 +85,7 @@ class NotifStruct {
 func saveToClipboard(_ text : String){
     UIPasteboard.general.string = text
     let alert_text = TR("address") + "\n\n" + text + "\n\n" + TR("was-saved_in_memory")
-    SCLAlertView().showInfo(" ", subTitle: alert_text)
+    SweetAlert().showAlert(alert_text)
 }
 
 

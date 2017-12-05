@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import NVActivityIndicatorView
-import SCLAlertView
+
 
 
 class LoadingView : ControllerCore{
@@ -151,8 +150,8 @@ class LoadingView : ControllerCore{
         
         stopAnimating()
         
-        SCLAlertView().showError(" ", subTitle: error)
-        
+        showError(error)
+ 
         if let dataParse = MemoryControll.getObject("list_games") {
             _ = NetWork.parseGamesList(dataParse)
         }

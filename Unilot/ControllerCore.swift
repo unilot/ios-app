@@ -365,7 +365,7 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
     
     func showError(_ error : String) {
 
-       _ = SweetAlert().showAlert(" ", subTitle: error, style: AlertStyle.error)
+        _ = SweetAlert().showAlert(" ", subTitle: error, style: .error, buttonTitle: TR("OK"), buttonColor: kColorNormalGreen, action: nil)
 
     }
     

@@ -73,7 +73,8 @@ open class SweetAlert: UIViewController {
     fileprivate func setupSubtitleTextView() {
         subTitleTextView.text = ""
         subTitleTextView.textAlignment = .center
-        subTitleTextView.font = UIFont(name: kFont_Regular, size:24)
+        subTitleTextView.font = UIFont(name: kFont_Regular, size:20)
+        subTitleTextView.sizeToFit()
         subTitleTextView.textColor = UIColor.colorFromRGB(0x797979)
         subTitleTextView.isEditable = false
     }
@@ -141,7 +142,6 @@ open class SweetAlert: UIViewController {
                 buttons[i].frame = CGRect(x: buttonX, y: y, width: buttonRect[i].size.width + 20.0, height: buttonRect[i].size.height + 10.0)
                 buttonX = buttons[i].frame.origin.x + kWidthMargin + buttonRect[i].size.width + 20.0
             
-                buttons[i].layer.backgroundColor = kColorNormalGreen.cgColor
                 buttons[i].layer.cornerRadius = 5.0
                 self.contentView.addSubview(buttons[i])
                 buttons[i].addTarget(self, action: #selector(pressed), for: .touchUpInside)
@@ -298,6 +298,7 @@ open class SweetAlert: UIViewController {
             }
 
             resizeAndRelayout()
+        
             if SweetAlertContext.shouldNotAnimate == true {
                 //Do not animate Alert
                 if self.animatedView != nil {

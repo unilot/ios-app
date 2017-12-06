@@ -121,8 +121,11 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
             currentTagForRemove = table.indexPath(for: cell)!.row
             
             let keyCurrent = users_account_number[currentTagForRemove]
-
-            SweetAlert().showAlert(" ", subTitle: TR("question_for_delete") + keyCurrent + "?", style: AlertStyle.warning, buttonTitle: TR("No"), buttonColor:UIColor.colorFromRGB(0xD0D0D0) , otherButtonTitle: TR("Yes"), otherButtonColor: UIColor.colorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
+            
+            SweetAlert().showAlert(" ", subTitle: TR("question_for_delete") + keyCurrent + "?", style: AlertStyle.warning, buttonTitle: TR("No"),
+                                   buttonColor: kColorNormalGreen ,
+                                   otherButtonTitle: TR("Yes"),
+                                   otherButtonColor: UIColor.colorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
                 if isOtherButton == true {
                     self.currentTagForRemove = -1
                 }

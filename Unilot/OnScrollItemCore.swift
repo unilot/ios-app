@@ -46,7 +46,8 @@ class  OnScrollItemCore : UIView {
         
     }
     
-    func viewDataReload(){
+    
+    func viewDataReload(_ overrideData : Bool = true){
 
     }
     
@@ -56,7 +57,7 @@ class  OnScrollItemCore : UIView {
 
     
     func onUserOpenView(){
-        
+
         viewDataReload()
 
     }

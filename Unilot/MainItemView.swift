@@ -22,10 +22,7 @@ class MainItemView: LotteryItemsView {
         
         //fix button layer view
         setButtonView()
-         
-        // get data from
-        fillLocalGameData()
- 
+        
         // fill with data
         viewDataReload()
         
@@ -58,9 +55,12 @@ class MainItemView: LotteryItemsView {
     
    
     
-    override func viewDataReload(){
+    override func viewDataReload(_ overrideData : Bool = true){
         
         stopAllSchedule()
+        if overrideData {
+            fillLocalGameData()
+        }
         
         switch current_game.status {
             
@@ -106,21 +106,24 @@ class MainItemView: LotteryItemsView {
             break
         }
         
-        
         openNotifViewsForWinnnerOrLoser()
         
-        
         current_controller_core?.setBadgeNumber()
-        
-        
+
     }
-    
     
     //MARK: -
     
     override func fillLocalGameData(){
         
-        current_game = games_list[current_game.type] ?? current_game
+        let type = current_game.type
+        
+        if  games_list[type] != nil {
+            current_game = games_list[current_game.type]!
+
+        } else {
+             current_game.status = kStatusNoGame
+         }
         
         local_current_game = current_game
         
@@ -288,10 +291,12 @@ class MainItemView: LotteryItemsView {
         // check current notification item
         
         if let game_id = NotifApp.getIdOfGameIfWeHaveAny() {
-            
+ 
             if ( NotifApp.getDataFromNotifString(open_from_notif,0) == kActionCompleted) {
                 
-                open_from_notif = nil
+                NotifApp.removeNotifWithSameGameId(game_id)
+
+                open_from_notif = notification_data.last
 
                 getNotifDataFromNet(game_id)
              
@@ -316,26 +321,14 @@ class MainItemView: LotteryItemsView {
             
         } else {
             
+            let newGameData = games_list[current_game.type]
             
-            if games_list[current_game.type] == nil {
-                
-                current_game.status = kStatusNoGame
-                
-                viewDataReload()
-                
-            } else
-                
-                if current_game.isEqual(to: games_list[current_game.type]!) {
-                    
-                    setLowerButton(goToPrizeOrRefresh : false)
-                    
-                } else {
-                    
-                    fillLocalGameData()
-                    
-                    viewDataReload()
+            if (newGameData != nil) && current_game.isEqual(to: newGameData!) {
+                setLowerButton(goToPrizeOrRefresh : false)
             }
             
+            viewDataReload()
+ 
             
         }
         

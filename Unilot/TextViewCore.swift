@@ -49,10 +49,8 @@ class TextViewCore : ControllerCore {
                 let contents = try String(contentsOfFile: filepath)
                 
                 let theAttributedString = try! NSAttributedString(data: contents.data(using: String.Encoding.utf8, allowLossyConversion: false)!,
-                                                                  options: [NSAttributedString.DocumentAttributeKey.documentType: NSAttributedString.DocumentType.html],
+                                                                  options: [.documentType: NSAttributedString.DocumentType.html],
                                                                   documentAttributes: nil)
-                
-                textView.attributedText = theAttributedString
                 
             } catch {
                 // contents could not be loaded

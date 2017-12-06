@@ -91,7 +91,7 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             if let switcher = cell.contentView.viewWithTag(30) as? MySwitch{
                 switcher.subTag = indexPath
                 switcher.setOn( notifications_switch[indexPath.row], animated: false)
-                switcher.addTarget(self, action: #selector(SettingsView.onSwitcher(_:)), for: .valueChanged)
+                switcher.addTarget(self, action: #selector(onSwitcher), for: .valueChanged)
             }
             
             return cell

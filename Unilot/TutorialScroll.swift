@@ -69,7 +69,7 @@ class TutorialScroll : PopUpCore , UIScrollViewDelegate{
         pages.numberOfPages = pagesCount
         scroll.contentSize = CGSize(width: scroll.frame.size.width * CGFloat(pagesCount),
                                         height: scroll.frame.size.height)
-        pages.addTarget(self, action: #selector(TutorialScroll.changePage(_:)), for: .valueChanged)
+        pages.addTarget(self, action: #selector(changePage), for: .valueChanged)
 
         changeText(0)
         

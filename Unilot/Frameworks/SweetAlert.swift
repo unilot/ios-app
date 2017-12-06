@@ -25,7 +25,7 @@ open class SweetAlert: UIViewController {
     var kContentWidth: CGFloat = 300.0
     let kButtonHeight: CGFloat = 35.0
     var textViewHeight: CGFloat = 90.0
-    let kTitleHeight:CGFloat = 30.0
+    let kTitleHeight:CGFloat = 5.0
     var strongSelf:SweetAlert?
     var contentView = UIView()
     var titleLabel: UILabel = UILabel()
@@ -34,7 +34,6 @@ open class SweetAlert: UIViewController {
     var imageView:UIImageView?
     var subTitleTextView = UITextView()
     var userAction:((_ isOtherButton: Bool) -> Void)? = nil
-    let kFont = "Helvetica"
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -67,14 +66,14 @@ open class SweetAlert: UIViewController {
         titleLabel.text = ""
         titleLabel.numberOfLines = 1
         titleLabel.textAlignment = .center
-        titleLabel.font = UIFont(name: kFont, size:25)
+        titleLabel.font = UIFont(name: kFont_Regular, size:25)
         titleLabel.textColor = UIColor.colorFromRGB(0x575757)
     }
     
     fileprivate func setupSubtitleTextView() {
         subTitleTextView.text = ""
         subTitleTextView.textAlignment = .center
-        subTitleTextView.font = UIFont(name: kFont, size:16)
+        subTitleTextView.font = UIFont(name: kFont_Regular, size:24)
         subTitleTextView.textColor = UIColor.colorFromRGB(0x797979)
         subTitleTextView.isEditable = false
     }
@@ -108,8 +107,8 @@ open class SweetAlert: UIViewController {
         // Subtitle
         if self.subTitleTextView.text.isEmpty == false {
             let subtitleString = subTitleTextView.text! as NSString
-            let rect = subtitleString.boundingRect(with: CGSize(width: width, height: 0.0), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:subTitleTextView.font!], context: nil)
-            textViewHeight = ceil(rect.size.height) + 10.0
+            let rect = subtitleString.boundingRect(with: CGSize(width: width, height: 200.0), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:subTitleTextView.font!], context: nil)
+            textViewHeight = 100 + 10.0
             subTitleTextView.frame = CGRect(x: x, y: y, width: width, height: textViewHeight)
             contentView.addSubview(subTitleTextView)
             y += textViewHeight + kHeightMargin
@@ -125,18 +124,27 @@ open class SweetAlert: UIViewController {
         if buttons.count == 2 {
             totalWidth = buttonRect[0].size.width + buttonRect[1].size.width + kWidthMargin + 40.0
         }
-        else{
+        else if buttons.count == 1 {
             totalWidth = buttonRect[0].size.width + 20.0
+        } else {
+
+            contentView.frame = CGRect(x: (mainScreenBounds.size.width - kContentWidth) / 2.0, y: (mainScreenBounds.size.height - y) / 2.0, width: kContentWidth, height: y)
+            contentView.clipsToBounds = true
+            
+            return
         }
+        
         y += kHeightMargin
         var buttonX = (kContentWidth - totalWidth ) / 2.0
         for i in 0 ..< buttons.count {
             
                 buttons[i].frame = CGRect(x: buttonX, y: y, width: buttonRect[i].size.width + 20.0, height: buttonRect[i].size.height + 10.0)
                 buttonX = buttons[i].frame.origin.x + kWidthMargin + buttonRect[i].size.width + 20.0
+            
+                buttons[i].layer.backgroundColor = kColorNormalGreen.cgColor
                 buttons[i].layer.cornerRadius = 5.0
                 self.contentView.addSubview(buttons[i])
-                buttons[i].addTarget(self, action: #selector(SweetAlert.pressed(_:)), for: UIControlEvents.touchUpInside)
+                buttons[i].addTarget(self, action: #selector(pressed), for: .touchUpInside)
 
         }
         y += kHeightMargin + buttonRect[0].size.height + 10.0
@@ -301,19 +309,40 @@ open class SweetAlert: UIViewController {
             }
     }
 
-    func animateAlert() {
+    open func showAlertDeletedComplete() {
+
+        let window: UIWindow = UIApplication.shared.keyWindow!
+        window.addSubview(view)
+        window.bringSubview(toFront: view)
+        view.frame = window.bounds
+        
+        buttons = []
+        
+        self.setupContentView()
+        
+        self.animatedView = SuccessAnimatedView()
+        
+        resizeAndRelayout()
+
+        animateAlert(true)
+
+    }
+
+    
+    
+    func animateAlert(_ dissmisDo : Bool = false) {
 
         view.alpha = 0;
-        UIView.animate(withDuration: 0.1, animations: { () -> Void in
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
             self.view.alpha = 1.0;
         })
 
         let previousTransform = self.contentView.transform
         self.contentView.layer.transform = CATransform3DMakeScale(0.9, 0.9, 0.0);
-        UIView.animate(withDuration: 0.2, animations: { () -> Void in
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
             self.contentView.layer.transform = CATransform3DMakeScale(1.1, 1.1, 0.0);
             }, completion: { (Bool) -> Void in
-                UIView.animate(withDuration: 0.1, animations: { () -> Void in
+                UIView.animate(withDuration: 0.4, animations: { () -> Void in
                     self.contentView.layer.transform = CATransform3DMakeScale(0.9, 0.9, 0.0);
                     }, completion: { (Bool) -> Void in
                         UIView.animate(withDuration: 0.1, animations: { () -> Void in
@@ -325,6 +354,20 @@ open class SweetAlert: UIViewController {
                             }, completion: { (Bool) -> Void in
 
                                 self.contentView.transform = previousTransform
+                                
+                                if dissmisDo {
+                                    
+                                    UIView.animate(withDuration: 0.5, animations: { () -> Void in
+                                        self.contentView.layer.opacity = 0.0
+
+                                     }, completion: { (Bool) -> Void in
+                                       
+                                        self.closeAlert(0)
+
+                                    })
+                                    
+                                    
+                                }
                         }) 
                 }) 
         }) 

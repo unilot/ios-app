@@ -123,7 +123,8 @@ class MemoryControll {
         UserDefaults.init(suiteName: "group.unilot")?.set(notification_data, forKey: "notifications")
         
         UIApplication.shared.applicationIconBadgeNumber = notification_data.count
-        
+        UIApplication.shared.cancelAllLocalNotifications()
+
     }
 
     static func getNotificationSaved(){

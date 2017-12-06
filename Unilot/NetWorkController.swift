@@ -255,7 +255,9 @@ class NetWork : NetWorkParse {
             }
             
             if keyForSavings != nil {
-                 _ = dataParse( MemoryControll.getObject(keyForSavings!)!)
+                if let dataForParse = MemoryControll.getObject(keyForSavings!) {
+                    _ = dataParse(dataForParse)
+                }
             }
             
             completion(answer)

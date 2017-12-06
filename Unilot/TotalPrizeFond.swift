@@ -10,6 +10,7 @@
 import UIKit
 
 class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
+    var dgActivityIndicatorView : DGActivityIndicatorView?
 
 
     @IBOutlet weak var titleWithPrice: UILabel!
@@ -22,14 +23,7 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
 
     var dataForTable = [UserForGame]()
     var widthOfCell = CGFloat(0)
-
-    
-    var activityData = ActivityData.init(size: CGSize(width: 40, height: 40),
-                                         type: .lineScalePulseOut,
-                                         color: UIColor.white)
-
-    
-    
+ 
     class func createTotalPrizeFond() -> TotalPrizeFond {
         let myClassNib = UINib(nibName: "TotalPrizeFond", bundle: nil)
         return myClassNib.instantiate(withOwner: nil, options: nil)[0] as! TotalPrizeFond
@@ -49,16 +43,16 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         close.setTitle(TR("close"), for: .normal)
         firstLabel.text = TR("prize_\nplaces")
         
-        
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
-
+        showActivityViewIndicator()
+ 
         NetWork.getListWinners(current_game.game_id, completion: onAnswer)
         
     }
     
     func onAnswer(_ error :String?) {
         
-        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+        
+        hideActivityViewIndicator()
 
         if error != nil {
   
@@ -76,6 +70,30 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    
+    //MARk : - Loading
+    
+    func showActivityViewIndicator(){
+        
+        if dgActivityIndicatorView == nil {
+            dgActivityIndicatorView = DGActivityIndicatorView.init(type: .cookieTerminator, tintColor: kColorHistoryGray, size: 40)
+            dgActivityIndicatorView?.center = self.center
+            self.addSubview(dgActivityIndicatorView!)
+            
+        }
+        
+        dgActivityIndicatorView!.startAnimating()
+        
+        
+    }
+    
+    func hideActivityViewIndicator(){
+        
+        dgActivityIndicatorView?.stopAnimating()
+        dgActivityIndicatorView?.removeFromSuperview()
+        dgActivityIndicatorView = nil
+        
+    }
     
     
     

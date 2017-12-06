@@ -189,6 +189,7 @@ class NotifApp {
         
         MemoryControll.setNotificationSaved()
 
+
     }
     
     static func getIdOfGameIfWeHaveAny() -> String?{
@@ -197,11 +198,7 @@ class NotifApp {
             return nil
         }
         
-        let game_id = getDataFromNotifString(open_from_notif!,1)
-        
-        removeNotifWithSameGameId(game_id)
-        
-        return game_id
+        return  getDataFromNotifString(open_from_notif!,1)
         
     }
  
@@ -269,14 +266,16 @@ class NotifApp {
             MemoryControll.saveNewNotif(notifItem.notif_id) 
 
         }
-         
+        
+        open_from_notif = notifItem.notif_id
+
         if app_is_active {
-            
+
             open_from_notif = notifItem.notif_id
-            
+
             // do something with these data if app was launched
             current_controller_core?.onActiveAppNotifRecieved(notifItem)
-            
+
         }
 
      }

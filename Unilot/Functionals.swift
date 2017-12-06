@@ -84,8 +84,8 @@ class NotifStruct {
 
 func saveToClipboard(_ text : String){
     UIPasteboard.general.string = text
-    let alert_text = TR("address") + "\n\n" + text + "\n\n" + TR("was-saved_in_memory")
-    SweetAlert().showAlert(alert_text)
+    let alert_text = TR("address") + ": " + text + " " + TR("was-saved_in_memory")
+    _ = SweetAlert().showAlert(" ", subTitle: alert_text, style: .success)
 }
 
 

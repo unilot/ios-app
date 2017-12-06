@@ -43,9 +43,7 @@ class LoadingView : ControllerCore{
     
     
     func prepereToEnter(){
-        
-        stopAnimating()
-        
+
         if open_from_notif == default_first_launch {
             
             openTutorialFirst()
@@ -147,9 +145,7 @@ class LoadingView : ControllerCore{
 
     
     func failComplete(_ error: String){
-        
-        stopAnimating()
-        
+
         showError(error)
  
         if let dataParse = MemoryControll.getObject("list_games") {
@@ -162,7 +158,7 @@ class LoadingView : ControllerCore{
     
     func init_notification_start(){
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(LoadingView.getSessionToken),
+                                               selector: #selector(getSessionToken),
                                                name: NSNotification.Name(rawValue: "enter_after_start"),
                                                object: nil)
     }

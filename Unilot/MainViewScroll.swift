@@ -62,8 +62,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
             
             initWas = true
         }
-
-    }
+     }
     
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -99,7 +98,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
     
     override func popViewWasClosed(){
         
-        main_pages[current_page].viewDataReload()
+        main_pages[current_page].viewDataReload(false)
         
     }
     
@@ -160,13 +159,20 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
     }
     
     
+    override func refreshAllViews(){
+         
+
+    }
+    
     func refreshView(_ newPage: Int){
         
         current_page = newPage
         
         fillSegmentNames()
         
-        pop_up_view?.onX(0.2)
+        for item in pop_up_view {
+            item.onX(0.2)
+        }
         
         openCurrentPage()
     
@@ -177,7 +183,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         scrollToCurrentPage()
 
         sendEvent(kEVENT_main_views[current_page])
-        
+
         main_pages[current_page].viewDataReload()
     }
     
@@ -193,8 +199,6 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         
         
         if type_ind == current_page {
-            
-            main_pages[current_page].fillLocalGameData()
         
             main_pages[current_page].viewDataReload()
             

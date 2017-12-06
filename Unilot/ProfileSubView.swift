@@ -117,15 +117,18 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     func onIks(_ sender: MyButton){
         
         if let cell = sender.superview?.superview?.superview as? UITableViewCell{
+            
             currentTagForRemove = table.indexPath(for: cell)!.row
             
             let keyCurrent = users_account_number[currentTagForRemove]
 
-            SweetAlert().showAlert(" ", subTitle: TR("question_for_delete") + keyCurrent + "?", style: AlertStyle.warning, buttonTitle: TR("No"), buttonColor:UIColorFromRGB(0xD0D0D0) , otherButtonTitle: TR("Yes"), otherButtonColor: UIColorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
+            SweetAlert().showAlert(" ", subTitle: TR("question_for_delete") + keyCurrent + "?", style: AlertStyle.warning, buttonTitle: TR("No"), buttonColor:UIColor.colorFromRGB(0xD0D0D0) , otherButtonTitle: TR("Yes"), otherButtonColor: UIColor.colorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
                 if isOtherButton == true {
                     self.currentTagForRemove = -1
                 }
                 else {
+                    
+                    SweetAlert().showAlertDeletedComplete()
                     self.onDelete()
                  }
             }
@@ -220,6 +223,7 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
             first!.backgroundColor = UIColor.clear
             first!.font = UIFont(name: kFont_Light, size: 16)
             first!.adjustsFontSizeToFitWidth = true
+            first!.isUserInteractionEnabled = false
             fon!.addSubview(first!)
         }
         

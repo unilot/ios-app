@@ -252,7 +252,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         for i in 1..<5 {
             
             let uibutton = customTabBar.viewWithTag(i*1000000) as! UIButton
-            uibutton.addTarget(self, action: #selector(HistoryTable.onSegmentChange(_:)), for: .touchUpInside)
+            uibutton.addTarget(self, action: #selector(onSegmentChange), for: .touchUpInside)
              
             let imageView = customTabBar.viewWithTag(i*1000000+1) as! SpecialItem
 

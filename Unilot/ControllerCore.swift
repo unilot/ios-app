@@ -16,7 +16,7 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
 
     var itemBadge: SpecialItem?
 
-    weak var pop_up_view : PopUpCore?
+    var pop_up_view = [PopUpCore]()
 
     //MARK: - NOTIFICATION
  
@@ -43,12 +43,18 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
     func onUserCloseView(){
         
         // hide popUps
-        pop_up_view?.onX(0)
+//        pop_up_view?.onX(0)
 
     }
 
     func onUserOpenView(){
 
+        if ( NotifApp.getDataFromNotifString(open_from_notif,0) == kActionCompleted) {
+            
+            let type = NotifApp.getDataFromNotifString(open_from_notif,2)
+            
+            goToMainViewFromType(Int(type))
+        }
     
     }
     
@@ -224,7 +230,7 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
     
     func openInfoText(){
         let viewWithPlaces = InfoView.createInfoView()
-        pop_up_view = viewWithPlaces 
+        pop_up_view.append(viewWithPlaces)
         viewWithPlaces.initView(mainView: self.view,  directionSign: -1)
 
     }
@@ -241,9 +247,11 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
     
 
     func onRevealMenu(){
+        
         if revealViewController() != nil {
             revealViewController().revealToggle(nil)
         }
+        
     }
     
     @IBAction func onBackMenuArrow(){
@@ -274,7 +282,7 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
     func openTutorialFirst(){
         
         let viewWithPlaces = TutorialScroll.createTutorialScroll()
-        pop_up_view = viewWithPlaces
+        pop_up_view.append(viewWithPlaces)
         viewWithPlaces.hideMore = (open_from_notif == default_first_launch)
 
         viewWithPlaces.delegate = self
@@ -327,14 +335,7 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
     //MARK: - activityView
 
     func showActivityViewIndicator(){
-
-//        let size = CGSize(width: 40 , height: 40)
-//        startAnimating(size, type : NVActivityIndicatorType.lineScalePulseOut)
-//DGActivityIndicatorAnimationTypeBallGridPulse
-        
-        
-//        ballScaleMultiple
-        
+ 
         if dgActivityIndicatorView == nil {
             dgActivityIndicatorView = DGActivityIndicatorView.init(type: .cookieTerminator, tintColor: kColorHistoryGray, size: 40)
             dgActivityIndicatorView?.center = view.center
@@ -352,9 +353,7 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
         dgActivityIndicatorView?.stopAnimating()
         dgActivityIndicatorView?.removeFromSuperview()
         dgActivityIndicatorView = nil
-        
-
-//        stopAnimating()
+         
     }
     
     
@@ -366,7 +365,7 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
     
     func showError(_ error : String) {
 
-        SweetAlert().showAlert(" ", subTitle: error, style: AlertStyle.error)
+       _ = SweetAlert().showAlert(" ", subTitle: error, style: AlertStyle.error)
 
     }
     
@@ -378,7 +377,9 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
         
     }
     
-    
+    func refreshAllViews(){
+        
+    }
     //MARK: - animateView
  
     func animateAppearance(){

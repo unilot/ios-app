@@ -49,14 +49,15 @@ class PopUpCore: UIView  {
         directionInSign = directionSign
         let height = CGFloat(extraTop() + 500)
         let frameView =  frameCustom ??
-            CGRect(x: 10,   y: extraTop() + 50, width:  mainView.frame.width - 20, height: height)
+            CGRect(x: 10,   y: extraTop() + 70, width:  mainView.frame.width - 20, height: height)
         
         
         bigButtonFade = UIButton(frame: mainView.frame)
         bigButtonFade!.backgroundColor = UIColor.black
         bigButtonFade!.addTarget(self, action: #selector(PopUpCore.onX(_:)), for: .touchUpInside)
         bigButtonFade!.layer.opacity = 0.0
-        UIApplication.shared.keyWindow?.addSubview(bigButtonFade!)
+        current_controller_core?.view.addSubview(bigButtonFade!)
+//        UIApplication.shared.keyWindow?.addSubview(bigButtonFade!)
         
         self.layer.opacity = 0.0
         self.frame = CGRect(x: frameView.origin.x,
@@ -66,8 +67,9 @@ class PopUpCore: UIView  {
 
 
         setInitBorders()
-        
-        UIApplication.shared.keyWindow?.addSubview(self)
+        current_controller_core?.view.addSubview(self)
+
+//        UIApplication.shared.keyWindow?.addSubview(self)
  
         
         UIView.animate(withDuration: 0.4) {

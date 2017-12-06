@@ -215,8 +215,8 @@ class  LotteryItemsView : OnScrollItemCore,
         
         let viewWithPlaces = TotalPrizeFond.createTotalPrizeFond()
         viewWithPlaces.delegate = current_controller_core
-        current_controller_core!.pop_up_view = viewWithPlaces
-        
+        current_controller_core!.pop_up_view.append(viewWithPlaces)
+
         viewWithPlaces.initView(mainView: current_controller_core!.view, directionSign: 1)
         
     }
@@ -232,7 +232,7 @@ class  LotteryItemsView : OnScrollItemCore,
         
         let viewWithPlaces = AgreeToPlay.createAgreeToPlay()
         viewWithPlaces.delegate = current_controller_core
-        current_controller_core!.pop_up_view = viewWithPlaces
+        current_controller_core!.pop_up_view.append(viewWithPlaces)
         viewWithPlaces.initView(mainView: current_controller_core!.view, directionSign: 1)
 
         sendEvent("EVENT_\(kEVENTS_middle[current_game.type]!)_PARTICIPATE")

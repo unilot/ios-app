@@ -10,7 +10,7 @@
 
  
 
-let is_mod_production          = true
+let is_mod_production          = false
 
 let current_version            = "1.0.0"
 let current_build              = "20"
@@ -21,9 +21,14 @@ let app_name                   = "Unilot"
 
 let kLink_FB            = "https://www.facebook.com/unilot.io/"
 let kLink_LinkedIn      = "https://www.linkedin.com/company/unilot"
-let kLink_Reddit        = "https://www.reddit.com/user/unilot_lottery/"
-let kLink_Twitter       = "https://twitter.com/unilot_lottery"
-let kLink_Telegram      = "https://t.me/unilot_channel"
+let kLink_Reddit        = "https://www.reddit.com/r/Unilot/"
+let kLink_Twitter       = "https://twitter.com/unilot_platform"
+let kLink_Telegram      = "https://t.me/Uniloteng"
+let kLink_Steemit       = "https://steemit.com/@unilot"
+let kLink_Medium        = "https://medium.com/@unilot"
+let kLink_Linkedin      = "https://www.linkedin.com/company/18284068/"
+let kLink_YouTube       = "https://www.youtube.com/channel/UCNdn2maOQEbYwpNK4Yaoxqw"
+
 
 let kLink_AppStore      = "itms://itunes.apple.com/de/app/x-gift/id839686104?mt=8&uo=4"
 
@@ -99,6 +104,9 @@ let staticClockNames =
 
 var langCodes = ["en","ru"]
 
+var langCodesSite = ["en-us","ru-ru"]
+
+
 var setting_strings =  [ ["daily2","weekly2","bonus2" ],  ["English","Русский"]]
 
 var tabbar_strings =   ["daily1","weekly1","bonus1","profile"]
@@ -109,7 +117,8 @@ let kEmpty = ""
 
 //MARK: - EVENTS
 
-let kEVENT_menuLeft = ["EVENT_FB","EVENT_TG","EVENT_REDDIT","EVENT_TWITTER"]
+let kEVENT_menuLeft = ["EVENT_FB","EVENT_TG","EVENT_REDDIT","EVENT_TWITTER",
+                       "EVENT_STEEMIT","EVENT_MEDIUM","EVENT_LINKEDIN","EVENT_YOUTUBE"]
 
 
 let kEVENT_main_views = ["EVENT_DAILY", "EVENT_WEEKLY", "EVENT_BONUS",  "EVENT_PROFIL"]

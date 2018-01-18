@@ -33,7 +33,7 @@
 
 "settings"                  = "Настройки";
 "profile"                   = "Профиль";
-"presentation"              = "Презентация";
+"wp"                        = "White Paper";
 "details"                   = "История розыгрыша";
 "history_of_drawings"       = "История розыгрышей";
 
@@ -151,6 +151,6 @@
 
 //MARK: -  FILES NAME
 
-"soon"                      = "Скорo";
+"soon"                      = "сайт";
 "HDIW"                      = "HDIW_ru";
 

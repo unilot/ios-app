@@ -8,6 +8,32 @@
 
 import UIKit
 
+
+
+class WPView : WebCore {
+    
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        sendEvent("EVENT_WHITE_PAPER")
+
+        let url_line =   "https://unilot.io/\(langCodesSite[current_language_ind])/wp.html"
+ 
+        openPage(url_line)
+    }
+    
+    
+    override func setTitle() {
+        
+        navigationItem.title = TR("wp")
+
+    }
+    
+}
+
+
 class IcoView : WebCore {
     
     
@@ -18,7 +44,8 @@ class IcoView : WebCore {
         sendEvent("EVENT_ICO")
 
  
-        let url_line =   "https://unilot.io/\(langCodes[current_language_ind])/"
+        let url_line =   "https://unilot.io/\(langCodesSite[current_language_ind])/"
+        
         
         openPage(url_line)
     }
@@ -42,7 +69,7 @@ class FAQView : WebCore {
         sendEvent("EVENT_FAQ")
         
         let url_line =   kServer + langCodes[current_language_ind] + "/mobile/faq"
- 
+
         openPage(url_line)
     }
  

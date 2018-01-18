@@ -26,15 +26,15 @@ class WhitePapersView : WebCore {
     
     override func setTitle() {
         
-        navigationItem.title = TR("presentation")
-        sendEvent("EVENT_PRESENTATION")
+        navigationItem.title = TR("wp")
+        sendEvent("EVENT_WHITE_PAPER")
     }
 
     
     func getAddressForFile() -> URL? {
         
 //        let file_line =   "UNILOT_\(langCodes[current_language_ind])"
-        
+//
 //        return Bundle.main.url(forResource: file_line, withExtension: "pdf", subdirectory: nil, localization: nil)
         
         return URL(string: kPDF_files[current_language_ind])

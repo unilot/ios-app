@@ -50,12 +50,12 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
         
         history.text = TR("history_of_drawings")
         how.text = TR("how_it_works")
-        wp.text = TR("presentation")
+        wp.text = TR("wp")
         faq.text = TR("faq")
         settings.text = TR("settings")
         socials.text = TR("stay_tuned:")
         
-        ico_image.image = UIImage(named : TR("soon"))
+        ico_image.image = UIImage(named : TR("site"))
         ico_image.contentMode = .scaleAspectFit
 
     }
@@ -68,19 +68,22 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
         
         switch indexPath.section {
         case 0: // header
-            return rowOneHeight * 2
+            return rowOneHeight * 1.7
+//            return min(CGFloat(tableView.frame.height - rowOneHeight * 10.5), rowOneHeight * 1.5 )
 
         case 1: // 4 main buttons
             return rowOneHeight
             
         case 2: // 1 settings
-            return rowOneHeight * 1.5
+            return rowOneHeight * 1.7
 
         case 3: // 1 ico button
-            return rowOneHeight * 2
+            return rowOneHeight * 2.5
 
         default: // socials
-            return CGFloat(tableView.frame.height - rowOneHeight * 9.5)
+            
+            return rowOneHeight * 5
+                // CGFloat(tableView.frame.height - rowOneHeight * 9.5)
         }
         
     }
@@ -93,7 +96,7 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
         
         ["SB_HistoryTable",
          "SB_HowDoesItWork",
-         "SB_WhitePapersView",
+         "SB_WPView",
          "SB_FAQ"],
         
         ["SB_SettingsView"],
@@ -124,7 +127,8 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
         
         let link_tag = sender.tag / 100 - 1
         
-        let links = [kLink_FB, kLink_Telegram, kLink_Reddit, kLink_Twitter]
+        let links = [kLink_FB, kLink_Telegram, kLink_Reddit, kLink_Twitter,
+                     kLink_Steemit, kLink_Medium, kLink_LinkedIn, kLink_YouTube]
  
         sendEvent(kEVENT_menuLeft[link_tag])
         

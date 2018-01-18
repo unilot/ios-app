@@ -33,7 +33,7 @@
 
 "settings"                  = "Settings";
 "profile"                   = "Profile";
-"presentation"              = "Presentation";
+"wp"                        = "White Paper";
 "details"                   = "Details";
 "history_of_drawings"       = "History of drawings";
 
@@ -150,5 +150,5 @@
 
 //MARK: -  FILES NAME
 
-"soon"                      = "Soon";
+"site"                      = "site";
 "HDIW"                      = "HDIW_en";

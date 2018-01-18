@@ -141,7 +141,7 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
     
     func setTitle() {
         
-        let image = setImageForTitle(CGSize(width: 102, height: 35), "unilotmenu-item")
+        let image = setImageForTitle(CGSize(width: 102, height: 30), "unilotmenu-item")
         
         navigationItem.titleView = image
         

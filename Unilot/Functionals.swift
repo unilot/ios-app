@@ -355,6 +355,8 @@ func setImageForTitle(_ sizeOfView : CGSize, _ imageName : String) -> UIView{
                                            height: sizeOfView.height))
     bgView.backgroundColor = UIColor.clear
     
+    bgView.contentMode = .scaleAspectFit
+    
     bgView.image = UIImage(named: imageName)
     
     return bgView
@@ -458,15 +460,13 @@ func saveDeviceSettings(){
 func sendEvent( _ line : String, _ params : [String : Any]? = nil){
     
     Answers.logCustomEvent(withName: line, customAttributes: params)
-  
- }
+}
 
 func message_to_Crashlytics(line : String? = nil, description : String? = nil, body : Any? = nil, error: Error? = nil) -> String {
     
     if error != nil {
         
         Crashlytics.sharedInstance().recordError(error!)
-        
         
     } else {
         

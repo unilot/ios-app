@@ -13,7 +13,7 @@
 let is_mod_production          = false
 
 let current_version            = "1.0.0"
-let current_build              = "20"
+let current_build              = "35"
 
 let app_name                   = "Unilot"
 

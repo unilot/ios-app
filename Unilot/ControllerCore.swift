@@ -338,6 +338,7 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
  
         if dgActivityIndicatorView == nil {
             dgActivityIndicatorView = DGActivityIndicatorView.init(type: .cookieTerminator, tintColor: kColorHistoryGray, size: 40)
+dgActivityIndicatorView?.
             dgActivityIndicatorView?.center = view.center
             view.addSubview(dgActivityIndicatorView!)
 

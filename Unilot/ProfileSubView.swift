@@ -9,8 +9,123 @@
 import UIKit
 import AVFoundation 
 
+
+import UIKit
+
+class ProfileViewController: ControllerCore {
+    
+    var profile_tab : ProfileSubView!
+
+     override func setTitle() {
+ 
+        navigationItem.title = " "
+        
+        sendEvent("EVENT_PROFIL")
+    }
+    
+    
+    override func onInfoBarButton(){
+        
+        onShowWalletsAlert()
+        
+    }
+
+    
+    //MARK: - Views Load override
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        profile_tab.stopAllSchedule()
+        
+    }
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        view.clipsToBounds = true
+
+        setNavControllerClear()
+        
+        setFon()
+        
+        setTitle()
+        
+        addMenuButton()
+        
+        addInfoButton()
+        
+        
+    }
+
+
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
+ 
+        addMainView()
+        
+        if open_from_notif == default_first_launch {
+            
+            open_from_notif = nil
+            
+            onInfoBarButton()
+        }
+    }
+    
+    
+    
+    
+    func addMainView(){
+  
+        current_controller_core = self
+
+        profile_tab = getFromNib("ProfileView") as! ProfileSubView
+        profile_tab.frame = CGRect(x: 0, y: getStatusbarShift() / 2, width: view.frame.width, height: view.frame.height)
+        profile_tab.didLoad(0)
+        profile_tab.revealPlayButton()
+        view.addSubview(profile_tab)
+    }
+    
+   
+    
+    //MARK: -  FROM NIB
+    
+    func getFromNib(_ name : String) -> OnScrollItemCore {
+        
+        let nib_body = UINib(nibName: name, bundle: nil)
+        
+        return nib_body.instantiate(withOwner: nil, options: nil)[0] as! OnScrollItemCore
+    }
+    
+    
+    
+    override func onQRAnswer(_ haveText : String?){
+        
+        profile_tab.onQRAnswer(haveText)
+        
+    }
+    
+    @objc func onGoToGames(){
+        
+        current_controller_core?.goToMainView(getTabBarTag())
+        
+    }
+    
+    //MARK: - size text
+    
+    
+
+    
+    
+}
+
 class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegate, UITableViewDataSource {
         
+    @IBOutlet weak var letsPlay: UIButton!
+
     @IBOutlet weak var titleAddMore: UILabel!
     
     @IBOutlet weak var fieldPurse: JSInputField!
@@ -33,11 +148,33 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     
     override func stopAllSchedule(){
        
-        fieldPurse.resignFirstResponder()
+     fieldPurse.resignFirstResponder()
         
     }
     
-    
+    func revealPlayButton(){
+        
+        var opacity : Float!
+        var isUserInteraction : Bool!
+        
+        if users_account_number.count > 0 {
+            
+            opacity = 1.0
+            isUserInteraction = true
+ 
+        } else {
+
+            opacity = 0.0
+            isUserInteraction = false
+
+        }
+        
+        UIView.animate(withDuration: 1, animations: {
+            self.letsPlay.layer.opacity = opacity
+            self.letsPlay.isUserInteractionEnabled = isUserInteraction
+        })
+    }
+     
     //MARK: -
 
     func setTextField(){
@@ -50,10 +187,15 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     
     
     func fillWithData(){
+        
         titleAddMore.text = TR("add_wallet_address")
         titleMain.text = TR("your_wallets")
         fieldPurse.placeholder = TR("your_wallet_address")
         checkMorePurses.setTitle(TR("add") + " +", for: .normal)
+        letsPlay.setTitle(TR("lets_start"), for: .normal)
+        letsPlay.addTarget(current_controller_core!,
+                           action: #selector(ProfileViewController.onGoToGames),
+                           for: .touchUpInside)
     }
     
     
@@ -151,6 +293,7 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
             
             saveDataInMemory()
             currentTagForRemove = -1
+            revealPlayButton()
         }
     }
     
@@ -166,6 +309,9 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
             saveDataInMemory()
             
             fieldPurse.text = nil
+            
+            revealPlayButton()
+
         }
         
     }
@@ -183,6 +329,14 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
         
         current_controller_core?.onQRScan(sender)
     }
+    
+    @IBAction func onGoToGames(_ sender : Any){
+        
+        current_controller_core?.goToMainView(getTabBarTag())
+
+    }
+    
+    
     
     func onQRAnswer(_ haveText : String?){
         if let text = haveText{

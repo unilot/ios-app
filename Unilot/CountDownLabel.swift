@@ -158,7 +158,7 @@ class CountDownLabel: UIImageView  {
     }
     
     
-    func doUpdate() -> Bool{
+   @objc func doUpdate() -> Bool{
         
         if changeCounts() {
         

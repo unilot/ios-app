@@ -212,6 +212,10 @@ class  LotteryItemsView : OnScrollItemCore,
     
     
     @IBAction func onPrizePlaces(){
+ 
+        if pop_up_upper_view != nil {
+            return
+        }
         
         let viewWithPlaces = TotalPrizeFond.createTotalPrizeFond()
         viewWithPlaces.delegate = current_controller_core
@@ -223,6 +227,10 @@ class  LotteryItemsView : OnScrollItemCore,
     
     
     @IBAction func onTakePart(){
+ 
+        if pop_up_upper_view != nil {
+            return
+        }
         
         if current_game.status != kStatusPublished {
             return
@@ -237,6 +245,7 @@ class  LotteryItemsView : OnScrollItemCore,
 
         sendEvent("EVENT_\(kEVENTS_middle[current_game.type]!)_PARTICIPATE")
     }
+
     
     
     
@@ -253,8 +262,7 @@ class  LotteryItemsView : OnScrollItemCore,
         viewWithPlaces.delegate = current_controller_core
         
         viewWithPlaces.initView(mainView: current_controller_core!.view, directionSign: 1)
-
-        
+ 
     }
     
     
@@ -265,8 +273,7 @@ class  LotteryItemsView : OnScrollItemCore,
         viewWithPlaces.user_data = user
         
         viewWithPlaces.initView(mainView: current_controller_core!.view, directionSign: 1)
-
-        
+ 
     }
     
     

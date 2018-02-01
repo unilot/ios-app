@@ -26,7 +26,6 @@ let kLink_Twitter       = "https://twitter.com/unilot_platform"
 let kLink_Telegram      = "https://t.me/Uniloteng"
 let kLink_Steemit       = "https://steemit.com/@unilot"
 let kLink_Medium        = "https://medium.com/@unilot"
-let kLink_Linkedin      = "https://www.linkedin.com/company/18284068/"
 let kLink_YouTube       = "https://www.youtube.com/channel/UCNdn2maOQEbYwpNK4Yaoxqw"
 
 
@@ -50,8 +49,9 @@ let kTypeHour = 5
 let kTypeDay = 10
 let kTypeWeek = 30
 let kTypeMonth = 50
+let kTypeToken = 70
 let kTypeUndefined = 0
-let kTypeProfile = 100
+let kTypeProfileView = 666
 
 
 let kStatusUndefined = -1
@@ -86,13 +86,13 @@ let staticClockSecondsStep = [1,60,3600]
 
 
 
-let default_first_launch     = "&&\(kTypeProfile)"
+let default_first_launch     = "&&\(kTypeProfileView)"
 
-var lottery_images   = ["`1day-x3","`7days-x3","`31days-x3","`profile-x3"]
-var histiry_images   = ["`alldays-x3","`1day-x3","`7days-x3","`31days-x3" ]
+var lottery_images   = ["`1day-x3","`7days-x3","`31days-x3","`token-x3"]
+var histiry_images   = ["`alldays-x3","`1day-x3","`7days-x3","`31days-x3","`token-x3" ]
 
-var kTypeImage       = [kTypeDay : "`1day-x3", kTypeWeek : "`7days-x3", kTypeMonth : "`31days-x3"]
-var kTypeTabBarOrder = [kTypeDay, kTypeWeek, kTypeMonth, kTypeProfile]
+var kTypeImage       = [kTypeDay : "`1day-x3", kTypeWeek : "`7days-x3", kTypeMonth : "`31days-x3",kTypeToken : "`token-x3"]
+var kTypeTabBarOrder = [kTypeDay, kTypeWeek, kTypeMonth, kTypeToken]
 
 
 let staticClockNames =
@@ -103,29 +103,29 @@ let staticClockNames =
 ]
 
 var langCodes = ["en","ru"]
+var langCodesImages = ["eng","rus"]
 
 var langCodesSite = ["en-us","ru-ru"]
 
 
-var setting_strings =  [ ["daily2","weekly2","bonus2" ],  ["English","Русский"]]
+var setting_strings =  [ ["daily2","weekly2","bonus2","token2" ],  ["English","Русский"]]
 
-var tabbar_strings =   ["daily1","weekly1","bonus1","profile"]
-var history_tabbbar  =   ["all","daily1","weekly1","bonus1"]
+var tabbar_strings =   ["daily1","weekly1","bonus1","token1"]
+var history_tabbbar  =   ["all","daily1","weekly1","bonus1","token1"]
 
 let kEmpty = ""
 
 
 //MARK: - EVENTS
 
-let kEVENT_menuLeft = ["EVENT_FB","EVENT_TG","EVENT_REDDIT","EVENT_TWITTER",
-                       "EVENT_STEEMIT","EVENT_MEDIUM","EVENT_LINKEDIN","EVENT_YOUTUBE"]
+let kEVENT_menuLeft = ["EVENT_FB","EVENT_TG","EVENT_REDDIT","EVENT_TWITTER","EVENT_MEDIUM"]
 
 
-let kEVENT_main_views = ["EVENT_DAILY", "EVENT_WEEKLY", "EVENT_BONUS",  "EVENT_PROFIL"]
+let kEVENT_main_views = ["EVENT_DAILY", "EVENT_WEEKLY", "EVENT_BONUS",  "EVENT_TOKEN"]
 
 
 
-let kEVENTS_middle : [Int : String] =  [kTypeDay : "DAILY", kTypeWeek : "WEEKLY", kTypeMonth : "BONUS"]
+let kEVENTS_middle : [Int : String] =  [kTypeDay : "DAILY", kTypeWeek : "WEEKLY", kTypeMonth : "BONUS", kTypeToken : "TOKEN"]
 
 
 //MARK: - TAGS

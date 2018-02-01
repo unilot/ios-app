@@ -18,7 +18,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
 
     var currentTable = 0
     
-    var dataForSegment: [[GameInfo]] = [[],[],[],[]]
+    var dataForSegment: [[GameInfo]] = [[],[],[],[],[]]
     
     override func viewDidLoad() {
         
@@ -76,14 +76,13 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     
         sendEvent("EVENT_HISTORY_VIEW")
     }
-
-
+ 
     
     func onFillDataForSegment(){
         
         dataForSegment[0] = history_list
         
-        for i in 0..<3 {
+        for i in 0..<dataForSegment.count-1 {
             dataForSegment[i+1] = history_list.filter({return $0.type == kTypeTabBarOrder[i]})
         }
 
@@ -216,8 +215,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
  
     
     //MARK: - onBUttons
-    
-    
+ 
     func onSegmentChange(_ button : UIButton){
         
         currentTable = button.tag/1000000 - 1
@@ -249,10 +247,10 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         
         let customTabBar = view.viewWithTag(666666)!
          
-        for i in 1..<5 {
+        for i in 1..<6 {
             
             let uibutton = customTabBar.viewWithTag(i*1000000) as! UIButton
-            uibutton.addTarget(self, action: #selector(onSegmentChange), for: .touchUpInside)
+            uibutton.addTarget(self, action: #selector(HistoryTable.onSegmentChange(_:)), for: .touchUpInside)
              
             let imageView = customTabBar.viewWithTag(i*1000000+1) as! SpecialItem
 

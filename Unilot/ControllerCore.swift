@@ -47,6 +47,14 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
 
     }
 
+    
+    func closeAllPopUps(){
+        
+        for item in pop_up_view {
+            item.onX(0)
+        }
+    }
+    
     func onUserOpenView(){
 
         if ( NotifApp.getDataFromNotifString(open_from_notif,0) == kActionCompleted) {
@@ -92,13 +100,17 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         
+        closeAllPopUps()
+
         hideActivityViewIndicator()
         
         super.viewWillDisappear(animated)
         
         self.view.isUserInteractionEnabled = false
         
-    } 
+
+        
+    }
     //MARK: - Buttons
     
     
@@ -120,7 +132,7 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
         
         let infoB = UIBarButtonItem(image: UIImage(named:"info2-x3"), style: .plain,
                                        target: self,
-                                       action: #selector(ControllerCore.onInfoBarButton(_:)) )
+                                       action: #selector(ControllerCore.onInfoBarButton) )
         
         infoB.tintColor =  kColorLightGray
         
@@ -181,6 +193,17 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
         navigationController?.popToViewController(rootViewController, animated: true)
     }
     
+    func setProfileViewFirst(){
+ 
+        let rootViewController = getVCFromName("SB_ProfileViewController")
+        
+        var cntrllrs =   navigationController!.viewControllers
+        cntrllrs.insert(rootViewController, at: 0)
+        
+        navigationController!.setViewControllers(cntrllrs, animated: true)
+        navigationController?.popToViewController(rootViewController, animated: true)
+    }
+    
     func goToFAQ( ){
         
         let rootViewController = getVCFromName("SB_FAQ")
@@ -211,11 +234,28 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
         openUrlFromApp(kLink_AppStore)
     }
     
-    @IBAction func onInfoBarButton(_ sender: UIBarButtonItem){
+    @IBAction func onInfoBarButton(){
     
         onTutorialWithButton()
 
     }
+    
+    
+    
+    func onShowWalletsAlert(){
+        
+        if pop_up_upper_view != nil {
+            return
+        }
+ 
+        let viewWithPlaces = WalletsAlert.createWalletsAlert()
+        viewWithPlaces.delegate = current_controller_core
+        viewWithPlaces.initView(mainView: self.view, directionSign: 1)
+        
+        sendEvent("EVENT_WALLETS_ALERT")
+        
+    }
+    
     
     func onTutorialWithButton(){
         
@@ -229,6 +269,11 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
     }
     
     func openInfoText(){
+ 
+        if pop_up_upper_view != nil {
+            return
+        }
+        
         let viewWithPlaces = InfoView.createInfoView()
         pop_up_view.append(viewWithPlaces)
         viewWithPlaces.initView(mainView: self.view,  directionSign: -1)
@@ -246,7 +291,7 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
     }
     
 
-    func onRevealMenu(){
+   @objc func onRevealMenu(){
         
         if revealViewController() != nil {
             revealViewController().revealToggle(nil)
@@ -260,6 +305,10 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
     }
 
     @IBAction func onQRScan(_ sender: Any) {
+ 
+        if pop_up_upper_view != nil {
+            return
+        }
         
         let viewWithPlaces = ScannerViewController.create()
         viewWithPlaces.delegate = current_controller_core
@@ -280,6 +329,10 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
     //MARK: - tutorial
      
     func openTutorialFirst(){
+ 
+        if pop_up_upper_view != nil {
+            return
+        }
         
         let viewWithPlaces = TutorialScroll.createTutorialScroll()
         pop_up_view.append(viewWithPlaces)
@@ -289,6 +342,7 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
         
         view.setNeedsLayout()
         view.layoutIfNeeded()
+        
         let frameForView = CGRect(x: 0, y: 0,
                                   width: view.frame.width,
                                   height: view.frame.height)
@@ -323,7 +377,7 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
         
     }
     
-    func handleViewTap(recognizer: UIGestureRecognizer) {
+    @objc func handleViewTap(recognizer: UIGestureRecognizer) {
         
             answerFromKeyBoardClosed()
         
@@ -338,7 +392,7 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
  
         if dgActivityIndicatorView == nil {
             dgActivityIndicatorView = DGActivityIndicatorView.init(type: .cookieTerminator, tintColor: kColorHistoryGray, size: 40)
-dgActivityIndicatorView?.
+ 
             dgActivityIndicatorView?.center = view.center
             view.addSubview(dgActivityIndicatorView!)
 

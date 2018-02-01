@@ -13,7 +13,7 @@ class TutorialScroll : PopUpCore , UIScrollViewDelegate{
     
     // MARK: Loadings
     
-    let pagesCount = 5
+    let pagesCount = 7
 
     
     @IBOutlet weak var scroll: UIScrollView!
@@ -47,9 +47,11 @@ class TutorialScroll : PopUpCore , UIScrollViewDelegate{
         want_more.layer.opacity = 0
         lets_start.layer.opacity = 0
         
+        let lang = langCodesImages[current_language_ind]
+        
         for index in 0..<pagesCount {
             
-            let subView = UIImageView(image: UIImage(named: "\(1+index)_" + langCodes[current_language_ind]))
+            let subView = UIImageView(image: UIImage(named: "\(1+index)_" + lang))
             subView.frame =  CGRect(x: scroll.frame.size.width * CGFloat(index) + 30,
                                     y: 0,
                                     width:  scroll.frame.width - 60,
@@ -69,7 +71,7 @@ class TutorialScroll : PopUpCore , UIScrollViewDelegate{
         pages.numberOfPages = pagesCount
         scroll.contentSize = CGSize(width: scroll.frame.size.width * CGFloat(pagesCount),
                                         height: scroll.frame.size.height)
-        pages.addTarget(self, action: #selector(changePage), for: .valueChanged)
+        pages.addTarget(self, action: #selector(TutorialScroll.changePage), for: .valueChanged)
 
         changeText(0)
         
@@ -78,10 +80,13 @@ class TutorialScroll : PopUpCore , UIScrollViewDelegate{
         lets_start.setTitle(TR("lets_start"), for: .normal)
 
         self.isUserInteractionEnabled = true
-         
+        
+        if open_from_notif == default_first_launch {
+            skip.isHidden = true
+        }
     }
     
-    func changePage(_ sender: AnyObject) -> () {
+    @objc func changePage(_ sender: AnyObject) -> () {
         let x = CGFloat(pages.currentPage) * scroll.frame.size.width
         scroll.setContentOffset(CGPoint(x: x, y: 0), animated: true)
         changeText(pages.currentPage)

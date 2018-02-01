@@ -100,7 +100,8 @@ class NetWork : NetWorkParse {
                                    "language" : langCodes[current_language_ind],
                                    "dayly_game_notifications_enabled" : notifications_switch[0],
                                    "weekly_game_notifications_enabled" : notifications_switch[1],
-                                   "bonus_game_notifications_enabled" : notifications_switch[2] ]
+                                   "bonus_game_notifications_enabled" : notifications_switch[2],
+                                   "token_game_notifications_enabled" : notifications_switch[3]]
         
         Alamofire.request(kServer + kAPI_post_settings,
                           method: HTTPMethod.post,

@@ -239,7 +239,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
         
     }
     
-    func doUpdate(){
+    @objc func doUpdate(){
         
         let delay = updateLabels()
         

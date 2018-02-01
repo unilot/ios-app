@@ -14,8 +14,6 @@ import UIKit
 class MainViewScroll: ControllerCore , UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView : UIScrollView!
-    
-    var profile_tab : ProfileSubView!
 
     var main_pages = [OnScrollItemCore]()
     
@@ -63,14 +61,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
             initWas = true
         }
      }
-    
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        
-        super.viewWillDisappear(animated)
-        
-        
-    }
+     
   
      //MARK: -
     
@@ -100,13 +91,6 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         
         main_pages[current_page].viewDataReload(false)
         
-    }
-    
-    
-    override func onQRAnswer(_ haveText : String?){
-        
-        profile_tab.onQRAnswer(haveText)
-
     }
     
     
@@ -147,13 +131,13 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
 
         
         frame.origin.x += scrollView.frame.width
-        profile_tab = getFromNib("ProfileView") as! ProfileSubView
-        profile_tab.frame = frame
-        profile_tab.didLoad(3)
-        scrollView.addSubview(profile_tab)
+        let token_tab = getFromNib("ViewMain") as! DailyLottery
+        token_tab.frame = frame
+        token_tab.didLoad(3)
+        scrollView.addSubview(token_tab)
          
 
-        main_pages = [first_tab,second_tab,third_tab,profile_tab]
+        main_pages = [first_tab,second_tab,third_tab,token_tab]
         scroll_offset = scrollView.frame.width * 3
         
     }
@@ -170,9 +154,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         
         fillSegmentNames()
         
-        for item in pop_up_view {
-            item.onX(0.2)
-        }
+        closeAllPopUps() 
         
         openCurrentPage()
     
@@ -245,7 +227,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
     }
     
     
-    //MARK: -  Pan gesture
+    //MARK: -  FROM NIB
     
     func getFromNib(_ name : String) -> OnScrollItemCore {
        
@@ -323,7 +305,6 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         case .began:
             // User began dragging
             
-            profile_tab.stopAllSchedule()
             
             break
         case .changed:

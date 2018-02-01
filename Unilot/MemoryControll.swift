@@ -10,7 +10,8 @@ import UIKit
 
 var current_language_ind = 0
 
-var notifications_switch = [true,true,true]
+var notifications_switch = [true,true,true,true]
+
 var users_account_number =  [String]()
 
 var tokenForNotifications = kEmpty
@@ -25,7 +26,7 @@ weak var current_controller_core : ControllerCore?
 
 class MemoryControll {
     
-    static var lastchangesStr : String = "123459479888"
+    static var lastchangesStr : String = "123459479889"
     
     
     //MARK: - DEFAULTS init

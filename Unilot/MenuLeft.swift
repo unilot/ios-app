@@ -19,9 +19,10 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
     @IBOutlet weak var wp: UILabel!
     @IBOutlet weak var faq: UILabel!
     @IBOutlet weak var settings: UILabel!
-    @IBOutlet weak var socials: UILabel!
+    @IBOutlet weak var profile: UILabel!
 
-    
+    @IBOutlet weak var info: UILabel!
+
     //MARK: - View override
 
     override func viewDidLoad() {
@@ -48,13 +49,14 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
         
         itemBadge.setNumberLabel(notification_data.count)
         
+        profile.text = TR("profile")
         history.text = TR("history_of_drawings")
+        settings.text = TR("settings")
+
         how.text = TR("how_it_works")
         wp.text = TR("wp")
         faq.text = TR("faq")
-        settings.text = TR("settings")
-        socials.text = TR("stay_tuned:")
-        
+        info.text = "Version : " + current_version + " Closed Beta"
         ico_image.image = UIImage(named : TR("site"))
         ico_image.contentMode = .scaleAspectFit
 
@@ -68,56 +70,62 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
         
         switch indexPath.section {
         case 0: // header
-            return rowOneHeight * 1.7
+            return rowOneHeight
 //            return min(CGFloat(tableView.frame.height - rowOneHeight * 10.5), rowOneHeight * 1.5 )
 
-        case 1: // 4 main buttons
-            return rowOneHeight
-            
-        case 2: // 1 settings
-            return rowOneHeight * 1.7
+        case 1: // 6 main buttons
+            if indexPath.row == 3 {
+                return 10
+            } else {
+                return rowOneHeight
+            }
 
         case 3: // 1 ico button
-            return rowOneHeight * 2.5
+            return rowOneHeight * 1.8
 
-        default: // socials
+
+        case 4: // socials
+            return rowOneHeight * 1.4
+        
+        default: // static info
             
-            return rowOneHeight * 5
-                // CGFloat(tableView.frame.height - rowOneHeight * 9.5)
+            return rowOneHeight * 1.3
         }
         
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        var viewsNames = [
+        var viewsNames : [[String]] = [
         
         ["SB_MainViewScroll"],
         
-        ["SB_HistoryTable",
+        [
+         "SB_ProfileViewController",
+         "SB_HistoryTable",
+         "SB_SettingsView",
+         kEmpty,
          "SB_HowDoesItWork",
          "SB_WPView",
          "SB_FAQ"],
         
-        ["SB_SettingsView"],
-        
         ["SB_IcoView"],
-
-        [nil]
+ 
+        [kEmpty], [kEmpty], [kEmpty]
 
         ]
-     
         
-            
-        if let nameOfView = viewsNames[indexPath.section][indexPath.row]{
-            
-            if nameOfView == "SB_HowDoesItWork" {
-                revealViewController().revealToggle(animated: true)
-                current_controller_core?.onTutorialWithButton()
-            } else {
+        let nameOfView = viewsNames[indexPath.section][indexPath.row]
+        
+        if nameOfView == "SB_HowDoesItWork" {
+            revealViewController().revealToggle(animated: true)
+            current_controller_core?.onTutorialWithButton()
+        } else {
+            if nameOfView != kEmpty{
                 goToViewController(nameOfView)
             }
         }
+        
     }
 
     
@@ -127,8 +135,7 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
         
         let link_tag = sender.tag / 100 - 1
         
-        let links = [kLink_FB, kLink_Telegram, kLink_Reddit, kLink_Twitter,
-                     kLink_Steemit, kLink_Medium, kLink_LinkedIn, kLink_YouTube]
+        let links = [kLink_FB, kLink_Telegram, kLink_Reddit, kLink_Twitter, kLink_Medium]
  
         sendEvent(kEVENT_menuLeft[link_tag])
         

@@ -11,12 +11,45 @@ import SwiftySound
 import Firebase
 import Crashlytics
 
+import CoreImage
+
+
+//MARK: - barcode generate Vars
+
+class Barcode {
+    
+    static func fromString(string : String, forWidth : CGFloat) -> UIImage? {
+        
+        let data = string.data(using: .isoLatin1, allowLossyConversion: false)
+        let filter = CIFilter(name: "CIQRCodeGenerator")!
+        filter.setValue(data, forKey: "inputMessage")
+        let qrImage : CIImage = filter.outputImage!
+
+        //qrImageView is a IBOutlet of UIImageView
+        let scale = forWidth / qrImage.extent.size.width
+        
+        let resultQrImage = qrImage.transformed(by: CGAffineTransform(scaleX: scale, y: scale))
+        
+        return UIImage(ciImage: resultQrImage)
+
+    }
+    
+}
+
+
+
+
 //MARK: - Local Vars
 
 var startWas : Bool = false
 
 var local_current_game = GameInfo()
 var local_current_user = UserForGame()
+
+//MARK: - Tech settings
+
+var gas_limit = "210 000"
+var gas_price = "30"
 
 //MARK: - Structures
 

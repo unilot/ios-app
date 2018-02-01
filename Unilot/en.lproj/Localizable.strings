@@ -55,15 +55,18 @@
 "daily1"                    = "daily";
 "weekly1"                   = "weekly";
 "bonus1"                    = "bonus";
+"token1"                    = "token";
 
 
 "daily2"                    = "daily";
 "weekly2"                   = "weekly";
 "bonus2"                    = "bonus";
+"token2"                    = "token";
 
 "drawing1"                  = "drawing";
 "drawing2"                  = "drawing";
 "drawing3"                  = "drawing";
+"drawing4"                  = "drawing";
 
 
 "how_it_works"             = "How it works";
@@ -92,7 +95,6 @@
 
 "participate"               = "Participate";
 
-"stay_tuned:"               = "Stay tuned:";
 "left_till_end:"            = "Left till the end of drawing:";
 
 "in_process"                = "in process";
@@ -136,17 +138,37 @@
 
 "tutorial_text_2" = "Here is the wallet address you need to transfer the specified amount to. Please copy it.";
 
-"tutorial_text_3" = "Go to your wallet and transfer the necessary amount to the copied wallet address.";
+"tutorial_text_3" = "Here is the wallet address you need to transfer the specified amount to. Please copy it.";
 
-"tutorial_text_4" = "Return to the app, go to Profile and add your wallet address. Now you can get notifications about win or loss.";
+"tutorial_text_4" = "Here is the wallet address you need to transfer the specified amount to. Please copy it.";
 
-"tutorial_text_5" = "Wait for the results. If you loose in Daily or Weekly drawing, you will automatically become a participant of the Bonus Monthly Draw for free.";
+"tutorial_text_5" = "Go to your wallet and transfer the necessary amount to the copied wallet address.";
+
+"tutorial_text_6" = "Return to the app, go to Profile and add your wallet address. Now you can get notifications about win or loss.";
+
+"tutorial_text_7" = "Wait for the results. If you loose in Daily or Weekly drawing, you will automatically become a participant of the Bonus Monthly Draw for free.";
  
 "skip" = "Skip";
 "lets_start" = "Let's start!";
 "need_more_info" = "Want to know more";
 "faq" = "FAQ";
 "all" = "All";
+
+
+// MARK: - wallet Alerts
+
+"title_wallets_allert" = "Please specify address of the wallet that will be used to buy UNIT tokens.";
+
+"text_wallets_allert" = "Please note: \n \
+What application we RECOMMEND:\n \
+   • MyEtherWallet (http://myetherwallet.com/)\n   • Metamask browser extension (see details: https://metamask.io/) \n \
+Do NOT use this wallet applications for investment: \n  \
+   • Freewallet apps (https://freewallet.org/) \n   • Any wallet that is stored on exchange (coinbase, bitfinex, coinexchange, cex.io and etc) \n   • Any wallet application that doesn’t allow you to export and import your wallet freely without any extra condition (like write to support)";
+
+
+"button_wallets_allert" = "Got it";
+
+
 
 //MARK: -  FILES NAME
 

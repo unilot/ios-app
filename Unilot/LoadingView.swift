@@ -8,7 +8,23 @@
 
 import UIKit
 
-
+class RightNavigationController : UINavigationController{
+    
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+    
+        let rootViewController : UIViewController!
+        
+        if open_from_notif == default_first_launch {
+            rootViewController = getVCFromName("SB_ProfileViewController")
+        } else {
+            rootViewController = getVCFromName("SB_MainViewScroll")
+        }
+        
+        self.setViewControllers([rootViewController], animated:  true)
+    }
+    
+}
 
 class LoadingView : ControllerCore{
     
@@ -48,8 +64,6 @@ class LoadingView : ControllerCore{
             
             openTutorialFirst()
             
-            open_from_notif = nil
-
             UIView.animate(withDuration: 0.6, animations: {
                 
                 self.fon.layer.opacity = 0.0
@@ -65,7 +79,7 @@ class LoadingView : ControllerCore{
     }
     
     override func popViewWasClosed(){
-
+ 
         goToMainController()
 
     }
@@ -79,7 +93,10 @@ class LoadingView : ControllerCore{
             
         }) { (_ sender : Bool) in
             
+            NetWork.postDeviceSettings()
+
             self.goToMainController()
+
             
         }
 
@@ -165,13 +182,10 @@ class LoadingView : ControllerCore{
     
     func goToMainController(){
 
-        NetWork.postDeviceSettings()
-
         present(getVCFromName("SB_SWRevealViewController"), animated: false, completion: nil)
    
     }
-
-
+ 
     //MARK: - End Of Version screen
     
     override func addSwipeForMenuOpen() {

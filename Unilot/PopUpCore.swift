@@ -8,6 +8,7 @@
 
 import UIKit
 
+weak var pop_up_upper_view : PopUpCore?
 
 protocol PopUpCoreDelegate {
 
@@ -42,22 +43,40 @@ class PopUpCore: UIView  {
 
     func initView(mainView: UIView, directionSign: CGFloat, _ frameCustom : CGRect? = nil){
         
+        pop_up_upper_view = self
+        
         self.layoutIfNeeded()
         
         self.tag = kTag_PopUp
         
         directionInSign = directionSign
-        let height = CGFloat(extraTop() + 500)
-        let frameView =  frameCustom ??
-            CGRect(x: 10,   y: extraTop() + 70, width:  mainView.frame.width - 20, height: height)
         
-        
-        bigButtonFade = UIButton(frame: mainView.frame)
+        bigButtonFade = UIButton(frame:CGRect(x:0, y: 0,
+                                              width:  mainView.frame.width,
+                                              height: mainView.frame.height))
         bigButtonFade!.backgroundColor = UIColor.black
         bigButtonFade!.addTarget(self, action: #selector(PopUpCore.onX(_:)), for: .touchUpInside)
         bigButtonFade!.layer.opacity = 0.0
+ 
+ 
+        var frameView : CGRect!
 
+        if frameCustom == nil {
+            
+            let width  = mainView.frame.width * 0.95
+            let height  = width * 1.6 + getStatusbarShift()
+            
+            let shiftW =  (mainView.frame.width - width )
+            let shiftH =  (mainView.frame.height - height ) / 2
+            
+            frameView =  CGRect(x: shiftW,   y: shiftH + 25, width: width,  height: height)
+            
+        } else {
+            
+            frameView = frameCustom!
         
+        }
+
         self.layer.opacity = 0.0
         self.frame = CGRect(x: frameView.origin.x,
                             y: directionSign * mainView.frame.height,
@@ -104,13 +123,13 @@ class PopUpCore: UIView  {
     }
     
     
-    func onSwipeUpp(){
+    @objc  func onSwipeUpp(){
      
         directionInSign = 1
         onX()
     }
     
-    func onSwipeDown(){
+    @objc  func onSwipeDown(){
     
         directionInSign = -1
         onX()
@@ -124,7 +143,7 @@ class PopUpCore: UIView  {
     }
     
     
-    func onX(_ duration: Double = 0.4){
+    @objc func onX(_ duration: Double = 0.4){
 
         onWideX(duration)
     }
@@ -164,12 +183,11 @@ class PopUpCore: UIView  {
     }
     func deleteSelf(animated : Bool){
         
+        pop_up_upper_view = nil
         bigButtonFade?.removeFromSuperview()
         bigButtonFade = nil
         delegate?.popViewWasClosed()
         removeFromSuperview()
     }
-    
-    
  
 }

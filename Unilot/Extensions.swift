@@ -9,18 +9,16 @@
 import UIKit
 
 
-func extraTop() -> CGFloat {
-    
-    var top: CGFloat = 0
-    
-    if #available(iOS 11.0, *) {
-        
-        if let t = UIApplication.shared.keyWindow?.safeAreaInsets.top {
-            top = t
-        }
+func getStatusbarShift() -> CGFloat{
+    if #available(iOS 11, *) {
+        return  UIApplication.shared.keyWindow!.safeAreaInsets.top
+    } else {
+        return UIApplication.shared.statusBarFrame.size.height
     }
-    return top
 }
+
+
+
 extension String {
     
     subscript (i: Int) -> Character {
@@ -112,20 +110,18 @@ extension UIViewController {
     }
 }
 
+func getVCFromName(_ name: String) -> UIViewController{
+    
+    let storyBoard = UIStoryboard(name: "Main", bundle : nil )
+    let contrller = storyBoard.instantiateViewController(withIdentifier: name)
+    
+    return contrller
+}
+
 
 extension UIViewController{
       
-    
-    func getVCFromName(_ name: String) -> UIViewController{
-        
-        let storyBoard = UIStoryboard(name: "Main", bundle : nil )
-        let contrller = storyBoard.instantiateViewController(withIdentifier: name)
-        
-        return contrller
-    }
-    
-    
-    
+     
     func setNavControllerClear(){
         
         UINavigationBar.appearance().backgroundColor = UIColor.clear
@@ -142,8 +138,7 @@ extension UIViewController{
     }
     
 }
-
-
+ 
 
 @IBDesignable extension UIView {
     @IBInspectable var borderColor: UIColor? {

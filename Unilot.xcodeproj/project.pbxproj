@@ -42,6 +42,11 @@
 		B91D61D71FD55219006955DE /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = B91D61B21FD55219006955DE /* DGActivityIndicatorBallClipRotateAnimation.m */; };
 		B91D61D81FD55219006955DE /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = B91D61B31FD55219006955DE /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m */; };
 		B91D61DA1FD64269006955DE /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91D61D91FD64268006955DE /* SweetAlert.swift */; };
+		B927C5E520235EA700E71148 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B927C5E420235EA700E71148 /* CoreImage.framework */; };
+		B927C5EB202363DE00E71148 /* AlertText-ru.html in Resources */ = {isa = PBXBuildFile; fileRef = B927C5E9202363DE00E71148 /* AlertText-ru.html */; };
+		B927C5EC202363DE00E71148 /* AlertText-en.html in Resources */ = {isa = PBXBuildFile; fileRef = B927C5EA202363DE00E71148 /* AlertText-en.html */; };
+		B927C5EE202383F600E71148 /* WalletsAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = B927C5ED202383F600E71148 /* WalletsAlert.xib */; };
+		B927C5F0202384E300E71148 /* WalletsAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B927C5EF202384E300E71148 /* WalletsAlert.swift */; };
 		B94C652A1FC515AD006E3BC8 /* ScannerReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94C65291FC515AD006E3BC8 /* ScannerReader.swift */; };
 		B94C652C1FC51A74006E3BC8 /* ScannerReader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B94C652B1FC51A74006E3BC8 /* ScannerReader.xib */; };
 		D611305F1FA826BE003B30E9 /* usual.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D611305E1FA826BE003B30E9 /* usual.mp3 */; };
@@ -225,6 +230,11 @@
 		B91D61B61FD55219006955DE /* DGActivityIndicatorBallZigZagAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGActivityIndicatorBallZigZagAnimation.h; sourceTree = "<group>"; };
 		B91D61B71FD55219006955DE /* DGActivityIndicatorThreeDotsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGActivityIndicatorThreeDotsAnimation.h; sourceTree = "<group>"; };
 		B91D61D91FD64268006955DE /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
+		B927C5E420235EA700E71148 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		B927C5E9202363DE00E71148 /* AlertText-ru.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "AlertText-ru.html"; sourceTree = "<group>"; };
+		B927C5EA202363DE00E71148 /* AlertText-en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "AlertText-en.html"; sourceTree = "<group>"; };
+		B927C5ED202383F600E71148 /* WalletsAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletsAlert.xib; sourceTree = "<group>"; };
+		B927C5EF202384E300E71148 /* WalletsAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsAlert.swift; sourceTree = "<group>"; };
 		B94C65291FC515AD006E3BC8 /* ScannerReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerReader.swift; sourceTree = "<group>"; };
 		B94C652B1FC51A74006E3BC8 /* ScannerReader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScannerReader.xib; sourceTree = "<group>"; };
 		CBC0194290D8904822A4787C /* Pods_Unilot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unilot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -345,6 +355,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B927C5E520235EA700E71148 /* CoreImage.framework in Frameworks */,
 				D6CFAC831FA713B500A0F045 /* UserNotifications.framework in Frameworks */,
 				290FA72F1CDF40E19A0E8204 /* Pods_Unilot.framework in Frameworks */,
 			);
@@ -363,6 +374,7 @@
 		336C009D07D6695BEE800AA7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B927C5E420235EA700E71148 /* CoreImage.framework */,
 				D6CFAC821FA713B500A0F045 /* UserNotifications.framework */,
 				CBC0194290D8904822A4787C /* Pods_Unilot.framework */,
 				D6CFAC8C1FA7175700A0F045 /* UserNotificationsUI.framework */,
@@ -461,6 +473,16 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
+		B927C5E8202363DE00E71148 /* alert_text */ = {
+			isa = PBXGroup;
+			children = (
+				B927C5E9202363DE00E71148 /* AlertText-ru.html */,
+				B927C5EA202363DE00E71148 /* AlertText-en.html */,
+			);
+			name = alert_text;
+			path = Settings/alert_text;
+			sourceTree = "<group>";
+		};
 		D62A316D1F7AC01D00275B86 /* Code */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +508,7 @@
 				D69364C91F5F254400FD0D37 /* Main.storyboard */,
 				D69364CE1F5F254400FD0D37 /* LaunchScreen.storyboard */,
 				D66878B71F84D9CF0096FB3F /* AgreeToPlay.xib */,
+				B927C5ED202383F600E71148 /* WalletsAlert.xib */,
 				D62E4C2B1F86C15B00C619EA /* TotalPrizeFond.xib */,
 				D612BBFA1F96B48F002C4647 /* LotteryResults.xib */,
 				D6ED6B371F8F90C100384672 /* InfoView.xib */,
@@ -502,6 +525,7 @@
 		D62A316F1F7AC03D00275B86 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				B927C5E8202363DE00E71148 /* alert_text */,
 				D6C8B2851FAB4F0600AE05B9 /* Sounds */,
 				D6C6BAAD1F8CD6BF00EC7FE0 /* Roboto font */,
 				D62A31701F7AC06E00275B86 /* Bridging-Header.h */,
@@ -542,7 +566,6 @@
 			children = (
 				D6595E121FBB5DC000089917 /* DailyLottery.swift */,
 				D6595E141FBB5DD900089917 /* BonusLottery.swift */,
-				D6595E171FBB5E1A00089917 /* ProfileSubView.swift */,
 			);
 			name = "Sub Items";
 			sourceTree = "<group>";
@@ -557,6 +580,7 @@
 				D6F3A0AA1F92DC72001EDA29 /* Details.swift */,
 				D62CA43C1F8FB73E00D67C0A /* SettingsView.swift */,
 				D6632ED51F8C9C4100EC18C9 /* HowDoesItWork.swift */,
+				D6595E171FBB5E1A00089917 /* ProfileSubView.swift */,
 				D6C57EF71F8AA9210082BCBB /* WhitePapersView.swift */,
 				D6D3CEAB1FA5FF94000F2FF3 /* WebViews.swift */,
 			);
@@ -667,6 +691,7 @@
 				D62E4C2D1F86C36300C619EA /* TotalPrizeFond.swift */,
 				D6F460AA1F9D21340006FA08 /* YouWin.swift */,
 				D6F1E1351F7BA0E50098B34C /* AgreeToPlay.swift */,
+				B927C5EF202384E300E71148 /* WalletsAlert.swift */,
 				D6ED6B351F8F90B200384672 /* InfoView.swift */,
 			);
 			name = "Pop Up Views";
@@ -873,11 +898,14 @@
 				B94C652C1FC51A74006E3BC8 /* ScannerReader.xib in Resources */,
 				D6595E091FBB544F00089917 /* ViewMain.xib in Resources */,
 				D63F45171F8AC1BE00F69E7F /* Terms.html in Resources */,
+				B927C5EB202363DE00E71148 /* AlertText-ru.html in Resources */,
 				D6DCCD201FA4F338009BD20E /* HDIW_en.txt in Resources */,
 				D6C6BAB61F8CD6C000EC7FE0 /* Roboto-Regular.ttf in Resources */,
+				B927C5EC202363DE00E71148 /* AlertText-en.html in Resources */,
 				D6F460AD1F9D215F0006FA08 /* YouWin.xib in Resources */,
 				D6943EF81FB705EC003A5518 /* TutorialScroll.xib in Resources */,
 				D6595E0B1FBB551C00089917 /* BonusView.xib in Resources */,
+				B927C5EE202383F600E71148 /* WalletsAlert.xib in Resources */,
 				D62E4C2C1F86C15B00C619EA /* TotalPrizeFond.xib in Resources */,
 				D6C6BAB71F8CD6C000EC7FE0 /* Roboto-Thin.ttf in Resources */,
 				D69364D01F5F254400FD0D37 /* LaunchScreen.storyboard in Resources */,
@@ -1022,6 +1050,7 @@
 				D6477F111FA3E72D008677D3 /* CDDaysL.swift in Sources */,
 				B91D61C91FD55219006955DE /* DGActivityIndicatorBallGridBeatAnimation.m in Sources */,
 				D6F3A0AB1F92DC72001EDA29 /* Details.swift in Sources */,
+				B927C5F0202384E300E71148 /* WalletsAlert.swift in Sources */,
 				B91D61BA1FD55219006955DE /* DGActivityIndicatorTripleRingsAnimation.m in Sources */,
 				D6ED6B3C1F8FA6DC00384672 /* PopUpCore.swift in Sources */,
 				B91D61D61FD55219006955DE /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */,
@@ -1177,7 +1206,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1229,7 +1258,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1248,7 +1277,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = VLZN2JPGN9;
 				INFOPLIST_FILE = Unilot/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vovasoft.crowdcharity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1256,6 +1285,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Unilot/Settings/Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1269,7 +1299,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = VLZN2JPGN9;
 				INFOPLIST_FILE = Unilot/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vovasoft.crowdcharity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1277,6 +1307,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Unilot/Settings/Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

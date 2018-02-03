@@ -52,12 +52,10 @@ class ProfileViewController: ControllerCore {
             
         setNavControllerClear()
         
+        navigationController?.navigationBar.isHidden = true
+        
         setTitle()
         
-        addBackColorButton()
-        
-        addInfoButton()
- 
     }
 
     
@@ -66,17 +64,12 @@ class ProfileViewController: ControllerCore {
         super.viewWillAppear(animated)
  
         addMainView()
+
+        addBackColorButton()
         
-        if open_from_notif == default_first_launch {
-            
-            open_from_notif = nil
-            
-            onInfoBarButton()
-        }
+        addInfoButton()
+
     }
-    
-    
-    
     
     func addMainView(){
   
@@ -123,7 +116,38 @@ class ProfileViewController: ControllerCore {
         
     }
     
-    //MARK: - size text
+    //MARK: - fake nav button
+    
+    
+    func addBackColorButton() {
+        
+        //        setBackButton()
+        let point = CGPoint(x: 0 , y : getStatusbarShift() + 20)
+        let size = CGSize(width: 30, height: 30)
+        
+        itemBadge = setColorForImage(size, "arrow_back")
+        itemBadge?.frame.origin = point
+
+        let button = UIButton(frame: CGRect(origin: point, size: size))
+        button.addTarget(self, action: #selector(ProfileSubView.onGoToGames) , for: .touchUpInside)
+ 
+        profile_tab.addSubview(itemBadge!)
+        profile_tab.addSubview(button)
+    }
+    
+    
+    func  addInfoButton(){
+        
+        let point = CGPoint(x: profile_tab.frame.width - 40 , y : getStatusbarShift() + 20)
+        let size = CGSize(width: 30, height: 30)
+        
+        let button = UIButton(frame: CGRect(origin: point, size: size))
+        button.setImage(UIImage(named:"info2-x3"), for: .normal)
+        button.addTarget(self, action: #selector(ControllerCore.onInfoBarButton) , for: .touchUpInside)
+      
+        profile_tab.addSubview(button)
+
+    }
     
     
 
@@ -134,8 +158,6 @@ class ProfileViewController: ControllerCore {
 class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegate, UITableViewDataSource {
         
     @IBOutlet weak var attentionText: UILabel!
-
-    @IBOutlet weak var letsPlay: UIButton!
 
     @IBOutlet weak var titleAddMore: UILabel!
     
@@ -181,10 +203,6 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
         titleMain.text = TR("your_wallets")
         fieldPurse.placeholder = TR("your_wallet_address")
         checkMorePurses.setTitle(TR("add") + " +", for: .normal)
-        letsPlay.setTitle(TR("lets_start"), for: .normal)
-        letsPlay.addTarget(current_controller_core!,
-                           action: #selector(ProfileViewController.onGoToGames),
-                           for: .touchUpInside)
     }
     
     
@@ -326,13 +344,17 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
                     table.insertRows(at: [IndexPath(row: 0, section: 0)], with: .bottom)
                     
                     saveDataInMemory()
-                    
-                    fieldPurse.text = nil
-                    
                 }
 
+                fieldPurse.text = nil
+                fieldPurse.resignFirstResponder()
+
+            } else {
+                // wrong format
             }
 
+        } else {
+            // empty text was
         }
         
     }
@@ -341,11 +363,11 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
         
         onAddnewLine()
         
-        if fieldPurse.isFirstResponder {
-            fieldPurse.resignFirstResponder()
-        } else {
-            fieldPurse.becomeFirstResponder()
-        }
+//        if fieldPurse.isFirstResponder {
+//            fieldPurse.resignFirstResponder()
+//        } else {
+//            fieldPurse.becomeFirstResponder()
+//        }
         
     }
     
@@ -355,7 +377,7 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
         current_controller_core?.onQRScan(sender)
      }
     
-    @IBAction func onGoToGames(_ sender : Any){
+    @objc func onGoToGames(){
         
         current_controller_core?.goToMainView(getTabBarTag())
 

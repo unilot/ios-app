@@ -128,25 +128,10 @@
 
 "how_join?"                 = "How can I join this drawing?";
 "will_be_off_after:"        = "The drawing finishes in:";
-"go_back_after_payment"     = "Return to the app and register\nyour wallet after the payment";
 "to_participate_you_need"   = "To participate in %@ you should transfer %.3f Eth to a specified wallet. Please tap on the button below to get the wallet address.";
 
 "we_dont_know_your_wallet"  = "Since you have not registered your wallet, your status is unknown.\nCheck History of the drawing.";
 
-
-"tutorial_text_1" = "First choose the type of the drawings: Daily or Weekly. Then tap the button “Participate” to start.";
- 
-"tutorial_text_2"           = "Производите оплату только с приватных криптокошельков, к которым у вас есть закрытый ключ! Используя биржевые кошельки, вы не сможете получить ни выигрыш, ни бонусные токены.";
-
-"tutorial_text_3"           = "Здесь вы найдете адрес кошелька, на который необходимо перевести указанное количество средств для участия. Пожалуйста, скопируйте его.";
-
-"tutorial_text_4"           = "Чтобы принять участие в розыгрыше, необходимо отправить ETH с вашего криптокошелька на адрес розыгрыша Unilot.";
-
-"tutorial_text_5" = "Go to your wallet and transfer the necessary amount to the copied wallet address.";
-
-"tutorial_text_6" = "Return to the app, go to Profile and add your wallet address. Now you can get notifications about win or loss.";
-
-"tutorial_text_7" = "Wait for the results. If you loose in Daily or Weekly drawing, you will automatically become a participant of the Bonus Monthly Draw for free.";
  
 "skip" = "Skip";
 "lets_start" = "Let's start!";
@@ -154,6 +139,16 @@
 "faq" = "FAQ";
 "all" = "All";
 
+
+// MARK: - FILES NAME
+
+"site"                      = "site";
+"HDIW"                      = "HDIW_en";
+
+
+
+
+///  ---------------  new text  ---------------   !!!!!
 
 // MARK: - wallet Alerts
 
@@ -168,6 +163,30 @@ Do NOT use this wallet applications for investment: \n  \
 
 "button_wallets_allert" = "Got it";
 
+
+//MARK: - Tutorial screens
+
+"tutorial_text_1" = "First choose the type of the drawings: Daily or Weekly. Then tap the button “Participate” to start.";
+
+"tutorial_text_2"           = "Производите оплату только с приватных криптокошельков, к которым у вас есть закрытый ключ! Используя биржевые кошельки, вы не сможете получить ни выигрыш, ни бонусные токены.";
+
+"tutorial_text_3"           = "Здесь вы найдете адрес кошелька, на который необходимо перевести указанное количество средств для участия. Пожалуйста, скопируйте его.";
+
+"tutorial_text_4"           = "Чтобы принять участие в розыгрыше, необходимо отправить ETH с вашего криптокошелька на адрес розыгрыша Unilot.";
+
+"tutorial_text_5" = "Go to your wallet and transfer the necessary amount to the copied wallet address.";
+
+"tutorial_text_6" = "Return to the app, go to Profile and add your wallet address. Now you can get notifications about win or loss.";
+
+"tutorial_text_7" = "Wait for the results. If you loose in Daily or Weekly drawing, you will automatically become a participant of the Bonus Monthly Draw for free.";
+
+
+
+// MARK: - participate view
+
+"go_back_after_payment"     = "убедитесь, что вы совершаете оплату с кошелька, который зарегистрирован в профиле";
+
+
 // MARK: - profile
 
 "attention_text" = "Прежде чем принять участие, вам необходимо указать номер кошелька с которого будет производится оплата";
@@ -181,7 +200,3 @@ Do NOT use this wallet applications for investment: \n  \
 
 "text_condition_70" = "Чтобы принять участие в розыгрыше 100,000 UNIT вам необходимо принять участие в Дневной или Недельной лотерее";
 
-// MARK: - FILES NAME
-
-"site"                      = "site";
-"HDIW"                      = "HDIW_en";

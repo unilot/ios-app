@@ -15,11 +15,7 @@ class RightNavigationController : UINavigationController{
     
         let rootViewController : UIViewController!
         
-        if open_from_notif == default_first_launch {
-            rootViewController = getVCFromName("SB_ProfileViewController")
-        } else {
-            rootViewController = getVCFromName("SB_MainViewScroll")
-        }
+        rootViewController = getVCFromName("SB_MainViewScroll")
         
         self.setViewControllers([rootViewController], animated:  true)
     }

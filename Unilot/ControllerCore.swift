@@ -83,6 +83,8 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
        
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.black]
 
+        navigationController?.navigationBar.isHidden = false
+        
         setNeedsStatusBarAppearanceUpdate()
         
         addSwipeForMenuOpen()
@@ -122,24 +124,7 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
         
     }
     //MARK: - Buttons
-    
-    func addBackColorButton() {
- 
-//        setBackButton()
-        
-        let frameBarButton = CGSize(width: 30, height: 30)
-        
-        itemBadge = setColorForImage(frameBarButton, "arrow_back")
-        
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-        button.addTarget(self, action: #selector(ControllerCore.onBackMenuArrow) , for: .touchUpInside)
-        button.addSubview(itemBadge!)
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView:button)
-
-        
-    }
-    
+   
     func addProfileButton() {
         
         let frameBarButton = CGSize(width: 30, height: 30)
@@ -166,17 +151,6 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView:button)
   
-    }
-    
-    func  addInfoButton(){
-        
-        let infoB = UIBarButtonItem(image: UIImage(named:"info2-x3"), style: .plain,
-                                       target: self,
-                                       action: #selector(ControllerCore.onInfoBarButton) )
-        
-        infoB.tintColor =  kColorLightGray
-        
-        navigationItem.rightBarButtonItem = infoB
     }
     
     

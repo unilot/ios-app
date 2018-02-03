@@ -59,6 +59,14 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
             ifWentFromNotif()
             
             initWas = true
+ 
+            if open_from_notif == default_first_launch {
+                
+                open_from_notif = nil
+                
+                onShowWalletsAlert()
+            }
+            
         }
      }
      

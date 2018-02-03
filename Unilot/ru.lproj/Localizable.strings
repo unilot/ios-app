@@ -125,12 +125,48 @@
 
 "how_join?"                 = "Как попасть в этот розыгрыш?";
 "will_be_off_after:"        = "Лотерея заканчивается через:";
-"go_back_after_payment"     = "После оплаты вернитесь в приложение\nи зарегистрируйте свой кошелек";
 //"to_participate_you_need"   = "Чтобы принять участие в %@, вам необходимо перечислить %.3f Eth на кошелек, адрес которого вы получите, нажав на кнопку ниже.";
 
 "to_participate_you_need"   = "To participate:\n1. Copy Unilot wallet address down below.\n2. Go to your private wallet\n3. Send %@ to copied address with Gas Limit equals to %@,\nGas Price - %@ Gwei";
 
 "we_dont_know_your_wallet"  = "Так как вы не зарегистрировали ваш кошелек, ваш статус незвестен.\nПроверьте историю розыгрыша";
+
+
+
+"skip" = "Закрыть";
+"lets_start" = "Погнали!";
+"need_more_info" = "Хочу знать больше";
+
+"faq" = "Часто задаваемые вопросы";
+
+"all" = "Все";
+
+
+//MARK: -  FILES NAME
+
+"soon"                      = "сайт";
+"HDIW"                      = "HDIW_ru";
+
+
+
+///  ---------------  new text  ---------------   !!!!!
+
+
+// MARK: - wallet Alerts
+
+"title_wallets_allert" = "Please specify address of the wallet that will be used to buy UNIT tokens.";
+
+"text_wallets_allert" = "Please note: \n \
+What application we RECOMMEND:\n  \
+   • MyEtherWallet (http://myetherwallet.com/)\n   • Metamask browser extension (see details: https://metamask.io/) \n \
+Do NOT use this wallet applications for investment: \n  \
+   • Freewallet apps (https://freewallet.org/) \n   • Any wallet that is stored on exchange (coinbase, bitfinex, coinexchange, cex.io and etc) \n   • Any wallet application that doesn’t allow you to export and import your wallet freely without any extra condition (like write to support)";
+
+
+
+"button_wallets_allert" = "Got it";
+
+//MARK: - Tutorial screens
 
 
 
@@ -147,30 +183,14 @@
 "tutorial_text_6"           = "Вернитесь в приложение, зайдите в Профиль и добавьте адрес кошелька, с которого произвели оплату. Теперь вы сможете получать уведомления.";
 
 "tutorial_text_7"           = "Ожидайте результатов. Если вы не стали победителем в Дневной или Недельной лотереях, вы автоматически становитесь участником Бонусного розыгрыша.";
- 
-
-"skip" = "Закрыть";
-"lets_start" = "Погнали!";
-"need_more_info" = "Хочу знать больше";
-
-"faq" = "Часто задаваемые вопросы";
-
-"all" = "Все";
-
-// MARK: - wallet Alerts
-
-"title_wallets_allert" = "Please specify address of the wallet that will be used to buy UNIT tokens.";
-
-"text_wallets_allert" = "Please note: \n \
-What application we RECOMMEND:\n  \
-   • MyEtherWallet (http://myetherwallet.com/)\n   • Metamask browser extension (see details: https://metamask.io/) \n \
-Do NOT use this wallet applications for investment: \n  \
-   • Freewallet apps (https://freewallet.org/) \n   • Any wallet that is stored on exchange (coinbase, bitfinex, coinexchange, cex.io and etc) \n   • Any wallet application that doesn’t allow you to export and import your wallet freely without any extra condition (like write to support)";
 
 
 
+// MARK: - participate view
 
-"button_wallets_allert" = "Got it";
+"go_back_after_payment"     = "убедитесь, что вы совершаете оплату с кошелька, который зарегистрирован в профиле";
+
+
 
 // MARK: - profile
 
@@ -186,8 +206,4 @@ Do NOT use this wallet applications for investment: \n  \
 "text_condition_70" = "Чтобы принять участие в розыгрыше 100,000 UNIT вам необходимо принять участие в Дневной или Недельной лотерее";
 
 
-//MARK: -  FILES NAME
-
-"soon"                      = "сайт";
-"HDIW"                      = "HDIW_ru";
 

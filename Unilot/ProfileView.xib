@@ -14,9 +14,6 @@
         <array key="Roboto-Light.ttf">
             <string>Roboto-Light</string>
         </array>
-        <array key="Roboto-Medium.ttf">
-            <string>Roboto-Medium</string>
-        </array>
         <array key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
         </array>
@@ -89,7 +86,7 @@
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c8f-3R-Jd0">
-                    <rect key="frame" x="16" y="378" width="343" height="219"/>
+                    <rect key="frame" x="16" y="378" width="343" height="269"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -104,23 +101,6 @@
                     <color key="textColor" red="1" green="0.80784313730000001" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxP-qM-awX">
-                    <rect key="frame" x="87" y="607" width="200" height="40"/>
-                    <color key="backgroundColor" red="0.35181542710000002" green="0.7592773438" blue="0.2296990867" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="200" id="EDz-pj-4aV"/>
-                        <constraint firstAttribute="height" constant="40" id="hjD-Ix-2aC"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
-                    <state key="normal" title="Let's play">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="8"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </button>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lqd-Xa-Z70">
                     <rect key="frame" x="15" y="69.5" width="345" height="100"/>
                     <subviews>
@@ -159,7 +139,6 @@
             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="ypL-MD-Nwr" firstAttribute="bottom" secondItem="I2k-bJ-Use" secondAttribute="bottom" constant="-15" id="1mR-zV-omG"/>
-                <constraint firstItem="qxP-qM-awX" firstAttribute="top" secondItem="c8f-3R-Jd0" secondAttribute="bottom" constant="10" id="3Qb-vy-1Hv"/>
                 <constraint firstItem="ewb-zA-fiK" firstAttribute="leading" secondItem="RcK-lE-M1N" secondAttribute="trailing" constant="5" id="3of-Pi-vuU"/>
                 <constraint firstAttribute="trailing" secondItem="Lqd-Xa-Z70" secondAttribute="trailing" constant="15" id="5tA-hl-RTg"/>
                 <constraint firstItem="ewb-zA-fiK" firstAttribute="leading" secondItem="MfO-wp-DYX" secondAttribute="trailing" id="7En-j2-0zt"/>
@@ -177,24 +156,22 @@
                 <constraint firstItem="Lqd-Xa-Z70" firstAttribute="top" secondItem="aY8-kD-VYF" secondAttribute="bottom" constant="20" id="TGM-iU-JRx"/>
                 <constraint firstItem="Guy-mI-lxR" firstAttribute="top" secondItem="RcK-lE-M1N" secondAttribute="bottom" id="X6j-56-4va"/>
                 <constraint firstItem="MfO-wp-DYX" firstAttribute="top" secondItem="I2k-bJ-Use" secondAttribute="top" constant="20" id="XNv-Xq-L3B"/>
-                <constraint firstAttribute="bottomMargin" secondItem="qxP-qM-awX" secondAttribute="bottom" constant="20" id="XRf-zc-VUt"/>
                 <constraint firstAttribute="trailingMargin" secondItem="ewb-zA-fiK" secondAttribute="trailing" constant="4" id="b6Q-t9-lww"/>
                 <constraint firstItem="MfO-wp-DYX" firstAttribute="leading" secondItem="4fU-hh-5Q0" secondAttribute="leadingMargin" constant="15" id="h3x-TI-wYw"/>
                 <constraint firstAttribute="trailingMargin" secondItem="ypL-MD-Nwr" secondAttribute="trailing" constant="15" id="hEa-BJ-1CD"/>
-                <constraint firstItem="qxP-qM-awX" firstAttribute="centerX" secondItem="c8f-3R-Jd0" secondAttribute="centerX" id="iPe-0P-p3Z"/>
                 <constraint firstAttribute="trailingMargin" secondItem="c8f-3R-Jd0" secondAttribute="trailing" id="j0b-TF-4Zp"/>
                 <constraint firstItem="I2k-bJ-Use" firstAttribute="leading" secondItem="4fU-hh-5Q0" secondAttribute="leading" constant="8" id="j7A-xy-H6f"/>
                 <constraint firstItem="RcK-lE-M1N" firstAttribute="leading" secondItem="4fU-hh-5Q0" secondAttribute="leadingMargin" constant="15" id="lvJ-h7-vUx"/>
                 <constraint firstItem="Guy-mI-lxR" firstAttribute="trailing" secondItem="RcK-lE-M1N" secondAttribute="trailing" id="mxd-SX-5QR"/>
                 <constraint firstItem="ewb-zA-fiK" firstAttribute="bottom" secondItem="RcK-lE-M1N" secondAttribute="bottom" id="qJ0-5X-Vex"/>
                 <constraint firstItem="c8f-3R-Jd0" firstAttribute="top" secondItem="I2k-bJ-Use" secondAttribute="bottom" constant="15" id="qRX-FX-dp7"/>
+                <constraint firstAttribute="bottom" secondItem="c8f-3R-Jd0" secondAttribute="bottom" constant="20" id="uCL-an-Xep"/>
                 <constraint firstItem="I2k-bJ-Use" firstAttribute="top" secondItem="Lqd-Xa-Z70" secondAttribute="bottom" constant="20" id="yvJ-jQ-Bci"/>
             </constraints>
             <connections>
                 <outlet property="attentionText" destination="2Nx-EJ-dzh" id="VRQ-Pa-XH1"/>
                 <outlet property="checkMorePurses" destination="ypL-MD-Nwr" id="o49-PL-7x9"/>
                 <outlet property="fieldPurse" destination="RcK-lE-M1N" id="Tjn-tt-PMc"/>
-                <outlet property="letsPlay" destination="qxP-qM-awX" id="u5d-VI-X3b"/>
                 <outlet property="table" destination="c8f-3R-Jd0" id="dwD-t5-FFq"/>
                 <outlet property="titleAddMore" destination="MfO-wp-DYX" id="0uh-f3-3bc"/>
                 <outlet property="titleMain" destination="aY8-kD-VYF" id="B0U-TM-trA"/>

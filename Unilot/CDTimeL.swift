@@ -75,6 +75,7 @@ class CountDownFullTimer: CountDownLabel  {
         }
     }
  
+    
  
     func createOneLabelStatic(frame: CGRect, _ tag : Int){
         

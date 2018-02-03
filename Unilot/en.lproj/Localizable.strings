@@ -135,12 +135,12 @@
 
 
 "tutorial_text_1" = "First choose the type of the drawings: Daily or Weekly. Then tap the button “Participate” to start.";
+ 
+"tutorial_text_2"           = "Производите оплату только с приватных криптокошельков, к которым у вас есть закрытый ключ! Используя биржевые кошельки, вы не сможете получить ни выигрыш, ни бонусные токены.";
 
-"tutorial_text_2" = "Here is the wallet address you need to transfer the specified amount to. Please copy it.";
+"tutorial_text_3"           = "Здесь вы найдете адрес кошелька, на который необходимо перевести указанное количество средств для участия. Пожалуйста, скопируйте его.";
 
-"tutorial_text_3" = "Here is the wallet address you need to transfer the specified amount to. Please copy it.";
-
-"tutorial_text_4" = "Here is the wallet address you need to transfer the specified amount to. Please copy it.";
+"tutorial_text_4"           = "Чтобы принять участие в розыгрыше, необходимо отправить ETH с вашего криптокошелька на адрес розыгрыша Unilot.";
 
 "tutorial_text_5" = "Go to your wallet and transfer the necessary amount to the copied wallet address.";
 
@@ -168,9 +168,20 @@ Do NOT use this wallet applications for investment: \n  \
 
 "button_wallets_allert" = "Got it";
 
+// MARK: - profile
+
+"attention_text" = "Прежде чем принять участие, вам необходимо указать номер кошелька с которого будет производится оплата";
 
 
-//MARK: -  FILES NAME
+// MARK: - Participants
+
+"list_of_participants" = "Список участников";
+
+"text_condition_50" = "Чтобы принять участие в розыгрыше Бонусной лотереи вам необходимо принять участие в Дневной или Недельной лотерее";
+
+"text_condition_70" = "Чтобы принять участие в розыгрыше 100,000 UNIT вам необходимо принять участие в Дневной или Недельной лотерее";
+
+// MARK: - FILES NAME
 
 "site"                      = "site";
 "HDIW"                      = "HDIW_en";

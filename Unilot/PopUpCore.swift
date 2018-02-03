@@ -64,12 +64,12 @@ class PopUpCore: UIView  {
         if frameCustom == nil {
             
             let width  = mainView.frame.width * 0.95
-            let height  = width * 1.6 + getStatusbarShift()
+            let height  = min(width * 1.6 + getStatusbarShift(), mainView.frame.height * 0.9)
             
             let shiftW =  (mainView.frame.width - width )
             let shiftH =  (mainView.frame.height - height ) / 2
             
-            frameView =  CGRect(x: shiftW,   y: shiftH + 25, width: width,  height: height)
+            frameView =  CGRect(x: shiftW / 2,   y: shiftH + 25, width: width,  height: height)
             
         } else {
             
@@ -142,6 +142,10 @@ class PopUpCore: UIView  {
         
     }
     
+    func onQRAnswer(_ haveText : String?){
+        
+
+    }
     
     @objc func onX(_ duration: Double = 0.4){
 

@@ -52,9 +52,6 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
 //        let lotteryType = TR(setting_strings[0][order]).capitalized + " " + TR("drawing3")
 //        titleMain.text = TR(tabbar_strings[order]).capitalized + " " + TR("drawing1") +  " " + app_name.uppercased()
         
-        let floatBet = current_game.bet_amount
- 
-        
 //        textBig.text = String(format: TR("to_participate_you_need"),TR(lotteryType),floatBet)
         
         let text_name = "AlertText-" + langCodes[current_language_ind]
@@ -63,7 +60,8 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
             do {
                 var contents = try String(contentsOfFile: filepath)
                 
-                contents = String(format: contents, "\(heightOfText())"," \(floatBet)", gas_limit, gas_price)
+                contents = String(format: contents, "\(heightOfText())",
+                    " \( current_game.bet_amount)", current_game.gas_limit.stringWithSepator, current_game.gas_price.stringWithSepator)
                 
                 textBig.attributedText = try! NSAttributedString(data: contents.data(using: String.Encoding.utf8, allowLossyConversion: false)!,
                                                                   options: [.documentType: NSAttributedString.DocumentType.html],
@@ -78,11 +76,7 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
         
         endLabel.text = TR("will_be_off_after:")
         
-        if users_account_number.count == 0 {
-            warningLabel.text = TR("go_back_after_payment")
-        } else {
-            warningLabel.isHidden = true
-        }
+        warningLabel.text = TR("go_back_after_payment")
         
         copyButton.setTitle("  " + TR("copy_address"), for: .normal)
     }
@@ -101,7 +95,8 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
                                                          y: -clockTablet.labelMain.frame.height * 0.6)
 
             clockTablet.initTimer(items.0, items.1)
-            clockTablet.changeTextOnStaticLabels(items.2)
+//            clockTablet.changeTextOnStaticLabels(items.2)
+            
             clockTablet.doScheduledTimer()
             
         } else {

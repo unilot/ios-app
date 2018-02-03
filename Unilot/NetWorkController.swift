@@ -36,6 +36,7 @@ let kAPI_get_history        = "api/v1/games/archived"
 let kAPI_post_notif_token   = "api/v1/device/"
 let kAPI_get_game_details   = "api/v1/games/"
 let kAPI_post_settings      = "api/v1/device/settings"
+let kAPI_get_participants   = "api/v1/games/%@/gamers"
 
 var request_headers : HTTPHeaders  = [
     "Content-Type"  : "application/json",
@@ -134,6 +135,20 @@ class NetWork : NetWorkParse {
         
     }
     
+    
+    static func getParticipantsList(_ gameId : String, completion: @escaping (String?) -> Void) {
+        
+        Alamofire.request( String(format:kServer + kAPI_get_participants, gameId),
+                           method : .get,
+                           encoding: JSONEncoding.default,
+                           headers: request_headers)
+            
+            .responseJSON { (response) -> Void in
+                
+                error_or_success(response, parseParticipantsList, completion, "participants_" + gameId)
+        }
+        
+    }
     
     static func getListWinners(_ gameId : String, completion: @escaping (String?) -> Void) {
         

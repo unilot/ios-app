@@ -246,38 +246,10 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
     }
 
     
-    func containsText(_ item : UserForGame, _ searchtext : String) -> Bool {
-     
-        let search_text = searchtext.lowercased()
-
-        let text1 = item.user_id.lowercased()
-        let text2 = "\(item.position)"
-        let text3 = "\(item.prize_amount)"
-        let text4 = "\(item.prize_amount_fiat)"
-        
-        return  text1.contains(search_text) || text2.contains(search_text) ||
-                text3.contains(search_text) || text4.contains(search_text)
-        
-    }
-    
     func reloadTableWithText(){
         
-        let searchtext = searchMain.text
-        
-        if searchtext != nil && Array(searchtext!).count > 0{
-            
-            dataForTable = origin_dataForTable.filter({ (item : UserForGame) -> Bool in
-              
-                return containsText(item, searchtext!)
-                
-            })
-            
-        } else {
-           
-            dataForTable = origin_dataForTable
-            
-        }
-        
+        dataForTable = tableSorting(searchtext:  searchMain.text, origin_dataForTable: origin_dataForTable)
+ 
         tableMain.reloadData()
 
     }

@@ -45,11 +45,11 @@ var startWas : Bool = false
 
 var local_current_game = GameInfo()
 var local_current_user = UserForGame()
-
+ 
 //MARK: - Tech settings
 
-var gas_limit = "210 000"
-var gas_price = "30"
+var default_gas_limit = 210000
+var default_gas_price = 30
 
 //MARK: - Structures
 
@@ -74,12 +74,15 @@ class GameInfo {
     var smart_contract_id   : String = kEmpty
     var num_players         : Int = 0
     var prize_amount        : Float = 0
+    var prize_currency      : String = kEmpty
     var prize_amount_fiat   : Float = 0
     var bet_amount          : Float = KBetDefault
     var started_at          : Int = 0
     var ending_at           : Int = 0
     var status              : Int = kStatusNoGame
     var type                : Int = kTypeUndefined
+    var gas_limit           : Int = 0
+    var gas_price           : Int = 0
 
     
     func isEqual(to game: GameInfo) -> Bool{
@@ -87,13 +90,16 @@ class GameInfo {
            game_id == game.game_id
         && smart_contract_id == game.smart_contract_id
         && num_players == game.num_players
+        && prize_currency == game.prize_currency
         && prize_amount == game.prize_amount
         && prize_amount_fiat == game.prize_amount_fiat
         && bet_amount == game.bet_amount
         && started_at == game.started_at
         && ending_at == game.ending_at
         && status == game.status
-        && type == game.type)
+        && type == game.type
+        && gas_limit == game.gas_limit
+        && gas_price == game.gas_price)
         
     }
 }
@@ -515,3 +521,59 @@ func message_to_Crashlytics(line : String? = nil, description : String? = nil, b
     
     return TR("connectio_error")
 }
+
+//MARRK: - Tables sortings
+
+func containsText(_ item : UserForGame, _ searchtext : String) -> Bool {
+    
+    let search_text = searchtext.lowercased()
+    
+    let text1 = item.user_id.lowercased()
+    let text2 = "\(item.position)"
+    let text3 = "\(item.prize_amount)"
+    let text4 = "\(item.prize_amount_fiat)"
+    
+    return  text1.contains(search_text) || text2.contains(search_text) ||
+        text3.contains(search_text) || text4.contains(search_text)
+    
+}
+
+func tableSorting( searchtext: String?, origin_dataForTable : [UserForGame]) -> [UserForGame]{
+ 
+    var dataForTable = [UserForGame]()
+    
+    if searchtext != nil && Array(searchtext!).count > 0{
+        
+        dataForTable = origin_dataForTable.filter({ (item : UserForGame) -> Bool in
+            
+            return containsText(item, searchtext!)
+            
+        })
+        
+    } else {
+        
+        dataForTable = origin_dataForTable
+        
+    }
+    
+    return dataForTable
+}
+
+//MARK: - checkEthaddress
+
+extension String {
+    func matches(_ regex: String) -> Bool {
+        return self.range(of: regex, options: .regularExpression, range: nil, locale: nil) != nil
+    }
+}
+
+
+func  isAddressEth(_ wallet : String) -> Bool{
+ 
+    let pattern = "^(0x)?[0-9a-f]{40}$"
+
+    return wallet.matches(pattern)
+
+    
+}
+

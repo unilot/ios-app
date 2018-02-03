@@ -49,6 +49,9 @@
 		B927C5F0202384E300E71148 /* WalletsAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B927C5EF202384E300E71148 /* WalletsAlert.swift */; };
 		B94C652A1FC515AD006E3BC8 /* ScannerReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94C65291FC515AD006E3BC8 /* ScannerReader.swift */; };
 		B94C652C1FC51A74006E3BC8 /* ScannerReader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B94C652B1FC51A74006E3BC8 /* ScannerReader.xib */; };
+		B9811A892025BE0C00BFD589 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9811A882025BE0C00BFD589 /* PopAnimator.swift */; };
+		B9811A90202603D900BFD589 /* ParticipantsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9811A8F202603D800BFD589 /* ParticipantsView.xib */; };
+		B9811A92202607D800BFD589 /* ParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9811A91202607D800BFD589 /* ParticipantsView.swift */; };
 		D611305F1FA826BE003B30E9 /* usual.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D611305E1FA826BE003B30E9 /* usual.mp3 */; };
 		D612BBF71F9536AA002C4647 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D612BBF61F9536AA002C4647 /* Assets.xcassets */; };
 		D612BBF91F96B450002C4647 /* LotteryResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D612BBF81F96B450002C4647 /* LotteryResults.swift */; };
@@ -237,6 +240,9 @@
 		B927C5EF202384E300E71148 /* WalletsAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsAlert.swift; sourceTree = "<group>"; };
 		B94C65291FC515AD006E3BC8 /* ScannerReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerReader.swift; sourceTree = "<group>"; };
 		B94C652B1FC51A74006E3BC8 /* ScannerReader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScannerReader.xib; sourceTree = "<group>"; };
+		B9811A882025BE0C00BFD589 /* PopAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
+		B9811A8F202603D800BFD589 /* ParticipantsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParticipantsView.xib; sourceTree = "<group>"; };
+		B9811A91202607D800BFD589 /* ParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsView.swift; sourceTree = "<group>"; };
 		CBC0194290D8904822A4787C /* Pods_Unilot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unilot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D611305E1FA826BE003B30E9 /* usual.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = usual.mp3; path = Settings/usual.mp3; sourceTree = "<group>"; };
 		D612BBF61F9536AA002C4647 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -483,6 +489,14 @@
 			path = Settings/alert_text;
 			sourceTree = "<group>";
 		};
+		B9811A872025BE0C00BFD589 /* ControllerAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				B9811A882025BE0C00BFD589 /* PopAnimator.swift */,
+			);
+			path = ControllerAnimation;
+			sourceTree = "<group>";
+		};
 		D62A316D1F7AC01D00275B86 /* Code */ = {
 			isa = PBXGroup;
 			children = (
@@ -511,6 +525,7 @@
 				B927C5ED202383F600E71148 /* WalletsAlert.xib */,
 				D62E4C2B1F86C15B00C619EA /* TotalPrizeFond.xib */,
 				D612BBFA1F96B48F002C4647 /* LotteryResults.xib */,
+				B9811A8F202603D800BFD589 /* ParticipantsView.xib */,
 				D6ED6B371F8F90C100384672 /* InfoView.xib */,
 				D6943EF71FB705EC003A5518 /* TutorialScroll.xib */,
 				D6F460AC1F9D215F0006FA08 /* YouWin.xib */,
@@ -544,6 +559,7 @@
 			isa = PBXGroup;
 			children = (
 				B91D61D91FD64268006955DE /* SweetAlert.swift */,
+				B9811A872025BE0C00BFD589 /* ControllerAnimation */,
 				B91D61731FD55219006955DE /* DGActivityIndicatorView */,
 				D6DCCD101FA4BCA1009BD20E /* LanguagesSet */,
 				D6F1E16D1F7E55130098B34C /* JSKit */,
@@ -688,6 +704,7 @@
 				B94C65291FC515AD006E3BC8 /* ScannerReader.swift */,
 				D6943EF51FB7056D003A5518 /* TutorialScroll.swift */,
 				D612BBF81F96B450002C4647 /* LotteryResults.swift */,
+				B9811A91202607D800BFD589 /* ParticipantsView.swift */,
 				D62E4C2D1F86C36300C619EA /* TotalPrizeFond.swift */,
 				D6F460AA1F9D21340006FA08 /* YouWin.swift */,
 				D6F1E1351F7BA0E50098B34C /* AgreeToPlay.swift */,
@@ -902,6 +919,7 @@
 				D6DCCD201FA4F338009BD20E /* HDIW_en.txt in Resources */,
 				D6C6BAB61F8CD6C000EC7FE0 /* Roboto-Regular.ttf in Resources */,
 				B927C5EC202363DE00E71148 /* AlertText-en.html in Resources */,
+				B9811A90202603D900BFD589 /* ParticipantsView.xib in Resources */,
 				D6F460AD1F9D215F0006FA08 /* YouWin.xib in Resources */,
 				D6943EF81FB705EC003A5518 /* TutorialScroll.xib in Resources */,
 				D6595E0B1FBB551C00089917 /* BonusView.xib in Resources */,
@@ -1071,6 +1089,7 @@
 				D6BDD90C1F7B07A700E91FD0 /* CDTimeL.swift in Sources */,
 				D6BDD90A1F7AF56500E91FD0 /* CUMoneyF.swift in Sources */,
 				B91D61C31FD55219006955DE /* DGActivityIndicatorThreeDotsAnimation.m in Sources */,
+				B9811A92202607D800BFD589 /* ParticipantsView.swift in Sources */,
 				D6F1E1901F7E55130098B34C /* UIView+JSLayout.m in Sources */,
 				B91D61B91FD55219006955DE /* DGActivityIndicatorTriangleSkewSpinAnimation.m in Sources */,
 				D6F1E19A1F7E55130098B34C /* JSRuleRegex.m in Sources */,
@@ -1097,6 +1116,7 @@
 				D6CFAC851FA7154100A0F045 /* NotifApp.swift in Sources */,
 				D6F1E1981F7E55130098B34C /* JSRuleNumberRange.m in Sources */,
 				D6632ED81F8C9C6800EC18C9 /* TextViewCore.swift in Sources */,
+				B9811A892025BE0C00BFD589 /* PopAnimator.swift in Sources */,
 				D6595E1A1FBB725500089917 /* OnScrollItemCore.swift in Sources */,
 				B91D61BC1FD55219006955DE /* DGActivityIndicatorBallClipRotatePulseAnimation.m in Sources */,
 				D6F1E1381F7BAA4E0098B34C /* ControllerCore.swift in Sources */,

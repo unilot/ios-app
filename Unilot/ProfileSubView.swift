@@ -15,6 +15,8 @@ import UIKit
 class ProfileViewController: ControllerCore {
     
     var profile_tab : ProfileSubView!
+    
+    var animatedExit = 0
 
      override func setTitle() {
  
@@ -46,24 +48,22 @@ class ProfileViewController: ControllerCore {
         
         view.clipsToBounds = true
 
+        view.backgroundColor = kColorMenuDarkFon
+            
         setNavControllerClear()
-        
-        setFon()
         
         setTitle()
         
-        addMenuButton()
+        addBackColorButton()
         
         addInfoButton()
-        
-        
+ 
     }
 
-
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
-        super.viewDidAppear(animated)
+        super.viewWillAppear(animated)
  
         addMainView()
         
@@ -85,7 +85,6 @@ class ProfileViewController: ControllerCore {
         profile_tab = getFromNib("ProfileView") as! ProfileSubView
         profile_tab.frame = CGRect(x: 0, y: getStatusbarShift() / 2, width: view.frame.width, height: view.frame.height)
         profile_tab.didLoad(0)
-        profile_tab.revealPlayButton()
         view.addSubview(profile_tab)
     }
     
@@ -101,7 +100,6 @@ class ProfileViewController: ControllerCore {
     }
     
     
-    
     override func onQRAnswer(_ haveText : String?){
         
         profile_tab.onQRAnswer(haveText)
@@ -110,7 +108,18 @@ class ProfileViewController: ControllerCore {
     
     @objc func onGoToGames(){
         
-        current_controller_core?.goToMainView(getTabBarTag())
+        if animatedExit == 0 {
+
+            current_controller_core?.goToMainView(getTabBarTag())
+
+        } else {
+            
+            presentingViewController?.dismiss(animated: true, completion: {
+                
+                
+            })
+        }
+        
         
     }
     
@@ -124,6 +133,8 @@ class ProfileViewController: ControllerCore {
 
 class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegate, UITableViewDataSource {
         
+    @IBOutlet weak var attentionText: UILabel!
+
     @IBOutlet weak var letsPlay: UIButton!
 
     @IBOutlet weak var titleAddMore: UILabel!
@@ -151,29 +162,6 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
      fieldPurse.resignFirstResponder()
         
     }
-    
-    func revealPlayButton(){
-        
-        var opacity : Float!
-        var isUserInteraction : Bool!
-        
-        if users_account_number.count > 0 {
-            
-            opacity = 1.0
-            isUserInteraction = true
- 
-        } else {
-
-            opacity = 0.0
-            isUserInteraction = false
-
-        }
-        
-        UIView.animate(withDuration: 1, animations: {
-            self.letsPlay.layer.opacity = opacity
-            self.letsPlay.isUserInteractionEnabled = isUserInteraction
-        })
-    }
      
     //MARK: -
 
@@ -188,6 +176,7 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     
     func fillWithData(){
         
+        attentionText.text = TR("attention_text")
         titleAddMore.text = TR("add_wallet_address")
         titleMain.text = TR("your_wallets")
         fieldPurse.placeholder = TR("your_wallet_address")
@@ -203,11 +192,37 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     //MARK: - UITextFieldDelegate
     
     
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+ 
+        if let text = textField.text,
+            let textRange = Range(range, in: text) {
+            let updatedText = text.replacingCharacters(in: textRange, with: string)
+            
+            if isAddressEth(updatedText){
+                
+                textField.textColor =  UIColor.white
+                
+            } else {
+                
+                textField.textColor = UIColor.red
+            }
+            
+            
+        }
+
+        
+        return true
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         textField.resignFirstResponder()
         
-        onAddnewLine()
+        if textField.text != nil {
+            
+            onAddnewLine()
+        }
         
         return true
     }
@@ -293,24 +308,30 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
             
             saveDataInMemory()
             currentTagForRemove = -1
-            revealPlayButton()
         }
     }
     
     func onAddnewLine(){
-        
+ 
         sendEvent("EVENT_WALLET_ADD")
         
         if fieldPurse.text != nil {
-            users_account_number.insert(fieldPurse.text!, at: 0)
-            
-            table.insertRows(at: [IndexPath(row: 0, section: 0)], with: .bottom)
-            
-            saveDataInMemory()
-            
-            fieldPurse.text = nil
-            
-            revealPlayButton()
+           
+            if isAddressEth(fieldPurse.text!){
+                
+                if !users_account_number.contains(fieldPurse.text!){
+                    
+                    users_account_number.insert(fieldPurse.text!, at: 0)
+                    
+                    table.insertRows(at: [IndexPath(row: 0, section: 0)], with: .bottom)
+                    
+                    saveDataInMemory()
+                    
+                    fieldPurse.text = nil
+                    
+                }
+
+            }
 
         }
         
@@ -320,7 +341,11 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
         
         onAddnewLine()
         
-        fieldPurse.becomeFirstResponder()
+        if fieldPurse.isFirstResponder {
+            fieldPurse.resignFirstResponder()
+        } else {
+            fieldPurse.becomeFirstResponder()
+        }
         
     }
     
@@ -328,7 +353,7 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     @IBAction func onQrScan(_ sender : Any){
         
         current_controller_core?.onQRScan(sender)
-    }
+     }
     
     @IBAction func onGoToGames(_ sender : Any){
         
@@ -435,8 +460,7 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     
     
     //MARK: - exit
-
-    
+ 
     func saveDataInMemory(){
         
         MemoryControll.saveObject(users_account_number, key: "users_account_number")

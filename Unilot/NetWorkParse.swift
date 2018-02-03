@@ -70,6 +70,13 @@ class NetWorkParse {
             games_list[game.type] = game
          }
         
+//        games_list[kTypeMonth] = createGameItem(from: responseJSON[1])
+//        games_list[kTypeMonth]?.type = kTypeMonth
+//
+//        games_list[kTypeToken] = createGameItem(from: responseJSON[1])
+//        games_list[kTypeToken]?.type = kTypeToken
+//        games_list[kTypeToken]?.prize_currency = "UNIT"
+
         return nil
         
     }
@@ -79,6 +86,23 @@ class NetWorkParse {
         
         guard let responseJSON = resultValue as? [[String:Any]] else {
             return message_to_Crashlytics(line: "WinnersList")
+        }
+        
+        winners_list = []
+        
+        for item in responseJSON {
+            let game = createUserItemForGame(from: item)
+            winners_list.append(game)
+        }
+        
+        return nil
+        
+    }
+    
+    static func parseParticipantsList(_ resultValue : Any) -> String? {
+        
+        guard let responseJSON = resultValue as? [[String:Any]] else {
+            return message_to_Crashlytics(line: "ParticipantsList")
         }
         
         winners_list = []
@@ -131,18 +155,26 @@ class NetWorkParse {
     static func createGameItem(from data :[String : Any] ) -> GameInfo{
             
         let item = GameInfo()
+       
+        
+//            "amount": 1000000
+//            "currency": "ETH"
+        
         
         item.game_id            = "\(data["id"] ?? kEmpty )"
         item.smart_contract_id  = data["smart_contract_id"] as? String ?? "0"
         item.num_players        = data["num_players"] as? Int  ?? 0
         item.prize_amount       = data["prize_amount"] as? Float  ?? 0
+        item.prize_currency     = data["prize_currency"] as? String  ?? kETHGameCurrency
         item.bet_amount         = data["bet"] as? Float  ?? KBetDefault
         item.prize_amount_fiat  = data["prize_amount_fiat"] as? Float ?? 0
         item.started_at         = convertDate(from: data["started_at"] as? String)
         item.ending_at          = convertDate(from: data["ending_at"] as? String)
         item.status             = data["status"] as? Int ?? kStatusUndefined
         item.type               = data["type"] as? Int ?? local_current_game.type
-        
+        item.gas_limit          = data["gas_limit"] as? Int ?? default_gas_limit
+        item.gas_price          = data["gas_price"] as? Int ?? default_gas_price
+
         return item
     }
 

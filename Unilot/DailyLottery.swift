@@ -53,7 +53,13 @@ class DailyLottery : MainItemView {
         
     }
     
-    
+    override func fillWithGameNumbers(){
+        
+        super.fillWithGameNumbers() 
+        
+        takePartEth.text = "\(current_game.bet_amount) Eth"
+
+    }
 }
 
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -133,7 +133,7 @@
                         <constraint firstAttribute="width" secondItem="yIZ-IA-UOp" secondAttribute="height" multiplier="1:1" id="Obv-k1-0F2"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ethereum-x3" translatesAutoresizingMaskIntoConstraints="NO" id="dIb-Fg-5uk" userLabel="Eth image">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ETHImg" translatesAutoresizingMaskIntoConstraints="NO" id="dIb-Fg-5uk" userLabel="Eth image">
                     <rect key="frame" x="10" y="92.5" width="62.5" height="62.5"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -173,7 +173,7 @@
                     <rect key="frame" x="10" y="205" width="355" height="312"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNu-1b-PmW" customClass="CountDownTimeMonth" customModule="Unilot" customModuleProvider="target">
-                            <rect key="frame" x="160" y="98" width="139.5" height="116"/>
+                            <rect key="frame" x="148.5" y="94.5" width="146.5" height="122"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="cxf-cd-IuE"/>
@@ -181,7 +181,7 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дней" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="R5z-RC-HPX">
-                            <rect key="frame" x="305" y="132.5" width="50" height="47"/>
+                            <rect key="frame" x="305" y="129.5" width="50" height="53"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="GqU-iN-Roe"/>
                             </constraints>
@@ -190,7 +190,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="До обьявления победителя:" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="iIq-dS-YVZ">
-                            <rect key="frame" x="0.0" y="92" width="150" height="128.5"/>
+                            <rect key="frame" x="0.0" y="83.5" width="138.5" height="145.5"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="LaM-xU-RnB"/>
                             </constraints>
@@ -208,7 +208,7 @@
                         <constraint firstItem="hNu-1b-PmW" firstAttribute="leading" secondItem="iIq-dS-YVZ" secondAttribute="trailing" constant="10" id="pYL-rk-nN5"/>
                         <constraint firstItem="R5z-RC-HPX" firstAttribute="centerY" secondItem="dFO-t0-ffM" secondAttribute="centerY" id="qBL-18-zP9"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="999" constant="200" id="qNJ-sd-9z4"/>
-                        <constraint firstItem="R5z-RC-HPX" firstAttribute="leading" secondItem="hNu-1b-PmW" secondAttribute="trailing" constant="5" id="w1b-MG-c3O"/>
+                        <constraint firstItem="R5z-RC-HPX" firstAttribute="leading" secondItem="hNu-1b-PmW" secondAttribute="trailing" constant="10" id="w1b-MG-c3O"/>
                     </constraints>
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info2-x3" translatesAutoresizingMaskIntoConstraints="NO" id="rNI-kK-cwq">
@@ -219,7 +219,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eth" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="YUB-d3-2vL">
-                    <rect key="frame" x="54" y="92.5" width="18.5" height="16.5"/>
+                    <rect key="frame" x="54" y="92.5" width="18.5" height="18.5"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -275,6 +275,8 @@
                 <constraint firstItem="yIZ-IA-UOp" firstAttribute="centerY" secondItem="uKC-4K-Vgu" secondAttribute="centerY" id="y7R-LP-yhs"/>
             </constraints>
             <connections>
+                <outlet property="currencyImage" destination="dIb-Fg-5uk" id="P1v-8d-zLQ"/>
+                <outlet property="currencyLabel" destination="YUB-d3-2vL" id="zsd-Rk-mSC"/>
                 <outlet property="daysCount" destination="hNu-1b-PmW" id="J5n-Xx-RIt"/>
                 <outlet property="ethFakeButton" destination="xfj-nk-Djv" id="x91-HC-1c8"/>
                 <outlet property="firstOverlay" destination="dFO-t0-ffM" id="O7d-Ri-q91"/>
@@ -294,7 +296,7 @@
     </objects>
     <resources>
         <image name="ArrowDown" width="31" height="31"/>
-        <image name="ethereum-x3" width="52" height="85"/>
+        <image name="ETHImg" width="52" height="85"/>
         <image name="info2-x3" width="23" height="23"/>
         <image name="man-x3" width="20" height="22"/>
         <image name="trophy-x3" width="34" height="43"/>

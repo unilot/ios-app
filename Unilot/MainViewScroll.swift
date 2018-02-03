@@ -39,7 +39,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         
         setBackButton()
         
-        addInfoButton()
+        addProfileButton()
         
         fillSegmentNames()
         
@@ -131,9 +131,10 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
 
         
         frame.origin.x += scrollView.frame.width
-        let token_tab = getFromNib("ViewMain") as! DailyLottery
+        let token_tab = getFromNib("BonusView") as! BonusLottery
         token_tab.frame = frame
         token_tab.didLoad(3)
+        token_tab.currencyLabel.isHidden = true
         scrollView.addSubview(token_tab)
          
 

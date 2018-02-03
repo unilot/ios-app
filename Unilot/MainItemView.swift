@@ -169,10 +169,12 @@ class MainItemView: LotteryItemsView {
         
         
         peopleCount.text = Int(current_game.num_players).stringWithSepator
-        
-        takePartEth.text = "\(current_game.bet_amount) Eth"
-        
+                
         usSum.text = "$ \(current_game.prize_amount_fiat)"
+        
+        currencyLabel.text = current_game.prize_currency
+
+        currencyImage.image = UIImage(named: "\(current_game.prize_currency)Img")
         
         let start_count = MemoryControll.getGameMoneyStart(current_game.game_id)
         

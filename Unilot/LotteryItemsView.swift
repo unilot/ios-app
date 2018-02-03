@@ -23,15 +23,18 @@ class  LotteryItemsView : OnScrollItemCore,
     @IBOutlet weak var titlePrize: UILabel!
     @IBOutlet weak var takePartEth: UILabel!
     
-    
+ 
     @IBOutlet weak var takePart: UIButton!
     @IBOutlet weak var takePartFon: UIImageView!
     
     @IBOutlet weak var imageTrophy: UIImageView!
     @IBOutlet weak var imageArrow : UIImageView!
     
-    @IBOutlet weak var ethFakeButton: UIButton!
     
+    @IBOutlet weak var ethFakeButton: UIButton!
+    @IBOutlet weak var currencyLabel: UILabel!
+    @IBOutlet weak var currencyImage: UIImageView!
+
     
     @IBOutlet weak var prizePlaces: UIButton!
     
@@ -60,7 +63,10 @@ class  LotteryItemsView : OnScrollItemCore,
         
         current_game.type = kTypeTabBarOrder[indexNum]
 
+        current_game.prize_currency = kCurrenciesTabBarOrder[indexNum]
+            
         titleMain.text = TR(tabbar_strings[indexNum]).capitalized + " " + TR("drawing1")
+        
         
     }
     
@@ -197,16 +203,16 @@ class  LotteryItemsView : OnScrollItemCore,
     
     
     @IBAction func onHowDoesItWork(){
+ 
+        local_current_game = current_game
         
+        let viewWithPlaces = ParticipantsView.createParticipantsView()
+        viewWithPlaces.delegate = current_controller_core
+        current_controller_core!.pop_up_view.append(viewWithPlaces)
         
-        current_controller_core!.onTutorialWithButton()
-        
-//        let viewWithPlaces = InfoView.createInfoView()
-//        viewWithPlaces.delegate = current_controller_core
-//        current_controller_core!.pop_up_view = viewWithPlaces
-//        viewWithPlaces.initView(mainView: current_controller_core!.view, directionSign: 1)
-//
-//        sendEvent("EVENT_BONUS_HOWTO")
+        viewWithPlaces.initView(mainView: current_controller_core!.view, directionSign: 1)
+
+        sendEvent("EVENT_LIST_PARTICIPANTS")
         
     }
     
@@ -238,15 +244,27 @@ class  LotteryItemsView : OnScrollItemCore,
         
         local_current_game = current_game
         
+        if  users_account_number.count > 0 {
+            
+            onOpeTakePartView()
+        
+        } else {
+            
+            current_controller_core?.onPopUpProfile()
+        }
+        
+    }
+
+    
+    func onOpeTakePartView(){
+        
         let viewWithPlaces = AgreeToPlay.createAgreeToPlay()
         viewWithPlaces.delegate = current_controller_core
         current_controller_core!.pop_up_view.append(viewWithPlaces)
         viewWithPlaces.initView(mainView: current_controller_core!.view, directionSign: 1)
-
+        
         sendEvent("EVENT_\(kEVENTS_middle[current_game.type]!)_PARTICIPATE")
     }
-
-    
     
     
     @IBAction func onEthButton(){

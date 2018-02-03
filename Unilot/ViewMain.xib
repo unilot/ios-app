@@ -49,7 +49,7 @@
                         <constraint firstAttribute="width" secondItem="bm8-QC-Alh" secondAttribute="height" multiplier="1:1" id="fEb-jN-i7n"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ethereum-x3" translatesAutoresizingMaskIntoConstraints="NO" id="rti-pF-jOu" userLabel="Eth Image">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ETHImg" translatesAutoresizingMaskIntoConstraints="NO" id="rti-pF-jOu" userLabel="Eth Image">
                     <rect key="frame" x="10" y="92" width="62.5" height="62.5"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -339,6 +339,8 @@
             </constraints>
             <connections>
                 <outlet property="clockTablet" destination="Ne0-MO-FZM" id="7T0-sr-cMP"/>
+                <outlet property="currencyImage" destination="rti-pF-jOu" id="Wsm-pj-tpb"/>
+                <outlet property="currencyLabel" destination="8FU-fr-yyl" id="blR-fH-zhN"/>
                 <outlet property="ethFakeButton" destination="j2n-yO-7RF" id="keZ-Nf-wBE"/>
                 <outlet property="firstOverlay" destination="1T5-iw-KM2" id="zpo-Qj-yiC"/>
                 <outlet property="imageArrow" destination="Mmc-ic-CEc" id="7MQ-FI-r9T"/>
@@ -361,7 +363,7 @@
     </objects>
     <resources>
         <image name="ArrowDown" width="31" height="31"/>
-        <image name="ethereum-x3" width="52" height="85"/>
+        <image name="ETHImg" width="52" height="85"/>
         <image name="fat button" width="629" height="2"/>
         <image name="loadingSign" width="459" height="14.823529243469238"/>
         <image name="man-x3" width="20" height="22"/>

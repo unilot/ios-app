@@ -18,6 +18,11 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
 
     var pop_up_view = [PopUpCore]()
 
+    let transition = PopAnimator()
+    
+    weak var barCodeResonder : PopUpCore?
+
+    
     //MARK: - NOTIFICATION
  
     
@@ -87,6 +92,11 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
         setBackButton()
         
         setTitle()
+        
+        transition.dismissCompletion = {
+
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -113,6 +123,36 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
     }
     //MARK: - Buttons
     
+    func addBackColorButton() {
+ 
+//        setBackButton()
+        
+        let frameBarButton = CGSize(width: 30, height: 30)
+        
+        itemBadge = setColorForImage(frameBarButton, "arrow_back")
+        
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        button.addTarget(self, action: #selector(ControllerCore.onBackMenuArrow) , for: .touchUpInside)
+        button.addSubview(itemBadge!)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView:button)
+
+        
+    }
+    
+    func addProfileButton() {
+        
+        let frameBarButton = CGSize(width: 30, height: 30)
+        
+        itemBadge = setColorForImage(frameBarButton, "`profile-x3")
+        
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        button.addTarget(self, action: #selector(ControllerCore.onPopUpProfile) , for: .touchUpInside)
+        button.addSubview(itemBadge!)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView:button)
+        
+    }
     
     func addMenuButton() {
       
@@ -304,6 +344,19 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
         goToMainView(0)
     }
 
+    @IBAction func onPopUpProfile(){
+        
+        let profileController = getVCFromName("SB_ProfileViewController") as! ProfileViewController
+        profileController.animatedExit = 1
+        profileController.transitioningDelegate = self
+       
+        
+        present(profileController, animated: true) {
+            
+        }
+    }
+    
+    
     @IBAction func onQRScan(_ sender: Any) {
  
         if pop_up_upper_view != nil {
@@ -322,7 +375,7 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
     
     func onQRAnswer(_ haveText : String?){
    
-        
+        barCodeResonder?.onQRAnswer(haveText)
     }
 
     
@@ -470,4 +523,37 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
         
     }
 }
+
+extension ControllerCore: UIViewControllerTransitioningDelegate {
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        coordinator.animate(alongsideTransition: { context in
+           
+            
+        }, completion: nil)
+        
+    }
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        let heightV = view.frame.height * 0.05
+        let widthV =  view.frame.width * 0.05
+        transition.originFrame = CGRect(x: view.frame.width - widthV - 15 - 20,
+                                        y: getStatusbarShift() + 20 , width: widthV, height: heightV)
+        
+        transition.presenting = true
+ 
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.presenting = false
+        return transition
+    }
+}
+
+
 

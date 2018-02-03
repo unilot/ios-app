@@ -84,8 +84,6 @@ let staticClockSecondsStep = [1,60,3600]
 
 //MARK: -  LOCALS
 
-
-
 let default_first_launch     = "&&\(kTypeProfileView)"
 
 var lottery_images   = ["`1day-x3","`7days-x3","`31days-x3","`token-x3"]
@@ -93,6 +91,7 @@ var histiry_images   = ["`alldays-x3","`1day-x3","`7days-x3","`31days-x3","`toke
 
 var kTypeImage       = [kTypeDay : "`1day-x3", kTypeWeek : "`7days-x3", kTypeMonth : "`31days-x3",kTypeToken : "`token-x3"]
 var kTypeTabBarOrder = [kTypeDay, kTypeWeek, kTypeMonth, kTypeToken]
+var kCurrenciesTabBarOrder = [kETHGameCurrency, kETHGameCurrency, kETHGameCurrency, kUNITGameCurrency]
 
 
 let staticClockNames =
@@ -115,6 +114,9 @@ var history_tabbbar  =   ["all","daily1","weekly1","bonus1","token1"]
 
 let kEmpty = ""
 
+let kETHGameCurrency = "ETH"
+let kUNITGameCurrency = "UNIT"
+
 
 //MARK: - EVENTS
 
@@ -133,11 +135,14 @@ let kTag_PopUp        = 6666666
 
 //MARK: - COLORS
 
+let kColorMenuDarkFon =  UIColor(red: 24.0/255.0, green: 24.0/255.0, blue: 30.0/255.0, alpha: 1)
+
 let kColorHistoryGray   =  UIColor(red: 190.0/255.0, green:190.0/255.0, blue: 190.0/255.0, alpha: 1)
 let kColorLightGray   =  UIColor(red: 243.0/255.0, green: 243.0/255.0, blue: 243.0/255.0, alpha: 1)
 let kColorNormalGreen =  UIColor(red: 76.0/255.0, green: 215.0/255.0, blue: 100/255.0, alpha: 1)
 let kColorLightOrange =  UIColor(red: 255.0/255.0, green: 152.0/255.0, blue: 140/255.0, alpha: 1)
 let kColorLightYellow =  UIColor(red: 252.0/255.0, green: 223.0/255.0, blue: 138.0/255.0, alpha: 1)
+
 let kColorMenuFon =  UIColor(red: 39.0/255.0, green: 39.0/255.0, blue: 56.0/255.0, alpha: 1)
 let kColorSelectedBlue =  UIColor(red: 54.0/255.0, green: 102.0/255.0, blue: 241.0/255.0, alpha: 1)
 let kColorMenuPeach    =  UIColor(red: 255.0/255.0, green: 213.0/255.0, blue: 167.0/255.0, alpha: 1)

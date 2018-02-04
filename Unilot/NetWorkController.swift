@@ -32,11 +32,11 @@ let kAPI_get_token          = "o2/token/"
 let kAPI_set_device         = "api/v1/device/"
 let kAPI_get_list_games     = "api/v1/games"
 let kAPI_get_list_winners   = "api/v1/games/%@/winners"
+let kAPI_get_participants   = "api/v1/games/%@/players"
 let kAPI_get_history        = "api/v1/games/archived"
 let kAPI_post_notif_token   = "api/v1/device/"
 let kAPI_get_game_details   = "api/v1/games/"
 let kAPI_post_settings      = "api/v1/device/settings"
-let kAPI_get_participants   = "api/v1/games/%@/gamers"
 
 var request_headers : HTTPHeaders  = [
     "Content-Type"  : "application/json",

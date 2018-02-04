@@ -156,17 +156,9 @@ class NetWorkParse {
             
         let item = GameInfo()
        
-        
-//            "amount": 1000000
-//            "currency": "ETH"
-        
-        
         item.game_id            = "\(data["id"] ?? kEmpty )"
         item.smart_contract_id  = data["smart_contract_id"] as? String ?? "0"
         item.num_players        = data["num_players"] as? Int  ?? 0
-        item.prize_amount       = data["prize_amount"] as? Float  ?? 0
-        item.prize_currency     = data["prize_currency"] as? String  ?? kETHGameCurrency
-        item.bet_amount         = data["bet"] as? Float  ?? KBetDefault
         item.prize_amount_fiat  = data["prize_amount_fiat"] as? Float ?? 0
         item.started_at         = convertDate(from: data["started_at"] as? String)
         item.ending_at          = convertDate(from: data["ending_at"] as? String)
@@ -174,6 +166,20 @@ class NetWorkParse {
         item.type               = data["type"] as? Int ?? local_current_game.type
         item.gas_limit          = data["gas_limit"] as? Int ?? default_gas_limit
         item.gas_price          = data["gas_price"] as? Int ?? default_gas_price
+
+        if let prize = data["prize_amount"] as? [String : Any] {
+            
+            item.prize_amount       = prize["amount"] as? Float  ?? 0
+            item.prize_currency     = prize["currency"] as? String  ?? kETHGameCurrency
+
+        }
+        
+        if let bet = data["bet_amount"] as? [String : Any] {
+            
+            item.bet_amount         = bet["amount"] as? Float  ?? KBetDefault
+
+        }
+        
 
         return item
     }
@@ -185,8 +191,14 @@ class NetWorkParse {
         
         item.user_id            = data["address"] as? String ?? "0"
         item.position           = data["position"] as? Int ?? 0
-        item.prize_amount       = data["prize_amount"] as? Float ?? 0
         item.prize_amount_fiat  = data["prize_amount_fiat"] as? Float ?? 0
+        
+        if let prize = data["prize_amount"] as? [String : Any] {
+            
+            item.prize_amount       = prize["amount"] as? Float  ?? 0
+            item.prize_currency     = prize["currency"] as? String  ?? kETHGameCurrency
+            
+        }
         
         return item
     }

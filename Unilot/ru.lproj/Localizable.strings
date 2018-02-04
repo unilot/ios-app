@@ -76,7 +76,9 @@
 "minutes"                   = "минуты";
 "seconds"                   = "секунды";
 
-"days2"                     = "дней";
+"day"                       = "день";
+"days2_1"                   = "дня";
+"days2_2"                   = "дней";
 
 "finished"                  = "завершена";
 
@@ -123,7 +125,7 @@
 "left_\nbefore_end"         = "До объявления\nпобедителей:";
 
 
-"how_join?"                 = "Как попасть в этот розыгрыш?";
+"how_join?"                 = "Как принять участие?";
 "will_be_off_after:"        = "Лотерея заканчивается через:";
 //"to_participate_you_need"   = "Чтобы принять участие в %@, вам необходимо перечислить %.3f Eth на кошелек, адрес которого вы получите, нажав на кнопку ниже.";
 
@@ -149,22 +151,24 @@
 
 
 
+
+
+
+
+
+
 ///  ---------------  new text  ---------------   !!!!!
 
 
 // MARK: - wallet Alerts
 
-"title_wallets_allert" = "Please specify address of the wallet that will be used to buy UNIT tokens.";
+"title_wallets_allert" = "Укажите адрес кошелька, который вы будете использовать для покупки UNIT токенов.";
 
-"text_wallets_allert" = "Please note: \n \
-What application we RECOMMEND:\n  \
-   • MyEtherWallet (http://myetherwallet.com/)\n   • Metamask browser extension (see details: https://metamask.io/) \n \
-Do NOT use this wallet applications for investment: \n  \
-   • Freewallet apps (https://freewallet.org/) \n   • Any wallet that is stored on exchange (coinbase, bitfinex, coinexchange, cex.io and etc) \n   • Any wallet application that doesn’t allow you to export and import your wallet freely without any extra condition (like write to support)";
+"text_wallets_allert" = "Обратите внимание!\nМы рекомендуем использовать нижеследующие кошельки:\n   • MyEtherWallet (http://myetherwallet.com/)\n   • MetaМask - браузерное расширение (https://metamask.io/) \n \
+НЕ ИСПОЛЬЗУЙТЕ следующие кошельки для инвестирования: \n   • Приложения Freewallet (https://freewallet.org/) \n   • Любые кошельки, хранящиеся на биржах (coinbase, bitfinex, coinexchange, cex.io и другие) \n   • Любое приложение-кошелек, которое не позволяет легко импортировать и экспортировать ваш кошелек без каких-либо допольнительных условий (например, необходимо писать в тех.поддержку)";
 
 
-
-"button_wallets_allert" = "Got it";
+"button_wallets_allert" = "OK";
 
 //MARK: - Tutorial screens
 

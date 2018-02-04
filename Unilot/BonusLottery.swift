@@ -26,7 +26,6 @@ class BonusLottery: MainItemView {
         widthProgress = 0
         
         label1.text = TR("left_\nbefore_end")
-        label2.text = TR("days2")
         
         howDoesItWork.setTitle(TR("how_join?"), for: .normal)
         
@@ -37,7 +36,8 @@ class BonusLottery: MainItemView {
     override func setTimersNumbers(_ from: Int, _ all: Int , _ type: Int) {
         
         daysCount.initTimer(from/(3600*24),all/(3600*24))
-        
+        label2.text = getDaysWord(daysCount.totalCounts)
+
     }
     
     override  func setButtonView(){

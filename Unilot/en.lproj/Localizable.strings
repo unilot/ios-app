@@ -9,7 +9,7 @@
 
 
 "canceled"                  = "canceled";
- 
+
 "Yes"                       = "Yes";
 "No"                        = "No";
 
@@ -79,7 +79,10 @@
 "minutes"                   = "minutes";
 "seconds"                   = "seconds";
 
-"days2"                     = "days";
+"day"                         = "day";
+"days2_1"                     = "days";
+"days2_2"                     = "days";
+
 
 "finished"                  = "finished";
 
@@ -126,13 +129,13 @@
 "left_\nbefore_end"         = "Left till winners\n announcement:";
 
 
-"how_join?"                 = "How can I join this drawing?";
+"how_join?"                 = "How to participate?";
 "will_be_off_after:"        = "The drawing finishes in:";
 "to_participate_you_need"   = "To participate in %@ you should transfer %.3f Eth to a specified wallet. Please tap on the button below to get the wallet address.";
 
 "we_dont_know_your_wallet"  = "Since you have not registered your wallet, your status is unknown.\nCheck History of the drawing.";
 
- 
+
 "skip" = "Skip";
 "lets_start" = "Let's start!";
 "need_more_info" = "Want to know more";
@@ -148,17 +151,19 @@
 
 
 
+
+
+
 ///  ---------------  new text  ---------------   !!!!!
 
 // MARK: - wallet Alerts
 
 "title_wallets_allert" = "Please specify address of the wallet that will be used to buy UNIT tokens.";
 
-"text_wallets_allert" = "Please note: \n \
-What application we RECOMMEND:\n \
-   • MyEtherWallet (http://myetherwallet.com/)\n   • Metamask browser extension (see details: https://metamask.io/) \n \
+"text_wallets_allert" = "Please note: \n \What application we RECOMMEND:\n \
+    • MyEtherWallet (http://myetherwallet.com/)\n   • Metamask browser extension (see details: https://metamask.io/) \n \
 Do NOT use this wallet applications for investment: \n  \
-   • Freewallet apps (https://freewallet.org/) \n   • Any wallet that is stored on exchange (coinbase, bitfinex, coinexchange, cex.io and etc) \n   • Any wallet application that doesn’t allow you to export and import your wallet freely without any extra condition (like write to support)";
+    • Freewallet apps (https://freewallet.org/) \n   • Any wallet that is stored on exchange (coinbase, bitfinex, coinexchange, cex.io and etc) \n   • Any wallet application that doesn’t allow you to export and import your wallet freely without any extra condition (like write to support)";
 
 
 "button_wallets_allert" = "Got it";
@@ -168,11 +173,14 @@ Do NOT use this wallet applications for investment: \n  \
 
 "tutorial_text_1" = "First choose the type of the drawings: Daily or Weekly. Then tap the button “Participate” to start.";
 
-"tutorial_text_2"           = "Производите оплату только с приватных криптокошельков, к которым у вас есть закрытый ключ! Используя биржевые кошельки, вы не сможете получить ни выигрыш, ни бонусные токены.";
+"tutorial_text_2"           = "Be aware to use only private crypto wallets. If you use an exchange wallet to participate you will get neither bonus tokens nor winnings.";
 
-"tutorial_text_3"           = "Здесь вы найдете адрес кошелька, на который необходимо перевести указанное количество средств для участия. Пожалуйста, скопируйте его.";
+"tutorial_text_3"           = "Here is the wallet address you need to transfer the specified amount to. Please copy it.";
 
-"tutorial_text_4"           = "Чтобы принять участие в розыгрыше, необходимо отправить ETH с вашего криптокошелька на адрес розыгрыша Unilot.";
+
+"tutorial_text_4"           = "To participate please send ETH from your crypto wallet to Unilot address.";
+
+
 
 "tutorial_text_5" = "Go to your wallet and transfer the necessary amount to the copied wallet address.";
 
@@ -184,19 +192,19 @@ Do NOT use this wallet applications for investment: \n  \
 
 // MARK: - participate view
 
-"go_back_after_payment"     = "убедитесь, что вы совершаете оплату с кошелька, который зарегистрирован в профиле";
+"go_back_after_payment"     = "Make sure that you transfer ETH from the wallet that is registered in the profile";
 
 
 // MARK: - profile
 
-"attention_text" = "Прежде чем принять участие, вам необходимо указать номер кошелька с которого будет производится оплата";
+"attention_text" = "Before participating, please specify the address of you wallet which will be used to make payment";
 
 
 // MARK: - Participants
 
-"list_of_participants" = "Список участников";
+"list_of_participants" = "List of participants";
 
-"text_condition_50" = "Чтобы принять участие в розыгрыше Бонусной лотереи вам необходимо принять участие в Дневной или Недельной лотерее";
+"text_condition_50" = "To participate in Bonus drawing, you should be a participant of Daily or Weekly drawings.";
 
-"text_condition_70" = "Чтобы принять участие в розыгрыше 100,000 UNIT вам необходимо принять участие в Дневной или Недельной лотерее";
+"text_condition_70" = "To participate in 100 000 UNIT raffle you should be a participant of Daily or Weekly drawings.";
 

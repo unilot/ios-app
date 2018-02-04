@@ -64,9 +64,8 @@ class UserForGame{
     var position            : Int = 0
     var prize_amount        : Float = 0
     var prize_amount_fiat   : Float = 0
-     
+    var prize_currency      : String = kEmpty
 }
-
 
 class GameInfo {
     
@@ -576,4 +575,19 @@ func  isAddressEth(_ wallet : String) -> Bool{
 
     
 }
+
+func getDaysWord(_ count : Int) -> String {
+    
+    if count == 1 {
+        return TR("day")
+    }
+
+    if [2,3,4].contains(count % 10) {
+        return TR("days2_1")
+    }
+    
+    return TR("days2_2") 
+}
+
+
 

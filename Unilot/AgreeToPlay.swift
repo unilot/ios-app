@@ -148,7 +148,7 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
             
         case 1136:
             //            printf("iPhone 5 or 5S or 5C");
-            return 10
+            return 9
             
         case 1334:
             //            printf("iPhone 6/6S/7/8");

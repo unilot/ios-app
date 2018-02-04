@@ -73,8 +73,8 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
                 butHey.text =  TR("you_take_part_in_bonus:")
 
                 endLabel.text = TR("left_before_end")
-                days.text = TR("days2").capitalized
-                
+//                days.text = getDaysWord(3).capitalized
+
                 setTimerDetails()
                 startClock()
                 
@@ -109,6 +109,9 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
 //            onX()
         } else {
             clockTablet.initTimer(data.0/(3600*24),data.1/(3600*24))
+            if users_account_number.count > 0 {
+                days.text = getDaysWord(clockTablet.totalCounts)
+            }
         }
         
         

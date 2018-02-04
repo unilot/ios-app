@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 weak var pop_up_upper_view : PopUpCore?
 
 protocol PopUpCoreDelegate {

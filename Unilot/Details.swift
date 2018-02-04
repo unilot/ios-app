@@ -176,6 +176,11 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
             label.text = TR("wallet").uppercased()
         }
 
+        if let label = header_view.viewWithTag(30) as? UILabel{
+            label.text = current_game.prize_currency.uppercased()
+        }
+        
+        
     }
  
     

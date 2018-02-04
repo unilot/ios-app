@@ -216,7 +216,7 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
     
     //MARK: - onBUttons
  
-    func onSegmentChange(_ button : UIButton){
+    @objc  func onSegmentChange(_ button : UIButton){
         
         currentTable = button.tag/1000000 - 1
 

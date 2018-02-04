@@ -100,7 +100,7 @@ class LoadingView : ControllerCore{
     }
     
     
-    func getSessionToken(){
+    @objc func getSessionToken(){
         
         NetWork.startSession { (error : String?) in
             
@@ -171,7 +171,7 @@ class LoadingView : ControllerCore{
     
     func init_notification_start(){
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(getSessionToken),
+                                               selector: #selector(LoadingView.getSessionToken),
                                                name: NSNotification.Name(rawValue: "enter_after_start"),
                                                object: nil)
     }

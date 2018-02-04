@@ -104,7 +104,7 @@
                     <rect key="frame" x="15" y="170" width="384" height="369"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ltz-Tj-gjO">
-                            <rect key="frame" x="15" y="10" width="354" height="349"/>
+                            <rect key="frame" x="15" y="5" width="354" height="359"/>
                             <color key="backgroundColor" red="1" green="0.95294117647058818" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <string key="text">Что бы принять участие в ежедневной лотерее вам необходимо перечислить 0.005 Eth на кошелек, который вы получите нажав на кнопку ниже</string>
                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
@@ -116,8 +116,8 @@
                     <constraints>
                         <constraint firstItem="Ltz-Tj-gjO" firstAttribute="leading" secondItem="3kk-6h-fAM" secondAttribute="leading" constant="15" id="3XD-KA-cZ1"/>
                         <constraint firstAttribute="trailing" secondItem="Ltz-Tj-gjO" secondAttribute="trailing" constant="15" id="8Vb-nf-KaQ"/>
-                        <constraint firstItem="Ltz-Tj-gjO" firstAttribute="top" secondItem="3kk-6h-fAM" secondAttribute="top" constant="10" id="XBT-M3-cTY"/>
-                        <constraint firstAttribute="bottom" secondItem="Ltz-Tj-gjO" secondAttribute="bottom" constant="10" id="r0c-m9-ijS"/>
+                        <constraint firstItem="Ltz-Tj-gjO" firstAttribute="top" secondItem="3kk-6h-fAM" secondAttribute="top" constant="5" id="XBT-M3-cTY"/>
+                        <constraint firstAttribute="bottom" secondItem="Ltz-Tj-gjO" secondAttribute="bottom" constant="5" id="r0c-m9-ijS"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

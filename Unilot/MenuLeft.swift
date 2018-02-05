@@ -8,9 +8,10 @@
 
 
 import UIKit 
+import MessageUI
 
 
-class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
+class MenuLeft: UITableViewController, SWRevealViewControllerDelegate , MFMailComposeViewControllerDelegate, UINavigationControllerDelegate{
     
     @IBOutlet weak var itemBadge: SpecialItem!
     @IBOutlet weak var ico_image: UIImageView!
@@ -20,7 +21,7 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
     @IBOutlet weak var faq: UILabel!
     @IBOutlet weak var settings: UILabel!
     @IBOutlet weak var profile: UILabel!
-
+    @IBOutlet weak var feedback: UILabel!
     @IBOutlet weak var info: UILabel!
 
     //MARK: - View override
@@ -59,6 +60,8 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
         info.text = "Version : " + current_version + " Closed Beta"
         ico_image.image = UIImage(named : TR("site"))
         ico_image.contentMode = .scaleAspectFit
+        feedback.text  = TR("send_feedback")
+        
 
     }
     
@@ -80,16 +83,22 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
                 return rowOneHeight
             }
 
-        case 3: // 1 ico button
+        case 2: // 1 ico button
             return rowOneHeight * 1.8
 
-
-        case 4: // socials
+        case 3: // socials
             return rowOneHeight * 1.4
         
-        default: // static info
-            
+        case 4: // static info
             return rowOneHeight * 1.3
+
+        case 5: // feedback
+            return rowOneHeight
+            
+            
+        default: //
+            
+            return rowOneHeight
         }
         
     }
@@ -111,7 +120,11 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
         
         ["SB_IcoView"],
  
-        [kEmpty], [kEmpty], [kEmpty]
+        [kEmpty],
+        
+        [kEmpty],
+
+        ["feed_back"]
 
         ]
         
@@ -121,6 +134,13 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
             revealViewController().revealToggle(animated: true)
             current_controller_core?.onTutorialWithButton()
         } else {
+           
+            if nameOfView == "feed_back" {
+
+                onFeedBack()
+                
+            } else
+            
             if nameOfView != kEmpty{
                 goToViewController(nameOfView)
             }
@@ -142,7 +162,44 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
         openUrlFromApp(links[link_tag] )
         
     }
- 
+    
+    func onFeedBack(){
+        
+        SweetAlert().showAlert(" " , subTitle: TR("send_feedback_text"), style: AlertStyle.warning, buttonTitle: TR("No"),
+                               buttonColor: UIColor.colorFromRGB(0xDD6B55) ,
+                               otherButtonTitle: TR("Yes"),
+                               otherButtonColor: kColorNormalGreen )
+        { (isOtherButton) -> Void in
+
+                                if isOtherButton == true {
+                                    
+                                }
+                                else {
+                                    self.sendLetter()
+                                }
+        }
+        
+    }
+    
+    func sendLetter(){
+        
+        if MFMailComposeViewController.canSendMail() {
+            
+            let mail = MFMailComposeViewController()
+            mail.delegate = self
+            mail.mailComposeDelegate = self
+            mail.setToRecipients([kFeedBackMail])
+            mail.setSubject(TR("send_feedback_header"))
+//            mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
+
+            present(mail, animated: true)
+            
+        } else {
+            // show failure alert
+        }
+    }
+    
+    
     
     func goToViewController(_ nameOfView : String){
         
@@ -156,6 +213,13 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate {
         revealViewController().pushFrontViewController(navController, animated: true)
      }
     
+    //MARK: - mailComposeControllerDelegate
+ 
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        
+        controller.dismiss(animated: true)
+    }
+
     //MARK: - SWRevealViewControllerDelegate
     
  

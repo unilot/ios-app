@@ -336,9 +336,9 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
     
     @IBAction func onQRScan(_ sender: Any) {
  
-        if pop_up_upper_view != nil {
-            return
-        }
+//        if pop_up_upper_view != nil {
+//            return
+//        }
         
         let viewWithPlaces = ScannerViewController.create()
         viewWithPlaces.delegate = current_controller_core

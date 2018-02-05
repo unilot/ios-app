@@ -208,3 +208,10 @@ Do NOT use this wallet applications for investment: \n  \
 
 "text_condition_70" = "To participate in 100 000 UNIT raffle you should be a participant of Daily or Weekly drawings.";
 
+//MARK: - menu
+
+"send_feedback" = "Send Feedback";
+"send_feedback_text" = "Have a suggestion for improvement or find a bug? Please send your feedback to help us improve Unilot product!";
+
+"send_feedback_header" = "Unilot app beta testing";
+

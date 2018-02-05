@@ -52,6 +52,7 @@
 		B9811A892025BE0C00BFD589 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9811A882025BE0C00BFD589 /* PopAnimator.swift */; };
 		B9811A90202603D900BFD589 /* ParticipantsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9811A8F202603D800BFD589 /* ParticipantsView.xib */; };
 		B9811A92202607D800BFD589 /* ParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9811A91202607D800BFD589 /* ParticipantsView.swift */; };
+		B9EAA50020285F4000F7C6DB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9EAA4FF20285F3F00F7C6DB /* MessageUI.framework */; };
 		D611305F1FA826BE003B30E9 /* usual.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D611305E1FA826BE003B30E9 /* usual.mp3 */; };
 		D612BBF71F9536AA002C4647 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D612BBF61F9536AA002C4647 /* Assets.xcassets */; };
 		D612BBF91F96B450002C4647 /* LotteryResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D612BBF81F96B450002C4647 /* LotteryResults.swift */; };
@@ -243,6 +244,7 @@
 		B9811A882025BE0C00BFD589 /* PopAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 		B9811A8F202603D800BFD589 /* ParticipantsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParticipantsView.xib; sourceTree = "<group>"; };
 		B9811A91202607D800BFD589 /* ParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsView.swift; sourceTree = "<group>"; };
+		B9EAA4FF20285F3F00F7C6DB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CBC0194290D8904822A4787C /* Pods_Unilot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unilot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D611305E1FA826BE003B30E9 /* usual.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = usual.mp3; path = Settings/usual.mp3; sourceTree = "<group>"; };
 		D612BBF61F9536AA002C4647 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9EAA50020285F4000F7C6DB /* MessageUI.framework in Frameworks */,
 				B927C5E520235EA700E71148 /* CoreImage.framework in Frameworks */,
 				D6CFAC831FA713B500A0F045 /* UserNotifications.framework in Frameworks */,
 				290FA72F1CDF40E19A0E8204 /* Pods_Unilot.framework in Frameworks */,
@@ -380,6 +383,7 @@
 		336C009D07D6695BEE800AA7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B9EAA4FF20285F3F00F7C6DB /* MessageUI.framework */,
 				B927C5E420235EA700E71148 /* CoreImage.framework */,
 				D6CFAC821FA713B500A0F045 /* UserNotifications.framework */,
 				CBC0194290D8904822A4787C /* Pods_Unilot.framework */,

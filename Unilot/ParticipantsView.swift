@@ -192,8 +192,7 @@ class ParticipantsView: PopUpCore, UITableViewDelegate, UITableViewDataSource, U
     
     @IBAction func onSearch(){
         
-        searchMain.layer.opacity = 0.0
-        
+        revealSearchLine()
         searchMain.becomeFirstResponder()
 
     }
@@ -202,7 +201,7 @@ class ParticipantsView: PopUpCore, UITableViewDelegate, UITableViewDataSource, U
     override func onQRAnswer(_ haveText : String?){
         
         searchMain.text = haveText
-        
+        revealSearchLine()
         reloadTableWithText()
         
     }
@@ -223,25 +222,36 @@ class ParticipantsView: PopUpCore, UITableViewDelegate, UITableViewDataSource, U
     }
     
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-        searchMain.layer.opacity = 0.0
-        titleUnderSerchBar.layer.opacity = 1.0
-        searchButton.layer.opacity = 1.0
 
+        hideSearchLine()
         return true
     }
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         
-        searchMain.layer.opacity = 1.0
-        titleUnderSerchBar.layer.opacity = 0.0
-        searchButton.layer.opacity = 0.0
-
+        revealSearchLine()
         return true
     }
-    
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         reloadTableWithText()
         
+    }
+    
+    //MARK: - SearchLine
+
+    func revealSearchLine(){
+        
+        searchMain.layer.opacity = 1.0
+        titleUnderSerchBar.layer.opacity = 0.0
+        searchButton.layer.opacity = 0.0
+        
+    }
+    
+    func hideSearchLine(){
+        searchMain.layer.opacity = 0.0
+        titleUnderSerchBar.layer.opacity = 1.0
+        searchButton.layer.opacity = 1.0
     }
     
 }

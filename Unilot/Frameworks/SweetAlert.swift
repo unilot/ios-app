@@ -24,8 +24,9 @@ open class SweetAlert: UIViewController {
     let kMaxHeight: CGFloat = 300.0
     var kContentWidth: CGFloat = 300.0
     let kButtonHeight: CGFloat = 35.0
-    var textViewHeight: CGFloat = 90.0
+    var textViewHeight: CGFloat = 150.0
     let kTitleHeight:CGFloat = 5.0
+    let kSubTitleHeight:CGFloat = 200.0
     var strongSelf:SweetAlert?
     var contentView = UIView()
     var titleLabel: UILabel = UILabel()
@@ -66,14 +67,14 @@ open class SweetAlert: UIViewController {
         titleLabel.text = ""
         titleLabel.numberOfLines = 1
         titleLabel.textAlignment = .center
-        titleLabel.font = UIFont(name: kFont_Regular, size:25)
+        titleLabel.font = UIFont(name: kFont_Regular, size:20)
         titleLabel.textColor = UIColor.colorFromRGB(0x575757)
     }
     
     fileprivate func setupSubtitleTextView() {
         subTitleTextView.text = ""
         subTitleTextView.textAlignment = .center
-        subTitleTextView.font = UIFont(name: kFont_Regular, size:20)
+        subTitleTextView.font = UIFont(name: kFont_Regular, size:18)
         subTitleTextView.sizeToFit()
         subTitleTextView.textColor = UIColor.colorFromRGB(0x797979)
         subTitleTextView.isEditable = false
@@ -108,8 +109,8 @@ open class SweetAlert: UIViewController {
         // Subtitle
         if self.subTitleTextView.text.isEmpty == false {
             let subtitleString = subTitleTextView.text! as NSString
-            let rect = subtitleString.boundingRect(with: CGSize(width: width, height: 200.0), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:subTitleTextView.font!], context: nil)
-            textViewHeight = 100 + 10.0
+            let rect = subtitleString.boundingRect(with: CGSize(width: width, height: kSubTitleHeight), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:subTitleTextView.font!], context: nil)
+            textViewHeight = kSubTitleHeight  + 10.0
             subTitleTextView.frame = CGRect(x: x, y: y, width: width, height: textViewHeight)
             contentView.addSubview(subTitleTextView)
             y += textViewHeight + kHeightMargin

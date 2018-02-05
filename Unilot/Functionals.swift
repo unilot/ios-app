@@ -10,7 +10,6 @@ import AVFoundation
 import SwiftySound
 import Firebase
 import Crashlytics
-
 import CoreImage
 
 
@@ -339,7 +338,6 @@ func getCurrentDateWithUTCTimeZone( _ date : Date ) -> Int {
 }
 
 //MARK:UTCStringToDate
-
 
 func openUrlFromApp(_ path : String ){
     

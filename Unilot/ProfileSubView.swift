@@ -12,11 +12,11 @@ import AVFoundation
 
 import UIKit
 
+var exitAsPopUp = 0
+
 class ProfileViewController: ControllerCore {
     
     var profile_tab : ProfileSubView!
-    
-    var animatedExit = 0
 
      override func setTitle() {
  
@@ -101,19 +101,20 @@ class ProfileViewController: ControllerCore {
     
     @objc func onGoToGames(){
         
-        if animatedExit == 0 {
+        if exitAsPopUp == 0 {
 
             current_controller_core?.goToMainView(getTabBarTag())
 
         } else {
             
             presentingViewController?.dismiss(animated: true, completion: {
-                
-                
+                if exitAsPopUp == 2 {
+                    if  users_account_number.count > 0 {
+                         current_controller_core?.onOpenTakePartView()
+                    }
+                }
             })
         }
-        
-        
     }
     
     //MARK: - fake nav button
@@ -166,8 +167,8 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     @IBOutlet weak var checkMorePurses: UIButton!
     
     @IBOutlet weak var table: UITableView!
+
     
-     
     //MARK: - Views Load override
     
     override func loadMainSubViews() {
@@ -288,8 +289,14 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     //MARK: - On Buttons
     
     var currentTagForRemove : Int = -1
+ 
+    func checkForExit(){
+        if exitAsPopUp == 2 {
+            (current_controller_core as? ProfileViewController)?.onGoToGames()
+        }
+    }
     
-    func onIks(_ sender: MyButton){
+    @objc func onIks(_ sender: MyButton){
         
         if let cell = sender.superview?.superview?.superview as? UITableViewCell{
             
@@ -348,6 +355,9 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
 
                 fieldPurse.text = nil
                 fieldPurse.resignFirstResponder()
+                
+                checkForExit()
+
 
             } else {
                 // wrong format
@@ -358,6 +368,7 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
         }
         
     }
+
     
     @IBAction func onAddMorePurse(){
         

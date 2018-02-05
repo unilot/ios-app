@@ -569,9 +569,10 @@ extension String {
 
 func  isAddressEth(_ wallet : String) -> Bool{
  
+    
     let pattern = "^(0x)?[0-9a-f]{40}$"
 
-    return wallet.matches(pattern)
+    return wallet.lowercased().matches(pattern)
 
     
 }

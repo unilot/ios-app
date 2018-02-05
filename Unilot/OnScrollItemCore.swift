@@ -30,6 +30,10 @@ class  OnScrollItemCore : UIView {
     
     
     //MARK: - Override
+    
+    func onOpenTakePartView(){
+        
+    }
 
     func setMainTitle (_ indexNum : Int){
 

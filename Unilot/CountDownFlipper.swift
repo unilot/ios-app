@@ -121,9 +121,14 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
         
     }
 
+    let kComaTag = 567865
     
     func adComa(){
-       
+
+        if viewWithTag(kComaTag) != nil{
+            removeComa()
+        }
+        
         let widthOfFlipper = frame.width / CGFloat(flippersCount)
         
         let frameComa = CGRect(x: widthOfFlipper * CGFloat(flippersCount - flippersGaps) - widthOfFlipper / 3,
@@ -133,13 +138,20 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
         
         let labelMain = UILabel(frame: frameComa)
         labelMain.textColor = kColorLightOrange
-        labelMain.text = ","
+        labelMain.text = "."
         labelMain.backgroundColor = UIColor.clear
         labelMain.textAlignment = .center
         labelMain.baselineAdjustment = .alignBaselines
         labelMain.font = UIFont(name: kFont_Light, size: 70)
         labelMain.adjustsFontSizeToFitWidth = true
+        labelMain.tag = 567865
         addSubview(labelMain)
+    }
+    
+    func removeComa(){
+        if  let labelMain = viewWithTag(kComaTag) {
+           labelMain.removeFromSuperview()
+        }
     }
     
     
@@ -168,9 +180,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
         for i in 0..<flippersCount {
             createFlipWithLabel(i)
         }
-        
-        adComa()
-         
+                 
         isFull = true
     }
     

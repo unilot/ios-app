@@ -194,7 +194,7 @@ class  LotteryItemsView : OnScrollItemCore,
     //MARK: - onButtons
     
     
-    func onCopyTransactionNumber(){
+    @objc func onCopyTransactionNumber(){
         
         saveToClipboard(current_game.smart_contract_id)
         
@@ -246,17 +246,17 @@ class  LotteryItemsView : OnScrollItemCore,
         
         if  users_account_number.count > 0 {
             
-            onOpeTakePartView()
+            onOpenTakePartView()
         
         } else {
             
-            current_controller_core?.onPopUpProfile()
+            current_controller_core?.onPopUpProfile(true)
         }
         
     }
 
     
-    func onOpeTakePartView(){
+    override func onOpenTakePartView(){
         
         let viewWithPlaces = AgreeToPlay.createAgreeToPlay()
         viewWithPlaces.delegate = current_controller_core

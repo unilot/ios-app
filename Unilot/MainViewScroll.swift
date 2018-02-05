@@ -178,6 +178,10 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         main_pages[current_page].viewDataReload()
     }
     
+    override func onOpenTakePartView() {
+        main_pages[current_page].onOpenTakePartView()
+        
+    }
     
     //MARK: - NOTIFICATION
 

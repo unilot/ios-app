@@ -166,8 +166,7 @@ class MainItemView: LotteryItemsView {
     
     
     func fillWithGameNumbers(){
-        
-        
+ 
         peopleCount.text = Int(current_game.num_players).stringWithSepator
                 
         usSum.text = "$ \(current_game.prize_amount_fiat)"
@@ -176,12 +175,32 @@ class MainItemView: LotteryItemsView {
 
         currencyImage.image = UIImage(named: "\(current_game.prize_currency)Img")
         
-        let start_count = MemoryControll.getGameMoneyStart(current_game.game_id)
-        
-        moneyTablet.initTimer(start_count, Int(current_game.prize_amount * 1000))
-        
+        moneyTableFill()
     }
  
+    
+    func moneyTableFill(){
+        
+        var start_count = MemoryControll.getGameMoneyStart(current_game.game_id)
+ 
+        var numberFF = current_game.prize_amount
+        if Int(numberFF * 1000) % 1000 > 0 {
+            numberFF = numberFF * 1000
+            moneyTablet.adComa()
+        } else {
+            numberFF = current_game.prize_amount
+            moneyTablet.removeComa()
+        }
+        
+        if [kTypeMonth, kTypeToken].contains(current_game.type) {
+            
+            start_count =  Int(numberFF)
+        }
+        
+        moneyTablet.initTimer(start_count, Int(numberFF))
+    }
+    
+    
     //MARK: - OPEN VIEWS
     
     

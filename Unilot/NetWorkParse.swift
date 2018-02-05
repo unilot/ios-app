@@ -75,7 +75,7 @@ class NetWorkParse {
 //
 //        games_list[kTypeToken] = createGameItem(from: responseJSON[1])
 //        games_list[kTypeToken]?.type = kTypeToken
-//        games_list[kTypeToken]?.prize_currency = "UNIT"
+//        games_list[kTypeToken]?.prize_amount = 100000
 
         return nil
         

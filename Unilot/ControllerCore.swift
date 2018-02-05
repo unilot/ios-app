@@ -132,7 +132,7 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
         itemBadge = setColorForImage(frameBarButton, "`profile-x3")
         
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-        button.addTarget(self, action: #selector(ControllerCore.onPopUpProfile) , for: .touchUpInside)
+        button.addTarget(self, action: #selector(ControllerCore.onPopUpProfile(_:)) , for: .touchUpInside)
         button.addSubview(itemBadge!)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView:button)
@@ -318,10 +318,10 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
         goToMainView(0)
     }
 
-    @IBAction func onPopUpProfile(){
+    @IBAction func onPopUpProfile(_ exitWithPlayAction : Bool = false){
         
         let profileController = getVCFromName("SB_ProfileViewController") as! ProfileViewController
-        profileController.animatedExit = 1
+        exitAsPopUp = exitWithPlayAction ? 2 : 1
         profileController.transitioningDelegate = self
        
         
@@ -330,6 +330,9 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
         }
     }
     
+    func onOpenTakePartView(){
+
+    }
     
     @IBAction func onQRScan(_ sender: Any) {
  

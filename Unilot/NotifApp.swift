@@ -218,8 +218,11 @@ class NotifApp {
             notifItem.game = NetWork.createGameItem(from: dataDict)
              
             if notifItem.game.game_id == kEmpty {
+                
                 notifItem.data = dataDict
+                
             } else {
+ 
                 notifItem.notif_id = "\(notifItem.action)&\(notifItem.game.game_id)&\(notifItem.game.type)"
             }
         }
@@ -230,7 +233,7 @@ class NotifApp {
     
     //MARK: - LOCAL NOTIFICATION
    
-    static func showLocalNotifInApp(withController : UINavigationController , _  notif : NotifStruct){
+    static func showLocalNotifInApp(withController : UIViewController , _  notif : NotifStruct){
                 
         let lCode = langCodes[current_language_ind]
         let typeId = getTabBarTag(notif.game.type)
@@ -244,7 +247,7 @@ class NotifApp {
                      to: withController,
                      completion: {
                         
-                        print("showLocalNotifInApp closed ")
+//                        print("showLocalNotifInApp closed ")
                         
         })
     }

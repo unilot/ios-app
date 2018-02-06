@@ -34,8 +34,9 @@ class BonusLottery: MainItemView {
     }
     
     override func setTimersNumbers(_ from: Int, _ all: Int , _ type: Int) {
-        
-        daysCount.initTimer(from/(3600*24),all/(3600*24))
+ 
+        let startingPoint = from/(3600*24) + ( all > 0 ?  1 : 0 )
+        daysCount.initTimer(startingPoint,0)
         label2.text = getDaysWord(daysCount.totalCounts)
 
     }
@@ -52,14 +53,14 @@ class BonusLottery: MainItemView {
     //MARK: - CountDownTimeDelegate
     
      
-    override func onEthButton(){
-        
-        playStandart()
-        
-        sendServerCheckForUpdateData()
-        
-        sendEvent("EVENT_BONUS_PARTICIPATE_REFRESH")
-    }
+//    override func onEthButton(){
+//
+//        playStandart()
+//
+//        sendServerCheckForUpdateData()
+//
+//        sendEvent("EVENT_BONUS_PARTICIPATE_REFRESH")
+//    }
     
     //MARK: - timers
     

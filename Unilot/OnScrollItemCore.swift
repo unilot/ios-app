@@ -103,4 +103,25 @@ class  OnScrollItemCore : UIView {
         }
         
     }
+    
+    
+    //MARK : -
+    
+    func sendHiddenRequest(){
+        
+        NetWork.getGamesList(completion: onAnswerFromServerRefreshed)
+        
+    }
+    
+    func sendServerCheckForUpdateData(){
+        
+        current_controller_core?.showActivityViewIndicator()
+        
+        sendHiddenRequest()
+    }
+    
+    
+    func onAnswerFromServerRefreshed(_ message : String?){
+
+    }
 }

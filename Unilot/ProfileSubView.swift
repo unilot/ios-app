@@ -17,7 +17,7 @@ var exitAsPopUp = 0
 class ProfileViewController: ControllerCore {
     
     var profile_tab : ProfileSubView!
-
+    
      override func setTitle() {
  
         navigationItem.title = " "
@@ -32,6 +32,25 @@ class ProfileViewController: ControllerCore {
         
     }
 
+    //MARK: - NOTIFICATION
+    
+    
+    override func onActiveAppNotifRecieved(_ notif : NotifStruct){
+        
+        playStandart()
+        
+        if notif.action == kActionCompleted {
+            
+            goToMainViewFromType(notif.game.type)
+            
+        } else {
+            
+            NotifApp.showLocalNotifInApp(withController: self, notif)
+            
+        }
+        
+    }
+    
     
     //MARK: - Views Load override
 
@@ -53,7 +72,7 @@ class ProfileViewController: ControllerCore {
         setNavControllerClear()
         
         navigationController?.navigationBar.isHidden = true
-        
+ 
         setTitle()
         
     }
@@ -76,7 +95,7 @@ class ProfileViewController: ControllerCore {
         current_controller_core = self
 
         profile_tab = getFromNib("ProfileView") as! ProfileSubView
-        profile_tab.frame = CGRect(x: 0, y: getStatusbarShift() / 2, width: view.frame.width, height: view.frame.height)
+        profile_tab.frame = CGRect(x: 0, y: getStatusbarShift(), width: view.frame.width, height: view.frame.height)
         profile_tab.didLoad(0)
         view.addSubview(profile_tab)
     }
@@ -123,7 +142,7 @@ class ProfileViewController: ControllerCore {
     func addBackColorButton() {
         
         //        setBackButton()
-        let point = CGPoint(x: 0 , y : getStatusbarShift() + 20)
+        let point = CGPoint(x: 0 , y : getStatusbarShift() + 4)
         let size = CGSize(width: 30, height: 30)
         
         itemBadge = setColorForImage(size, "arrow_back")
@@ -139,7 +158,7 @@ class ProfileViewController: ControllerCore {
     
     func  addInfoButton(){
         
-        let point = CGPoint(x: profile_tab.frame.width - 40 , y : getStatusbarShift() + 20)
+        let point = CGPoint(x: profile_tab.frame.width - 40 , y : getStatusbarShift() + 4 )
         let size = CGSize(width: 30, height: 30)
         
         let button = UIButton(frame: CGRect(origin: point, size: size))

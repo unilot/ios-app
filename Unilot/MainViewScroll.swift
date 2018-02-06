@@ -68,6 +68,10 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
             }
             
         }
+        
+        main_pages[current_page].sendHiddenRequest()
+
+        
      }
      
   
@@ -189,9 +193,16 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         
         // if updated current game
         playStandart()
+ 
+        if  games_list[notif.game.type]?.game_id == notif.game.game_id {
+        
+            games_list[notif.game.type] = notif.game
+       
+        }
+
         
         let type_ind = getTabBarTag(notif.game.type)
-        
+
         
         if type_ind == current_page {
         
@@ -207,7 +218,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
                 
             } else {
                 
-                NotifApp.showLocalNotifInApp(withController: navigationController!, notif)
+                NotifApp.showLocalNotifInApp(withController: self, notif)
                 
             }
             

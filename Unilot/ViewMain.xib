@@ -38,7 +38,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETH" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="8FU-fr-yyl">
-                    <rect key="frame" x="50.333333333333336" y="92.333333333333329" width="18.333333333333336" height="13.333333333333329"/>
+                    <rect key="frame" x="50.333333333333336" y="92.333333333333329" width="18.333333333333336" height="11.666666666666671"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -294,6 +294,12 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTP-A8-rgK">
+                    <rect key="frame" x="97" y="86" width="300" height="75"/>
+                    <connections>
+                        <action selector="onReloadButton" destination="0CH-zo-B76" eventType="touchUpInside" id="ctX-bx-cSw"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -304,6 +310,7 @@
                 <constraint firstItem="gve-Jf-V9R" firstAttribute="top" secondItem="7Rb-MB-vd4" secondAttribute="bottom" constant="15" id="8jZ-DC-mog"/>
                 <constraint firstItem="uBX-1w-bfM" firstAttribute="leading" secondItem="0CH-zo-B76" secondAttribute="leadingMargin" constant="20" id="9ol-tE-ccb"/>
                 <constraint firstItem="1T5-iw-KM2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4ak-dt-001" secondAttribute="bottom" constant="15" id="AD2-Ad-upr"/>
+                <constraint firstItem="wTP-A8-rgK" firstAttribute="leading" secondItem="gve-Jf-V9R" secondAttribute="leading" id="Awo-7D-R8g"/>
                 <constraint firstItem="4ak-dt-001" firstAttribute="centerY" secondItem="UuU-gS-DRE" secondAttribute="centerY" id="CfL-fe-fI2"/>
                 <constraint firstItem="Mmc-ic-CEc" firstAttribute="centerY" secondItem="uBX-1w-bfM" secondAttribute="centerY" id="ETc-7S-u6r"/>
                 <constraint firstItem="4ak-dt-001" firstAttribute="top" secondItem="gve-Jf-V9R" secondAttribute="bottom" constant="4" id="EoY-L6-5O1"/>
@@ -325,10 +332,13 @@
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gve-Jf-V9R" secondAttribute="trailing" constant="4" id="dd7-oR-Zmh"/>
                 <constraint firstItem="uBX-1w-bfM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="1T5-iw-KM2" secondAttribute="bottom" constant="10" id="eVz-x1-BCf"/>
                 <constraint firstItem="8FU-fr-yyl" firstAttribute="top" secondItem="rti-pF-jOu" secondAttribute="top" id="fdR-Qo-k2i"/>
+                <constraint firstItem="wTP-A8-rgK" firstAttribute="trailing" secondItem="gve-Jf-V9R" secondAttribute="trailing" id="fgM-Mt-jXW"/>
                 <constraint firstItem="8FU-fr-yyl" firstAttribute="trailing" secondItem="rti-pF-jOu" secondAttribute="trailing" constant="-4" id="fh5-gW-xx6"/>
+                <constraint firstItem="wTP-A8-rgK" firstAttribute="top" secondItem="gve-Jf-V9R" secondAttribute="top" id="fog-FZ-Yvr"/>
                 <constraint firstAttribute="bottom" secondItem="uBX-1w-bfM" secondAttribute="bottom" constant="25" id="fus-cp-VEW"/>
                 <constraint firstItem="7Rb-MB-vd4" firstAttribute="leading" secondItem="0CH-zo-B76" secondAttribute="leadingMargin" constant="20" id="g7S-Ar-YKB"/>
                 <constraint firstItem="bm8-QC-Alh" firstAttribute="leading" secondItem="0CH-zo-B76" secondAttribute="leadingMargin" constant="5" id="izG-b9-uwA"/>
+                <constraint firstItem="wTP-A8-rgK" firstAttribute="bottom" secondItem="gve-Jf-V9R" secondAttribute="bottom" id="jKv-KJ-qBD"/>
                 <constraint firstItem="1T5-iw-KM2" firstAttribute="centerX" secondItem="0CH-zo-B76" secondAttribute="centerX" id="kOm-mM-GuF"/>
                 <constraint firstItem="rti-pF-jOu" firstAttribute="leading" secondItem="0CH-zo-B76" secondAttribute="leading" constant="10" id="kmI-UR-OTi"/>
                 <constraint firstItem="8FU-fr-yyl" firstAttribute="width" secondItem="rti-pF-jOu" secondAttribute="width" multiplier="0.3" id="mfE-LN-CBZ"/>

@@ -44,14 +44,14 @@ class MainItemView: LotteryItemsView {
         }
     }
     
-    override func onEthButton(){
-        
-        playStandart()
-        
-        sendServerCheckForUpdateData()
-     
-        sendEvent("EVENT_HIDEN_REFRESH")
-    }
+//    override func onEthButton(){
+//        
+//        playStandart()
+//
+//        sendServerCheckForUpdateData()
+//
+//        sendEvent("EVENT_HIDEN_REFRESH")
+//    }
     
    
     
@@ -191,11 +191,13 @@ class MainItemView: LotteryItemsView {
 
         } else {
             
-            let numberComponent = String(numberFF).components(separatedBy :".")[1].count
+//            let numberComponent = String(numberFF).components(separatedBy :".")[1].count
  
-            numberFF = numberFF * Float(pow(10, Double(numberComponent)))
+//            numberFF = numberFF * Float(pow(10, Double(numberComponent)))
             
-            moneyTablet.adComa(numberComponent)
+            numberFF = current_game.prize_amount * 1000
+
+            moneyTablet.adComa(3)
          }
  
         
@@ -264,20 +266,10 @@ class MainItemView: LotteryItemsView {
             
         }
         
-        
-        
     }
     
     //MARK: - connect server
-    
-    func sendServerCheckForUpdateData(){
-        
-        current_controller_core?.showActivityViewIndicator()
-        
-        NetWork.getGamesList(completion: onAnswerFromServerRefreshed)
-        
-    }
-    
+
     
     func sendWinnerListRequest(_ game_id : String){
         
@@ -338,7 +330,7 @@ class MainItemView: LotteryItemsView {
     
     //MARK: - Answers from outside
     
-    func onAnswerFromServerRefreshed(_ message : String?){
+    override func onAnswerFromServerRefreshed(_ message : String?){
         
        current_controller_core?.hideActivityViewIndicator()
         

@@ -116,8 +116,6 @@ class TutorialScroll : PopUpCore , UIScrollViewDelegate{
         let middlz = scroll.contentOffset.x / scroll.frame.size.width
         
         let diff = (middlz - ceil(middlz) + 0.5) * 2
-
-//        print("diff = ",diff, " ind = ",ind)
         
         changeText(ind, Float(diff))
 

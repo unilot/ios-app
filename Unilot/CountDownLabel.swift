@@ -115,8 +115,6 @@ class CountDownLabel: UIImageView  {
 
         if doUpdate() {
             
-            print("CountStart")
-            
             countdownTimer  = Timer.scheduledTimer(timeInterval: timerUpdateDuration,
                                                    target: self,
                                                    selector: #selector(CountDownLabel.doUpdate),

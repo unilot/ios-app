@@ -11,7 +11,14 @@ import UIKit
 
 func getStatusbarShift() -> CGFloat{
     if #available(iOS 11, *) {
-        return  UIApplication.shared.keyWindow!.safeAreaInsets.top
+        var shift =  UIApplication.shared.keyWindow!.safeAreaInsets.top
+        
+        if shift == 0 {
+            shift = UIApplication.shared.statusBarFrame.size.height
+        }
+        
+        return shift
+        
     } else {
         return UIApplication.shared.statusBarFrame.size.height
     }

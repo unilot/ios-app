@@ -222,7 +222,7 @@ class LoadingView : ControllerCore{
     
     override func onActiveAppNotifRecieved(_ notif : NotifStruct){
         
-        print("nothing happened")
+//        print("nothing happened")
         
     }
     

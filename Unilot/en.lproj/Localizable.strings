@@ -117,7 +117,7 @@
 
 "you_take_part_in_bonus:"   = "You automatically become a participant of the Bonus drawing that is to take place in:";
 
-"system_is_choosing"        = "The system is \nchoosing winners";
+"system_is_choosing"        = "The system is choosing winners";
 
 "connectio_error"           = "Connection error! Please try it again";
 "notification_old_version"  = "Your version of %@ is out of date. Please update it on the App Store.";

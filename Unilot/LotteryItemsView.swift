@@ -47,6 +47,9 @@ class  LotteryItemsView : OnScrollItemCore,
     
     @IBOutlet weak var firstOverlay: UIView!
     
+ 
+    
+    
     var secondOverlay: UIImageView?
     
     var secondTimerThin: CDHourL?
@@ -267,8 +270,10 @@ class  LotteryItemsView : OnScrollItemCore,
     }
     
     
-    @IBAction func onEthButton(){
+    @IBAction func onReloadButton(){
         
+        sendServerCheckForUpdateData()
+    
     }
     
     //MARK: - Hide and Show SecondTimer
@@ -333,31 +338,31 @@ class  LotteryItemsView : OnScrollItemCore,
         
         secondOverlay = UIImageView(frame: firstOverlay.frame)
         secondOverlay!.clipsToBounds = true
-        secondOverlay!.layer.cornerRadius = firstOverlay.layer.cornerRadius
         secondOverlay!.backgroundColor = UIColor.uuDarkTwo.withAlphaComponent(0.8)
         
         
         let title = UILabel(frame: CGRect(x: 5, y: 0,
                                           width: secondOverlay!.frame.width - 10,
-                                          height: secondOverlay!.frame.height * 0.35))
+                                          height: secondOverlay!.frame.height * 0.2))
         title.textColor = UIColor.white
         title.numberOfLines = 2
         title.tag = 10000
         title.font = UIFont(name: kFont_Medium, size: 17)
         title.textAlignment = .center
+        title.adjustsFontSizeToFitWidth = true
         secondOverlay!.addSubview(title)
         
         secondTimerThin = CDHourL(frame: CGRect( x: secondOverlay!.frame.width * 0.33,
                                                  y: title.frame.height,
                                                  width: secondOverlay!.frame.width * 0.34,
-                                                 height: secondOverlay!.frame.height * 0.15))
+                                                 height:  secondOverlay!.frame.height * 0.8 - 32 - title.frame.height))
         secondOverlay!.addSubview(secondTimerThin!)
         secondTimerThin!.createHourCounter(self)
         
         let tranzaction_string = UILabel(frame: CGRect(x: 15,
-                                                       y: secondTimerThin!.frame.origin.y + secondTimerThin!.frame.height + 5,
+                                                       y: secondOverlay!.frame.height * 0.8 - 28,
                                                        width: secondOverlay!.frame.width - 30,
-                                                       height: 20))
+                                                       height: 24))
         
         tranzaction_string.textColor = UIColor.white
         tranzaction_string.numberOfLines = 1
@@ -370,7 +375,7 @@ class  LotteryItemsView : OnScrollItemCore,
         
         
         let copyButton = UIButton(frame : CGRect(x: 15,
-                                                 y: tranzaction_string.frame.origin.y + tranzaction_string.frame.height + 10,
+                                                 y: secondOverlay!.frame.height * 0.8 - 4,
                                                  width:  secondOverlay!.frame.width - 30,
                                                  height: secondOverlay!.frame.height * 0.2))
         
@@ -388,6 +393,8 @@ class  LotteryItemsView : OnScrollItemCore,
         
         secondOverlay!.isUserInteractionEnabled = true
         secondOverlay!.layer.opacity = 0.0
+        secondOverlay!.layer.cornerRadius = 6
+
         addSubview(secondOverlay!)
     }
     

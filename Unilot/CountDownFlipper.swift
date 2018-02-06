@@ -149,7 +149,7 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
         labelMain.tag = 567865
         addSubview(labelMain)
     }
-    
+        
     func removeComa(){
         if  let labelMain = viewWithTag(kComaTag) {
            labelMain.removeFromSuperview()

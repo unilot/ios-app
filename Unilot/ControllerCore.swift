@@ -36,7 +36,7 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
 
         } else {
  
-            NotifApp.showLocalNotifInApp(withController: navigationController!, notif)
+            NotifApp.showLocalNotifInApp(withController: self, notif)
              
         }
         
@@ -323,8 +323,6 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
         let profileController = getVCFromName("SB_ProfileViewController") as! ProfileViewController
         exitAsPopUp = exitWithPlayAction ? 2 : 1
         profileController.transitioningDelegate = self
-       
-        
         present(profileController, animated: true) {
             
         }
@@ -421,9 +419,8 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
     func showActivityViewIndicator(){
  
         if dgActivityIndicatorView == nil {
-            dgActivityIndicatorView = DGActivityIndicatorView.init(type: .cookieTerminator, tintColor: kColorHistoryGray, size: 40)
- 
-            dgActivityIndicatorView?.center = view.center
+            dgActivityIndicatorView = DGActivityIndicatorView.init(type: .cookieTerminator, tintColor: kColorBadge, size: 40)
+            dgActivityIndicatorView?.center = CGPoint(x: view.frame.width - 40, y: getStatusbarShift() + 80)
             view.addSubview(dgActivityIndicatorView!)
 
         }

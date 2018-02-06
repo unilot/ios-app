@@ -36,26 +36,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2zu-TQ-H01">
-                                <rect key="frame" x="0.0" y="20" width="375" height="593"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="589"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="dhx-I5-DSQ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="30" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выйгрыш" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="fvt-XM-z6L">
-                                            <rect key="frame" x="243" y="14" width="112" height="16"/>
+                                            <rect key="frame" x="243.5" y="14" width="111.5" height="16"/>
                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="СТАТУС" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="OCm-8P-j0I">
-                                            <rect key="frame" x="132" y="14" width="111" height="16"/>
+                                            <rect key="frame" x="131.5" y="14" width="112" height="16"/>
                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" verticalHuggingPriority="251" text="ТИП И ДАТА" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="6cR-bc-fe3">
-                                            <rect key="frame" x="20" y="14" width="112" height="16"/>
+                                            <rect key="frame" x="20" y="14" width="111.5" height="16"/>
                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                             <nil key="highlightedColor"/>
@@ -100,7 +100,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.23.10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="a21-FW-yFZ">
-                                                    <rect key="frame" x="49" y="14" width="73.5" height="17.5"/>
+                                                    <rect key="frame" x="49" y="13.5" width="73.5" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -316,7 +316,7 @@
                             <constraint firstItem="U5C-0d-mJe" firstAttribute="leading" secondItem="2XN-39-I64" secondAttribute="leading" id="Hg1-MO-bH1"/>
                             <constraint firstItem="2zu-TQ-H01" firstAttribute="top" secondItem="aMj-bu-RtU" secondAttribute="bottom" id="MOD-re-2v0"/>
                             <constraint firstAttribute="trailing" secondItem="2zu-TQ-H01" secondAttribute="trailing" id="RZm-kr-NN0"/>
-                            <constraint firstItem="U5C-0d-mJe" firstAttribute="top" secondItem="2zu-TQ-H01" secondAttribute="bottom" id="rUb-qX-wAt"/>
+                            <constraint firstItem="U5C-0d-mJe" firstAttribute="top" secondItem="2zu-TQ-H01" secondAttribute="bottom" constant="4" id="rUb-qX-wAt"/>
                             <constraint firstItem="TNY-gj-zqb" firstAttribute="top" secondItem="U5C-0d-mJe" secondAttribute="bottom" constant="4" id="w7W-9Z-fjQ"/>
                         </constraints>
                     </view>

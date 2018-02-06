@@ -173,13 +173,19 @@ func recountTimersData(_ game : GameInfo) -> (Int, Int, Int) { //now/all/stepTyp
     let timeAll = game.ending_at - game.started_at
     
     let diff = timerNow //timeAll - timerNow
-    
-    let typeOfStep =  ( diff > (3600 * 24) ) ? ( diff > (3600 * 24 * 30 ) ? 2 : 1) : 0
+   
+    var typeOfStep = 0
+
+    if game.type != kTypeDay {
+        
+        typeOfStep =  ( diff > (3600 * 24) ) ? ( diff > (3600 * 24 * 30 ) ? 2 : 1) : 0
+        
+    }  
     
     if timerNow > 0 {
         return (timerNow,timeAll,typeOfStep)
     } else {
-        return (0,0,-1)
+        return (0, 0, -1)
     }
 }
 

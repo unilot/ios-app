@@ -39,7 +39,10 @@ class TotalPrizeFond: PopUpCore, UITableViewDelegate, UITableViewDataSource {
         
         widthOfCell = frame.width * 0.9
         
-        titleWithPrice.text = "\(current_game.prize_amount) \(current_game.prize_currency.capitalized) = $ \(current_game.prize_amount_fiat)"
+        let prizeInt = Int(current_game.prize_amount)
+        let prize = ( current_game.prize_amount - Float(prizeInt) ) == 0 ? prizeInt.stringWithSepator : "\(current_game.prize_amount)"
+            
+        titleWithPrice.text = "\(prize) \(current_game.prize_currency.capitalized) = $ \(current_game.prize_amount_fiat)"
 
         titleMain.text = TR("total_jackpot")
         close.setTitle(TR("close"), for: .normal)

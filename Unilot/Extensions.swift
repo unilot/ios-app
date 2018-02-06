@@ -105,7 +105,7 @@ extension UIViewController {
         view.addGestureRecognizer(tap)
     }
     
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         view.endEditing(true)
     }
 }
@@ -122,7 +122,7 @@ func getVCFromName(_ name: String) -> UIViewController{
 extension UIViewController{
       
      
-    func setNavControllerClear(){
+    @objc func setNavControllerClear(){
         
         UINavigationBar.appearance().backgroundColor = UIColor.clear
         

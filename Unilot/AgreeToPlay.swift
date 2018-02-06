@@ -152,18 +152,18 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
             
         case 1334:
             //            printf("iPhone 6/6S/7/8");
-            return 15
+            return 14
             
         case 2208:
             //            printf("iPhone 6+/6S+/7+/8+");
-            return 17
+            return 16
             
         case 2436:
             //            printf("iPhone X");
-            return 17
+            return 16
             
         default:
-            return 20
+            return 25
         }
         
     }

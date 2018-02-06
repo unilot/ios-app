@@ -184,13 +184,20 @@ class MainItemView: LotteryItemsView {
         var start_count = MemoryControll.getGameMoneyStart(current_game.game_id)
  
         var numberFF = current_game.prize_amount
-        if Int(numberFF * 1000) % 1000 > 0 {
-            numberFF = numberFF * 1000
-            moneyTablet.adComa()
-        } else {
-            numberFF = current_game.prize_amount
+        
+        if numberFF - Float(Int(numberFF)) == 0 {
+            
             moneyTablet.removeComa()
-        }
+
+        } else {
+            
+            let numberComponent = String(numberFF).components(separatedBy :".")[1].count
+ 
+            numberFF = numberFF * Float(pow(10, Double(numberComponent)))
+            
+            moneyTablet.adComa(numberComponent)
+         }
+ 
         
         if [kTypeMonth, kTypeToken].contains(current_game.type) {
             

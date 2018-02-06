@@ -137,7 +137,7 @@ class SettingsView: ControllerCore, UITableViewDelegate, UITableViewDataSource{
         saveDeviceSettings()
     }
     
-    func onSwitcher(_ sender : MySwitch){
+    @objc func onSwitcher(_ sender : MySwitch){
         
         notifications_switch[sender.subTag!.row] = !notifications_switch[sender.subTag!.row]
       

@@ -291,7 +291,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
     //MARK:-  scroll changed
 
     
-    func changePage(_ sender: UIButton) -> () {
+    @objc func changePage(_ sender: UIButton) -> () {
         
         refreshView(sender.tag/1000000-1)
     }

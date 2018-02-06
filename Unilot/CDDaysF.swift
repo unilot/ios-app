@@ -21,8 +21,8 @@ class CountDownTimeMonth: CountDownCore  {
     }
     
     
-    override func adComa() {
-        
+    override  func adComa(_ onPlaceFromEnd : Int){
+
         
     }
     

@@ -123,11 +123,13 @@ class CountDownCore: UIImageView, SplitflapDelegate , SplitflapDataSource {//
 
     let kComaTag = 567865
     
-    func adComa(){
+    func adComa(_ onPlaceFromEnd : Int){
 
         if viewWithTag(kComaTag) != nil{
             removeComa()
         }
+       
+//        flippersGaps = onPlaceFromEnd
         
         let widthOfFlipper = frame.width / CGFloat(flippersCount)
         

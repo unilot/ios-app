@@ -58,21 +58,26 @@ class CountDownFullTimer: CountDownLabel  {
     }
     
     
+    func setTimerType(_ type: Int){
+        timerUpdateDuration = Double(staticClockSecondsStep[type])
+
+    }
+    
     func changeTextOnStaticLabels(_ type: Int){
 
-        timerUpdateDuration = Double(staticClockSecondsStep[type])
+        setTimerType(type)
         
-//        let names = staticClockNames[type]
-//        
-//        if let item = viewWithTag(200) as? UILabel{
-//            item.text = TR(names[0]) + "    "
-//        }
-//        if let item = viewWithTag(300) as? UILabel{
-//            item.text = TR(names[1])
-//        }
-//        if let item = viewWithTag(400) as? UILabel{
-//            item.text = "    " + TR(names[2])
-//        }
+        let names = staticClockNames[type]
+        
+        if let item = viewWithTag(200) as? UILabel{
+            item.text = TR(names[0]) + "    "
+        }
+        if let item = viewWithTag(300) as? UILabel{
+            item.text = TR(names[1])
+        }
+        if let item = viewWithTag(400) as? UILabel{
+            item.text = "    " + TR(names[2])
+        }
     }
  
     

@@ -58,7 +58,7 @@ class MemoryControll {
             
         } else {
             
-            let pre = Locale.preferredLanguages[0]
+            let pre : String = Locale.current.languageCode ?? "en"
             
             let ind : Int  =  langCodes.index(of: pre) ?? 0
 

@@ -101,7 +101,7 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
                                                          y: -clockTablet.labelMain.frame.height * 0.6)
 
             clockTablet.initTimer(items.0, items.1)
-            clockTablet.changeTextOnStaticLabels(items.2)
+            clockTablet.setTimerType(items.2)
             
             clockTablet.doScheduledTimer()
             

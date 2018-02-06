@@ -37,22 +37,36 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
      override func setInitBorders(){
 
         super.setInitBorders()
-         
-        startClock()
+ 
+        endLabel.text = TR("will_be_off_after:")
+        
+        warningLabel.text = TR("go_back_after_payment")
+        
+        copyButton.setTitle("  " + TR("copy_address"), for: .normal)
 
+        titleMain.text = TR(tabbar_strings[getTabBarTag(current_game.type)]).capitalized + " " + TR("drawing1") + " " + app_name.uppercased()
+        
         copy_line.text = current_game.smart_contract_id
+ 
+        startClock()
+        
+        addQRImage()
+        
+        addAlertText()
+        
+    }
+    
+    func addQRImage(){
         
         let image = Barcode.fromString(string: current_game.smart_contract_id, forWidth: codeButton.frame.width)
         
         codeButton.setImage(image, for: .normal)
         codeButton.imageView?.contentMode = .scaleAspectFill
         codeButton.contentMode = .scaleAspectFill
-
-//        let order = getTabBarTag()
-//        let lotteryType = TR(setting_strings[0][order]).capitalized + " " + TR("drawing3")
-//        titleMain.text = TR(tabbar_strings[order]).capitalized + " " + TR("drawing1") +  " " + app_name.uppercased()
         
-//        textBig.text = String(format: TR("to_participate_you_need"),TR(lotteryType),floatBet)
+    }
+    
+    func addAlertText(){
         
         let text_name = "AlertText-" + langCodes[current_language_ind]
         
@@ -64,23 +78,15 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
                     " \( current_game.bet_amount)", current_game.gas_limit.stringWithSepator, current_game.gas_price.stringWithSepator)
                 
                 textBig.attributedText = try! NSAttributedString(data: contents.data(using: String.Encoding.utf8, allowLossyConversion: false)!,
-                                                                  options: [.documentType: NSAttributedString.DocumentType.html],
-                                                                  documentAttributes: nil)
+                                                                 options: [.documentType: NSAttributedString.DocumentType.html],
+                                                                 documentAttributes: nil)
                 
             } catch {
                 // contents could not be loaded
             }
         }
         
-        
-        
-        endLabel.text = TR("will_be_off_after:")
-        
-        warningLabel.text = TR("go_back_after_payment")
-        
-        copyButton.setTitle("  " + TR("copy_address"), for: .normal)
     }
-    
     
     func startClock(){
         
@@ -95,7 +101,7 @@ class AgreeToPlay: PopUpCore, CountDownTimeDelegate {
                                                          y: -clockTablet.labelMain.frame.height * 0.6)
 
             clockTablet.initTimer(items.0, items.1)
-//            clockTablet.changeTextOnStaticLabels(items.2)
+            clockTablet.changeTextOnStaticLabels(items.2)
             
             clockTablet.doScheduledTimer()
             

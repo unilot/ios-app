@@ -13,7 +13,7 @@
 let is_mod_production          = true
 
 let current_version            = "1.1.0"
-let current_build              = "43"
+let current_build              = "45"
 
 let app_name                   = "Unilot"
 let kFeedBackMail              = "mvp@unilot.io"

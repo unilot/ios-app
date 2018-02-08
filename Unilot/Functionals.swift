@@ -60,7 +60,7 @@ let KBetDefault = Float(0.01)
 class UserForGame{
     
     var user_id             : String = kEmpty
-    var position            : Int = 0
+    var position            : Int = -1
     var prize_amount        : Float = 0
     var prize_amount_fiat   : Float = 0
     var prize_currency      : String = kEmpty
@@ -177,7 +177,7 @@ func recountTimersForLastCounter(_ game : GameInfo) -> (Int, Int) { //now/all/st
 func checkTheUserInGame() -> Bool {
     
     
-    return true
+    return false
 }
 
 func recountTimersData(_ game : GameInfo) -> (Int, Int, Int) { //now/all/stepType
@@ -211,6 +211,7 @@ func getTextFromFileInfo() -> String? {
 }
 
 
+//MARK: - NICE STRINGS
 
 func getNiceFullDateFormatString(from timeSec : Int) -> String {
     
@@ -296,6 +297,18 @@ func setColorForLabel(_ sizeOfView : CGSize, _ text : String) -> UIView{
     return bgView
 }
 
+//MARK: - MY WALLETS
+
+func isMywalletHasTheNumber(_ newAddr : String) -> Bool{
+    
+    let lowerCased = users_account_number.map { (line : String) -> String in
+        return line.lowercased()
+    }
+    
+    return lowerCased.contains(newAddr.lowercased())
+}
+
+//MARK: - NICE DATA
 
 func getNiceDateFormatString(from timeSec : Int) -> String {
     
@@ -545,7 +558,7 @@ func containsText(_ item : UserForGame, _ searchtext : String) -> Bool {
     let search_text = searchtext.lowercased()
     
     let text1 = item.user_id.lowercased()
-    let text2 = "\(item.position)"
+    let text2 = "\(item.position+1)"
     let text3 = "\(item.prize_amount)"
     let text4 = "\(item.prize_amount_fiat)"
     

@@ -49,6 +49,7 @@
 		B927C5F0202384E300E71148 /* WalletsAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B927C5EF202384E300E71148 /* WalletsAlert.swift */; };
 		B94C652A1FC515AD006E3BC8 /* ScannerReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94C65291FC515AD006E3BC8 /* ScannerReader.swift */; };
 		B94C652C1FC51A74006E3BC8 /* ScannerReader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B94C652B1FC51A74006E3BC8 /* ScannerReader.xib */; };
+		B96C27A8202CD7F2008CA29E /* DebugClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96C27A7202CD7F2008CA29E /* DebugClass.swift */; };
 		B9811A892025BE0C00BFD589 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9811A882025BE0C00BFD589 /* PopAnimator.swift */; };
 		B9811A90202603D900BFD589 /* ParticipantsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9811A8F202603D800BFD589 /* ParticipantsView.xib */; };
 		B9811A92202607D800BFD589 /* ParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9811A91202607D800BFD589 /* ParticipantsView.swift */; };
@@ -241,6 +242,7 @@
 		B927C5EF202384E300E71148 /* WalletsAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsAlert.swift; sourceTree = "<group>"; };
 		B94C65291FC515AD006E3BC8 /* ScannerReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerReader.swift; sourceTree = "<group>"; };
 		B94C652B1FC51A74006E3BC8 /* ScannerReader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScannerReader.xib; sourceTree = "<group>"; };
+		B96C27A7202CD7F2008CA29E /* DebugClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugClass.swift; sourceTree = "<group>"; };
 		B9811A882025BE0C00BFD589 /* PopAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 		B9811A8F202603D800BFD589 /* ParticipantsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParticipantsView.xib; sourceTree = "<group>"; };
 		B9811A91202607D800BFD589 /* ParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsView.swift; sourceTree = "<group>"; };
@@ -505,6 +507,7 @@
 			isa = PBXGroup;
 			children = (
 				D6BDD9021F7AD1DB00E91FD0 /* Constants.swift */,
+				B96C27A7202CD7F2008CA29E /* DebugClass.swift */,
 				D69364C31F5F254400FD0D37 /* AppDelegate.swift */,
 				D6CFAC841FA7154100A0F045 /* NotifApp.swift */,
 				D6F1E1671F7CD3C50098B34C /* NetWorkController.swift */,
@@ -1109,6 +1112,7 @@
 				B91D61D01FD55219006955DE /* DGActivityIndicatorFiveDotsAnimation.m in Sources */,
 				D685E9A41F8D59500056C9C8 /* CountDownLabel.swift in Sources */,
 				D6F1E1921F7E55130098B34C /* JSDropdownField.m in Sources */,
+				B96C27A8202CD7F2008CA29E /* DebugClass.swift in Sources */,
 				D6595E111FBB57FE00089917 /* MainItemView.swift in Sources */,
 				B91D61DA1FD64269006955DE /* SweetAlert.swift in Sources */,
 				D69364D91F5F328D00FD0D37 /* FlippingLabel.swift in Sources */,

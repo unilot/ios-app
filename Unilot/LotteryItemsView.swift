@@ -271,17 +271,8 @@ class  LotteryItemsView : OnScrollItemCore,
     
     
     @IBAction func onReloadButton(){
-        
-//        let user = UserForGame()
-//        user.position = 0
-//        user.user_id = users_account_number[0]
-//        user.prize_currency = "ETH"
-//        user.prize_amount_fiat = 98.789
-//        user.prize_amount = 0.04
-//        showYouWin(user)
-
-        
-//        showYouLost()
+ 
+        Debug.addPushNotificationToCurrentGame(self)
         
         sendServerCheckForUpdateData()
     

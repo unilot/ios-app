@@ -208,7 +208,7 @@ class Details: ControllerCore, UITableViewDelegate, UITableViewDataSource, UISea
         }
         
         
-        if users_account_number.contains( item.user_id) {
+        if isMywalletHasTheNumber(item.user_id){
             cell.contentView.backgroundColor = kColorLightYellow
         }
     

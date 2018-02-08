@@ -57,7 +57,7 @@ class MenuLeft: UITableViewController, SWRevealViewControllerDelegate , MFMailCo
         how.text = TR("how_it_works")
         wp.text = TR("wp")
         faq.text = TR("faq")
-        info.text = "Version : " + current_version + " Closed Beta"
+        info.text = "Version : " + current_version + "/" + current_build + " Closed Beta"
         ico_image.image = UIImage(named : TR("site"))
         ico_image.contentMode = .scaleAspectFit
         feedback.text  = TR("send_feedback")

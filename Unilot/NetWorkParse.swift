@@ -70,19 +70,7 @@ class NetWorkParse {
             games_list[game.type] = game
          }
         
-//        games_list[kTypeWeek]?.status = kStatusFinishing
-//        games_list[kTypeWeek]?.ending_at = 9517923986
-////
-//        games_list[kTypeToken]?.status = kStatusFinishing
-//        games_list[kTypeToken]?.ending_at = 9517923986
-
-        
-//        games_list[kTypeMonth] = createGameItem(from: responseJSON[1])
-//        games_list[kTypeMonth]?.type = kTypeMonth
-//
-//        games_list[kTypeToken] = createGameItem(from: responseJSON[1])
-//        games_list[kTypeToken]?.type = kTypeToken
-//        games_list[kTypeToken]?.prize_amount = 0.007
+        Debug.changeStatusOfGame()
 
         return nil
         
@@ -197,7 +185,7 @@ class NetWorkParse {
         let item = UserForGame()
         
         item.user_id            = data["address"] as? String ?? "0"
-        item.position           = data["position"] as? Int ?? 0
+        item.position           = data["position"] as? Int ?? -1
         item.prize_amount_fiat  = data["prize_amount_fiat"] as? Float ?? 0
         
         if let prize = data["prize_amount"] as? [String : Any] {

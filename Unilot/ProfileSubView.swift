@@ -95,7 +95,7 @@ class ProfileViewController: ControllerCore {
         current_controller_core = self
 
         profile_tab = getFromNib("ProfileView") as! ProfileSubView
-        profile_tab.frame = CGRect(x: 0, y: getStatusbarShift(), width: view.frame.width, height: view.frame.height)
+        profile_tab.frame = CGRect(x: 0, y: getStatusbarShift() , width: view.frame.width, height: view.frame.height)
         profile_tab.didLoad(0)
         view.addSubview(profile_tab)
     }
@@ -343,7 +343,7 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
            
             if isAddressEth(fieldPurse.text!){
                 
-                if !users_account_number.contains(fieldPurse.text!){
+                if !isMywalletHasTheNumber(fieldPurse.text!){
                     
                     users_account_number.insert(fieldPurse.text!, at: 0)
                     
@@ -405,7 +405,8 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     
     func setCellBody(_ cell : UITableViewCell, _ indexPath : IndexPath) {
  
-        cell.backgroundColor = UIColor.clear
+        cell.backgroundColor = kColorDarkBlue
+        cell.contentView.backgroundColor = kColorDarkBlue
         cell.selectionStyle = .none
         
         for viewItem in cell.contentView.subviews {
@@ -422,7 +423,7 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
         cell.contentView.addSubview(fon)
   
         // test info
-        let items = [kTypeDay,kTypeMonth,kTypeToken]
+        let items : [Int] = []
         
         for i in 0..<items.count {
             addGameItem(fon, imageNum: items[i], order: i)

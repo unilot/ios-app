@@ -144,6 +144,7 @@ class PopUpCore: UIView  {
         }
         
 //        addSwipeGesture()
+
         
     }
     

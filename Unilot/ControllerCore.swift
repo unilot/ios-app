@@ -420,15 +420,19 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
 
     func showActivityViewIndicator(_ viewDop : UIView? = nil){
  
-        let point = viewDop != nil ? CGPoint(x: view.center.x,
-                                             y: view.center.y + ( view.center.y - viewDop!.center.y)) :
-                                     CGPoint(x: view.frame.width - 40, y: getStatusbarShift() + 80)
-        
+        let point = viewDop != nil ? view.convert(viewDop!.center, to: nil) :
+                                     CGPoint(x: view.frame.width - 30, y: 50)
+
         
         if dgActivityIndicatorView == nil {
-            dgActivityIndicatorView = DGActivityIndicatorView.init(type: .cookieTerminator, tintColor: UIColor.gray, size: 40)
-            dgActivityIndicatorView?.center = point
-            view.addSubview(dgActivityIndicatorView!)
+            dgActivityIndicatorView = DGActivityIndicatorView.init(type: .cookieTerminator, tintColor: kColorLightYellow, size: 40)
+            dgActivityIndicatorView?.center = CGPoint(x: point.x, y: point.y + getStatusbarShift() + 30)
+            
+            if viewDop != nil {
+                view.insertSubview(dgActivityIndicatorView!, aboveSubview: viewDop!)
+            } else {
+                view.addSubview(dgActivityIndicatorView!)
+            }
 
         }
         

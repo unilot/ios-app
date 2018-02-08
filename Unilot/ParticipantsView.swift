@@ -72,7 +72,8 @@ class ParticipantsView: PopUpCore, UITableViewDelegate, UITableViewDataSource, U
  
             origin_dataForTable = winners_list.sorted(by: { (user1 : UserForGame, user2 : UserForGame ) -> Bool in
             
-                if users_account_number.contains(user1.user_id) {
+                if isMywalletHasTheNumber(user1.user_id){
+
                     return true
                 }
                 
@@ -82,7 +83,8 @@ class ParticipantsView: PopUpCore, UITableViewDelegate, UITableViewDataSource, U
             dataForTable = origin_dataForTable
             
             tableMain.reloadData()
-            
+            tableMain.isUserInteractionEnabled = true
+            tableMain.allowsSelection = true
         }
         
         
@@ -134,7 +136,8 @@ class ParticipantsView: PopUpCore, UITableViewDelegate, UITableViewDataSource, U
         {
             cell = UITableViewCell.init(style: .default, reuseIdentifier: "id_cell")
             cell?.contentView.layer.cornerRadius = 13
-            
+            cell?.selectionStyle = .none
+
             createCellBody(cell!)
             
         }
@@ -149,7 +152,8 @@ class ParticipantsView: PopUpCore, UITableViewDelegate, UITableViewDataSource, U
             cell?.contentView.backgroundColor = kColorLightGray
         }
         
-        if users_account_number.contains( item.user_id) {
+        if isMywalletHasTheNumber(item.user_id){
+
             cell?.contentView.backgroundColor = kColorLightYellow
         }
         
@@ -159,7 +163,7 @@ class ParticipantsView: PopUpCore, UITableViewDelegate, UITableViewDataSource, U
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let item : UserForGame = dataForTable.first {   $0.position == indexPath.row + 1 }!
+        let item : UserForGame = dataForTable[indexPath.row]
         
         saveToClipboard(item.user_id)
         

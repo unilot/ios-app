@@ -260,7 +260,9 @@ class MainItemView: LotteryItemsView {
                 secondTimerThin?.doScheduledTimer()
 
             } else{
-                current_controller_core?.showActivityViewIndicator(secondOverlay!)
+                if pop_up_upper_view == nil {
+                    current_controller_core?.showActivityViewIndicator(secondOverlay!)
+                }
             }
             
             // reveal view
@@ -391,7 +393,8 @@ class MainItemView: LotteryItemsView {
             
             let my_win_wallets = winners_list.filter({ (item : UserForGame) -> Bool in
                 
-                return users_account_number.contains(item.user_id)
+                return  isMywalletHasTheNumber(item.user_id)
+
             })
             
             if my_win_wallets.count > 0 {

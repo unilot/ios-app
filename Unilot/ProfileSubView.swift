@@ -145,13 +145,13 @@ class ProfileViewController: ControllerCore {
         let point = CGPoint(x: 0 , y : getStatusbarShift() + 4)
         let size = CGSize(width: 30, height: 30)
         
-        itemBadge = setColorForImage(size, "arrow_back")
-        itemBadge?.frame.origin = point
+        let backButtonFace = setColorForImage(size, "arrow_back")
+        backButtonFace.frame.origin = point
 
         let button = UIButton(frame: CGRect(origin: point, size: size))
         button.addTarget(self, action: #selector(ProfileSubView.onGoToGames) , for: .touchUpInside)
  
-        profile_tab.addSubview(itemBadge!)
+        profile_tab.addSubview(backButtonFace)
         profile_tab.addSubview(button)
     }
     
@@ -287,8 +287,6 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
         {
             cell = UITableViewCell.init(style: .default, reuseIdentifier: "id_cell")
             
-            createCellBody(cell!)
-            
         }
 
         setCellBody(cell!,indexPath)
@@ -302,59 +300,41 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
         saveToClipboard(users_account_number[indexPath.row])
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        
+        return true
+    }
+
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        
+        return UITableViewCellEditingStyle.delete
+
+    }
     
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        tableView.beginUpdates()
+        
+        tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+        
+        users_account_number.remove(at: indexPath.row)
+        saveDataInMemory()
+
+        tableView.endUpdates()
+        
+    }
     
     //MARK: - On Buttons
     
-    var currentTagForRemove : Int = -1
  
     func checkForExit(){
         if exitAsPopUp == 2 {
             (current_controller_core as? ProfileViewController)?.onGoToGames()
         }
     }
-    
-    @objc func onIks(_ sender: MyButton){
-        
-        if let cell = sender.superview?.superview?.superview as? UITableViewCell{
-            
-            currentTagForRemove = table.indexPath(for: cell)!.row
-            
-            let keyCurrent = users_account_number[currentTagForRemove]
-            
-            SweetAlert().showAlert(" ", subTitle: TR("question_for_delete") + keyCurrent + "?", style: AlertStyle.warning, buttonTitle: TR("No"),
-                                   buttonColor: kColorNormalGreen ,
-                                   otherButtonTitle: TR("Yes"),
-                                   otherButtonColor: UIColor.colorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
-                if isOtherButton == true {
-                    self.currentTagForRemove = -1
-                }
-                else {
-                    
-                    SweetAlert().showAlertDeletedComplete()
-                    self.onDelete()
-                 }
-            }
-            
-        }
-         
-    }
-    
-    
-    func onDelete(){
-        
-        if currentTagForRemove >= 0 {
-            
-            users_account_number.remove(at: currentTagForRemove)
-            table.deleteRows(at: [IndexPath(row: currentTagForRemove, section: 0)],
-                             with: .top)
-            
-            saveDataInMemory()
-            currentTagForRemove = -1
-        }
-    }
-    
+  
     func onAddnewLine(){
  
         sendEvent("EVENT_WALLET_ADD")
@@ -423,93 +403,78 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     }
     //MARK:-  UITableViewCell
     
-    
-    func createCellBody(_ cell : UITableViewCell) {
-        
+    func setCellBody(_ cell : UITableViewCell, _ indexPath : IndexPath) {
+ 
         cell.backgroundColor = UIColor.clear
         cell.selectionStyle = .none
-
-        let fon_frame =  CGRect(x: 0, y: 0,
-                                width:  table.frame.width,
-                                height: 50)
         
-        var fon = cell.contentView.viewWithTag(5)
-        
-        if fon == nil{
-            
-            fon = UIView(frame:fon_frame)
-            fon!.tag = 5
-            fon!.backgroundColor = kColorDarkBlue
-            fon!.layer.cornerRadius = 8
-            cell.contentView.addSubview(fon!)
-
+        for viewItem in cell.contentView.subviews {
+            viewItem.removeFromSuperview()
         }
-        
-        var first = cell.contentView.viewWithTag(10) as? UILabel
-        
-        if first == nil{
-        
-            first = UILabel(frame: CGRect(x: 15, y: 0,
-                width:  fon_frame.width - 15 - fon_frame.height, height: fon_frame.height))
-            first!.tag = 10
-            first!.textColor = UIColor.white
-            first!.textAlignment = .left
-            first!.backgroundColor = UIColor.clear
-            first!.font = UIFont(name: kFont_Light, size: 16)
-            first!.adjustsFontSizeToFitWidth = true
-            first!.isUserInteractionEnabled = false
-            fon!.addSubview(first!)
-        }
+        let heightOfFon : CGFloat = 50
         
         
-        var hiddenIkx = cell.contentView.viewWithTag(15) as? UIImageView
+        let fon = UIView(frame:CGRect(x: 0, y: 0,
+                                      width:  table.frame.width,
+                                      height: heightOfFon))
+        fon.backgroundColor = kColorDarkBlue
+        fon.layer.cornerRadius = 8
+        cell.contentView.addSubview(fon)
+  
+        // test info
+        let items = [kTypeDay,kTypeMonth,kTypeToken]
         
-        if hiddenIkx == nil{
-            hiddenIkx = UIImageView(frame: CGRect(x: fon_frame.width - 30,
-                                              y: (fon_frame.height - 20)/2,
-                                          width: 20, height: 20))
-
-            hiddenIkx!.image = UIImage(named : "X-x3")
-            hiddenIkx!.tag = 15
-            hiddenIkx!.contentMode = .scaleAspectFit
-            hiddenIkx!.backgroundColor = UIColor.clear
-            hiddenIkx!.tintColor = kColorLightGray
-            hiddenIkx!.clipsToBounds = true
-            fon!.addSubview(hiddenIkx!)
-
-        }
-
-        var button_x = cell.contentView.viewWithTag(20) as? MyButton
-        
-        if button_x == nil{
-            button_x = MyButton(frame: CGRect(x: fon_frame.width - fon_frame.height, y: 0,
-                                              width: fon_frame.height, height: fon_frame.height))
-            button_x!.tag = 20
-            button_x!.addTarget(self, action: #selector(ProfileSubView.onIks(_:)), for: .touchUpInside)
-            button_x!.imageView?.contentMode = .scaleAspectFit
-            button_x!.imageView?.backgroundColor = UIColor.clear
-            button_x!.backgroundColor = UIColor.clear
-            button_x!.imageView?.clipsToBounds = true
-            fon!.addSubview(button_x!)
-            
-        }
-        
-        
-    }
-    
-    func setCellBody(_ cell : UITableViewCell, _ indexPath : IndexPath) {
-        
-        
-        if let first = cell.contentView.viewWithTag(10) as? UILabel {
-            first.text = users_account_number[indexPath.row]
+        for i in 0..<items.count {
+            addGameItem(fon, imageNum: items[i], order: i)
         }
  
-        if let button_x = cell.contentView.viewWithTag(20) as? MyButton {
-            button_x.subTag = indexPath
-        }
-    
+        addLine(fon,  users_account_number[indexPath.row],
+                widthShift : ( fon.frame.height * 0.6) * CGFloat(items.count) + 15)
+   
+    }
+
+    func addLine(_ fon : UIView,_ text: String, widthShift : CGFloat ){
+
+        let  first = UILabel(frame: CGRect(x: widthShift, y: 0,
+                                           width:  fon.frame.width - widthShift - 15,
+                                           height: fon.frame.height))
+        first.tag = 10
+        first.text = text
+        first.textColor = UIColor.white
+        first.textAlignment = .left
+        first.backgroundColor = UIColor.clear
+        first.font = UIFont(name: kFont_Light, size: 16)
+        first.adjustsFontSizeToFitWidth = true
+        first.isUserInteractionEnabled = false
+        fon.addSubview(first)
+        
     }
     
+    
+    func addGameItem(_ fon : UIView, imageNum : Int, order : Int ){
+ 
+        let heightOfItem  = fon.frame.height * 0.6
+        let height   = heightOfItem * 0.6
+
+        let  itemGame = UIImageView(frame: CGRect(x: heightOfItem * CGFloat(order) + 15 ,
+                                                  y: (fon.frame.height - height) / 2,
+                                                  width: height,
+                                                  height: height))
+        
+        let imageOrder = kTypeTabBarOrder.index(of: imageNum)!
+        itemGame.image = UIImage(named :  lottery_images[imageOrder])
+        itemGame.contentMode = .scaleAspectFit
+        itemGame.tag = 100 * order
+        itemGame.contentMode = .scaleAspectFit
+        itemGame.backgroundColor = UIColor.clear
+        itemGame.tintColor = kColorLightGray
+        itemGame.clipsToBounds = true
+        fon.addSubview(itemGame)
+
+        
+    }
+    
+  
     
     //MARK: - exit
  

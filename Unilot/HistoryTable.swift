@@ -135,9 +135,9 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             img.tintColor = kColorHistoryGray
             img.setCircleMark(item.game_id)
         }
+ 
+        labelFor(cell, 20)?.text = getNiceDateFormatHistoryString(from: item.started_at) + " -\n" + getNiceDateFormatHistoryString(from: item.ending_at)
         
-
-        labelFor(cell, 20)?.text = getNiceDateFormatHistoryString(from: item.ending_at)
  
         let actionLabel  =   labelFor(cell, 30)!
         let button = cell.contentView.viewWithTag(40) as! MyButton

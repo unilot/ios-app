@@ -157,14 +157,27 @@ func recountTimersForLastCounter(_ game : GameInfo) -> (Int, Int) { //now/all/st
 
     let timeForWaiting: Int = kTimeForPreperationWait
     let currentTime = getCurrentDateWithUTCTimeZone(Date())
-    let timerNow =  timeForWaiting - (currentTime - game.ending_at)
+    let realTimDiff = currentTime - game.ending_at
     
+    let timerNow =  timeForWaiting - realTimDiff
+    
+
     if timerNow > 0 {
-        return (timerNow,timeForWaiting)
+        if timerNow > timeForWaiting {
+            return (0,0)
+        } else {
+            return (timerNow,timeForWaiting)
+        }
     } else {
         return (0,-1)
     }
     
+}
+
+func checkTheUserInGame() -> Bool {
+    
+    
+    return true
 }
 
 func recountTimersData(_ game : GameInfo) -> (Int, Int, Int) { //now/all/stepType

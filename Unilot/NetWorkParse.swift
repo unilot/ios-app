@@ -71,11 +71,12 @@ class NetWorkParse {
          }
         
 //        games_list[kTypeWeek]?.status = kStatusFinishing
-//        games_list[kTypeWeek]?.ending_at = 1517923986
-//
+//        games_list[kTypeWeek]?.ending_at = 9517923986
+////
 //        games_list[kTypeToken]?.status = kStatusFinishing
-//        games_list[kTypeToken]?.ending_at = 1517923986
+//        games_list[kTypeToken]?.ending_at = 9517923986
 
+        
 //        games_list[kTypeMonth] = createGameItem(from: responseJSON[1])
 //        games_list[kTypeMonth]?.type = kTypeMonth
 //

@@ -12,6 +12,11 @@ import UIKit
 
 class DailyLottery : MainItemView {
     
+    @IBOutlet weak var viewWithEnterGame: UIView!
+    @IBOutlet weak var viewWithPlayingGame: UIView!
+    @IBOutlet weak var labelOnPlaying: UILabel!
+    @IBOutlet weak var takePartRound: UIButton!
+
     override func fillWithData(){
         
         titleUntilTheEnd.text = TR("left_till_end:")
@@ -22,6 +27,17 @@ class DailyLottery : MainItemView {
         
         addTimersBody()
         
+        
+        if checkTheUserInGame(){
+            viewWithPlayingGame.isHidden = false
+            viewWithEnterGame.isHidden = true
+            labelOnPlaying.text = TR("you_allready_in")
+            takePartRound.layer.cornerRadius = takePartRound.frame.width/2
+            
+        } else {
+            viewWithPlayingGame.isHidden = true
+            viewWithEnterGame.isHidden = false
+        }
      }
     
     

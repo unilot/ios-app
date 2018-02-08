@@ -272,6 +272,17 @@ class  LotteryItemsView : OnScrollItemCore,
     
     @IBAction func onReloadButton(){
         
+//        let user = UserForGame()
+//        user.position = 0
+//        user.user_id = users_account_number[0]
+//        user.prize_currency = "ETH"
+//        user.prize_amount_fiat = 98.789
+//        user.prize_amount = 0.04
+//        showYouWin(user)
+
+        
+//        showYouLost()
+        
         sendServerCheckForUpdateData()
     
     }
@@ -352,9 +363,9 @@ class  LotteryItemsView : OnScrollItemCore,
         title.adjustsFontSizeToFitWidth = true
         secondOverlay!.addSubview(title)
         
-        secondTimerThin = CDHourL(frame: CGRect( x: secondOverlay!.frame.width * 0.33,
+        secondTimerThin = CDHourL(frame: CGRect( x: secondOverlay!.frame.width * 0.25,
                                                  y: title.frame.height,
-                                                 width: secondOverlay!.frame.width * 0.34,
+                                                 width: secondOverlay!.frame.width * 0.5,
                                                  height:  secondOverlay!.frame.height * 0.8 - 32 - title.frame.height))
         secondOverlay!.addSubview(secondTimerThin!)
         secondTimerThin!.createHourCounter(self)

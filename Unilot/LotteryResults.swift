@@ -105,25 +105,29 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
     
     func setTimerDetails(){
         
-        let data = recountTimersData(current_game)
-        
-        if data.2 == -1 {
-//            onX()
-        } else {
-            clockTablet.initTimer(data.0/(3600*24),data.1/(3600*24))
-            if users_account_number.count > 0 {
-                days.text = getDaysWord(clockTablet.totalCounts)
-            }
+        if  let gameWeek = games_list[kTypeMonth]{
+            
+            let data = recountTimersData(gameWeek)
+
+            if data.2 > -1 {
+                
+                let startingPoint = data.0/(3600*24) + ( data.1 > 0 ?  1 : 0 )
+                clockTablet.initTimer(startingPoint,0)
+                if users_account_number.count > 0 {
+                    days.text = getDaysWord(clockTablet.totalCounts)
+                }
+                
+                clockTablet.updateLabels()
+            }  
         }
-        
-        
     }
+    
     
     func startClock(){
         
         clockTablet.isHidden = false
 
-        clockTablet.doScheduledTimer()
+//        clockTablet.doScheduledTimer()
         
     }
     
@@ -144,7 +148,7 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
 
     override func onX(_ duration: Double = 0.4) {
         
-        clockTablet.endTimer()
+//        clockTablet.endTimer()
         
         super.onX(duration)
          

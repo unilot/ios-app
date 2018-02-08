@@ -14,7 +14,7 @@ weak var pop_up_upper_view : PopUpCore?
 protocol PopUpCoreDelegate {
 
     func openHistory(_ sender : PopUpCore)
-    func showActivityViewIndicator()
+    func showActivityViewIndicator(_ viewDop : UIView?)
     func hideActivityViewIndicator()
     func showError(_ error : String)
     func popViewWasClosed()
@@ -28,6 +28,11 @@ class PopUpCore: UIView  {
 
     var current_game = local_current_game
     
+    var centerInit : CGPoint!
+    var isVertical = true
+
+    
+    
     var delegate : PopUpCoreDelegate?
     var bigButtonFade : UIButton?
     var directionInSign = CGFloat(1)
@@ -39,8 +44,37 @@ class PopUpCore: UIView  {
         
     }
     
-    //MARK: - actions
+    //MARK: - touches
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        let touch = touches.first!
+        doMove(touch)
+        
+    }
+
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        onX()
+    }
+
+    
+    //MARK: - actions
+ 
+    func doMove(_ touch : UITouch){
+        
+        let previousLocation  = touch.previousLocation(in: superview)
+        let currentLocation  = touch.location(in: superview)
+        let shift : CGPoint = CGPoint(x: currentLocation.x - previousLocation.x, y: currentLocation.y - previousLocation.y)
+        
+        center = CGPoint(x:  center.x + shift.x ,   y:  center.y + shift.y )
+    }
 
     func initView(mainView: UIView, directionSign: CGFloat, _ frameCustom : CGRect? = nil){
         
@@ -97,13 +131,19 @@ class PopUpCore: UIView  {
         
 
         
-        UIView.animate(withDuration: 0.4) {
+        UIView.animate(withDuration: 0.4, animations: {
+            
             self.layer.opacity = 1.0
             self.frame = frameView
             self.bigButtonFade?.layer.opacity = 0.6
+            
+        }) { ( animate :  Bool) in
+            
+            self.centerInit = self.center
+        
         }
         
-        addSwipeGesture()
+//        addSwipeGesture()
         
     }
     
@@ -158,15 +198,18 @@ class PopUpCore: UIView  {
         
         if duration > 0.0 {
             
-            let newFarme = CGRect(x: self.frame.origin.x,
-                                  y: -directionInSign * self.frame.height,
-                                  width:  self.frame.width,
-                                  height: self.frame.height)
-            
-            
-            UIView.animate(withDuration: 0.4, animations: {
+            var newCenter : CGPoint!
+            var shiftH : CGFloat = center.x - centerInit.x
+            var shiftV : CGFloat = center.y - centerInit.y
+
+            shiftH = shiftH == 0 ? 0 : ( (shiftH > 0 ? 1 : -1 )  * frame.width  )
+            shiftV = shiftV == 0 ? 0 : ( (shiftV > 0 ? 1 : -1 )  * frame.width  )
+
+            newCenter = CGPoint(x:  center.x + shiftH, y:   center.y + shiftV)
+ 
+            UIView.animate(withDuration: 0.25, animations: {
                 
-                self.frame =  newFarme
+                self.center = newCenter
                 self.layer.opacity = 0.0
                 self.bigButtonFade?.layer.opacity = 0.0
                 
@@ -186,6 +229,7 @@ class PopUpCore: UIView  {
     func afterDeleteSelf(){
         
     }
+    
     func deleteSelf(animated : Bool){
         
         pop_up_upper_view = nil

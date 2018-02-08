@@ -99,8 +99,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.23.10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="a21-FW-yFZ">
-                                                    <rect key="frame" x="49" y="13.5" width="73.5" height="17.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.23.10" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="a21-FW-yFZ">
+                                                    <rect key="frame" x="49" y="14" width="73.5" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -394,7 +394,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="`profile-x3" translatesAutoresizingMaskIntoConstraints="NO" id="Rlj-cu-F1S" customClass="SpecialItem" customModule="Unilot" customModuleProvider="target">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="`profile-x3" translatesAutoresizingMaskIntoConstraints="NO" id="Rlj-cu-F1S">
                                                     <rect key="frame" x="10" y="8" width="28" height="28"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="28" id="gRY-u0-jcy"/>
@@ -833,7 +833,7 @@
                         <outlet property="how" destination="2h3-X4-oPi" id="0M2-no-aEu"/>
                         <outlet property="ico_image" destination="sBV-iw-fK6" id="vQj-Vm-6YM"/>
                         <outlet property="info" destination="zEF-Up-375" id="4PW-Dy-qBg"/>
-                        <outlet property="itemBadge" destination="Rlj-cu-F1S" id="6vv-Bp-Mvx"/>
+                        <outlet property="itemBadge" destination="vop-1y-wZE" id="icw-RW-Lqy"/>
                         <outlet property="profile" destination="zWw-B5-x5Q" id="OK6-Fw-o56"/>
                         <outlet property="settings" destination="2Dh-5W-h8U" id="opE-cb-X4P"/>
                         <outlet property="wp" destination="Yew-lf-ZkH" id="vnp-BL-6rc"/>

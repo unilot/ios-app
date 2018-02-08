@@ -70,9 +70,16 @@ class ParticipantsView: PopUpCore, UITableViewDelegate, UITableViewDataSource, U
             
         } else {
  
-            dataForTable =  winners_list
+            origin_dataForTable = winners_list.sorted(by: { (user1 : UserForGame, user2 : UserForGame ) -> Bool in
             
-            origin_dataForTable = winners_list
+                if users_account_number.contains(user1.user_id) {
+                    return true
+                }
+                
+                return false
+             })
+
+            dataForTable = origin_dataForTable
             
             tableMain.reloadData()
             
@@ -150,6 +157,14 @@ class ParticipantsView: PopUpCore, UITableViewDelegate, UITableViewDataSource, U
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let item : UserForGame = dataForTable.first {   $0.position == indexPath.row + 1 }!
+        
+        saveToClipboard(item.user_id)
+        
+    }
+    
     //MARK:-  UITableViewCell
     
     
@@ -166,12 +181,11 @@ class ParticipantsView: PopUpCore, UITableViewDelegate, UITableViewDataSource, U
         first.text = " "
         first.tag = 10
         first.textColor = UIColor.black
-        first.numberOfLines = 2
+        first.numberOfLines = 1
         first.textAlignment = .center
         first.font = UIFont(name: kFont_Light, size: 12)
         cell.contentView.addSubview(first)
-        
-        
+ 
     }
     
     func setCellBody(_ cell : UITableViewCell, _ item : UserForGame) {

@@ -193,7 +193,7 @@ open class SweetAlert: UIViewController {
             SweetAlertContext.shouldNotAnimate = false
         }
 
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: { () -> Void in
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: { () -> Void in
             self.view.alpha = 0.0
         }) { (Bool) -> Void in
             self.view.removeFromSuperview()
@@ -335,19 +335,19 @@ open class SweetAlert: UIViewController {
     func animateAlert(_ dissmisDo : Bool = false) {
 
         view.alpha = 0;
-        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+        UIView.animate(withDuration: 0.2, animations: { () -> Void in
             self.view.alpha = 1.0;
         })
 
         let previousTransform = self.contentView.transform
         self.contentView.layer.transform = CATransform3DMakeScale(0.9, 0.9, 0.0);
-        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+        UIView.animate(withDuration: 0.1, animations: { () -> Void in
             self.contentView.layer.transform = CATransform3DMakeScale(1.1, 1.1, 0.0);
             }, completion: { (Bool) -> Void in
-                UIView.animate(withDuration: 0.4, animations: { () -> Void in
+                UIView.animate(withDuration: 0.2, animations: { () -> Void in
                     self.contentView.layer.transform = CATransform3DMakeScale(0.9, 0.9, 0.0);
                     }, completion: { (Bool) -> Void in
-                        UIView.animate(withDuration: 0.1, animations: { () -> Void in
+                        UIView.animate(withDuration: 0.05, animations: { () -> Void in
                             self.contentView.layer.transform = CATransform3DMakeScale(1.0, 1.0, 0.0);
                             if self.animatedView != nil {
                                 self.animatedView!.animate()
@@ -359,7 +359,7 @@ open class SweetAlert: UIViewController {
                                 
                                 if dissmisDo {
                                     
-                                    UIView.animate(withDuration: 0.5, animations: { () -> Void in
+                                    UIView.animate(withDuration: 0.2, animations: { () -> Void in
                                         self.contentView.layer.opacity = 0.0
 
                                      }, completion: { (Bool) -> Void in

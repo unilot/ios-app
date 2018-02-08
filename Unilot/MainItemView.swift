@@ -252,10 +252,16 @@ class MainItemView: LotteryItemsView {
         
         if data.1 > -1 {
             
-            secondTimerThin?.initTimer(data.0,data.1)
-            
-            // start timers
-            secondTimerThin?.doScheduledTimer()
+            if data.0 > 0 {
+
+                secondTimerThin?.initTimer(data.0,data.1)
+                
+                // start timers
+                secondTimerThin?.doScheduledTimer()
+
+            } else{
+                current_controller_core?.showActivityViewIndicator(secondOverlay!)
+            }
             
             // reveal view
             animateSecondViewAppearance(1.0)
@@ -267,6 +273,7 @@ class MainItemView: LotteryItemsView {
         }
         
     }
+    
     
     //MARK: - connect server
 

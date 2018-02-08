@@ -13,7 +13,7 @@ class TutorialScroll : PopUpCore , UIScrollViewDelegate{
     
     // MARK: Loadings
     
-    let pagesCount = 7
+    let pagesCount = 6
 
     
     @IBOutlet weak var scroll: UIScrollView!

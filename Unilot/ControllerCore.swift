@@ -55,6 +55,8 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
     
     func closeAllPopUps(){
         
+        hideActivityViewIndicator()
+        
         for item in pop_up_view {
             item.onX(0)
         }
@@ -129,11 +131,11 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
         
         let frameBarButton = CGSize(width: 30, height: 30)
         
-        itemBadge = setColorForImage(frameBarButton, "`profile-x3")
+        let coloredProfile = setColorForImage(frameBarButton, "`profile-x3")
         
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         button.addTarget(self, action: #selector(ControllerCore.onPopUpProfile(_:)) , for: .touchUpInside)
-        button.addSubview(itemBadge!)
+        button.addSubview(coloredProfile)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView:button)
         
@@ -172,8 +174,8 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
         navigationItem.titleView = image
         
     }
-
-
+ 
+    
     func addSwipeForMenuOpen(){
 
         if navigationController?.revealViewController() != nil {
@@ -416,18 +418,22 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
     }
     //MARK: - activityView
 
-    func showActivityViewIndicator(){
+    func showActivityViewIndicator(_ viewDop : UIView? = nil){
  
+        let point = viewDop != nil ? CGPoint(x: view.center.x,
+                                             y: view.center.y + ( view.center.y - viewDop!.center.y)) :
+                                     CGPoint(x: view.frame.width - 40, y: getStatusbarShift() + 80)
+        
+        
         if dgActivityIndicatorView == nil {
-            dgActivityIndicatorView = DGActivityIndicatorView.init(type: .cookieTerminator, tintColor: kColorBadge, size: 40)
-            dgActivityIndicatorView?.center = CGPoint(x: view.frame.width - 40, y: getStatusbarShift() + 80)
+            dgActivityIndicatorView = DGActivityIndicatorView.init(type: .cookieTerminator, tintColor: UIColor.gray, size: 40)
+            dgActivityIndicatorView?.center = point
             view.addSubview(dgActivityIndicatorView!)
 
         }
         
         dgActivityIndicatorView!.startAnimating()
-        
-        
+ 
     }
 
     func hideActivityViewIndicator(){
@@ -496,6 +502,8 @@ class ControllerCore: UIViewController, PopUpCoreDelegate {
         
         
     }
+    
+    
 }
 
 extension ControllerCore: UIViewControllerTransitioningDelegate {

@@ -188,21 +188,53 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
     }
     
     //MARK: - NOTIFICATION
+    
+    func rewriteWithNewData(_ gameNotif: GameInfo){
+        
+     
+        if  let current_game = games_list[gameNotif.type] {
+            
+            
+            if  current_game.game_id == gameNotif.game_id {
+                
+                if current_game.prize_amount <= gameNotif.prize_amount {
+                    
+                    games_list[gameNotif.type] = gameNotif
+                    
+                }
+                
+                return
+            }
+
+            
+            if current_game.ending_at <= gameNotif.started_at {
+                
+                games_list[gameNotif.type] = gameNotif
+                
+                return
+            }
+            
+        } else {
+            
+            let currntTime = getCurrentDateWithUTCTimeZone(Date())
+
+            if gameNotif.ending_at > currntTime {
+                
+                games_list[gameNotif.type] = gameNotif
+
+            }
+        }
+
+    }
 
     override func onActiveAppNotifRecieved(_ notif : NotifStruct){
         
         // if updated current game
         playStandart()
- 
-        if  games_list[notif.game.type]?.game_id == notif.game.game_id {
-        
-            games_list[notif.game.type] = notif.game
-       
-        }
 
+        rewriteWithNewData(notif.game)
         
         let type_ind = getTabBarTag(notif.game.type)
-
         
         if type_ind == current_page {
         

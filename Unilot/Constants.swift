@@ -12,7 +12,7 @@
 
 let is_mod_production          = true
 
-let current_version            = "1.1.0.49"
+let current_version            = "1.1.0"
 let current_build              = "48"
 
 let app_name                   = "Unilot"

@@ -49,6 +49,8 @@
 		B927C5F0202384E300E71148 /* WalletsAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B927C5EF202384E300E71148 /* WalletsAlert.swift */; };
 		B94C652A1FC515AD006E3BC8 /* ScannerReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94C65291FC515AD006E3BC8 /* ScannerReader.swift */; };
 		B94C652C1FC51A74006E3BC8 /* ScannerReader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B94C652B1FC51A74006E3BC8 /* ScannerReader.xib */; };
+		B9607E54202EB2FC00F6A4EB /* Appfile in Resources */ = {isa = PBXBuildFile; fileRef = B9605750202EB2E600F6A4EB /* Appfile */; };
+		B9607E55202EB2FC00F6A4EB /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = B9605751202EB2E600F6A4EB /* Fastfile */; };
 		B96C27A8202CD7F2008CA29E /* DebugClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96C27A7202CD7F2008CA29E /* DebugClass.swift */; };
 		B9811A892025BE0C00BFD589 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9811A882025BE0C00BFD589 /* PopAnimator.swift */; };
 		B9811A90202603D900BFD589 /* ParticipantsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9811A8F202603D800BFD589 /* ParticipantsView.xib */; };
@@ -242,6 +244,8 @@
 		B927C5EF202384E300E71148 /* WalletsAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsAlert.swift; sourceTree = "<group>"; };
 		B94C65291FC515AD006E3BC8 /* ScannerReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerReader.swift; sourceTree = "<group>"; };
 		B94C652B1FC51A74006E3BC8 /* ScannerReader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScannerReader.xib; sourceTree = "<group>"; };
+		B9605750202EB2E600F6A4EB /* Appfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Appfile; sourceTree = SOURCE_ROOT; };
+		B9605751202EB2E600F6A4EB /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Fastfile; sourceTree = SOURCE_ROOT; };
 		B96C27A7202CD7F2008CA29E /* DebugClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugClass.swift; sourceTree = "<group>"; };
 		B9811A882025BE0C00BFD589 /* PopAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 		B9811A8F202603D800BFD589 /* ParticipantsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParticipantsView.xib; sourceTree = "<group>"; };
@@ -495,6 +499,15 @@
 			path = Settings/alert_text;
 			sourceTree = "<group>";
 		};
+		B960574F202EB2B800F6A4EB /* FastLine */ = {
+			isa = PBXGroup;
+			children = (
+				B9605750202EB2E600F6A4EB /* Appfile */,
+				B9605751202EB2E600F6A4EB /* Fastfile */,
+			);
+			path = FastLine;
+			sourceTree = "<group>";
+		};
 		B9811A872025BE0C00BFD589 /* ControllerAnimation */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,6 +560,7 @@
 		D62A316F1F7AC03D00275B86 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				B960574F202EB2B800F6A4EB /* FastLine */,
 				B927C5E8202363DE00E71148 /* alert_text */,
 				D6C8B2851FAB4F0600AE05B9 /* Sounds */,
 				D6C6BAAD1F8CD6BF00EC7FE0 /* Roboto font */,
@@ -938,11 +952,13 @@
 				D6C6BAB41F8CD6C000EC7FE0 /* Roboto-Light.ttf in Resources */,
 				D6C8B2841FAB4EFF00AE05B9 /* money.mp3 in Resources */,
 				D69364CB1F5F254400FD0D37 /* Main.storyboard in Resources */,
+				B9607E55202EB2FC00F6A4EB /* Fastfile in Resources */,
 				D6DCCD1E1FA4F31C009BD20E /* HDIW_ru.txt in Resources */,
 				D6D3CEB01FA60661000F2FF3 /* win.mp3 in Resources */,
 				D612BBF71F9536AA002C4647 /* Assets.xcassets in Resources */,
 				D697091B1FB44B1300A7DC44 /* GoogleService-Info.plist in Resources */,
 				D612BBFB1F96B48F002C4647 /* LotteryResults.xib in Resources */,
+				B9607E54202EB2FC00F6A4EB /* Appfile in Resources */,
 				D6DCCD181FA4C795009BD20E /* Localizable.strings in Resources */,
 				D611305F1FA826BE003B30E9 /* usual.mp3 in Resources */,
 				D6C6BAB51F8CD6C000EC7FE0 /* Roboto-Medium.ttf in Resources */,
@@ -1307,6 +1323,10 @@
 				INFOPLIST_FILE = Unilot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/installer/fastlane_lib/dependencies/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vovasoft.crowdcharity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1329,6 +1349,10 @@
 				INFOPLIST_FILE = Unilot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/installer/fastlane_lib/dependencies/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vovasoft.crowdcharity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

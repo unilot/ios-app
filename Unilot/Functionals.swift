@@ -8,7 +8,8 @@
 
 import AVFoundation
 import SwiftySound
-import Firebase
+//import Firebase
+import Fabric
 import Crashlytics
 import CoreImage
 

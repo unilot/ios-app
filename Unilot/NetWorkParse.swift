@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Firebase
+//import Firebase
 import Crashlytics
 
 var session_data = [String: Any]()

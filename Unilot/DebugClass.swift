@@ -11,6 +11,14 @@ import UIKit
 let switch_off_all_debug = false
 class Debug {
     
+    static func putPlayerInGame() -> Bool{
+        
+        
+        return  Debug.userInGame()
+        
+//        return false
+    }
+    
     
     static func changeStatusOfGame(){
         
@@ -28,6 +36,13 @@ class Debug {
 //
 //        Debug.addLostPush(lotteryItem)
         
+    }
+    
+    
+    //MARK: - realization
+    static func userInGame() -> Bool{
+        
+        return true
     }
     
     static func changeStatusOfGame(gameInd : Int, status : Int){

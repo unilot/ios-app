@@ -259,7 +259,7 @@ class MainItemView: LotteryItemsView {
                 // start timers
                 secondTimerThin?.doScheduledTimer()
 
-            } else{
+            } else {
                 if pop_up_upper_view == nil {
                     current_controller_core?.showActivityViewIndicator(secondOverlay!)
                 }

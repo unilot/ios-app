@@ -14,8 +14,6 @@ import Crashlytics
 import CoreImage
 
 
-//MARK: - barcode generate Vars
-
 class Barcode {
     
     static func fromString(string : String, forWidth : CGFloat) -> UIImage? {
@@ -176,9 +174,10 @@ func recountTimersForLastCounter(_ game : GameInfo) -> (Int, Int) { //now/all/st
 
 func checkTheUserInGame() -> Bool {
     
+    return Debug.putPlayerInGame()
     
-    return false
-}
+//    return false
+
 
 func recountTimersData(_ game : GameInfo) -> (Int, Int, Int) { //now/all/stepType
 
@@ -588,13 +587,7 @@ func tableSorting( searchtext: String?, origin_dataForTable : [UserForGame]) -> 
     return dataForTable
 }
 
-//MARK: - checkEthaddress
 
-extension String {
-    func matches(_ regex: String) -> Bool {
-        return self.range(of: regex, options: .regularExpression, range: nil, locale: nil) != nil
-    }
-}
 
 
 func  isAddressEth(_ wallet : String) -> Bool{

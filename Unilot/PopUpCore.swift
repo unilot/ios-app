@@ -98,7 +98,7 @@ class PopUpCore: UIView  {
 
         if frameCustom == nil {
             
-            let width  = mainView.frame.width * 0.95
+            let width   = mainView.frame.width * 0.95
             let height  = min(width * 1.6 + getStatusbarShift(), mainView.frame.height * 0.85)
             
             let shiftW =  (mainView.frame.width - width )

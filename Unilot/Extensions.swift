@@ -28,6 +28,10 @@ func getStatusbarShift() -> CGFloat{
 
 extension String {
     
+    func matches(_ regex: String) -> Bool {
+        return self.range(of: regex, options: .regularExpression, range: nil, locale: nil) != nil
+    }
+    
     subscript (i: Int) -> Character {
         return self[index(startIndex, offsetBy: i)]
     }

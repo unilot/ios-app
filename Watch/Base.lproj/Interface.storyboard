@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch42" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Main View Watch-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="MainViewWatch" customModule="Watch_Extension">
+                    <items>
+                        <group alignment="center" verticalAlignment="center" backgroundImage="bg_watch" contentMode="scaleAspectFill" animationDuration="1" layout="vertical" id="KNF-HU-1sU">
+                            <items>
+                                <label alignment="center" text="Unilot test view" textAlignment="center" id="bps-2I-BXd">
+                                    <fontDescription key="font" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                </label>
+                                <label alignment="center" text="Time left" textAlignment="center" baselineAdjustment="alignCenters" id="bKU-WC-8oo">
+                                    <color key="textColor" red="0.63534431088837462" green="0.76738909438041314" blue="0.98259765624999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <fontDescription key="font" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                                </label>
+                                <label width="150" height="50" alignment="center" text="12:20" textAlignment="center" baselineAdjustment="alignCenters" id="auP-Jd-98w">
+                                    <fontDescription key="font" name="Roboto-Medium" family="Roboto" pointSize="40"/>
+                                </label>
+                                <button width="1" alignment="left" title="Details" id="MQe-S9-L9l">
+                                    <connections>
+                                        <segue destination="5J5-di-NFK" kind="push" id="UYw-Rk-i8N"/>
+                                    </connections>
+                                </button>
+                            </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="labelLogo" destination="bps-2I-BXd" id="KRU-jz-lc7"/>
+                        <outlet property="labelTime" destination="auP-Jd-98w" id="v2Y-6u-4tg"/>
+                        <outlet property="labelTimeLeft" destination="bKU-WC-8oo" id="AQz-IV-Usv"/>
+                        <outlet property="wkGroup" destination="KNF-HU-1sU" id="4Sv-As-hwJ"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="219.69230769230771" y="339.5641025641026"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="rgU-xZ-3Yv">
+            <objects>
+                <controller id="5J5-di-NFK">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="NFs-tO-Uea">
+                            <items>
+                                <separator alignment="left" id="GHj-OQ-xAk"/>
+                                <timer alignment="center" textAlignment="center" id="v2O-0r-5vJ">
+                                    <fontDescription key="font" name="Roboto-Regular" family="Roboto" pointSize="30"/>
+                                </timer>
+                                <label alignment="left" text="To participate in 100 000 UNIT raffle you should be a participant of Daily or Weekly drawings." textAlignment="justified" numberOfLines="0" id="vFz-Ba-c0Y">
+                                    <fontDescription key="font" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="532" y="339"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Unilot Game" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="-24" y="887"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="Watch" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="498" y="887"/>
+        </scene>
+    </scenes>
+</document>

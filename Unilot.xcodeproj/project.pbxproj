@@ -899,7 +899,7 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -1319,6 +1319,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Unilot/Unilot.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VLZN2JPGN9;
 				INFOPLIST_FILE = Unilot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1329,6 +1330,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vovasoft.crowdcharity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Unilot/Settings/Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -1345,6 +1347,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Unilot/Unilot.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VLZN2JPGN9;
 				INFOPLIST_FILE = Unilot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1355,6 +1358,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vovasoft.crowdcharity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Unilot/Settings/Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;

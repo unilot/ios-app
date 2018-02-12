@@ -9,5 +9,5 @@ target 'Unilot' do
     pod 'Whisper'
     pod 'Firebase/Core'
     pod 'Fabric'
-    pod 'Crashlytics', '~>  3.9'
+    pod 'Crashlytics'
 end

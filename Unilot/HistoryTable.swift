@@ -202,12 +202,15 @@ class HistoryTable: ControllerCore, UITableViewDelegate, UITableViewDataSource{
             onDetails()
 
             
-        case kStatusPublished:
+        case kStatusCancele:
 
+
+            break
+            
+        default: 
+            
             goToMainView(getTabBarTag())
 
-        default: //kStatusCancel
-            
             break
         }
         

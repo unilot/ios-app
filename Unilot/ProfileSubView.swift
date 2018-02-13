@@ -128,7 +128,7 @@ class ProfileViewController: ControllerCore {
             
             presentingViewController?.dismiss(animated: true, completion: {
                 if exitAsPopUp == 2 {
-                    if  users_account_number.count > 0 {
+                    if  users_account_wallets.count > 0 {
                          current_controller_core?.onOpenTakePartView()
                     }
                 }
@@ -270,7 +270,7 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users_account_number.count
+        return users_account_wallets.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -286,7 +286,6 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
         if (cell == nil)
         {
             cell = UITableViewCell.init(style: .default, reuseIdentifier: "id_cell")
-            
         }
 
         setCellBody(cell!,indexPath)
@@ -297,7 +296,9 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        saveToClipboard(users_account_number[indexPath.row])
+
+        saveToClipboard(getKeyOfMyWallet(indexPath.row))
+    
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -319,8 +320,9 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
         
         tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
         
-        users_account_number.remove(at: indexPath.row)
-        saveDataInMemory()
+        removeKeyfromMyWallet(indexPath.row)
+        
+        MemoryControll.saveWalletsInMemory()
 
         tableView.endUpdates()
         
@@ -330,6 +332,10 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
     
  
     func checkForExit(){
+        
+        fieldPurse.text = nil
+        fieldPurse.resignFirstResponder()
+        
         if exitAsPopUp == 2 {
             (current_controller_core as? ProfileViewController)?.onGoToGames()
         }
@@ -345,17 +351,29 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
                 
                 if !isMywalletHasTheNumber(fieldPurse.text!){
                     
-                    users_account_number.insert(fieldPurse.text!, at: 0)
+                    current_controller_core?.showActivityViewIndicator()
                     
-                    table.insertRows(at: [IndexPath(row: 0, section: 0)], with: .bottom)
+                    let wallet = Wallet()
+                    wallet.smart_contract_id = fieldPurse.text!
+
+                    users_account_wallets.insert(wallet, at: 0)
                     
-                    saveDataInMemory()
+                    NetWork.getWalletsOfUserInGames(completion: { (error : String?) in
+                        
+                        self.table.insertRows(at: [IndexPath(row: 0, section: 0)], with: .bottom)
+                        
+                        MemoryControll.saveWalletsInMemory()
+                        current_controller_core?.hideActivityViewIndicator()
+                        
+                        self.checkForExit()
+                    })
+                    
+                } else {
+                    
+                    checkForExit()
+                    
                 }
 
-                fieldPurse.text = nil
-                fieldPurse.resignFirstResponder()
-                
-                checkForExit()
 
 
             } else {
@@ -401,8 +419,10 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
         }
         
     }
-    //MARK:-  UITableViewCell
     
+    
+    //MARK:-  UITableViewCell
+
     func setCellBody(_ cell : UITableViewCell, _ indexPath : IndexPath) {
  
         cell.backgroundColor = kColorDarkBlue
@@ -421,16 +441,16 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
         fon.backgroundColor = kColorDarkBlue
         fon.layer.cornerRadius = 8
         cell.contentView.addSubview(fon)
-  
-        // test info
-        let items : [Int] = []
+ 
+        let keyWallet = getKeyOfMyWallet(indexPath.row)
         
-        for i in 0..<items.count {
-            addGameItem(fon, imageNum: items[i], order: i)
+        let games = users_account_wallets[indexPath.row].active_games
+        
+        for i in 0..<games.count {
+            addGameItem(fon, imageNum: getGameType(games[i]), order: i)
         }
  
-        addLine(fon,  users_account_number[indexPath.row],
-                widthShift : ( fon.frame.height * 0.6) * CGFloat(items.count) + 15)
+        addLine(fon, keyWallet, widthShift : ( fon.frame.height * 0.6) * CGFloat(games.count) + 15)
    
     }
 
@@ -473,15 +493,5 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
         fon.addSubview(itemGame)
 
         
-    }
-    
-  
-    
-    //MARK: - exit
- 
-    func saveDataInMemory(){
-        
-        MemoryControll.saveObject(users_account_number, key: "users_account_number")
-        
-    }
+    } 
 }

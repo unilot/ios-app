@@ -152,6 +152,8 @@ class MainItemView: LotteryItemsView {
         
         moneyTablet.initTimer(0,0)
         
+        moneyTablet.updateLabelsToZero()
+ 
         setLowerButton(goToPrizeOrRefresh : false)
     }
     
@@ -206,6 +208,10 @@ class MainItemView: LotteryItemsView {
             start_count =  Int(numberFF)
         }
         
+        if Int(numberFF) < start_count{
+            start_count = Int(numberFF)
+        }
+        
         moneyTablet.initTimer(start_count, Int(numberFF))
     }
     
@@ -250,29 +256,23 @@ class MainItemView: LotteryItemsView {
         
         let data = recountTimersForLastCounter(current_game)
         
-        if data.1 > -1 {
+        if data.1 > 0 {
             
-            if data.0 > 0 {
-
-                secondTimerThin?.initTimer(data.0,data.1)
-                
-                // start timers
-                secondTimerThin?.doScheduledTimer()
-
-            } else {
-                if pop_up_upper_view == nil {
-                    current_controller_core?.showActivityViewIndicator(secondOverlay!)
-                }
-            }
+            secondTimerThin?.initTimer(data.0,data.1)
             
-            // reveal view
-            animateSecondViewAppearance(1.0)
+            // start timers
+            secondTimerThin?.doScheduledTimer()
             
         } else {
-            
-            sendServerCheckForUpdateData()
-            
+            if pop_up_upper_view == nil {
+                current_controller_core?.showActivityViewIndicator(secondOverlay!)
+            }
         }
+        
+        // reveal view
+        animateSecondViewAppearance(1.0)
+        
+        
         
     }
     

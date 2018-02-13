@@ -144,6 +144,25 @@ class NetWorkParse {
         
     }
     
+    static func parseMyWalletsDetails(_ resultValue : Any) -> String?{
+
+        guard let responseJSON = resultValue as? [Any] else {
+            return message_to_Crashlytics(line: "MyWalletsDetails")
+        }
+ 
+        for item in responseJSON {
+           
+            if let games_data = item as? [String:Any] {
+                createWallet(games_data)
+            }
+            
+        }
+        
+        return nil
+        
+    }
+    
+
     
     //MARK: - fill items
     
@@ -197,8 +216,26 @@ class NetWorkParse {
         
         return item
     }
-
-    
-    
+ 
+    static func createWallet(_ games_data : [String:Any]){
+        
+        let wallet = Wallet()
+        
+        if let wallet_name = games_data["wallet"] as? String {
+            
+            wallet.smart_contract_id = wallet_name
+            
+            if let games_array = games_data["games"] as? [Int] {
+                wallet.active_games = games_array.map { "\($0)" }
+                
+                
+                if let ind = users_account_wallets.index(where: { $0.smart_contract_id == wallet_name}) {
+                    users_account_wallets[ind].active_games = wallet.active_games
+                } else {
+                    users_account_wallets.append(wallet)
+                }
+            }
+        }
+    }
     
 }

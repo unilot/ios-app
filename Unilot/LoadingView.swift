@@ -51,28 +51,7 @@ class LoadingView : ControllerCore{
         }
         
     }
-    
-    
-    
-    func prepereToEnter(){
 
-        if open_from_notif == default_first_launch {
-            
-            openTutorialFirst()
-            
-            UIView.animate(withDuration: 0.6, animations: {
-                
-                self.fon.layer.opacity = 0.0
-                
-            })
-            
-        } else {
-         
-            enterTheApp()
-        }
-        
-
-    }
     
     override func popViewWasClosed(){
  
@@ -80,25 +59,9 @@ class LoadingView : ControllerCore{
 
     }
     
+
     
-    func enterTheApp(){
-        
-        UIView.animate(withDuration: 0.6, animations: {
-            
-            self.fon.layer.opacity = 0.0
-            
-        }) { (_ sender : Bool) in
-            
-            NetWork.postDeviceSettings()
-
-            self.goToMainController()
-
-            
-        }
-
-        
-    }
-    
+    //MARK: - STEPS TO ENTER APP
     
     @objc func getSessionToken(){
         
@@ -145,7 +108,7 @@ class LoadingView : ControllerCore{
             
             } else {
                 
-                self.prepereToEnter()
+                self.getWalletsInfo()
 
             }
             
@@ -153,12 +116,76 @@ class LoadingView : ControllerCore{
     }
     
 
+    func getWalletsInfo(){
+ 
+        guard (users_account_wallets.count > 0) && (games_list.count > 0) else
+        {
+            prepereToEnter()
+            return
+        }
+        
+        NetWork.getWalletsOfUserInGames(completion: { (error : String?) in
+            
+            if error != nil {
+                
+                self.failComplete(error!)
+                
+            } else {
+                
+                self.prepereToEnter()
+                MemoryControll.saveWalletsInMemory()
+            }
+            
+        })
+        
+    }
+    
+    //MARK: - Prepere to Enter
+
+    func prepereToEnter(){
+        
+        if open_from_notif == default_first_launch {
+            
+            openTutorialFirst()
+            
+            UIView.animate(withDuration: 0.6, animations: {
+                
+                self.fon.layer.opacity = 0.0
+                
+            })
+            
+        } else {
+            
+            enterTheApp()
+        }
+        
+        
+    }
+    
+    func enterTheApp(){
+        
+        UIView.animate(withDuration: 0.6, animations: {
+            
+            self.fon.layer.opacity = 0.0
+            
+        }) { (_ sender : Bool) in
+            
+            NetWork.postDeviceSettings()
+            
+            self.goToMainController()
+            
+            
+        }
+        
+        
+    }
+    
     
     //MARK: - STUUFF
 
     
-    func failComplete(_ error: String){
-
+    func failComplete(_ error: String!){
+ 
         showError(error)
  
         if let dataParse = MemoryControll.getObject("list_games") {

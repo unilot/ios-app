@@ -37,6 +37,8 @@ let kAPI_get_history        = "api/v1/games/archived"
 let kAPI_post_notif_token   = "api/v1/device/"
 let kAPI_get_game_details   = "api/v1/games/"
 let kAPI_post_settings      = "api/v1/device/settings"
+let kAPI_get_wallets_games  = "api/v1/games/participate"
+
 
 var request_headers : HTTPHeaders  = [
     "Content-Type"  : "application/json",
@@ -200,6 +202,24 @@ class NetWork : NetWorkParse {
     }
     
     
+    static func getWalletsOfUserInGames(completion: @escaping (String?) -> Void) {
+                
+        Alamofire.request( kServer + kAPI_get_wallets_games,
+                           method : .get,
+                           parameters: ["wallets" : getKeysOfMyWallets()],
+                           encoding: JSONEncoding.default,
+                           headers: request_headers)
+
+            .responseJSON { (response) -> Void in
+
+                error_or_success(response, parseMyWalletsDetails, completion, "WalletsOfUserInGames")
+
+        }
+        
+    }
+
+    
+    
     //MARK: - ERRORS
     
     static func error_or_success(
@@ -239,7 +259,7 @@ class NetWork : NetWorkParse {
                     
                 } else {
                     
-                    completion(TR("connectio_error"))
+                    completion(TR("connection_error"))
 
                 }
             })

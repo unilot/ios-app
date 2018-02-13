@@ -64,7 +64,7 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
         clockTablet.isHidden = true
         
         
-        if users_account_number.count > 0 {
+        if users_account_wallets.count > 0 {
             
             unfortunately.text =  TR("you_lost_text")
 
@@ -113,7 +113,7 @@ class LotteryResults: PopUpCore, CountDownTimeDelegate {
                 
                 let startingPoint = data.0/(3600*24) + ( data.1 > 0 ?  1 : 0 )
                 clockTablet.initTimer(startingPoint,0)
-                if users_account_number.count > 0 {
+                if users_account_wallets.count > 0 {
                     days.text = getDaysWord(clockTablet.totalCounts)
                 }
                 

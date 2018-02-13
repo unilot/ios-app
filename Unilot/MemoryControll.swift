@@ -12,7 +12,7 @@ var current_language_ind = 0
 
 var notifications_switch = [true,true,true,true]
 
-var users_account_number =  [String]()
+var users_account_wallets =  [Wallet]()
 
 var tokenForNotifications = kEmpty
 
@@ -79,15 +79,40 @@ class MemoryControll {
     
     static func getUsersWallets(){
         
+        // #removeNextBuild#
         if let array_of_numbers = getObject("users_account_number") as? [String] {
-            users_account_number = array_of_numbers
+
+            for contract_id in array_of_numbers{
+                let wallet = Wallet()
+                wallet.smart_contract_id = contract_id
+                users_account_wallets.append(wallet)
+            }
+            
+            saveWalletsInMemory()
+            
+            removeObject("users_account_number")
+            
+            return
+            
+            
+        }
+        // #removeNextBuild#
+ 
+        
+        if let array_of_numbers = getObject("users_account_wallets") as? [Wallet] {
+            users_account_wallets = array_of_numbers
         } else {
-            saveObject(users_account_number, key: "users_account_number")
+            saveWalletsInMemory()
         }
         
     }
     
-
+    
+   static func saveWalletsInMemory(){
+    
+        saveObject(users_account_wallets, key: "users_account_wallets")
+        
+    }
     
     //MARK: - App stuff
 

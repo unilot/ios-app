@@ -36,6 +36,12 @@ class CountUppMoney: CountDownCore  {
     }
     
     
+    func updateLabelsToZero(){
+        
+        updateFlippers("0")
+        
+    }
+
     override func updateLabels() -> Double{
         
         updateFlippers("\(totalCounts)")

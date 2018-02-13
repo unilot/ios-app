@@ -64,7 +64,11 @@ class PopUpCore: UIView  {
         onX()
     }
 
-    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        onX()
+        
+    }
     //MARK: - actions
  
     func doMove(_ touch : UITouch){

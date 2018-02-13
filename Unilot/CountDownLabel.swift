@@ -130,8 +130,9 @@ class CountDownLabel: UIImageView  {
     
     func initTimer(_ from : Int, _ all : Int){
         
+        totalCounts = from
+
         startCounts = all
-        totalCounts = from 
         
     }
     

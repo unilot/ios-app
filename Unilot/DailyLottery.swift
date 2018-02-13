@@ -28,7 +28,7 @@ class DailyLottery : MainItemView {
         addTimersBody()
         
         
-        if checkTheUserInGame(){
+        if isUserInGame(current_game.game_id){
             viewWithPlayingGame.isHidden = false
             viewWithEnterGame.isHidden = true
             labelOnPlaying.text = TR("you_allready_in")

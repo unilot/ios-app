@@ -56,6 +56,35 @@ let cReviews    = 6
 let KBetDefault = Float(0.01)
 
 
+class Wallet : NSObject, NSCoding{
+    
+    var smart_contract_id   : String = kEmpty
+    var active_games        : [String] = []
+  
+    
+    
+    func encode(with aCoder: NSCoder){
+        
+        aCoder.encode(self.smart_contract_id, forKey: "smart_contract_id")
+        aCoder.encode(self.active_games, forKey: "active_games")
+        
+    }
+    
+    
+    required init (coder aDecoder: NSCoder) {
+        self.smart_contract_id = aDecoder.decodeObject(forKey: "smart_contract_id") as! String
+        self.active_games = aDecoder.decodeObject(forKey: "active_games") as! [String]
+    }
+    
+    
+    override init() {
+        super.init()
+    }
+}
+
+
+
+
 class UserForGame{
     
     var user_id             : String = kEmpty
@@ -154,29 +183,15 @@ func getTabBarTag(_ typeOfGame : Int? = nil) -> Int{
 
 func recountTimersForLastCounter(_ game : GameInfo) -> (Int, Int) { //now/all/stepType
 
-    let timeForWaiting: Int = kTimeForPreperationWait
     let currentTime = getCurrentDateWithUTCTimeZone(Date())
     let realTimDiff =  game.ending_at - currentTime
-    
-    let timerNow =  timeForWaiting - realTimDiff
-    
-    if timerNow > 0 {
-        if timerNow > timeForWaiting {
-            return (0,0)
-        } else {
-            return (timerNow,timeForWaiting)
-        }
-    } else {
-        return (0,-1)
-    }
-    
-}
 
-func checkTheUserInGame() -> Bool {
-    
-    return Debug.putPlayerInGame()
-    
-//    return false
+    if realTimDiff < 0 {
+        return (0,0)
+    } else {
+        return (realTimDiff, realTimDiff)
+    }
+}
 
 
 func recountTimersData(_ game : GameInfo) -> (Int, Int, Int) { //now/all/stepType
@@ -300,11 +315,52 @@ func setColorForLabel(_ sizeOfView : CGSize, _ text : String) -> UIView{
 
 func isMywalletHasTheNumber(_ newAddr : String) -> Bool{
     
-    let lowerCased = users_account_number.map { (line : String) -> String in
-        return line.lowercased()
-    }
+    let lowerCased = users_account_wallets.map { $0.smart_contract_id.lowercased() }
     
     return lowerCased.contains(newAddr.lowercased())
+}
+
+func getKeyOfMyWallet(_ index : Int) -> String{
+ 
+    return users_account_wallets[index].smart_contract_id
+}
+
+func removeKeyfromMyWallet(_ index : Int){
+ 
+    users_account_wallets.remove(at: index)
+}
+
+func getKeysOfMyWallets() -> [String] {
+    
+    return users_account_wallets.map { $0.smart_contract_id }
+    
+}
+
+
+func isUserInGame(_ game_id : String) -> Bool{
+ 
+    return users_account_wallets.contains{ $0.active_games.contains(game_id) }
+    
+}
+
+
+
+//MARK: - GAMES_LIST
+
+func getKeysOfCurrentGames() -> [String] {
+
+    return games_list.keys.map { "\($0)" }
+
+}
+
+func getGameType(_ game_id : String) -> Int{
+ 
+    let item = games_list.filter{ $1.game_id == game_id }
+    
+    if item.count > 0 {
+        return item.first!.value.type
+    }
+    return kTypeUndefined
 }
 
 //MARK: - NICE DATA

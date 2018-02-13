@@ -63,8 +63,10 @@ class  LotteryItemsView : OnScrollItemCore,
     //MARK: - FUNCTIONS
     
     override func setMainTitle (_ indexNum : Int){
-        
-        current_game.type = kTypeTabBarOrder[indexNum]
+ 
+        let type = kTypeTabBarOrder[indexNum]
+
+        current_game = games_list[type]!
 
         current_game.prize_currency = kCurrenciesTabBarOrder[indexNum]
             
@@ -247,7 +249,7 @@ class  LotteryItemsView : OnScrollItemCore,
         
         local_current_game = current_game
         
-        if  users_account_number.count > 0 {
+        if  users_account_wallets.count > 0 {
             
             onOpenTakePartView()
         
@@ -272,7 +274,9 @@ class  LotteryItemsView : OnScrollItemCore,
     
     @IBAction func onReloadButton(){
  
-        Debug.addPushNotificationToCurrentGame(self)
+//        Debug.onReloadButton(self)
+//        
+//        viewDataReload()
         
         sendServerCheckForUpdateData()
     

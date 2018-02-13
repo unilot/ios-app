@@ -14,7 +14,7 @@ let is_mod_production          = true
 let current_version            = "1.1.0"
 
 // check for #removeNextBuild# in each build!!!!
-let current_build              = "48"
+let current_build              = "50"
 
 
 

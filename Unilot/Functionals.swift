@@ -330,10 +330,17 @@ func removeKeyfromMyWallet(_ index : Int){
     users_account_wallets.remove(at: index)
 }
 
-func getKeysOfMyWallets() -> [String] {
+func getKeysOfMyWallets() -> String {
     
-    return users_account_wallets.map { $0.smart_contract_id }
+    var str_answer = "?"
     
+    for item in  users_account_wallets {
+        str_answer += "wallets=\(item.smart_contract_id)&"
+    }
+    
+     str_answer.removeLast()
+    
+    return str_answer
 }
 
 

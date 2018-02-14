@@ -27,6 +27,9 @@ class DailyLottery : MainItemView {
         
         addTimersBody()
         
+     }
+    
+    func redrawUserParticipationButtons(){
         
         if isUserInGame(current_game.game_id){
             viewWithPlayingGame.isHidden = false
@@ -38,7 +41,7 @@ class DailyLottery : MainItemView {
             viewWithPlayingGame.isHidden = true
             viewWithEnterGame.isHidden = false
         }
-     }
+    }
     
     
     //MARK: - timers
@@ -56,6 +59,8 @@ class DailyLottery : MainItemView {
         moneyTablet.doScheduledTimer()
         
         clockTablet?.doScheduledTimer()
+        
+        redrawUserParticipationButtons()
     }
     
     

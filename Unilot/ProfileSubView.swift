@@ -425,8 +425,8 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
 
     func setCellBody(_ cell : UITableViewCell, _ indexPath : IndexPath) {
  
-        cell.backgroundColor = kColorDarkBlue
-        cell.contentView.backgroundColor = kColorDarkBlue
+        cell.backgroundColor = .clear
+        cell.contentView.backgroundColor = .clear
         cell.selectionStyle = .none
         
         for viewItem in cell.contentView.subviews {
@@ -447,7 +447,10 @@ class ProfileSubView: OnScrollItemCore, UITextFieldDelegate,  UITableViewDelegat
         let games = users_account_wallets[indexPath.row].active_games
         
         for i in 0..<games.count {
-            addGameItem(fon, imageNum: getGameType(games[i]), order: i)
+            let gameType = getGameType(games[i])
+            if gameType != kTypeUndefined {
+                addGameItem(fon, imageNum: gameType, order: i)
+            }
         }
  
         addLine(fon, keyWallet, widthShift : ( fon.frame.height * 0.6) * CGFloat(games.count) + 15)

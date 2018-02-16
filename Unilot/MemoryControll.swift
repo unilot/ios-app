@@ -127,7 +127,7 @@ class MemoryControll {
             
             open_from_notif =  default_first_launch
             
-            saveObject("\(current_version) \(Date().timeIntervalSince1970)", key: "launch_first")
+            saveObject("\(current_api_version) \(Date().timeIntervalSince1970)", key: "launch_first")
             
         }
     }

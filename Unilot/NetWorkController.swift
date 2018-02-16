@@ -42,7 +42,7 @@ let kAPI_get_wallets_games  = "api/v1/games/participate/"
 
 var request_headers : HTTPHeaders  = [
     "Content-Type"  : "application/json",
-    "Api-Version"   : ("~=" + current_version)
+    "Api-Version"   : ("~=" + current_api_version)
 ]
 
 

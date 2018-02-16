@@ -9,12 +9,12 @@
 //    pod 'QRCodeReader.swift', '~> 8.0.3'
 
 
-let is_mod_production          = false
+let is_mod_production          = true
 
-let current_version            = "1.1.0"
+let current_api_version            = "1.1.0"
 
 // check for #removeNextBuild# in each build!!!!
-let current_build              = "50"
+let current_build              = "52"
 
 
 

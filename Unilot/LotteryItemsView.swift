@@ -274,6 +274,7 @@ class  LotteryItemsView : OnScrollItemCore,
     
     @IBAction func onReloadButton(){
  
+//        Debug.addPushNotificationToCurrentGame(self)
 //        Debug.onReloadButton(self)
 //        
 //        viewDataReload()

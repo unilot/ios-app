@@ -40,8 +40,19 @@ class ProfileViewController: ControllerCore {
         playStandart()
         
         if notif.action == kActionCompleted {
-            
-            goToMainViewFromType(notif.game.type)
+ 
+            if exitAsPopUp == 0 {
+                
+                current_controller_core?.goToMainViewFromType(notif.game.type)
+
+            } else {
+                
+                presentingViewController?.dismiss(animated: true, completion: {
+                  
+                    current_controller_core?.goToMainViewFromType(notif.game.type)
+ 
+                })
+            }
             
         } else {
             

@@ -620,7 +620,7 @@ func containsText(_ item : UserForGame, _ searchtext : String) -> Bool {
     let search_text = searchtext.lowercased()
     
     let text1 = item.user_id.lowercased()
-    let text2 = "\(item.position+1)"
+    let text2 = "\(item.position)"
     let text3 = "\(item.prize_amount)"
     let text4 = "\(item.prize_amount_fiat)"
     

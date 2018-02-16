@@ -32,7 +32,7 @@ class Debug {
     
     static func addPushNotificationToCurrentGame(_ lotteryItem : LotteryItemsView){
         
-//        Debug.addWinPush(lotteryItem)
+        Debug.addWinPush(lotteryItem)
 //
 //        Debug.addLostPush(lotteryItem)
         

@@ -298,6 +298,7 @@ class MainViewScroll: ControllerCore , UIScrollViewDelegate {
         
         fon_parallaxed  = create_fon_view(self.view.frame.size)
         self.view.insertSubview(fon_parallaxed, at: 0)
+        self.view.clipsToBounds = true
         
     }
 

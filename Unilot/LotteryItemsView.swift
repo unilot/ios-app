@@ -66,10 +66,13 @@ class  LotteryItemsView : OnScrollItemCore,
  
         let type = kTypeTabBarOrder[indexNum]
 
-        current_game = games_list[type]!
+        if  games_list[type] != nil {
+            
+            current_game = games_list[type]!
+        }
 
         current_game.prize_currency = kCurrenciesTabBarOrder[indexNum]
-            
+
         titleMain.text = TR(tabbar_strings[indexNum]).capitalized + " " + TR("drawing1")
         
         
